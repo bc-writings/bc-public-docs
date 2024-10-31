@@ -1,0 +1,9 @@
+====
+ALGO
+====
+
+turing
+    ---> finir le saute mouton !
+
+regex
+    ---> détailler automate vers regex pour MULTIPLE DE 3.

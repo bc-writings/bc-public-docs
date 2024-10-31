@@ -1,0 +1,18 @@
+\documentclass{article}
+\makeatletter
+\newcommand{\MultiDef}[3][]{\@for\next:=#3\do{%
+\expandafter\edef\csname #2\next\endcsname##1{#1{\next} ##1}}}
+\makeatother
+\begin{document}
+\MultiDef{test}{above,below,right,left}
+\testabove{A}     
+\testbelow{B}     
+\testright{C} 
+\testleft{D}
+
+\MultiDef[hibernate ]{pft}{above,below,right,left}
+\pftabove{A}     
+\pftbelow{B}     
+\pftright{C} 
+\pftleft{D}
+\end{document}

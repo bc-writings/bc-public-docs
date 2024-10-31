@@ -1,0 +1,7 @@
+==========
+2013-02-06
+==========
+
+**Des nouveautés :** ajout d’exemples d’utilisation de la lettre T modifiée en logique.
+
+**Ajout d'une licence :** Le document est sous Licence Creative Commons pour un usage non commercial.

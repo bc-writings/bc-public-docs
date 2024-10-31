@@ -1,0 +1,49 @@
+\subsection{Comment taper et utiliser un programme écrit en Python}
+
+\subsubsection{IEP, un outil deux en un}
+
+L'intérêt de IEP est qu'il est \textit{"rassurant"} quand l'on débute car il permet à la fois de taper son code, puis ensuite de le lancer directement au sein d'une unique interface graphique.
+
+
+\subsubsection{IPython, un outil deux en un mais plus spécifique}
+
+On peut aussi utiliser IPython si l'on souhaite faire des bouts de code, ou bien si l'on veut écrire un code que l'on souhaite commenter de façon très visuelle.
+
+\textbf{Remarque :} on peut exporter une feuille IPython sous forme d'un fichier Python. Dans ce cas, toutes les explications deviendront des commentaires dans votre code.
+
+\textbf{Attention !} Dans une feuille IPython, on peut utiliser différentes cellules pour taper différentes séquences de code. Il faut savoir que IPython garde en mémoire tout ce qui a été fait avant. Voici un exemple de code.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+x = 3
+\end{verbatim}
+{\hrule height .5mm}
+\bigskip
+
+
+Tapons maintenant du texte toujours dans le cadre de notre exemple. Dans la cellule suivante, la variable \texttt{x} n'est pas définie mais nous pouvons l'utiliser car elle a été définie dans une cellule précédente.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+# `print` sert à afficher un résultat.
+print(x*100)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+300
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+Il faut garder ceci en tête car quelque fois on peut être étonné du résultat renvoyé par IPython qui utilise la valeur d'une variable définie précédemment.
+
+
+\subsubsection{Faire comme les pros}
+
+Avec l'habitude, certaines personnes trouvent plus simple d'utiliser des éditeurs de programmes légers et robustes comme Atom, Notepad++, Geany, ... etc couplé avec une invite de commande ou un terminal bien configuré, c'est à dire avec un alias \texttt{python} qui lance directement Python.

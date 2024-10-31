@@ -1,0 +1,57 @@
+% Source: https://tex.stackexchange.com/a/649207/6880
+
+\documentclass[border=3.141592mm]{standalone}
+\usepackage{xcolor}
+\definecolor{lilac}{RGB}{174, 182, 211}
+\definecolor{lightblue}{RGB}{176, 221, 255}
+\definecolor{lightgreen}{RGB}{150, 240, 180}
+\definecolor{background}{RGB}{239, 239, 239}
+\usepackage[edges]{forest}
+\usetikzlibrary{arrows.meta, shadows}
+
+\begin{document}
+
+\begin{forest}
+    for tree={
+        draw, rounded corners,
+        font=\small\linespread{0.84}\selectfont,
+        text width=44mm,
+        text centered,  % or as suggested package outhor: /tikz/align=center
+        inner color=background,
+        outer color=lilac,
+        calign=edge midpoint,
+if level =1{draw,
+            outer color=cyan!30,
+            text width=33mm,
+            edge={draw, rounded corners, -Stealth},
+            edge path={\noexpand\path[\forestoption{edge}]
+            (!u.south) -- ++ (0,-2mm) -| (.child anchor);}
+            }{},
+if level>=1{grow'=0,
+            folder,
+            s sep=1mm
+            }{},
+if level =2{text width=22mm,
+            outer color=green!30}{},
+              }
+%
+[Clasificación, name=root
+    [Principio óptico,
+        [Reflexión]
+            [Refracción]
+            [Dispersión]
+            [{fluorescencia}]
+        ]
+        [Imagen, name=mid, no edge, 
+            [Con formación de imagen]
+            [Sin formación de imagen]
+        ]
+        [Concentración,
+            [A lo largo de una línea]
+            [En un único punto]
+        ]
+]
+\draw[-Stealth] (root) -- (mid);
+\end{forest}
+
+\end{document}

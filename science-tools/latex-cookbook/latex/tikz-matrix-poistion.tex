@@ -1,0 +1,14 @@
+% Source: https://tex.stackexchange.com/a/634500/6880
+
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+\begin{document}
+    \tikzset{mynode/.style={rectangle,draw,minimum width=2cm,minimum height=1cm}}
+    \begin{tikzpicture}
+        \matrix[row sep=1cm]{
+            \node[mynode] (B) {B}; \node[mynode,right=2cm] (C) {C}; \\};
+        \node[mynode] at ($(B)!0.5!(C)+(0,2cm)$) {A};
+    \end{tikzpicture}
+\end{document}

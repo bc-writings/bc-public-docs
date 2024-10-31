@@ -1,0 +1,5 @@
+==========
+2015-10-01
+==========
+
+**Ajout d'une nouvelle solution pour les "palindromes":** une méthode construisant le "mot inversé" a tété mise suite à une remarque d'un stagiaire en formation.

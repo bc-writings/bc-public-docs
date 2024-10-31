@@ -1,0 +1,107 @@
+\documentclass[12pt]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[top=1.95cm, bottom=1.95cm, left=2.35cm, right=2.35cm]{geometry}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage[french]{babel}
+\frenchsetup{StandardItemLabels=true}
+
+\usepackage{tnsmath}
+
+\usepackage[
+    type={CC},
+    modifier={by-nc-sa},
+	version={4.0},
+]{doclicense}
+
+
+\newcommand\contentdir{\jobname}
+
+
+\DeclareMathOperator{\taille}{\tau}
+
+\newtheorem{fact}{Fait}
+\newtheorem*{proof*}{Preuve}
+
+\newtheorem{remark}{Remarque}[section]
+
+\setlength\parindent{0pt}
+
+
+\newcommand\squote[1]{\og #1 \fg{}}
+
+
+\begin{document}
+
+\title{BROUILLON - Courbes polynomiales similaires}
+\author{Christophe BAL}
+\date{2 Oct. 2020 -- 27 Fév. 2024}
+\maketitle
+
+
+\begin{center}
+	\hrule\vspace{.3em}
+	{
+		\fontsize{1.35em}{1em}\selectfont
+		\textbf{Mentions \og légales \fg}
+	}
+			
+	\vspace{0.45em}
+	\doclicenseThis
+	\hrule
+\end{center}
+
+
+
+\setcounter{tocdepth}{2}
+\tableofcontents
+
+
+% ------------- %
+
+
+\newpage
+\section{Où allons-nous ?}
+
+\input{\contentdir/what}
+
+
+% ------------- %
+
+
+%\newpage
+\section{Cas des polynômes de degré 3} 
+
+\input{\contentdir/poly-deg-3/visual-proof}
+\input{\contentdir/poly-deg-3/diff-n-integral}
+
+
+%% ------------- %
+%
+%
+%\newpage
+%\section{Cas des polynômes de degré au moins 4} 
+%
+%\input{\contentdir/poly-deg-more-than-3}
+
+
+% ------------- %
+
+
+\newpage
+\bigskip
+
+\hrule
+
+\section{AFFAIRE À SUIVRE...}
+
+\bigskip
+
+\hrule
+
+\end{document}

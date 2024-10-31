@@ -1,0 +1,16 @@
+% Source: https://tex.stackexchange.com/a/634500/6880
+
+\documentclass[tikz, border=3.141592mm]{standalone}
+\usetikzlibrary{matrix}
+
+\begin{document}
+    \begin{tikzpicture}
+\matrix[matrix of nodes,
+        nodes={draw, minimum width=2cm, minimum height=1cm},
+        row sep=1cm]
+{
+\node {A};   \\
+\node[left=5mm] {B}; \node[right=5mm] {C};\\
+};
+    \end{tikzpicture}
+\end{document}

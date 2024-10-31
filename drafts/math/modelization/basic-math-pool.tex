@@ -1,0 +1,116 @@
+\documentclass[12pt]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[top=1.95cm, bottom=1.95cm, left=2.35cm, right=2.35cm]{geometry}
+
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{tcolorbox}
+\usepackage{multicol}
+\usepackage{fancyvrb}
+\usepackage{amsmath}
+\usepackage[french]{babel}
+\usepackage[
+    type={CC},
+    modifier={by-nc-sa},
+	version={4.0},
+]{doclicense}
+\usepackage{textcomp}
+\usepackage{tcolorbox}
+\usepackage{tnsmath}
+
+    
+\newtheorem{fact}{Fait}%[section]
+\newtheorem*{theorem}{Théorème}
+\newtheorem{example}{Exemple}[section]
+\newtheorem{remark}{Remarque}[section]
+\newtheorem*{proof*}{Preuve}
+
+\setlength\parindent{0pt}
+
+
+\DeclareMathOperator{\taille}{\text{\normalfont\texttt{taille}}}
+
+\newcommand\sqseq[2]{\fbox{$#1$}_{\,\,#2}}
+
+\newcommand\floor[1]{\left\lfloor #1 \right\rfloorx}
+
+
+\DefineVerbatimEnvironment{rawcode}%
+	{Verbatim}%
+	{tabsize=4,%
+	 frame=lines, framerule=0.3mm, framesep=2.5mm}
+	 
+	 
+	 
+\begin{document}
+
+\title{BROUILLON - Un simple (\!?) billard à deux bandes - Ajouter lien acvec PI : 3blue1brown galperin}
+\author{Christophe BAL}
+\date{25 Déc. 2018}
+
+\maketitle
+
+\begin{center}
+	\itshape
+	Document, avec son source \LaTeX, disponible sur la page
+	
+	\url{https://github.com/bc-writing/drafts}.
+\end{center}
+
+
+\bigskip
+
+
+\begin{center}
+	\hrule\vspace{.3em}
+	{
+		\fontsize{1.35em}{1em}\selectfont
+		\textbf{Mentions \og légales \fg}
+	}
+			
+	\vspace{0.45em}
+	\doclicenseThis
+	\hrule
+\end{center}
+
+
+
+\setcounter{tocdepth}{2}
+\tableofcontents
+
+
+
+\section{Présentation du problème}
+
+\input{basic-math-pool/presentation}
+
+
+\section{Rechercher et conjecturer}
+
+\input{basic-math-pool/conjecture}
+
+
+\section{Comprendre partiellement\dots}
+
+\input{basic-math-pool/analysis}
+
+
+\section{Notations pour la suite}
+
+\input{basic-math-pool/proof-notations}
+
+
+\section{Où se fait le 1\ier{} rebond ?}
+\label{1st-bounce}
+
+\input{basic-math-pool/proof-1st-bounce}
+
+
+\section{Quand le 1\ier{} rebond se fait "vers le haut"}
+
+\input{basic-math-pool/proof-starting-with-d2}
+
+
+\end{document}

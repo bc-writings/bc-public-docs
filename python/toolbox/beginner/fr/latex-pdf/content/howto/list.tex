@@ -1,0 +1,325 @@
+\subsection{Listes}
+
+\subsubsection{Créer une liste directement}
+
+Les éléments d'une liste sont à mettre entre des crochets séparés par des virgules. Une liste peut contenir différents types de variables comme le montre l'exemple suivant.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+liste_heterogene = [0, "un", 8/4] # 8/4 = 2.0 est un flottant !
+
+print("liste_heterogene =", liste_heterogene)
+print("Type de liste_heterogene :", type(liste_heterogene))
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+liste_heterogene = [0, 'un', 2.0]
+Type de liste_heterogene : <class 'list'>
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+Notons que l'on peut faire une liste de listes pour par exemple représenter une liste de coordonnées \textit{(on peut bien entendu aller plus loin en faisant une liste de listes de listes de listes...etc)}.
+
+\newpage
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+coord_1d = [1]
+coord_2d = [0, 10]
+coord_3d = [33, -4, 17]
+
+liste_de_coord = [coord_1d, coord_2d, coord_3d]
+
+print(liste_de_coord)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+[[1], [0, 10], [33, -4, 17]]
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+\subsubsection{Ajouter un nouvel élément à une liste}
+
+Une liste est une instance de la classe \texttt{list} qui possède une méthode \texttt{append} permettant d'ajouter un nouvel élément. Voici comment utiliser cette dernière.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+notre_liste = []
+
+print("Une liste vide au départ :", notre_liste)
+
+notre_liste.append("nouvel élément")
+notre_liste.append("autre ajout")
+
+print("Liste remplie maintenant :", notre_liste)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+Une liste vide au départ : []
+Liste remplie maintenant : ['nouvel élément', 'autre ajout']
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+\subsubsection{Créer une liste à l'aide de boucles}
+
+La méthode \texttt{append} présentée dans la section précédente permet de fabriquer facilement certaines listes ayant une structure régulière.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+naturels = []
+
+for i in range(14):
+    naturels.append(i)
+
+print(naturels)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+Il existe un raccourci très pratique basé sur le concept de liste en compréhension. Dans ce qui suit, les crochets nous indiquent que nous fabriquons une liste, puis ensuite cette liste a pour élément les \texttt{i} pour \texttt{i} parcourant la plage de valeurs renvoyées par \texttt{range\textit{(14)}}.
+
+\newpage
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+naturels = [i for i in range(14)]
+
+print(naturels)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+\subsubsection{Accoler des listes}
+
+L'opérateur \texttt{+} permet d'accoler des listes les unes apès les autres.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+liste_1 = [1, 2, 3]
+liste_2 = [100, 1000]
+liste_3 = [9, 99, 999, 9999]
+
+listes_accolees = liste_1 + liste_2 + liste_3
+
+print(listes_accolees)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+[1, 2, 3, 100, 1000, 9, 99, 999, 9999]
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+\subsubsection{Accéder à un élément d'une liste}
+
+L'accès à un élément d'une liste se fait comme suit où le premier élément d'une liste a toujours pour position $0$. On peut aussi partir de la fin en utilisant un entier relatif négatif, le dernier élément correspondant à la position $\textit{(-1)}$.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+naturels_pairs = [0, 2, 4, 6, 8, 10, 12]
+
+print("Premier naturel pair de notre liste   :", naturels_pairs[0])
+print("Denier naturel pair de notre liste    :", naturels_pairs[-1])
+print("Troisième naturel pair de notre liste :", naturels_pairs[2])
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+Premier naturel pair de notre liste   : 0
+Denier naturel pair de notre liste    : 12
+Troisième naturel pair de notre liste : 4
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+\subsubsection{Extraire une sous-liste}
+
+Le code ci-après montre que \texttt{[d:f]} va extraire les éléments des positions \texttt{d} à \texttt{\textit{(f - 1)}}, et que \texttt{[:f]} et \texttt{[d:]} sont des raccourcis pour \texttt{[0:f]} et \texttt{[d:-1]} respectivement. Le fonctionnement est similaire à ce qu'il se fait avec les chaînes de caractères.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+naturels = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+
+naturels_avant_4             = naturels[:4]
+naturels_entre_4_et_7_inclus = naturels[4:8]
+naturels_apres_7             = naturels[8:]
+
+print(naturels_avant_4)
+print(naturels_entre_4_et_7_inclus)
+print(naturels_apres_7)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+[0, 1, 2, 3]
+[4, 5, 6, 7]
+[8, 9, 10, 11, 12, 13, 14]
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+\subsubsection{Modifier une liste élément par élément}
+
+Il est possible de modifier un élément d'une liste comme suit \textit{(par contre ce type de manipulations ne marche pas avec les chaînes de caractères)}.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+liste_heterogene = [0, "un", 2.0]
+
+print("liste_heterogene avant :", liste_heterogene)
+
+liste_heterogene[0] = "zéro"
+liste_heterogene[2] = "deux"
+
+print("liste_heterogene après :", liste_heterogene)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+liste_heterogene avant : [0, 'un', 2.0]
+liste_heterogene après : ['zéro', 'un', 'deux']
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+\subsubsection{Copier une liste, attention danger !}
+
+Commençons par quelque chose de déroutant et parfois dur à repérer dans de grands codes.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+liste_ancienne = [1, 2, 3]
+liste_nouvelle = liste_ancienne
+
+liste_nouvelle.append(4)
+liste_nouvelle.append(5)
+
+print("liste_ancienne =", liste_ancienne)
+print("liste_nouvelle =", liste_nouvelle)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+liste_ancienne = [1, 2, 3, 4, 5]
+liste_nouvelle = [1, 2, 3, 4, 5]
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+Regardez bien ce qu'il vient de se passer. Les \textbf{deux} listes ont été modifiées. Si cela ne vous choque pas, comparez avec le code suivant.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+texte_ancien  = "Texte au départ."
+texte_nouveau = texte_ancien
+
+texte_nouveau = "Des changements ont eu lieu."
+
+print("texte_ancien  =", texte_ancien)
+print("texte_nouveau =", texte_nouveau)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+texte_ancien  = Texte au départ.
+texte_nouveau = Des changements ont eu lieu.
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+Que s'est il passé avec nos listes, ou peut-être devrait-on dire avec notre liste ? Une liste est un objet informatique qui consomme beaucoup de mémoires, par conséquent les concepteurs de Python ont choisi de limiter la copie en mémoire des listes. Dans notre cas, ceci signifie que les variables \texttt{texte\_ancien} et \texttt{texte\_nouveau} pointent vers le même emplacement mémoire d'une unique liste \textit{(ce phénomène se rencontre aussi avec les variables de type ensemble et dictionnaire qui sont présentées dans les sections suivantes)}.
+
+Nous devons donc nous débrouiller pour imposer la création d'une nouvelle copie en mémoire. Voici une méthode propre qui fait appel à un module dédié à la copie d'objets \textit{"mémophages"}. Nous proposons d'utiliser \texttt{deepcopy} qui va gérer les cas de listes contenants des listes contenant des listes... etc.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+from copy import deepcopy
+
+liste_ancienne = [1, 2, 3]
+liste_nouvelle = deepcopy(liste_ancienne)
+
+liste_nouvelle.append(4)
+liste_nouvelle.append(5)
+
+print("liste_ancienne =", liste_ancienne)
+print("liste_nouvelle =", liste_nouvelle)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+liste_ancienne = [1, 2, 3]
+liste_nouvelle = [1, 2, 3, 4, 5]
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+\subsubsection{Taille d'une liste}
+
+Le mot \textit{"len"} signifiant \textit{"longueur"} en anglais, le code suivant peut se \textit{"deviner"}.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+une_liste = [1, 2, 3, 4, 5, 6]
+
+print(len(une_liste))
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+6
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip

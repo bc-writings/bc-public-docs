@@ -1,0 +1,45 @@
+% expand f(x+m) where f(x) = x^4 + b*x^3 + c*x^2 + d*x + e
+% 
+%   e + d (x + m) + c (x + m)^2 + b (x + m)^3 + (x + m)^4 
+% = e + d m + c m^2 + b m^3 + m^4 
+% + d x + 2 c m x + 3 b m^2 x + 4 m^3 x
+% + c x^2 + 3 b m x^2 + 6 m^2 x^2
+% + b x^3 + 4 m x^3
+% + x^4
+%
+% coef de x : d + 2 c m + 3 b m^2 + 4 m^3
+%
+% m existe tel que pas de x d'où
+%
+% P(x) = x^4 + b*x^3 + c*x^2 + e
+%
+% P'(x) similaire à f_i(x) de degré 3
+%
+% P'(x) = A f_i(B x + C) + D
+%
+% B P(x) = A F_i(B x + C) + D x
+%
+% F_i(x) = 4(x^4 / 4)          
+%   --->   A C^4 + 4 A B C^3 x + D x + 6 A B^2 C^2 x^2 + 4 A B^3 C x^3 + A B^4 x^4
+%
+%     ou = 4(x^4 / 4 - x^2 / 2)
+%   --->   -2 A C^2 + A C^4 - 4 A B C x + 4 A B C^3 x + D x - 2 A B^2 x^2 + 6 A B^2 C^2 x^2 + 4 A B^3 C x^3 + A B^4 x^4
+%
+%     ou = 4(x^4 / 4 + x^2 / 2)
+%   --->   2 A C^2 + A C^4 + 4 A B C x + 4 A B C^3 x + D x + 2 A B^2 x^2 + 6 A B^2 C^2 x^2 + 4 A B^3 C x^3 + A B^4 x^4
+
+Nous allons voir que le passage au degré $4$ va faire exploser une vaine conjecture qui supposerait que pour un degré donné il n'y a qu'un nombre fini de types de courbe.
+L'argument est simple car les polynômes $f_r(x) = x (x^2 - 4) (x - r)$ où $r \in \RR - \setgene{-1 ; 0 ; 1}$ ont des courbes $\setgeo*{C}{r}$ non similaires deux à deux via les transformations autorisées. Voici pourquoi où $r \neq 2$ par hypothèse.
+
+\begin{enumerate}
+	\item Supposons que $f_r$ et $f_2$ ont des courbes $\setgeo*{C}{r}$ et $\setgeo*{C}{2}$ similaires i.e. $f_r(x) = \lambda f_2(a x + b) + k$ avec nécessairement $\lambda \neq 0$ et $a \neq 0$.
+
+
+	\item $f_r(x) = x^4 - r x^3 - 4 x^2 + 4 r x$
+
+
+	\item $f_2(x) = x^4 - 2 x^3 - 4 x^2 + 8 x$
+
+
+	\item valeurs sur $\intervalC{-1}{1}$ et valeur en 2 évolue tro p différemment !
+\end{enumerate}

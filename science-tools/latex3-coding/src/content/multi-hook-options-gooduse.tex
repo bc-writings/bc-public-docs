@@ -1,0 +1,28 @@
+% Source: https://tex.stackexchange.com/a/680010/6880
+
+\documentclass{article}
+
+\usepackage{hyperref}
+
+\def\first{https://www.youtube.com/watch?v=3anNG7TfHSQ&t}
+
+\NewDocumentCommand{ \ytref }{ m m O{00} O{00} O{00} }{%
+  \href{#2=#3h#4m#5s}{%
+    #1%
+  }%
+  [[3 = #3 , 4 = #4 , 5 = #5]]
+}
+
+\begin{document}
+\ytref{This}{\first}[0][12][13] video will start from 12
+minutes 13 seconds.
+
+\ytref{This}{\first} video will start from the beginning.
+
+Unused options 1 : 
+\ytref{This}{\first}[12][13]
+
+Unused options 2 : 
+\ytref{This}{\first}[13]
+
+\end{document}

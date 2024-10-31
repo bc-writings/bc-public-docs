@@ -1,0 +1,24 @@
+% Source: https://tex.stackexchange.com/a/655445/6880
+
+\documentclass{article}
+
+\usepackage{tikz}
+\usetikzlibrary{tikzmark}
+\newcommand{\unitht}{.8ex}
+\newcommand{\nubpre}{A}
+
+\newcommand{\nub}[2]{\tikzmark{a\nubpre#1}#2\tikzmark{b\nubpre#1}
+    \begin{tikzpicture}[remember picture,overlay]
+        \draw (pic cs:a\nubpre#1) --++(0,-#1*\unitht) -| (pic cs:b\nubpre#1);
+    \end{tikzpicture}\vspace{\unitht}%
+}
+
+\begin{document}
+
+\[\nub{5}{11+\nub{4}{12+\nub{3}{13+\nub{2}{14+\nub{1}{15+16}+17}+18}+19}+20}=31\times5=155.\]
+You must choose a different nub prefix for each subsequent use
+\renewcommand{\nubpre}{B}
+\[\nub{3}{1+\nub{2}{2+\nub{1}{3+\cdots+98}+99}+100}=101\times50=5050.\]
+using \verb`\renewcommand{\nubpre}{<prefix>}`. The default prefix is \verb`A`.
+
+\end{document}

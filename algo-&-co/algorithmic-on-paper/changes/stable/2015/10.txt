@@ -1,0 +1,26 @@
+==========
+2015-10-28
+==========
+
+**Réorganisation sur ¨github:** une organisation a été créée pour les écrits sur l'algorithmique en général à l'adresse cf::``https://github.com/bc-writings-algo-general``. Ceci implique que le document et ses sources seront dorénavant hebergés à l'adresse cf::``https://github.com/bc-writings-algo-general/algorithms_with_paper``.
+
+
+==========
+2015-10-26
+==========
+
+**Utilisant d'un dossier "template" général :** ceci permet de travailler sur une future classe pour mes documents. Pour le moment, on utilise un lien symbolique qui ne peut être pris en compte par ¨git et du coup le dossier "template" n'est pas présent sur ¨github.
+
+
+==========
+2015-10-25
+==========
+
+**Correction d'erreurs typographiques mineures.**
+
+
+==========
+2015-10-05
+==========
+
+**Amélioration du document :** correction de quelques erreurs et ajout d'une section annexe comparant différentes mises en forme d'un algorithme de résolution de l'équation du ¨2nd degré.

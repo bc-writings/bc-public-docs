@@ -1,0 +1,63 @@
+Nous donnons directement la table des transitions scindée en morceaux pour en faciliter la compréhension. Notez au passage que le nombre d'états ne dépend plus des lettres utilisées contrairement à la table présentée dans la section \ref{table-palindrome-1-tape}, cette dernière ayant des dimensions dépendant du nombres de lettres \emph{(on voit donc ici toute la puissance de l'ajout d'une 2\ieme{} bande)}.
+
+
+\begin{center}
+	\emph{\small Phase 1 : copie du mot suivi du retour vers la gauche en haut.}
+	
+	\smallskip
+	\renewcommand{\arraystretch}{1.25}
+	\begin{tabular}{|c||c|c|c|c|}
+		\hline
+		$\delta$
+			& $\twocoord{\text{a}}{B}$
+			& $\twocoord{\text{b}}{B}$
+			& $\twocoord{\text{c}}{B}$
+			& $\twocoord{B}{B}$        \\
+		\hline
+		\hline
+		$q_0$
+			& \transition{d}{\twocoord{\text{a}}{\text{a}}}{\twocoord{D}{D}}
+			& \transition{d}{\twocoord{\text{b}}{\text{b}}}{\twocoord{D}{D}}
+			& \transition{d}{\twocoord{\text{c}}{\text{c}}}{\twocoord{D}{D}}
+			&                                                        \\
+		\hline
+		$d$
+			& \transition{d}{\twocoord{\text{a}}{\text{a}}}{\twocoord{D}{D}}
+			& \transition{d}{\twocoord{\text{b}}{\text{b}}}{\twocoord{D}{D}}
+			& \transition{d}{\twocoord{\text{c}}{\text{c}}}{\twocoord{D}{D}}
+			& \transition{g}{\twocoord{B}{B}              }{\twocoord{G}{I}} \\
+		\hline
+		$g$
+			& \transition{g}{\twocoord{\text{a}}{B}       }{\twocoord{G}{I}}
+			& \transition{g}{\twocoord{\text{b}}{\text{b}}}{\twocoord{G}{I}}
+			& \transition{g}{\twocoord{\text{c}}{\text{c}}}{\twocoord{G}{I}}
+			& \transition{t}{\twocoord{B}{B}              }{\twocoord{D}{G}} \\
+		\hline
+	\end{tabular}
+	\renewcommand{\arraystretch}{1}
+\end{center}
+
+
+\begin{center}
+	\emph{\small Phase 2 : comparaison \emph{\og inversée \fg} du mot et de sa copie.}
+	
+	\smallskip
+	\renewcommand{\arraystretch}{1.25}
+	\begin{tabular}{|c||c|c|c|c|}
+		\hline
+		$\delta$
+			& $\twocoord{\text{a}}{\text{a}}$
+			& $\twocoord{\text{b}}{\text{b}}$
+			& $\twocoord{\text{c}}{\text{c}}$
+			& $\twocoord{B}{B}$               \\
+		\hline
+		\hline
+		$t$
+			& \transition{t}{\twocoord{\text{a}}{\text{a}}}{\twocoord{D}{G}}
+			& \transition{t}{\twocoord{\text{b}}{\text{b}}}{\twocoord{D}{G}}
+			& \transition{t}{\twocoord{\text{c}}{\text{c}}}{\twocoord{D}{G}}
+			& \transition{f}{\twocoord{B}{B}              }{\twocoord{I}{I}} \\
+		\hline
+	\end{tabular}
+	\renewcommand{\arraystretch}{1}
+\end{center}

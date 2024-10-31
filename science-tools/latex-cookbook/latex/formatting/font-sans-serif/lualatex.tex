@@ -1,0 +1,23 @@
+% Source: https://tex.stackexchange.com/a/683118/6880
+
+\documentclass{article}
+
+\usepackage[sfdefault]{FiraSans}        % Change default sans serif (sf) font to FiraSans
+\usepackage[mathrm=sym]{unicode-math}   % Text in math mode will also be sans serif
+\setmathfont{Fira Math}                 % Change default math font to FiraMath
+\usepackage{FiraMono}                   % Change default typewriter (tt) font to FiraMono
+\renewcommand\familydefault{\sfdefault} % Set sans serif font as default
+
+\usepackage[english]{babel}             % For writing english in blindtext
+\usepackage[math]{blindtext}            % Placeholder text
+
+% Narrow page edges, so that we can have more text
+\usepackage[a4paper, left=2cm, right=2cm, top=2cm, bottom=2cm]{geometry}
+\pagestyle{empty}                       % Remove page numbers
+
+
+\begin{document}
+
+\blindmathpaper    % Placeholder text
+
+\end{document}

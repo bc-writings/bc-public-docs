@@ -1,0 +1,24 @@
+\documentclass{article}
+
+\usepackage{tikz}
+
+\directlua{dofile('combinatorics.lua')}
+
+\newcommand{\cnp}[2]{\directlua{fwrite(cnp(#1,#2))}}
+\newcommand{\anp}[2]{\directlua{fwrite(anp(#1,#2))}}
+
+\begin{document}
+
+\begin{itemize}
+\item $A_7^5 = \anp{7}{5}$
+\item $C_7^5 = \cnp{7}{5}$
+\end{itemize}
+
+
+\begin{tikzpicture}[scale=0.8,cnp/.style={rectangle,draw,fill=gray!20,minimum size=2em}]
+\foreach \n in {0,...,8} {
+    \foreach \p in {0,...,\n} {
+        \draw (\p,6-\n) node[cnp] {\cnp{\n}{\p}};}}
+\end{tikzpicture}
+
+\end{document}

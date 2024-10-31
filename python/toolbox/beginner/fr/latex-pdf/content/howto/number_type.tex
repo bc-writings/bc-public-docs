@@ -1,0 +1,225 @@
+\subsection{Les nombres - Différents types}
+
+\subsubsection{Entiers relatifs}
+
+Sous Python, les entiers relatifs ne sont pas limités en taille. Ils s'écrivent très naturellement...
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+un                   = 1
+moins_dix            = -10
+grand_naturel        = 2**200
+oppose_grand_naturel = -2**200
+
+print("un                   :", un)
+print("moins_dix            :", moins_dix)
+print("grand_naturel        :", grand_naturel)
+print("oppose_grand_naturel :", oppose_grand_naturel)
+
+print("")
+print("Type de un                   :", type(un))
+print("Type de moins_dix            :", type(moins_dix))
+print("Type de grand_naturel        :", type(grand_naturel))
+print("Type de oppose_grand_naturel :", type(oppose_grand_naturel))
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+un                   : 1
+moins_dix            : -10
+grand_naturel        : 1606938044258990275541962092341162602522202993782792835301376
+oppose_grand_naturel : -1606938044258990275541962092341162602522202993782792835301376
+
+Type de un                   : <class 'int'>
+Type de moins_dix            : <class 'int'>
+Type de grand_naturel        : <class 'int'>
+Type de oppose_grand_naturel : <class 'int'>
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+\subsubsection{Nombres réels approchés}
+
+La notion de nombres réels n'existe pas en informatique \textit{(même si l'on peut faire appel à des bibliothèques de calcul formel qui tente d'effectuer un maximum de calculs de façon exacte)}. A la place, on dispose des nombres à virgule flottante qui permettent de faire des calculs approchés. Sans entrer dans les détails techniques, savoir que pour Python un nombre à virgule est en fait un nombre à virgule \textbf{flottante}, et non un nombre décimal, permet de ne pas trop être surpris par ce qu'affiche le code suivant \textit{(à cette adresse \url{http://www.afpy.org/doc/python/2.7/tutorial/floatingpoint.html} se trouve un document expliquant très bien ce qu'il se passe en coulisse)}.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+resultat_bizarre = 0.1 + 0.2
+
+print("resultat_bizarre :", resultat_bizarre)
+print("Type de resultat_bizarre :", type(resultat_bizarre))
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+resultat_bizarre : 0.30000000000000004
+Type de resultat_bizarre : <class 'float'>
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+\subsubsection{Décimaux}
+
+Il est possible de travailler de façon exacte avec des nombres décimaux via un module Python spécialisé. Il suffit de procéder comme suit.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+from decimal import Decimal
+
+resultat_normal = Decimal("0.1") + Decimal("0.2")
+
+print("resultat_normal :", resultat_normal)
+print("Type de resultat_normal :", type(resultat_normal))
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+resultat_normal : 0.3
+Type de resultat_normal : <class 'decimal.Decimal'>
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+\subsubsection{Fractions}
+
+On peut définir des fractions rationnelles en gardant leur valeur exacte grâce à un module Python spécialisé.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+from fractions import Fraction
+
+fraction_approchee = 1/3
+fraction_exacte    = Fraction("1/3")
+
+print("fraction_approchee :", fraction_approchee)
+print("fraction_exacte    :", fraction_exacte)
+
+print("")
+print("Type de fraction_approchee :", type(fraction_approchee))
+print("Type de fraction_exacte    :", type(fraction_exacte))
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+fraction_approchee : 0.3333333333333333
+fraction_exacte    : 1/3
+
+Type de fraction_approchee : <class 'float'>
+Type de fraction_exacte    : <class 'fractions.Fraction'>
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+\subsubsection{Nombres complexes approchés}
+
+Python propose par défaut un type pour calculer avec des nombres complexes approchés, plus précisément ces nombres seront des complexes ayant pour parties imaginaire et réelle des nombres à virgule flottante.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+# Attention ! j tout seul ne fonctionnera pas.
+nbre_i_en_math    = 1j
+un_reel_complexe  = 2 + 0j
+
+un_complexe       = 2 - 4j
+partie_imaginaire = un_complexe.imag
+partie_reelle     = un_complexe.real
+
+print("nbre_i_en_math    :", nbre_i_en_math)
+print("un_reel_complexe  :", un_reel_complexe)
+
+print("un_complexe       :", un_complexe)
+print("partie_imaginaire :", partie_imaginaire)
+print("partie_reelle     :", partie_reelle)
+
+print("")
+print("Type de nbre_i_en_math   :", type(nbre_i_en_math))
+print("Type de un_reel_complexe :", type(un_reel_complexe))
+
+print("")
+print("Type de un_complexe       :", type(un_complexe))
+print("Type de partie_imaginaire :", type(partie_imaginaire))
+print("Type de partie_reelle     :", type(partie_reelle))
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+nbre_i_en_math    : 1j
+un_reel_complexe  : (2+0j)
+un_complexe       : (2-4j)
+partie_imaginaire : -4.0
+partie_reelle     : 2.0
+
+Type de nbre_i_en_math   : <class 'complex'>
+Type de un_reel_complexe : <class 'complex'>
+
+Type de un_complexe       : <class 'complex'>
+Type de partie_imaginaire : <class 'float'>
+Type de partie_reelle     : <class 'float'>
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+\subsubsection{Récupérer un nombre d'un type particulier demandé à l'utilisateur}
+
+Pour chacun des types rencontrés précédemment, autre que les cas particuliers des décimaux et des fractions, il existe une fonction éponyme qui transforme une chaîne de caractères en un nombre du type souhaité, dans la mesure du possible. Ceci permet de récupérer un nombre d'un type particulier demandé à l'utilisateur dans une invite de commandes ou un terminal.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+reponse_texte = input("Entrer un nombre : ")
+
+version_entiere   = int(reponse_texte)
+version_flottante = float(reponse_texte)
+version_complexe  = complex(reponse_texte)
+
+print("")
+print("Réponse via `input` :", reponse_texte)
+print("Type : ", type(reponse_texte))
+
+print("")
+print("Version `int` :", version_entiere)
+print("Type : ", type(version_entiere))
+
+print("")
+print("Version `float` :", version_flottante)
+print("Type ; ", type(version_flottante))
+
+print("")
+print("Version `complex` :", version_complexe)
+print("Type : ", type(version_complexe))
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+Entrer un nombre : 1418
+
+Réponse via `input` : 1418
+Type :  <class 'str'>
+
+Version `int` : 1418
+Type :  <class 'int'>
+
+Version `float` : 1418.0
+Type ;  <class 'float'>
+
+Version `complex` : (1418+0j)
+Type :  <class 'complex'>
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip

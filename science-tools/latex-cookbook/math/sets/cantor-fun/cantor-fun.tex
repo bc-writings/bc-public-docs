@@ -1,0 +1,44 @@
+% Source: https://tex.stackexchange.com/a/680340/6880
+
+\documentclass[varwidth, border=1pt]{standalone}
+
+\usepackage{tikz}
+\usetikzlibrary{calc, chains}
+
+\tikzset{
+  cantor/start/.initial=0,
+  cantor/picture/.style={
+    start chain=going base right, node distance=+0mm, baseline=(chain-begin.base)},
+  cantor/node/.style={
+    text=black, inner sep=+0pt, outer sep=+0pt, node font=\sffamily\bfseries\Huge},
+  cantor/cantor/.style n args={3}{insert path={
+      coordinate (@1-#1) at ({$(#2)!.33333!(#3)$}-|#3)
+      \ifnum#1=1 (#2) rectangle (@1-#1)
+      \else      [cantor/cantor/.expanded={\pgfinteval{#1-1}}{#2}{@1-#1}] \fi
+      coordinate (@2-#1) at ({$(#2)!.66667!(#3)$}-|#2)
+      \ifnum#1=1 (@2-#1) rectangle (#3)
+      \else      [cantor/cantor/.expanded={\pgfinteval{#1-1}}{@2-#1}{#3}] \fi}}}
+
+\newcommand*\cantortext[2][]{%
+  \begin{tikzpicture}[cantor/picture,#1]
+  \foreach[count=\CNT from \pgfkeysvalueof{/tikz/cantor/start}]\LTR in{#2}{
+    \node[cantor/node,on chain]{\phantom{\LTR}};
+    \begin{scope}
+      \ifnum\CNT>0 \clip[cantor/cantor={\CNT}{chain-end.south west}
+                                             {chain-end.north east}];\fi
+      \node[cantor/node]at(chain-end){\LTR};
+    \end{scope}}
+  \end{tikzpicture}}
+
+\begin{document}
+
+\Huge\bfseries\sffamily % just to have the same text in document as in TikZ
+CANTOR
+
+\cantortext{C, A, N, T, O, R}
+
+\cantortext[cantor/start=3]{X, X, X, X, X, X}
+
+%\cantortext[transform shape, scale=5, cantor/start=5]{M}
+
+\end{document}

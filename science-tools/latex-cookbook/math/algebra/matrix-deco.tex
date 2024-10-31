@@ -1,0 +1,41 @@
+% Source: https://tex.stackexchange.com/a/683343/6880
+
+\documentclass[10pt,xcolor=dvipsnames]{beamer}
+\setbeamercovered{dynamic}
+\setbeamertemplate{items}[circle]
+
+\usepackage{nicematrix}
+\usepackage{tikz}
+
+\begin{document}
+
+\begin{frame}[fragile]
+
+
+\renewcommand{\arraystretch}{1.4}
+\NiceMatrixOptions
+  {
+    code-for-first-row = \color{orange} ,
+    code-for-last-col = \color{orange} ,
+  }
+
+\[
+\mathbf{D} = 
+\begin{bNiceMatrix}[first-row,last-col,margin,colortbl-like]
+  m=0     & \multicolumn{2}{c}{m=1} & \multicolumn{3}{c}{m=2} \\
+  \cellcolor{orange!50}
+  0       & 1         & 1         & 0         & 0         & 0         & 0         & \ldots  & m=0\\
+  0       & \Block[draw=red]{2-2}{}
+            1         & -1        & 0         & 0         & 0         & 0         & \ldots  & \Block{2-1}{m=1} \\
+  0       & 0         & 0         & 1         & 1         & 1         & 1         & \ldots \\
+  0       & 0         & 0         & \Block[draw=red]{3-3}{}
+                                    1         & -1        & 1         & -1        & \ldots & \Block{3-1}{m=2}\\
+  0       & 0         & 0         & 1         & 1         & -1        & -1        & \ldots \\
+  0       & 0         & 0         & 1         & -1        & -1        & 1         & \ldots \\
+  \vdots  & \vdots    & \vdots    & \vdots    & \vdots    & \vdots    & \vdots    & \ddots \\
+\end{bNiceMatrix}
+\]
+
+\end{frame}
+
+\end{document}

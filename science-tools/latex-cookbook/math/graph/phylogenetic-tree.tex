@@ -1,0 +1,61 @@
+% Source: https://tex.stackexchange.com/a/690924/6880
+
+\documentclass{article}
+\usepackage{tikz}
+\usepackage{forest}
+\usepackage{adjustbox}
+
+\begin{document}
+
+\begin{figure}[ht]
+\centering
+\begin{adjustbox}{width=1\textwidth}
+\begin{forest}
+for tree={
+  font=\normalfont,
+  minimum height=0.8cm,
+  l sep+=15pt,
+  inner sep=2pt,
+  draw=none,
+  fill=none,
+  edge={draw=black, line width=0.5pt},
+  anchor=north,
+  child anchor=north,
+  parent anchor=south,
+  align=center,
+  edge path={
+    \noexpand\path[\forestoption{edge}]
+      (!u.parent anchor) -- +(0,-8pt) -| (.child anchor)\forestoption{edge label};
+  },
+}
+[\textsc{central-semitic} 
+  [\textsc{arabic},tier=aramaic
+    [Classical\\ /r/]
+    [Levantine\\ /r/ /r\textsuperscript{?}/]
+    [Egyptian\\ /r/ /r\textsuperscript{?}/]
+  ]
+  [\textsc{northwest-semitic} 
+    [\textsc{aramaic},tier=aramaic 
+      [Biblical\\ /s/]
+      [Targumic\\ /s/]
+      [Syriac\\ /s/]
+      [{Jewish Babylonian}\\ /s/]
+      [\textsc{nena}\\ /s/ /r/ /r\textsuperscript{?}/ /y/]
+      [Neo-Mandaic\\ /r/ /j/]
+      [\d{T}uroyo-Mla\d{h}so\\ /r/]
+      [\textsc{wna}\\ /r/]
+    ]
+    [\textsc{canaanite} 
+      [Phoenician\\ /r/]
+      [{Samaritan Hebrew}\\ /r/]
+    ]
+  ]
+]
+\end{forest}
+\end{adjustbox}
+\caption{Central-Semitic phylogeny with rhotics}
+\label{fig:semitic_tree}
+\end{figure}
+
+\end{document}
+

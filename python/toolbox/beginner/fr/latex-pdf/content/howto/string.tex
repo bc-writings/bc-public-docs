@@ -1,0 +1,370 @@
+\subsection{Textes}
+
+\subsubsection{Créer une variable contenant du texte}
+
+Vous disposez deux types de guillemets simples \texttt{'...'} et \texttt{\textit{"..."}} pour taper directement dans le code du texte, sans retour à la ligne. Voici deux exemples.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+une_ligne = 'Que dire, je ne sais pas !'
+une_autre_ligne = "Toujours en manque d'inspiration..."
+
+print(une_ligne)
+print(une_autre_ligne)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+Que dire, je ne sais pas !
+Toujours en manque d'inspiration...
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+Le code suivant montre que les guillemets simples ne permettent pas de taper directement un texte sur plusieurs lignes \textit{\textit{(dans le message d'erreur ci-dessous, \textbackslash{}texttt{EOL} est l'acronyme de \textbackslash{}textit{"End Of Line"} soit \textbackslash{}textit{"fin de ligne"} en français)}}.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+interdit = "Ce qui est tapé
+ici n'est pas autorisé !"
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+File "<ipython-input-11-21d1c80e2827>", line 1
+    interdit = "Ce qui est tapé
+                               ^
+SyntaxError: EOL while scanning string literal
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+\subsubsection{Définir du texte avec des retours à la ligne}
+
+Les triples guillemets \texttt{'''...'''} et \texttt{\textit{""}\textit{"..."}\textit{""}} permettent d'écrire du texte contenant des retours à la ligne.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+retours_a_ligne = """Ce que j'ai tapé
+est valide
+maintenant."""
+
+print(retours_a_ligne)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+Ce que j'ai tapé
+est valide
+maintenant.
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+\subsubsection{C'est quoi une chaîne pour Python ?}
+
+Les textes sont des instances de la classe \texttt{str} pour \textit{"string"} soit \textit{"chaîne"} de caractères.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+print(type("Je suis une chaîne de caractères."))
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+<class 'str'>
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+\subsubsection{Accoler différents textes les uns après les autres}
+
+Pour faire ceci du point de vue de Python, on parle plus techniquement de concaténation de chaînes de caractères, il suffit d'additionner des chaînes.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+sujet = "Je"
+verbe = "suis"
+cod   = "lui"
+
+phrase = sujet + " " + verbe + " " + cod + "."
+
+print(phrase)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+Je suis lui.
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+Il existe un racourci pour additionner plusieurs fois de suite la même chaîne de caractères.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+drole      = "ah"
+tres_drole = drole*3   # 3 fois de suite.
+hilarant   = drole*12  # 12 fois de suite.
+
+print("drole      :", drole)
+print("tres_drole :", tres_drole)
+print("hilarant   :", hilarant)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+drole      : ah
+tres_drole : ahahah
+hilarant   : ahahahahahahahahahahahah
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+\subsubsection{Extraire une lettre d'un texte}
+
+Tout se fait assez naturellement dès lors que l'on sait qu'un premier caractère aura la position $0$ et non $1$.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+alphabet = "abcdefghijklmnopqrstuvwxyz"
+
+# Les crochets permettent d'indiquer une position.
+premiere_lettre  = alphabet[0]
+troisieme_lettre = alphabet[2]
+
+# Une valeur négative peut-être utilisée pour partir
+# de la fin, la dernière lettre ayant le numéro (-1).
+derniere_lettre       = alphabet[-1]
+antepenultieme_lettre = alphabet[-3]
+
+# Vérifications
+print("premiere_lettre       :", premiere_lettre)
+print("troisieme_lettre      :", troisieme_lettre)
+
+print("derniere_lettre       :", derniere_lettre)
+print("antepenultieme_lettre :", antepenultieme_lettre)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+premiere_lettre       : a
+troisieme_lettre      : c
+derniere_lettre       : z
+antepenultieme_lettre : x
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+\subsubsection{Extraire un groupe de lettres d'un texte}
+
+De nouveau, on va utiliser des crochets.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+alphabet = "abcdefghijklmnopqrstuvwxyz"
+
+# Ci-dessous, dans `[4:7]` on peut être étonné de voir `7`
+# et non `6`. Ce qui va suivre montrera que ceci n'est pas
+# qu'une simple convention.
+les_trois_lettres_apres_le_D = alphabet[4:7]
+
+# Ci-après, l'absence d'un second entier dans `[7:]` indique
+# d'aller jusqu'à la fin de la chaîne de caractères.
+les_lettres_apres_le_G = alphabet[7:]
+
+# On peut utiliser une convention analogue à la précédente en
+# omettant le premier entier pour partir du tout début de la
+# chaîne de caractères.
+les_lettres_avant_le_E = alphabet[:4]
+
+# Vérifications
+print("les_lettres_vant_le_E        :", les_lettres_avant_le_E)
+print("les_trois_lettres_apres_le_D :", les_trois_lettres_apres_le_D)
+print("les_lettres_apres_le_G       :", les_lettres_apres_le_G)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+les_lettres_vant_le_E        : abcd
+les_trois_lettres_apres_le_D : efg
+les_lettres_apres_le_G       : hijklmnopqrstuvwxyz
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+\subsubsection{Modifier un texte caractère par caractère}
+
+\textbf{Il est impossible de modifier directement un caractère} d'une chaine de caractères comme le montre l'exemple ci-dessous.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+texte = "Testons l'impossible..."
+
+texte[0] = "Z"
+print(texte)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+<ipython-input-18-a24373db672e> in <module>()
+      1 texte = "Testons l'impossible..."
+      2 
+----> 3 texte[0] = "Z"
+      4 print(texte)
+TypeError: 'str' object does not support item assignment
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+Pour changer la première lettre de notre texte, il va falloir procéder d'une façon analogue à la suivante.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+texte = "Testons l'impossible..."
+
+texte = "Z" + texte[1:]
+print(texte)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+Zestons l'impossible...
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+\subsubsection{Remplacer du texte}
+
+Voici deux exemples de remplacements effectués partout dans un texte. Notez que l'on peut changer des morceaux de texte en d'autres sans le faire lettre par lettre, et aussi que le texte initial n'a pas été modifié.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+texte = "zozo et tata sont sympas"
+
+texte_a_en_i   = texte.replace("a", "i")
+texte_ta_en_ri = texte.replace("ta", "ri")
+
+print("texte          =", texte)
+print("texte_a_en_i   =", texte_a_en_i)
+print("texte_ta_en_ri =", texte_ta_en_ri)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+texte          = zozo et tata sont sympas
+texte_a_en_i   = zozo et titi sont sympis
+texte_ta_en_ri = zozo et riri sont sympas
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+\subsubsection{Nettoyer ces espaces que je ne saurais voir}
+
+Les textes sont des instances de la classe \texttt{str} qui possède une méthode \texttt{strip} qui permet de retirer les espaces et les tabulations qui sont éventuellement au tout début et tout à la fin d'un texte. Le code suivant montre un exemple concret d'utilisation. Notez au passage que le texte initial n'a pas été modifié.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+reponse = "  Prénom NOM    "
+
+reponse_nettoye = reponse.strip()
+
+# Nous modifions le paramètre `sep` de la fonction
+# `print` qui par défaut vaut un espace.
+print("reponse         : >>", reponse, "<<", sep = "")
+print("reponse_nettoye : >>", reponse_nettoye, "<<", sep = "")
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+reponse         : >>  Prénom NOM    <<
+reponse_nettoye : >>Prénom NOM<<
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+\subsubsection{Un texte \textit{(en)} capitale\textit{(s)}}
+
+Les textes sont des instances de la classe \texttt{str} qui possède deux méthodes \texttt{upper} et \texttt{lower} pour mettre respectivement un texte tout en majuscule ou tout en minuscule. Le code ci-dessous explique comment les utiliser. Notez au passage que le texte initial n'a pas été modifié.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+texte = "Un texte capitale ou minuscule ? Bien testé ?"
+
+texte_majuscules = texte.upper()
+texte_minuscules = texte.lower()
+
+print("texte            :", texte)
+print("texte_majuscules :", texte_majuscules)
+print("texte_minuscules :", texte_minuscules)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+texte            : Un texte capitale ou minuscule ? Bien testé ?
+texte_majuscules : UN TEXTE CAPITALE OU MINUSCULE ? BIEN TESTÉ ?
+texte_minuscules : un texte capitale ou minuscule ? bien testé ?
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+\subsubsection{Longueur d'un texte}
+
+Le mot \textit{"longueur"} se traduit en \textit{"len"} en anglais. Une fois ceci connu, le code suivant peut se \textit{"deviner"}.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+texte = "1234567890"
+
+print(len(texte))
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+10
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip

@@ -1,0 +1,223 @@
+\subsection{Ensembles}
+
+\subsubsection{Des ensembles presque comme en mathématiques}
+
+Un ensemble à la sauce Python se comporte pratiquement comme un ensemble fini. Voyons pour commencer comment définir directement de tels ensembles. Notez au passage que les répétitions dans la liste disparaissent dans l'ensemble car un ensemble ne contient que des éléments \textit{"uniques"}. Sachez que les éléments d'un ensemble peuvent être de n'importe quel type.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+ensemble_vide = set()
+print("ensemble_vide =", ensemble_vide)
+print("Type de ensemble_vide :", type(ensemble_vide))
+
+ensemble_via_une_liste  = set(['p', 'a', 'p', 'a', 'b', 'é', 'b', 'é', 'g', 'a', 'g', 'a'])
+print("ensemble_via_une_liste =", ensemble_via_une_liste)
+print("Type de ensemble_via_une_liste :", type(ensemble_via_une_liste))
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+ensemble_vide = set()
+Type de ensemble_vide : <class 'set'>
+ensemble_via_une_liste = {'g', 'p', 'b', 'a', 'é'}
+Type de ensemble_via_une_liste : <class 'set'>
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+\subsubsection{Ajouter un nouvel élément à un ensemble}
+
+Un ensemble est une instance de la classe \texttt{set} qui possède une méthode \texttt{add} permettant d'ajouter un nouvel élément. Voici comment utiliser cette dernière.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+notre_ensemble = set()
+
+print("Un ensemble vide au départ :", notre_ensemble)
+
+notre_ensemble.add("nouvel élément")
+notre_ensemble.add("autre ajout")
+
+# Ce qui suit ne doit rien modifier.
+notre_ensemble.add("nouvel élément")
+notre_ensemble.add("nouvel élément")
+notre_ensemble.add("nouvel élément")
+notre_ensemble.add("autre ajout")
+notre_ensemble.add("autre ajout")
+
+print("Ensemble rempli maintenant :", notre_ensemble)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+Un ensemble vide au départ : set()
+Ensemble rempli maintenant : {'autre ajout', 'nouvel élément'}
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+\subsubsection{Créer un ensemble à l'aide de boucles}
+
+La méthode \texttt{add} vu juste avant peut être utilisée dans une boucle \texttt{for} pour construire un ensemble. Voici un exemple un peu mathématique mais pas trop. On construit l'ensemble des naturels obtenus en ne gardant que les deux derniers chiffres du carré d'un naturel. Par exemple, $11^2 = 121$ et $10^2 = 100$  donneront respectivement $21$ et $0$.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+# Code non optimal !
+ens_deux_derniers_chiffres = set()
+
+for i in range(10**6):
+    carre = i**2
+    deux_derniers_chiffres = carre%100
+
+    ens_deux_derniers_chiffres.add(deux_derniers_chiffres)
+
+print(ens_deux_derniers_chiffres)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+{0, 1, 4, 9, 16, 21, 24, 25, 29, 36, 41, 44, 49, 56, 61, 64, 69, 76, 81, 84, 89, 96}
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+\subsubsection{Réunion et intersection}
+
+L'intérêt du type \texttt{set} n'est pas juste d'éliminer les répétitions. Il permet notamment de faire des opérations ensemblistes présentées ci-après.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+ens_1 = set(["a", "b", "c", 1, 2, 3])
+ens_2 = set(["a", "b", 1, 10, 100])
+
+reunion = ens_1.union(ens_2)
+intersection = ens_1.intersection(ens_2)
+
+print("reunion =", reunion)
+print("intersection =", intersection)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+reunion = {1, 2, 3, 100, 'b', 'a', 10, 'c'}
+intersection = {1, 'b', 'a'}
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+A la place des méthodes \texttt{union} et \texttt{intersection}, vous pouvez utiliser les opérateurs spéciaux \texttt{|} et \texttt{\&} comme suit.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+ens_1 = set(["a", "b", "c", 1, 2, 3])
+ens_2 = set(["a", "b", 1, 10, 100])
+
+reunion = ens_1 | ens_2
+intersection = ens_1 & ens_2
+
+print("reunion =", reunion)
+print("intersection =", intersection)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+reunion = {1, 2, 3, 100, 'b', 'a', 10, 'c'}
+intersection = {1, 'b', 'a'}
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+\subsubsection{Soustraire d'un ensemble les éléments d'un autre}
+
+La méthode à employer est donnée dans le titre comme le montre le code suivant.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+ens_1 = set(["a", "b", "c", 1, 2, 3])
+ens_2 = set(["a", "b", 1, 10, 100])
+
+diff_1_moins_2 = ens_1 - ens_2
+diff_2_moins_1 = ens_2 - ens_1
+
+print("diff_1_moins_2 =", diff_1_moins_2)
+print("diff_2_moins_1 =", diff_2_moins_1)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+diff_1_moins_2 = {2, 3, 'c'}
+diff_2_moins_1 = {10, 100}
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+\subsubsection{Copier un ensemble, attention danger !}
+
+Tout comme avec les listes, Python évite autant que possible de copier des ensembles. Ceci permet de comprendre le résulat ci-dessous où les variables \texttt{ensemble\_ancien} et \texttt{ensemble\_nouveau} pointent vers le même emplacement mémoire.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+ensemble_ancien  = set([1, 2, 3])
+ensemble_nouveau = ensemble_ancien
+
+ensemble_nouveau.add(4)
+ensemble_nouveau.add(5)
+
+print("ensemble_ancien  =", ensemble_ancien)
+print("ensemble_nouveau =", ensemble_nouveau)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+ensemble_ancien  = {1, 2, 3, 4, 5}
+ensemble_nouveau = {1, 2, 3, 4, 5}
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+Pour copier un ensemble pour avoir deux versions différentes en mémoire, il suffit de faire appel au module spécialisé \texttt{copy}.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+from copy import deepcopy
+
+ensemble_ancien  = set([1, 2, 3])
+ensemble_nouveau = deepcopy(ensemble_ancien)
+
+ensemble_nouveau.add(4)
+ensemble_nouveau.add(5)
+
+print("ensemble_ancien  =", ensemble_ancien)
+print("ensemble_nouveau =", ensemble_nouveau)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+ensemble_ancien  = {1, 2, 3}
+ensemble_nouveau = {1, 2, 3, 4, 5}
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip

@@ -1,0 +1,98 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% DES LETTRES TOUTE SANS DESSUS DESSOUS %%
+
+%% C ALLONGÉ POUR INCLUSION %%
+\cadre{$\subset$} Ce symbole, qui est une sorte de C un peu allongé, est une notation
+de \focus{est inclus dans}, ou \focus{est contenu dans}. Par exemple, 
+$\NN \subset \ZZ \subset \QQ \subset \RR$. Ce C un peu allongé fait penser à l'initiale
+de \focus{contenu}.
+
+
+%% U ALLONGÉ POUR UNION %%
+\cadre{$\cup$} Ce symbole, qui est une sorte de U un peu allongé, permet d'indiquer
+des unions d'ensemble comme par exemple dans 
+$\RR^\text{*} = \left] -\infty ; 0 \right[ \cup \left] 0 ; +\infty \right[$.
+Ce U un peu allongé fait penser à l'initiale de \focus{union}.
+
+
+%% U ALLONGÉ CULBUTÉ POUR INTERSECTION %%
+\cadre{$\cap$} Ce symbole, qui n'est autre qu'un U culbuté, est utilisé pour noter une intersection comme dans
+$\left[ -3 ; 2 \right] = \left] -\infty ; 2 \right] \cap \left[ -3 ; +\infty \right[$.
+
+
+%% T DROIT %%
+\cadre{$\top$} En logique ou en algorithmique, le symbole $\top$, qui n'est autre qu'un T droit épuré, signifie \verb+Vrai+. Cette notation se comprend dès lors que l'on sait que la traduction anglaise de \focus{vrai} est \focus{true} qui débute par un T.
+
+
+%% T CULBUTÉ %%
+\cadre{$\perp$} 
+En logique ou en algorithmique, ce symbole, qui ressemble à un T droit culbuté, signifie \verb+Faux+ qui peut être vu comme étant le \focus{contraire}, \focus{l'opposé} de \verb+Vrai+.
+En géométrie, le symbole $\bot$ est une abréviation de \focus{est orthogonal à} 
+\footnote{
+	L'orthogonalité et la perpendicularité ne sont pas des notions équivalentes. Dans l'espace, il existe des droites orthogonales qui ne se croisent pas, et d'autre perpendiculaires, c'est à dire qui sont orthogonales et ont en plus un point en commun.
+}.
+Graphiquement, $\perp$ fait penser au dessin d'une demi-droite verticale perpendiculaire à une droite horizontale.
+
+
+%% T DROIT COUCHÉ %%
+\cadre{$\vdash$} En logique, le symbole $\vdash$, nommé \focus{tourniquet}, qui n'est autre qu'un T droit couché, permet d'indiquer qu'une proposition $p$ se déduit d'un ensemble $\cal H$ d'hypothèses. Pour cela, on utilise la notation symbolique ${\cal H} \vdash p$. Indiquons que la signification de \focus{se déduit} va dépendre du type de logique étudié. L'origine de ce T droit couché vient du mot \focus{thèse}. On utilise aussi ce symbole en théorie des langages pour définir ce que l'on nomme des grammaires. De façon très simplifiée, l'écriture $X \vdash aBB \,|\, cddE$ signifie que l'on peut remplacer $X$ par $aBB$ ou $cddE$ lorsque l'on analyse un texte.
+
+
+%% A CULBUTÉ %%
+\cadre{$\forall$} Ce symbole, qui ressemble à un A droit culbuté, est une abréviation
+de \focus{quelque soit}, ou \focus{pour tout} comme dans
+$ [ \forall x \in \RR, \, x^2 \geq 0 ] $. En allemand, \focus{tout} se dit \focus{alles}.
+Or le A culbuté fait penser à l'initiale de \focus{alles}. Ceci serait l'origine
+de ce symbole.
+
+
+%% E RETOURNÉ %%
+\cadre{$\exists$} Ce symbole, qui ressemble à un E droit retourné, est une abréviation
+de \focus{il existe} comme dans $[ \exists x \in \RR \text{ tel que } x^2 = 2 ]$.
+Ce E retourné viendrait de \focus{existieren} qui signifie \focus{existent} en allemand.
+
+
+%% S ALLONGÉ POUR L'INTÉGRALE %%
+\cadre{{\Large$\int$}} Ce symbole, qui est en fait un S très allongé, est utilisé
+pour noter des intégrales qui permettent entre autres choses de calculer des aires
+de domaines \focus{simples}. Par exemple, le domaine représenté dans
+\linkStyle{le graphique} \ref{domainIntegral}, voir\vpageref{domainIntegral}, admet pour mesure en unités d'aire le réel suivant :
+$ {\displaystyle \int_{-1}^{2}} (\frac{x^3}{4} + 1) d x = [ \frac{x^4}{16} + x ]_{x=-1}^{x=2} = \frac{63}{16}$
+ \emph{(le plan a été muni d'un repère orthogonal)}.
+Pourquoi un S allongé ? Parce que l'on définit les intégrales comme limite
+de certaines sommes finies d'aires rectangulaires. Cette notation semble être
+due à Gottfried Wilhelm Leibniz l'un des pères du Calcul Différentiel.
+
+\begin{figure}[h]
+	\input{content/plot/integral.tkz}
+	\vspace{-2em}
+	\caption{%
+		Représentation de%
+		$ \displaystyle \int_{-1}^{2} \left( \frac{x^3}{4} + 1 \right)  d x $%
+	}
+	\label{domainIntegral}
+\end{figure}
+
+
+%% D ROND %%
+\cadre{$\partial$} Ce symbole\label{partialDer} se lit \focus{d rond}, on devine pourquoi.
+Il est utilisé pour indiquer des dérivées partielles : si $f(x;y;z)$ est une fonction
+de trois variables, alors $\frac{\partial f}{\partial x} $ désigne la dérivée partielle
+de la fonction $f$ par rapport à la variable $x$ \emph{(les variables $y$ et $z$ étant
+considérées comme des paramètres)}.
+Par exemple, si $f(x;y;z) = x^{2} \cos y +  z^{3} (y + 3)$ alors on a :
+$\frac{\partial f}{\partial x}  = 2 x \cos y$, $\frac{\partial f}{\partial y}  = - x^2 \sin y +  z^3$
+et $\frac{\partial f}{\partial z}  = 3 z^2 (y + 3)$.
+On peut répéter le processus de dérivation partielle. Dans ce cas, on utilise
+des notations abrégées comme par exemple
+$\frac{\partial}{\partial x} \frac{\partial f}{\partial x}  = \frac{\partial^2 f}{\partial x^2} $
+et
+$\frac{\partial}{\partial x} \frac{\partial f}{\partial y}  = \frac{\partial^2 f}{\partial x \partial y} $.
+
+
+%% NABLA %%
+\cadre{$\nabla$} Ce symbole, qui n'est autre qu'un $\Delta$ culbuté, se lit \focus{nabla}.
+Ce nom était celui d'une harpe dans l'Antiquité Grecque. Le nabla est utilisé en Mécanique
+pour indiquer un opérateur différentiel : si $f(x;y;z)$ est une fonction différentiable,
+alors $\vec{\nabla} f $ est le vecteur de coordonnées
+$( \frac{\partial f}{\partial x} ; \frac{\partial f}{\partial y} ; \frac{\partial f}{\partial z})$.

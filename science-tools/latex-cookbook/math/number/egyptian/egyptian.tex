@@ -1,0 +1,160 @@
+% Source: https://tex.stackexchange.com/a/681939/6880
+
+\documentclass{article}
+\usepackage{fontspec}
+\setmainfont{Noto Sans Egyptian Hieroglyphs}
+
+\ExplSyntaxOn
+\int_new:N \l_egyptiannumeral_tempa_int
+\int_new:N \l_egyptiannumeral_tempb_int
+\int_new:N \l_egyptiannumeral_currentpower_int
+\seq_new:N \l_egyptiannumeral_egyptiandigits_seq
+
+\NewDocumentCommand { \egyptiannumeral } { m } {
+    \int_set:Nn \l_egyptiannumeral_tempa_int { #1 }
+    \int_compare:nNnT { \int_use:N \l_egyptiannumeral_tempa_int } = { 0 } { 
+        \char"13124
+    }
+    \int_compare:nNnT { \int_use:N \l_egyptiannumeral_tempa_int } < { 0 } { 
+        \char"130BB
+        \int_set:Nn \l_egyptiannumeral_tempa_int { 
+            #1 * -1
+        }
+    }
+    \seq_clear:N \l_egyptiannumeral_egyptiandigits_seq
+    \int_set:Nn \l_egyptiannumeral_currentpower_int { 0 }
+    \int_do_until:nn { \l_egyptiannumeral_tempa_int <= 0 } {
+        \int_set:Nn \l_egyptiannumeral_tempb_int { \int_mod:nn { \l_egyptiannumeral_tempa_int } { 10 } }
+        \int_sub:Nn \l_egyptiannumeral_tempa_int { \l_egyptiannumeral_tempb_int } 
+        \int_set:Nn \l_egyptiannumeral_tempa_int { \int_div_truncate:nn \l_egyptiannumeral_tempa_int { 10 } }
+        \seq_put_left:Nx \l_egyptiannumeral_egyptiandigits_seq { \int_use:N \l_egyptiannumeral_tempb_int } 
+        \int_incr:N \l_egyptiannumeral_currentpower_int
+    }
+    \seq_map_inline:Nn \l_egyptiannumeral_egyptiandigits_seq {
+        \int_case:nn { \l_egyptiannumeral_currentpower_int } {
+            { 1 } {
+                \str_case:nn { ##1 } {
+                    { 0 } {  }
+                    { 1 } { \char"133FA }
+                    { 2 } { \char"133FB }
+                    { 3 } { \char"133FC }
+                    { 4 } { \char"133FD }
+                    { 5 } { \char"133FE }
+                    { 6 } { \char"133FF }
+                    { 7 } { \char"13400 }
+                    { 8 } { \char"13401 }
+                    { 9 } { \char"13402 }
+                }
+            }
+            { 2 } {
+                \str_case:nn { ##1 } {
+                    { 0 } {  }
+                    { 1 } { \char"13386 }
+                    { 2 } { \char"13387 }
+                    { 3 } { \char"13388 }
+                    { 4 } { \char"13389 }
+                    { 5 } { \char"1338A }
+                    { 6 } { \char"1338B }
+                    { 7 } { \char"1338C }
+                    { 8 } { \char"1338D }
+                    { 9 } { \char"1338E }
+                }
+            }
+            { 3 } {
+                \str_case:nn { ##1 } {
+                    { 0 } {  }
+                    { 1 } { \char"13362 }
+                    { 2 } { \char"13363 }
+                    { 3 } { \char"13364 }
+                    { 4 } { \char"13365 }
+                    { 5 } { \char"13366 }
+                    { 6 } { \char"13367 }
+                    { 7 } { \char"13368 }
+                    { 8 } { \char"13369 }
+                    { 9 } { \char"1336A }
+                }
+            }
+            { 4 } {
+                \str_case:nn { ##1 } {
+                    { 0 } {  }
+                    { 1 } { \char"131BC }
+                    { 2 } { \char"131BD }
+                    { 3 } { \char"131BE }
+                    { 4 } { \char"131BF }
+                    { 5 } { \char"131C0 }
+                    { 6 } { \char"131C1 }
+                    { 7 } { \char"131C2 }
+                    { 8 } { \char"131C3 }
+                    { 9 } { \char"131C4 }
+                }
+            }
+            { 5 } {
+                \str_case:nn { ##1 } {
+                    { 0 } {  }
+                    { 1 } { \char"130AD }
+                    { 2 } { \char"130AE }
+                    { 3 } { \char"130AF }
+                    { 4 } { \char"130B0 }
+                    { 5 } { \char"130B1 }
+                    { 6 } { \char"130B2 }
+                    { 7 } { \char"130B3 }
+                    { 8 } { \char"130B4 }
+                    { 9 } { \char"130B5 }
+                }
+            }
+            { 6 } {
+                \int_set:Nn \l_egyptiannumeral_tempa_int { ##1 } 
+                \int_until_do:nn { \l_egyptiannumeral_tempa_int <= 0 } {
+                    \char"13190
+                    \int_decr:N \l_egyptiannumeral_tempa_int
+                }
+            }
+            { 7 } {
+                \int_set:Nn \l_egyptiannumeral_tempa_int { ##1 } 
+                \int_until_do:nn { \l_egyptiannumeral_tempa_int <= 0 } {
+                    \char"13068
+                    \int_decr:N \l_egyptiannumeral_tempa_int
+                }
+            }
+        }
+        \int_decr:N \l_egyptiannumeral_currentpower_int
+    }
+}
+
+\NewDocumentCommand { \egyptianfractiontwothirds } { } { \char"1308C }
+
+\NewDocumentCommand { \egyptianfractionthreefourths } { } { \char"1308D }
+
+\NewDocumentCommand { \egyptianfraction } { m } {
+    \int_set:Nn \l_egyptiannumeral_tempa_int { #1 }
+    \int_compare:nNnTF { \int_use:N \l_egyptiannumeral_tempa_int } = { 2 } { 
+        \char"1341E
+    } {
+        \shortstack {
+            \char"1308B \\
+            \egyptiannumeral { #1 }
+        }
+    }
+}
+\ExplSyntaxOff
+
+
+\begin{document}
+
+\egyptiannumeral{0}
+
+\egyptiannumeral{2020}
+
+\egyptiannumeral{1234567}
+
+\egyptiannumeral{-145}
+
+\bigskip
+
+\egyptianfraction{2} \quad \egyptianfraction{3} \quad \egyptianfraction{12}
+
+\egyptianfractiontwothirds
+
+\egyptianfractionthreefourths
+
+\end{document}

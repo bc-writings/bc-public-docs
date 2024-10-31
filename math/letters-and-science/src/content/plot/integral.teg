@@ -1,0 +1,22 @@
+% TeXgraph version 1.94
+% Fenetre Xmin Xmax Ymin Ymax Xscale Yscale
+100#-5#5#-5#5#1#1##
+% Marges gauche droite haut bas cadre gestion_couleur comptgraph
+101#0.5#0.5#0.5#0.5#0#1#7##
+% Affectation des Variables theta et phi et type de perspective
+18##[theta:=0.5236, phi:=1.0472,OriginalCoord(1),IdMatrix(),IdMatrix3D(),
+ModelView(ortho)]##
+% Déclaration des Macros
+% Déclaration des Eléments graphiques
+% domaine3 (Utilisateur)
+18##[Color:=25828,FillStyle:=1,FillColor:=25828,DotScale:=1+i]##
+14#domaine3#domaine1(x^3/4+1,-1,2)#-1##
+% objet4 (Axes)
+18##[Color:=0,FillStyle:=0]##
+1#objet4#[0+i*(0),1+i*(1),2+i*(2)]#0#0##
+% objet5 (Courbe cartés.)
+18##[Width:=14,Color:=149,FillColor:=16777215]##
+21#objet5#x^3/4+1#5##
+% objet7 (Label)
+18##[Width:=4]##
+8#objet7#M(3.4, 4.5)#$\displaystyle y = \frac{x^3}{4} + 1$##

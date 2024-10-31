@@ -1,0 +1,12 @@
+% Source: https://tex.stackexchange.com/a/666210/6880 
+
+\documentclass{article}
+\usepackage{amsfonts} % for mathbb command
+\usepackage[symbolgreek]{mathastext} % if you remove this it is even worst
+\usepackage[copies]{contour}%
+\contourlength{1pt}%
+\begin{document}
+\newcommand*{\outline}[1]{\color{white}\contour{black}{#1}}%
+$\outline{$a b c \gamma \delta \pi A B C \Gamma \Delta \Pi$} 
+\mathbb{A B C} \outline{$\Gamma \Delta \Pi$}$
+\end{document}

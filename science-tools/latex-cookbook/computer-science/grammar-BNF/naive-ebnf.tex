@@ -1,0 +1,15 @@
+\documentclass{article}
+
+\usepackage{naive-ebnf}
+\usepackage{mathtools}
+
+\begin{document}
+
+\begin{ebnf}
+<Expr> := <Var>
+   | "$\lambda$" <Var> "." <Expr>
+  | "$\lparen$" <Expr> <Expr> "$\rparen$"
+  | "$\lparen$" <Expr> <Expr> "$\rparen$"
+\end{ebnf}
+
+\end{document}

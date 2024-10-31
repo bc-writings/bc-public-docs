@@ -1,0 +1,73 @@
+% Source: https://tex.stackexchange.com/a/696444/6880
+
+\documentclass{article}
+\usepackage{pgfcalendar, pgffor}% pgffor just for the .list handler
+\ExplSyntaxOn
+\regex_new:N \l_mbc_datetest
+\regex_set:Nn\l_mbc_datetest { \A (\d+) \- (\d+) \- (\d+) \Z }
+\NewDocumentCommand { \IfJulianDate }{ m m m }{
+  \regex_extract_once:NnNTF \l_mbc_datetest { #1 } \l_tmpa_seq {
+    \pgfcalendardatetojulian{ #1 } { \l_tmpa_int }
+    \pgfcalendarjuliantodate { \l_tmpa_int }{ \l_tmp_year_int }
+                         { \l_tmp_month_int }{ \l_tmp_day_int }
+    \bool_lazy_all:nTF {
+      { \int_compare_p:nNn { \seq_item:Nn\l_tmpa_seq{2} } = { \l_tmp_year_int  } }
+      { \int_compare_p:nNn { \seq_item:Nn\l_tmpa_seq{3} } = { \l_tmp_month_int } }
+      { \int_compare_p:nNn { \seq_item:Nn\l_tmpa_seq{4} } = { \l_tmp_day_int   } }
+    }{ #2 }{ #3 }
+  }{ % not even proper date format
+    #3
+  }
+}
+\ExplSyntaxOff
+
+
+\begin{document}
+
+\section{OK}
+
+\pgfkeys{tester/.code=#1 is \IfJulianDate{#1}{a real}{not a proper} date\par\medskip,
+         tester/.list={
+           2023-06-14, 
+           2023-09-24, 
+           2023-02-28,
+           2024-02-29,
+           400-02-29
+         }
+}
+
+
+\section{KO -- Invalid day}
+
+\pgfkeys{tester/.code=#1 is \IfJulianDate{#1}{a real}{not a proper} date\par\medskip,
+         tester/.list={
+           300-02-29,
+           2023-02-29,
+           2024-02-30,
+           2023-09-00,
+           2023-09-32
+         }
+}
+
+
+\section{KO -- Invalid month}
+
+\pgfkeys{tester/.code=#1 is \IfJulianDate{#1}{a real}{not a proper} date\par\medskip,
+         tester/.list={
+           2023-19-32,
+           2023-00-29
+         }
+}
+
+
+\section{KO -- Syntax error}
+
+\pgfkeys{tester/.code=#1 is \IfJulianDate{#1}{a real}{not a proper} date\par\medskip,
+         tester/.list={
+           2023-06-XX,  
+           2023-09-19 2023-09-20, 
+           -0001-12-24
+         }
+}
+
+\end{document}

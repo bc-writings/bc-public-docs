@@ -1,0 +1,178 @@
+Daniel Bernoulli
+\footnote{
+	Il était le fils de Jean Bernoulli (1667 -- 1748) et le neveu de Jacques Bernoulli (1654 -- 1705) qui étaient tous les deux des mathématiciens et physiciens suisses.
+}
+(1700 -- 1782) était un médecin, physicien et mathématicien suisse. Il présente en 1760 à l'Académie des sciences de Paris un mémoire intitulé \emph{\og Essai d'une nouvelle analyse de la mortalité causée par la petite vérole
+\footnote{
+	La petite vérole était le nom que l'on donnait à la variole.
+}
+et des avantages de l'inoculation pour la prévenir \fg}
+\footnote{
+	Pour les aspects historiques, se reporter au livre \emph{\og Histoires de mathématiques et de populations \fg} de Nicolas Bacaër aux éditions CASSINI.
+}.
+Nous allons présenter son raisonnement.
+
+
+% ---------- %
+
+
+\paragraph{Propagation de la variole.} Pour modéliser ceci, nous aurons besoin des notations suivantes où l'unité de temps sera l'année.
+
+\begin{itemize}[label=\small\textbullet]
+	\item $q_I$ désigne la probabilité d'être infecté par la variole pendant une année.
+
+	\item $q_V$ désigne la probabilité de mourrir lorsque l'on attrape la variole pour la 1\iere fois. Une personne ne mourant pas pendant une année sera considérée comme immunisée contre la variole.
+
+	\item $m(t)$ désigne, à la fin de l'année $t$, le taux de mortalité \emph{\og normale \fg} sans tenir compte d'une épidémie de variole \emph{(l'année $0$ est celle du début de l'étude réelle)}. 
+\end{itemize}
+
+Les notations précédentes sous-entendent que les quantités nommées sont constantes. C'est une hypothèse de modélisation ! Continuons avec les fonctions suivantes où $t$ désigne une année.
+
+\begin{itemize}[label=\small\textbullet]
+	\item $S(t)$ est le nombre de personnes saines n'ayant pas la variole à la fin de l'année $t$.
+
+	\item $I(t)$ est le nombre de personnes qui se sont immunisées contre la variole au cours de l'année $t$. Ces personnes sont celles qui ont attrapé la variole pendant l'année $t$ sans   mourrir.
+
+	\item $P(t) = S(t) + I(t)$ est le nombre personnes toujours vivantes à la fin de l'année $t$. 
+\end{itemize}
+
+
+% ---------- %
+
+
+\medskip
+
+
+Faisons le bilan entre l'année $t$ et l'année $(t + 1)$.
+
+\begin{itemize}[label=\small\textbullet]
+	\item $S(t + 1) = S(t) - q_I S(t) - m(t) S(t)$
+	\begin{itemize}[label=$\rightarrow$]	
+		\item $q_I S(t)$ est le nombre de personnes mortes de la variole.
+		
+		\item $m(t) S(t)$ est le nombre des personnes saines mortes de cause \emph{\og normale \fg}.
+	\end{itemize}
+
+
+	\item $I(t + 1) = I(t) + (1 - q_V) q_I S(t) - m(t) I(t)$
+	\begin{itemize}[label=$\rightarrow$]	
+		\item Parmi les $q_I S(t)$ nouvelles personnes infectées, il y en a juste $(1 - q_V) q_I S(t)$ qui ne meurent pas de la variole.
+		
+		\item $m(t) I(t)$ est le nombre d'infectés morts d'autre chose que de la variole.
+	\end{itemize}
+
+
+	\item Nous en déduisons :
+	
+	\noindent
+	$P(t + 1) = P(t) - q_V q_I S(t) - m(t) P(t)$
+\end{itemize}
+
+
+Notant $\deltaval{f}{a}{b} = \frac{f(a) - f(b)}{a - b}$ le taux de variation de la fonction $f$ entre $a$ et $b$ distincts, nous avons :
+
+\begin{itemize}[label=\small\textbullet]
+	\item $\deltaval{S}{t}{t+1} = - q_I S(t) - m(t) S(t)$
+
+	\item $\deltaval{P}{t}{t+1} = - q_V q_I S(t) - m(t) P(t)$
+\end{itemize}
+
+
+% ---------- %
+
+
+\medskip
+
+
+Comme dans la sous-section \ref{malthus-model} avec le modèle de Malthus, nous passons de suites à des fonctions dérivables, et de taux de variation à des dérivées. Ceci nous donne : 
+
+\begin{itemize}[label=\small\textbullet]
+	\item $S\,'(t) = - q_I S(t) - m(t) S(t)$
+
+	\item $P\,'(t) = - q_V q_I S(t) - m(t) P(t)$
+\end{itemize}
+
+Avec ces nouveaux choix de modélisation, notre sac d'hypothèses s'alourdit !
+
+% ---------- %
+
+
+\medskip
+
+
+En résumé, nous devons trouver deux fonctions $S$ et $P$ dérivables sur $\RRp$ vérifiant les deux équations précédentes.
+A priori, ce n'est pas simple comme problème : ce qui crée une petite difficulté c'est la présence de $m(t)$ dont on ne sait rien. Nous décidions de chercher à obtenir des informations sur $R(t) = \frac{S(t)}{P(t)}$ le taux des personnes saines \emph{(en annexe de cette section sont données deux autres méthodes de résolution du système ci-dessus dont celle utilisée par Daniel Bernoulli)}.
+Au passage, nous avons besoin de supposer, de façon non abusive, que $S$ et $P$ ne s'annulent jamais.
+
+\vspace{-1em}
+
+\begin{flalign*}
+	R\,'(t) 
+	      &= \frac{1}{P^2(t)} \left( \, S\,'(t) P(t) - S(t)P\,'(t) \, \right) 
+	      & \\
+	      &= \frac{1}{P^2(t)} \left( \, [- q_I S(t) - m(t) S(t)] \, P(t) \,-\, S(t) \, [- q_V q_I S(t) - m(t) P(t)] \, \right) 
+	      & \\
+	      &= \frac{1}{P^2(t)} \left( \, - q_I S(t) P(t) + q_V q_I S^2(t) \, \right) 
+	      & \\
+	      &=  - q_I R(t) + q_V q_I R^2(t)
+	      & \\
+\end{flalign*}
+
+\vspace{-1em}
+
+Ce qui est beau, c'est que l'on tombe sur une équation différentielle peu agressive a priori : $R\,'(t) = - q_I R(t) + q_V q_I R^2(t)$ . Il suffit de raisonner comme suit en se souvenant que $S$ et $P$ ne s'annulent jamais et donc $R$ non plus.
+
+\vspace{-1em}
+
+\begin{flalign*}
+	R\,'(t) = - q_I R(t) + q_V q_I R^2(t)
+		& \Longleftrightarrow  - \frac{R\,'(t)}{R^2(t)} = \frac{q_I}{R(t)} - q_V q_I
+		& \\
+		& \Longleftrightarrow  f\,'(t) = q_I f(t) - q_V q_I  
+				\,\, \text{où on a posé $f(t) = \frac{1}{R(t)}$ .}
+		& \\
+\end{flalign*}
+
+\vspace{-1em}
+
+Nous aboutissons à une simple équation différentielle linéaire du 1\ier ordre et il est connu que nécessairement $f(t) = q_V + k \ee^{q_I t}$ où $k \in \RR$ est une constante dépendant des conditions réelles
+\footnote{
+	Notre équation différentielle est juste sur $\RRp$ mais cela n'est pas gênant ici. 
+}.
+Nous avons finalement : $\frac{S(t)}{P(t)} = \frac{1}{q_V + k \ee^{q_I t}}$ . Tout ceci a été obtenu via de bien jolis calculs...
+
+
+\begin{remark}
+	L'équation différentielle $R\,'(t) = - q_I R(t) + q_V q_I R^2(t)$ est une équation du type $y\,' = a y (1 - b y)$ avec $a < 0$ et $b > 0$ .
+	Ceci est similaire à l'équation \emph{\og logistique \fg} de Pierre François Verhulst vue dans la section \ref{verhulst-model}.
+\end{remark}
+
+
+% ---------- %
+
+
+\paragraph{Utilité de l'inoculation pour vacciner.} L'idée première de Daniel Bernoulli est de supposer que l'inoculation de la variole à tous les jeunes enfants les rend tous immunisés sans les tuer
+\footnote{
+	Dans le livre \emph{\og Histoires de mathématiques et de populations \fg} , Nicolas Bacaër explique la suite du raisonnement consistant à prendre en compte les effets délétères de l'inoculation dans certains cas. 
+}.
+Sous cette hypothèse, il faut étudier $Q(t) = \frac{P(t)}{N(t)}$ où $N(t)$ désigne le nombre, non nul par hypothèse, de personnes à la fin de l'année $t$ s'il n'y a aucun cas de variole. 
+En raisonnant comme ci-dessus, nous avons  $\deltaval{N}{t}{t+1} = - m(t) N(t)$ puis $N\,'(t) = - m(t) N(t)$ en supposant $N$ dérivable sur $\RRp$ .
+
+\vspace{-1em}
+
+\begin{flalign*}
+	Q\,'(t)
+		  &= \frac{1}{N^2(t)} \left( \, P\,'(t) N(t) - P(t) N\,'(t) \, \right) 
+	      & \\
+	      &= \frac{1}{N^2(t)} \left( \, [- q_V q_I S(t) - m(t) P(t)] \, N(t) + m(t) P(t) N(t) \, \right) 
+	      & \\
+	      &= - q_V q_I \frac{P(t)}{N(t)} \cdot \frac{S(t)}{P(t)}
+	      & \\
+	      &= - q_V q_I Q(t) \frac{\ee^{- q_I t}}{q_V \ee^{- q_I t} + k}
+	      \,\, \text{car $\frac{S(t)}{P(t)} = \frac{1}{q_V + k \ee^{q_I t}} =  \frac{\ee^{- q_I t}}{q_V \ee^{- q_I t} + k}$} 
+	      & \\
+\end{flalign*}
+
+\vspace{-1em}
+
+Comme $\frac{Q\,'(t)}{Q(t)} = \frac{- q_I \cdot q_V \ee^{- q_I t}}{q_V \ee^{- q_I t} + k}$ , la dérivation logarithmique nous donne $Q(t) = K \left( q_V \ee^{- q_I t} + k \right)$ avec $K \in \RRs$ une constante. Ceci permet d'évaluer l'efficacité de l'inoculation de la variole en utilisant les données du terrain pour déterminer les différents paramètres.

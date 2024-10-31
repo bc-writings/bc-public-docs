@@ -1,0 +1,161 @@
+\documentclass{article}
+
+% Source for easy testing via pgffor:
+%     + https://tex.stackexchange.com/a/696444/6880
+\usepackage{pgffor}
+
+\ExplSyntaxOn
+
+\seq_new:N \g_mbc_month_size
+\seq_set_from_clist:Nn \g_mbc_month_size {%
+  0,  % Not used.
+  31, % January
+  0,  % February: this special value will help us to find bugs...
+  31, % March
+  30, % April
+  31, % May
+  30, % June
+  31, % July
+  31, % August
+  30, % September
+  31, % October
+  30, % November
+  31  % December
+}
+
+% The rule defining a leap year A is as follows:
+%
+%    + If A % 4 != 0, the year is not a leap year.
+%
+%    + If A % 4 = 0 , the year is a leap year unless 
+%      A % 100 = 0 and A % 400 != 0. 
+\prg_set_conditional:Npnn \if_leap_year:N #1 { p , T , TF } {
+  \int_compare:nTF { 
+    \int_mod:nn #1 { 4 } = 0
+  }{
+    \int_compare:nTF {
+      \int_mod:nn #1 { 100 } = 0
+    }{
+      \int_compare:nTF {
+        \int_mod:nn #1 { 400 } = 0
+      }{
+        \prg_return_true:
+      }{
+        \prg_return_false:
+      }
+    }{
+      \prg_return_true:
+    }
+  }{
+    \prg_return_false:
+  }
+}
+
+\regex_new:N \g_mbc_date_format_rgx
+\regex_set:Nn\g_mbc_date_format_rgx { \A (\d+) \- (\d+) \- (\d+) \Z }
+
+\str_new:N \l_mbc_date_year_str
+\str_new:N \l_mbc_date_month_str
+\str_new:N \l_mbc_date_day_str
+
+\int_new:N \l_mbc_date_year_int
+\int_new:N \l_mbc_date_month_int
+\int_new:N \l_mbc_date_day_int
+
+\NewDocumentCommand { \ValidateJulianDate }{ m }{
+  \regex_extract_once:NnNTF \g_mbc_date_format_rgx { #1 } \l_tmpa_seq {
+% Integer values found.
+    \seq_pop_right:NN \l_tmpa_seq \l_mbc_date_day_str
+    \seq_pop_right:NN \l_tmpa_seq \l_mbc_date_month_str
+    \seq_pop_right:NN \l_tmpa_seq \l_mbc_date_year_str
+    
+    \int_set:Nn \l_mbc_date_day_int   \l_mbc_date_day_str
+    \int_set:Nn \l_mbc_date_month_int \l_mbc_date_month_str
+    \int_set:Nn \l_mbc_date_year_int  \l_mbc_date_year_str
+ 
+% 1 <= month <= 12
+    \int_compare:nTF { 1 <= \l_mbc_date_month_int <= 12 }{
+% February special setting.
+      \if_int_compare:w \l_mbc_date_month_int = 2
+        \if_leap_year:NTF \l_mbc_date_year_int {
+          \seq_set_item:Nnn \g_mbc_month_size 2 { 29 }
+        }{
+          \seq_set_item:Nnn \g_mbc_month_size 2 { 28 }
+        }
+      \fi:
+
+% Good day.
+      \int_compare:nTF {
+        1 <= \l_mbc_date_day_int 
+          <= \seq_item:Nn \g_mbc_month_size 
+                          { \int_use:N \l_mbc_date_month_int }
+      }{
+        OK
+% Bad day.
+      }{
+        KO (day)
+      }
+
+ % NOT(1 <= month <= 12).
+    }{
+      KO (month)
+    }
+
+ % Syntax error
+  }{
+    KO (syntax)
+  }
+}
+
+\ExplSyntaxOff
+
+
+\begin{document}
+
+\section{OK}
+
+\pgfkeys{tester/.code=\ValidateJulianDate{#1}{:} #1\par\medskip,
+         tester/.list={
+           2023-06-14, 
+           2023-09-24, 
+           2023-02-28,
+           2024-02-29,
+           400-02-29
+         }
+}
+
+
+\section{KO -- Invalid day}
+
+\pgfkeys{tester/.code=\ValidateJulianDate{#1}{:} #1\par\medskip,
+         tester/.list={
+           300-02-29,
+           2023-02-29,
+           2024-02-30,
+           2023-09-00,
+           2023-09-32
+         }
+}
+
+
+\section{KO -- Invalid month}
+
+\pgfkeys{tester/.code=\ValidateJulianDate{#1}{:} #1\par\medskip,
+         tester/.list={
+           2023-19-32,
+           2023-00-29
+         }
+}
+
+
+\section{KO -- Syntax error}
+
+\pgfkeys{tester/.code=\ValidateJulianDate{#1}{:} #1\par\medskip,
+         tester/.list={
+           2023-06-XX,  
+           2023-09-19 2023-09-20, 
+           -0001-12-24
+         }
+}
+
+\end{document}

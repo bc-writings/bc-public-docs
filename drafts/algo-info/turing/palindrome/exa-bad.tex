@@ -1,0 +1,28 @@
+Voici les grandes étapes présentées sur deux colonnes.
+
+
+\input{turing/palindrome/visual-turing-abbca.tex}
+
+\vspace{-1em}
+
+
+Qu'a-t-on fait ?
+\begin{enumerate}
+	\item On note la lettre pointée par la tête de lecture.
+	      Commence alors une phase de recherche d'une lettre connue.
+
+	\item On avance tant que l'on ne rencontre par une case vide. Une fois celle-ci repérée on revient d'une case en arrière.
+	
+	\item On compare alors la lettre pointée par la tête de lecture avec celle de la phase de recherche en cours. Deux cas sont possibles.
+	\begin{enumerate}
+		\item Si les lettres sont différentes alors on ne fait plus rien. 
+		      On a un état bloquant et le mot n'est pas validé.
+
+		\item Si les lettres sont identiques alors on efface la lettre en cours puis on va vers la gauche jusqu'à la prochaine case vide. 
+		      Une fois celle-ci trouvée, on avance d'une case vers la droite pour effacer son contenu, puis on avance d'une autre case vers la droite pour recommencer les actions à partir du point 1.
+	\end{enumerate}
+\end{enumerate}
+
+
+La méthode ci-dessus est en fait incomplète comme nous allons le voir dans la section suivante avec un exemple de palindrome à repérer.
+

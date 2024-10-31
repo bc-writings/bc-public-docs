@@ -1,0 +1,141 @@
+Ce qui suit reprend les excellentes indications données par Jérôme Germoni dans une discussion au bas de cette page :
+\url{http://images.math.cnrs.fr/+Nombres-puissants-au-bac-S+}
+\textit{(chercher les messages de l'utilisateur projetmbc)}.
+
+
+\bigskip
+
+Dans la suite, nous ne considérons que l'ensemble des matrices $A$ telles que $A^T Q A = Q$ et $\det A = 1$ afin de pouvoir les multiplier entre elles.
+
+
+\medskip
+
+Nous savons que $A$ est du type 
+$A
+=
+\begin{pmatrix} 
+  a & 8c \\ 
+  c & a
+\end{pmatrix}$ 
+et que la contrainte $a^2 - 8c^2 = 1$ est cachée dans la relation $A^T Q A = Q$ .
+
+
+\medskip
+
+Nous savons aussi que si
+$\begin{pmatrix} 
+  x \\ 
+  y 
+\end{pmatrix}$
+verifie $x^2 - 8 y^2 = 1$ , il en sera de même pour
+$\begin{pmatrix} 
+  X \\ 
+  Y 
+\end{pmatrix}
+=
+A
+\begin{pmatrix} 
+  x \\ 
+  y 
+\end{pmatrix}$
+où
+$\begin{pmatrix} 
+  X \\ 
+  Y 
+\end{pmatrix}
+=
+\begin{pmatrix} 
+  a x + 8c y \\ 
+  c x + a y
+\end{pmatrix}$ .
+
+
+\medskip
+
+Notant $\setproba{S}$ l'ensemble des solutions entières
+\footnote{
+	Ce qui suit se généralise aux solutions rationnelles, à celles réelles ou encore à celles complexes mais ne sortons pas du cadre de ce modeste document.
+}
+de \textbf{[ED]} : $x^2 - 8 y^2 = 1$ , ce qui précède motive la définition de la loi $\star$ sur $\setproba{S}$ via
+$\begin{pmatrix} 
+  a \\ 
+  c 
+\end{pmatrix}
+\star
+\begin{pmatrix} 
+  x \\ 
+  y 
+\end{pmatrix}
+=
+\begin{pmatrix} 
+  a x + 8c y \\ 
+  c x + a y
+\end{pmatrix}$ .
+Nous allons démontrer que cette loi $\star$ est bien définie et qu'elle fait de $\setproba{S}$ un groupe. Très joli ! Non ?
+
+
+\medskip
+
+Les raisonnements suivants se font en faisant le parallèle entre 
+$\begin{pmatrix} 
+  a \\ 
+  c 
+\end{pmatrix}
+\star
+\begin{pmatrix} 
+  x \\ 
+  y 
+\end{pmatrix}$
+et la matrice produit
+$\begin{pmatrix} 
+  a & 8c \\ 
+  c & a 
+\end{pmatrix}
+\begin{pmatrix} 
+  x & 8y \\ 
+  y & x 
+\end{pmatrix}$
+dont on garde juste la première colonne
+\footnote{
+	Les résultats présentés ici se vérifient et se trouvent directement à la main sans passer par les matrices mais ceci est bien moins élégant.
+} .
+Rappelons que les deux matrices du produit précédent sont des matrices entières $A$ vérifiant $A^T Q A = Q$ et $\det A = 1$ . Nous savons que pour ce type de matrice la première colonne est solution de \textbf{[ED]} .
+
+
+\begin{itemize}[label=\small\textbullet]
+	\item La loi $\star$ est bien interne à $\setproba{S}$ car si $A^T Q A = Q$ avec $\det A = 1$ et $B^T Q B = Q$ avec $\det B = 1$ , alors nous avons :
+	
+	\begin{itemize}[label=\raisebox{.3ex}{$\centerdot$}]
+		\item $(AB)^T Q (AB) = B^T A^T Q A B = B^T Q B = Q$
+		
+		\medskip
+		\item $\det(AB) = \det A \cdot \det B = 1$
+	\end{itemize}
+
+
+	\medskip
+	\item
+	$\begin{pmatrix} 
+	  1 \\ 
+	  0 
+	\end{pmatrix}$
+	est l'élément neutre de $\star$ car sa matrice associée est la matrice identité.
+
+
+	\medskip
+	\item
+	$\begin{pmatrix} 
+	  a  \\ 
+	  -c 
+	\end{pmatrix}$
+	est l'inverse de
+	$\begin{pmatrix} 
+	  a \\ 
+	  c 
+	\end{pmatrix}$
+	\textit{(revoir si besoin le cas 1 de la section précédente)}.
+
+
+	\medskip
+	\item Pour finir, l'associativité de $\star$ découle de celle de la multiplication des matrices.
+\end{itemize}

@@ -1,0 +1,12 @@
+% Source: https://tex.stackexchange.com/a/365265/6880
+
+\documentclass{article}
+\newcommand\myeq{\mkern1mu{=}\mkern1mu}
+\usepackage{amsmath}
+\begin{document}
+\begin{align*}
+\Pr(A=a)       &= \Pr(B=b \mid C=c) \\           % original form
+\Pr(A\myeq a)  &= \Pr(B\myeq b \mid C\myeq c) \\ % less whitespace around "="
+\Pr(\, A=a \,) &= \Pr(\, B=b \mid C=c \,)        % *more* whitespace
+\end{align*}
+\end{document}

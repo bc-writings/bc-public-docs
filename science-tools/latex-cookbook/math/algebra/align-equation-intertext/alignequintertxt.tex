@@ -1,0 +1,35 @@
+% Source: https://tex.stackexchange.com/a/560223/6880
+
+\documentclass[a4paper,12pt]{article}
+\usepackage{mathtools}
+\begin{document}
+\section{Let us try}
+\subsection{Stating the objective function}
+TextTextTextTextTextText
+TextTextTextTextTextText
+TextTextTextTextTextText
+
+\begin{equation}\label{1}
+\begin{aligned}
+\min \quad BFC  \bigg(\sum_{i\in I}Fc_i  u_i\bigg)
+&+ BEC  \bigg(\sum_{i\in I} \sum_{j \in J} \sum_{p \in P} x_{ijp}  Ec_{ijp} y \bigg)    \\
+&+ BTC  \bigg(\sum_{i\in I} \sum_{j \in J} \sum_{p \in P} x_{ijp}  Tc_{ijp}   \bigg)    \\
+&+ BWC  \bigg(\sum_{i\in I} \sum_{j \in J} \sum_{p \in P} x_{ijp}  Wc_{ijp}   \bigg)    \\
+&+ BZC  \bigg(\sum_{i\in I} \sum_{j \in J} \sum_{p \in P} x_{ijp}  Z_{ijp}    \bigg)  Zc
+\end{aligned}
+\end{equation}
+
+
+\subsection{Stating the constraints}
+The first constraint ensures that the demand of each customer is satisfied:
+
+\begin{align}\label{2}
+&\sum_{i\in I} x_{ijp} = D_{jpy},  \quad && \forall j \in J,  p\in P, y \in Y\\
+\intertext{The second formula makes sure that the maximum}
+&\sum_{j\in J}\sum_{p\in P} x_{ijp} \leq u_i,  \quad && \forall i \in I \label{3}
+\intertext{Specific breweries desire to be supplied by at least two suppliers for some specific type 
+of product code. This is ensured by the following two formulas:}
+&\sum_{i\in I}J_{ijp} \geq 2,  \quad && \forall j \in J,  p\in P \label{4}\\
+&x_{ijp} \geq b_{ijp} M_{jp}\label{5}
+\end{align}
+\end{document}

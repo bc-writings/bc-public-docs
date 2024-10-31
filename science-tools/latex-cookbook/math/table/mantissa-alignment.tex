@@ -1,0 +1,44 @@
+% Source: https://tex.stackexchange.com/a/667484/6880
+\documentclass{article}
+\usepackage{booktabs}
+\usepackage{siunitx}%[=v2]
+\ExplSyntaxOn
+\cs_gset_protected:Npn \__siunitx_table_print_format_auxvii:w
+  #1 \q_nil #2 \q_mark #3 \q_nil #4 \q_stop
+  {
+    \tl_if_blank:nF {#2}
+      {
+        \__siunitx_table_print_format_box:Nn \l__siunitx_table_tmp_box { { } #1#2 }
+        \dim_set:Nn \l__siunitx_table_tmp_dim { \box_wd:N \l__siunitx_table_tmp_box }
+        \__siunitx_table_print_format_box:Nn \l__siunitx_table_tmp_box
+          {
+            \bool_lazy_and:nnT
+              { \l__siunitx_table_align_exponent_bool }
+              { \tl_if_blank_p:n {#3} }
+              {
+                \__siunitx_table_print_format_box:Nn \l__siunitx_table_tmp_box
+                  { { } #1 { } }
+                \__siunitx_table_skip:n { \box_wd:N \l__siunitx_table_tmp_box }
+              }
+            { } #3#4
+          }
+        \__siunitx_table_print_format_after:N
+          \l__siunitx_table_align_exponent_bool
+      }
+  }
+\ExplSyntaxOff
+
+\sisetup{retain-unity-mantissa=false}
+\begin{document}
+
+\begin{tabular}{S[table-format = 2e+1,table-align-exponent=true]S[table-format = 2e+1,table-align-exponent=false]}
+\multicolumn{1}{c}{centered in column but not aligned}\\
+\toprule
+10   & 10   \\
+1e-4 & 1e-4 \\
+5e-5 & 5e-5 \\
+1e-5 & 1e-5 \\
+\bottomrule
+\end{tabular}
+
+\end{document}

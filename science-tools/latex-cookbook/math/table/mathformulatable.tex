@@ -1,0 +1,26 @@
+% Source: https://tex.stackexchange.com/a/667653/6880
+
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{tabularray}
+\begin{document}
+\begin{table}[tbh]
+    \footnotesize
+    \centering
+    \begin{tblr}{
+            width = \linewidth,
+            stretch = 1.75,
+            colspec = {X[5,c] *2{X[1,c]} X[5,c] *2{X[3,c]}},
+            vlines, hlines,
+            cell{1}{1} = {r=2}{},
+            cell{1}{2} = {c=2}{},
+            cell{1}{5} = {c=2}{},
+        }
+        Les Expressions & Polynôme ? & & $\rm{d^{\circ}}(P(x))$ & Coef de monôme de degré & \\
+                        & Oui & Non & 4 & 2 & 3 \\
+        $x^{6}+24x^{2}+\dfrac{\sqrt 2^{2^{2^{2^{2^{2}}}}}}{5}$ & Oui & Non & 4 & 2 & 3 \\
+        $x^{6}+24x^{2}+\dfrac{\sqrt 2}{5}$ & Oui & Non & 4 & 2 & 3 \\
+        $x^{6}+24x^{2}+\dfrac{\sqrt 2}{5}$ & Oui & Non & 4 & 2 & 3 \\
+    \end{tblr}
+\end{table}
+\end{document}

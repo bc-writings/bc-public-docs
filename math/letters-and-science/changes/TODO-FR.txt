@@ -1,0 +1,23 @@
+==========================
+LETTERS AND SCIENCE - TODO
+==========================
+
+
+> ---------------- <
+
+Par contre, la compilation n'est plus propre : un problème avec l'utilisation de  `xstring`. Non résolu pour le moment !
+
+
+> ---------------- <
+
+comparer avec https://fr.wikipedia.org/wiki/Usage_des_lettres_grecques_en_sciences
+
+
+> ---------------- <
+
+bug toc in pDF ???
+
+
+> ---------------- <
+
+Utilisation du langage ¨pyba pour rédiger ce document. Ceci a permis la mise en ligne d'une version HTML très pratique.

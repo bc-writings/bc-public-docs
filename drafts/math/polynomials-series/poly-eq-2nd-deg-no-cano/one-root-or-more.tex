@@ -1,0 +1,52 @@
+Soit $f(x) = a \, x^2 + b \, x + c$ où $a \neq 0$ tel qu'il existe $\alpha \in \RR$ annulant $f$.
+La section précédente implique que nécessairement $b^2 - 4 ac \geq 0$ .
+
+\medskip
+
+La factorisation \fbox{\texttt{1}} de $f(\alpha) - f(\beta)$ vue dans la section précédente nous donne ici sans effort : 
+$f(x) - f(\alpha) = (x - \alpha) (a (x + \alpha) + b)$ .
+On en déduit l'existence d'un autre zéro $\beta \in \RR$, éventuellement égal à $\alpha$, tel que
+$f(x) = a (x - \alpha) (x - \beta)$ .
+Ceci implique, après développement, que
+$\alpha   +   \beta = - \dfrac{b}{a}$
+et
+$\alpha \cdot \beta = \dfrac{c}{a}$ .
+
+
+\medskip
+
+Exploitons ici aussi l'usage de $m = - \dfrac{b}{2a}$ de sorte que
+$\dfrac{\alpha + \beta}{2} = m$
+\emph{(ceci est aussi une conséquence de l'égalité $f(\alpha) = f(\beta)$)}.
+On va paramétrer notre problème via une seule inconnue
+\footnote{
+	Cette astuce permet en fait de diminuer par deux le nombre d'inconnues lorsque l'on cherche les racines d'un polynôme $p$, de degré pair forcément, tel que $\setgeo*{C}{p}$ ait un axe de symétrie.
+}
+grâce à $m$.
+Pour cela posons
+$\delta = \dfrac{\beta - \alpha}{2}$ de sorte que
+$\alpha = m - \delta$ et $\beta = m + \delta$.
+Nous obtenons :
+
+\medskip
+
+\begin{stepcalc}[style = sar, ope = \iff]
+	\alpha \cdot \beta = \dfrac{c}{a}
+		\explnext{}
+	(m - \delta)(m + \delta) = \dfrac{c}{a}
+		\explnext{}
+	m^2 - \delta^2 = \dfrac{c}{a}
+		\explnext{}
+	\delta^2 = m^2 - \dfrac{c}{a}
+		\explnext{}
+	\delta^2 = \dfrac{b^2}{4a^2} - \dfrac{c}{a}
+		\explnext{}
+	\delta^2 = \dfrac{b^2 - 4 ac}{4a^2}
+		\explnext{\tiny$b^2 - 4 ac \geq 0$}
+	\delta = \pm \dfrac{\sqrt{b^2 - 4 ac}}{2 a}
+\end{stepcalc}
+
+\medskip
+
+Nous avons donc établi que si $\alpha$ et $\beta$ sont deux zéros, éventuellement confondus, de $f$ alors $b^2 - 4 ac \geq 0$ et les zéros sont $\dfrac{-b \pm \sqrt{b^2 - 4 ac}}{2 a}$ .
+La réciproque est immédiate.

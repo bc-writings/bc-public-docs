@@ -1,0 +1,32 @@
+\begin{multicols}{2}
+    \algoname{}
+    Qu'affiche l'algorithme ci-dessous lorsque $n=6$ ?
+    \bigskip
+    \begin{algo}
+        \Data{$n$ un naturel}
+        \Begin{
+            $F = 1$
+            \\
+            \For{$i = 1$ \KwTo $n$}{
+                $F \leftarrow F \times i$
+            }
+            \Print{$F$}.
+        }
+    \end{algo}
+
+    \switchcol
+
+    \algoname{}
+    Qu'affiche l'algorithme ci-dessous lorsque $x=6$ puis $x=12$ ?
+    \bigskip
+    \begin{algo}
+        \Data{un réel $x$.}
+        \Begin{
+            \While{$x \leq 10$}{
+                $x \leftarrow x + 1$
+                \\
+                \Print{$x$}.
+            }
+        }
+    \end{algo}
+\end{multicols}

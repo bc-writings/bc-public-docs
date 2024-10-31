@@ -1,0 +1,66 @@
+% Source : http://tex.stackexchange.com/questions/31336/how-can-i-display-an-array-as-in-the-data-structure-from-computer-science-not-t
+
+\documentclass{article}
+	\usepackage{tikz}
+	\usetikzlibrary{calc}
+
+	\newcounter{nodeidx}
+	\setcounter{nodeidx}{1}
+
+	\newcommand{\nodes}[1]{%
+		\foreach \num in {#1}{
+			\node[minimum size=6mm, draw, rectangle] (\arabic{nodeidx}) at (\arabic{nodeidx},0) {\num};
+			\stepcounter{nodeidx}
+		}
+	}
+
+	\newcommand{\brckt}[4]{% from, to, lvl, text
+		\draw 
+			(#1.south west) 
+			++
+			($(-.1, -.1) + (-.1*#3, 0)$)
+			-- ++
+			($(0,-.1) + (0,-#3*1.25em)$) 
+			-- node [below] 
+			{#4} 
+			($(#2.south east) + (.1,-.1) + (.1*#3, 0) + (0,-.1) + (0,-#3*1.25em)$) -- ++($(0,#3*1.25em) + (0,.1)$);%
+	}
+
+
+\begin{document}
+
+\begin{tikzpicture}
+	\pgftransparencygroup
+		\nodes{5,2,7,-5,16,12}
+	\endpgftransparencygroup
+
+	\pgfsetstrokeopacity{0.5}
+	\pgfsetfillopacity{0.5}
+
+	\pgftransparencygroup
+		\nodes{?,?,?,?,?,?}
+	\endpgftransparencygroup
+
+	\pgfsetstrokeopacity{.75}
+	\pgfsetfillopacity{.75}
+
+	\pgftransparencygroup
+		\brckt{1}{6}{0}{size=6}
+	\endpgftransparencygroup
+
+	\pgfsetfillopacity{0.5}
+	\pgfsetstrokeopacity{0}
+
+	\pgftransparencygroup
+		\brckt{7}{12}{0}{free space}
+	\endpgftransparencygroup
+
+	\pgfsetstrokeopacity{0.5}
+
+	\pgftransparencygroup
+		\brckt{1}{12}{1}{capacity=12}
+	\endpgftransparencygroup
+\end{tikzpicture}
+
+\end{document}
+

@@ -1,0 +1,44 @@
+\subsection{Communiquer basiquement avec l'utilisateur}
+
+Une façon évoluée de communiquer est d'utiliser une interface graphique comme celle de IPython par exemple. Ceci demande pas mal de travail et n'est donc pas faisable quand on débute. On peut aussi simplement passer par l'invite de commande, ou terminal. C'est ce qui est présenté ici.
+
+
+\subsubsection{Afficher du texte}
+
+Pour afficher par exemple le texte \textit{"Nous ne dirons pas bonjour au monde car il n'est pas là dans son ensemble."} sans les guillemets, il suffit de faire comme suit où la fonction \texttt{print} proposée par Python signifie \textit{"imprimer"} \textit{(il faut se souvenir que les premiers ordinateurs disposaient juste d'une imprimante pour retourner des résultats)}.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+print("Nous ne dirons pas bonjour au monde car il n'est pas complètement là aujourd'hui.")
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+Nous ne dirons pas bonjour au monde car il n'est pas complètement là aujourd'hui.
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+\subsubsection{Récupérer du texte demandé à l'utilisateur dans une invite de commandes ou un terminal}
+
+La fonction \texttt{input} sert à poser une question à l'utilisateur pour récupérer une réponse de type texte.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+reponse = input("Taper un texte puis utilisez la touche [ENTREE]: ")
+
+print("Votre texte :", reponse)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+Taper un texte puis utilisez la touche [ENTREE]: Je ne sais que écrire...
+Votre texte : Je ne sais que écrire...
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip

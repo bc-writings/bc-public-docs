@@ -1,0 +1,94 @@
+\subsection{Agir si quelque chose est vérifiée}
+
+\subsubsection{Si ... sinon si ... sinon ...}
+
+Programmer c'est prendre des décisions en fonction d'un contexte donné. Dans l'exemple basique suivant, notez l'utilisation de l'indentation, ou du décalage, de quatre espaces qui sert à indiquer le bloc d'instructions à faire en cas de test validé.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+# Nous souhaitons une réponse de type naturel.
+choix = int(input("Votre choix entre 1, 2, et 3 ? "))
+
+if choix == 1:
+    print("Premier choix")
+
+elif choix == 2:
+    print("Deuxième choix")
+
+elif choix == 3:
+    print("Troisième choix")
+
+else:
+    print("Choix inconnu")
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+Votre choix entre 1, 2, et 3 ? 7
+Choix inconnu
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+Bien entendu, on peut utiliser juste les formes \textit{"réduites"} \texttt{if ... else ...} , et aussi juste \texttt{if ...} si le contexte le demande \textit{(voir la section suivante)}.
+
+
+\subsubsection{Indentation, attention danger !}
+
+L'indentation est importante comme le montre le code suivant.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+x = 5
+
+# Tout au même niveau.
+print("TOUT AU MÊME NIVEAU")
+print("===================")
+
+
+if x == 2:
+    print("x == 2")
+
+if x > 2:
+    print("x > 2")
+
+if x < 0:
+    print("x < 0")
+
+if x <= 5:
+    print("x <= 5")
+# Des indentations différentes.
+print("")
+print("DES INDENTATIONS DIFFÉRENTES")
+print("============================")
+
+if x == 2:
+    print("x == 2")
+
+    if x > 2:
+        print("x > 2")
+
+if x < 0:
+    print("x < 0")
+
+    if x <= 5:
+        print("x <= 5")
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+TOUT AU MÊME NIVEAU
+===================
+x > 2
+x <= 5
+
+DES INDENTATIONS DIFFÉRENTES
+============================
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip

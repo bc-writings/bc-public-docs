@@ -1,0 +1,43 @@
+\documentclass{article}
+
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{etoolbox}
+
+\setlist[enumerate]{%
+	\ifnum\value{enumi}=1%
+		OK
+	\else
+		KO
+	\fi
+}
+
+
+\newcommand\mylabelstyle[1]{%
+	\ifnum#1=1%
+		\textbf{\value{enumi}}%
+	\else%
+		\ifnum#1=2%
+			\textit%
+		\ifnum
+			\ifx#1=3%
+				\textcolor{red}%
+			\fi
+		\fi
+	\else%
+		\textcolor{green}%
+	\fi%
+}\fi
+
+
+\begin{document}
+
+
+\begin{enumerate}[label=\protect\mylabelstyle{\value*}]
+\item foo
+\item bar
+\item foobar
+\item default
+\end{enumerate}
+
+\end{document}

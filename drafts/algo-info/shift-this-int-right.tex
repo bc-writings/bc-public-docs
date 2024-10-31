@@ -1,0 +1,344 @@
+% Exemple code LUA pour prolonger : top utilisation des opérateurs !!!!
+
+
+
+
+\documentclass[12pt]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[top=1.95cm, bottom=1.95cm, left=2.35cm, right=2.35cm]{geometry}
+
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{tcolorbox}
+\usepackage{multicol}
+\usepackage{fancyvrb}
+\usepackage{xstring}
+\usepackage{amsmath}
+\usepackage[french]{babel}
+\usepackage[
+    type={CC},
+    modifier={by-nc-sa},
+	version={4.0},
+]{doclicense}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{pgffor}
+      
+\usepackage{tnsmath}
+\usepackage{circledsteps}
+    
+\newtheorem{fact}{Fait}%[section]
+
+
+\newtheorem{definition}{Définition}%[section]
+\newtheorem{theorem}{Théorème}%[section]
+\newtheorem{example}{Exemple}%[section]
+\newtheorem{exercise}{Exercice}%[section]
+\newtheorem{remark}{Remarque}%[section]
+\newtheorem*{notations}{Notations}
+
+\setlength\parindent{0pt}
+
+
+
+
+\DeclareMathOperator{\ediv}{\operatorname{\div}}
+
+
+\newcommand\centerit[1]{%%
+	\smallskip
+	
+	\begin{center}
+		#1
+	\end{center}
+}
+
+
+\newcommand\sign[1]{\fbox{\scriptsize $#1$}}
+\newcommand\phantomsign{\phantom{\sign{-}}}
+
+
+% Source pour le \@tfor :
+% 	* https://tex.stackexchange.com/a/253205/6880
+\makeatletter
+	\newcommand\equality{\@ifstar{\@equality@star@}{\@equality@no@star@}}
+
+	\newcommand\@equality@star@[1]{
+		\smallskip
+	
+		$=$ {} \qquad  $\leftarrow$ #1
+	
+		\smallskip
+	}
+
+	\newcommand\@equality@no@star@{
+		\smallskip
+	
+		$=$
+
+		\smallskip
+	}
+
+% Nothing special for the cell...	
+	\newcommand\elasticbox[1]{%
+		\fcolorbox{black}{white}{\normalfont #1}%
+	}
+
+	\newcommand\fixedboxcolored[3]{%
+		\fcolorbox{#1}{#2}{\makebox[1em]{\normalfont\vphantom{?}#3}}%
+	}
+
+	\newcommand\fixedbox[1]{%
+		\fixedboxcolored{black}{white}{\makebox[1em]{\normalfont\vphantom{?}#1}}%
+	}
+
+% ... will move
+	\newcommand\elasticboxwill[1]{%
+		\fcolorbox{black}{red!15}{\normalfont #1}%
+	}
+
+	\newcommand\fixedboxwill[1]{%
+		\fixedboxcolored{black}{red!15}{\normalfont #1}%
+	}
+
+% ... has moved
+	\newcommand\elasticboxhas[1]{%
+		\fcolorbox{black}{black!10}{\normalfont #1}%
+	}
+	
+	\newcommand\fixedboxhas[1]{%
+		\fixedboxcolored{black}{black!10}{\normalfont #1}%
+	}
+
+% Let's go !
+	\newcommand\onefortwocomplemen{\fixedboxcolored{black}{green!15}{\bfseries 1}}
+
+
+\newcommand\zerofortwocomplemen{\fixedboxcolored{black}{green!15}{\bfseries 0}}
+
+
+	\newcommand\twocomplement{\fixedboxwill{$\bullet$}}
+
+	\newcommand\@empty@content{\phantom{?}}
+	\newcommand\emptycell{\fixedbox{\@empty@content}}
+	\newcommand\one{\fixedbox{\bfseries 1}}
+	\newcommand\zero{\fixedbox{\bfseries 0}}
+	
+	\newcommand\@ellipsis@{\,\,\vphantom{?}$\cdots$\,\,}
+	\newcommand\myellipsis{\elasticbox{\@ellipsis@}}
+
+% ... will move
+	\newcommand\emptycellwill{\fixedboxwill{\@empty@content}}
+	\newcommand\onewill{\fixedboxwill{\bfseries 1}}
+	\newcommand\zerowill{\fixedboxwill{\bfseries 0}}
+	\newcommand\myellipsiswill{\elasticboxwill{\@ellipsis@}}
+	
+% ... has moved
+	\newcommand\emptycellhas{\fixedboxhas{\@empty@content}}
+	\newcommand\onehas{\fixedboxhas{\bfseries 1}}
+	\newcommand\zerohas{\fixedboxhas{\bfseries 0}}
+	\newcommand\myellipsishas{\elasticboxhas{\@ellipsis@}}
+
+
+% 0 : 0 normal
+% 1 : 1 normal
+% . : vide normal
+% - : ellipsis
+%
+% Z : 0 qui va bouger
+% U : 1 qui va bouger
+% v : vide qui va bouger
+% = : ellipsis qui va bouger
+%
+% z : 0 qui vient de bouger
+% u : 1 qui vient de bouger
+% a : vide qui vient de bouger
+% + : ellipsis
+%
+%
+% * : 1 pour complément à 2 + 1
+% o : complément à 2 + 1
+%
+% < Ouvre un cadre de surlignement de plusieurs cellules
+% < Ferme un cadre de surlignement de plusieurs cellules
+	\newcommand\binary[1]{%
+		\@tfor\next:=#1\do{%
+			\if\next 0\zero{}\else%
+		    \if\next 1\one{}\else%
+			\if\next .\emptycell{}\else%
+			\if\next -\myellipsis{}\else%
+			%
+			\if\next Z\zerowill{}\else%
+		    \if\next U\onewill{}\else%
+		    \if\next v\emptycellwill{}\else%
+			\if\next =\myellipsiswill{}\else%
+		    %
+			\if\next z\zerohas{}\else%
+		    \if\next u\onehas{}\else%
+		    \if\next a\emptycellhas{}\else%
+			\if\next +\myellipsishas{}\else%
+			%
+			\if\next *\onefortwocomplemen{}\else%
+			\if\next c\zerofortwocomplemen{}\else%
+			\if\next o\twocomplement{}\else%
+		    %
+\quad {\bfseries [[ illegal character : \, {\normalfont \next{}} \, ]]} \quad % BUG
+			\fi%  :
+			\fi%  a
+			\fi%  u
+			\fi%  p
+			%
+			\fi%  =
+			\fi%  v
+			\fi%  n
+			\fi%  b
+			%
+			\fi%  -
+			\fi%  .
+			\fi%  N
+			\fi%  B
+			%
+			\fi%  *
+			\fi%  c
+			\fi%  o
+		}%
+	}
+	
+
+	\newcommand\autobox[1]{%
+      \foreach \i in {1, ..., #1} {%
+        \fixedbox{\i}%
+      }
+	}
+	
+
+	\newcommand\binaryplus{\@ifstar{\@binaryplus@star@}{\@binaryplus@no@star@}}
+
+	\newcommand\@binaryplus@no@star@[2]{
+		\binary{#1}
+		\setbox0=\hbox{#2\unskip}\ifdim\wd0=0pt \else {\small \ $\leftarrow$ #2}\fi
+	}
+
+	\newcommand\@binaryplus@star@[2]{
+		\@binaryplus@no@star@{#1}{#2}
+		
+		\StrLen{#1}[\@length@]
+		\noindent  
+		\autobox{\@length@}
+	}
+
+	\newcommand\listbox[1]{%
+		\@tfor\next:=#1\do{\fixedbox{\next}}%
+	}
+\makeatother
+
+
+ 
+\begin{document}
+
+\title{BROUILLON - CANDIDAT - Quels décalages entre les entiers signés et les non signés ?}
+\author{Christophe BAL}
+\date{17 Mars 2019 - 11 Janvier 2020}
+
+\maketitle
+
+\begin{center}
+	\itshape
+	Document, avec son source \LaTeX, disponible sur la page
+	
+	\url{https://github.com/bc-writing/drafts}.
+\end{center}
+
+
+\bigskip
+
+
+\begin{center}
+	\hrule\vspace{.3em}
+	{
+		\fontsize{1.35em}{1em}\selectfont
+		\textbf{Mentions \og légales \fg}
+	}
+			
+	\vspace{0.45em}
+	\doclicenseThis
+	\hrule
+\end{center}
+
+	
+\bigskip
+\setcounter{tocdepth}{2}
+\tableofcontents
+
+
+
+% ----------------- %
+
+
+\section{Entiers non signés}
+
+\input{shift-this-int-right/unsigned-integers}
+
+
+% ----------------- %
+
+
+\section{Entiers signés}
+
+\subsection{Comment ça marche ?}
+
+\input{shift-this-int-right/signed-integers/recipe}
+
+
+\subsection{Qu'est-ce qui motive ces choix ?}
+
+\input{shift-this-int-right/signed-integers/intuition}
+
+
+\subsection{Pourquoi ça marche ?}
+
+\input{shift-this-int-right/signed-integers/proof}
+
+
+% ----------------- %
+
+
+\section{Division par $2$ et décalage à droite}
+
+\subsection{Entiers non signés}
+
+\input{shift-this-int-right/shift-right/signed}
+
+
+\subsection{Entiers signés}
+
+\input{shift-this-int-right/shift-right/unsigned}
+
+
+\subsection{Synthèse}
+
+\input{shift-this-int-right/shift-right/synthesis}
+
+
+% ----------------- %
+
+
+\section{Multiplication par $2$ et décalage à gauche}
+
+\subsection{Entiers non signés}
+
+\input{shift-this-int-right/shift-left/signed}
+
+
+\subsection{Entiers signés}
+\input{shift-this-int-right/shift-left/unsigned}
+
+
+\subsection{Synthèse}
+\input{shift-this-int-right/shift-left/synthesis}
+
+
+\end{document}

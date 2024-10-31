@@ -1,0 +1,8 @@
+==========
+2017-11-02
+==========
+
+**Des nouveautés :** ajout de la très jeune constante `tau`, et de nouveaux exemples d'utilisation des lettres grecques `Theta`, `Psi` et `Omega`.
+
+
+**Mise à jour de l'adresse ¨github.**

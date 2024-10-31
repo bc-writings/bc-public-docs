@@ -1,0 +1,56 @@
+% Source: https://tex.stackexchange.com/a/682142/6880
+
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{ninecolors}
+
+\usepackage{tabularray}
+\UseTblrLibrary{siunitx}
+\UseTblrLibrary{counter}
+
+\sisetup{output-decimal-marker={,}}
+
+\DefTblrTemplate{contfoot-text}{normal}{Continued on next page}
+\SetTblrTemplate{contfoot-text}{normal}
+\DefTblrTemplate{conthead-text}{normal}{(Continued)}
+\SetTblrTemplate{conthead-text}{normal}
+\SetTblrTemplate{conthead-text}{normal}
+
+\newcounter{mycnta}
+\newcommand{\mycnta}{\stepcounter{mycnta}\arabic{mycnta}}
+
+\newcommand{\hackequation}[1]{%
+  \unskip\vspace{0.5\abovedisplayskip}\newline
+  \makebox[\linewidth]{$\displaystyle#1$}\vspace{0.5\belowdisplayskip}%
+}
+
+\begin{document}
+
+\begin{longtblr}[caption={Some text}]
+  {
+   colspec = {Q[c,gray9]X[l]Q[c]},
+   vlines,
+   hlines,
+   row{1}={yellow9,font=\bfseries},
+   cell{2,7,11}{2-3} ={teal9},
+   %cell{7}{2-3} ={teal9},
+   %cell{11}{2-3} ={teal9},
+   hline{1,2,Y,Z} = {solid},
+   cell{1}{2-3}={halign=c},
+   column{1}={font=\bfseries},
+   cell{2-Z}{1}={cmd={\mycnta}},
+}
+  Problem & Content & Point \\
+  \SetCell[r=5]{m} &
+    Solve the equation\hackequation{
+      (2 x+3)\cdot \sqrt{4 x+5}+(6 x+7) \cdot\sqrt{8 x+9}=2.
+    } & \num{1.00}   \\
+  & $ \Delta =(-5)^2 - 4 \cdot 1 \cdot 6 = 1$, & \num{0.25} \\
+  & $ x = \dfrac{-(-5) -1}{2} = 2$. & \num{0.25} \\
+  & $ x = \dfrac{-(-5)  + 1}{2} = 3$ & \num{0.25} \\
+  & The given equation has two solutions $x=2$ and $x = 3$. & \num{0.25} \\
+\end{longtblr} 
+
+\end{document}

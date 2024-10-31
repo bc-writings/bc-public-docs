@@ -1,0 +1,112 @@
+On cherche ici à faire une table pour un \emph{\og ou exclusif \fg}.
+En utilisant l'identité booléenne $A \boolope{ OUEX } B \eq[id] (\boolope{NON } A \boolope{ ET } B) \boolope{ OU } (A \boolope{ ET NON } B)$, nous pouvons appliquer ce que nous avons utilisé précédemment pour traduire les opérateurs logiques $\boolope{ET}$, $\boolope{OU}$ et $\boolope{NON}$.
+Bien que théoriquement correct, ce raisonnement automatique va nous conduire à une trop \myquote{grosse} table des transitions.
+
+
+\medskip
+
+
+Pour obtenir une table de taille raisonnable, nous allons ajouter une nouvelle bande.
+Expliquons comment faire automatiquement via la table \myquote{optimisée} de la section \ref{2-or-3} \emph{(la méthode présentée est généralisable aux tables à plusieurs bandes)}.
+\begin{enumerate}
+	\item La bande supplémentaire va juste nous servir à \myquote{compter} les cas gagnants.
+
+	\item Nous allons court-circuiter le 1\ier{} cas final pour aller à l'état $sp_0$  tout en gardant la trace du succès du 1\ier{} test.
+
+	\item Il reste à gérer les états bloquants de la 2\ieme{} machine lorsque la 1\iere{} a fonctionné.
+	      Dans l'optique d'utilisation séquentielle de machines, nous remettons à zéro la bande supplémentaire.
+\end{enumerate}
+
+
+\medskip
+
+Nous utilisons $\twocoord{0}{\bullet}$ pour simplifier la table. Dans cette écriture, {\scriptsize$\bullet$} indique un caractère quelconque. Dans une transition, il indique le caractère initial qui est donc inchangé.
+
+
+\begin{center}
+	\emph{\small Phase 1 : a-t-on un pair via la bande du bas ?}
+	
+	\smallskip
+	\begin{tabular}{|c||c|c|c|}
+% MUTIPLE OF 3
+		\hline
+		$\delta$ 
+			& $\twocoord{0}{B}$ 
+			& $\twocoord{1}{B}$
+			& $\twocoord{B}{B}$ \\
+		\hline
+		\hline
+		$q_0$ 
+			& \transition{\ell_0}{\twocoord{0}{B}}{\twocoord{D}{I}} 
+			& \transition{\ell_1}{\twocoord{1}{B}}{\twocoord{D}{I}}
+			&                                                       \\
+		\hline
+		$\ell_0$
+			& \transition{\ell_0 }{\twocoord{0}{B}}{\twocoord{D}{I}} 
+			& \transition{\ell_1 }{\twocoord{1}{B}}{\twocoord{D}{I}}
+			& \transition{sp_0   }{\twocoord{B}{1}}{\twocoord{G}{I}} \\
+		\hline
+		$\ell_1$
+			& \transition{\ell_0}{\twocoord{0}{B}}{\twocoord{D}{I}} 
+			& \transition{\ell_1}{\twocoord{1}{B}}{\twocoord{D}{I}}
+			& \transition{sp_0  }{\twocoord{B}{B}}{\twocoord{G}{I}} \\
+		\hline
+	\end{tabular}
+\end{center}
+
+
+
+\begin{center}
+	\emph{\small Phase 2 : a-t-on un multiple de $3$ via la bande du bas ?}
+	
+	\smallskip
+	\begin{tabular}{|c||c|c|c|c|}
+% MUTIPLE OF 3
+		\hline
+		$\delta$ 
+			& $\twocoord{0}{\bullet}$ 
+			& $\twocoord{1}{\bullet}$
+			& $\twocoord{B}{B}$       
+			& $\twocoord{B}{1}$ \\
+		\hline
+		\hline
+		$sp_0$ 
+			& \transition{si_0}{\twocoord{0}{\bullet}}{\twocoord{G}{I}} 
+			& \transition{si_1}{\twocoord{1}{\bullet}}{\twocoord{G}{I}}
+			& \transition{f   }{\twocoord{B}{B}      }{\twocoord{I}{I}}
+			&                                                           \\
+		\hline
+		$sp_1$ 
+			& \transition{si_1}{\twocoord{0}{\bullet}}{\twocoord{G}{I}} 
+			& \transition{si_2}{\twocoord{1}{\bullet}}{\twocoord{G}{I}}
+			&
+			& \transition{f   }{\twocoord{B}{B}      }{\twocoord{I}{I}} \\
+		\hline
+		$sp_2$ 
+			& \transition{si_2}{\twocoord{0}{\bullet}}{\twocoord{G}{I}} 
+			& \transition{si_0}{\twocoord{1}{\bullet}}{\twocoord{G}{I}}
+			&
+			& \transition{f   }{\twocoord{B}{B}}{\twocoord{I}{I}}       \\
+		\hline
+		\hline
+		$si_0$ 
+			& \transition{sp_0}{\twocoord{0}{\bullet}}{\twocoord{G}{I}} 
+			& \transition{sp_2}{\twocoord{1}{\bullet}}{\twocoord{G}{I}}
+			& \transition{f   }{\twocoord{B}{B}      }{\twocoord{I}{I}}
+			&                                                           \\
+		\hline
+		$si_1$ 
+			& \transition{sp_1}{\twocoord{0}{\bullet}}{\twocoord{G}{I}} 
+			& \transition{sp_0}{\twocoord{1}{\bullet}}{\twocoord{G}{I}}
+			&
+			& \transition{f   }{\twocoord{B}{B}      }{\twocoord{I}{I}} \\
+		\hline
+		$si_2$ 
+			& \transition{sp_2}{\twocoord{0}{\bullet}}{\twocoord{G}{I}} 
+			& \transition{sp_1}{\twocoord{1}{\bullet}}{\twocoord{G}{I}}
+			&
+			& \transition{f   }{\twocoord{B}{B}      }{\twocoord{I}{I}} \\
+		\hline
+	\end{tabular}
+\end{center}
+

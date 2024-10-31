@@ -1,0 +1,36 @@
+% Source: https://tex.stackexchange.com/a/603769/6880
+
+\documentclass[12pt,a4paper]{article}
+
+\NewDocumentCommand{\test}{sm}{%
+  \IfBooleanTF{#1}
+    {% * is present
+     I am a star.%
+    }
+    {% no *
+     \testupper{#2}%
+    }%
+}
+
+
+\ExplSyntaxOn
+\NewExpandableDocumentCommand{\comparestringTF}{mmmm}
+ {% #1 = input string, #2 = fixed string, #3 = true text, #4 = false text
+  \str_if_eq:nnTF { #1 } { #2 } { #3 } { #4 }
+ }
+\ExplSyntaxOff
+
+\NewDocumentCommand{\testupper}{m}{%
+  I am a \comparestringTF{#1}{upper}{TSAR}{tsar}%
+}
+
+
+\begin{document}
+
+\test{}
+
+\test{upper}
+
+\test*{}
+
+\end{document}

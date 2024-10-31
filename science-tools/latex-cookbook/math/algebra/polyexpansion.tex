@@ -1,0 +1,31 @@
+\documentclass{article}
+
+\usepackage{nicematrix}
+\usepackage{tikz}
+
+\begin{document}
+
+{\setlength{\arraycolsep}{1.2pt}
+$\begin{NiceArray}{l*{5}{cr}}
+  f(t)
+    &=& \Block[l]{1-9}{(t + 1)^4 - (t + 1)^3 +2(t + 1) + 1} \\
+    &=& t^4 &+& 4t^3 &+& 6t^2 &+& 4t &+& 1 \\
+    & &     &-& t^3  &-& 3t^2 &-& 3t &-& 1 \\
+    & &     & &      & &      & & 2t &+& 2 \\
+    & &     & &      & &      & &    &+& 1 \\
+    &=& t^4 &+& 3t^3 &+& 3t^2 &+& 3t &+& 3
+  \CodeAfter
+  \begin{tikzpicture}
+  	\draw[gray, dashed,
+	      shorten >= 1mm,
+	      shorten <= 1mm] 
+	  (2-2.south)
+	  to
+	  (6-2.north);
+  \end{tikzpicture}
+\end{NiceArray}$}
+
+%$f(t) = t^4 + 3t^3 + 3t^2 + 3t + 3$
+
+\end{document}
+

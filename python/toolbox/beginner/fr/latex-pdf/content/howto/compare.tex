@@ -1,0 +1,131 @@
+\subsection{Comparer c'est tester}
+
+\subsubsection{A-t-on égalité ?}
+
+Une grande partie des langages de programmation utilisent \texttt{=} pour affecter une valeur à une variable, et \texttt{==} pour tester une égalité. Python fait partie de ces langages. Notez au passage le manque de clarté en mathématiques où l'on peut écrire \textit{\textit{"Soit $x = 4$"}} et \textit{\textit{"A-t-on $x = 4$ ?"}} dans deux contextes différents.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+x = 2
+
+print("A-t-on x = 2 ?", x == 2)
+print("A-t-on x = 5 ?", x == 5)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+A-t-on x = 2 ? True
+A-t-on x = 5 ? False
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+On note que les tests d'égalité renvoient un résultat de type booléen. Ce sera aussi le cas des tests de comparaison de type \textit{"ordre"} présentés un peu plus bas.
+
+
+\subsubsection{Est-ce différent ?}
+
+L'opérateur \texttt{!=} teste si deux variables sont différentes. Voici un exemple.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+x = 2
+
+print("A-t-on x différent 2 ?", x != 2)
+print("A-t-on x différent 5 ?", x != 5)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+A-t-on x différent 2 ? False
+A-t-on x différent 5 ? True
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+\subsubsection{Plus petit, plus grand et compagnie}
+
+Dans le code suivant, remarquez qu'il est possible d'utiliser directement \texttt{1 <= x < 3} sans avoir à faire \texttt{\textit{(1 <= x)} and \textit{(x < 3)}}.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+x = 2
+
+print("A-t-on x > 0 ?     ", x > 0)
+print("A-t-on x > 2 ?     ", x > 2)
+print("A-t-on x <= 2 ?    ", x <= 2)
+print("A-t-on 1 <= x < 3 ?", 1 <= x < 3)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+A-t-on x > 0 ?      True
+A-t-on x > 2 ?      False
+A-t-on x <= 2 ?     True
+A-t-on 1 <= x < 3 ? True
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+\subsubsection{Attention danger ! \texttt{1} et \texttt{True} sont égaux mais pas identiques pour Python}
+
+Les opérateurs de comparaison peuvent s'appliquer à des types différents de variables. Voici un premier exemple. Le résultat est prévisible car \texttt{2} désigne le naturel $2$, tandis que \texttt{\textit{"2"}} désigne le texte réduit à l'unique caractère 2.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+x = 2
+
+print('x == "2" vaut', x == "2")
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+x == "2" vaut False
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+Regardons un code un peu plus problématique.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+print(1 == True)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+True
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+La section sur les booléens explique que dans l'implémentation de Python les booléens sont d'une certaine façon des naturels. Ceci permet de comprendre le résultat étrange précédent. Si vous souhaitez vraiment comparer strictement et rigoureusement une variable à une valeur booléenne, il faudra utiliser l'opérateur \texttt{is} comme dans le code suivant.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+print(1 is True)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+False
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip

@@ -1,0 +1,58 @@
+Supposons que $\consprod<3> = n(n+1)(n+2) \in \NNssquare$\,. Nous avons alors les \sftab[x] partiels suivants pour $p \in \PP_{\geq 3}$ divisant $\consprod<3>$\,, d'après les faits \ref{sftable-multiple} et \ref{sftable-parity-square}.
+
+\begin{center}
+	\begin{tblr}{
+		colspec    = {Q[r,$]*{3}{Q[c,$]}},
+		vline{2}   = {.95pt},
+		vline{3-4} = {dashed},
+		hline{2}   = {.95pt}
+	}
+		n + \bullet
+			&  0  &  1  &  2
+	\\
+		p  
+			&  1  &  1  &  1
+	\end{tblr}
+\end{center}
+
+
+Pour $p = 2$\,, via les faits \ref{sftable-multiple} et \ref{sftable-parity-square}, seulement deux \sftab[x] partiels d'ordre $2$ sont possibles. Nous utilisons un abus de notation évident pour indiquer ces deux possibilités.
+
+\begin{center}
+	\begin{tblr}{
+		colspec    = {Q[r,$]*{3}{Q[c,$]}},
+		vline{2}   = {.95pt},
+		vline{3-4} = {dashed},
+		hline{2}   = {.95pt}
+	}
+		n + \bullet  
+			&  0  &  1  &  2
+	\\
+		2  
+			&  1  &  1  &  1
+	\\  
+			&  2  &  1  &  2
+	\end{tblr}
+\end{center}
+
+
+La multiplication de tous les \sftab[x] partiels précédents donne juste les deux \sftab[x], non partiels, suivants, mais ceci est impossible d'après le fait \ref{sftable-illegal-0-sol}.
+
+\begin{center}
+	\begin{tblr}{
+		colspec    = {Q[r,$]*{3}{Q[c,$]}},
+		vline{2}   = {.95pt},
+		vline{3-4} = {dashed},
+		hline{2}   = {.95pt},
+		% Rejected
+		cell{2}{2,3} = {red!15},
+		cell{3}{2,4} = {red!15},
+	}
+		n + \bullet  
+			&  0  &  1  &  2
+	\\  
+			&  1  &  1  &  1
+	\\
+			&  2  &  1  &  2
+	\end{tblr}
+\end{center}

@@ -1,0 +1,207 @@
+\documentclass[12pt]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[top=1.95cm, bottom=1.95cm, left=2.35cm, right=2.35cm]{geometry}
+
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{tcolorbox}
+\usepackage{float}
+\usepackage{cleveref}
+\usepackage{multicol}
+\usepackage{fancyvrb}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{numprint}
+\usepackage[french]{babel}
+\usepackage[
+    type={CC},
+    modifier={by-nc-sa},
+	version={4.0},
+]{doclicense}
+
+\newcommand\floor[1]{\left\lfloor #1 \right\rfloor}
+
+\usepackage{tnsmath}
+
+
+\newtheorem{fact}{Fait}[section]
+\newtheorem{example}{Exemple}[section]
+\newtheorem{notation}{Notation}[section]
+\newtheorem{remark}{Remarque}[section]
+\newtheorem{unproved}{Non Prouvé}[section]
+\newtheorem*{proof*}{Preuve}
+
+
+\newcommand\seefact[1]{
+
+	\smallskip
+
+	\hfill {\footnotesize $\rightarrow$ Voir le fait \ref{#1}.}
+}
+
+
+\newcommand\seefactproof[2]{
+
+	\smallskip
+
+	\hfill {\footnotesize $\rightarrow$ Voir le fait \ref{#1} et la preuve dans la section \ref{#2}.}
+}
+
+
+\newcommand\seethreefacts[3]{
+
+	\smallskip
+
+	\hfill {\footnotesize $\rightarrow$ Voir les faits \ref{#1} et \ref{#2} ainsi que la section \ref{#3}.}
+}
+
+
+\npthousandsep{.}
+\setlength\parindent{0pt}
+
+\floatstyle{boxed}
+\restylefloat{figure}
+
+
+\DeclareMathOperator{\taille}{\text{\normalfont\texttt{taille}}}
+
+
+\newcommand\sqrtp{\sqrt{p\,\vphantom{M}}}
+
+
+
+\newcommand{\logicneg}{\text{\normalfont non \!}}
+
+\newcommand\sqseq[2]{\fbox{$#1$}_{\,\,#2}}
+
+
+\DefineVerbatimEnvironment{rawcode}%
+	{Verbatim}%
+	{tabsize=4,%
+	 frame=lines, framerule=0.3mm, framesep=2.5mm}
+
+
+
+\begin{document}
+
+\title{BROUILLON - Une preuve rigoureuse (\!?) de l'irrationalité de la racine carrée d'un nombre premier}
+\author{Christophe BAL}
+\date{4 Avril 2019 - 4 Mai 2019}
+
+\maketitle
+
+\begin{center}
+	\itshape
+	Document, avec son source \LaTeX, disponible sur la page
+
+	\url{https://github.com/bc-writing/drafts}.
+\end{center}
+
+
+\bigskip
+
+
+\begin{center}
+	\hrule\vspace{.3em}
+	{
+		\fontsize{1.35em}{1em}\selectfont
+		\textbf{Mentions \og légales \fg}
+	}
+
+	\vspace{0.45em}
+	\doclicenseThis
+	\hrule
+\end{center}
+
+
+\bigskip
+\setcounter{tocdepth}{2}
+\tableofcontents
+
+
+% --------------------- %
+
+
+\section{Où allons-nous ?}
+
+\input{rationality-of-square-of-prime-n-rigorous-proof/intro}
+
+
+% --------------------- %
+
+
+\section{Notations}
+
+\input{rationality-of-square-of-prime-n-rigorous-proof/notations}
+
+
+% --------------------- %
+
+
+\section{\texorpdfstring{$\sqrt{p\,}$ n'est pas rationnel, une preuve très classique}%
+		                {Racine carrée de p n'est pas rationnel, une preuve très classique}}
+
+\input{rationality-of-square-of-prime-n-rigorous-proof/proof/informal}
+
+
+% --------------------- %
+
+
+\section{Décompositions en produit de facteurs premiers}
+
+\input{rationality-of-square-of-prime-n-rigorous-proof/proof/decomposition}
+
+
+% --------------------- %
+
+
+\section{La démonstration par récurrence}
+
+\input{rationality-of-square-of-prime-n-rigorous-proof/proof/recursivity}
+
+
+% --------------------- %
+
+
+%\section{Parlons un peu des nombres naturels}
+%
+%\input{rationality-of-square-of-prime-n-rigorous-proof/proof/integer}
+%
+%
+
+
+
+
+
+\bigskip
+
+\hrule
+
+\section{AFFAIRE À SUIVRE...}
+
+\bigskip
+
+\hrule
+
+%
+%
+%\section{Et les nombres rationnels et les racines carrées dans tout cela ?}
+%
+%\input{rationality-of-square-of-prime-n-rigorous-proof/proof/rational-n-square}
+%
+%
+%
+%\section{Raisonnement par l'absurde}
+%
+%\section{Mais finalement comment savons-nous que notre preuve est rigoureuse ?}
+
+
+
+
+
+
+
+\end{document}

@@ -1,0 +1,24 @@
+% Source: https://tex.stackexchange.com/q/659107/6880
+
+\documentclass{article}
+\usepackage{luacode}
+\begin{luacode*}
+function make_bibliography()
+  local result = "\\textbf{Foo}"
+  token.set_macro("l__csl_bibliography_tl",result)
+end
+\end{luacode*}
+
+\ExplSyntaxOn
+\tl_new:N \l__csl_bibliography_tl
+\cs_new:Npn \printbibliography
+  {
+    \lua_now:n{ make_bibliography() }
+    \tl_show:N \l__csl_bibliography_tl
+    \tl_use:N \l__csl_bibliography_tl
+  }
+\ExplSyntaxOff
+
+\begin{document}
+\printbibliography
+\end{document}

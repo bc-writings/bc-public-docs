@@ -1,0 +1,91 @@
+Voici un procédé facile à faire à l'aide d'une calculatrice.
+
+
+\medskip
+
+\begin{tcolorbox}
+	Considérons un entier naturel $n$.
+	
+	\begin{itemize}[label = \small\textbullet]
+		\item Élevons chacun des chiffres de $n$ au carré.
+		
+		\item Additionnons tous ces carrés. Notons $n$ cette somme.
+		
+		\item Retournons au premier point.
+	\end{itemize}
+
+	On peut alors étudier ce processus qui peut être infini a priori.
+\end{tcolorbox}
+
+Voici deux exemples instructifs pour la suite.
+
+
+\begin{example}
+	Pour $n = 19$, nous obtenons :
+	\begin{itemize}[label=\textbullet]
+		\item $1^2 + 9^2 = 82$
+		\item $8^2 + 2^2 = 68$
+		\item $6^2 + 8^2 = 100$
+		\item $1^2 + 0^2 + 0^2 = 1$ $\rightarrow$ Rien de nouveau à attendre.
+	\end{itemize}
+\end{example}
+
+
+\begin{example}
+	Pour $n = 1\,234\,567\,890$, après $1^2 + 2^2 + 3^2 + 4^2 + 5^2 + 6^2 + 7^2 + 8^2 + 9^2 + 0^2 = 285$ nous obtenons :
+	\vspace{-.7em}
+	\begin{multicols}{2}
+		\begin{itemize}[label=\textbullet]
+			\item $2^2 + 8^2 + 5^2 = 93$
+			\item $9^2 + 3^2 = 90$
+			\item $9^2 + 0^2 = 81$
+			\item $8^2 + 1^2 = 65$
+			\item $6^2 + 5^2 = 61$
+			\item $6^2 + 1^2 = 37$
+			\item $3^2 + 7^2 = 58$
+		\end{itemize}
+		\columnbreak
+		\begin{itemize}[label=\textbullet]
+			\item $5^2 + 8^2 = 89$
+			\item $8^2 + 9^2 = 145$
+			\item $1^2 + 4^2 + 5^2 = 42$
+			\item $4^2 + 2^2 = 20$
+			\item $2^2 + 0^2 = 4$
+			\item $4^2 = 16$ 
+			\item $1^2 + 6^2 = 37$ $\rightarrow$ Dèjà rencontré.
+		\end{itemize}
+	\end{multicols}
+\end{example}
+
+Dans le 1\ier{} cas, au bout d'un moment le procédé ne produit que des $1$. Ce sera par exemple le cas dès que l'on commence avec une puissance de $10$.
+Quant au 2\ieme{} exemple, il montre que le mieux que l'on puisse espérer c'est que le procédé devienne périodique à partir d'un moment \emph{(on parle de phénomène ultimement périodique)}.
+
+
+\medskip
+
+On peut explorer le comportement de ce procédé sur plusieurs valeurs grâce à un programme. Voici un code possible non optimisé écrit en Python 3.7 qui prend un peu de temps pour vérifier que pour tous les naturels $n \in \ZintervalC{1}{10^6}$, le procédé devient ultimement périodique.
+
+\begin{rawcode}
+NMAX    = 10**6
+MAXLOOP = 10**20
+
+for n in range(1, NMAX + 1):
+    nbloops = 0
+    results = []
+
+    while nbloops < MAXLOOP and n not in results:
+        nbloops += 1
+        results.append(n)
+        n = sum(int(d)**2 for d in str(n))
+
+    if n not in results:
+        print(f"Test raté pour n = {n}.")
+
+print("Tests finis.")
+\end{rawcode}
+
+\medskip
+
+Une fois lancé, le code précédent affiche juste \verb+Tests finis+.
+Il reste à voir ce qu'il se passe dans le cas général. La section qui suit démontre que pour tout naturel $n$, le procédé sera toujours ultimement périodique.
+

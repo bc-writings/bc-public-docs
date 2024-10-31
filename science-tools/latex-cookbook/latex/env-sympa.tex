@@ -1,0 +1,28 @@
+% Source: https://tex.stackexchange.com/a/682674/6880
+
+\documentclass{article}
+
+\usepackage{etoolbox}
+
+\newbool{didonestory}
+
+\newenvironment{stories}{\boolfalse{didonestory}}{}
+\AddToHook{env/story/after}{\booltrue{didonestory}}
+\newenvironment{story}{\ifbool{didonestory}{\par BETWEEN STORIES \par}{}}{}
+
+\begin{document}
+\begin{stories}
+    \begin{story}
+        Test 1
+    \end{story}
+    \begin{story}
+        Test 2
+    \end{story}
+    \begin{story}
+        Test 3
+    \end{story}
+    \begin{story}
+        Test 4
+    \end{story}
+\end{stories}
+\end{document}

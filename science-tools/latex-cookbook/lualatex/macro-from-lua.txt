@@ -1,0 +1,4 @@
+
+You can use any LaTeX macro from Lua with tex.sprint, just make sure that you escape the backslash (for example tex.sprint("\\selectlanguage{french}"). You can use normal Lua string operations to construct this string by concatenating different parts, for example to get the language name from a Lua array. The basic principle is that tex.sprint inserts the argument in the code of the document at the current position, exactly the same as when you would have typed that code in the source yourself, including any LaTeX macros. –
+Marijn
+10 mins ago

@@ -1,0 +1,185 @@
+Pour comprendre comment découvrir ce type de procédé, nous allons raisonner en base $10$ et imaginer que nous voulions calculer $189 - 32 = 157$ en utilisant uniquement des additions. Tout un chacun sait effectuer ce calcul comme suit.
+\begin{center}
+\begin{tabular}{cccc}
+	    & 1 & 8 & 9 \\
+	$-$ &   & 3 & 2 \\
+	\hline
+    $=$ & 1 & 5 & 7 \\
+\end{tabular}
+\end{center}
+Nous décidons d'ajouter $1000$ à $189 - 32$. Nous obtenons :
+\begin{center}
+\begin{tabular}{ccccc}
+	    &   & 1 & 8 & 9 \\
+	$-$ &   &   & 3 & 2 \\
+	$+$ & 1 & 0 & 0 & 0 \\
+	\hline
+    $=$ & 1 & 1 & 5 & 7 \\
+\end{tabular}
+\end{center}
+Comme le résultat initial tenait sur les trois chiffres de droite, l'ajout de $1000$ donne un nouveau résultat dont nous savons que les trois chiffres de droite donnent le résultat de $189 - 32$ car la soustraction $1157 - 1000$ revient à ignorer le $1$ tout à droite.
+
+\smallskip
+
+D'autre part, $1000 + 189 - 32 = 189 + 1000 - 32 = 189 + 968$ est une simple addition.
+
+\smallskip
+
+Notons enfin que $1000 - 32 = 1 + 999 - 032 = 1 + 967$ où $9$ , $6$ et $7$ sont les compléments à $9$ de $0$ , $3$ et $2$ respectivement.
+
+\smallskip
+
+En résumé, nous avons fait comme suit où $\bullet$ indique une ligne où a été fait le calcul d'un complément à $9$ plus $1$ \emph{(nous avons encadré le signe final pour le différencier des signes d'opération)}.
+
+\begin{center}
+\begin{tabular}{ccccc}
+	    &           & 1 & 8 & 9 \\
+	$-$ &           & 0 & 3 & 2 \\
+	\hline
+	\hline
+	    &           & 1 & 8 & 9 \\
+	$+$ & $\bullet$ & 9 & 6 & 8 \\
+	\hline
+    $=$ & 1         & 1 & 5 & 7 \\
+	\hline
+	\hline
+        & \sign{+}  & 1 & 5 & 7 \\
+\end{tabular}
+\end{center}
+
+\smallskip
+
+Très bien mais que se passe-t-il avec $32 - 189 = -157$ qui est négatif ? Testons pour voir.
+\begin{center}
+\begin{tabular}{ccccc}
+	    & \phantomsign &   & 3 & 2 \\
+	$-$ &              & 1 & 8 & 9 \\
+	\hline
+	\hline
+	    &              &   & 3 & 2 \\
+	$+$ & $\bullet$    & 8 & 1 & 1 \\
+	\hline
+    $=$ & 0            & 8 & 4 & 3 \\
+\end{tabular}
+\end{center}
+Oups ! Nous ne voyons pas directement $157$. Normal ! Il reste à effectuer $843 - 1000 = -157$.
+Dans un tel cas, on note que $843 - 1000 = - \, (1000 - 843)$ s'obtient via un complément à $9$ plus $1$ de $843$ tout en ajoutant un signe moins.
+En résumé, nous procédons comme suit en notant qu'ici nous avons un $0$ tout à gauche juste avant le résultat final contrairement au 1\ier{}cas où il y avait un $1$. 
+\begin{center}
+\begin{tabular}{ccccc}
+	    &           &   & 3 & 2 \\
+	$-$ &           & 1 & 8 & 9 \\
+	\hline
+	\hline
+	    &           &   & 3 & 2 \\
+	$+$ & $\bullet$ & 8 & 1 & 1 \\
+	\hline
+    $=$ & 0         & 8 & 4 & 3 \\
+	\hline
+	\hline
+        & \sign{-}  & 1 & 5 & 7 \\
+\end{tabular}
+\end{center}
+
+
+\smallskip
+
+Ne nous emballons pas trop vite car il reste un cas problématique que nous n'avons pas abordé.
+Examinons ce qu'il se passe avec $-32 - 189 = - 221$.
+\begin{center}
+\begin{tabular}{ccccc}
+	    & \sign{-}  & 0 & 3 & 2 \\
+	$-$ &           & 1 & 8 & 9 \\
+	\hline
+	\hline
+	    & $\bullet$ & 9 & 6 & 8 \\
+	$+$ & $\bullet$ & 8 & 1 & 1 \\
+	\hline
+    $=$ & 1         & 7 & 7 & 9 \\
+\end{tabular}
+\end{center}
+
+Nous devons affiner notre règle via la valeur du chiffre le plus à gauche car sinon ici nous aurions un résultat positif !
+En fait, il est facile de voir qu'il suffit de tenir compte du nombre de compléments à $9$ plus $1$ initiaux effectués
+\footnote{
+	C'est à dire le nombre de $1000$ ajoutés.
+}
+et du chiffre tout à gauche qui sera $0$ ou $1$.
+En effet, en notant $n$ le nombre de compléments à $9$ plus $1$ effectués avant l'étape finale et $g$ le chiffre à gauche de l'avant dernier résultat, nous avons les faits suivants.
+
+\begin{enumerate}
+	\item \textbf{Cas 1 :} pour $189 - 32$, $n = 1$, $g = 1$ et nous avions juste lu le résultat en ignorant le chiffre tout à gauche sans faire de complément à $9$ plus $1$ supplémentaire.
+
+
+	\item \textbf{Cas 2:} pour $32 - 189$, $n = 1$, $g = 0$ et nous avions fait un complément à $9$ plus $1$ supplémentaire, lu le résultat en ignorant le chiffre tout à gauche puis enfin ajouter un signe moins.
+
+
+	\item \textbf{Cas 3 actuel:} pour $-32 - 189$, $n = 2$, $g = 1$ et nous devons faire comme dans le 2\ieme{} cas, ceci nous donnant :
+
+    \begin{center}
+    \begin{tabular}{ccccc}
+    	    & \sign{-}  & 0 & 3 & 2 \\
+    	$-$ &           & 1 & 8 & 9 \\
+    	\hline
+    	\hline
+    	    & $\bullet$ & 9 & 6 & 8 \\
+    	$+$ & $\bullet$ & 8 & 1 & 1 \\
+    	\hline
+        $=$ & 1         & 7 & 7 & 9 \\
+    	\hline
+    	\hline
+            & \sign{-}  & 2 & 2 & 1 \\
+    \end{tabular}
+    \end{center}
+\end{enumerate}
+
+
+Nous avons donc envie de dire que $n - g \in \setgene{0 ; 1}$ donne le nombre de compléments à $9$ plus un supplémentaires à faire ainsi que le nombre de signe moins à ajouter après avoir lu le résultat en ignorant le chiffre tout à gauche. Que c'est beau !
+
+\smallskip
+
+Les deux cas suivants achèvent notre exploration expérimentale sans contredire la conjecture.
+\begin{multicols}{2}
+\begin{center}
+\begin{tabular}{ccccc}
+	    &          & 0 & 3 & 2 \\
+	$+$ &          & 1 & 8 & 9 \\
+	\hline
+	$=$ &          & 2 & 2 & 1 \\
+	\hline
+	\hline
+        & \sign{+} & 2 & 2 & 1 \\
+\end{tabular}
+\end{center}
+
+\null\vfill
+
+\columnbreak
+
+\begin{center}
+\begin{tabular}{ccccc}
+	    & \sign{-}  & 0 & 3 & 2 \\
+	$+$ &           & 1 & 8 & 9 \\
+	\hline
+	\hline
+	    & $\bullet$ & 9 & 6 & 8 \\
+	$+$ &           & 1 & 8 & 9 \\
+	\hline
+	$=$ & 1         & 1 & 5 & 7 \\
+	\hline
+	\hline
+        & \sign{+}  & 1 & 5 & 7 \\
+\end{tabular}
+\end{center}
+\end{multicols}
+
+
+\begin{exercise}
+	Dans la méthode ci-dessous, il existe des cas problématiques. Lesquels ?
+\end{exercise}
+
+
+\begin{exercise}
+	En laissant les cas problématiques de côté, démontrer le caractère général de la méthode que nous avons juste exposée via quelques exemples.
+\end{exercise}
+

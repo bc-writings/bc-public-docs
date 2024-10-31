@@ -1,0 +1,58 @@
+% Source
+%	* https://tex.stackexchange.com/a/274099/6880
+
+\documentclass{beamer}
+\usepackage{forest}
+
+\tikzset{% set up for transitions using tikz with beamer overlays
+  invisible/.style={opacity=0,text opacity=0},
+  visible on/.style={alt=#1{}{invisible}},
+  alt/.code args={<#1>#2#3}{%
+    \alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}} % \pgfkeysalso doesn't change the path
+  },
+}
+\forestset{%
+  declare toks={no node before}{1},
+  declare toks={no edge before}{1},
+  not before/.style={
+    no node before=#1,
+    for children={
+      no edge before=#1,
+    }
+  },
+  bottom up/.style={% based on Qrrbrbirlbel's answer at https://tex.stackexchange.com/a/112895/
+      /tikz/visible on=<\forestoption{no node before}->,
+      /tikz/every label/.append style={visible on=<\forestoption{no node before}->},
+      /tikz/every edge label/.append style={visible on=<\forestoption{no edge before}->},
+      edge={/tikz/visible on=<\forestoption{no edge before}->},
+  }
+}
+
+\begin{document}
+\begin{frame}
+  \centering
+  \begin{forest}
+    /tikz/every label/.append style={text height=1ex, label distance=5pt},
+    for tree={
+      circle,
+      draw,
+      very thick,
+      edge={very thick},
+      s sep+=10pt,
+      fill=white!25,
+      minimum size=20pt,
+      bottom up,
+    }
+    [, label=above:{car, bus, cat, dot}, not before=3
+      [, label=above left:{car, bus}, not before=2
+        [, label=below:car]
+        [, label=below:bus]
+      ]
+      [, label=above right:{cat, dog}, not before=2
+        [, label=below:cat]
+        [, label=below:dog]
+      ]
+    ]
+  \end{forest}
+\end{frame}
+\end{document}

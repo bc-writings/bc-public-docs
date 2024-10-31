@@ -1,0 +1,19 @@
+% Source: https://tex.stackexchange.com/a/667391/6880
+
+\documentclass{article}
+
+\newcommand{\Command}[1]{\fbox{#1}} % this is the command
+
+\NewDocumentEnvironment{EnCommand}{+b}{\Command{#1}}{}
+
+\begin{document}
+
+Here \Command{abc} with the command
+
+Here 
+\begin{EnCommand}
+abc
+\end{EnCommand}
+with the environment
+
+\end{document}

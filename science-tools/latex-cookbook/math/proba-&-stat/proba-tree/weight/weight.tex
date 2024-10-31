@@ -1,0 +1,54 @@
+\documentclass[border=10pt,multi,tikz]{standalone}
+
+\usepackage{forest}
+\useforestlibrary{linguistics}
+
+\forestset{
+    apweight/.style = {
+        edge label = {
+            node[sloped,
+                 above,
+                 pos  = .5] {$#1$}
+        }
+    },
+    bpweight/.style = {
+        edge label = {
+            node[sloped,
+                 below,
+                 pos  = .5] {$#1$}
+        }
+    },
+    pweight/.style = {
+        edge label={
+            node[midway,
+                 fill = white] {$#1$}
+        }
+    },
+    apweight*/.style = {},
+    bpweight*/.style = {},
+    pweight*/.style = {},
+}
+
+\begin{document}
+
+\begin{forest}
+	for tree = {%
+    	math content,
+        sn edges,
+        grow'  = 0,
+        l      = 2.5cm,
+        s sep  = 1.2cm,
+        anchor = parent
+    },
+    [
+        [A, pweight = a
+            [B, pweight = b]
+            [C, pweight = c]
+        ]
+        [D, bpweight = d
+            [E, apweight = e]
+            [F, bpweight = f]
+        ]
+    ]
+\end{forest}
+\end{document}

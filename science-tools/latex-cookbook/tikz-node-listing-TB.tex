@@ -1,0 +1,36 @@
+% Source: https://tex.stackexchange.com/a/263346/6880
+
+\documentclass{beamer}
+\usepackage{tikz}
+\usepackage{listings}
+
+\newcommand{\rednode}[1]{
+   \node[draw=red]{#1};
+}
+
+\newsavebox\mybox
+
+\begin{document}
+
+\begin{lrbox}{\mybox}
+\begin{lstlisting}
+int main()
+{
+    printf("Hello World\n");
+} 
+\end{lstlisting}
+\end{lrbox}
+
+\begin{frame}[fragile]
+\begin{tikzpicture}
+\node[draw=blue]{};
+\rednode{\usebox\mybox}: 
+\end{tikzpicture}
+\end{frame}
+
+
+OKI ?
+
+\usebox\mybox
+
+\end{document}

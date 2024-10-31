@@ -1,0 +1,14 @@
+\begin{fact} \label{case-8}
+	 $\forall n \in \NNs$\,, $\consprod<8> \notin \NNsquare$\,.
+\end{fact}
+
+
+\foreach \k in {1,...,2} {
+	\begin{proof}[Preuve \k]
+		\input{\contentdir/case-8/proof-\k}
+	\end{proof}
+	
+	\ifthenelse{\k=2}{
+		\input{\contentdir/case-8/proof-\k-extra}
+	}{}
+}

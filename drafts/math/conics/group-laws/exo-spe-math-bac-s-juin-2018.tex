@@ -1,0 +1,92 @@
+\documentclass[12pt]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[top=1.95cm, bottom=1.95cm, left=2.35cm, right=2.35cm]{geometry}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage[french]{babel}
+\usepackage[
+    type={CC},
+    modifier={by-nc-sa},
+	version={4.0},
+]{doclicense}
+
+\usepackage{tnsmath}
+
+\DeclareMathOperator{\taille}{\tau}
+
+\newtheorem{fact}{Fait}
+\newtheorem*{proof*}{Preuve}
+
+\setlength\parindent{0pt}
+
+
+\newcommand\squote[1]{\og #1 \fg{}}
+
+
+\begin{document}
+
+\title{BROUILLON - CANDIDAT - À propos de l'exercice de SPÉ MATHS du BAC S de Juin 2018 (Métropole)}
+\author{Christophe BAL}
+\date{25 Juin 2018 - 26 Juillet 2019}
+\maketitle
+
+
+\begin{center}
+	\itshape
+	Document, avec son source \LaTeX, disponible sur la page
+	
+	\url{https://github.com/bc-writing/drafts}.
+\end{center}
+
+
+\bigskip
+
+
+\begin{center}
+	\hrule\vspace{.3em}
+	{
+		\fontsize{1.35em}{1em}\selectfont
+		\textbf{Mentions \og légales \fg}
+	}
+			
+	\vspace{0.45em}
+	\doclicenseThis
+	\hrule
+\end{center}
+
+
+
+\setcounter{tocdepth}{2}
+\tableofcontents
+
+
+
+\section{Ce qui interroge : une matrice \squote{magique} sortie d'un chapeau}
+
+\input{exo-spe-math-bac-s-juin-2018/the-problem}
+
+
+
+\section{Un moyen élémentaire de découvrir la matrice \squote{magique}}
+
+\input{exo-spe-math-bac-s-juin-2018/quadratic-explanations}
+
+
+
+\section{Prenons un peu de hauteur : un groupe \squote{caché}}
+
+\input{exo-spe-math-bac-s-juin-2018/higher-in-the-sky}
+
+
+
+\section{Tout est géométrie... Ou presque}
+
+\input{exo-spe-math-bac-s-juin-2018/geometry-is-the-queen}
+
+
+\end{document}

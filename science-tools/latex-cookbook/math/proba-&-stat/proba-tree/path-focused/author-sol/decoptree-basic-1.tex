@@ -1,0 +1,91 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{forest}
+
+% If you use the "mark" style etc. (defined below) in several trees, you can
+% define it outside the tree: \forestset{mark/.style={...}}  This can be done
+% either in the body of the document, or in the preamble.
+
+\begin{document}
+
+\begin{forest}
+  for tree = {
+    grow'  = 0,
+    l      = 2.5cm,
+    parent anchor=east,
+    s sep  = 1.2cm,
+    math content,
+  },
+  mark/.style={mark node,edge=mark line},
+  mark node/.style={draw=red,line width=2pt,rounded corners},
+  /tikz/mark line/.style={
+    red,line width=2.5pt,line cap=round,
+    shorten >=-1pt, % this (TikZ) key deals with "links" between edges and nodes
+  },
+  [
+    [A,mark,
+      [B]
+      [C,mark]
+    ]
+    [D
+      [E]
+      [F]
+    ]
+  ]
+  % We're at the root node, so (!2) is the second child of the root and (!11) is
+  % the first child of the first child of the root.
+  \draw[mark line] (!2) -- (!11);
+\end{forest}
+
+
+% Below, I show how one can simplify drawing edges to non-parent nodes.
+
+\forestset{
+  % Easy extra edges --- this will be a part of the next version of forest 
+  edge to'/.style 2 args={
+    tikz+={\path[#2](#1.parent anchor)--(.child anchor);}
+  },
+  edge to/.style={
+    edge to'/.expanded={\unexpanded{#1}}{\forestoption{edge}},
+  },
+  edge from'/.style 2 args={
+    tikz+={\path[#2](.parent anchor)--(#1.child anchor);}
+  },
+  edge from/.style={
+    edge from'/.process=_O{#1}{#1.edge},
+  },
+  % and the marks, outside the tree
+  mark/.style={mark node,edge=mark line},
+  mark node/.style={draw=red,line width=2pt,rounded corners},
+  /tikz/mark line/.style={
+    red,line width=2.5pt,line cap=round,
+    shorten >=-1pt, % this (TikZ) key deals with "links" between edges and nodes
+  },  
+}
+
+\begin{forest}
+  for tree = {
+    grow'  = 0,
+    l      = 2.5cm,
+    parent anchor=east,
+    s sep  = 1.2cm,
+    math content,
+  },
+  [
+    [A,mark,
+      [B]
+      [C,mark,edge to=!Nu] % N = next leaf ("E"), u = up ("D")
+    ]
+    [D
+      [E]
+      [F,mark]
+    ]
+  ]
+\end{forest}
+
+
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

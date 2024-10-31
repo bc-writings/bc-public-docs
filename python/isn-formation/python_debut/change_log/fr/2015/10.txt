@@ -1,0 +1,32 @@
+==========
+2015-10-28
+==========
+
+**Réorganisation sur ¨github:** une organisation a été créée pour les écrits sur la programmation avec ¨python à l'adresse cf::``https://github.com/bc-writings-prog-python``. Ceci implique que les différentes versions de ce document et ses sources seront dorénavant hebergées à l'adresse cf::``https://github.com/bc-writings-prog-python/isn-formation``.
+
+
+==========
+2015-10-25
+==========
+
+**Corrections et améliorations :** voici ce qui a été fait.
+
+    1) Dans les solutions pour le codes de César et de Vigenère, il restait des fonctions `crypte` qui n'avaient pas été renommées `code`.
+
+    2) Les explications pour tenter de casser un code de Vigenère ont été complétées avec une "tactique au hasard".
+
+
+
+
+==========
+2015-10-23
+==========
+
+**Ajout des solutions.**
+
+
+==========
+2015-10-03
+==========
+
+**Première version du document "Premiers pas avec Python":** ce document servira de base à la formation 2015-2016 pour l'habilitation à enseigner l'ISN dans l'académie de Lyon.

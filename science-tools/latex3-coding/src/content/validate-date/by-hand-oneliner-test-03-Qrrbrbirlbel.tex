@@ -1,0 +1,129 @@
+% Source for better coding.
+%     + https://tex.stackexchange.com/questions/696749/latex3-advice-on-a-code-to-validate-a-julian-date?noredirect=1#comment1730321_696749
+     
+\documentclass{article}
+\usepackage{pgffor, l3benchmark}
+
+\ExplSyntaxOn
+% let's have this deal with the leap year thingy
+\cs_new:Nn \__mbc_lastday_of_month_in_year:nn {
+  \if_case:w #1\relax % \relax: or ~
+    0 \or: 31 \or: \__mbc_if_leap_year:nTF {#2}{29}{28} \or: 31
+      \or: 30 \or: 31 \or: 30
+      \or: 31 \or: 31 \or: 30
+      \or: 31 \or: 30 \or: 31
+      \else: 0 \fi:
+}
+
+%   if year is divisible by   4 it's a leap year
+% unless it is divisible by 100 (not a leap year)
+% unless it is divisible by 400 (leap year)
+\prg_set_conditional:Npnn \__mbc_if_leap_year:n #1 { p , T , TF } {
+  \int_compare:nNnTF     {\int_mod:nn {#1} {  4}} = {0} { % multiple of   4
+    \int_compare:nNnTF   {\int_mod:nn {#1} {100}} = {0} { % multiple of 100
+      \int_compare:nNnTF {\int_mod:nn {#1} {400}} = {0} { % multiple of 400
+        \prg_return_true:
+      }{
+        \prg_return_false:
+      }
+    }{
+      \prg_return_true:
+    }
+  }{
+    \prg_return_false:
+  }
+}
+
+\regex_new:N \g__mbc_date_format_rgx
+\regex_set:Nn\g__mbc_date_format_rgx { \A (\d+) \- (\d+) \- (\d+) \Z }
+
+\prg_new_conditional:Npnn \__mbc_if_validate_date:n #1 {p, T, TF}{
+  \regex_extract_once:NnNTF \g__mbc_date_format_rgx { #1 } \l_tmpa_seq {
+    \seq_pop_left:NN \l_tmpa_seq \l_tmpa_tl % whole date (throw away)
+    \seq_pop_left:NN \l_tmpa_seq \l_tmpa_tl % year (always correct)
+    \seq_pop_left:NN \l_tmpa_seq \l_tmpb_tl % month
+    \bool_lazy_or:nnTF {\int_compare_p:nNn { \l_tmpb_tl } < {  1 } }
+                       {\int_compare_p:nNn { \l_tmpb_tl } > { 12 } }{
+      \prg_return_false:
+    }{
+      \seq_pop_left:NN \l_tmpa_seq \l_tmpc_tl % day
+      \bool_lazy_or:nnTF {\int_compare_p:nNn { \l_tmpc_tl } < { 1 } }
+                         {\int_compare_p:nNn { \l_tmpc_tl } >
+        {\__mbc_lastday_of_month_in_year:nn { \l_tmpb_tl } { \l_tmpa_tl }}}{
+        \prg_return_false:
+      }{
+        \prg_return_true:
+      }
+    }
+  }{
+    \prg_return_false:
+  }
+}
+
+\regex_new:N \g__mbc_datex_format_rgx
+\regex_set:Nn\g__mbc_datex_format_rgx { \A (\d+) \-
+  (0* (?:[1-9]|1[012])) \- (0* (?:[1-9]|[12][0-9]|3[01])) \Z }
+\prg_new_conditional:Npnn \__mbc_if_validate_datex:n #1 {p, T, TF}{
+  \regex_extract_once:NnNTF \g__mbc_datex_format_rgx { #1 } \l_tmpa_seq {
+    \seq_pop_left:NN \l_tmpa_seq \l_tmpa_tl % whole date (throw away)
+    \seq_pop_left:NN \l_tmpa_seq \l_tmpa_tl % year (always correct)
+    \seq_pop_left:NN \l_tmpa_seq \l_tmpb_tl % month (always correct)
+    \seq_pop_left:NN \l_tmpa_seq \l_tmpc_tl % day
+    \int_compare:nNnTF { \l_tmpc_tl } >
+      {\__mbc_lastday_of_month_in_year:nn { \l_tmpb_tl } { \l_tmpa_tl }}{
+      \prg_return_false:
+    }{
+      \prg_return_true:
+    }
+  }{
+    \prg_return_false:
+  }
+}
+
+\NewDocumentCommand { \ValidateJulianDate }{ m m m }{
+  \__mbc_if_validate_date:nTF { #1 }{ #2 }{ #3 }
+}
+
+\NewDocumentCommand { \ValidateJulianDateX }{ m m m }{
+  \__mbc_if_validate_datex:nTF { #1 }{ #2 }{ #3 }
+}
+\ExplSyntaxOff
+
+
+\begin{document}
+\setlength\parindent{0pt}
+\section{OK}
+\pgfkeys{
+  tester/.code = \ValidateJulianDate {#1}{OK}{Not OK} and
+                 \ValidateJulianDateX{#1}{OK}{Not OK}: #1\par\medskip,
+  tester/.list = {2023-06-14, 2023-09-24, 2023-02-28, 2024-02-29, 400-02-29}}
+
+\section{KO -- Invalid day}
+\pgfkeys{
+  tester/.list = {300-02-29, 2023-02-29, 2024-02-30, 2023-09-00, 2023-09-32}}
+
+\section{KO -- Invalid month}
+\pgfkeys{tester/.list = {2023-19-32, 2023-00-29}}
+
+\section{KO -- Syntax error}
+\pgfkeys{tester/.list = {2023-06-XX, 2023-09-19 2023-09-20, -0001-12-24}}
+
+\clearpage
+\section{Table}
+\ExplSyntaxOn\ttfamily
+\foreach \v in {\ValidateJulianDate, \ValidateJulianDateX}{
+  \expandafter \string \v : \par
+  \benchmark_once:n {
+    \foreach \m in {0, ..., 13}{
+      \ifnum\int_mod:nn{\m-1}{3}=0\medskip\fi
+      \foreach \d in {0, ..., 32}{
+        \ifnum\int_mod:nn{\d+1}{10}=0\relax~\fi
+        \exp_args:Nx\v{2023-0\m-0\d}{1}{0}
+      }
+      \par
+    }
+  }
+  \bigskip
+}
+\ExplSyntaxOff
+\end{document}

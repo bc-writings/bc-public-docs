@@ -1,0 +1,98 @@
+Une méthode simple et généraliste consiste à modifier les tables des transitions précédentes mécaniquement en respectant les deux règles suivantes.
+\begin{enumerate}
+	\item Toutes les cellules qui contiennent l'état final sont vidées.
+
+	\item Toutes les cases vides, \textbf{sauf celle correspondant à la case vide et l'état initial}, sont remplies pour indiquer un passage à l'état final
+		  \footnote{
+			Ne pas oublier de traiter les états bloquants non indiqués sur la table initiale !
+		  }.
+	      \textbf{La cellule non traitée l'est afin d'éviter d'accepter le mot vide.} 
+\end{enumerate}
+
+
+
+Ceci nous donne la table des transitions ci-après pour les naturels impairs.
+\begin{center}
+	\begin{tabular}{|c||c|c|c|}
+		\hline
+		$\delta$ 
+			& $0$ 
+			& $1$
+			& $B$ \\
+		\hline
+		\hline
+		$q_0$
+			& \transition{\ell_0}{0}{D}
+			& \transition{\ell_1}{1}{D}
+			&                           \\
+		\hline
+		\hline
+		$\ell_0$
+			& \transition{\ell_0}{0}{D}
+			& \transition{\ell_1}{1}{D}
+			&                           \\
+		\hline
+		$\ell_1$
+			& \transition{\ell_0}{0}{D}
+			& \transition{\ell_1}{1}{D}
+			& \transition{f     }{B}{I} \\
+		\hline
+	\end{tabular}
+\end{center}
+
+
+Pour les non multiples de $3$, on obtient la table des transitions suivante.
+\begin{center}
+	\begin{tabular}{|c||c|c|c|}
+		\hline
+		$\delta$ 
+			& $0$ 
+			& $1$
+			& $B$ \\
+		\hline
+		\hline
+		$q_0$ 
+			& \transition{d}{0}{D} 
+			& \transition{d}{1}{D}
+			&                      \\
+		\hline
+		$d$ 
+			& \transition{d   }{0}{D} 
+			& \transition{d   }{1}{D}
+			& \transition{sp_0}{B}{G} \\
+		\hline
+		\hline
+		$sp_0$ 
+			& \transition{si_0}{0}{G} 
+			& \transition{si_1}{1}{G}
+			&                         \\
+		\hline
+		$sp_1$ 
+			& \transition{si_1}{0}{G} 
+			& \transition{si_2}{1}{G}
+			& \transition{f   }{B}{I} \\
+		\hline
+		$sp_2$ 
+			& \transition{si_2}{0}{G} 
+			& \transition{si_0}{1}{G}
+			& \transition{f   }{B}{I} \\
+		\hline
+		\hline
+		$si_0$ 
+			& \transition{sp_0}{0}{G} 
+			& \transition{sp_2}{1}{G}
+			&                         \\
+		\hline
+		$si_1$ 
+			& \transition{sp_1}{0}{G} 
+			& \transition{sp_0}{1}{G}
+			& \transition{f   }{B}{I} \\
+		\hline
+		$si_2$ 
+			& \transition{sp_2}{0}{G} 
+			& \transition{sp_1}{1}{G}
+			& \transition{f   }{B}{I} \\
+		\hline
+	\end{tabular}
+\end{center}
+
