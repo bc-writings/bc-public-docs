@@ -2,4 +2,4 @@
 31
 ==
 
-Le projet a été déplacé de https://github.com/bc-writing/letters-and-science.git vers XXX.
+Le projet fait maintenant partie du dépôt unique cf::''https://github.com/bc-writings/bc-public-docs.git''.
