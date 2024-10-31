@@ -1,4 +1,12 @@
+% Source.
+%     + XXXX
+
 \ExplSyntaxOn
+
+\ProvidesExplClass{main}
+                  {2024-11-01}
+                  {0.0.0}
+                  {A cookbook class}
 
 \tl_new:N \l_cookbook_cls_option_tl
 
