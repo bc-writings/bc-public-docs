@@ -1,9 +1,9 @@
 this::
-	date = 2024-11-01
+    date = 2024-11-01
 
 
 ======================================================
 Passer des options non traitées d'une \cls à une autre
 ======================================================
 
-Nous proposons ici une méthode possible pour récupérer des clés pour une \cls maison, et ensuite passer les options on traitées à une autre \cls.
+Nous proposons ici une méthode pour récupérer des clés pour une \cls maison, puis ensuite passer les options non traitées à une autre \cls.

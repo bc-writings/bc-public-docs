@@ -14,4 +14,4 @@ Nous présentons ici une macro maison ''\parseanduse'' tel que l'emploi de ''\pa
 	1) \macroD{4}
 	1) \macroA{5}
 
-Il n'y a aucune limite quant à la présence ou non, et l'occurence des lettres ''a'', ''d'' et ''n'' employées, ni non plus quant aux nombres naturels indiqués.
+Il n'y a aucune limite quant à la présence et l'occurence des lettres ''a'', ''d'' et ''n'' employées, ni non plus quant aux nombres naturels indiqués.
