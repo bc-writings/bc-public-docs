@@ -1,5 +1,5 @@
 this::
-	date = 2024-11-01
+    date = 2024-11-01
 
 
 =============================================================
@@ -10,4 +10,4 @@ Voici un exemple d'utilisation de ''\tikzmark'' pour décorer une somme d'entier
 
 
 caution::
-	La méthode proposée demande de faire un certain nombre de réglages à la main. Il reste à rendre ceci plus amical pour l'utilisateur (mais ceci est une autre histoire).
+    La méthode proposée demande de faire un certain nombre de réglages à la main. Il reste à rendre ceci plus amical pour l'utilisateur (mais ceci est une autre histoire).

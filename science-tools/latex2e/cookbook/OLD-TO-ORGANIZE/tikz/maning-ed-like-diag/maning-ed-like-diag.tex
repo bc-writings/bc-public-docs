@@ -4,9 +4,9 @@
 \documentclass{article}
 
 \usepackage{tikz, multicol}
-\usetikzlibrary{arrows.meta, 
-                decorations.pathmorphing, 
-                chains, 
+\usetikzlibrary{arrows.meta,
+                decorations.pathmorphing,
+                chains,
                 calligraphy}
 
 \begin{document}
@@ -14,22 +14,22 @@
 % The styles
 \tikzset{
     block/.style = {join,
-        rectangle, draw, line width=2pt, 
-        text width=3cm, text centered, 
+        rectangle, draw, line width=2pt,
+        text width=3cm, text centered,
         minimum height=1.5cm, rounded corners,
-        decorate, 
+        decorate,
         decoration = {
-        	random steps, 
-			segment length=6mm, 
-			amplitude=1.5pt},
-        preaction={fill=#1, rectangle, 
-        minimum width=3cm, 
+            random steps,
+            segment length=6mm,
+            amplitude=1.5pt},
+        preaction={fill=#1, rectangle,
+        minimum width=3cm,
         minimum height=1.5cm, rounded corners,
-        decorate, 
+        decorate,
         decoration={
-        	random steps, 
-			segment length=3mm, 
-			amplitude=5pt}
+            random steps,
+            segment length=3mm,
+            amplitude=5pt}
         }
     },
     connection/.style={
@@ -41,10 +41,10 @@
             -{Stealth[length=1.1mm, inset=0, width=2.5mm, round]}}
     }
 }
-    
+
 \begin{multicols}{2}
 \begin{tikzpicture}[start chain=going below, node distance = 6mm, every join/.style=connection]
-	\pgfmathsetseed{14159}
+    \pgfmathsetseed{14159}
     \node [on chain, block=blue!30!green!70!white] (lint) {Lint};
     \node [on chain, block=blue!40!green!70!white] (run) {Run unit and integration tests};
     \node [on chain, block=blue!50!green!70!white] (build) {Build image};
@@ -54,7 +54,7 @@
 
 
 \begin{tikzpicture}[start chain=going below, node distance = 6mm, every join/.style=connection]
-	\pgfmathsetseed{14159}
+    \pgfmathsetseed{14159}
     \node [on chain, block=blue!30!green!70!white] (lint) {Lint};
     \node [on chain, block=blue!40!green!70!white] (run) {Run unit and integration tests};
     \node [on chain, block=blue!50!green!70!white] (build) {Build image};

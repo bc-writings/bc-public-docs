@@ -7,10 +7,10 @@
 \newcommand{\solution}[1]{{\color{red}#1}}
 
 \ifdefined\forstudents
-	\renewcommand{\solution}[1]{}
+    \renewcommand{\solution}[1]{}
 \else
-	% We need `...` to launch a subprocess!
-	\input{\detokenize{|`"pdflatex -jobname=students '\\def\\forstudents{}\\input{professor}'"`}}
+    % We need `...` to launch a subprocess!
+    \input{\detokenize{|`"pdflatex -jobname=students '\\def\\forstudents{}\\input{professor}'"`}}
 \fi
 
 
@@ -18,17 +18,17 @@
 
 \begin{enumerate}
 
-	\item First question
-	
-	\solution{First answer}
+    \item First question
 
-	\item Second question
-	
-	\solution{Second answer}
+    \solution{First answer}
 
-	\item Third question
+    \item Second question
 
-	\solution{Third answer}
+    \solution{Second answer}
+
+    \item Third question
+
+    \solution{Third answer}
 \end{enumerate}
 
 \end{document}

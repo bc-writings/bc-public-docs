@@ -3,23 +3,23 @@
 Reprenons le produit $56 \cdot 74$ mais avec la formule $c_1 = c_2 + c_0 - (a - b) \, (A - B)$.
 Visuellement nous obtenons les calculs suivants.
 Cette méthode est très efficace avec un crayon et du papier puisque les produits effectués ne font intervenir que les tables de multiplication apprises en école primaire.
-	\begin{center}
-	\medskip
-	
-	$\begin{NiceMatrix}[
-		last-col,
-		code-for-last-col = \RED{}
-	]
-		           & \phMINUS{} &            & \phMINUS{}    & 5         & \MINUS{} & 6
+    \begin{center}
+    \medskip
+
+    $\begin{NiceMatrix}[
+        last-col,
+        code-for-last-col = \RED{}
+    ]
+                   & \phMINUS{} &            & \phMINUS{}    & 5         & \MINUS{} & 6
         \\
-                   &            &            &               &           &          &   
+                   &            &            &               &           &          &
                    &&
                    \EXPL{-3 = (-1) \cdot 3}
         \\
-		           &            &            &               & 7         & \MINUS{} & 4
+                   &            &            &               & 7         & \MINUS{} & 4
         \\
         \cline{1-7}
-		\ORANGE{}3 &            & \ORANGE{}5 &               & \GREEN{}2 &          & \GREEN{}4   
+        \ORANGE{}3 &            & \ORANGE{}5 &               & \GREEN{}2 &          & \GREEN{}4
                    &&
                    \EXPL{59 = 35 \mathbin{\smash{+}} 24}
         \\
@@ -30,7 +30,7 @@ Cette méthode est très efficace avec un crayon et du papier puisque les produi
         \cline{1-7}
         4          &            & 1          &               & 4         &          & 4
         \\
-		\CodeAfter
+        \CodeAfter
         \begin{tikzpicture}[shorten > = 1mm, shorten < = 1mm, line width=.75pt,>=stealth]
             \draw [orange, <->]        (1-5.south) -- (3-5.north) ;
             \draw [green!50!blue, <->] (1-7.south) -- (3-7.north) ;

@@ -14,12 +14,12 @@
     s sep  = 1.2cm,
   },
   mark/.style = {
-  	mark node,edge=mark line
+      mark node,edge=mark line
   },
   mark node/.style = {
-  	draw = red,
-	line width = 2pt,
-	rounded corners
+      draw = red,
+    line width = 2pt,
+    rounded corners
   },
   /tikz/mark line/.style={
     red,
@@ -34,10 +34,10 @@
     ]
     [D, mark=red
       [E, mark=red
-      	[F]
-		[G, mark=red]
-		[H]
-	  ]
+          [F]
+        [G, mark=red]
+        [H]
+      ]
     ]
   ]
 \end{forest}
@@ -56,13 +56,13 @@
     for nodewalk={
       c,
       every step={
-      	tikz/.wrap pgfmath arg={
-	      \draw[red,
+          tikz/.wrap pgfmath arg={
+          \draw[red,
                 line width = 2.5pt,
                 line cap = round] ()--(#1);
-	  }{name("!b")}
-	},
-	211,ancestors
+      }{name("!b")}
+    },
+    211,ancestors
     }{}
   },
   [
@@ -72,10 +72,10 @@
     ]
     [D
       [E
-      	[F]
-		[G]
-		[H]
-	  ]
+          [F]
+        [G]
+        [H]
+      ]
     ]
   ]
 \end{forest}

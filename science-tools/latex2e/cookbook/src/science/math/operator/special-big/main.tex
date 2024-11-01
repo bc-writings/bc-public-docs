@@ -3,21 +3,26 @@
 
 \documentclass{article}
 
+\usepackage{amsmath} % Pour la macro \text
 \usepackage{relsize}
 
 \newcommand{\bigstar}{%
   \mathop{\Huge\mathlarger{\mathlarger{*}}}%
 }
 
+\newcommand{\bigcompo}{%
+  \mathop{\Huge\mathlarger{\mathlarger{\circ}}}%
+}
+
 \begin{document}
 
 \paragraph{Display}
 
-\[ \bigstar_{i = 0}^{9} s_i \]
+\[ \bigstar_{i = 0}^{9} s_i \quad\text{ ou }\quad \bigcompo_{k = 1}^{5} f_k \]
 
 
 \paragraph{Inline}
 
-$\bigstar_{i = 0}^{9} s_i$
+$\bigstar_{i = 0}^{9} s_i$ ou $\bigcompo_{k = 1}^{5} f_k$
 
 \end{document}

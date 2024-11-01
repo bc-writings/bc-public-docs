@@ -2,17 +2,17 @@ Le problème est ici plus intéressant que celui de l'écriture binaire d'un nat
 Tout le monde connaît le critère de divisibilité par $3$ d'un entier écrit en base $10$.
 Par exemple, $1234567$ n'est pas divisible par $3$ car $1 + 2 + 3 + 4 + 5 + 6 + 7 = 28$ ne l'est pas. Ce critère fonctionne car $10 = 3^2 + 1 = 3k + 1$ nous donne ce qui suit où les $k_i$ sont des naturels
 \footnote{
-	Tout ceci n'est en fait que du calcul modulo $3$.
+    Tout ceci n'est en fait que du calcul modulo $3$.
 }.
 \begin{flalign*}
 1234567
-	&= 123456 \times 10 + 7             && \\
-	&= 123456 \, (3k + 1) + 7           && \\
-	&= 3 k_1 + 123456 + 7               && \\
-	&= 3 k_1 + 12345 \times 10 + 6 + 7  && \\
-	&= 3 k_2 + 12345 + 6 + 7                    && \\
-	&\,\,\,\vdots                       && \\	
-	&= 3 k_6 + 1 + 2 + 3 + 4 + 5 + 6 + 7
+    &= 123456 \times 10 + 7             && \\
+    &= 123456 \, (3k + 1) + 7           && \\
+    &= 3 k_1 + 123456 + 7               && \\
+    &= 3 k_1 + 12345 \times 10 + 6 + 7  && \\
+    &= 3 k_2 + 12345 + 6 + 7                    && \\
+    &\,\,\,\vdots                       && \\
+    &= 3 k_6 + 1 + 2 + 3 + 4 + 5 + 6 + 7
 \end{flalign*}
 
 Comme $4 = 3 + 1$, on peut de même à partir d'une écriture en base $4$ comme $[1203]_4$ déterminer si un nombre est divisible par $3$ en faisant ici
@@ -22,7 +22,7 @@ $[1]_4 + [2]_4 + [0]_4 + [3]_4 = [12]_4$ puis $[1]_4 + [2]_4 = [3]_4$ pour concl
 
 Le passage aux écritures binaires devient maintenant assez simple.
 Notons pour commencer que par exemple
-$[101101]_2 = [231]_4$ 
+$[101101]_2 = [231]_4$
 s'obtient sans effort via
 $[10]_2 = [2]_4$, $[11]_2 = [3]_4$ et $[01]_2 = [1]_4$.
 Voici alors comment analyser ce nombre via une machine de Turing. On a ajouté à droite de la tête de lecture un état permettant de calculer le cumul en base $4$ des chiffres modulo $3$ en tenant compte de la parité de l'indice de position du chiffre qui vient d'être lu.
@@ -35,12 +35,9 @@ Voici alors comment analyser ce nombre via une machine de Turing. On a ajouté �
 
 Voici les points clés dans les étapes ci-dessus.
 \begin{enumerate}
-	\item Si la tête de lecture est sous un chiffre d'indice de position $(2k+1)$, il suffit d'effectuer modulo $3$ l'ajout en base $4$ de la valeur de la case. Les valeurs possibles seront donc $0$, $1$ et $2$ mais pas $3$ qu'on fait passer à $0$.
-	      Ce calcul se justifie par le fait que l'on passe à un nouveau chiffre de poids plus fort en base $4$.
+    \item Si la tête de lecture est sous un chiffre d'indice de position $(2k+1)$, il suffit d'effectuer modulo $3$ l'ajout en base $4$ de la valeur de la case. Les valeurs possibles seront donc $0$, $1$ et $2$ mais pas $3$ qu'on fait passer à $0$.
+          Ce calcul se justifie par le fait que l'on passe à un nouveau chiffre de poids plus fort en base $4$.
 
 
-	\item Si la tête de lecture est sous un chiffre d'indice de position $2k$, il suffit d'effectuer modulo $3$ l'ajout en base $4$ du double de la valeur de la case.
+    \item Si la tête de lecture est sous un chiffre d'indice de position $2k$, il suffit d'effectuer modulo $3$ l'ajout en base $4$ du double de la valeur de la case.
 \end{enumerate}
-
-
-

@@ -14,33 +14,33 @@
 \newcommand*\@s[1]{\ifdim#1pt<2pt \else s\fi}
 \newcommand*\nobareme{\@Baremefalse\@BaremeDetailfalse}
 \AtBeginDocument{%
-	\edef\bareme@total{\ifdefined\somme@bareme\fpeval\somme@bareme\else0\fi}%
-	\gdef\somme@bareme{0}%
+    \edef\bareme@total{\ifdefined\somme@bareme\fpeval\somme@bareme\else0\fi}%
+    \gdef\somme@bareme{0}%
 }
 \AtEndDocument{%
-	\immediate\write\@auxout{\gdef\string\somme@bareme{\fpeval\somme@bareme}}%
+    \immediate\write\@auxout{\gdef\string\somme@bareme{\fpeval\somme@bareme}}%
 }
 \newenvironment{exercice}
-	{\medbreak\noindent
-	\global\advance\exo@cnt1
-	\edef\exo@total{\ifcsname exo@total@\number\exo@cnt\endcsname\@nameuse{exo@total@\number\exo@cnt}\else0\fi}%
-	\tikz\node[rounded corners,fill=orange,inner sep=6pt,anchor=base]{\bfseries\color{white}Exercice~\number\exo@cnt};%
-	\if@Bareme\hfill\num\exo@total~point\@s\exo@total/\num\bareme@total\fi
-	\vskip2pt \hrule\vskip2pt \nobreak
-	\let\exo@total\@empty
-	\par\nobreak
-	}
-	{\immediate\write\@auxout{\global\string\@namedef{exo@total@\number\exo@cnt}{\fpeval\exo@total}}%
-	\xdef\somme@bareme{\somme@bareme\exo@total}%
-	\par
-	}
+    {\medbreak\noindent
+    \global\advance\exo@cnt1
+    \edef\exo@total{\ifcsname exo@total@\number\exo@cnt\endcsname\@nameuse{exo@total@\number\exo@cnt}\else0\fi}%
+    \tikz\node[rounded corners,fill=orange,inner sep=6pt,anchor=base]{\bfseries\color{white}Exercice~\number\exo@cnt};%
+    \if@Bareme\hfill\num\exo@total~point\@s\exo@total/\num\bareme@total\fi
+    \vskip2pt \hrule\vskip2pt \nobreak
+    \let\exo@total\@empty
+    \par\nobreak
+    }
+    {\immediate\write\@auxout{\global\string\@namedef{exo@total@\number\exo@cnt}{\fpeval\exo@total}}%
+    \xdef\somme@bareme{\somme@bareme\exo@total}%
+    \par
+    }
 \newenvironment{questions}
-	{\begin{enumerate}[label=\colorbox{orange}{\bfseries\color{white}\arabic*},leftmargin=20mm]}
-	{\end{enumerate}}
+    {\begin{enumerate}[label=\colorbox{orange}{\bfseries\color{white}\arabic*},leftmargin=20mm]}
+    {\end{enumerate}}
 \newcommand*\brm[1]{%
-	\g@addto@macro\exo@total{+#1}%
-	\if@BaremeDetail\makebox[0pt][r]{\color{gray}\num{#1} pt\@s{#1}\kern1.5cm }\fi
-	\ignorespaces
+    \g@addto@macro\exo@total{+#1}%
+    \if@BaremeDetail\makebox[0pt][r]{\color{gray}\num{#1} pt\@s{#1}\kern1.5cm }\fi
+    \ignorespaces
 }
 \makeatother
 \pagestyle{plain}
@@ -48,28 +48,28 @@
 \detail
 Texte...
 \begin{exercice}
-	Énoncé...
-	\begin{questions}
-		\item\brm{1.5}
-		\item\brm{3}
-	\end{questions}
+    Énoncé...
+    \begin{questions}
+        \item\brm{1.5}
+        \item\brm{3}
+    \end{questions}
 \end{exercice}
 \nodetail
 Texte...
 \begin{exercice}
-	Énoncé...
-	\begin{questions}
-		\item\brm{0.5}
-		\item\brm{1.5}
-	\end{questions}
+    Énoncé...
+    \begin{questions}
+        \item\brm{0.5}
+        \item\brm{1.5}
+    \end{questions}
 \end{exercice}
 Texte...
 \nobareme
 \begin{exercice}
-	Énoncé...
-	\begin{questions}
-		\item\brm{0.5}
-		\item\brm{1.5}
-	\end{questions}
+    Énoncé...
+    \begin{questions}
+        \item\brm{0.5}
+        \item\brm{1.5}
+    \end{questions}
 \end{exercice}
 \end{document}

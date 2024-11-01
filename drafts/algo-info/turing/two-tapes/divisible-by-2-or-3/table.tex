@@ -2,7 +2,7 @@ La méthodologie est ici assez simple. On reprend l'une des tables vues dans la 
 Vous avez dû noter que des états passerelles sont utilisés pour passer la main au 2\ieme{} traitement. On va donc rendre tous ces états finaux.
 Ceci ne suffit pas car il faut aussi que les états bloquants
 \footnote{
-	Il faut bien entendu penser à traiter les états bloquants non indiqués sur la table initiale !
+    Il faut bien entendu penser à traiter les états bloquants non indiqués sur la table initiale !
 }
 de la 1\iere{} machine donne la main à la seconde en faisant tout de même attention pour les machines à une seule bande à bien replacer la tête de lecture \emph{(dans notre cas, ce problème ne se pose pas, ce qui nous enlève un peu de travail)}.
 Nous avons alors les trois tables des transitions suivantes.
@@ -10,144 +10,144 @@ Nous avons alors les trois tables des transitions suivantes.
 
 
 \begin{center}
-	\emph{\bfseries Table à une bande \myquote{automatique}}
-	
-	\smallskip
-	\begin{tabular}{|c||c|c|c|}
+    \emph{\bfseries Table à une bande \myquote{automatique}}
+
+    \smallskip
+    \begin{tabular}{|c||c|c|c|}
 % MUTIPLE OF 3
-		\hline
-		$\delta$ 
-			& $0$ 
-			& $1$
-			& $B$ \\
-		\hline
-		\hline
-		$q_0$ 
-			& \transition{d}{0}{D} 
-			& \transition{d}{1}{D}
-			&                      \\
-		\hline
-		$d$ 
-			& \transition{d   }{0}{D} 
-			& \transition{d   }{1}{D}
-			& \transition{sp_0}{B}{G} \\
-		\hline
-		\hline
-		$sp_0$ 
-			& \transition{si_0}{0}{G} 
-			& \transition{si_1}{1}{G}
-			& \transition{f   }{B}{I} \\
-		\hline
-		$sp_1$ 
-			& \transition{si_1}{0}{G} 
-			& \transition{si_2}{1}{G}
-			& \transition{m   }{B}{I} \\
-		\hline
-		$sp_2$ 
-			& \transition{si_2}{0}{G} 
-			& \transition{si_0}{1}{G}
-			& \transition{m   }{B}{I} \\
-		\hline
-		\hline
-		$si_0$ 
-			& \transition{sp_0}{0}{G} 
-			& \transition{sp_2}{1}{G}
-			& \transition{f   }{B}{I} \\
-		\hline
-		$si_1$ 
-			& \transition{sp_1}{0}{G} 
-			& \transition{sp_0}{1}{G}
-			& \transition{m   }{B}{I} \\
-		\hline
-		$si_2$ 
-			& \transition{sp_2}{0}{G} 
-			& \transition{sp_1}{1}{G}
-			& \transition{m   }{B}{I} \\
-		\hline
+        \hline
+        $\delta$
+            & $0$
+            & $1$
+            & $B$ \\
+        \hline
+        \hline
+        $q_0$
+            & \transition{d}{0}{D}
+            & \transition{d}{1}{D}
+            &                      \\
+        \hline
+        $d$
+            & \transition{d   }{0}{D}
+            & \transition{d   }{1}{D}
+            & \transition{sp_0}{B}{G} \\
+        \hline
+        \hline
+        $sp_0$
+            & \transition{si_0}{0}{G}
+            & \transition{si_1}{1}{G}
+            & \transition{f   }{B}{I} \\
+        \hline
+        $sp_1$
+            & \transition{si_1}{0}{G}
+            & \transition{si_2}{1}{G}
+            & \transition{m   }{B}{I} \\
+        \hline
+        $sp_2$
+            & \transition{si_2}{0}{G}
+            & \transition{si_0}{1}{G}
+            & \transition{m   }{B}{I} \\
+        \hline
+        \hline
+        $si_0$
+            & \transition{sp_0}{0}{G}
+            & \transition{sp_2}{1}{G}
+            & \transition{f   }{B}{I} \\
+        \hline
+        $si_1$
+            & \transition{sp_1}{0}{G}
+            & \transition{sp_0}{1}{G}
+            & \transition{m   }{B}{I} \\
+        \hline
+        $si_2$
+            & \transition{sp_2}{0}{G}
+            & \transition{sp_1}{1}{G}
+            & \transition{m   }{B}{I} \\
+        \hline
 % PARITY
-		\hline
-		$m$
-			& \transition{\ell_0}{0}{D}
-			& \transition{\ell_1}{1}{D}
-			& \transition{m     }{B}{D} \\
-		\hline
-		\hline
-		$\ell_0$
-			& \transition{\ell_0}{0}{D}
-			& \transition{\ell_1}{1}{D}
-			& \transition{f     }{B}{I} \\
-		\hline
-		$\ell_1$
-			& \transition{\ell_0}{0}{D}
-			& \transition{\ell_1}{1}{D}
-			&                           \\
-		\hline
-	\end{tabular}
+        \hline
+        $m$
+            & \transition{\ell_0}{0}{D}
+            & \transition{\ell_1}{1}{D}
+            & \transition{m     }{B}{D} \\
+        \hline
+        \hline
+        $\ell_0$
+            & \transition{\ell_0}{0}{D}
+            & \transition{\ell_1}{1}{D}
+            & \transition{f     }{B}{I} \\
+        \hline
+        $\ell_1$
+            & \transition{\ell_0}{0}{D}
+            & \transition{\ell_1}{1}{D}
+            &                           \\
+        \hline
+    \end{tabular}
 \end{center}
 
 
 
 \begin{center}
-	\emph{\bfseries Table \myquote{optimisée}}
-	
-	\smallskip
-	\begin{tabular}{|c||c|c|c|}
+    \emph{\bfseries Table \myquote{optimisée}}
+
+    \smallskip
+    \begin{tabular}{|c||c|c|c|}
 % MUTIPLE OF 3
-		\hline
-		$\delta$ 
-			& $0$ 
-			& $1$
-			& $B$ \\
-		\hline
-		\hline
-		$q_0$ 
-			& \transition{\ell_0}{0}{D} 
-			& \transition{\ell_1}{1}{D}
-			&                           \\
-		\hline
-		$\ell_0$
-			& \transition{\ell_0}{0}{D}
-			& \transition{\ell_1}{1}{D}
-			& \transition{f     }{B}{G} \\
-		\hline
-		$\ell_1$
-			& \transition{\ell_0}{0}{D}
-			& \transition{\ell_1}{1}{D}
-			& \transition{sp_0  }{B}{G} \\
-		\hline
-		\hline
-		$sp_0$ 
-			& \transition{si_0}{0}{G} 
-			& \transition{si_1}{1}{G}
-			& \transition{f   }{B}{I} \\
-		\hline
-		$sp_1$ 
-			& \transition{si_1}{0}{G} 
-			& \transition{si_2}{1}{G}
-			&                         \\
-		\hline
-		$sp_2$ 
-			& \transition{si_2}{0}{G} 
-			& \transition{si_0}{1}{G}
-			&                         \\
-		\hline
-		\hline
-		$si_0$ 
-			& \transition{sp_0}{0}{G} 
-			& \transition{sp_2}{1}{G}
-			& \transition{f   }{B}{I} \\
-		\hline
-		$si_1$ 
-			& \transition{sp_1}{0}{G} 
-			& \transition{sp_0}{1}{G}
-			&                         \\
-		\hline
-		$si_2$ 
-			& \transition{sp_2}{0}{G} 
-			& \transition{sp_1}{1}{G}
-			&                         \\
-		\hline
-	\end{tabular}
+        \hline
+        $\delta$
+            & $0$
+            & $1$
+            & $B$ \\
+        \hline
+        \hline
+        $q_0$
+            & \transition{\ell_0}{0}{D}
+            & \transition{\ell_1}{1}{D}
+            &                           \\
+        \hline
+        $\ell_0$
+            & \transition{\ell_0}{0}{D}
+            & \transition{\ell_1}{1}{D}
+            & \transition{f     }{B}{G} \\
+        \hline
+        $\ell_1$
+            & \transition{\ell_0}{0}{D}
+            & \transition{\ell_1}{1}{D}
+            & \transition{sp_0  }{B}{G} \\
+        \hline
+        \hline
+        $sp_0$
+            & \transition{si_0}{0}{G}
+            & \transition{si_1}{1}{G}
+            & \transition{f   }{B}{I} \\
+        \hline
+        $sp_1$
+            & \transition{si_1}{0}{G}
+            & \transition{si_2}{1}{G}
+            &                         \\
+        \hline
+        $sp_2$
+            & \transition{si_2}{0}{G}
+            & \transition{si_0}{1}{G}
+            &                         \\
+        \hline
+        \hline
+        $si_0$
+            & \transition{sp_0}{0}{G}
+            & \transition{sp_2}{1}{G}
+            & \transition{f   }{B}{I} \\
+        \hline
+        $si_1$
+            & \transition{sp_1}{0}{G}
+            & \transition{sp_0}{1}{G}
+            &                         \\
+        \hline
+        $si_2$
+            & \transition{sp_2}{0}{G}
+            & \transition{sp_1}{1}{G}
+            &                         \\
+        \hline
+    \end{tabular}
 \end{center}
 
 
@@ -157,141 +157,141 @@ Nous avons alors les trois tables des transitions suivantes.
 
 
 \begin{center}
-	\emph{\bfseries Table à deux bandes}
-	
-	\smallskip
-	\emph{\small Phase 1 : copie de l'entrée.}
-	
-	\smallskip
-	\renewcommand{\arraystretch}{1.25}
-	\begin{tabular}{|c||c|c|c|c|c|}
-		\hline
-		$\delta$ 
-			& $\twocoord{0}{B}$ 
-			& $\twocoord{1}{B}$ 
-			& $\twocoord{B}{B}$ 
-			& $\twocoord{0}{0}$ 
-			& $\twocoord{1}{1}$ \\
-		\hline
-		\hline
-		$q_0$ 
-			& \transition{c}{\twocoord{0}{0}}{\twocoord{D}{D}} 
-			& \transition{c}{\twocoord{1}{1}}{\twocoord{D}{D}}
-			&                   
-			&                   
-			&                                                  \\
-		\hline
-		$c$ 
-			& \transition{c}{\twocoord{0}{0}}{\twocoord{D}{D}} 
-			& \transition{c}{\twocoord{1}{1}}{\twocoord{D}{D}}
-			& \transition{g}{\twocoord{B}{B}}{\twocoord{G}{G}}
-			&                   
-			&                                                  \\
-		\hline
-		$g$ 
-			&                     
-			&                   
-			& \transition{t_m}{\twocoord{B}{B}}{\twocoord{D}{I}}
-			& \transition{g  }{\twocoord{0}{0}}{\twocoord{G}{G}} 
-			& \transition{g  }{\twocoord{1}{1}}{\twocoord{G}{G}} \\
-		\hline
-	\end{tabular}
-	\renewcommand{\arraystretch}{1}
+    \emph{\bfseries Table à deux bandes}
+
+    \smallskip
+    \emph{\small Phase 1 : copie de l'entrée.}
+
+    \smallskip
+    \renewcommand{\arraystretch}{1.25}
+    \begin{tabular}{|c||c|c|c|c|c|}
+        \hline
+        $\delta$
+            & $\twocoord{0}{B}$
+            & $\twocoord{1}{B}$
+            & $\twocoord{B}{B}$
+            & $\twocoord{0}{0}$
+            & $\twocoord{1}{1}$ \\
+        \hline
+        \hline
+        $q_0$
+            & \transition{c}{\twocoord{0}{0}}{\twocoord{D}{D}}
+            & \transition{c}{\twocoord{1}{1}}{\twocoord{D}{D}}
+            &
+            &
+            &                                                  \\
+        \hline
+        $c$
+            & \transition{c}{\twocoord{0}{0}}{\twocoord{D}{D}}
+            & \transition{c}{\twocoord{1}{1}}{\twocoord{D}{D}}
+            & \transition{g}{\twocoord{B}{B}}{\twocoord{G}{G}}
+            &
+            &                                                  \\
+        \hline
+        $g$
+            &
+            &
+            & \transition{t_m}{\twocoord{B}{B}}{\twocoord{D}{I}}
+            & \transition{g  }{\twocoord{0}{0}}{\twocoord{G}{G}}
+            & \transition{g  }{\twocoord{1}{1}}{\twocoord{G}{G}} \\
+        \hline
+    \end{tabular}
+    \renewcommand{\arraystretch}{1}
 \end{center}
 
 
 
 \begin{center}
-	\emph{\small Phase 2 : a-t-on un multiple de $3$ via la bande du haut ?}
-	
-	\smallskip
-	\renewcommand{\arraystretch}{1.25}
-	\begin{tabular}{|c||c|c|c|}
-		\hline
-		$\delta$ 
-			& $\twocoord{0}{B}$ 
-			& $\twocoord{1}{B}$ 
-			& $\twocoord{B}{B}$  \\
-		\hline
-		\hline
-		$t_m$ 
-			& \transition{d}{\twocoord{0}{B}}{\twocoord{D}{I}} 
-			& \transition{d}{\twocoord{1}{B}}{\twocoord{D}{I}}
-			&                                                        \\
-		\hline
-		$d$ 
-			& \transition{d   }{\twocoord{0}{B}}{\twocoord{D}{I}} 
-			& \transition{d   }{\twocoord{1}{B}}{\twocoord{D}{I}}
-			& \transition{sp_0}{\twocoord{B}{B}}{\twocoord{G}{I}} \\
-		\hline
-		\hline
-		$sp_0$ 
-			& \transition{si_0}{\twocoord{0}{B}}{\twocoord{G}{I}} 
-			& \transition{si_1}{\twocoord{1}{B}}{\twocoord{G}{I}}
-			& \transition{f   }{\twocoord{B}{B}}{\twocoord{I}{I}} \\
-		\hline
-		$sp_1$ 
-			& \transition{si_1}{\twocoord{0}{B}}{\twocoord{G}{I}} 
-			& \transition{si_2}{\twocoord{1}{B}}{\twocoord{G}{I}}
-			& \transition{t_p }{\twocoord{B}{B}}{\twocoord{I}{D}} \\
-		\hline
-		$sp_2$ 
-			& \transition{si_2}{\twocoord{0}{B}}{\twocoord{G}{I}} 
-			& \transition{si_0}{\twocoord{1}{B}}{\twocoord{G}{I}}
-			& \transition{t_p }{\twocoord{B}{B}}{\twocoord{I}{D}} \\
-		\hline
-		\hline
-		$si_0$ 
-			& \transition{sp_0}{\twocoord{0}{B}}{\twocoord{G}{I}} 
-			& \transition{sp_2}{\twocoord{1}{B}}{\twocoord{G}{I}}
-			& \transition{f   }{\twocoord{B}{B}}{\twocoord{I}{I}} \\
-		\hline
-		$si_1$ 
-			& \transition{sp_1}{\twocoord{0}{B}}{\twocoord{G}{I}} 
-			& \transition{sp_0}{\twocoord{1}{B}}{\twocoord{G}{I}}
-			& \transition{t_p }{\twocoord{B}{B}}{\twocoord{I}{D}} \\
-		\hline
-		$si_2$ 
-			& \transition{sp_2}{\twocoord{0}{B}}{\twocoord{G}{I}} 
-			& \transition{sp_1}{\twocoord{1}{B}}{\twocoord{G}{I}}
-			& \transition{t_p }{\twocoord{B}{B}}{\twocoord{I}{D}} \\
-		\hline
-	\end{tabular}
-	\renewcommand{\arraystretch}{1}
+    \emph{\small Phase 2 : a-t-on un multiple de $3$ via la bande du haut ?}
+
+    \smallskip
+    \renewcommand{\arraystretch}{1.25}
+    \begin{tabular}{|c||c|c|c|}
+        \hline
+        $\delta$
+            & $\twocoord{0}{B}$
+            & $\twocoord{1}{B}$
+            & $\twocoord{B}{B}$  \\
+        \hline
+        \hline
+        $t_m$
+            & \transition{d}{\twocoord{0}{B}}{\twocoord{D}{I}}
+            & \transition{d}{\twocoord{1}{B}}{\twocoord{D}{I}}
+            &                                                        \\
+        \hline
+        $d$
+            & \transition{d   }{\twocoord{0}{B}}{\twocoord{D}{I}}
+            & \transition{d   }{\twocoord{1}{B}}{\twocoord{D}{I}}
+            & \transition{sp_0}{\twocoord{B}{B}}{\twocoord{G}{I}} \\
+        \hline
+        \hline
+        $sp_0$
+            & \transition{si_0}{\twocoord{0}{B}}{\twocoord{G}{I}}
+            & \transition{si_1}{\twocoord{1}{B}}{\twocoord{G}{I}}
+            & \transition{f   }{\twocoord{B}{B}}{\twocoord{I}{I}} \\
+        \hline
+        $sp_1$
+            & \transition{si_1}{\twocoord{0}{B}}{\twocoord{G}{I}}
+            & \transition{si_2}{\twocoord{1}{B}}{\twocoord{G}{I}}
+            & \transition{t_p }{\twocoord{B}{B}}{\twocoord{I}{D}} \\
+        \hline
+        $sp_2$
+            & \transition{si_2}{\twocoord{0}{B}}{\twocoord{G}{I}}
+            & \transition{si_0}{\twocoord{1}{B}}{\twocoord{G}{I}}
+            & \transition{t_p }{\twocoord{B}{B}}{\twocoord{I}{D}} \\
+        \hline
+        \hline
+        $si_0$
+            & \transition{sp_0}{\twocoord{0}{B}}{\twocoord{G}{I}}
+            & \transition{sp_2}{\twocoord{1}{B}}{\twocoord{G}{I}}
+            & \transition{f   }{\twocoord{B}{B}}{\twocoord{I}{I}} \\
+        \hline
+        $si_1$
+            & \transition{sp_1}{\twocoord{0}{B}}{\twocoord{G}{I}}
+            & \transition{sp_0}{\twocoord{1}{B}}{\twocoord{G}{I}}
+            & \transition{t_p }{\twocoord{B}{B}}{\twocoord{I}{D}} \\
+        \hline
+        $si_2$
+            & \transition{sp_2}{\twocoord{0}{B}}{\twocoord{G}{I}}
+            & \transition{sp_1}{\twocoord{1}{B}}{\twocoord{G}{I}}
+            & \transition{t_p }{\twocoord{B}{B}}{\twocoord{I}{D}} \\
+        \hline
+    \end{tabular}
+    \renewcommand{\arraystretch}{1}
 \end{center}
 
 
 
 
 \begin{center}
-	\emph{\small Phase 3 : a-t-on un non multiple de $3$ qui est pair via la bande du bas ?}
-	
-	\smallskip
-	\renewcommand{\arraystretch}{1.25}
-	\begin{tabular}{|c||c|c|c|}
-		\hline
-		$\delta$ 
-			& $\twocoord{B}{0}$ 
-			& $\twocoord{B}{1}$ 
-			& $\twocoord{B}{B}$  \\
-		\hline
-		\hline
-		$t_p$
-			& \transition{\ell_0}{\twocoord{B}{0}}{\twocoord{I}{D}}
-			& \transition{\ell_1}{\twocoord{B}{1}}{\twocoord{I}{D}}
-			&                                                             \\
-		\hline
-		\hline
-		$\ell_0$
-			& \transition{\ell_0}{\twocoord{B}{0}}{\twocoord{I}{D}}
-			& \transition{\ell_1}{\twocoord{B}{1}}{\twocoord{I}{D}}
-			& \transition{f     }{\twocoord{B}{B}}{\twocoord{I}{I}} \\
-		\hline
-		$\ell_1$
-			& \transition{\ell_0}{\twocoord{B}{0}}{\twocoord{I}{D}}
-			& \transition{\ell_1}{\twocoord{B}{1}}{\twocoord{I}{D}}
-			&                                                             \\
-		\hline
-	\end{tabular}
-	\renewcommand{\arraystretch}{1}
+    \emph{\small Phase 3 : a-t-on un non multiple de $3$ qui est pair via la bande du bas ?}
+
+    \smallskip
+    \renewcommand{\arraystretch}{1.25}
+    \begin{tabular}{|c||c|c|c|}
+        \hline
+        $\delta$
+            & $\twocoord{B}{0}$
+            & $\twocoord{B}{1}$
+            & $\twocoord{B}{B}$  \\
+        \hline
+        \hline
+        $t_p$
+            & \transition{\ell_0}{\twocoord{B}{0}}{\twocoord{I}{D}}
+            & \transition{\ell_1}{\twocoord{B}{1}}{\twocoord{I}{D}}
+            &                                                             \\
+        \hline
+        \hline
+        $\ell_0$
+            & \transition{\ell_0}{\twocoord{B}{0}}{\twocoord{I}{D}}
+            & \transition{\ell_1}{\twocoord{B}{1}}{\twocoord{I}{D}}
+            & \transition{f     }{\twocoord{B}{B}}{\twocoord{I}{I}} \\
+        \hline
+        $\ell_1$
+            & \transition{\ell_0}{\twocoord{B}{0}}{\twocoord{I}{D}}
+            & \transition{\ell_1}{\twocoord{B}{1}}{\twocoord{I}{D}}
+            &                                                             \\
+        \hline
+    \end{tabular}
+    \renewcommand{\arraystretch}{1}
 \end{center}

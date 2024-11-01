@@ -1,30 +1,30 @@
 Pour finir, nous allons analyser ce qu'il se passe si l'on somme à la puissance $k \geqslant 3$ au lieu d'élever au carré.
 Nous reprenons des notations similaires à celles de la section \ref{proof}.
 \begin{itemize}[label = \textbullet]
-	\item Pour un naturel $n =  \left[ \, c_{d-1} c_{d-2} \cdots c_1 c_0 \, \right]_{10}$ avec $c_{d-1} \neq 0$,
-	on pose
-	$\displaystyle pw(n) = \sum_{i=0}^{d-1} (c_i)^{\,k}$
-	et
-	$\taille(n) = d$.
-	
-	\item Pour $(n \,; i) \in \NN^2$, on définit 
-	$\sqseq{n}{0} = n$
-	et
-	$\sqseq{n}{i+1} = pw \left( \, \sqseq{n}{i} \right)$.
+    \item Pour un naturel $n =  \left[ \, c_{d-1} c_{d-2} \cdots c_1 c_0 \, \right]_{10}$ avec $c_{d-1} \neq 0$,
+    on pose
+    $\displaystyle pw(n) = \sum_{i=0}^{d-1} (c_i)^{\,k}$
+    et
+    $\taille(n) = d$.
+
+    \item Pour $(n \,; i) \in \NN^2$, on définit
+    $\sqseq{n}{0} = n$
+    et
+    $\sqseq{n}{i+1} = pw \left( \, \sqseq{n}{i} \right)$.
 \end{itemize}
 
- 
+
 
 \bigskip
 
 \begin{fact}
-	$\forall n \in \NN$, $pw(n) \leqslant 9^{\,k} \, d$ où $d = \taille(n)$.
+    $\forall n \in \NN$, $pw(n) \leqslant 9^{\,k} \, d$ où $d = \taille(n)$.
 \end{fact}
 
 \begin{proof*}
-	Si $n = \left[ \, c_{d-1} c_{d-2} \cdots c_1 c_0 \, \right]_{10}$
-	alors 
-	$\displaystyle pw(n) = \sum_{i=0}^{d-1} (c_i)^{\,k} \leqslant \sum_{i=0}^{d-1} 9^{\,k} = 9^{\,k} \, d $.
+    Si $n = \left[ \, c_{d-1} c_{d-2} \cdots c_1 c_0 \, \right]_{10}$
+    alors
+    $\displaystyle pw(n) = \sum_{i=0}^{d-1} (c_i)^{\,k} \leqslant \sum_{i=0}^{d-1} 9^{\,k} = 9^{\,k} \, d $.
 \end{proof*}
 
 
@@ -33,88 +33,88 @@ Nous reprenons des notations similaires à celles de la section \ref{proof}.
 \medskip
 
 \begin{fact}\label{magicmajo}
-	Il existe $d_0 \in \NN$ tel que $\forall n \in \NN$,	
-	$[ \, \taille(n) \geqslant d_0 \Rightarrow pw(n) < n \, ]$.
+    Il existe $d_0 \in \NN$ tel que $\forall n \in \NN$,
+    $[ \, \taille(n) \geqslant d_0 \Rightarrow pw(n) < n \, ]$.
 \end{fact}
 
 \begin{proof*}\label{magicmajo-proof}
-	Notons $d = \taille(n)$ de sorte que $n \geqslant 10^{d-1}$.
-	Compte tenu du fait précédent, nous cherchons à comparer $10^{d-1}$ et $9^{\,k} \, d$.
-	
-	
-	\medskip
-	
-	Nous allons procéder de façon analogue au cas $k = 2$ démontré dans la section \ref{proof} mais en étant ici plus rigoureux dans la rédaction.
-	
-	
-	\medskip
-	
-	$\exists d_0 \in \NNs$ tel que $10^{d_0 - 1} > 9^{\,k} d_0 > 9^{\,k  - 1}$ . Ceci s'obtient en utilisant la croissance comparée des fonctions $f(x) = 10^{x - 1}$ et $g(x) = 9^{\,k} x$.
+    Notons $d = \taille(n)$ de sorte que $n \geqslant 10^{d-1}$.
+    Compte tenu du fait précédent, nous cherchons à comparer $10^{d-1}$ et $9^{\,k} \, d$.
 
 
-	\medskip
-	
-	Montrons par récurrence sur $d \geqslant d_0$ que $10^{d - 1} > 9^{\,k} d$ .
-	Ceci donnera $n \geqslant 10^{d - 1} > 9^{\,k} d \geqslant pow(n)$ d'où $n > pow(n)$ dès que $d \geqslant d_0$ comme souhaité.
+    \medskip
 
-	\begin{itemize}[label=\small\textbullet]
-		\item \emph{Initialisation.}
-		Par choix de $d_0$ , nous avons $10^{d-1} > 9^{\,k} d$ si $d = d_0$.
+    Nous allons procéder de façon analogue au cas $k = 2$ démontré dans la section \ref{proof} mais en étant ici plus rigoureux dans la rédaction.
 
-		\item \emph{Hérédité.}
-		Faisons l'hypothèse que $10^{d-1} > 9^{\,k} d$ est vérifiée pour un naturel $d \geqslant d_0$ \emph{\og fixé quelconque \fg}.
 
-		\smallskip
-		
-		\noindent
-		Nous avons : $10^{(d+1)-1} = 10\times10^{d-1} = 10^{d-1} + 9\times10^{d-1} > 10^{d-1} + 9^{\,k}$
-		en utilisant au passage $10^{d-1} \geqslant 10^{d_0-1} > 9^{\,k  - 1}$.
+    \medskip
 
-		\smallskip
-		
-		\noindent
-		Comme $10^{d-1} > 9^{\,k} d$, nous avons ensuite $10^{(d+1)-1} > 9^{\,k} d + 9^{\,k} = 9^{\,k} (d+ 1)$ .
-		L'inégalité est donc vérifiée au rang suivant $(d+1)$. 
+    $\exists d_0 \in \NNs$ tel que $10^{d_0 - 1} > 9^{\,k} d_0 > 9^{\,k  - 1}$ . Ceci s'obtient en utilisant la croissance comparée des fonctions $f(x) = 10^{x - 1}$ et $g(x) = 9^{\,k} x$.
 
-		\item \emph{Conclusion.}
-		Par récurrence sur $d \geqslant d_0$ , nous avons $10^{d - 1} > 9^{\,k} d$ pour tout naturel $d$ tel que $d \geqslant d_0$ .
-	\end{itemize}
+
+    \medskip
+
+    Montrons par récurrence sur $d \geqslant d_0$ que $10^{d - 1} > 9^{\,k} d$ .
+    Ceci donnera $n \geqslant 10^{d - 1} > 9^{\,k} d \geqslant pow(n)$ d'où $n > pow(n)$ dès que $d \geqslant d_0$ comme souhaité.
+
+    \begin{itemize}[label=\small\textbullet]
+        \item \emph{Initialisation.}
+        Par choix de $d_0$ , nous avons $10^{d-1} > 9^{\,k} d$ si $d = d_0$.
+
+        \item \emph{Hérédité.}
+        Faisons l'hypothèse que $10^{d-1} > 9^{\,k} d$ est vérifiée pour un naturel $d \geqslant d_0$ \emph{\og fixé quelconque \fg}.
+
+        \smallskip
+
+        \noindent
+        Nous avons : $10^{(d+1)-1} = 10\times10^{d-1} = 10^{d-1} + 9\times10^{d-1} > 10^{d-1} + 9^{\,k}$
+        en utilisant au passage $10^{d-1} \geqslant 10^{d_0-1} > 9^{\,k  - 1}$.
+
+        \smallskip
+
+        \noindent
+        Comme $10^{d-1} > 9^{\,k} d$, nous avons ensuite $10^{(d+1)-1} > 9^{\,k} d + 9^{\,k} = 9^{\,k} (d+ 1)$ .
+        L'inégalité est donc vérifiée au rang suivant $(d+1)$.
+
+        \item \emph{Conclusion.}
+        Par récurrence sur $d \geqslant d_0$ , nous avons $10^{d - 1} > 9^{\,k} d$ pour tout naturel $d$ tel que $d \geqslant d_0$ .
+    \end{itemize}
 \end{proof*}
-	
+
 
 \medskip
 
 \begin{remark}
-	Informatiquement une valeur de $d_0$ peut s'obtenir en testant $10^{d - 1} > 9^{\,k} d$ successivement pour les naturels non nuls $d$.
-	
-	
-	\medskip
-	
-	Pour gagner du temps, on peut tester les valeurs successives de $2^i$ pour $i = 0, 1, 2, \dots$ pour obtenir $D$ tel que $10^{D - 1} > 9^{\,k} D$ . Si la valeur de $D$ est trop grande pour faire des tests brutaux, on peut chercher la valeur minimale de $d$ tel que $10^{d - 1} > 9^{\,k} d$ en utilisant une recherche de type dichotomique. 
+    Informatiquement une valeur de $d_0$ peut s'obtenir en testant $10^{d - 1} > 9^{\,k} d$ successivement pour les naturels non nuls $d$.
+
+
+    \medskip
+
+    Pour gagner du temps, on peut tester les valeurs successives de $2^i$ pour $i = 0, 1, 2, \dots$ pour obtenir $D$ tel que $10^{D - 1} > 9^{\,k} D$ . Si la valeur de $D$ est trop grande pour faire des tests brutaux, on peut chercher la valeur minimale de $d$ tel que $10^{d - 1} > 9^{\,k} d$ en utilisant une recherche de type dichotomique.
 \end{remark}
 
 
 \medskip
 
 \begin{fact}\label{beautifulproof}
-	$\forall n \in \NN$, la suite $\left( \, \sqseq{n}{i} \right)_{i \in \NN}$ est ultimement périodique.
+    $\forall n \in \NN$, la suite $\left( \, \sqseq{n}{i} \right)_{i \in \NN}$ est ultimement périodique.
 \end{fact}
 
 \begin{proof*}
-	Tout est en fait contenu dans le fait \ref{magicmajo}, dont on reprend la signification de $d_0$. Expliquons pourquoi.
-	\begin{itemize}[label = \textbullet]
-		\item Le fait \ref{magicmajo} donne l'existence d'un indice $i_0 \in \NN$ tel que $\taille\left( \, \sqseq{n}{i_0} \right) < d_0$ \emph{(dans le cas contraire, on pourrait construire une suite strictement décroissante de naturels)}.
+    Tout est en fait contenu dans le fait \ref{magicmajo}, dont on reprend la signification de $d_0$. Expliquons pourquoi.
+    \begin{itemize}[label = \textbullet]
+        \item Le fait \ref{magicmajo} donne l'existence d'un indice $i_0 \in \NN$ tel que $\taille\left( \, \sqseq{n}{i_0} \right) < d_0$ \emph{(dans le cas contraire, on pourrait construire une suite strictement décroissante de naturels)}.
 
-		\item Si pour tout naturel $i \in \ZintervalCO{i_0}{+\infty}$ , $\taille\left( \, \sqseq{n}{i} \right) < d_0$ , nous avons l'ultime périodicité via le principe des tiroirs \emph{(si besoin revoir la fin de la section \ref{proof})}.
+        \item Si pour tout naturel $i \in \ZintervalCO{i_0}{+\infty}$ , $\taille\left( \, \sqseq{n}{i} \right) < d_0$ , nous avons l'ultime périodicité via le principe des tiroirs \emph{(si besoin revoir la fin de la section \ref{proof})}.
 
-		\item Sinon il existe $i\,^\prime_0 \in \ZintervalO{i_0}{+\infty}$ tel que $\taille\left( \, \sqseq{n}{i\,^\prime_0} \right) \geqslant d_0$. Comme dans le premier point, nous pouvons alors trouver $i_1 \in \ZintervalO{i\,^\prime_0}{+\infty}$ tel que $\taille\left( \, \sqseq{n}{i_1} \right) < d_0$.
-		
-		\item En répétant notre raisonnement,
-		on peut aboutir à une situation similaire au 2\ieme{} point, et c'est gagné. 
-		
-		\noindent
-		Sinon on arrive à construire une suite strictement croissante $\left( i_k \right)_k$ d'indices tels que $\forall k \in \NN$, $\taille\left( \, \sqseq{n}{i_k} \right) < d_0$. Le principe des tiroirs s'applique ici aussi !
-	\end{itemize}
+        \item Sinon il existe $i\,^\prime_0 \in \ZintervalO{i_0}{+\infty}$ tel que $\taille\left( \, \sqseq{n}{i\,^\prime_0} \right) \geqslant d_0$. Comme dans le premier point, nous pouvons alors trouver $i_1 \in \ZintervalO{i\,^\prime_0}{+\infty}$ tel que $\taille\left( \, \sqseq{n}{i_1} \right) < d_0$.
+
+        \item En répétant notre raisonnement,
+        on peut aboutir à une situation similaire au 2\ieme{} point, et c'est gagné.
+
+        \noindent
+        Sinon on arrive à construire une suite strictement croissante $\left( i_k \right)_k$ d'indices tels que $\forall k \in \NN$, $\taille\left( \, \sqseq{n}{i_k} \right) < d_0$. Le principe des tiroirs s'applique ici aussi !
+    \end{itemize}
 \end{proof*}
 
 
@@ -122,5 +122,5 @@ Nous reprenons des notations similaires à celles de la section \ref{proof}.
 \medskip
 
 \begin{remark}
-	La preuve précédente montre que pour rechercher toutes les périodes il \emph{\og suffit \fg} d'étudier les naturels appartenant à $\ZintervalCO{0}{10^{d_0}}$ .
+    La preuve précédente montre que pour rechercher toutes les périodes il \emph{\og suffit \fg} d'étudier les naturels appartenant à $\ZintervalCO{0}{10^{d_0}}$ .
 \end{remark}

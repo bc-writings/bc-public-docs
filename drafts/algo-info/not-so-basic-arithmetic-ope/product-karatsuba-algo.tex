@@ -5,42 +5,42 @@ Comment calculer efficacement le produit $p = 12\,345\,678 \cdot 87\,654\,321$ ,
 La 1\iere{} idée de la méthode de Karatsuba est de procéder comme suit.
 
 \begin{enumerate}
-	\item 
-	\begin{stepcalc}[style = sar]
-		p
-			\explnext{}
-		(1\,234 \cdot 10^4 + 5\,678) \, (8\,765 \cdot 10^4 + 4\,321)
-			\explnext{}
-		1\,234 \cdot 8\,765 \cdot 10^8
-		+ (1\,234 \cdot 4\,321 + 5\,678 \cdot 8\,765) \cdot 10^4
-		+ 5\,678 \cdot 4\,321)
-	\end{stepcalc}
-	
-	\item On procède alors de façon analogue pour chaque nouveau produit \emph{(nous allons voir que Karatsuba a été très malin pour gérer cette étape)}. Concentrons-nous juste sur $q = 1\,234 \cdot 8\,765$ par exemple.
-	 
-	\leavevmode\kern-1.75em
-	\begin{stepcalc}[style = sar]
-		q
-			\explnext{}
-		(12 \cdot 10^2 + 34) \, (87 \cdot 10^2 + 65)
-			\explnext{}
-		12 \cdot 87 \cdot 10^4
-		+ (12 \cdot 65 + 34 \cdot 87) \cdot 10^2
-		+ 34 \cdot 65
-	\end{stepcalc}
-	
-	\item Il reste alors des \og dernières \fg{} étapes du type suivant en considérant $r = 12 \cdot 65$.
-	 
-	\leavevmode\kern-1.75em
-	\begin{stepcalc}[style = sar]
-		r
-			\explnext{}
-		(1 \cdot 10 + 2) \, (6 \cdot 10 + 5)
-			\explnext{}
-		1 \cdot 2 \cdot 10^2
-		+ (1 \cdot 6 + 2 \cdot 6) \cdot 10
-		+ 2 \cdot 5
-	\end{stepcalc}
+    \item
+    \begin{stepcalc}[style = sar]
+        p
+            \explnext{}
+        (1\,234 \cdot 10^4 + 5\,678) \, (8\,765 \cdot 10^4 + 4\,321)
+            \explnext{}
+        1\,234 \cdot 8\,765 \cdot 10^8
+        + (1\,234 \cdot 4\,321 + 5\,678 \cdot 8\,765) \cdot 10^4
+        + 5\,678 \cdot 4\,321)
+    \end{stepcalc}
+
+    \item On procède alors de façon analogue pour chaque nouveau produit \emph{(nous allons voir que Karatsuba a été très malin pour gérer cette étape)}. Concentrons-nous juste sur $q = 1\,234 \cdot 8\,765$ par exemple.
+
+    \leavevmode\kern-1.75em
+    \begin{stepcalc}[style = sar]
+        q
+            \explnext{}
+        (12 \cdot 10^2 + 34) \, (87 \cdot 10^2 + 65)
+            \explnext{}
+        12 \cdot 87 \cdot 10^4
+        + (12 \cdot 65 + 34 \cdot 87) \cdot 10^2
+        + 34 \cdot 65
+    \end{stepcalc}
+
+    \item Il reste alors des \og dernières \fg{} étapes du type suivant en considérant $r = 12 \cdot 65$.
+
+    \leavevmode\kern-1.75em
+    \begin{stepcalc}[style = sar]
+        r
+            \explnext{}
+        (1 \cdot 10 + 2) \, (6 \cdot 10 + 5)
+            \explnext{}
+        1 \cdot 2 \cdot 10^2
+        + (1 \cdot 6 + 2 \cdot 6) \cdot 10
+        + 2 \cdot 5
+    \end{stepcalc}
 \end{enumerate}
 
 
@@ -59,76 +59,76 @@ $(a ; b ; c ; d) \in \ZintervalC{0}{10^{n/2} - 1}$.
 \bigskip
 
 
-Essayons de voir si l'on peut éviter de faire le calcul de tous les 4 produits $a \cdot A$ ,  $a \cdot B$ , $b \cdot B$ et $b \cdot A$ . 
+Essayons de voir si l'on peut éviter de faire le calcul de tous les 4 produits $a \cdot A$ ,  $a \cdot B$ , $b \cdot B$ et $b \cdot A$ .
 Pour cela nous allons prendre un peu de recul
 \footnote{
-	L'auteur de ces notes ne sait pas ce qui a réellement guidé Karatsuba dans sa découverte.
+    L'auteur de ces notes ne sait pas ce qui a réellement guidé Karatsuba dans sa découverte.
 }
 en considérant le polynôme $P(X) = (a \cdot X + b) \, (A \cdot X + B)$.
 Posons alors $P(X) = c_2 \cdot X^2 + c_1 \cdot X + c_0$ et projetons-nous un peu plus loin pour avancer...
 
 \begin{enumerate}
-	\item $c_0 = P(0)$ c'est à dire $c_0 = b \cdot B$ .
+    \item $c_0 = P(0)$ c'est à dire $c_0 = b \cdot B$ .
 
-	
-	\item $c_2 = a \cdot A$ peut être vue comme la valeur à l'infini du polynôme $P$. Si l'on reste dans le cadre réel, on peut penser à un équivalent en $+\infty$. On peut en fait donner une définition très algébrique en considérant l'homogénéisé
-	\footnote{
-		Ce genre de considération est naturelle quand l'on fait de la géométrie projective.
-		Le point $(1 ; 0)$ est un point à l'infini du plan projectif.
-	}
-	de $P$ qui est par définition le polynôme $P_h(X ; T) = c_2 \cdot X^2 + c_1 \cdot X \cdot T + c_0 \cdot T^2$ .
-	Dès lors, nous avons : $P_h(1 ; 0) = c_2$ .
 
-	
-	\item
-	\begin{stepcalc}[style = sar, ope = \iff]
-		P(1) = c_2 + c_1 + c_0
-			\explnext{}
-		c_1 = P(1) - c_2 - c_0
-			\explnext{}
-		c_1 = (a + b) \, (A + B) - c_2 - c_0
-	\end{stepcalc}
-	
-	
-	\item En résumé, 
-	$c_0 = b \cdot B$ ,
-	$c_2 = a \cdot A$
-	et surtout 
-	$c_1 = (a + b) \, (A + B) - c_2 - c_0$ .
-	Donc il suffit de calculer les trois produits
-	$c_0 = b \cdot B$ ,
-	$c_2 = a \cdot A$
-	et 
-	$(a + b) \, (A + B)$,
-	pour avoir au passage $c_1$ ,
-	puis d'utiliser
-	$(a \cdot X + b) \, (A \cdot X + B) %
-	 = %
-	 c_2 \cdot 10^n + c_1 \cdot 10^{n/2} + c_0$ .
-	Joli ! Non ?
-	C'est cela la méthode proposée par Karatsuba, une méthode que nous venons de présenter via un simple problème d'interpolation polynomiale.
+    \item $c_2 = a \cdot A$ peut être vue comme la valeur à l'infini du polynôme $P$. Si l'on reste dans le cadre réel, on peut penser à un équivalent en $+\infty$. On peut en fait donner une définition très algébrique en considérant l'homogénéisé
+    \footnote{
+        Ce genre de considération est naturelle quand l'on fait de la géométrie projective.
+        Le point $(1 ; 0)$ est un point à l'infini du plan projectif.
+    }
+    de $P$ qui est par définition le polynôme $P_h(X ; T) = c_2 \cdot X^2 + c_1 \cdot X \cdot T + c_0 \cdot T^2$ .
+    Dès lors, nous avons : $P_h(1 ; 0) = c_2$ .
+
+
+    \item
+    \begin{stepcalc}[style = sar, ope = \iff]
+        P(1) = c_2 + c_1 + c_0
+            \explnext{}
+        c_1 = P(1) - c_2 - c_0
+            \explnext{}
+        c_1 = (a + b) \, (A + B) - c_2 - c_0
+    \end{stepcalc}
+
+
+    \item En résumé,
+    $c_0 = b \cdot B$ ,
+    $c_2 = a \cdot A$
+    et surtout
+    $c_1 = (a + b) \, (A + B) - c_2 - c_0$ .
+    Donc il suffit de calculer les trois produits
+    $c_0 = b \cdot B$ ,
+    $c_2 = a \cdot A$
+    et
+    $(a + b) \, (A + B)$,
+    pour avoir au passage $c_1$ ,
+    puis d'utiliser
+    $(a \cdot X + b) \, (A \cdot X + B) %
+     = %
+     c_2 \cdot 10^n + c_1 \cdot 10^{n/2} + c_0$ .
+    Joli ! Non ?
+    C'est cela la méthode proposée par Karatsuba, une méthode que nous venons de présenter via un simple problème d'interpolation polynomiale.
 \end{enumerate}
 
 
 \begin{remark}
-	On aurait aussi pu considérer $P(-1)$, ce qui donne :
-	
-	\smallskip
-	
-	\begin{stepcalc}[style = sar, ope = \iff]
-		P(-1) = c_2 - c_1 + c_0
-			\explnext{}
-		c_1 = c_2 + c_0 - P(-1)
-			\explnext{}
-		c_1 = c_2 + c_0 - (a - b) \, (A - B)
-	\end{stepcalc}
-	
-	\smallskip
-	
-	L'intérêt de la formule précédente est que le produit $(a - b) \, (A - B)$ est moins grand en valeur absolue que $(a + b) \, (A + B)$
-	\emph{(nous donnons une application de ceci dans la section suivante)}.
-	
-	\smallskip
-	
-	On pourrait vouloir passer via $P(k)$ où $k \in \ZZ$. Ceci semble a priori peu prometteur car on obtient alors $c_1 = c_2 \, k^2 + c_0 - (a \, k + b) \, (A \, k + B)$ et inutile pour nous car là nous devons faire plus de produits que les deux méthodes ci-dessus.
+    On aurait aussi pu considérer $P(-1)$, ce qui donne :
+
+    \smallskip
+
+    \begin{stepcalc}[style = sar, ope = \iff]
+        P(-1) = c_2 - c_1 + c_0
+            \explnext{}
+        c_1 = c_2 + c_0 - P(-1)
+            \explnext{}
+        c_1 = c_2 + c_0 - (a - b) \, (A - B)
+    \end{stepcalc}
+
+    \smallskip
+
+    L'intérêt de la formule précédente est que le produit $(a - b) \, (A - B)$ est moins grand en valeur absolue que $(a + b) \, (A + B)$
+    \emph{(nous donnons une application de ceci dans la section suivante)}.
+
+    \smallskip
+
+    On pourrait vouloir passer via $P(k)$ où $k \in \ZZ$. Ceci semble a priori peu prometteur car on obtient alors $c_1 = c_2 \, k^2 + c_0 - (a \, k + b) \, (A \, k + B)$ et inutile pour nous car là nous devons faire plus de produits que les deux méthodes ci-dessus.
 \end{remark}

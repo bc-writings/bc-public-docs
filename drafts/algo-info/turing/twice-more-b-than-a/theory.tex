@@ -1,10 +1,10 @@
 On souhaite savoir si un mot contient deux fois plus de b que de a. Pour faire ceci, nous allons utiliser trois bandes comme suit.
 \begin{enumerate}
-	\item La bande du haut contient le mot initial qui sera juste lu de gauche à droite.
+    \item La bande du haut contient le mot initial qui sera juste lu de gauche à droite.
 
-	\item Lors de la lecture si l'on tombe sur un a, on écrit deux symboles X sur la 2\ieme{} bande, et si c'est un b on écrit un unique symbole X sur la 3\ieme{}.
+    \item Lors de la lecture si l'on tombe sur un a, on écrit deux symboles X sur la 2\ieme{} bande, et si c'est un b on écrit un unique symbole X sur la 3\ieme{}.
 
-	\item Une fois le mot lu, il suffit de lire en simultanée les bandes 2 et 3 de droite à gauche pour arriver à un état vide et vide sur ses deux bandes pour valider le mot.
+    \item Une fois le mot lu, il suffit de lire en simultanée les bandes 2 et 3 de droite à gauche pour arriver à un état vide et vide sur ses deux bandes pour valider le mot.
 \end{enumerate}
 
 Voici l'application de cette méthode au mot babbbabab.
@@ -20,4 +20,3 @@ Voici l'application de cette méthode au mot babbbabab.
 Avec le mot babbbaba qui a un b de moins à droite, on arrête car on arrive sur X non au-dessus d'un autre comme le montre le schéma résumé ci-après.
 
 \input{turing/twice-more-b-than-a/visual-turing-babbbaba.tex}
-

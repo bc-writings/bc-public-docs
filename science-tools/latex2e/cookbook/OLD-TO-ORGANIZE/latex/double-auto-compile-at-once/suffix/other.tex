@@ -8,32 +8,32 @@
 
 \newcommand{\solution}[1]{{\color{red}#1}}
 
-\IfSuffixT[]{	
-	\iexec[quiet]{touch \jobname-student.tex}
-	\iexec[quiet]{echo '\\input{\jobname.tex}' > \jobname-student.tex}
-	\iexec[quiet]{pdflatex \jobname-student.tex}
-	
+\IfSuffixT[]{
+    \iexec[quiet]{touch \jobname-student.tex}
+    \iexec[quiet]{echo '\\input{\jobname.tex}' > \jobname-student.tex}
+    \iexec[quiet]{pdflatex \jobname-student.tex}
+
 }
 
 \IfSuffixT[student]{
-	\renewcommand{\solution}[1]{}
+    \renewcommand{\solution}[1]{}
 }
 
 \begin{document}
 
 \begin{enumerate}
-	
+
 \item First question
 
-	  \solution{First answer}
+      \solution{First answer}
 
 \item Second question
 
-	  \solution{Second answer}
+      \solution{Second answer}
 
 \item Third question
 
-	  \solution{Third answer}
+      \solution{Third answer}
 \end{enumerate}
 
 \end{document}

@@ -14,27 +14,27 @@ def drawdots(expr n,p) =
         drawdot(p+(3u/4,3u/4));
     fi;
     if n > 3:
-    	drawdot(p+(u/4,3u/4));
+        drawdot(p+(u/4,3u/4));
         drawdot(p+(3u/4,u/4));
     fi;
     if n > 5:
-    	drawdot(p+( u/4,u/2));
-    	drawdot(p+(3u/4,u/2));
+        drawdot(p+( u/4,u/2));
+        drawdot(p+(3u/4,u/2));
     fi;
 enddef;
 
 def domino(expr a,b) =
     pickup pencircle scaled 1pt;
-    	draw (0,0) -- (2u,0) -- (2u,u) -- (0,u) -- cycle;
-    	draw (u,0) -- (u,u);
-    
+        draw (0,0) -- (2u,0) -- (2u,u) -- (0,u) -- cycle;
+        draw (u,0) -- (u,u);
+
     pickup pencircle scaled 5pt;
-    	drawdots(a,(0,0));
-    	drawdots(b,(u,0));
+        drawdots(a,(0,0));
+        drawdots(b,(u,0));
 enddef;
 
 beginfig(1);
-	domino(#1,#2);
+    domino(#1,#2);
 endfig;
 \end{mplibcode}}
 

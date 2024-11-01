@@ -1,58 +1,58 @@
 %UTILE ? ajouter methi-ode au hasard mais avec bon deo-placement pourdiminuer SL(C) si possible !!!
 
 \documentclass[a4,11pt]{article}
-	\usepackage{template/css-color}
+    \usepackage{template/css-color}
     \usepackage{template/css-gray}
 
     \usepackage{template/general}
     \usepackage{template/quote}
     \usepackage{template/algo}
     \usepackage{template/math}
-    
+
     \usepackage[
         type={CC},
         modifier={by-nc-sa},
         version={4.0},
     ]{doclicense}
-   
 
-	\usepackage{tikz}
-	\usetikzlibrary{trees}
+
+    \usepackage{tikz}
+    \usetikzlibrary{trees}
 
 % WATERMARK
-	\usepackage[printwatermark]{xwatermark}
+    \usepackage[printwatermark]{xwatermark}
 
 
 % DRAFT MODE !
-%	\newwatermark[%
-%		allpages,%
-%		color=red!20,%
-%		angle=45,%
-%		scale=1.1,%
-%		xpos=-10, ypos=30]{Z! - BROUILLON - TEXTE NON SÛR - Z!}
+%    \newwatermark[%
+%        allpages,%
+%        color=red!20,%
+%        angle=45,%
+%        scale=1.1,%
+%        xpos=-10, ypos=30]{Z! - BROUILLON - TEXTE NON SÛR - Z!}
 %
-%	\newwatermark[%
-%		allpages,%
-%		color=red!20,%
-%		angle=45,%
-%		scale=1.1,%
-%		xpos=5, ypos=-5]{PRÉSENCE PROBABLE DE GROSSES ERREURS}
+%    \newwatermark[%
+%        allpages,%
+%        color=red!20,%
+%        angle=45,%
+%        scale=1.1,%
+%        xpos=5, ypos=-5]{PRÉSENCE PROBABLE DE GROSSES ERREURS}
 
 
 %% NEED TO BE READ BY OTHERS !
-%	\newwatermark[%
-%		allpages,%
-%		color=red!20,%
-%		angle=45,%
-%		scale=1.1,%
-%		xpos=-10, ypos=30]{PRÉVERSION - TEXTE EN DEVENIR}
+%    \newwatermark[%
+%        allpages,%
+%        color=red!20,%
+%        angle=45,%
+%        scale=1.1,%
+%        xpos=-10, ypos=30]{PRÉVERSION - TEXTE EN DEVENIR}
 %
-%	\newwatermark[%
-%		allpages,%
-%		color=red!20,%
-%		angle=45,%
-%		scale=1.1,%
-%		xpos=5, ypos=-5]{BESOIN DE RELECTURES EXTERNES}
+%    \newwatermark[%
+%        allpages,%
+%        color=red!20,%
+%        angle=45,%
+%        scale=1.1,%
+%        xpos=5, ypos=-5]{BESOIN DE RELECTURES EXTERNES}
 
 
 \begin{document}
@@ -98,25 +98,25 @@
 
 
 \section{À la recherche de solutions optimales}
-	\subsection{Où tentons-nous d'aller ?}    % RELU. OK !
-    	\input{content/optimal/where_do_we_go.tex}
+    \subsection{Où tentons-nous d'aller ?}    % RELU. OK !
+        \input{content/optimal/where_do_we_go.tex}
 
-	\subsection{La méthode \textit{\og tout connaître pour avancer vite \fg}}
-    	\input{content/optimal/tree_sol.tex}    % RELU ? NON
+    \subsection{La méthode \textit{\og tout connaître pour avancer vite \fg}}
+        \input{content/optimal/tree_sol.tex}    % RELU ? NON
 
-%	\subsection{La méthode du \textit{\og flemmard calculateur \fg}}
-%    	\input{content/optimal/human_sol.tex}    % RELU ? NON
+%    \subsection{La méthode du \textit{\og flemmard calculateur \fg}}
+%        \input{content/optimal/human_sol.tex}    % RELU ? NON
 
 
 
 \clearpage
 
 \section{Annexe}
-	\subsection{Toutes les configurations pour un jeu à trois bases}    % RELU. OK !
-	    \input{content/annex/all_boards_3_bases.tex}
+    \subsection{Toutes les configurations pour un jeu à trois bases}    % RELU. OK !
+        \input{content/annex/all_boards_3_bases.tex}
 
 
-	\subsection{Calculer le nombre de configurations possibles}    % RELU. OK !
-	    \input{content/annex/calculate_nb_config.tex}
+    \subsection{Calculer le nombre de configurations possibles}    % RELU. OK !
+        \input{content/annex/calculate_nb_config.tex}
 
 \end{document}

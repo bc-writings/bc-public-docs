@@ -11,7 +11,7 @@
     {\color{hruleAlgoColor}\rule{0.5\textwidth}{\columnseprule}}%
     \hfil%
 }
-	
+
 % Language settings
 \SetKw{KwTo}{à}
 \SetKw{KwInList}{dans}
@@ -61,26 +61,26 @@
 %\counterwithin*{algocounter}{section} % Reset at each section !
 
 \newcommand{\algoname}{%
-	\addtocounter{algocounter}{1}%
-	{\small\textbf{\textsc{[Algo.\arabic{algocounter}]}}}%
+    \addtocounter{algocounter}{1}%
+    {\small\textbf{\textsc{[Algo.\arabic{algocounter}]}}}%
 }
 
 \newenvironment{myverb}
-	{\small\hrule\vspace{-0.7em}\alltt}
-	{\endalltt\vspace{-1.6em}\hrule\normalsize}
+    {\small\hrule\vspace{-0.7em}\alltt}
+    {\endalltt\vspace{-1.6em}\hrule\normalsize}
 
 \newenvironment{algo}
-	{\small\hrule\algorithm[H]}
-	{\endalgorithm\hrule\normalsize}
+    {\small\hrule\algorithm[H]}
+    {\endalgorithm\hrule\normalsize}
 
 % Source : http://tex.stackexchange.com/a/76303/6880
 \xpretocmd{\algorithm}{\hsize=\linewidth}{}{}
 
 \makeatletter
 \newenvironment{listalgo}
-	{%
-		\par\noindent\hspace*{-\@totalleftmargin}%
-  		\minipage{\textwidth}\algorithm[H]%
-	}
-	{\endalgorithm\endminipage}
+    {%
+        \par\noindent\hspace*{-\@totalleftmargin}%
+          \minipage{\textwidth}\algorithm[H]%
+    }
+    {\endalgorithm\endminipage}
 \makeatother

@@ -33,27 +33,27 @@
 
 
 \makeatletter
-	\newcommand\specialSet{\@ifstar{\@specialSetStared}{\@specialSetUnstared}}
+    \newcommand\specialSet{\@ifstar{\@specialSetStared}{\@specialSetUnstared}}
 
-	\newcommand\@specialSetUnstared[2]{
-		\IfEqCase{#2}{
-			{s}{ #1^{\setStar} }
-			{n}{ #1^{\phantom{\setStar}}_{\setNegative} }
-			{p}{ #1^{\phantom{\setStar}}_{\setPositive} }
-			{sn}{ #1^{\setStar}_{\setNegative} }
-			{sp}{ #1^{\setStar}_{\setPositive} }
-		}
-	}
+    \newcommand\@specialSetUnstared[2]{
+        \IfEqCase{#2}{
+            {s}{ #1^{\setStar} }
+            {n}{ #1^{\phantom{\setStar}}_{\setNegative} }
+            {p}{ #1^{\phantom{\setStar}}_{\setPositive} }
+            {sn}{ #1^{\setStar}_{\setNegative} }
+            {sp}{ #1^{\setStar}_{\setPositive} }
+        }
+    }
 
-	\newcommand\@specialSetStared[2]{
-		\IfEqCase{#2}{
-			{s}{ #1_{\neq 0} }
-			{n}{ #1_{\le 0} }
-			{p}{ #1_{\ge 0} }
-			{sn}{ #1_{< 0} }
-			{sp}{ #1_{> 0} }
-		}
-	}
+    \newcommand\@specialSetStared[2]{
+        \IfEqCase{#2}{
+            {s}{ #1_{\neq 0} }
+            {n}{ #1_{\le 0} }
+            {p}{ #1_{\ge 0} }
+            {sn}{ #1_{< 0} }
+            {sp}{ #1_{> 0} }
+        }
+    }
 \makeatother
 
 \newcommand\emptySet{\ensuremath{\text{\scalebox{1.2}{$\varnothing$}}}}
@@ -94,4 +94,3 @@
 
 \newcommand\HH{\ensuremath{\nbSet{H}}}
 \newcommand\HHs{\ensuremath{\specialSet{\nbSet{H}}{s}}}
-

@@ -1,6 +1,6 @@
 % Sources :
-%	* http://tex.stackexchange.com/questions/95077/help-for-one-simple-diagram-about-genetic-algorithmic
-%	* http://tex.stackexchange.com/questions/95221/tikz-circled-arrow/95223#95223
+%    * http://tex.stackexchange.com/questions/95077/help-for-one-simple-diagram-about-genetic-algorithmic
+%    * http://tex.stackexchange.com/questions/95221/tikz-circled-arrow/95223#95223
 
 \documentclass{article}
     \usepackage[utf8]{inputenc}
@@ -14,9 +14,9 @@
     \tikzset{
       frame/.style = {
         rectangle,
-		draw,
+        draw,
         text width = 6em,
-		text centered,
+        text centered,
         minimum height=4em,drop shadow,fill=lime!40,
         rounded corners,
       },
@@ -53,22 +53,22 @@
 
 
 \begin{tikzpicture}[font=\small\sffamily\bfseries,very thick,node distance = 4cm]
-	\node [frame] (pop) {Population};
-	\node [above=2cm, left of=pop] (init) {Initialisation};
-	\node [below=2cm, left of=pop] (term) {Termination};
-	\node [frame, above=2cm, right of=pop] (parents)  {Parents};
-	\node [frame, below=2cm, right of=pop] (off)  {Offspring};
+    \node [frame] (pop) {Population};
+    \node [above=2cm, left of=pop] (init) {Initialisation};
+    \node [below=2cm, left of=pop] (term) {Termination};
+    \node [frame, above=2cm, right of=pop] (parents)  {Parents};
+    \node [frame, below=2cm, right of=pop] (off)  {Offspring};
 
-	\path [line] (parents)
-		 -- node[right,align=left,pos=.5] {Recombination\\[3mm]Mutation}
-		(off);
-	\path [line] (init) |- (pop.170);
-	\path [line] (pop.190) -| (term);
-	\path [line] (off) -| node[below,pos=.25, align=center] {Survivor\\ selection}(pop);
-	\path [line] (pop) |- node[above,pos=.75, align=center] {Parents\\ selection}(parents);
+    \path [line] (parents)
+         -- node[right,align=left,pos=.5] {Recombination\\[3mm]Mutation}
+        (off);
+    \path [line] (init) |- (pop.170);
+    \path [line] (pop.190) -| (term);
+    \path [line] (off) -| node[below,pos=.25, align=center] {Survivor\\ selection}(pop);
+    \path [line] (pop) |- node[above,pos=.75, align=center] {Parents\\ selection}(parents);
 
-	\node at (barycentric cs:pop=1 ,parents=1 ,off=1) [color=gray] (insidetext) {N times};
-	\circledarrow{ultra thick, gray}{insidetext}{1cm};
+    \node at (barycentric cs:pop=1 ,parents=1 ,off=1) [color=gray] (insidetext) {N times};
+    \circledarrow{ultra thick, gray}{insidetext}{1cm};
 \end{tikzpicture}
 
 \end{document}

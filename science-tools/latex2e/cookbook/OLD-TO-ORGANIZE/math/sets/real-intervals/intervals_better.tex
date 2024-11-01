@@ -1,5 +1,5 @@
 \documentclass[a4paper,10pt]{article}
-	\usepackage{amsmath}
+    \usepackage{amsmath}
 
     \usepackage{interval}
 
@@ -7,16 +7,16 @@
 \begin{document}
 
 \intervalconfig{
-	soft open fences,
-	separator symbol = ;
+    soft open fences,
+    separator symbol = ;
 }
 
 \begin{align*}
-	& A \in \interval{a}{b} \\
-	& A \in \interval[open]{a}{b} \\
-	& A \in \interval[open left]{a}{b} \\
-	& A \in \interval[open right, scaled]{a}{\frac{\dfrac12 + 4}2b} = B \\
-	& A \in \interval[scaled=\big]{a}{b}
+    & A \in \interval{a}{b} \\
+    & A \in \interval[open]{a}{b} \\
+    & A \in \interval[open left]{a}{b} \\
+    & A \in \interval[open right, scaled]{a}{\frac{\dfrac12 + 4}2b} = B \\
+    & A \in \interval[scaled=\big]{a}{b}
 \end{align*}
 
 \end{document}
