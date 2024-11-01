@@ -11,7 +11,7 @@
   \tl_set:Nn \l__cookbook_parseanduse_tl { #1 }
 
   \regex_replace_all:nnN
-    { (o|r|a) }
+    { (a|d|n) }
     { \c{cookbook_macro_\1:n} }
     \l__cookbook_parseanduse_tl
 
@@ -23,48 +23,54 @@
   \tl_use:N \l__cookbook_parseanduse_tl
  }
 
-\NewDocumentCommand{ \macroO }{m}{
-  \cookbook_macro_o:n { #1 }
-}
-
-\NewDocumentCommand{ \macroR }{ m }{
-  \cookbook_macro_r:n { #1 }
-}
-
-\NewDocumentCommand{ \macroA }{ m }{
+\NewDocumentCommand{ \macroA }{m}{
   \cookbook_macro_a:n { #1 }
 }
 
-\cs_new_protected:Nn \cookbook_macro_o:n {
-  Option~[#1]~,
+\NewDocumentCommand{ \macroD }{ m }{
+  \cookbook_macro_d:n { #1 }
 }
 
-\cs_new_protected:Nn \cookbook_macro_r:n {
-  Option~$<$#1$>$~,
+\NewDocumentCommand{ \macroN }{ m }{
+  \cookbook_macro_n:n { #1 }
 }
 
 \cs_new_protected:Nn \cookbook_macro_a:n {
-  Argument~#1~,
+  [ ~ A ~ = ~ #1 ~ ] \newline
+}
+
+\cs_new_protected:Nn \cookbook_macro_d:n {
+  ( ~ D ~ vaut ~ #1 ~ ) \newline
+}
+
+\cs_new_protected:Nn \cookbook_macro_n:n {
+   ++ ~ $N^{#1}$ ~ ++ \newline
 }
 
 \ExplSyntaxOff
 
 \begin{document}
 
-\parseanduse{o1r2a3}
+\verb+\parseanduse{a1d2n3}+ donne : \newline
 
-same as
+\parseanduse{a1d2n3} 
 
-\macroO{1}\macroR{2}\macroA{3}
+same as \newline
 
+\macroA{1}\macroD{2}\macroN{3}
+
+
+\rule{\textwidth}{1pt}
 
 \bigskip
 
 
-\parseanduse{o1r2a3o11r222a3333}
+\verb+\parseanduse{n666666a55555d4444n333a22d1}+ donne : \newline
 
-same as
+\parseanduse{n666666a55555d4444n333a22d1}
 
-\macroO{1}\macroR{2}\macroA{3}\macroO{11}\macroR{222}\macroA{3333}
+Validation. \newline
+
+\macroN{666666}\macroA{55555}\macroD{4444}\macroN{333}\macroA{22}\macroD{1}
 
 \end{document}
