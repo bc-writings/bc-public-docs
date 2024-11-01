@@ -13,7 +13,7 @@
 
 \keys_define:nn { class / options } {
   theme .choices:nn = { bw, color, dark, draft } {
-    \exp_args:NNV \renewcommand{\selectedoptions}{\l_keys_choice_tl}
+    \exp_args:NNV \renewcommand \selectedoptions \l_keys_choice_tl
   }
 }
 
