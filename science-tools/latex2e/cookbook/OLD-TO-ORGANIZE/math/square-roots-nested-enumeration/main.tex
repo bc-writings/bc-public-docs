@@ -2,8 +2,12 @@
 %     + https://tex.stackexchange.com/a/649558/6880
 
 \documentclass{article}
-\usepackage{stackengine,mathtools}
+
+\usepackage{mathtools}
+\usepackage{stackengine}
+
 \stackMath
+
 \renewcommand\stackalignment{l}
 \setstackgap{L}{0pt}
 \renewcommand\stacktype{L}
@@ -18,10 +22,12 @@
 }
 \newcommand\resetesqrt{\setcounter{sqrti}{-1}}
 \newcommand\esqrtdp{13pt}
+
 \begin{document}
+
 \[
-\resetesqrt
-\esqrt{p\pm\esqrt{p\pm\dots\pm\esqrt[n-2]{p}}}
+  \resetesqrt
+  \esqrt{p\pm\esqrt{p\pm\dots\pm\esqrt[n-2]{p}}}
 \]
 
 \renewcommand\esqrtdp{15pt}
