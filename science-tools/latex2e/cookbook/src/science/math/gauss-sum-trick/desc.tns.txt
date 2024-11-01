@@ -6,7 +6,7 @@ this::
 L'astuce(?) de Gauss pour additionner des entiers consécutifs
 =============================================================
 
-Voici un exemple d'utilisation de ''\tikzmark'' pour décorer une somme d'entiers consécutifs, ou en progression arithmétique, afin d'expliquer l'astuce dite de Gauss : additioner la somme du premier avec le dernier terme, du deuxième avec l'avant-dernier, \etc.
+Voici un exemple d'utilisation de ''\tikzmark'' pour décorer une somme d'entiers consécutifs, ou en progression arithmétique, pour visualiser l'astuce dite de Gauss : additioner la somme du premier avec le dernier terme, du deuxième avec l'avant-dernier, \etc.
 
 
 caution::

@@ -8,6 +8,6 @@ Voici les contenus ajoutés.
 
     1) path::''science/math/big-operator-specia'' : un opérateur maison à-la somme ou produit discret défini via un caractère donné.
 
-    1) path::''science/math/gauss-sum-trick'' :
+    1) path::''science/math/gauss-sum-trick'' : décoration d'une somme d'entiers en progression arithmétique pour visualiser l'astuce dite de Gauss.
 
     1) path::''XXX'' :
