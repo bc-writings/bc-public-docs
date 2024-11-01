@@ -1,0 +1,70 @@
+% Source.
+%    + https://tex.stackexchange.com/a/603816/6880
+
+\documentclass{article}
+
+\ExplSyntaxOn
+
+\tl_new:N \l__cookbook_parseanduse_tl
+
+\NewDocumentCommand{ \parseanduse }{ m }{
+  \tl_set:Nn \l__cookbook_parseanduse_tl { #1 }
+
+  \regex_replace_all:nnN
+    { (o|r|a) }
+    { \c{cookbook_macro_\1:n} }
+    \l__cookbook_parseanduse_tl
+
+  \regex_replace_all:nnN
+    { ([[:digit:]]+) }
+    { \cB\{\1\cE\} }
+    \l__cookbook_parseanduse_tl
+
+  \tl_use:N \l__cookbook_parseanduse_tl
+ }
+
+\NewDocumentCommand{ \macroO }{m}{
+  \cookbook_macro_o:n { #1 }
+}
+
+\NewDocumentCommand{ \macroR }{ m }{
+  \cookbook_macro_r:n { #1 }
+}
+
+\NewDocumentCommand{ \macroA }{ m }{
+  \cookbook_macro_a:n { #1 }
+}
+
+\cs_new_protected:Nn \cookbook_macro_o:n {
+  Option~[#1]~,
+}
+
+\cs_new_protected:Nn \cookbook_macro_r:n {
+  Option~$<$#1$>$~,
+}
+
+\cs_new_protected:Nn \cookbook_macro_a:n {
+  Argument~#1~,
+}
+
+\ExplSyntaxOff
+
+\begin{document}
+
+\parseanduse{o1r2a3}
+
+same as
+
+\macroO{1}\macroR{2}\macroA{3}
+
+
+\bigskip
+
+
+\parseanduse{o1r2a3o11r222a3333}
+
+same as
+
+\macroO{1}\macroR{2}\macroA{3}\macroO{11}\macroR{222}\macroA{3333}
+
+\end{document}
