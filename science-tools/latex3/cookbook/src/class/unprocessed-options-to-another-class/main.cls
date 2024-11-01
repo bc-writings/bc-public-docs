@@ -1,5 +1,5 @@
 % Source.
-%     + XXXX
+%     + https://tex.stackexchange.com/a/729929/6880
 
 \ExplSyntaxOn
 
@@ -7,8 +7,6 @@
                   {2024-11-01}
                   {0.0.0}
                   {A cookbook class}
-
-\tl_new:N \l_cookbook_cls_option_tl
 
 \newcommand{ \selectedoptions } { color }
 
@@ -19,16 +17,16 @@
     dark,
     draft
   } {
-    \renewcommand{ \selectedoptions } {
-      \tl_use:N \l_keys_choice_tl
-    }
+    \exp_args:NNV \renewcommand{\selectedoptions}{\l_keys_choice_tl}
   }
+}
+
+\DeclareUnknownKeyHandler[class/options]{%
+  \PassOptionsToClass{\CurrentOption}{article}%
 }
 
 \ProcessKeyOptions[class / options]
 
-\exp_last_unbraced:NNV \LoadClass[ \l_cookbook_cls_option_tl ]%
-          { article }%
-          [ 2022-06-01 ]
+\LoadClass{ article }
 
 \ExplSyntaxOff

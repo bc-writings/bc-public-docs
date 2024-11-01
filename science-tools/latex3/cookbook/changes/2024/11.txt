@@ -1,0 +1,5 @@
+==
+01
+==
+
+path::''class/unprocessed-options-to-another-class'' : ce dossier explique comment traiter certains options pour une \cls donnée, puis ensuite renvoyer \ttes les options restantes à une autre.

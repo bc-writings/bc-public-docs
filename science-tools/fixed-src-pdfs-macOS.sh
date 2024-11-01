@@ -43,7 +43,7 @@ function nocompile {
 
 cd "$TARGET"
 
-for f in */*.tex
+for f in $(find . -name '*.tex')
 do
     fdir=$(dirname "$f")
 
