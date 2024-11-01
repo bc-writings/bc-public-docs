@@ -2,8 +2,8 @@ this::
 	date = 2024-11-01
 
 
-============================================================
-XXX
-============================================================
+=========================================================
+Définir un opérateur maison à-la somme ou produit discret
+=========================================================
 
-YYY
+Nous expliquons ici comment définir un "gros opérateur" du type `\sum` ou `\prod` à partir d'un simple caractère.

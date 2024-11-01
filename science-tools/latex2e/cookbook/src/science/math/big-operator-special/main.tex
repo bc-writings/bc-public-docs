@@ -1,19 +1,23 @@
-% Source : http://tex.stackexchange.com/questions/5042/define-strange-operators
+% Source.
+%     + http://tex.stackexchange.com/questions/5042/define-strange-operators
 
 \documentclass{article}
-	\usepackage{relsize}
 
-	\newcommand{\bigstar}{\mathop{\Huge \mathlarger{\mathlarger{*}}}}
+\usepackage{relsize}
+
+\newcommand{\bigstar}{%
+  \mathop{\Huge\mathlarger{\mathlarger{*}}}%
+}
 
 \begin{document}
 
-\section{Display}
+\paragraph{Display}
 
-\[ \bigstar_{x}^{y} \]
+\[ \bigstar_{i = 0}^{9} s_i \]
 
 
-\section{Inline}
+\paragraph{Inline}
 
-\( \bigstar_{x}^{y}\)
+$\bigstar_{i = 0}^{9} s_i$
 
 \end{document}
