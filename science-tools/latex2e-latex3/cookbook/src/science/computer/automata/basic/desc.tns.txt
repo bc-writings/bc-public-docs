@@ -1,0 +1,9 @@
+this::
+    date = 2024-11-02
+
+
+=======================================
+Des automates les mains dans les poches
+=======================================
+
+Via le package ''adigraph'', il est très simple de produire des automates, même très complexes.

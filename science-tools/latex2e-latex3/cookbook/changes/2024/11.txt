@@ -7,7 +7,9 @@
 
 [[:new:]]
 
-Voici le contenu ajouté.
+Voici les contenus ajoutés.
+
+    1) path::''science/computer/automata/basic'' : automates sans effort.
 
     1) path::''science/computer/data-structure/binary-tree/basic'' : arbres binaires équilibrés ou non.
 
