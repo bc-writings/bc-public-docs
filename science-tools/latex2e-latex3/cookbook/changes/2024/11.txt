@@ -1,3 +1,20 @@
+// ---------- //
+
+
+==
+02
+==
+
+[[:new:]]
+
+Voici le contenu ajouté.
+
+    1) path::''science/computer/data-structure/binary-tree/basic'' : arbres binaires équilibrés ou non.
+
+
+// ---------- //
+
+
 ==
 01
 ==

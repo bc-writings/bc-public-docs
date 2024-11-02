@@ -1,0 +1,108 @@
+\documentclass[border=3pt]{standalone}
+
+\usepackage{forest}
+
+\begin{document}
+
+\begin{minipage}{7.35cm}
+
+Sans réglage.
+
+\begin{forest}
+[1 
+  [2
+    [3]
+    [4]
+  ]
+  [5
+    [6]
+    [7]
+  ]
+]
+\end{forest}
+%
+\begin{forest}
+[1 
+  [2
+    [3]
+    [4]
+  ]
+  [5]
+]
+\end{forest}
+%
+\begin{forest}
+[1 
+  [2
+    [3]
+  ]
+  [5]
+]
+\end{forest}
+%
+\begin{forest}
+[1 
+  [2
+    [3]
+    [,phantom]
+  ]
+  [5]
+]
+\end{forest}
+
+\medskip
+
+En changeant quelques réglages.
+
+\begin{forest}
+for tree={
+	circle,        % Noeud entouré d'un cercle virtuel pour le moment.
+	inner sep=2pt, % Distance entre le cercle et le contenu du noeud.
+	draw           % On dessine vraiment le cercle.
+}
+[1 
+  [2
+    [3]
+    [4]
+  ]
+  [5
+    [6]
+    [7]
+  ]
+]
+\end{forest}
+%
+\begin{forest}
+for tree={circle, inner sep=2pt, draw}
+[1
+  [2
+    [3]
+    [4]
+  ]
+  [5]
+]
+\end{forest}
+%
+\begin{forest}
+for tree={circle, inner sep=2pt, draw}
+[1 
+  [2
+    [3]
+  ]
+  [5]
+]
+\end{forest}
+%
+\begin{forest}
+for tree={circle, inner sep=2pt, draw}
+[1 
+  [2
+    [3]
+    [,phantom]
+  ]
+  [5]
+]
+\end{forest}
+\end{minipage}
+
+\end{document}

@@ -1,0 +1,9 @@
+this::
+    date = 2024-11-02
+
+
+=============
+Arbre binaire
+=============
+
+Grâce au package ''forest'', il est très simple de produire des arbres binaires équilibrés, ou non.
