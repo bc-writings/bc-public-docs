@@ -1,7 +1,8 @@
 % Source.
 %     + https://tex.stackexchange.com/a/655445/6880
+%     + https://tex.stackexchange.com/a/730033/6880
 
-\documentclass[border={3pt 4pt 3pt 3pt }]{standalone}
+\documentclass[border=3pt]{standalone}
 
 \usepackage{tikz}
 \usetikzlibrary{tikzmark}
@@ -9,17 +10,17 @@
 \newcommand{\unitht}{.8ex}
 \newcommand{\nubpre}{A}
 
-\newcommand{\nub}[2]{
-  \tikzmark{a\nubpre#1}#2\tikzmark{b\nubpre#1}
+\newcommand{\nub}[2]{%
+  \tikzmark{a\nubpre#1}#2\tikzmark{b\nubpre#1}%
   %
-  \begin{tikzpicture}[remember picture,
-                      overlay]
-    \draw (pic cs:a\nubpre#1)  % Trait vertical à partir
-          --++ (0,-#1*\unitht) % de la marque droite.
-          -|                   % TikZ va tracer un "L"
-          (pic cs:b\nubpre#1); % jusqu'à la marque de gauche.
-  \end{tikzpicture}%
-  \vspace{\unitht}%
+  \llap{%
+    \begin{tikzpicture}[remember picture, baseline=(current bounding box.north)]]
+      \draw (pic cs:a\nubpre#1)  % Trait vertical à partir
+            --++ (0,-#1*\unitht) % de la marque droite.
+            -|                   % TikZ va tracer un "L"
+            (pic cs:b\nubpre#1); % jusqu'à la marque de gauche.
+    \end{tikzpicture}%
+  }%
 }
 
 \begin{document}
