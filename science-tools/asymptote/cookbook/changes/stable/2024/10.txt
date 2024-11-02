@@ -1,5 +1,0 @@
-==
-31
-==
-
-Le projet fait maintenant partie du dépôt unique cf::''https://github.com/bc-writings/bc-public-docs.git''.
