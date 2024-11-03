@@ -62,12 +62,12 @@
 \newcommand{\nub}[1]{%
 %
   \ifthenelse{\arabic{nub@depth@calls} = 0}{
-  	\renewcommand{\nub@label}{nub@label@\alph{nub@label@cnter}}
-	  \addtocounter{nub@label@cnter}{1}
+    \renewcommand{\nub@label}{nub@label@\alph{nub@label@cnter}}
+    \addtocounter{nub@label@cnter}{1}
 %
-	  \@ifundefined{nub@depth@\alph{nub@label@cnter}}{%
-	    \expandafter\gdef\csname nub@depth@\alph{nub@label@cnter}\endcsname{0}%
-	  }{}
+    \@ifundefined{nub@depth@\alph{nub@label@cnter}}{%
+      \expandafter\gdef\csname nub@depth@\alph{nub@label@cnter}\endcsname{0}%
+    }{}
   }{}%
 %
   \addtocounter{nub@depth@calls}{1}%
@@ -76,10 +76,10 @@
   }{}%
 %
   \internal@nub{\nub@label}              % Étiquette.
-              {\csname nub@depth@\alph{nub@label@cnter}\endcsname}%
-                                        % Départ des décalages.
-              {\arabic{nub@depth@calls}}% Le décalage vertical.
-              {#1}                      % Le contenu.
+               {\csname nub@depth@\alph{nub@label@cnter}\endcsname}%
+                                         % Départ des décalages.
+               {\arabic{nub@depth@calls}}% Le décalage vertical.
+               {#1}                      % Le contenu.
   \addtocounter{nub@depth@calls}{-1}%
 %
   \ifthenelse{\arabic{nub@depth@calls} = 0}{
