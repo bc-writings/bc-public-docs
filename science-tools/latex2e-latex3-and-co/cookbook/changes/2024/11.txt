@@ -6,21 +6,14 @@
 ==
 
 [[:update:]]
+Voici les amémiorations apportées.
 
-??
-    path::''science/computer/data-structure/binary-tree/basic'' : utilisation de noeuds de contenus non uniformes pour montrer la nécessité d'imposer les écartements des branches, et la dimension communmune des cercles.
+    1)
+    ??
+    path::''science/computer/data-structure/binary-tree/basic'' : utilisation de noeuds de contenus non uniformes pour montrer la nécessité d'imposer les écartements des branches, ainsi que la dimension commune des cercles.
 
-
-// ---------- //
-
-
-==
-03
-==
-
-[[:update:]]
-
-path::''science/math/misc/gauss-sum-trick'' : une amélioration de la méthode "tout à la main" qui a permis d'ajouter une version automatisée code à-la \tex.
+    1)
+    ?? path::''science/math/misc/gauss-sum-trick'' : une amélioration de la méthode "tout à la main" a permis d'ajouter deux versions "automatisées".
 
 
 // ---------- //
@@ -31,7 +24,6 @@ path::''science/math/misc/gauss-sum-trick'' : une amélioration de la méthode "
 ==
 
 [[:new:]]
-
 Voici les contenus ajoutés.
 
     1) path::''science/computer/automata/basic'' : automates sans effort.
@@ -47,7 +39,6 @@ Voici les contenus ajoutés.
 ==
 
 [[:new:]]
-
 Voici les contenus ajoutés.
 
     1) path::''dev/class/options/unprocessed-to-another-class'' : traitement certains options pour une \cls donnée, puis ensuite renvoi de \ttes les options restantes à une autre.

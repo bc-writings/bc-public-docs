@@ -22,6 +22,5 @@ pdf::
 
 content::
     ./draft/\desc
-    ./automation-old-style/\desc
-
-//    ./automation-l3/\desc
+    ./auto-old-style/\desc
+    ./auto-l3/\desc

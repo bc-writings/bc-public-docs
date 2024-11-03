@@ -1,0 +1,11 @@
+this::
+    date = 2024-11-XX
+
+
+==============================
+Une version aux petits oignons
+==============================
+
+YYY
+
+usage via l'appel une seul fois à \nub + cakcul fait via pgf et son foreach

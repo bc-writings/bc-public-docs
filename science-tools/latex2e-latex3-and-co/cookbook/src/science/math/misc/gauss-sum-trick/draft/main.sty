@@ -18,15 +18,14 @@
   %
   \pgfmathsetmacro\nubvoffset{#1 - \nubdepth}%
   %
-  \llap{ % Cette macro crée une boîte de largeur nulle en plaçant son
-         % argument juste à gauche de cette boîte, de sorte qu'il y a
-         % un chevauchement avec le contenu LaTeX qui précède.
+  \llap{ % Cette macro crée un contenu dans une boîte de largeur
+         % nulle du point de vue de LaTeX.
     \begin{tikzpicture}[
         remember picture,
         baseline = (current bounding box.north)
     ]
-      \draw (pic cs:a\nubpre#1)          % Trait vertical à partir de
-            --++ (0,\nubvoffset*\unitht) % la marque du début.
+      \draw (pic cs:a\nubpre#1)          % Trait vertical à partir
+            --++ (0,\nubvoffset*\unitht) % de la marque du début.
             -|                           % Une ligne en forme de "L"
             (pic cs:b\nubpre#1);         % inversé jusqu'à la marque
                                          % de la fin.
