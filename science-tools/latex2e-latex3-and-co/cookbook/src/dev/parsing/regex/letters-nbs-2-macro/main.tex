@@ -1,53 +1,6 @@
-% Source.
-%    + https://tex.stackexchange.com/a/603816/6880
-
 \documentclass{article}
 
-\ExplSyntaxOn
-
-\tl_new:N \l__cookbook_parseanduse_tl
-
-\NewDocumentCommand{ \parseanduse }{ m }{
-  \tl_set:Nn \l__cookbook_parseanduse_tl { #1 }
-
-  \regex_replace_all:nnN
-    { (a|d|n) }
-    { \c{cookbook_macro_\1:n} }
-    \l__cookbook_parseanduse_tl
-
-  \regex_replace_all:nnN
-    { ([[:digit:]]+) }
-    { \cB\{\1\cE\} }
-    \l__cookbook_parseanduse_tl
-
-  \tl_use:N \l__cookbook_parseanduse_tl
- }
-
-\NewDocumentCommand{ \macroA }{m}{
-  \cookbook_macro_a:n { #1 }
-}
-
-\NewDocumentCommand{ \macroD }{ m }{
-  \cookbook_macro_d:n { #1 }
-}
-
-\NewDocumentCommand{ \macroN }{ m }{
-  \cookbook_macro_n:n { #1 }
-}
-
-\cs_new_protected:Nn \cookbook_macro_a:n {
-  [ ~ A ~ = ~ #1 ~ ] \newline
-}
-
-\cs_new_protected:Nn \cookbook_macro_d:n {
-  ( ~ D ~ vaut ~ #1 ~ ) \newline
-}
-
-\cs_new_protected:Nn \cookbook_macro_n:n {
-   ++ ~ $N^{#1}$ ~ ++ \newline
-}
-
-\ExplSyntaxOff
+\usepackage{main}
 
 \begin{document}
 
