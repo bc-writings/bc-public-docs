@@ -16,6 +16,8 @@
 \setlength{\nubunitht}{.8ex}
 
 %%%
+% Notre macro interne.
+%
 % Arg. #1 : l'étiquette pour une série de décorations.
 % Arg. #2 : la distance d'où partent les décalages verticaux.
 % Arg. #3 : un décalage vertical.
@@ -60,7 +62,10 @@
 	\addtocounter{nublabelcnter}{1}
   }{}%
   \addtocounter{nubdepthcalls}{1}%
-    \internalnub{\nublabel}{6}{\arabic{nubdepthcalls}}{#1}%
+    \internalnub{\nublabel}             % Étiquette.
+                {6}% Départ des décalages verticaux.
+                {\arabic{nubdepthcalls}}% Le décalage vertical.
+                {#1}                    % Le contenu.
   \addtocounter{nubdepthcalls}{-1}%
 }
 
