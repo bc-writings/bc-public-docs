@@ -1,0 +1,25 @@
+this::
+    date = 2024-11-03
+
+
+====================================
+Une version plus humainement amicale
+====================================
+
+Nous proposons ici une version permettant une saisie ne nécessitant aucun réglage à la main. Voici la démarche suivie.
+
+    1) On part de la macro ''\nub'' de la recette proposée dans cf::''?/draft/\desc'' pour en faire une version interne ''\internal@nub'' qui attend \ttes les \infos nécessaires au tracé d'une \deco, à l'exception de la longueur ''\unitht'' qui a été renommée ''\nubunitht'', et reste modifiable facilement par l'utilisateur.
+
+    1) On crée une \nelle macro publique ''\nub'' qui va se charger de faire les bons appels de ''\internal@nub'' pour nous en appliquant les principes suivants.
+
+        i) XXXX
+
+        i) XXXX
+
+        i) XXXX
+
+        i) XXXX
+
+
+warning::
+    Ce code possède une grosse limitation. Laquelle ?

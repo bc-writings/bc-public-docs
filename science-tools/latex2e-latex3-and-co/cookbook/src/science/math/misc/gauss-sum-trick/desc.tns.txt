@@ -10,16 +10,18 @@ abrev::
 L'astuce(?) de Gauss pour additionner des entiers consécutifs
 =============================================================
 
-Nous allons voir comment décorer une somme d'entiers consécutifs, ou en progression arithmétique, pour visualiser l'astuce dite de Gauss consistant à additioner la somme du premier terme avec le dernier, du deuxième avec l'avant-dernier, \etc.
+Nous allons voir comment décorer une somme d'entiers consécutifs, ou en progression arithmétique, pour visualiser l'astuce dite de Gauss consistant à additioner la somme du premier terme avec le dernier, avec celle du deuxième avec l'avant-dernier, \etc.
 
 
 pdf::
     ---
-    title = Rendu souhaité qui sera obtenu dans la dernière recette proposée.
-    path  = ./automation/main.pdf
+    title = Rendu souhaité.
+    path  = ./automation-l3/main.pdf
     ---
 
 
 content::
     ./draft/\desc
-    ./automation/\desc
+    ./automation-old-style/\desc
+
+//    ./automation-l3/\desc

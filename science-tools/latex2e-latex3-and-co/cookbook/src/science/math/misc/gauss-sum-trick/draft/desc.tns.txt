@@ -10,4 +10,4 @@ Cette recette s'appuie sur \tikz et sa bibliothèque ''tikzmark'' pour décorer 
 
 
 caution::
-    La méthode proposée demande de faire tous les réglages à la main. Nous verrons dans la recette suivante comment éviter ceci.
+    La méthode proposée demande de faire tous les réglages à la main. Nous verrons dans les recettes suivantes comment éviter ceci.

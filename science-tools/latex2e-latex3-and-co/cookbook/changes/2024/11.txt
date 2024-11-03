@@ -7,13 +7,20 @@
 
 [[:update:]]
 
-Voici les contenus améliorés.
+??
+    path::''science/computer/data-structure/binary-tree/basic'' : utilisation de noeuds de contenus non uniformes pour montrer la nécessité d'imposer les écartements des branches, et la dimension communmune des cercles.
 
-    1) ??
-            path::''science/computer/data-structure/binary-tree/basic'' : utilisation de noeuds de contenus non uniformes pour montrer la nécessité d'imposer les écartements des branches, et la dimension communmune des cercles.
 
-    1) ??
-            path::''science/math/misc/gauss-sum-trick'' : une amélioration de la méthode "tout à la main" qui a permis d'ajouter une version automatisée.
+// ---------- //
+
+
+==
+03
+==
+
+[[:update:]]
+
+path::''science/math/misc/gauss-sum-trick'' : une amélioration de la méthode "tout à la main" qui a permis d'ajouter une version automatisée code à-la \tex.
 
 
 // ---------- //
