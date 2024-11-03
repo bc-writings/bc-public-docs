@@ -1,0 +1,85 @@
+% Source.
+%     + https://tex.stackexchange.com/a/655445/6880
+%     + https://tex.stackexchange.com/a/730033/6880
+
+\documentclass[border=3pt]{standalone}
+
+\usepackage{tikz}
+\usetikzlibrary{tikzmark} % Marquer un emplacement du rendu final.
+
+\newlength{\unitht}
+\setlength{\unitht}{.8ex}
+
+\newcommand{\nubpre}{A}
+\newcommand{\nubdepth}{0}
+
+\newcommand{\nub}[2]{%
+  \tikzmark{a\nubpre#1} % Marquage du début du contenu.
+    #2                  % Le contenu.
+  \tikzmark{b\nubpre#1} % Marquage de la fin du contenu.
+  %
+  \pgfmathsetmacro\nubvoffset{#1 - \nubdepth}%
+  %
+  \llap{ % Cette macro crée une boîte de largeur nulle en plaçant son
+         % argument juste à gauche de cette boîte, de sorte qu'il y a
+         % un chevauchement avec le contenu LaTeX qui précède.
+    \begin{tikzpicture}[
+        remember picture,
+        baseline = (current bounding box.north)
+    ]
+      \draw (pic cs:a\nubpre#1)          % Trait vertical à partir de
+            --++ (0,\nubvoffset*\unitht) % la marque du début.
+            -|                           % Une ligne en forme de "L"
+            (pic cs:b\nubpre#1);         % inversé jusqu'à la marque
+                                         % de la fin.
+    \end{tikzpicture}%
+  }%
+}
+
+\begin{document}
+
+\begin{minipage}{10cm}
+
+La méthode demande de toujours régler la commande \verb+\nubdepth+
+qui vaut \verb+0+ initialement : la valeur donnée est ici simple à
+obtenir, car c'est le successeur du nombre de macros \verb+\nub+
+utilisées (ceci laisse envisager une automatisation possible).
+
+\renewcommand{\nubdepth}{6}
+
+$ \nub{1}{
+    11 + \nub{2}{
+      12 + \nub{3}{
+        13 + \nub{4}{
+          14 + \nub{5}{15 + 16} +
+          17} +
+        18} +
+      19} +
+    20
+  }
+= 31 \times 5
+= 155$
+
+\medskip
+
+Un nouvel exemple implique une nouvelle valeur pour \verb+\nubpre+
+(en coulisse, un compteur pourrait faire ce travail à notre place).
+
+\renewcommand{\nubpre}{B}
+\renewcommand{\nubdepth}{4}
+
+$ \nub{1}{
+    1 + \nub{2}{
+      3 + \nub{3}{
+        5
+          + \cdots + % Au milieu, il y a `49 + 51`, donc nous avons
+        95} +        % `(49 - 1) \div 2)` ajouts du nombre `2` pour
+      97} +          % aller de 1 à 49.
+    99
+  }
+= 100 \times (1 + (49 - 1) \div 2)
+= 2500$
+
+\end{minipage}
+
+\end{document}

@@ -1,0 +1,15 @@
+====================
+Doc "latex2z-latex3" - TODO
+====================
+
+
+> ---------------------------- <
+
+binary tree : besoin d'avoir des cercles identiques même si contenu différents
+
+
+> ---------------------------- <
+
+Besoin d'avoir un moyen de décrire un prob et en m^me tant d'avoir une solution et certains alternatives : par exemple, on fait des réglages à la main SOMME DE GAUSS, puis on complète en automatisant l'affaire.
+
+ajouter une nlle balise TNS-ASCII qui import des ifhciers en ajoutant un titre de son choix avec des numéros quant il y a plus d'une possibilité

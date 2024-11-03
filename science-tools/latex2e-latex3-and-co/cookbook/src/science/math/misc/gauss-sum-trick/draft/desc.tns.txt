@@ -1,0 +1,13 @@
+this::
+    date = 2024-11-03
+
+
+============================
+Une \1iere version à la main
+============================
+
+Cette recette s'appuie sur \tikz et sa bibliothèque ''tikzmark'' pour décorer la somme d'entiers en progression arithmétique.
+
+
+caution::
+    La méthode proposée demande de faire tous les réglages à la main. Nous verrons dans la recette suivante comment éviter ceci.
