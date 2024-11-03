@@ -16,6 +16,16 @@ binary tree : besoin d'avoir des cercles identiques même si contenu différents
 
 > ---------------------------- <
 
+autre organisation pour faciliter une automatisation de la mise en forme HTML
+
+    ---> main.sty : les codes
+
+    ----> main.tex : un seul exemple
+
+    ----> main-1.tex , main-2.tex , ... : plusieurs exemples
+
+> ---------------------------- <
+
 Besoin d'avoir un moyen de décrire un prob et en m^me tant d'avoir une solution et certains alternatives : par exemple, on fait des réglages à la main SOMME DE GAUSS, puis on complète en automatisant l'affaire.
 
 ajouter une nlle balise TNS-ASCII qui import des ifhciers en ajoutant un titre de son choix avec des numéros quant il y a plus d'une possibilité

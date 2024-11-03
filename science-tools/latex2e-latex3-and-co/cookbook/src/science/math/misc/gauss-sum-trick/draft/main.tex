@@ -1,50 +1,18 @@
-% Source.
-%     + https://tex.stackexchange.com/a/655445/6880
-%     + https://tex.stackexchange.com/a/730033/6880
-
 \documentclass[border=3pt]{standalone}
 
-\usepackage{tikz}
-\usetikzlibrary{tikzmark} % Marquer un emplacement du rendu final.
-
-\newlength{\unitht}
-\setlength{\unitht}{.8ex}
-
-\newcommand{\nubpre}{usecase-A}
-\newcommand{\nubdepth}{0}
-
-\newcommand{\nub}[2]{%
-  \tikzmark{a\nubpre#1} % Marquage du début du contenu.
-    #2                  % Le contenu.
-  \tikzmark{b\nubpre#1} % Marquage de la fin du contenu.
-  %
-  \pgfmathsetmacro\nubvoffset{#1 - \nubdepth}%
-  %
-  \llap{ % Cette macro crée une boîte de largeur nulle en plaçant son
-         % argument juste à gauche de cette boîte, de sorte qu'il y a
-         % un chevauchement avec le contenu LaTeX qui précède.
-    \begin{tikzpicture}[
-        remember picture,
-        baseline = (current bounding box.north)
-    ]
-      \draw (pic cs:a\nubpre#1)          % Trait vertical à partir de
-            --++ (0,\nubvoffset*\unitht) % la marque du début.
-            -|                           % Une ligne en forme de "L"
-            (pic cs:b\nubpre#1);         % inversé jusqu'à la marque
-                                         % de la fin.
-    \end{tikzpicture}%
-  }%
-}
+\usepackage{main}
 
 \begin{document}
 
-\begin{minipage}{10cm}
+\begin{minipage}{12cm}
 
-La méthode demande de toujours régler la commande \verb+\nubdepth+
-qui vaut \verb+0+ initialement. Cette macro donne la profondeur où
-tracer le trait le plus bas. La valeur donnée est ici simple à
-obtenir, car c'est le successeur du nombre de macros \verb+\nub+
-utilisées (ceci laisse envisager une automatisation possible).
+\paragraph{Exemple 1.}
+
+% La méthode demande de toujours régler la commande ''\nubdepth''
+% qui vaut ''0'' initialement. Cette macro donne la profondeur où
+% tracer le trait le plus bas. La valeur donnée est ici simple à
+% obtenir, car c'est le successeur du nombre de macros ''\nub''
+% utilisées (ceci laisse envisager une automatisation possible).
 
 \renewcommand{\nubdepth}{6}
 
@@ -61,10 +29,10 @@ $ \nub{1}{
 = 31 \times 5
 = 155$
 
-\medskip
+\paragraph{Exemple 2.}
 
-Un nouvel exemple implique une nouvelle valeur pour \verb+\nubpre+
-(en coulisse, un compteur pourrait faire ce travail à notre place).
+% Un nouvel exemple implique une nouvelle valeur pour ''\nubpre''
+% (en coulisse, un compteur pourrait faire ce travail à notre place).
 
 \renewcommand{\nubpre}{usecase-B}
 \renewcommand{\nubdepth}{4}
