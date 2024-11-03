@@ -10,7 +10,7 @@
 \newlength{\unitht}
 \setlength{\unitht}{.8ex}
 
-\newcommand{\nubpre}{A}
+\newcommand{\nubpre}{usecase-A}
 \newcommand{\nubdepth}{0}
 
 \newcommand{\nub}[2]{%
@@ -41,7 +41,8 @@
 \begin{minipage}{10cm}
 
 La méthode demande de toujours régler la commande \verb+\nubdepth+
-qui vaut \verb+0+ initialement : la valeur donnée est ici simple à
+qui vaut \verb+0+ initialement. Cette macro donne la profondeur où
+tracer le trait le plus bas. La valeur donnée est ici simple à
 obtenir, car c'est le successeur du nombre de macros \verb+\nub+
 utilisées (ceci laisse envisager une automatisation possible).
 
@@ -65,7 +66,7 @@ $ \nub{1}{
 Un nouvel exemple implique une nouvelle valeur pour \verb+\nubpre+
 (en coulisse, un compteur pourrait faire ce travail à notre place).
 
-\renewcommand{\nubpre}{B}
+\renewcommand{\nubpre}{usecase-B}
 \renewcommand{\nubdepth}{4}
 
 $ \nub{1}{

@@ -4,11 +4,14 @@
 
 \documentclass[border=3pt]{standalone}
 
-\usepackage{ifthen} % Tests du type SI-SINON-SI à-la C.
+\usepackage{ifthen} % Pour des tests du type SI-SINON-SI.
 
 \usepackage{tikz}
 \usetikzlibrary{tikzmark}
 
+%%%
+% Un unique réglage "utilisateur".
+%%%
 \newlength{\nubunitht}
 \setlength{\nubunitht}{.8ex}
 
@@ -39,7 +42,7 @@
 }
 
 %%%
-% Nos variables globales.
+% Nos variables globales internes.
 %%%
 \newcounter{nubdepthcalls}
 \setcounter{nubdepthcalls}{0}
@@ -57,7 +60,7 @@
 	\addtocounter{nublabelcnter}{1}
   }{}%
   \addtocounter{nubdepthcalls}{1}%
-  \internalnub{\nublabel}{6}{\arabic{nubdepthcalls}}{#1}%
+    \internalnub{\nublabel}{6}{\arabic{nubdepthcalls}}{#1}%
   \addtocounter{nubdepthcalls}{-1}%
 }
 
@@ -81,38 +84,12 @@ $%
   = 155%
 $
 
-$%
-  \internalnub{A}{6}{1}{%
-    11 + \internalnub{A}{6}{2}{%
-      12 + \internalnub{A}{6}{3}{%
-        13 + \internalnub{A}{6}{4}{%
-          14 + \internalnub{A}{6}{5}{15 + 16} + %
-          17} + %
-        18} + %
-      19} + %
-    20}%
-  = 31 \times 5 %
-  = 155%
-$
-
 \paragraph{Exemple 2.}
 
 $%
   \nub{%
     1 + \nub{%
       3 + \nub{%
-        5 + \cdots + %
-        95} + %
-      97} + %
-    99}%
-  = 100 \times 25%
-  = 2500%
-$
-
-$%
-  \internalnub{B}{4}{1}{%
-    1 + \internalnub{B}{4}{2}{%
-      3 + \internalnub{B}{4}{3}{%
         5 + \cdots + %
         95} + %
       97} + %
