@@ -1,5 +1,5 @@
 this::
-    date = 2024-11-04   ???
+    date = 2024-11-05
 
 
 ====================================
@@ -8,18 +8,32 @@ Une version plus humainement amicale
 
 Nous proposons ici une version permettant une saisie ne nécessitant aucun réglage à la main. Voici la démarche suivie.
 
-    1) On part de la macro ''\nub'' de la recette proposée dans cf::''?/draft/\desc'' pour en faire une version interne ''\internal@nub'' qui attend \ttes les \infos nécessaires au tracé d'une \deco, à l'exception de la longueur ''\unitht'' qui a été renommée ''\nubunitht'', et reste modifiable facilement par l'utilisateur.
+    1) Nous partons de la macro ''\nub'' de la \1ere recette vue dans cf::''?/draft/\desc'' pour en faire une version interne ''\internal@nub'' qui attend \ttes les \infos nécessaires au tracé d'une \deco, à l'exception de la longueur ''\unitht'' qui a été renommée ''\nubunitht'', et reste modifiable facilement par l'utilisateur.
 
-    1) On crée une \nelle macro publique ''\nub'' qui va se charger de faire les bons appels de ''\internal@nub'' pour nous en appliquant les principes suivants.
+    1) Nous créons une \nelle macro publique ''\nub'' qui va se charger de faire les bons appels de ''\internal@nub'' pour nous en s'appuyant sur les idées suivantes.
 
-        i) XXXX
+        i) Il faut compter le nombre d'appels imbriqués de ''\nub'', ou profondeur des appels, que nous allons noter `pa` dans la suite. Imaginons que nous utilisions ''\nub{1 + \nub{2 + \nub{3 + 4} + 5} + 6}'', alors il faut effectuer les calculs suivants.
 
-        i) XXXX
+            * Initialement, `pa = 0`.
 
-        i) XXXX
+            * ''\nub{1 + ...'' donne `pa = pa + 1 = 1`.
 
-        i) XXXX
+            * ''... + \nub{2 + ...'' donne `pa = pa + 1 = 2`.
+
+            * ''... + \nub{3 + ...'' donne `pa = pa + 1 = 3`.
+
+            * ''... + 4}'' donne `pa = pa - 1 = 2`.
+
+            * ''... + 5}'' donne `pa = pa - 1 = 1`.
+
+            * ''... + 6}'' donne `pa = pa - 1 = 0`.
+
+        i) La valeur maximale du nombre d'appels imbriqués de ''\nub'' augmentée de `1` donne le décalage vertical maximal.
+
+        i) Via le nombre d'appels imbriqués, il est direct de donner le décalage vertical relatif à une macro ''\nub'' utilisée.
+
+        i) Via le fichier path::''aux'', le décalage vertical maximal peut être "mémorisé" pour la prochaine compilation.
 
 
 warning::
-    Ce code possède une grosse limitation. Laquelle ?
+    Le code proposé possède une grosse limitation. Laquelle ?
