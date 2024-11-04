@@ -2,13 +2,13 @@
 %     + https://tex.stackexchange.com/a/655445/6880
 %     + https://tex.stackexchange.com/a/730033/6880
 
-\usepackage{ifthen} % Pour des tests du type SI-SINON-SI.
+\usepackage{ifthen} % Pour des tests SI-SINON-SI puissants.
 
 \usepackage{tikz}
 \usetikzlibrary{tikzmark}
 
 %%%
-% Un unique réglage "utilisateur".
+% Un unique réglage côté utilisateur.
 %%%
 \newlength{\nubunitht}
 \setlength{\nubunitht}{.8ex}
@@ -17,18 +17,15 @@
 % Notre macro interne.
 %
 % Arg. #1 : l'étiquette pour une série de décorations.
-% Arg. #2 : la distance d'où partent les décalages verticaux.
-% Arg. #3 : un décalage vertical.
+% Arg. #2 : le décalage vertical maximal.
+% Arg. #3 : un décalage vertical relatif.
 % Arg. #4 : le contenu à décorer.
 %%%
 \newcommand{\internal@nub}[4]{%
-%
   \tikzmark{nubstart#1#3}%
     #4%
   \tikzmark{nubend#1#3}%
-%
-  \pgfmathsetmacro\nubvoffset{#3 - #2}
-%
+  \pgfmathsetmacro\nubvoffset{#3 - #2}%
   \llap{%
     \begin{tikzpicture}[
         remember picture,
@@ -46,10 +43,12 @@
 % Nos variables globales internes.
 %%%
 
+% Pour des étiquettes spécifiques à chaque somme à la Gauss.
 \newcommand{\nub@label}{}
 \newcounter{nub@label@cnter}
 \setcounter{nub@label@cnter}{0}
 
+% Pour calculer le décalage vertical maximal.
 \newcounter{nub@depth@calls}
 \setcounter{nub@depth@calls}{0}
 
@@ -60,38 +59,43 @@
 % Arg. #1 : le contenu à décorer.
 %%%
 \newcommand{\nub}[1]{%
-%
+% Nouvelle somme à la Gauss.
   \ifthenelse{\arabic{nub@depth@calls} = 0}{
     \renewcommand{\nub@label}{nub@label@\alph{nub@label@cnter}}
     \addtocounter{nub@label@cnter}{1}
-%
+% On initialise le décalage vertical maximal si nous ne l'avons pas
+% stocker via le fichier ''aux'' lors d'une précédente compilation.
     \@ifundefined{nub@depth@\alph{nub@label@cnter}}{%
       \expandafter\gdef\csname nub@depth@\alph{nub@label@cnter}\endcsname{0}%
     }{}
   }{}%
-%
+% Un usage de \nurb augmente de 1 la valeur de la profondeur des appels.
   \addtocounter{nub@depth@calls}{1}%
+% Mise à jour du décalage vertical maximal si besoin.
   \ifthenelse{\arabic{nub@depth@calls} > \arabic{nub@depth@draw}}{
     \setcounter{nub@depth@draw}{\arabic{nub@depth@calls}}
   }{}%
-%
+% Il est temps de dessiner avec d'éventuelles sous-appels à ''\nub''.
   \internal@nub{\nub@label}              % Étiquette.
                {\csname nub@depth@\alph{nub@label@cnter}\endcsname}%
-                                         % Départ des décalages.
-               {\arabic{nub@depth@calls}}% Le décalage vertical.
+                                         % Décalage vertical maximal.
+               {\arabic{nub@depth@calls}}% Le décalage vertical relatif.
                {#1}                      % Le contenu.
-  \addtocounter{nub@depth@calls}{-1}%
-%
+% Le travail a étét fait, on diminue donc la valeur de la profondeur
+% des appels.
+   \addtocounter{nub@depth@calls}{-1}%
+% A-t-on fini de gérer l'entierté d'une somme à la Gauss ?
   \ifthenelse{\arabic{nub@depth@calls} = 0}{
-%
+% Comme on a fini, on finalise le calcul du décalage vertical maximal.
     \addtocounter{nub@depth@draw}{1}
-%
+% On utilise le fichier ''aux'' pour avoir accès au décalage vertical
+% maximal lors de la prochaine compilation.
     \immediate\write\@auxout{%
       \string\gdef\string%
         \nub@depth@\alph{nub@label@cnter}%
                  {\arabic{nub@depth@draw}}%%
     }
-%
+% On remet à zéro pour les prochaines sommes à la Gauss.
     \setcounter{nub@depth@draw}{0}
   }{}
 }
