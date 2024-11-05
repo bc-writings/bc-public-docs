@@ -1,0 +1,27 @@
+%Source : http://forum.mathematex.net/latex-f6/alignement-dans-tableau-avec-texte-en-couleur-t10533.html
+
+\documentclass[11pt,a4paper]{article}
+	\usepackage[usenames]{xcolor}
+
+
+\begin{document}
+
+\begin{tabular}{|p{.1\textwidth}|p{.1\textwidth}|}%
+	\hline
+	\leavevmode\color{blue}{Hello} & world \\
+	\hline
+\end{tabular}
+
+\begin{tabular}{|c|c|}%
+	\hline
+	\color{blue}{Hello} & world \\
+	\hline
+\end{tabular}
+
+\begin{tabular}{|p{.1\textwidth}|p{.1\textwidth}|}%
+	\hline
+	Hello & world \\
+	\hline
+\end{tabular}
+
+\end{document}

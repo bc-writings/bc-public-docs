@@ -1,0 +1,37 @@
+% Source : http://tex.stackexchange.com/questions/36432/tiks-draw-in-left-margin-putting-old-calendar-style-date-in-margin
+
+\documentclass{book}
+	\usepackage[table]{xcolor}
+	\usepackage{marginnote}
+	\usepackage{datetime}
+	\usepackage{lipsum}
+
+	\definecolor{mycolor}{RGB}{255,213,171}
+
+	\newcommand\MyDate[1]{%
+		\marginnote{%
+			\setlength\fboxsep{0pt}%
+			\fbox{%
+				\setlength\extrarowheight{3pt}%
+				\begin{tabular}{>{\bfseries}c}
+					\rowcolor{mycolor} #1 \\
+					\large\the\day \\
+					\large\shortmonthname. \\
+					\rowcolor{mycolor} \the\year
+				\end{tabular}%
+			}%
+		}%
+	}
+
+	\reversemarginpar
+
+
+\begin{document}
+
+\lipsum[1]
+
+\MyDate{Mon.}\lipsum[1]
+
+\lipsum[1]
+
+\end{document}

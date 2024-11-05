@@ -1,0 +1,57 @@
+% Source : http://tex.stackexchange.com/questions/30515/equations-in-the-margin-automatic-flush-right-or-left
+
+\documentclass[twoside]{scrartcl}
+	\usepackage{amsmath}
+	\usepackage{lipsum}
+	\usepackage{marginnote}
+	\usepackage{everyshi}
+
+	\def\flusheqnL{&}
+	\def\flusheqnR{}%
+
+	\EveryShipout{%
+		\ifodd\value{page}
+			\gdef\flusheqnL{} \gdef\flusheqnR{&&}%
+		\else
+			\gdef\flusheqnL{&} \gdef\flusheqnR{}%
+		\fi
+	}%
+
+
+\begin{document}
+
+\lipsum[1]
+\marginnote{%
+	Is flush left (manually) ?
+	\begin{flalign*}
+		a & = 1 & \\
+		b & = 1 &
+	\end{flalign*}%
+}
+\lipsum[2]
+\marginnote{%
+	How to make flush left automatically ?
+	\begin{flalign*}
+	\flusheqnR a & = 1 \flusheqnL \\
+	\flusheqnR b & = 1 \flusheqnL
+	\end{flalign*}%
+}
+\lipsum[3-6]
+\marginnote{%
+	Is flush right (manually) ?
+	\begin{flalign*}
+		& & a & = 1\\
+		& & b & = 1
+	\end{flalign*}%
+}
+\lipsum[7]
+\marginnote{%
+	How to make flush right automatically ?
+	\begin{flalign*}
+	\flusheqnR a & = 1 \flusheqnL \\
+	\flusheqnR b & = 1 \flusheqnL
+	\end{flalign*}%
+}
+\lipsum[8-9]
+
+\end{document}

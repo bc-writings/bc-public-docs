@@ -1,0 +1,30 @@
+% Source : http://tex.stackexchange.com/questions/35948/best-practices-for-using-enumerations-within-theorem-environments
+
+\documentclass{article}
+	\usepackage{enumitem}
+	\usepackage{amsthm}
+	\usepackage{amsmath}
+
+	\newtheorem{theorem}{Theorem}
+%	\newcommand{\Implies}[2]{\ref{#1}~$\implies$~\ref{#2}}% X => Y
+	\newcommand{\Implies}[2]{$\text{\ref{#1}}\implies\text{\ref{#2}}$}
+
+
+\begin{document}
+
+\begin{theorem}
+	The following are equivalent:
+	\begin{enumerate}[label=(\arabic*),ref=(\arabic*)]
+		\item Statement 2 \label{statement2}
+		\item Statement 3 \label{statement3}
+		\item Statement 1 \label{statement1}
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+	\Implies{statement1}{statement2}: Proof if~\ref{statement1} then~\ref{statement2}.
+	\Implies{statement2}{statement3}: Proof if~\ref{statement2} then~\ref{statement3}.
+	\Implies{statement3}{statement1}: Proof if~\ref{statement3} then~\ref{statement1}.
+\end{proof}
+
+\end{document}​

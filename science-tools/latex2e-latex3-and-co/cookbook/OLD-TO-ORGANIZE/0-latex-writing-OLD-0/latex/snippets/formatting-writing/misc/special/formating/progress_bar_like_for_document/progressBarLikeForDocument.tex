@@ -1,0 +1,20 @@
+% Source : http://tex.stackexchange.com/questions/4180/how-to-use-pagereffoo-as-a-number
+
+\documentclass[oneside]{book}
+	\usepackage{lipsum,fancyhdr,lastpage,refcount}
+
+	\pagestyle{fancy}
+	\setrefcountdefault{-1}
+	\lhead{\rule{\dimexpr \textwidth * \thepage/\getpagerefnumber{LastPage}}{2mm}}
+
+
+\begin{document}
+
+\lipsum[1-60] %Insert dummy text for demonstration
+\lipsum[1-60] %Insert dummy text for demonstration
+\lipsum[1-60] %Insert dummy text for demonstration
+\lipsum[1-60] %Insert dummy text for demonstration
+\lipsum[1-60] %Insert dummy text for demonstration
+\lipsum[1-60] %Insert dummy text for demonstration
+
+\end{document}

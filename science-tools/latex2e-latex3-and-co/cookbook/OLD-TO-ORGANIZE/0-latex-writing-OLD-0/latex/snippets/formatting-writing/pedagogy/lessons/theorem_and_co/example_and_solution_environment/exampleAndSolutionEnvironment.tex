@@ -1,0 +1,60 @@
+% Source : http://tex.stackexchange.com/questions/29345/latex-example-environment
+
+\documentclass{article}
+	\usepackage{xcolor}
+	\usepackage{ntheorem,lipsum}
+
+	\theoremseparator{:}
+	\newtheorem*{example}{Example}
+	\newtheorem*{solution}{Solution}
+
+	\newlength\outerlinewidth
+	\newlength\interline
+	\newlength\hangleft
+
+	\newenvironment{block}{%
+		\trivlist\item\relax\par%
+		\noindent\rlap{%
+			\hspace*{-\hangleft}\color{gray}%
+			\rule{\dimexpr \hangleft+\linewidth\relax}{\outerlinewidth}%
+		}%
+	}{%
+		\par%
+		\noindent\rlap{%
+			\hspace*{-\hangleft}\color{gray}%
+			\rule{\dimexpr \hangleft+\linewidth\relax}{\outerlinewidth}
+		}%
+		\endtrivlist%
+	}
+
+	\newcommand*\blockline{%
+		\par\noindent%
+		\begingroup\color{gray}%
+		\rule{\linewidth\relax}{\interline}\endgroup\par%
+	}
+
+% Set parameter:
+	\setlength{\outerlinewidth}{6pt} %height of the outer line
+	\setlength{\interline}{2pt} %height of the inter line
+	\setlength{\hangleft}{1cm} % left indention
+
+
+\begin{document}
+
+\begin{block}
+	\begin{example}[Rear clock ahead]
+		\lipsum[1]
+	\end{example}
+	\begin{solution}
+		\lipsum[2]
+	\end{solution}
+	\blockline
+	\begin{example}[Rear clock ahead]
+		\lipsum[1]
+	\end{example}
+	\begin{solution}
+		\lipsum[5è]
+	\end{solution}
+\end{block}
+
+\end{document}

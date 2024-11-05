@@ -1,0 +1,45 @@
+\documentclass[a4paper,10pt]{article}
+	\usepackage[latin1]{inputenc}
+	\usepackage[T1]{fontenc}
+	\usepackage{lmodern}
+	\usepackage[frenchb]{babel}
+	\usepackage{mathtools}
+	\usepackage{empheq}
+	\usepackage{amsfonts,mathrsfs,amssymb,yhmath,stmaryrd}
+	\usepackage[f]{esvect}
+	\usepackage{icomma,xspace}
+	\usepackage{color}
+
+	\everymath{\displaystyle}
+
+	\def\R{{\ensuremath{\mathbb R}}\xspace} % les r√©els
+	\def\Q{{\ensuremath{\mathbb Q}}\xspace}  % les rationnels
+	\def\Z{{\ensuremath{\mathbb Z}}\xspace}  % les entiers relatifs
+	\def\D{{\ensuremath{\mathbb D}}\xspace}  % les d√©cimaux
+	\def\N{{\ensuremath{\mathbb N}}\xspace}  % les entiers naturels
+	\def\C{{\ensuremath{\mathbb C}}\xspace}  % les complexes
+
+	\newcommand{\V}{\overrightarrow}
+	\newcommand{\Rep}{(\mathrm{O};\V{\imath};\V{\jmath})}
+	\newcommand{\Reel}{\mathfrak{Re}}
+	\newcommand{\Ima}{\mathfrak{Im}}
+	\newcommand{\Abs}[1]{\left \lvert#1\right \rvert}
+	\newcommand{\resultats}[2][blue]{{\centering{\textcolor{#1}{\fbox{#2}}}}}
+
+
+\begin{document}
+
+Voici un systËme de deux Èquations que je souhaite Ècrire en bleu et encadrer en bleu Ègalement :
+
+\begin{center}
+	\resultats{$
+		\begin{cases}
+			1+\cos x + \cos y=0\\
+			\sin x + \sin y=0\\
+		\end{cases}
+	$}
+\end{center}
+
+$\Rep$
+
+\end{document}

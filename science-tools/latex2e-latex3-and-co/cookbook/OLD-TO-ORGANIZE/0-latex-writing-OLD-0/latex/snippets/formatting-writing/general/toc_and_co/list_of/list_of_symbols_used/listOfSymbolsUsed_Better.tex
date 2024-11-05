@@ -1,0 +1,40 @@
+% Source : http://tex.stackexchange.com/questions/30943/nomenclatura-how-to-display-one-symbol-used-in-two-differents-contexts-or-more/30977#30977
+
+% Compilation :
+%    1) Start with one normal compilation in the current directory.
+%    2) Then do :
+% makeindex listOfSymbolsUsed_Better.nlo -s nomencl.ist -o listOfSymbolsUsed_Better.nls
+%    3) Finish with one noprmal compilation.
+
+\documentclass{article}
+	\usepackage{nomencl}
+
+	\makenomenclature
+
+
+\begin{document}
+
+\section*{Main equations}
+
+\begin{equation}
+	a=\frac{N}{A}
+\end{equation}%
+
+\nomenclature[a]{$a$}{--\ The number of angels per unit area}%
+\nomenclature[N]{$N$}{The number of angels per needle point}%
+\nomenclature[A]{$A$}{The area of the needle point}%
+
+The equation $\sigma = m a$%
+
+\nomenclature[s]{$\sigma$}{The total mass of angels per unit area}%
+\nomenclature[m]{$m$}{The mass of one angel} follows easily.
+
+Let's try with another $a$... %
+\nomenclature[a1]{}{--\ The area of the needle point}%
+\nomenclature[a2]{}{--\ The distance to the moon}%
+\nomenclature[a3]{}{--\ The number of needles in a haystack}%
+\nomenclature[a4]{}{--\ The value of $pi$}%
+
+\printnomenclature
+
+\end{document}

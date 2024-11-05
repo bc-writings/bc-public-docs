@@ -1,0 +1,78 @@
+% Source : http://tex.stackexchange.com/questions/29725/putting-a-timeline-for-dates-in-moderncv
+
+\documentclass[]{moderncv}
+	\usepackage{tikz}
+	\usepackage[scale=0.8]{geometry}
+
+	\moderncvtheme[blue]{casual}
+	\firstname{John}
+	\familyname{Doe}
+
+
+\begin{document}
+
+\maketitle
+
+\tikzset{
+	startyear/.style={
+		font=\scriptsize,
+		name=startyear,
+		above=3pt,
+		inner xsep=0pt,
+		anchor=base west,
+	},
+	endyear/.style={
+		font=\scriptsize,
+		name=endyear,
+		below,
+		inner xsep=0pt,
+		anchor=north east,
+	}
+}
+
+\def\firstyear{2000}
+\def\lastyear{2011}
+\pgfmathsetmacro\yearrange{\lastyear-\firstyear}
+
+\newcommand{\funkycventry}[7]{%
+	\pgfmathsetmacro\endyear{ifthenelse(#2==0,\lastyear,#2)}
+	\pgfmathsetmacro\startfraction{(#1-\firstyear)/(\lastyear-\firstyear)}%
+	\pgfmathsetmacro\endfraction{(\endyear-\firstyear)/(\lastyear-\firstyear)}%
+	\pgfmathsetmacro\ongoing{!(#2==0)}
+	\cventry{%
+		\tikz[baseline=(endyear.north)]{
+			\fill [sectionrectanglecolor] (0,0) 
+				++(\startfraction*\hintscolumnwidth,0pt)
+				node [startyear] {#1}
+				rectangle (\endfraction*\hintscolumnwidth,0.5ex)
+				node [endyear] {\pgfmathparse{ifthenelse(#2==0,,#2)}\pgfmathresult}
+				(\hintscolumnwidth,0pt) ;
+			\ifnum #2=0
+				\shade [left color=sectionrectanglecolor]
+				(\endfraction*\hintscolumnwidth-1em,0pt) rectangle ++(1em,0.5ex);
+			\fi%
+		}
+	}
+	{#3}{#4}{#5}{#6}{#7}
+}
+
+\section{Experience}
+
+\subsection{Vocational}
+
+\funkycventry{2002}{2007}{Job title}{Employer}{City}{}{General description no longer than 1--2 lines.\newline{}%
+Detailed achievements:%
+\begin{itemize}%
+	\item Achievement 1;
+	\item Achievement 2, with sub-achievements:
+	\item Achievement 3.
+\end{itemize}}
+
+\funkycventry{2000}{2011}{Job title}{Employer}{City}{}{Description line 1\newline{}Description line 2}
+
+
+\subsection{Miscellaneous}
+
+\funkycventry{2005}{0}{Job title}{Employer}{City}{}{Description}
+
+\end{document}

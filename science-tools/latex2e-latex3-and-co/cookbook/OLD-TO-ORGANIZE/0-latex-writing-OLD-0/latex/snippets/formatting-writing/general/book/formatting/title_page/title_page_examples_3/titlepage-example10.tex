@@ -1,0 +1,25 @@
+\documentclass{book}
+\usepackage{xepersian}
+\newlength{\tpheight}\setlength{\tpheight}{0.9\textheight}
+\newlength{\txtheight}\setlength{\txtheight}{0.9\tpheight}
+\newlength{\tpwidth}\setlength{\tpwidth}{0.9\textwidth}
+\newlength{\txtwidth}\setlength{\txtwidth}{0.9\tpwidth}
+\newlength{\drop}
+\newcommand*{\plogo}{\fbox{فانوس}}
+\newcommand*{\titleP}{\begingroup% 
+\drop = 0.12\txtheight
+\vspace*{\drop}
+\hspace*{0.3\txtwidth}
+{\Huge عنوان کتاب}\\[\baselineskip]
+\hspace*{0.3\txtwidth}
+{\Huge زیرعنوان کتاب}\par
+\vspace*{3\drop}
+{\large نام نویسنده}
+\vfill
+{\sayehfamily نام انتشاراتی}
+\vspace*{0.5\drop}
+\endgroup}
+\begin{document}
+\pagestyle{empty}
+\titleP
+\end{document}

@@ -1,0 +1,11 @@
+blkarray
+booktabs[french]
+cals
+diagbox
+hhline
+makecell
+nccboxes
+ncccropbox
+tableof
+tabu
+tablestyles

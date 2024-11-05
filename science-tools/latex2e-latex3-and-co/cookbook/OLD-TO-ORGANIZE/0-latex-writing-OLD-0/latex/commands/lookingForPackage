@@ -1,0 +1,2 @@
+console::
+    kpsewhich nameOfThePackage.sty

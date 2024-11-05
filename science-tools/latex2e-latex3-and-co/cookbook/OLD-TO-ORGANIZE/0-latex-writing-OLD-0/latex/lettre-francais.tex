@@ -1,0 +1,105 @@
+\documentclass[11pt,origdate]{lettre}
+\usepackage{palatino}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage[frenchb]{babel}
+
+\begin{document}
+	\begin{letter}{Madame Tagada\\ % Destinataire
+		           12 rue des fraises\\
+		           29300 Uneville} 
+		\address{Pierre Fritsch\\ % Mon adresse
+		         Alfred-Messel-Weg 6-111\\
+				 64287 Darmstadt}
+		\name{Pierre Fritsch} % Mon nom
+		%\location{Mon département dans l'entreprise}
+		\telephone{+49 176 123 455 67}
+		\email{pierre.fritsch@provider.de}
+		\nofax % pas de fax. Alternative: \fax{numero}
+		
+		\francais % Met les labels en français et le \closing{} en pleine largeur
+		          % Variantes: \anglais, \americain, et \allemand
+		\pagestyle{empty} % alternatives : plain (numéro de page en pied), headings (entête avec lieu et date)
+		
+		\conc{\textbf{Voilà le sujet de ma lettre}}
+		\lieu{Darmstadt} % L'endroit d'où j'écris
+		%\date{\today} % Mis par défaut à la date du jour
+		%\signature{Pierre FRITSCH} % Remplacé par défaut par le contenu de \name{}
+		%\vref{vos réf.}
+		%\nref{nos réf.}
+	
+		% MISE EN PAGE ET PERSONNALISATION DU PACKAGE
+	
+		%\marge{15mm} % Marge du côté gauche, default: 15mm
+		%\tension{-6} % Espace entre les blocs: -6 resserré, 6 serré
+		
+		%\renewcommand{\tellabelname}{Téléphone :} 
+		%\renewcommand{\ccname}{CC :}
+		%\renewcommand{\enclname}{PJ :}
+		\renewcommand{\concname}{} % Elimine l'affichage du texte "Objet :"
+		\renewcommand{\emaillabelname}{} % Elimine l'affichage du texte "E-mail :"
+		
+		%\def\openingspace{10mm} % ajuste l'espace vertical autour du champ sujet, default: 1cm
+ 		\def\sigspace{10mm} % Espacement vertical entre texte et signature(s), default: 1.5cm
+		
+		\makeatletter
+		% BOITE D'ENTETE
+		\def\pict@let@width{185}       % default: 185
+		\def\pict@let@height{65}       % default: 65
+		\def\pict@let@hoffset{0}       % default: 0
+		\def\pict@let@voffset{0}       % default: 0
+		% TRAIT DE PLIAGE
+		\def\rule@hpos{-25}            % default: -25
+		\def\rule@vpos{-15}            % default: -15
+		\def\rule@length{10}           % default: 10
+		% ADRESSE DE L'EXPEDITEUR
+		\def\fromaddress@let@hpos{-10} % default: -10
+		\def\fromaddress@let@vpos{80}  % default: 70
+		                               % je remonte légèrement l'adresse vers le coin haut gauche
+		\fromaddress@let@width=69mm    % default: 69
+		% LIEU D'EXPEDITION
+		\def\fromlieu@let@hpos{90}     % default: 90
+		\def\fromlieu@let@vpos{0}      % default: 62 
+		                               % je déplace lieu et date sous l'adresse du destinataire
+		\fromlieu@let@width=69mm       % default: 69
+		% ADRESSE DU DESTINATAIRE
+		\def\toaddress@let@hpos{90}    % default: 90
+		\def\toaddress@let@vpos{40}    % default: 40
+		\toaddress@let@width=80mm      % default: 80
+		\makeatother
+
+
+		% DEBUT DE LA LETTRE
+		\opening{Madame,}
+		Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec tempor
+		erat non sem. Sed auctor erat non tortor. In eget sapien. Phasellus
+		enim dolor, tempor at, nonummy nec, tincidunt nec, mi. Vestibulum
+		porta tincidunt risus. Pellentesque sem elit, bibendum et, tempor
+		nec, pellentesque sed, orci. Maecenas dapibus mi eu nunc. Duis pharetra
+		justo a sem.
+
+		Sed vel risus. Integer non lacus. Pellentesque habitant morbi tristique
+		senectus et netus et malesuada fames ac turpis egestas. Suspendisse
+		vestibulum. Maecenas ultrices, risus non aliquam commodo, nisl risus
+		ornare magna, vel mollis mauris diam sed eros. Phasellus at sapien.
+		Aliquam rhoncus, purus eget laoreet posuere, nisl tortor vehicula
+		odio, a adipiscing arcu nisi ut nisl.
+
+		Cras id lectus. Praesent vitae lorem. Nullam sem. In eget nisl vel
+		purus volutpat rutrum. Ut id elit ac dolor mattis consectetuer. Lorem
+		ipsum dolor sit amet, consectetuer adipiscing elit. Sed vitae urna.
+		Nullam sagittis tincidunt arcu. Donec pretium turpis nec est. Nunc
+		cursus eleifend lacus. Proin molestie nibh ut velit. Aliquam erat
+		volutpat. Quisque venenatis sagittis est. Donec sem dui, feugiat congue,
+		elementum ac, semper a, ligula. Vestibulum ante ipsum primis in faucibus
+		orci luctus et ultrices posuere cubilia Curae;
+
+		Fusce eu ante a ligula auctor aliquet. Vestibulum ante ipsum primis
+		in faucibus orci luctus et ultrices posuere cubilia Curae; Cras nec
+		ipsum ac erat commodo volutpat. Vestibulum consectetuer tellus ac
+		pede. Aliquam iaculis sagittis nibh.
+		\closing{Veuillez croire, Madame, aux sentiments qu'on a coutume d'écrire au bas des lettres.}
+		
+		\encl{Une brochure de notre dernier produit}
+	\end{letter}
+\end{document}

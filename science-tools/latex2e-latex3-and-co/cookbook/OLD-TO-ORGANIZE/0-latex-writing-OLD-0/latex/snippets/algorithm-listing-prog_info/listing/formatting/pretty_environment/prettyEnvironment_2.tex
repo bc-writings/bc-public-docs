@@ -1,0 +1,43 @@
+% Source : http://forum.mathematex.net/latex-f6/probleme-avec-listings-dans-une-commande-t12167.html#p117600
+
+    \documentclass{article}
+    \usepackage[utf8]{inputenc}
+    \usepackage[T1]{fontenc}
+    \usepackage{listings}
+
+    \makeatletter
+    \newcommand\exoter[1]{%premier argument est le nom de la boite et le second c'est le contenu
+       \noindent\textbf{\textsc{#1}}%
+       \vspace{2pt}%
+       \hrule
+       \noindent\kern1em\vrule\kern1em
+       \afterassignment\exoter@
+       \let\exoter@tok= }
+
+    \newcommand\exoter@{%
+       \vtop\bgroup
+          \linewidth\dimexpr\linewidth-2em-0.4pt
+          \hsize\linewidth
+          \kern6pt }
+    \makeatother
+    \begin{document}
+
+    \exoter{Essai}{Cet argument peut maintenant contenir la commande \verb-\verb- ainsi que l'environnement ``listings'' :
+    \begin{lstlisting}[literate={é}{{\'e}}1 {è}{{\`e}}1 {à}{{\`a}}1 ]
+    prog1():={
+    local s,liste,k;
+    saisir("Entrer une liste de quatre nombres",liste);
+    s:=0;
+    pour k de 0 jusque 3 faire
+    s:=s+liste[k];
+    fpour;
+    afficher("Le résultat est égal à " + s);
+    }
+    :;
+    \end{lstlisting}
+    Et une petite liste :
+    \begin{itemize}
+       \item un item
+       \item encore un autre
+    \end{itemize}}
+    \end{document}

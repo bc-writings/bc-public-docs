@@ -1,0 +1,69 @@
+\documentclass{book}
+\usepackage{color}
+\usepackage{xepersian}
+\newlength{\tpheight}\setlength{\tpheight}{0.9\textheight}
+\newlength{\txtheight}\setlength{\txtheight}{0.9\tpheight}
+\newlength{\tpwidth}\setlength{\tpwidth}{0.9\textwidth}
+\newlength{\txtwidth}\setlength{\txtwidth}{0.9\tpwidth}
+\newlength{\drop}
+\newcommand*{\plogo}{\fbox{فانوس}}
+\newcommand*{\titleHGP}{\begingroup% 
+\drop=0.1\txtheight
+\begin{minipage}[t]{0.05\txtwidth}
+\color{red}
+  \rule{6pt}{\txtheight}
+\end{minipage}
+\hspace{0.05\txtwidth}
+\begin{minipage}[t]{0.6\txtwidth}
+  \vspace*{\drop}
+  {\Large 
+نام نویسنده
+} \\
+  \rule{0.9\txtwidth}{1pt} \par
+  \vspace{3\baselineskip}
+  {\noindent\Huge\bfseries 
+عنوان کتاب
+} \par
+  \vspace{2\baselineskip}
+  {\Large\iranicfamily
+مبانی داده‌ساختارها و مبانی الگوریتم‌ها
+} \par
+  \vspace{6.5\baselineskip}
+  {\sayehfamily 
+ترجمه کتاب (نام کتاب)
+ \\
+   مترجم
+} \par
+\vspace{0.1\baselineskip}
+  {\Large 
+نام مترجم
+} \par
+  \vspace{\baselineskip}
+  \rule{0.9\txtwidth}{1pt} \par
+  \vspace{\baselineskip}
+  {\Large 
+نام انتشاراتی
+}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.15\txtwidth}
+  \Huge
+  \vspace{3.3\baselineskip}
+\textcolor{red}{م}
+\\[1.15\baselineskip]
+\textcolor{red}{د}
+ \\[1.15\baselineskip]
+\textcolor{red}{م}
+ \\[1.15\baselineskip]
+\textcolor{red}{ا}
+\par
+  \vspace{4\baselineskip}
+  {\Large 
+۱۳۹۰
+}
+\end{minipage}
+\endgroup}
+\begin{document}
+\pagestyle{empty}
+\titleHGP
+\end{document}

@@ -1,0 +1,30 @@
+% Source: https://tex.stackexchange.com/a/690141/6880
+
+\documentclass{article}
+
+\makeatletter
+\newcommand{\sqnum}[1]{%
+  \begingroup
+  \settowidth{\dimen@}{#1}%
+  \setlength{\fboxsep}{1pt}%
+  \fbox{%
+    \ifdim\dimen@>\fontcharht\font`0
+      % just box the numbers
+      #1%
+    \else
+      \makebox[\fontcharht\font`0]{#1}%
+    \fi
+  }%
+  \endgroup
+}
+\makeatother
+
+\begin{document}
+
+\sqnum{$\frac12$} \sqnum{2} \sqnum{123}
+
+VS
+
+\fbox{$\frac12$} \fbox{2} \fbox{123}
+
+\end{document}

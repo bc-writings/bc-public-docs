@@ -1,0 +1,29 @@
+\documentclass{article}
+
+\def\pshow#1{{\let\protect\show #1}}
+
+
+\begin{document}
+
+\def\foo{\textbf{Bonjour}}
+
+
+\catcode`\@11
+
+\def\firstto@nil#1#2\@nil{#1}
+
+\foo % affiche Bonjour en gras.....pas de problème
+
+Résultat 1 : \firstto@nil\foo\@nil  % affiche bonjour en gras.....pas de problème
+
+Résultat 2 : \expandafter\firstto@nil\foo\@nil toto % affiche toto avec t en gras. NORMAL !
+
+%\pshow\textbf
+
+C'est comme : \textbf toto
+
+Résultat 2 bis : \expandafter\firstto@nil\foo\@nil {toto} % affiche bien toto en gras
+
+\catcode`\@12
+
+\end{document}

@@ -1,0 +1,38 @@
+% Source : http://forum.mathematex.net/latex-f6/modification-de-la-mise-en-forme-des-chapters-t13209.html#p127139
+
+\documentclass{book}
+	\usepackage{calc}
+	\usepackage{titlesec}
+
+	\newlength{\chaptertitlelength}
+	\titleformat{\chapter}[hang]
+		{\titlerule\sffamily\bfseries\huge\gdef\formattitle{\formattitlestar}}
+		{\chaptertitlename~\thechapter{}.%
+		\setlength{\chaptertitlelength}
+		{\widthof{\chaptertitlename~\thechapter{}.}+1pt+20pt}%
+		\global\chaptertitlelength=\chaptertitlelength
+		\gdef\formattitle{\formattitlenostar}}
+		{20pt}
+		{\formattitle}[\titlerule]
+
+	\newcommand{\formattitlenostar}[1]{%
+		\begin{minipage}[t]{\textwidth-\chaptertitlelength}\raggedleft
+			\strut#1\strut
+		\end{minipage}
+	}
+	\newcommand{\formattitlestar}[1]{%
+		\strut#1\strut
+	}
+
+
+\begin{document}
+
+\chapter*{Introduction}
+
+\chapter{Bla bla}
+
+\chapter{Bla bla bla bla bla bla bla bla}
+
+\chapter*{Conclusion}
+
+\end{document}

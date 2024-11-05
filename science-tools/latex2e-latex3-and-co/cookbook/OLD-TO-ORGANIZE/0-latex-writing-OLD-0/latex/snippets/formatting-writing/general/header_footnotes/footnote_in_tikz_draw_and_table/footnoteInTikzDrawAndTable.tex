@@ -1,0 +1,86 @@
+% Source : http://forum.mathematex.net/latex-f6/tikz-et-notes-de-bas-de-page-t13248.html#p129445
+
+\documentclass{report}
+	\usepackage{etoolbox}
+	\usepackage{tikz}
+	\usepackage{hyperref}
+
+% Rajouter un \refstepcounter{automasterfootnote} à toutes les {tikzpicture} et {tabular}
+	\preto{\tikzpicture}{\refstepcounter{automasterfootnote}}
+	\preto{\tabular}{\refstepcounter{automasterfootnote}}
+	\makeatletter
+		\newcounter{automasterfootnote}
+		\newcounter{autofootnote}[automasterfootnote]
+		\newcommand{\autofootnotemark}{%
+			\begingroup\let\@xfootnotemark\fixed@xfootnotemark
+			\refstepcounter{autofootnote}%
+			\footnotemark[\the\numexpr\value{footnote}+\value{autofootnote}\relax]%
+			\expandafter\global\expandafter\let
+			\csname saved@Href@\the\numexpr\value{footnote}%
+				+\value{autofootnote}\relax\endcsname
+			\Hy@footnote@currentHref
+		\endgroup}
+		\newcommand{\autofootnotetext}[1]{%
+			\refstepcounter{footnote}\refstepcounter{Hfootnote}%
+			\expandafter\let\expandafter\Hy@footnote@currentHref
+			\csname saved@Href@\arabic{footnote}\endcsname
+			\footnotetext{#1}}
+
+% commande adaptée de hyperref.sty pour faire marcher les liens avec \footnotemark[...]
+		\def\fixed@xfootnotemark[#1]{%
+			\begingroup
+			\c@footnote #1\relax
+			\unrestored@protected@xdef\@thefnmark{\thefootnote}%
+			\endgroup
+			\stepcounter{Hfootnote}%
+			\global\let\Hy@saved@currentHref\@currentHref
+			\hyper@makecurrent{Hfootnote}%
+			\global\let\Hy@footnote@currentHref\@currentHref
+			\global\let\@currentHref\Hy@saved@currentHref
+			\hyper@linkstart{link}{\Hy@footnote@currentHref}%
+			\H@@footnotemark
+			\hyper@linkend
+		}%
+	\makeatother
+
+
+\begin{document}
+
+I\footnote{provient de I}
+
+\begin{tikzpicture}
+	\node at (0,0) {A\autofootnotemark};
+	\node at (0,1) {B\autofootnotemark};
+\end{tikzpicture}
+\autofootnotetext{provient de A}
+\autofootnotetext{provient de B}
+
+II\footnote{provient de II}
+
+\begin{tikzpicture}
+	\node at (0,0) {C\autofootnotemark};
+	\node at (0,1) {D\autofootnotemark};
+\end{tikzpicture}
+\autofootnotetext{provient de C}
+\autofootnotetext{provient de D}
+
+III\footnote{provient de III}
+
+\begin{tabular}{|c|c|c|}
+	E\autofootnotemark & H\autofootnotemark \\
+\end{tabular}
+\autofootnotetext{provient de E}
+\autofootnotetext{provient de F}
+
+IV\footnote{provient de IV}
+
+\begin{tikzpicture}
+	\node at (0,0) {G\autofootnotemark};
+	\node at (0,1) {H\autofootnotemark};
+\end{tikzpicture}
+\autofootnotetext{provient de G}
+\autofootnotetext{provient de H}
+
+V\footnote{provient de V}
+
+\end{document}

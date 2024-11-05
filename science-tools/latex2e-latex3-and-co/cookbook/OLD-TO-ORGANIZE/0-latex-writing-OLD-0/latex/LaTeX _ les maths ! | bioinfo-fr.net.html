@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html xmlns="https://www.w3.org/1999/xhtml" prefix="og: http://ogp.me/ns#" lang="fr-FR"><head>
+
+
+
+	
+			
+	
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<link rel="stylesheet" href="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/style_002.css" type="text/css" media="screen">
+	
+	
+<!-- This site is optimized with the Yoast SEO plugin v5.6 - https://yoast.com/wordpress/plugins/seo/ -->
+<title>LaTeX&nbsp;: les maths&nbsp;! | bioinfo-fr.net</title>
+<meta name="description" content="Après avoir appris à compiler, insérer des flottants et à mettre en forme les paragraphes, passons à la force de LaTeX : la mise en forme de maths">
+<link rel="canonical" href="https://bioinfo-fr.net/latex-les-maths">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LaTeX&nbsp;: les maths&nbsp;! | bioinfo-fr.net">
+<meta property="og:description" content="Après avoir appris à compiler, insérer des flottants et à mettre en forme les paragraphes, passons à la force de LaTeX : la mise en forme de maths">
+<meta property="og:url" content="https://bioinfo-fr.net/latex-les-maths">
+<meta property="og:site_name" content="bioinfo-fr.net">
+<meta property="article:tag" content="LaTeX">
+<meta property="article:tag" content="maths">
+<meta property="article:section" content="Didacticiel">
+<meta property="article:published_time" content="2017-11-02T09:00:11+01:00">
+<meta property="article:modified_time" content="2017-11-01T14:17:40+01:00">
+<meta property="og:updated_time" content="2017-11-01T14:17:40+01:00">
+<meta property="og:image" content="https://bioinfo-fr.net/wp-content/uploads/2017/09/equations_triviales.png">
+<meta property="og:image:secure_url" content="https://bioinfo-fr.net/wp-content/uploads/2017/09/equations_triviales.png">
+<meta property="og:image" content="https://bioinfo-fr.net/wp-content/uploads/2017/09/limites.png">
+<meta property="og:image:secure_url" content="https://bioinfo-fr.net/wp-content/uploads/2017/09/limites.png">
+<meta property="og:image" content="https://bioinfo-fr.net/wp-content/uploads/2017/09/indices.png">
+<meta property="og:image:secure_url" content="https://bioinfo-fr.net/wp-content/uploads/2017/09/indices.png">
+<meta property="og:image" content="https://bioinfo-fr.net/wp-content/uploads/2017/09/overset.png">
+<meta property="og:image:secure_url" content="https://bioinfo-fr.net/wp-content/uploads/2017/09/overset.png">
+<meta property="og:image" content="https://bioinfo-fr.net/wp-content/uploads/2017/09/fractions.png">
+<meta property="og:image:secure_url" content="https://bioinfo-fr.net/wp-content/uploads/2017/09/fractions.png">
+<meta property="og:image" content="https://bioinfo-fr.net/wp-content/uploads/2017/09/fraction_forcee-1024x112.png">
+<meta property="og:image:secure_url" content="https://bioinfo-fr.net/wp-content/uploads/2017/09/fraction_forcee-1024x112.png">
+<meta property="og:image" content="https://bioinfo-fr.net/wp-content/uploads/2017/09/racines.png">
+<meta property="og:image:secure_url" content="https://bioinfo-fr.net/wp-content/uploads/2017/09/racines.png">
+<meta property="og:image" content="https://bioinfo-fr.net/wp-content/uploads/2017/09/text.png">
+<meta property="og:image:secure_url" content="https://bioinfo-fr.net/wp-content/uploads/2017/09/text.png">
+<meta property="og:image" content="https://bioinfo-fr.net/wp-content/uploads/2017/09/espace.png">
+<meta property="og:image:secure_url" content="https://bioinfo-fr.net/wp-content/uploads/2017/09/espace.png">
+<meta property="og:image" content="https://bioinfo-fr.net/wp-content/uploads/2017/09/police-1-300x297.png">
+<meta property="og:image:secure_url" content="https://bioinfo-fr.net/wp-content/uploads/2017/09/police-1-300x297.png">
+<meta property="og:image" content="https://bioinfo-fr.net/wp-content/uploads/2017/09/accents.png">
+<meta property="og:image:secure_url" content="https://bioinfo-fr.net/wp-content/uploads/2017/09/accents.png">
+<meta property="og:image" content="https://bioinfo-fr.net/wp-content/uploads/2017/09/lettres_grecques-1024x432.png">
+<meta property="og:image:secure_url" content="https://bioinfo-fr.net/wp-content/uploads/2017/09/lettres_grecques-1024x432.png">
+<meta property="og:image" content="https://bioinfo-fr.net/wp-content/uploads/2017/09/lettres_grecques_variantes-1024x156.png">
+<meta property="og:image:secure_url" content="https://bioinfo-fr.net/wp-content/uploads/2017/09/lettres_grecques_variantes-1024x156.png">
+<meta property="og:image" content="https://bioinfo-fr.net/wp-content/uploads/2017/09/lettres_grecques_majuscules-1024x247.png">
+<meta property="og:image:secure_url" content="https://bioinfo-fr.net/wp-content/uploads/2017/09/lettres_grecques_majuscules-1024x247.png">
+<meta property="og:image" content="https://bioinfo-fr.net/wp-content/uploads/2017/09/relations_entre_grandeurs-1024x245.png">
+<meta property="og:image:secure_url" content="https://bioinfo-fr.net/wp-content/uploads/2017/09/relations_entre_grandeurs-1024x245.png">
+<meta property="og:image" content="https://bioinfo-fr.net/wp-content/uploads/2017/09/operateurs.png">
+<meta property="og:image:secure_url" content="https://bioinfo-fr.net/wp-content/uploads/2017/09/operateurs.png">
+<meta property="og:image" content="https://bioinfo-fr.net/wp-content/uploads/2017/09/exemple_operateur.png">
+<meta property="og:image:secure_url" content="https://bioinfo-fr.net/wp-content/uploads/2017/09/exemple_operateur.png">
+<meta property="og:image" content="https://bioinfo-fr.net/wp-content/uploads/2017/09/symboles-1.png">
+<meta property="og:image:secure_url" content="https://bioinfo-fr.net/wp-content/uploads/2017/09/symboles-1.png">
+<meta property="og:image" content="https://bioinfo-fr.net/wp-content/uploads/2017/09/not.png">
+<meta property="og:image:secure_url" content="https://bioinfo-fr.net/wp-content/uploads/2017/09/not.png">
+<meta property="og:image" content="https://bioinfo-fr.net/wp-content/uploads/2017/09/fleches-1024x480.png">
+<meta property="og:image:secure_url" content="https://bioinfo-fr.net/wp-content/uploads/2017/09/fleches-1024x480.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:description" content="Après avoir appris à compiler, insérer des flottants et à mettre en forme les paragraphes, passons à la force de LaTeX : la mise en forme de maths">
+<meta name="twitter:title" content="LaTeX&nbsp;: les maths&nbsp;! | bioinfo-fr.net">
+<meta name="twitter:site" content="@bioinfofr">
+<meta name="twitter:image" content="https://bioinfo-fr.net/wp-content/uploads/2017/09/equations_triviales.png">
+<meta name="twitter:creator" content="@bioinfofr">
+<script type="text/javascript" async="" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/linkid.js"></script><script async="" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/analytics.js"></script><script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"WebSite","@id":"#website","url":"https:\/\/bioinfo-fr.net\/","name":"bioinfo-fr.net","potentialAction":{"@type":"SearchAction","target":"https:\/\/bioinfo-fr.net\/?s={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"Organization","url":"https:\/\/bioinfo-fr.net\/latex-les-maths","sameAs":["https:\/\/twitter.com\/bioinfofr"],"@id":"#organization","name":"Bioinfo-fr","logo":"https:\/\/bioinfo-fr.net\/wp-content\/uploads\/2012\/03\/bioinfo_v0.1.png"}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel="dns-prefetch" href="https://s0.wp.com/">
+<link rel="dns-prefetch" href="https://secure.gravatar.com/">
+<link rel="dns-prefetch" href="https://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="bioinfo-fr.net » Flux" href="https://bioinfo-fr.net/feed">
+<link rel="alternate" type="application/rss+xml" title="bioinfo-fr.net » Flux des commentaires" href="https://bioinfo-fr.net/comments/feed">
+<link rel="alternate" type="application/rss+xml" title="bioinfo-fr.net » LaTeX&nbsp;: les maths&nbsp;! Flux des commentaires" href="https://bioinfo-fr.net/latex-les-maths/feed">
+<!-- This site uses the Google Analytics by MonsterInsights plugin v6.2.4 - Using Analytics tracking - https://www.monsterinsights.com/ -->
+<script type="text/javascript" data-cfasync="false">
+		var disableStr = 'ga-disable-UA-29589306-1';
+
+	/* Function to detect opted out users */
+	function __gaTrackerIsOptedOut() {
+		return document.cookie.indexOf(disableStr + '=true') > -1;
+	}
+
+	/* Disable tracking if the opt-out cookie exists. */
+	if ( __gaTrackerIsOptedOut() ) {
+		window[disableStr] = true;
+	}
+
+	/* Opt-out function */
+	function __gaTrackerOptout() {
+	  document.cookie = disableStr + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+	  window[disableStr] = true;
+	}
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','__gaTracker');
+
+	__gaTracker('create', 'UA-29589306-1', 'auto');
+	__gaTracker('set', 'forceSSL', true);
+	__gaTracker('require', 'linkid', 'linkid.js');
+	__gaTracker('send','pageview');
+</script>
+<!-- / Google Analytics by MonsterInsights -->
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/bioinfo-fr.net\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.8.3"}};
+			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,56826,8203,55356,56819),0,0),c=j.toDataURL(),b!==c&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55358,56794,8205,9794,65039),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55358,56794,8203,9794,65039),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/wp-emoji-release.js" type="text/javascript" defer="defer"></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="crayon-css" href="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/crayon.css" type="text/css" media="all">
+<link rel="stylesheet" id="crayon-theme-classic-css" href="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/classic.css" type="text/css" media="all">
+<link rel="stylesheet" id="crayon-font-monospace-css" href="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/monospace.css" type="text/css" media="all">
+<link rel="stylesheet" id="cwp-css-css" href="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/cwp-poll.css" type="text/css" media="all">
+<link rel="stylesheet" id="cwp-jqui-css" href="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/jquery-ui.css" type="text/css" media="all">
+<link rel="stylesheet" id="cookie-notice-front-css" href="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/front.css" type="text/css" media="all">
+<link rel="stylesheet" id="easy_table_style-css" href="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/style.css" type="text/css" media="all">
+<link rel="stylesheet" id="social-logos-css" href="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/social-logos.css" type="text/css" media="all">
+<link rel="stylesheet" id="jetpack_css-css" href="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/jetpack.css" type="text/css" media="all">
+<script type="text/javascript" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/jquery_002.js"></script>
+<script type="text/javascript" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/jquery-migrate.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var related_posts_js_options = {"post_heading":"h4"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/related-posts.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var CrayonSyntaxSettings = {"version":"_2.7.2_beta","is_admin":"0","ajaxurl":"https:\/\/bioinfo-fr.net\/wp-admin\/admin-ajax.php","prefix":"crayon-","setting":"crayon-setting","selected":"crayon-setting-selected","changed":"crayon-setting-changed","special":"crayon-setting-special","orig_value":"data-orig-value","debug":""};
+var CrayonSyntaxStrings = {"copy":"Faites %s pour copier, %s pour coller","minimize":"Click To Expand Code"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/crayon.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var monsterinsights_frontend = {"js_events_tracking":"true","is_debug_mode":"false","download_extensions":"doc,exe,js,pdf,ppt,tgz,zip,xls","inbound_paths":"","home_url":"https:\/\/bioinfo-fr.net","track_download_as":"event","internal_label":"int","hash_tracking":"false"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/frontend.js"></script>
+<script type="text/javascript" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/core.js"></script>
+<script type="text/javascript" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/cwp-poll.js"></script>
+<script type="text/javascript" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/jquery_004.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var cnArgs = {"ajaxurl":"https:\/\/bioinfo-fr.net\/wp-admin\/admin-ajax.php","hideEffect":"fade","onScroll":"no","onScrollOffset":"100","cookieName":"cookie_notice_accepted","cookieValue":"TRUE","cookieTime":"31536000","cookiePath":"\/","cookieDomain":"","redirection":"","cache":"1"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/front.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var cssTarget = "img.style-svg";
+var ForceInlineSVGActive = "false";
+/* ]]> */
+</script>
+<script type="text/javascript" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/svgs-inline-min.js"></script>
+<script type="text/javascript" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/bioinfofr-script.js"></script>
+<script type="text/javascript" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/jquery_003.js"></script>
+<script type="text/javascript" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/jquery-ui-1.js"></script>
+<link rel="https://api.w.org/" href="https://bioinfo-fr.net/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://bioinfo-fr.net/xmlrpc.php?rsd">
+<meta name="generator" content="WordPress 4.8.3">
+<link rel="shortlink" href="https://wp.me/p8zKPn-4aB">
+<link rel="alternate" type="application/json+oembed" href="https://bioinfo-fr.net/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fbioinfo-fr.net%2Flatex-les-maths">
+<link rel="alternate" type="text/xml+oembed" href="https://bioinfo-fr.net/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fbioinfo-fr.net%2Flatex-les-maths&amp;format=xml">
+<script type="text/javascript">
+ var CwppPlgSettings = {
+   ajaxurl : 'https://bioinfo-fr.net/wp-admin/admin-ajax.php',
+   nonce : '323f1c4431'
+ };
+</script>
+
+<link rel="dns-prefetch" href="https://v0.wordpress.com/">
+<link rel="dns-prefetch" href="https://i0.wp.com/">
+<link rel="dns-prefetch" href="https://i1.wp.com/">
+<link rel="dns-prefetch" href="https://i2.wp.com/">
+<link rel="dns-prefetch" href="https://jetpack.wordpress.com/">
+<link rel="dns-prefetch" href="https://s0.wp.com/">
+<link rel="dns-prefetch" href="https://s1.wp.com/">
+<link rel="dns-prefetch" href="https://s2.wp.com/">
+<link rel="dns-prefetch" href="https://public-api.wordpress.com/">
+<link rel="dns-prefetch" href="https://0.gravatar.com/">
+<link rel="dns-prefetch" href="https://1.gravatar.com/">
+<link rel="dns-prefetch" href="https://2.gravatar.com/">
+<link rel="dns-prefetch" href="https://widgets.wp.com/">
+<style type="text/css">img#wpstats{display:none}</style><!--[if IE]>
+	<link href="https://bioinfo-fr.net/wp-content/themes/bioinfoFr_v2.2/styles/ie.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+        <script>
+
+jQuery(document).ready(function(){
+    // grab the initial top offset of the navigation
+    var sticky_navigation_offset_top = jQuery('#menu').offset().top;
+
+    // our function that decides weather the navigation bar should have "fixed" css position or not.
+    var sticky_navigation = function(){
+        var scroll_top = jQuery(window).scrollTop(); // our current vertical position from the top
+
+        // if we've scrolled more than the navigation, change its position to fixed to stick to top,
+        // otherwise change it back to relative
+        if (scroll_top > sticky_navigation_offset_top) {
+            jQuery('#menu-fixed').css({ 'position': 'fixed', 'top': 0, 'z-index':1100});
+        } else {
+            jQuery('#menu-fixed').css({ 'position': 'relative', 'top': 0, 'z-index':0});
+        }
+    };
+
+    // run our function on load
+    sticky_navigation();
+
+    // and run it again every time you scroll
+    jQuery(window).scroll(function() {
+         sticky_navigation();
+    });
+});
+        </script>
+        		<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+		
+<style>#header-logo, #keyboard, #menu-top, #menu, #wrapper, .stickyPost, .button{visibility: hidden;}</style>
+
+
+
+<style type="text/css"></style><link rel="stylesheet" type="text/css" id="gravatar-card-css" href="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/hovercard.css"><link rel="stylesheet" type="text/css" id="gravatar-card-services-css" href="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/services.css"></head>
+
+<body class="post-template-default single single-post postid-16033 single-format-standard cookies-not-accepted">
+
+<script>
+
+
+
+jQuery( document ).ready(function() {
+
+
+jQuery("header").ready( function(){
+     jQuery("#header-logo, #menu-top, #menu, #wrapper, #keyboard, .stickyPost, .button").css('visibility', 'visible');
+});
+});
+
+</script>
+
+
+	<div id="header">
+
+
+<div id="menu-top" style="visibility: visible;">
+
+<div class="wrapper">
+
+
+
+	<div class="social">
+			<a href="https://plus.google.com/u/1/118096129906548322857/posts" alt=""><img src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/gplus-64.png" scale="0"></a>
+			<a href="https://twitter.com/BioinfoFr" alt=""><img src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/twitter-bird-white-on-blue.png" scale="0"></a>
+			<a href="https://webchat.freenode.net/?channels=bioinfo-fr" alt=""><img src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/irc.png" scale="0"></a>
+			<a href="https://bioinfo-fr.net/feed" alt=""><img src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/rss.png" scale="0"></a>
+		</div>
+
+		<div class="topMenuContent">
+			<div id="secondarynav" class="menu-topmenu-container"><ul id="menu-topmenu" class="menu"><li id="menu-item-7243" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7243"><a href="https://bioinfo-fr.net/crew">L'équipe</a></li>
+<li id="menu-item-7216" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7216"><a href="https://bioinfo-fr.net/a-propos">À Propos</a></li>
+<li id="menu-item-7242" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7242"><a href="https://bioinfo-fr.net/contact">Contact</a></li>
+</ul></div>		</div>
+
+</div>
+</div>
+
+
+<div class="wrapper">
+
+<div id="header-logo" style="visibility: visible;">
+<a href="https://bioinfo-fr.net/">
+
+<img class="logo" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/logo_bioinfofr_1.png" scale="0">
+</a>
+</div>
+
+
+
+</div>
+
+	
+<div id="keyboard" style="visibility: visible;">
+<img class="logo" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/bubbles.png" scale="0">
+</div>
+
+
+
+<div class="searchBar">
+<form action="https://bioinfo-fr.net" method="get" accept-charset="utf-8">
+<div><input name="s" acceskey="s" type="text"> <input value="Recherche" type="submit"></div>
+</form>
+</div>	
+
+		<div class="clear"></div>	
+		
+	</div><!--/#header-->
+
+
+
+<div id="menu" style="visibility: visible;">
+	<div id="menu-fixed" style="position: fixed; top: 0px; z-index: 1100;">
+		<div class="wrapper">
+			<div id="primarynav" class="menu-bioinfo-fr-container"><ul id="menu-bioinfo-fr" class="menu"><li id="menu-item-841" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-841"><a href="https://bioinfo-fr.net/">Accueil</a></li>
+<li id="menu-item-1395" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1395"><a href="https://bioinfo-fr.net/categorie/astuces">Astuces</a></li>
+<li id="menu-item-10074" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-10074"><a href="https://bioinfo-fr.net/categorie/breve">Brèves</a></li>
+<li id="menu-item-7212" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-7212"><a href="https://bioinfo-fr.net/categorie/conferences">Conférences</a></li>
+<li id="menu-item-7213" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-7213"><a href="https://bioinfo-fr.net/categorie/decouverte">Découverte</a></li>
+<li id="menu-item-9032" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-9032"><a href="https://bioinfo-fr.net/categorie/didacticiel">Didacticiel</a></li>
+<li id="menu-item-7275" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-7275"><a href="https://bioinfo-fr.net/categorie/entretiens">Entretiens</a></li>
+<li id="menu-item-1085" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1085"><a href="https://bioinfo-fr.net/categorie/formation-2">Formations</a></li>
+<li id="menu-item-7214" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-7214"><a href="https://bioinfo-fr.net/categorie/jai-lu">J'ai lu</a></li>
+<li id="menu-item-7215" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-7215"><a href="https://bioinfo-fr.net/categorie/opinion">Opinions</a></li>
+<li id="menu-item-7237" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-7237"><a href="https://bioinfo-fr.net/categorie/suivez-l-guide">Suivez l'guide</a></li>
+</ul><select><option selected="selected" value="">Menu</option><option value="https://bioinfo-fr.net/">Accueil</option><option value="https://bioinfo-fr.net/categorie/astuces">Astuces</option><option value="https://bioinfo-fr.net/categorie/breve">Brèves</option><option value="https://bioinfo-fr.net/categorie/conferences">Conférences</option><option value="https://bioinfo-fr.net/categorie/decouverte">Découverte</option><option value="https://bioinfo-fr.net/categorie/didacticiel">Didacticiel</option><option value="https://bioinfo-fr.net/categorie/entretiens">Entretiens</option><option value="https://bioinfo-fr.net/categorie/formation-2">Formations</option><option value="https://bioinfo-fr.net/categorie/jai-lu">J'ai lu</option><option value="https://bioinfo-fr.net/categorie/opinion">Opinions</option><option value="https://bioinfo-fr.net/categorie/suivez-l-guide">Suivez l'guide</option></select></div>		</div>
+	</div>
+</div>
+
+
+
+	<div id="container">
+
+
+
+
+
+		
+	<div id="wrapper" style="visibility: visible;">
+
+		<div id="main">
+			
+			<div id="content">
+			
+			
+			
+				
+<div id="post-16033" class="post-16033 post type-post status-publish format-standard hentry category-didacticiel tag-latex tag-maths">
+
+
+<div class="post-head post-didacticiel">	
+		<h2 class="post-title">
+
+
+<span class="categoryTitle didacticiel"> <a href="https://bioinfo-fr.net/categorie/didacticiel">Didacticiel :</a></span><br>
+
+<a href="https://bioinfo-fr.net/latex-les-maths" title="Permalink to LaTeX&nbsp;: les maths&nbsp;!" rel="bookmark">LaTeX&nbsp;: les maths&nbsp;!</a></h2>
+
+		<div class="meta"> 
+		
+		<span class="sep"></span><a href="https://bioinfo-fr.net/latex-les-maths" title="9:00  " rel="bookmark"><time class="entry-date" datetime="2017-11-02T09:00:11+00:00" pubdate="">jeu 2 Nov 2017</time></a>  <span class="by-author"> <span class="sep"> </span> <span class="author vcard"><a class="url fn n" href="https://bioinfo-fr.net/author/chopopope" title="Voir tous les articles de Pauline Pommeret" rel="author">Pauline Pommeret</a></span></span><span class="entry-category"><a href="https://bioinfo-fr.net/categorie/didacticiel" rel="category tag">Didacticiel</a> </span>
+		
+		<span class="entry-comment"><a href="https://bioinfo-fr.net/latex-les-maths#respond"><span class="leave-reply">0</span></a></span>
+			
+		</div>
+	</div>
+	
+	
+	<div class="entry">
+
+		<p>Après avoir appris à <a href="https://bioinfo-fr.net/latex-le-premier-document">compiler</a>, à <a href="https://bioinfo-fr.net/latex-les-flottants">insérer des flottants</a>&nbsp;et à <a href="https://bioinfo-fr.net/latex-la-mise-en-forme-du-texte-et-des-paragraphes">mettre en forme les paragraphes</a>,
+ on va s'attaquer à un truc plutôt coolish qui fait la force de LaTeX : 
+la mise en forme de maths ! Comme c'est long et vaste, on va faire ça en
+ plusieurs fois 😉 !</p>
+<p>Tables des matières&nbsp;:<br>
+<a href="#preambule">1. Ce qu'il faut ajouter au préambule</a><br>
+<a href="#types">2. Types de formules (de base)</a><br>
+<a href="#fonctions">3. Fonctions</a><br>
+<a href="#predef">3.1. Aperçu des fonctions prédéfinies</a><br>
+<a href="#proprefonction">3.2. Déclarer sa propre fonction</a><br>
+<a href="#exposants">4. Exposants, indices</a><br>
+<a href="#fractionsracines">5. Fractions, racines</a><br>
+<a href="#fractions">5.1. Fractions</a><br>
+<a href="#racines">5.2. Racines</a><br>
+<a href="#textepoliceespacement">6. Texte, police et espacement</a><br>
+<a href="#accents">7. Les accents et chapeaux</a><br>
+<a href="#symboles">8. Insérer des symboles</a><br>
+<a href="#grecques">8.1. Lettres grecques</a><br>
+<a href="#relations">8.2. Relations entre grandeurs</a><br>
+<a href="#operateurs">8.3. Opérateurs</a><br>
+<a href="#autres">8.4. Autres symboles courant en mathématiques</a><br>
+<a href="#fleches">8.5. Flèches</a><br>
+<a href="#detexify">9. Detexify, ce sauveur !</a></p>
+<h1><span id="preambule">1. Ce qu'il faut ajouter au préambule…</span></h1>
+<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-59fad1b0e50cb185063684" class="crayon-syntax crayon-theme-classic crayon-font-monospace crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly="readonly" style="-moz-tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0; overflow: hidden;" wrap="soft">%----------------------------------------------------------------------------------------
+%   MATHS (PAQUETS)
+%----------------------------------------------------------------------------------------
+%-% AMS = American Mathematical Society
+%-% Deal with it.
+
+%-% L'option "fleqn" positionne les équations à une distance fixe de la marge
+%-% de gauche (et pas centré dans la zone de texte)
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+%-% Donne les commandes \theoremstyle{} et \proof{}
+\usepackage{amsthm}
+
+%-% St Mary's Road plug-in pour asmsymb, rajoute des choses.
+\usepackage{stmaryrd}
+
+%-% Basé sur amsmaths, permet de rendre joli les documents contenant beaucoup de maths
+%-% par exemple, pour que les matrices voient leurs éléments centrés par défaut
+\usepackage{mathtools}</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="margin-left: -25px;">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-59fad1b0e50cb185063684-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-59fad1b0e50cb185063684-2">2</div><div class="crayon-num" data-line="crayon-59fad1b0e50cb185063684-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-59fad1b0e50cb185063684-4">4</div><div class="crayon-num" data-line="crayon-59fad1b0e50cb185063684-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-59fad1b0e50cb185063684-6">6</div><div class="crayon-num" data-line="crayon-59fad1b0e50cb185063684-7">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-59fad1b0e50cb185063684-8">8</div><div class="crayon-num" data-line="crayon-59fad1b0e50cb185063684-9">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-59fad1b0e50cb185063684-10">10</div><div class="crayon-num" data-line="crayon-59fad1b0e50cb185063684-11">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-59fad1b0e50cb185063684-12">12</div><div class="crayon-num" data-line="crayon-59fad1b0e50cb185063684-13">13</div><div class="crayon-num crayon-striped-num" data-line="crayon-59fad1b0e50cb185063684-14">14</div><div class="crayon-num" data-line="crayon-59fad1b0e50cb185063684-15">15</div><div class="crayon-num crayon-striped-num" data-line="crayon-59fad1b0e50cb185063684-16">16</div><div class="crayon-num" data-line="crayon-59fad1b0e50cb185063684-17">17</div><div class="crayon-num crayon-striped-num" data-line="crayon-59fad1b0e50cb185063684-18">18</div><div class="crayon-num" data-line="crayon-59fad1b0e50cb185063684-19">19</div><div class="crayon-num crayon-striped-num" data-line="crayon-59fad1b0e50cb185063684-20">20</div><div class="crayon-num" data-line="crayon-59fad1b0e50cb185063684-21">21</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-59fad1b0e50cb185063684-1"><span class="crayon-ta">%</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span></div><div class="crayon-line crayon-striped-line" id="crayon-59fad1b0e50cb185063684-2"><span class="crayon-ta">%</span><span class="crayon-h">&nbsp;&nbsp; </span><span class="crayon-e">MATHS</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-v">PAQUETS</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-59fad1b0e50cb185063684-3"><span class="crayon-ta">%</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span><span class="crayon-o">--</span></div><div class="crayon-line crayon-striped-line" id="crayon-59fad1b0e50cb185063684-4"><span class="crayon-ta">%</span><span class="crayon-o">-</span><span class="crayon-o">%</span><span class="crayon-h"> </span><span class="crayon-v">AMS</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-i">American</span><span class="crayon-h"> </span><span class="crayon-i">Mathematical</span><span class="crayon-h"> </span><span class="crayon-i">Society</span></div><div class="crayon-line" id="crayon-59fad1b0e50cb185063684-5"><span class="crayon-ta">%</span><span class="crayon-o">-</span><span class="crayon-o">%</span><span class="crayon-h"> </span><span class="crayon-i">Deal</span><span class="crayon-h"> </span><span class="crayon-i">with</span><span class="crayon-h"> </span><span class="crayon-v">it</span><span class="crayon-sy">.</span></div><div class="crayon-line crayon-striped-line" id="crayon-59fad1b0e50cb185063684-6">&nbsp;</div><div class="crayon-line" id="crayon-59fad1b0e50cb185063684-7"><span class="crayon-ta">%</span><span class="crayon-o">-</span><span class="crayon-o">%</span><span class="crayon-h"> </span><span class="crayon-i">L</span>'<span class="crayon-i">option</span><span class="crayon-h"> </span><span class="crayon-s">"fleqn"</span><span class="crayon-h"> </span><span class="crayon-i">positionne</span><span class="crayon-h"> </span><span class="crayon-i">les</span><span class="crayon-h"> </span>é<span class="crayon-i">quations</span><span class="crayon-h"> </span>à<span class="crayon-h"> </span><span class="crayon-i">une</span><span class="crayon-h"> </span><span class="crayon-i">distance</span><span class="crayon-h"> </span><span class="crayon-i">fixe</span><span class="crayon-h"> </span><span class="crayon-i">de</span><span class="crayon-h"> </span><span class="crayon-i">la</span><span class="crayon-h"> </span><span class="crayon-i">marge</span></div><div class="crayon-line crayon-striped-line" id="crayon-59fad1b0e50cb185063684-8"><span class="crayon-ta">%</span><span class="crayon-o">-</span><span class="crayon-o">%</span><span class="crayon-h"> </span><span class="crayon-i">de</span><span class="crayon-h"> </span><span class="crayon-e">gauche</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-i">et</span><span class="crayon-h"> </span><span class="crayon-i">pas</span><span class="crayon-h"> </span><span class="crayon-i">centr</span>é<span class="crayon-h"> </span><span class="crayon-i">dans</span><span class="crayon-h"> </span><span class="crayon-i">la</span><span class="crayon-h"> </span><span class="crayon-i">zone</span><span class="crayon-h"> </span><span class="crayon-i">de</span><span class="crayon-h"> </span><span class="crayon-v">texte</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-59fad1b0e50cb185063684-9"><span class="crayon-st">\usepackage</span><span class="crayon-sy">{</span>amsmath<span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-59fad1b0e50cb185063684-10"><span class="crayon-st">\usepackage</span><span class="crayon-sy">{</span>amsfonts<span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-59fad1b0e50cb185063684-11"><span class="crayon-st">\usepackage</span><span class="crayon-sy">{</span>amssymb<span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-59fad1b0e50cb185063684-12">&nbsp;</div><div class="crayon-line" id="crayon-59fad1b0e50cb185063684-13"><span class="crayon-ta">%</span><span class="crayon-o">-</span><span class="crayon-o">%</span><span class="crayon-h"> </span><span class="crayon-i">Donne</span><span class="crayon-h"> </span><span class="crayon-i">les</span><span class="crayon-h"> </span><span class="crayon-i">commandes</span><span class="crayon-h"> </span><span class="crayon-sy">\</span><span class="crayon-e">theoremstyle</span><span class="crayon-k ">{</span><span class="crayon-k ">}</span><span class="crayon-h"> </span><span class="crayon-i">et</span><span class="crayon-h"> </span><span class="crayon-sy">\</span><span class="crayon-e">proof</span><span class="crayon-k ">{</span><span class="crayon-k ">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-59fad1b0e50cb185063684-14"><span class="crayon-st">\usepackage</span><span class="crayon-sy">{</span>amsthm<span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-59fad1b0e50cb185063684-15">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-59fad1b0e50cb185063684-16"><span class="crayon-ta">%</span><span class="crayon-o">-</span><span class="crayon-o">%</span><span class="crayon-h"> </span><span class="crayon-i">St</span><span class="crayon-h"> </span><span class="crayon-i">Mary</span>'<span class="crayon-i">s</span><span class="crayon-h"> </span><span class="crayon-i">Road</span><span class="crayon-h"> </span><span class="crayon-v">plug</span><span class="crayon-o">-</span><span class="crayon-st">in</span><span class="crayon-h"> </span><span class="crayon-i">pour</span><span class="crayon-h"> </span><span class="crayon-v">asmsymb</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-i">rajoute</span><span class="crayon-h"> </span><span class="crayon-i">des</span><span class="crayon-h"> </span><span class="crayon-v">choses</span><span class="crayon-sy">.</span></div><div class="crayon-line" id="crayon-59fad1b0e50cb185063684-17"><span class="crayon-st">\usepackage</span><span class="crayon-sy">{</span>stmaryrd<span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-59fad1b0e50cb185063684-18">&nbsp;</div><div class="crayon-line" id="crayon-59fad1b0e50cb185063684-19"><span class="crayon-ta">%</span><span class="crayon-o">-</span><span class="crayon-o">%</span><span class="crayon-h"> </span><span class="crayon-i">Bas</span>é<span class="crayon-h"> </span><span class="crayon-i">sur</span><span class="crayon-h"> </span><span class="crayon-v">amsmaths</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-i">permet</span><span class="crayon-h"> </span><span class="crayon-i">de</span><span class="crayon-h"> </span><span class="crayon-i">rendre</span><span class="crayon-h"> </span><span class="crayon-i">joli</span><span class="crayon-h"> </span><span class="crayon-i">les</span><span class="crayon-h"> </span><span class="crayon-i">documents</span><span class="crayon-h"> </span><span class="crayon-i">contenant</span><span class="crayon-h"> </span><span class="crayon-i">beaucoup</span><span class="crayon-h"> </span><span class="crayon-i">de</span><span class="crayon-h"> </span><span class="crayon-i">maths</span></div><div class="crayon-line crayon-striped-line" id="crayon-59fad1b0e50cb185063684-20"><span class="crayon-ta">%</span><span class="crayon-o">-</span><span class="crayon-o">%</span><span class="crayon-h"> </span><span class="crayon-i">par</span><span class="crayon-h"> </span><span class="crayon-v">exemple</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-i">pour</span><span class="crayon-h"> </span><span class="crayon-i">que</span><span class="crayon-h"> </span><span class="crayon-i">les</span><span class="crayon-h"> </span><span class="crayon-i">matrices</span><span class="crayon-h"> </span><span class="crayon-i">voient</span><span class="crayon-h"> </span><span class="crayon-i">leurs</span><span class="crayon-h"> </span>é<span class="crayon-i">l</span>é<span class="crayon-i">ments</span><span class="crayon-h"> </span><span class="crayon-i">centr</span>é<span class="crayon-i">s</span><span class="crayon-h"> </span><span class="crayon-i">par</span><span class="crayon-h"> </span><span class="crayon-i">d</span>é<span class="crayon-i">faut</span></div><div class="crayon-line" id="crayon-59fad1b0e50cb185063684-21"><span class="crayon-st">\usepackage</span><span class="crayon-sy">{</span>mathtools<span class="crayon-sy">}</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0098 seconds] -->
+<p></p>
+<p>C'est bon ? Alors c'est parti !</p>
+<h1><span id="types">2. Types de formules (de base)</span></h1>
+<p>Il existe trois types de formules de base :</p>
+<ol>
+<li>Les formules en ligne qui commencent et finissent par un 
+			<span id="crayon-59fad1b0e50d8535499776" class="crayon-syntax crayon-syntax-inline  crayon-theme-classic crayon-theme-classic-inline crayon-font-monospace" style="font-size: 12px !important; line-height: 15px !important;font-size: 12px !important;"><span class="crayon-pre crayon-code" style="font-size: 12px !important; line-height: 15px !important;font-size: 12px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><span class="crayon-sy">$</span></span></span>&nbsp; (ou sont comprises dans l'environnement 
+			<span id="crayon-59fad1b0e50dd145705316" class="crayon-syntax crayon-syntax-inline  crayon-theme-classic crayon-theme-classic-inline crayon-font-monospace" style="font-size: 12px !important; line-height: 15px !important;font-size: 12px !important;"><span class="crayon-pre crayon-code" style="font-size: 12px !important; line-height: 15px !important;font-size: 12px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;">math</span></span>&nbsp;).</li>
+<li>Les formules centrées qui commencent par 
+			<span id="crayon-59fad1b0e50e2253377651" class="crayon-syntax crayon-syntax-inline  crayon-theme-classic crayon-theme-classic-inline crayon-font-monospace" style="font-size: 12px !important; line-height: 15px !important;font-size: 12px !important;"><span class="crayon-pre crayon-code" style="font-size: 12px !important; line-height: 15px !important;font-size: 12px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><span class="crayon-sy">\</span>[</span></span>&nbsp;et se terminent par 
+			<span id="crayon-59fad1b0e50e7437827051" class="crayon-syntax crayon-syntax-inline  crayon-theme-classic crayon-theme-classic-inline crayon-font-monospace" style="font-size: 12px !important; line-height: 15px !important;font-size: 12px !important;"><span class="crayon-pre crayon-code" style="font-size: 12px !important; line-height: 15px !important;font-size: 12px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><span class="crayon-sy">\</span>]</span></span>&nbsp; (ou sont comprises dans l'environnement 
+			<span id="crayon-59fad1b0e50f5987972295" class="crayon-syntax crayon-syntax-inline  crayon-theme-classic crayon-theme-classic-inline crayon-font-monospace" style="font-size: 12px !important; line-height: 15px !important;font-size: 12px !important;"><span class="crayon-pre crayon-code" style="font-size: 12px !important; line-height: 15px !important;font-size: 12px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;">displaymath</span></span>&nbsp;).</li>
+<li>Les formules centrées numérotées qui sont dans l'environnement 
+			<span id="crayon-59fad1b0e50fa843272834" class="crayon-syntax crayon-syntax-inline  crayon-theme-classic crayon-theme-classic-inline crayon-font-monospace" style="font-size: 12px !important; line-height: 15px !important;font-size: 12px !important;"><span class="crayon-pre crayon-code" style="font-size: 12px !important; line-height: 15px !important;font-size: 12px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;">equation</span></span>.</li>
+</ol>
+<p>Démo :</p>
+<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-59fad1b0e50ff180653543" class="crayon-syntax crayon-theme-classic crayon-font-monospace crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly="readonly" style="-moz-tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0; overflow: hidden;" wrap="soft">\documentclass[paper=a4,
+               fontsize=11pt,
+               titlepage,
+              ]{article}
+
+\input{preambule}
+
+
+\begin{document}
+
+Dans ce petit paragraphe nous allons insérer une équation comme $y = f(x)$ par
+exemple. Juste pour montrer que c'est possible de le faire. Puis nous allons
+mettre une équation centrée :
+\[y = f(x) \]
+
+Et enfin, nous allons mettre une équation numérotée :
+\begin{equation}
+    y = f(x)
+\end{equation}
+
+\end{document}</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="margin-left: -25px;">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-59fad1b0e50ff180653543-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-59fad1b0e50ff180653543-2">2</div><div class="crayon-num" data-line="crayon-59fad1b0e50ff180653543-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-59fad1b0e50ff180653543-4">4</div><div class="crayon-num" data-line="crayon-59fad1b0e50ff180653543-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-59fad1b0e50ff180653543-6">6</div><div class="crayon-num" data-line="crayon-59fad1b0e50ff180653543-7">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-59fad1b0e50ff180653543-8">8</div><div class="crayon-num" data-line="crayon-59fad1b0e50ff180653543-9">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-59fad1b0e50ff180653543-10">10</div><div class="crayon-num" data-line="crayon-59fad1b0e50ff180653543-11">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-59fad1b0e50ff180653543-12">12</div><div class="crayon-num" data-line="crayon-59fad1b0e50ff180653543-13">13</div><div class="crayon-num crayon-striped-num" data-line="crayon-59fad1b0e50ff180653543-14">14</div><div class="crayon-num" data-line="crayon-59fad1b0e50ff180653543-15">15</div><div class="crayon-num crayon-striped-num" data-line="crayon-59fad1b0e50ff180653543-16">16</div><div class="crayon-num" data-line="crayon-59fad1b0e50ff180653543-17">17</div><div class="crayon-num crayon-striped-num" data-line="crayon-59fad1b0e50ff180653543-18">18</div><div class="crayon-num" data-line="crayon-59fad1b0e50ff180653543-19">19</div><div class="crayon-num crayon-striped-num" data-line="crayon-59fad1b0e50ff180653543-20">20</div><div class="crayon-num" data-line="crayon-59fad1b0e50ff180653543-21">21</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-59fad1b0e50ff180653543-1"><span class="crayon-st">\documentclass</span><span class="crayon-sy">[</span>paper=a4<span class="crayon-sy">,</span></div><div class="crayon-line crayon-striped-line" id="crayon-59fad1b0e50ff180653543-2"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>fontsize=11pt<span class="crayon-sy">,</span></div><div class="crayon-line" id="crayon-59fad1b0e50ff180653543-3"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>titlepage<span class="crayon-sy">,</span></div><div class="crayon-line crayon-striped-line" id="crayon-59fad1b0e50ff180653543-4"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">]</span><span class="crayon-sy">{</span>article<span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-59fad1b0e50ff180653543-5">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-59fad1b0e50ff180653543-6"><span class="crayon-st">\input</span><span class="crayon-sy">{</span>preambule<span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-59fad1b0e50ff180653543-7">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-59fad1b0e50ff180653543-8">&nbsp;</div><div class="crayon-line" id="crayon-59fad1b0e50ff180653543-9"><span class="crayon-st">\begin</span><span class="crayon-sy">{</span>document<span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-59fad1b0e50ff180653543-10">&nbsp;</div><div class="crayon-line" id="crayon-59fad1b0e50ff180653543-11">Dans<span class="crayon-h"> </span>ce<span class="crayon-h"> </span>petit<span class="crayon-h"> </span>paragraphe<span class="crayon-h"> </span>nous<span class="crayon-h"> </span>allons<span class="crayon-h"> </span>insérer<span class="crayon-h"> </span>une<span class="crayon-h"> </span>équation<span class="crayon-h"> </span>comme<span class="crayon-h"> </span><span class="crayon-s ">$y = f(x)$</span><span class="crayon-h"> </span>par</div><div class="crayon-line crayon-striped-line" id="crayon-59fad1b0e50ff180653543-12">exemple<span class="crayon-sy">.</span><span class="crayon-h"> </span>Juste<span class="crayon-h"> </span>pour<span class="crayon-h"> </span>montrer<span class="crayon-h"> </span>que<span class="crayon-h"> </span>c'est<span class="crayon-h"> </span>possible<span class="crayon-h"> </span>de<span class="crayon-h"> </span>le<span class="crayon-h"> </span>faire<span class="crayon-sy">.</span><span class="crayon-h"> </span>Puis<span class="crayon-h"> </span>nous<span class="crayon-h"> </span>allons</div><div class="crayon-line" id="crayon-59fad1b0e50ff180653543-13">mettre<span class="crayon-h"> </span>une<span class="crayon-h"> </span>équation<span class="crayon-h"> </span>centrée<span class="crayon-h"> </span><span class="crayon-sy">:</span></div><div class="crayon-line crayon-striped-line" id="crayon-59fad1b0e50ff180653543-14"><span class="crayon-s ">\[y = f(x) \]</span></div><div class="crayon-line" id="crayon-59fad1b0e50ff180653543-15">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-59fad1b0e50ff180653543-16">Et<span class="crayon-h"> </span>enfin<span class="crayon-sy">,</span><span class="crayon-h"> </span>nous<span class="crayon-h"> </span>allons<span class="crayon-h"> </span>mettre<span class="crayon-h"> </span>une<span class="crayon-h"> </span>équation<span class="crayon-h"> </span>numérotée<span class="crayon-h"> </span><span class="crayon-sy">:</span></div><div class="crayon-line" id="crayon-59fad1b0e50ff180653543-17"><span class="crayon-st">\begin</span><span class="crayon-sy">{</span>equation<span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-59fad1b0e50ff180653543-18"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span>y<span class="crayon-h"> </span>=<span class="crayon-h"> </span>f<span class="crayon-sy">(</span>x<span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-59fad1b0e50ff180653543-19"><span class="crayon-st">\end</span><span class="crayon-sy">{</span>equation<span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-59fad1b0e50ff180653543-20">&nbsp;</div><div class="crayon-line" id="crayon-59fad1b0e50ff180653543-21"><span class="crayon-st">\end</span><span class="crayon-sy">{</span>document<span class="crayon-sy">}</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0018 seconds] -->
+<p></p>
+<p>Ce qui donne :</p>
+<p><a href="https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/equations_triviales.png?ssl=1"><img data-attachment-id="16037" data-permalink="https://bioinfo-fr.net/latex-les-maths/equations_triviales" data-orig-file="https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/equations_triviales.png?fit=1184%2C338&amp;ssl=1" data-orig-size="1184,338" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="equations_triviales" data-image-description="" data-medium-file="https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/equations_triviales.png?fit=300%2C86&amp;ssl=1" data-large-file="https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/equations_triviales.png?fit=1024%2C292&amp;ssl=1" class="aligncenter wp-image-16037 size-full" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/equations_triviales.png" alt="" srcset="https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/equations_triviales.png?w=1184&amp;ssl=1 1184w, https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/equations_triviales.png?resize=300%2C86&amp;ssl=1 300w, https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/equations_triviales.png?resize=768%2C219&amp;ssl=1 768w, https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/equations_triviales.png?resize=1024%2C292&amp;ssl=1 1024w" sizes="(max-width: 1000px) 100vw, 1000px" width="706" height="201"></a></p>
+<h1><span id="fonctions">3. Fonctions</span></h1>
+<h2><span id="predef"> 3.1. Aperçu des fonctions prédéfinies</span></h2>
+<p>Alors tout un tas de fonctions est prédéfinis dans LaTeX, pas besoin 
+de les définir manuellement (on verra bientôt comment définir ses 
+propres fonctions :o) . Ces fonctions n'apparaîtront pas en italique 
+mais en <a href="https://fr.wikipedia.org/wiki/Romain_(typographie)">police romaine</a> :</p>
+<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-59fad1b0e5105400825023" class="crayon-syntax crayon-theme-classic crayon-font-monospace crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly="readonly" style="-moz-tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0; overflow: hidden;" wrap="soft">\sin
+\cos
+\tan
+\cot
+\arcsin
+\arccos
+\arctan
+\coth
+\sinh
+\cosh
+\tanh
+\ln
+\log
+\exp
+\max
+\min
+\sup
+\inf
+\lim
+\ker
+\deg
+\mod
+\pmod</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="margin-left: -25px;">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-59fad1b0e5105400825023-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-59fad1b0e5105400825023-2">2</div><div class="crayon-num" data-line="crayon-59fad1b0e5105400825023-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-59fad1b0e5105400825023-4">4</div><div class="crayon-num" data-line="crayon-59fad1b0e5105400825023-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-59fad1b0e5105400825023-6">6</div><div class="crayon-num" data-line="crayon-59fad1b0e5105400825023-7">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-59fad1b0e5105400825023-8">8</div><div class="crayon-num" data-line="crayon-59fad1b0e5105400825023-9">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-59fad1b0e5105400825023-10">10</div><div class="crayon-num" data-line="crayon-59fad1b0e5105400825023-11">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-59fad1b0e5105400825023-12">12</div><div class="crayon-num" data-line="crayon-59fad1b0e5105400825023-13">13</div><div class="crayon-num crayon-striped-num" data-line="crayon-59fad1b0e5105400825023-14">14</div><div class="crayon-num" data-line="crayon-59fad1b0e5105400825023-15">15</div><div class="crayon-num crayon-striped-num" data-line="crayon-59fad1b0e5105400825023-16">16</div><div class="crayon-num" data-line="crayon-59fad1b0e5105400825023-17">17</div><div class="crayon-num crayon-striped-num" data-line="crayon-59fad1b0e5105400825023-18">18</div><div class="crayon-num" data-line="crayon-59fad1b0e5105400825023-19">19</div><div class="crayon-num crayon-striped-num" data-line="crayon-59fad1b0e5105400825023-20">20</div><div class="crayon-num" data-line="crayon-59fad1b0e5105400825023-21">21</div><div class="crayon-num crayon-striped-num" data-line="crayon-59fad1b0e5105400825023-22">22</div><div class="crayon-num" data-line="crayon-59fad1b0e5105400825023-23">23</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-59fad1b0e5105400825023-1"><span class="crayon-st">\sin</span></div><div class="crayon-line crayon-striped-line" id="crayon-59fad1b0e5105400825023-2"><span class="crayon-st">\cos</span></div><div class="crayon-line" id="crayon-59fad1b0e5105400825023-3"><span class="crayon-st">\tan</span></div><div class="crayon-line crayon-striped-line" id="crayon-59fad1b0e5105400825023-4"><span class="crayon-st">\cot</span></div><div class="crayon-line" id="crayon-59fad1b0e5105400825023-5"><span class="crayon-st">\arcsin</span></div><div class="crayon-line crayon-striped-line" id="crayon-59fad1b0e5105400825023-6"><span class="crayon-st">\arccos</span></div><div class="crayon-line" id="crayon-59fad1b0e5105400825023-7"><span class="crayon-st">\arctan</span></div><div class="crayon-line crayon-striped-line" id="crayon-59fad1b0e5105400825023-8"><span class="crayon-st">\coth</span></div><div class="crayon-line" id="crayon-59fad1b0e5105400825023-9"><span class="crayon-st">\sinh</span></div><div class="crayon-line crayon-striped-line" id="crayon-59fad1b0e5105400825023-10"><span class="crayon-st">\cosh</span></div><div class="crayon-line" id="crayon-59fad1b0e5105400825023-11"><span class="crayon-st">\tanh</span></div><div class="crayon-line crayon-striped-line" id="crayon-59fad1b0e5105400825023-12"><span class="crayon-st">\ln</span></div><div class="crayon-line" id="crayon-59fad1b0e5105400825023-13"><span class="crayon-st">\log</span></div><div class="crayon-line crayon-striped-line" id="crayon-59fad1b0e5105400825023-14"><span class="crayon-st">\exp</span></div><div class="crayon-line" id="crayon-59fad1b0e5105400825023-15"><span class="crayon-st">\max</span></div><div class="crayon-line crayon-striped-line" id="crayon-59fad1b0e5105400825023-16"><span class="crayon-st">\min</span></div><div class="crayon-line" id="crayon-59fad1b0e5105400825023-17"><span class="crayon-st">\sup</span></div><div class="crayon-line crayon-striped-line" id="crayon-59fad1b0e5105400825023-18"><span class="crayon-st">\inf</span></div><div class="crayon-line" id="crayon-59fad1b0e5105400825023-19"><span class="crayon-st">\lim</span></div><div class="crayon-line crayon-striped-line" id="crayon-59fad1b0e5105400825023-20"><span class="crayon-st">\ker</span></div><div class="crayon-line" id="crayon-59fad1b0e5105400825023-21"><span class="crayon-st">\deg</span></div><div class="crayon-line crayon-striped-line" id="crayon-59fad1b0e5105400825023-22"><span class="crayon-st">\mod</span></div><div class="crayon-line" id="crayon-59fad1b0e5105400825023-23"><span class="crayon-st">\pmod</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0006 seconds] -->
+<p></p>
+<p>Je vous laisse le soin de vous familiariser avec ces fonctions ! Vous verrez, c'est pas sorcier 🙂 .</p>
+<h2><span id="proprefonction">3.2. Déclarer sa propre fonction</span></h2>
+<p>Parfois, on utilise des fonctions qui n'existent pas nativement dans 
+LaTeX (oui, scandaleux, je sais) et il faut les déclarer. Voici comment 
+on procède (dans son préambule) :</p>
+<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-59fad1b0e510a153818225" class="crayon-syntax crayon-theme-classic crayon-font-monospace crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly="readonly" style="-moz-tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0; overflow: hidden;" wrap="soft">\DeclareMathOperator{\cost}{Cost}
+\DeclareMathOperator*{\argmax}{arg\,max}</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="margin-left: -18px;">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-59fad1b0e510a153818225-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-59fad1b0e510a153818225-2">2</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-59fad1b0e510a153818225-1"><span class="crayon-st">\DeclareMathOperator</span><span class="crayon-sy">{</span><span class="crayon-st">\cost</span><span class="crayon-sy">}</span><span class="crayon-sy">{</span>Cost<span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-59fad1b0e510a153818225-2"><span class="crayon-st">\DeclareMathOperator</span>*<span class="crayon-sy">{</span><span class="crayon-st">\argmax</span><span class="crayon-sy">}</span><span class="crayon-sy">{</span>arg<span class="crayon-sy">\</span>,max<span class="crayon-sy">}</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0004 seconds] -->
+<p></p>
+<p>L'astérisque est là pour indiquer que l'on veut mettre les indices 
+vraiment en dessous de l'opérateur fraîchement défini, comme pour les 
+limites :</p>
+<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-59fad1b0e510e055285967" class="crayon-syntax crayon-theme-classic crayon-font-monospace crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly="readonly" style="-moz-tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0; overflow: hidden;" wrap="soft">\[ \lim_{x \to 0} 2x + 7 \]
+\[ \argmax_a x \]
+\[ \cost_b X \]</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="margin-left: -18px;">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-59fad1b0e510e055285967-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-59fad1b0e510e055285967-2">2</div><div class="crayon-num" data-line="crayon-59fad1b0e510e055285967-3">3</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-59fad1b0e510e055285967-1"><span class="crayon-s ">\[ \lim_{x \to 0} 2x + 7 \]</span></div><div class="crayon-line crayon-striped-line" id="crayon-59fad1b0e510e055285967-2"><span class="crayon-s ">\[ \argmax_a x \]</span></div><div class="crayon-line" id="crayon-59fad1b0e510e055285967-3"><span class="crayon-s ">\[ \cost_b X \]</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+<p></p>
+<p>Ce qui donne :<br>
+<a href="https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/limites.png?ssl=1"><img data-attachment-id="16047" data-permalink="https://bioinfo-fr.net/latex-les-maths/limites" data-orig-file="https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/limites.png?fit=179%2C195&amp;ssl=1" data-orig-size="179,195" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="limites" data-image-description="" data-medium-file="https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/limites.png?fit=179%2C195&amp;ssl=1" data-large-file="https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/limites.png?fit=179%2C195&amp;ssl=1" class="aligncenter size-full wp-image-16047" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/limites.png" alt="" scale="0" width="179" height="195"></a>À noter : vous avez appris à faire une flèche avec 
+			<span id="crayon-59fad1b0e5114041132385" class="crayon-syntax crayon-syntax-inline  crayon-theme-classic crayon-theme-classic-inline crayon-font-monospace" style="font-size: 12px !important; line-height: 15px !important;font-size: 12px !important;"><span class="crayon-pre crayon-code" style="font-size: 12px !important; line-height: 15px !important;font-size: 12px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><span class="crayon-st">\to</span></span></span>&nbsp; !</p>
+<h1><span id="exposants">4. Exposants, indices</span></h1>
+<p>Les exposants et les indices n'existent qu'en mode maths. Pour mettre un exposant on utilise le 
+			<span id="crayon-59fad1b0e5118181179099" class="crayon-syntax crayon-syntax-inline  crayon-theme-classic crayon-theme-classic-inline crayon-font-monospace" style="font-size: 12px !important; line-height: 15px !important;font-size: 12px !important;"><span class="crayon-pre crayon-code" style="font-size: 12px !important; line-height: 15px !important;font-size: 12px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;">^</span></span>&nbsp; et pour mettre en indice le 
+			<span id="crayon-59fad1b0e511d916000511" class="crayon-syntax crayon-syntax-inline  crayon-theme-classic crayon-theme-classic-inline crayon-font-monospace" style="font-size: 12px !important; line-height: 15px !important;font-size: 12px !important;"><span class="crayon-pre crayon-code" style="font-size: 12px !important; line-height: 15px !important;font-size: 12px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><span class="crayon-sy">_</span></span></span>&nbsp;de la manière suivante :</p>
+<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-59fad1b0e5121206693472" class="crayon-syntax crayon-theme-classic crayon-font-monospace crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly="readonly" style="-moz-tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0; overflow: hidden;" wrap="soft">\[ u_n^1 \]
+\[ 10^{-3} \]</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="margin-left: -18px;">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-59fad1b0e5121206693472-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-59fad1b0e5121206693472-2">2</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-59fad1b0e5121206693472-1"><span class="crayon-s ">\[ u_n^1 \]</span></div><div class="crayon-line crayon-striped-line" id="crayon-59fad1b0e5121206693472-2"><span class="crayon-s ">\[ 10^{-3} \]</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+<p></p>
+<p>Comme on peut le voir sur le résultat ci-dessous, il est possible de 
+combiner les deux, et pour mettre plus d'un caractère en 
+indice/exposant, il suffit d'ajouter des accolades :<a href="https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/indices.png?ssl=1"><img data-attachment-id="16050" data-permalink="https://bioinfo-fr.net/latex-les-maths/indices" data-orig-file="https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/indices.png?fit=104%2C103&amp;ssl=1" data-orig-size="104,103" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="indices" data-image-description="" data-medium-file="https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/indices.png?fit=104%2C103&amp;ssl=1" data-large-file="https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/indices.png?fit=104%2C103&amp;ssl=1" class="aligncenter size-full wp-image-16050" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/indices.png" alt="" srcset="https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/indices.png?w=104&amp;ssl=1 104w, https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/indices.png?resize=32%2C32&amp;ssl=1 32w, https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/indices.png?resize=50%2C50&amp;ssl=1 50w, https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/indices.png?resize=64%2C64&amp;ssl=1 64w, https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/indices.png?resize=96%2C96&amp;ssl=1 96w" sizes="(max-width: 104px) 100vw, 104px" width="104" height="103"></a></p>
+<p>Il est également possible de placer les objets les uns au-dessus des autres de la manière suivante :</p>
+<p><a href="https://i2.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/overset.png?ssl=1"><img data-attachment-id="16080" data-permalink="https://bioinfo-fr.net/latex-les-maths/overset" data-orig-file="https://i2.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/overset.png?fit=377%2C211&amp;ssl=1" data-orig-size="377,211" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="overset" data-image-description="" data-medium-file="https://i2.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/overset.png?fit=300%2C168&amp;ssl=1" data-large-file="https://i2.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/overset.png?fit=377%2C211&amp;ssl=1" class="aligncenter size-full wp-image-16080" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/overset.png" alt="" srcset="https://i2.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/overset.png?w=377&amp;ssl=1 377w, https://i2.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/overset.png?resize=300%2C168&amp;ssl=1 300w" sizes="(max-width: 377px) 100vw, 377px" width="377" height="211"></a></p>
+<h1><span id="fractionsracines">5. Fractions, racines</span></h1>
+<h2><span id="fractions">5.1. Fractions</span></h2>
+<p>Pour écrire des fractions et des racines, c'est tout simple, on utilise \frac :</p>
+<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-59fad1b0e5127690239773" class="crayon-syntax crayon-theme-classic crayon-font-monospace crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly="readonly" style="-moz-tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0; overflow: hidden;" wrap="soft">\[ \frac{\frac{1}{x}}{1 + \frac{1}{x}} \]</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="margin-left: -18px;">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-59fad1b0e5127690239773-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-59fad1b0e5127690239773-1"><span class="crayon-s ">\[ \frac{\frac{1}{x}}{1 + \frac{1}{x}} \]</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+<p></p>
+<p>Ce qui donne :</p>
+<p><a href="https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/fractions.png?ssl=1"><img data-attachment-id="16053" data-permalink="https://bioinfo-fr.net/latex-les-maths/fractions" data-orig-file="https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/fractions.png?fit=125%2C111&amp;ssl=1" data-orig-size="125,111" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="fractions" data-image-description="" data-medium-file="https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/fractions.png?fit=125%2C111&amp;ssl=1" data-large-file="https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/fractions.png?fit=125%2C111&amp;ssl=1" class="aligncenter size-full wp-image-16053" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/fractions.png" alt="" scale="0" width="125" height="111"></a></p>
+<p>Il existe plusieurs types de fractions que vous pourriez vouloir utiliser :</p>
+<ol>
+<li>
+			<span id="crayon-59fad1b0e512c733233184" class="crayon-syntax crayon-syntax-inline  crayon-theme-classic crayon-theme-classic-inline crayon-font-monospace" style="font-size: 12px !important; line-height: 15px !important;font-size: 12px !important;"><span class="crayon-pre crayon-code" style="font-size: 12px !important; line-height: 15px !important;font-size: 12px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><span class="crayon-st">\dfrac</span></span></span>&nbsp; qui indique que l'expression mathématique devrait rester une formule</li>
+<li>
+			<span id="crayon-59fad1b0e5130814755323" class="crayon-syntax crayon-syntax-inline  crayon-theme-classic crayon-theme-classic-inline crayon-font-monospace" style="font-size: 12px !important; line-height: 15px !important;font-size: 12px !important;"><span class="crayon-pre crayon-code" style="font-size: 12px !important; line-height: 15px !important;font-size: 12px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><span class="crayon-st">\tfrac</span></span></span>&nbsp;
+ qui indique que l'expression mathématique devrait être en mode texte 
+(et elle sera aussi haute que le texte et sera un peu moins belle)</li>
+<li>
+			<span id="crayon-59fad1b0e5135348917825" class="crayon-syntax crayon-syntax-inline  crayon-theme-classic crayon-theme-classic-inline crayon-font-monospace" style="font-size: 12px !important; line-height: 15px !important;font-size: 12px !important;"><span class="crayon-pre crayon-code" style="font-size: 12px !important; line-height: 15px !important;font-size: 12px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><span class="crayon-st">\frac</span></span></span>&nbsp; où le contexte décide quelle décision appliquer.</li>
+</ol>
+<p>Petit cas pratique :</p>
+<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-59fad1b0e5139621344198" class="crayon-syntax crayon-theme-classic crayon-font-monospace crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly="readonly" style="-moz-tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0; overflow: hidden;" wrap="soft">Et
+ hop une petite fraction $\frac{1}{x}$ dans du texte pour voir ce que ça
+ donne et une petite fraction forcée pour pouvoir comparer 
+$\dfrac{1}{x}$ les résultats¬!</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="margin-left: -18px;">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-59fad1b0e5139621344198-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-59fad1b0e5139621344198-1">Et<span class="crayon-h"> </span>hop<span class="crayon-h"> </span>une<span class="crayon-h"> </span>petite<span class="crayon-h"> </span>fraction<span class="crayon-h"> </span><span class="crayon-s ">$\frac{1}{x}$</span><span class="crayon-h"> </span>dans<span class="crayon-h"> </span>du<span class="crayon-h"> </span>texte<span class="crayon-h"> </span>pour<span class="crayon-h"> </span>voir<span class="crayon-h"> </span>ce<span class="crayon-h"> </span>que<span class="crayon-h"> </span>ça<span class="crayon-h"> </span>donne<span class="crayon-h"> </span>et<span class="crayon-h"> </span>une<span class="crayon-h"> </span>petite<span class="crayon-h"> </span>fraction<span class="crayon-h"> </span>forcée<span class="crayon-h"> </span>pour<span class="crayon-h"> </span>pouvoir<span class="crayon-h"> </span>comparer<span class="crayon-h"> </span><span class="crayon-s ">$\dfrac{1}{x}$</span><span class="crayon-h"> </span>les<span class="crayon-h"> </span>résultats¬<span class="crayon-sy">!</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0017 seconds] -->
+<p></p>
+<p>Ce qui donne :<a href="https://bioinfo-fr.net/wp-content/uploads/2017/09/fraction_forcee.png"><br>
+<img data-attachment-id="16055" data-permalink="https://bioinfo-fr.net/latex-les-maths/fraction_forcee" data-orig-file="https://i1.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/fraction_forcee.png?fit=1195%2C131&amp;ssl=1" data-orig-size="1195,131" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="fraction_forcee" data-image-description="" data-medium-file="https://i1.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/fraction_forcee.png?fit=300%2C33&amp;ssl=1" data-large-file="https://i1.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/fraction_forcee.png?fit=1024%2C112&amp;ssl=1" class="aligncenter wp-image-16055 size-large" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/fraction_forcee.png" alt="" srcset="https://i1.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/fraction_forcee.png?resize=1024%2C112&amp;ssl=1 1024w, https://i1.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/fraction_forcee.png?resize=300%2C33&amp;ssl=1 300w, https://i1.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/fraction_forcee.png?resize=768%2C84&amp;ssl=1 768w, https://i1.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/fraction_forcee.png?w=1195&amp;ssl=1 1195w" sizes="(max-width: 1000px) 100vw, 1000px" width="706" height="78"></a>Ce qui montre bien que 
+			<span id="crayon-59fad1b0e513e789042273" class="crayon-syntax crayon-syntax-inline  crayon-theme-classic crayon-theme-classic-inline crayon-font-monospace" style="font-size: 12px !important; line-height: 15px !important;font-size: 12px !important;"><span class="crayon-pre crayon-code" style="font-size: 12px !important; line-height: 15px !important;font-size: 12px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><span class="crayon-st">\frac</span></span></span>&nbsp; est probablement ce que vous souhaitez utiliser.</p>
+<h2><span id="racines">5.2. Racines</span></h2>
+<p>Pour les racines, c'est tout simple, il suffit d'utiliser 
+			<span id="crayon-59fad1b0e5143183741073" class="crayon-syntax crayon-syntax-inline  crayon-theme-classic crayon-theme-classic-inline crayon-font-monospace" style="font-size: 12px !important; line-height: 15px !important;font-size: 12px !important;"><span class="crayon-pre crayon-code" style="font-size: 12px !important; line-height: 15px !important;font-size: 12px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><span class="crayon-st">\sqrt</span></span></span>&nbsp; qui permet aisément de faire des racines n-ièmes comme ceci :</p>
+<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-59fad1b0e5147233532207" class="crayon-syntax crayon-theme-classic crayon-font-monospace crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly="readonly" style="-moz-tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0; overflow: hidden;" wrap="soft">\[ \sqrt{9} \]
+\[ \sqrt[3]{9} \]</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="margin-left: -18px;">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-59fad1b0e5147233532207-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-59fad1b0e5147233532207-2">2</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-59fad1b0e5147233532207-1"><span class="crayon-s ">\[ \sqrt{9} \]</span></div><div class="crayon-line crayon-striped-line" id="crayon-59fad1b0e5147233532207-2"><span class="crayon-s ">\[ \sqrt[3]{9} \]</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+<p></p>
+<p>Ce qui donne :</p>
+<p><a href="https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/racines.png?ssl=1"><img data-attachment-id="16056" data-permalink="https://bioinfo-fr.net/latex-les-maths/racines" data-orig-file="https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/racines.png?fit=136%2C120&amp;ssl=1" data-orig-size="136,120" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="racines" data-image-description="" data-medium-file="https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/racines.png?fit=136%2C120&amp;ssl=1" data-large-file="https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/racines.png?fit=136%2C120&amp;ssl=1" class="aligncenter size-full wp-image-16056" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/racines.png" alt="" scale="0" width="136" height="120"></a></p>
+<h1><span id="textepoliceespacement">6. Texte, police et espacement</span></h1>
+<p>Si vous voulez écrire du texte dans vos expressions mathématiques vous pouvez utiliser la commande 
+			<span id="crayon-59fad1b0e514c043275389" class="crayon-syntax crayon-syntax-inline  crayon-theme-classic crayon-theme-classic-inline crayon-font-monospace" style="font-size: 12px !important; line-height: 15px !important;font-size: 12px !important;"><span class="crayon-pre crayon-code" style="font-size: 12px !important; line-height: 15px !important;font-size: 12px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><span class="crayon-st">\text</span></span></span>&nbsp;. Petit aperçu :</p>
+<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-59fad1b0e5151521364869" class="crayon-syntax crayon-theme-classic crayon-font-monospace crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly="readonly" style="-moz-tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0; overflow: hidden;" wrap="soft">\[ a et b  \]
+\[ a \text{ et } b \]</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="margin-left: -18px;">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-59fad1b0e5151521364869-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-59fad1b0e5151521364869-2">2</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-59fad1b0e5151521364869-1"><span class="crayon-s ">\[ a et b&nbsp;&nbsp;\]</span></div><div class="crayon-line crayon-striped-line" id="crayon-59fad1b0e5151521364869-2"><span class="crayon-s ">\[ a \text{ et } b \]</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+<p></p>
+<p>Ce qui donne :</p>
+<p><a href="https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/text.png?ssl=1"><img data-attachment-id="16058" data-permalink="https://bioinfo-fr.net/latex-les-maths/text-2" data-orig-file="https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/text.png?fit=136%2C95&amp;ssl=1" data-orig-size="136,95" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="text" data-image-description="" data-medium-file="https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/text.png?fit=136%2C95&amp;ssl=1" data-large-file="https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/text.png?fit=136%2C95&amp;ssl=1" class="aligncenter size-full wp-image-16058" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/text.png" alt="" scale="0" width="136" height="95"></a></p>
+<p>On peut voir que LaTeX bouffe les espaces en mode mathématiques, pensez donc bien à les mettre dans votre 
+			<span id="crayon-59fad1b0e5155048429978" class="crayon-syntax crayon-syntax-inline  crayon-theme-classic crayon-theme-classic-inline crayon-font-monospace" style="font-size: 12px !important; line-height: 15px !important;font-size: 12px !important;"><span class="crayon-pre crayon-code" style="font-size: 12px !important; line-height: 15px !important;font-size: 12px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><span class="crayon-st">\text</span></span></span>&nbsp; !</p>
+<p>Sinon, pour gérer explicitement les espaces, on peut utiliser des commandes spécifiques comme celles-ci :</p>
+<p><a href="https://i1.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/espace.png?ssl=1"><img data-attachment-id="16128" data-permalink="https://bioinfo-fr.net/latex-les-maths/espace" data-orig-file="https://i1.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/espace.png?fit=437%2C267&amp;ssl=1" data-orig-size="437,267" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="espace" data-image-description="" data-medium-file="https://i1.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/espace.png?fit=300%2C183&amp;ssl=1" data-large-file="https://i1.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/espace.png?fit=437%2C267&amp;ssl=1" class="aligncenter size-full wp-image-16128" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/espace.png" alt="" srcset="https://i1.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/espace.png?w=437&amp;ssl=1 437w, https://i1.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/espace.png?resize=300%2C183&amp;ssl=1 300w" sizes="(max-width: 437px) 100vw, 437px" width="437" height="267"></a></p>
+<p>Si vous voulez néanmoins que cela soit en italique, c'est possible ! 
+Regardez ce tableau pour voir ce que vous pouvez faire niveau police en 
+mode mathématique :</p>
+<p><a href="https://i2.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/police-1.png?ssl=1"><img data-attachment-id="16060" data-permalink="https://bioinfo-fr.net/latex-les-maths/police-5" data-orig-file="https://i2.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/police-1.png?fit=434%2C429&amp;ssl=1" data-orig-size="434,429" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="police" data-image-description="" data-medium-file="https://i2.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/police-1.png?fit=300%2C297&amp;ssl=1" data-large-file="https://i2.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/police-1.png?fit=434%2C429&amp;ssl=1" class="aligncenter size-medium wp-image-16060" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/police-1.png" alt="" srcset="https://i2.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/police-1.png?resize=300%2C297&amp;ssl=1 300w, https://i2.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/police-1.png?resize=150%2C150&amp;ssl=1 150w, https://i2.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/police-1.png?resize=32%2C32&amp;ssl=1 32w, https://i2.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/police-1.png?resize=50%2C50&amp;ssl=1 50w, https://i2.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/police-1.png?resize=64%2C64&amp;ssl=1 64w, https://i2.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/police-1.png?resize=96%2C96&amp;ssl=1 96w, https://i2.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/police-1.png?resize=128%2C128&amp;ssl=1 128w, https://i2.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/police-1.png?w=434&amp;ssl=1 434w" sizes="(max-width: 300px) 100vw, 300px" width="300" height="297"></a></p>
+<p>C'est particulièrement utile pour définir des nouvelles commandes comme celle-ci :</p>
+<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-59fad1b0e515b748201905" class="crayon-syntax crayon-theme-classic crayon-font-monospace crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly="readonly" style="-moz-tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0; overflow: hidden;" wrap="soft">\newcommand{\deriv}{\mathrm{d}}</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="margin-left: -18px;">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-59fad1b0e515b748201905-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-59fad1b0e515b748201905-1"><span class="crayon-st">\newcommand</span><span class="crayon-sy">{</span><span class="crayon-st">\deriv</span><span class="crayon-sy">}</span><span class="crayon-sy">{</span><span class="crayon-st">\mathrm</span><span class="crayon-sy">{</span>d<span class="crayon-sy">}</span><span class="crayon-sy">}</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0003 seconds] -->
+<p></p>
+<p>&nbsp;</p>
+<h1><span id="accents">7. Les accents et chapeaux</span></h1>
+<p>Les accents et chapeaux disponibles sont listés dans le tableau suivant :</p>
+<p><a href="https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/accents.png?ssl=1"><img data-attachment-id="16082" data-permalink="https://bioinfo-fr.net/latex-les-maths/accents" data-orig-file="https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/accents.png?fit=855%2C326&amp;ssl=1" data-orig-size="855,326" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="accents" data-image-description="" data-medium-file="https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/accents.png?fit=300%2C114&amp;ssl=1" data-large-file="https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/accents.png?fit=855%2C326&amp;ssl=1" class="aligncenter size-full wp-image-16082" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/accents.png" alt="" srcset="https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/accents.png?w=855&amp;ssl=1 855w, https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/accents.png?resize=300%2C114&amp;ssl=1 300w, https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/accents.png?resize=768%2C293&amp;ssl=1 768w" sizes="(max-width: 855px) 100vw, 855px" width="706" height="269"></a></p>
+<h1><span id="symboles">8. Insérer des symboles</span></h1>
+<p>Presque tous les symboles dont vous pourriez rêver sont disponibles dans LaTeX.</p>
+<h2><span id="grecques">8.1. Lettres grecques</span></h2>
+<p>Les lettres grecques n'existent qu'en mode maths. Voici comment les obtenir :</p>
+<p><a href="https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/lettres_grecques.png?ssl=1"><img data-attachment-id="16062" data-permalink="https://bioinfo-fr.net/latex-les-maths/lettres_grecques" data-orig-file="https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/lettres_grecques.png?fit=1144%2C483&amp;ssl=1" data-orig-size="1144,483" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="lettres_grecques" data-image-description="" data-medium-file="https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/lettres_grecques.png?fit=300%2C127&amp;ssl=1" data-large-file="https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/lettres_grecques.png?fit=1024%2C432&amp;ssl=1" class="aligncenter wp-image-16062 size-large" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/lettres_grecques.png" alt="" srcset="https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/lettres_grecques.png?resize=1024%2C432&amp;ssl=1 1024w, https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/lettres_grecques.png?resize=300%2C127&amp;ssl=1 300w, https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/lettres_grecques.png?resize=768%2C324&amp;ssl=1 768w, https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/lettres_grecques.png?w=1144&amp;ssl=1 1144w" sizes="(max-width: 1000px) 100vw, 1000px" width="706" height="298"></a></p>
+<p>Certaines sont disponibles avec des variantes :</p>
+<p><a href="https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/lettres_grecques_variantes.png?ssl=1"><img data-attachment-id="16063" data-permalink="https://bioinfo-fr.net/latex-les-maths/lettres_grecques_variantes" data-orig-file="https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/lettres_grecques_variantes.png?fit=1142%2C174&amp;ssl=1" data-orig-size="1142,174" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="lettres_grecques_variantes" data-image-description="" data-medium-file="https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/lettres_grecques_variantes.png?fit=300%2C46&amp;ssl=1" data-large-file="https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/lettres_grecques_variantes.png?fit=1024%2C156&amp;ssl=1" class="aligncenter size-large wp-image-16063" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/lettres_grecques_variantes.png" alt="" srcset="https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/lettres_grecques_variantes.png?resize=1024%2C156&amp;ssl=1 1024w, https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/lettres_grecques_variantes.png?resize=300%2C46&amp;ssl=1 300w, https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/lettres_grecques_variantes.png?resize=768%2C117&amp;ssl=1 768w, https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/lettres_grecques_variantes.png?w=1142&amp;ssl=1 1142w" sizes="(max-width: 1000px) 100vw, 1000px" width="706" height="107"></a></p>
+<p>Et certaines ont des majuscules :</p>
+<p><a href="https://i2.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/lettres_grecques_majuscules.png?ssl=1"><img data-attachment-id="16065" data-permalink="https://bioinfo-fr.net/latex-les-maths/lettres_grecques_majuscules" data-orig-file="https://i2.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/lettres_grecques_majuscules.png?fit=1138%2C274&amp;ssl=1" data-orig-size="1138,274" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="lettres_grecques_majuscules" data-image-description="" data-medium-file="https://i2.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/lettres_grecques_majuscules.png?fit=300%2C72&amp;ssl=1" data-large-file="https://i2.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/lettres_grecques_majuscules.png?fit=1024%2C247&amp;ssl=1" class="aligncenter size-large wp-image-16065" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/lettres_grecques_majuscules.png" alt="" srcset="https://i2.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/lettres_grecques_majuscules.png?resize=1024%2C247&amp;ssl=1 1024w, https://i2.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/lettres_grecques_majuscules.png?resize=300%2C72&amp;ssl=1 300w, https://i2.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/lettres_grecques_majuscules.png?resize=768%2C185&amp;ssl=1 768w, https://i2.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/lettres_grecques_majuscules.png?w=1138&amp;ssl=1 1138w" sizes="(max-width: 1000px) 100vw, 1000px" width="706" height="170"></a></p>
+<p>C'est tout pour les lettres grecques 🙂</p>
+<h2><span id="relations">8.2. Relations entre grandeurs</span></h2>
+<p>Les relations entre grandeurs usuelles sont disponibles avec LaTeX, comme montré dans le tableau ci-dessous :</p>
+<p><a href="https://i2.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/relations_entre_grandeurs.png?ssl=1"><img data-attachment-id="16066" data-permalink="https://bioinfo-fr.net/latex-les-maths/relations_entre_grandeurs" data-orig-file="https://i2.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/relations_entre_grandeurs.png?fit=1141%2C273&amp;ssl=1" data-orig-size="1141,273" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="relations_entre_grandeurs" data-image-description="" data-medium-file="https://i2.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/relations_entre_grandeurs.png?fit=300%2C72&amp;ssl=1" data-large-file="https://i2.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/relations_entre_grandeurs.png?fit=1024%2C245&amp;ssl=1" class="aligncenter size-large wp-image-16066" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/relations_entre_grandeurs.png" alt="" srcset="https://i2.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/relations_entre_grandeurs.png?resize=1024%2C245&amp;ssl=1 1024w, https://i2.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/relations_entre_grandeurs.png?resize=300%2C72&amp;ssl=1 300w, https://i2.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/relations_entre_grandeurs.png?resize=768%2C184&amp;ssl=1 768w, https://i2.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/relations_entre_grandeurs.png?w=1141&amp;ssl=1 1141w" sizes="(max-width: 1000px) 100vw, 1000px" width="706" height="169"></a></p>
+<h2><span id="operateurs">8.3. Opérateurs</span></h2>
+<p>Pour obtenir les opérateurs courants, il suffit d'utiliser les commandes présentées dans cette table :</p>
+<p><a href="https://i2.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/operateurs.png?ssl=1"><img data-attachment-id="16084" data-permalink="https://bioinfo-fr.net/latex-les-maths/operateurs" data-orig-file="https://i2.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/operateurs.png?fit=924%2C227&amp;ssl=1" data-orig-size="924,227" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="operateurs" data-image-description="" data-medium-file="https://i2.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/operateurs.png?fit=300%2C74&amp;ssl=1" data-large-file="https://i2.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/operateurs.png?fit=924%2C227&amp;ssl=1" class="aligncenter size-full wp-image-16084" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/operateurs.png" alt="" srcset="https://i2.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/operateurs.png?w=924&amp;ssl=1 924w, https://i2.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/operateurs.png?resize=300%2C74&amp;ssl=1 300w, https://i2.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/operateurs.png?resize=768%2C189&amp;ssl=1 768w" sizes="(max-width: 924px) 100vw, 924px" width="706" height="174"></a></p>
+<p>Voici comment on les utilise :</p>
+<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-59fad1b0e5161926858430" class="crayon-syntax crayon-theme-classic crayon-font-monospace crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly="readonly" style="-moz-tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0; overflow: hidden;" wrap="soft">\[ \sum_{i=0}^n u_i\]
+\[ \iiint f(x, y, z) \deriv x \deriv y \deriv z \]</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="margin-left: -18px;">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-59fad1b0e5161926858430-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-59fad1b0e5161926858430-2">2</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-59fad1b0e5161926858430-1"><span class="crayon-s ">\[ \sum_{i=0}^n u_i\]</span></div><div class="crayon-line crayon-striped-line" id="crayon-59fad1b0e5161926858430-2"><span class="crayon-s ">\[ \iiint f(x, y, z) \deriv x \deriv y \deriv z \]</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+<p></p>
+<p>Ce qui donne :</p>
+<p><a href="https://i1.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/exemple_operateur.png?ssl=1"><img data-attachment-id="16085" data-permalink="https://bioinfo-fr.net/latex-les-maths/exemple_operateur" data-orig-file="https://i1.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/exemple_operateur.png?fit=312%2C185&amp;ssl=1" data-orig-size="312,185" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="exemple_operateur" data-image-description="" data-medium-file="https://i1.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/exemple_operateur.png?fit=300%2C178&amp;ssl=1" data-large-file="https://i1.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/exemple_operateur.png?fit=312%2C185&amp;ssl=1" class="aligncenter size-full wp-image-16085" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/exemple_operateur.png" alt="" srcset="https://i1.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/exemple_operateur.png?w=312&amp;ssl=1 312w, https://i1.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/exemple_operateur.png?resize=300%2C178&amp;ssl=1 300w" sizes="(max-width: 312px) 100vw, 312px" width="312" height="185"></a></p>
+<h2><span id="autres">8.4. Autres symboles courant en mathématiques</span></h2>
+<p><a href="https://i1.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/symboles-1.png?ssl=1"><img data-attachment-id="16071" data-permalink="https://bioinfo-fr.net/latex-les-maths/symboles-2" data-orig-file="https://i1.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/symboles-1.png?fit=930%2C432&amp;ssl=1" data-orig-size="930,432" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="symboles" data-image-description="" data-medium-file="https://i1.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/symboles-1.png?fit=300%2C139&amp;ssl=1" data-large-file="https://i1.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/symboles-1.png?fit=930%2C432&amp;ssl=1" class="aligncenter size-full wp-image-16071" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/symboles-1.png" alt="" srcset="https://i1.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/symboles-1.png?w=930&amp;ssl=1 930w, https://i1.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/symboles-1.png?resize=300%2C139&amp;ssl=1 300w, https://i1.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/symboles-1.png?resize=768%2C357&amp;ssl=1 768w" sizes="(max-width: 930px) 100vw, 930px" width="706" height="328"></a></p>
+<p>Certains symboles ci-dessus possèdent une version « négative » que 
+l'on obtient en ajoutant un n devant la commande, comme ceci :</p>
+<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-59fad1b0e5167036556609" class="crayon-syntax crayon-theme-classic crayon-font-monospace crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly="readonly" style="-moz-tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0; overflow: hidden;" wrap="soft">\[ \nexists \]
+\[ \ngeq \]</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="margin-left: -18px;">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-59fad1b0e5167036556609-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-59fad1b0e5167036556609-2">2</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-59fad1b0e5167036556609-1"><span class="crayon-s ">\[ \nexists \]</span></div><div class="crayon-line crayon-striped-line" id="crayon-59fad1b0e5167036556609-2"><span class="crayon-s ">\[ \ngeq \]</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+<p></p>
+<p>Ce qui donne :</p>
+<p><a href="https://i1.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/not.png?ssl=1"><img data-attachment-id="16068" data-permalink="https://bioinfo-fr.net/latex-les-maths/not" data-orig-file="https://i1.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/not.png?fit=60%2C103&amp;ssl=1" data-orig-size="60,103" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="not" data-image-description="" data-medium-file="https://i1.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/not.png?fit=60%2C103&amp;ssl=1" data-large-file="https://i1.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/not.png?fit=60%2C103&amp;ssl=1" class="aligncenter size-full wp-image-16068" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/not.png" alt="" scale="0" width="60" height="103"></a></p>
+<p>Je vous laisse le soin de découvrir quels symboles on peut 
+négationner, j'ai la flemme de tout tester et de faire un joli tableau 
+:p .</p>
+<h2><span id="fleches">8.5. Flèches</span></h2>
+<p>Il existe tout un tas de flèches en LaTeX, les voici :</p>
+<p><a href="https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/fleches.png?ssl=1"><img data-attachment-id="16070" data-permalink="https://bioinfo-fr.net/latex-les-maths/fleches" data-orig-file="https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/fleches.png?fit=1189%2C557&amp;ssl=1" data-orig-size="1189,557" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="fleches" data-image-description="" data-medium-file="https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/fleches.png?fit=300%2C141&amp;ssl=1" data-large-file="https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/fleches.png?fit=1024%2C480&amp;ssl=1" class="aligncenter size-large wp-image-16070" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/fleches.png" alt="" srcset="https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/fleches.png?resize=1024%2C480&amp;ssl=1 1024w, https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/fleches.png?resize=300%2C141&amp;ssl=1 300w, https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/fleches.png?resize=768%2C360&amp;ssl=1 768w, https://i0.wp.com/bioinfo-fr.net/wp-content/uploads/2017/09/fleches.png?w=1189&amp;ssl=1 1189w" sizes="(max-width: 1000px) 100vw, 1000px" width="706" height="331"></a></p>
+<h1><span id="detexify">9. Detexify, ce sauveur !</span></h1>
+<p>Alors en fait c'est méga dense ce que je vous ai balancé ici mais 
+respirez ! Vous n'avez pas besoin de tout apprendre par cœur (ça viendra
+ au fur et à mesure) parce qu'il existe un truc TROP BIEN : <a href="http://detexify.kirelabs.org/classify.html">DETEXIFY</a>. (Oui, je suis enthousiaste, ça m'a sauvé la vie plusieurs fois !)</p>
+<p>Il suffit de dessiner son symbole et pouf il donne la commande et le 
+paquet qu'il faut charger pour l'obtenir et même dans quel mode il faut 
+l'utiliser. Si c'est pas beau la vie 🙂 …</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Bon, je vais arrêter là, avant les matrices et les systèmes 
+d'équations parce que c'est super dense… Promis, on revient vite avec un
+ nouvel article !</p>
+<p>&nbsp;</p>
+<p>Merci aux relecteurs <a href="https://bioinfo-fr.net/author/lins">Lins</a>, <a href="https://bioinfo-fr.net/author/lelouar">Lelouar</a>, et <a href="https://bioinfo-fr.net/author/kumquatum">Kumquatum</a></p>
+<div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing"><h3 class="sd-title">Partager&nbsp;:</h3><div class="sd-content"><ul><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-16033" class="share-twitter sd-button share-icon no-text" href="https://bioinfo-fr.net/latex-les-maths?share=twitter" target="_blank" title="Cliquez pour partager sur Twitter"><span></span><span class="sharing-screen-reader-text">Cliquez pour partager sur Twitter(ouvre dans une nouvelle fenêtre)</span></a></li><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-16033" class="share-facebook sd-button share-icon no-text" href="https://bioinfo-fr.net/latex-les-maths?share=facebook" target="_blank" title="Cliquez pour partager sur Facebook"><span></span><span class="sharing-screen-reader-text">Cliquez pour partager sur Facebook(ouvre dans une nouvelle fenêtre)</span></a></li><li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-16033" class="share-linkedin sd-button share-icon no-text" href="https://bioinfo-fr.net/latex-les-maths?share=linkedin" target="_blank" title="Cliquez pour partager sur LinkedIn"><span></span><span class="sharing-screen-reader-text">Cliquez pour partager sur LinkedIn(ouvre dans une nouvelle fenêtre)</span></a></li><li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-16033" class="share-google-plus-1 sd-button share-icon no-text" href="https://bioinfo-fr.net/latex-les-maths?share=google-plus-1" target="_blank" title="Cliquez pour partager sur Google+"><span></span><span class="sharing-screen-reader-text">Cliquez pour partager sur Google+(ouvre dans une nouvelle fenêtre)</span></a></li><li class="share-email"><a rel="nofollow" data-shared="" class="share-email sd-button share-icon no-text" href="https://bioinfo-fr.net/latex-les-maths?share=email" target="_blank" title="Cliquez pour envoyer par e-mail à un ami"><span></span><span class="sharing-screen-reader-text">Cliquez pour envoyer par e-mail à un ami(ouvre dans une nouvelle fenêtre)</span></a></li><li class="share-end"></li></ul></div></div></div>
+<div id="jp-relatedposts" class="jp-relatedposts" style="display: block;">
+	<h3 class="jp-relatedposts-headline"><em>Articles similaires</em></h3>
+<div class="jp-relatedposts-items jp-relatedposts-items-visual jp-relatedposts-grid "><div class="jp-relatedposts-post jp-relatedposts-post0 jp-relatedposts-post-thumbs" data-post-id="3657" data-post-format="false"><a class="jp-relatedposts-post-a" href="https://bioinfo-fr.net/latex" title="LaTeX, pour bien présenter et mettre en page
+
+Brouillon" rel="nofollow" data-origin="16033" data-position="0"><img class="jp-relatedposts-post-img" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/latex1.jpg" alt="LaTeX, pour bien présenter et mettre en page" scale="0" width="350"></a><h4 class="jp-relatedposts-post-title"><a class="jp-relatedposts-post-a" href="https://bioinfo-fr.net/latex" title="LaTeX, pour bien présenter et mettre en page
+
+Brouillon" rel="nofollow" data-origin="16033" data-position="0">LaTeX, pour bien présenter et mettre en page</a></h4><p class="jp-relatedposts-post-excerpt">Brouillon</p><p class="jp-relatedposts-post-date" style="display: block;">mer 29 Août 2012</p><p class="jp-relatedposts-post-context">Dans "Découverte"</p></div><div class="jp-relatedposts-post jp-relatedposts-post1 jp-relatedposts-post-thumbs" data-post-id="14409" data-post-format="false"><a class="jp-relatedposts-post-a" href="https://bioinfo-fr.net/latex-le-premier-document" title="LaTeX : le premier document !
+
+On s'est rendu compte sur #bioinfo-fr et sur #jebif (les canaux IRC sur freenode) qu'au cours des rédactions de rapports de stage ou même de thèse on avait plein de questions portant sur LaTeX et on a décidé qu'on allait se fendre de quelques articles sur LaTeX pour avoir une…" rel="nofollow" data-origin="16033" data-position="1"><img class="jp-relatedposts-post-img" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/hello_world-1024x562.png" alt="LaTeX : le premier document !" scale="0" width="350"></a><h4 class="jp-relatedposts-post-title"><a class="jp-relatedposts-post-a" href="https://bioinfo-fr.net/latex-le-premier-document" title="LaTeX : le premier document !
+
+On s'est rendu compte sur #bioinfo-fr et sur #jebif (les canaux IRC sur freenode) qu'au cours des rédactions de rapports de stage ou même de thèse on avait plein de questions portant sur LaTeX et on a décidé qu'on allait se fendre de quelques articles sur LaTeX pour avoir une…" rel="nofollow" data-origin="16033" data-position="1">LaTeX : le premier document !</a></h4><p class="jp-relatedposts-post-excerpt">On
+ s'est rendu compte sur #bioinfo-fr et sur #jebif (les canaux IRC sur 
+freenode) qu'au cours des rédactions de rapports de stage ou même de 
+thèse on avait plein de questions portant sur LaTeX et on a décidé qu'on
+ allait se fendre de quelques articles sur LaTeX pour avoir une…</p><p class="jp-relatedposts-post-date" style="display: block;">mer 7 Déc 2016</p><p class="jp-relatedposts-post-context">Dans "Didacticiel"</p></div><div class="jp-relatedposts-post jp-relatedposts-post2 jp-relatedposts-post-thumbs" data-post-id="14623" data-post-format="false"><a class="jp-relatedposts-post-a" href="https://bioinfo-fr.net/latex-la-mise-en-forme-du-texte-et-des-paragraphes" title="LaTeX&nbsp;:&nbsp;la mise en forme du texte et des paragraphes
+
+Bon maintenant qu'on sait compiler et insérer des flottants, un truc critique à voir c'est comment mettre en forme : mettre en italique, en emphase, en gras, souligner, faire des listes à puces, insérer du code… Préparez-vous, ça risque d'être un peu long :). (Et par un peu long je…" rel="nofollow" data-origin="16033" data-position="2"><img class="jp-relatedposts-post-img" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/algo2e_3.png" alt="LaTeX&nbsp;:&nbsp;la mise en forme du texte et des paragraphes" scale="0" width="350"></a><h4 class="jp-relatedposts-post-title"><a class="jp-relatedposts-post-a" href="https://bioinfo-fr.net/latex-la-mise-en-forme-du-texte-et-des-paragraphes" title="LaTeX&nbsp;:&nbsp;la mise en forme du texte et des paragraphes
+
+Bon maintenant qu'on sait compiler et insérer des flottants, un truc critique à voir c'est comment mettre en forme : mettre en italique, en emphase, en gras, souligner, faire des listes à puces, insérer du code… Préparez-vous, ça risque d'être un peu long :). (Et par un peu long je…" rel="nofollow" data-origin="16033" data-position="2">LaTeX&nbsp;:&nbsp;la mise en forme du texte et des paragraphes</a></h4><p class="jp-relatedposts-post-excerpt">Bon
+ maintenant qu'on sait compiler et insérer des flottants, un truc 
+critique à voir c'est comment mettre en forme : mettre en italique, en 
+emphase, en gras, souligner, faire des listes à puces, insérer du code… 
+Préparez-vous, ça risque d'être un peu long :). (Et par un peu long je…</p><p class="jp-relatedposts-post-date" style="display: block;">mer 4 Oct 2017</p><p class="jp-relatedposts-post-context">Dans "Didacticiel"</p></div></div></div>
+				
+		<div class="clear"></div>
+				
+
+				<div class="entry">
+					<div id="author-id">
+						<div id="author-avatar">
+							<img alt="" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/c082841ed3133af071ddfa5094a2b466.png" srcset="https://secure.gravatar.com/avatar/c082841ed3133af071ddfa5094a2b466?s=180&amp;d=blank&amp;r=g 2x" class="avatar avatar-90 photo grav-hashed grav-hijack" originals="90" src-orig="https://secure.gravatar.com/avatar/c082841ed3133af071ddfa5094a2b466?s=90&amp;d=blank&amp;r=g" scale="2" id="grav-c082841ed3133af071ddfa5094a2b466-0" width="90" height="90">						</div><!-- #author-avatar -->
+						<div id="author-description">
+							<ul>
+								<li><b>À propos de
+			<span class="author vcard"><a class="url fn n" href="https://bioinfo-fr.net/author/chopopope" title="Voir tous les articles de Pauline Pommeret" rel="author">Pauline Pommeret</a></span></b> 
+
+</li>
+<li>	<p>Après une prépa BCPST et une licence de bio à l'ENS Cachan, j'ai
+ suivi le master BIBS à l'Université Paris-Sud j'ai suivi des cours 
+d'informatique à l'ENS Cachan. Je commence ma thèse entre 
+INRIA&nbsp;Saclay et l'INRA&nbsp;Jouy-en-Josas.</p>	
+				</li></ul>
+						</div>
+
+
+					</div>
+				</div>
+
+
+	
+
+
+
+
+
+
+		<div class="meta2">
+			Catégorie: <a href="https://bioinfo-fr.net/categorie/didacticiel" rel="category tag">Didacticiel</a> | Tags: <a href="https://bioinfo-fr.net/mot-clef/latex" rel="tag">LaTeX</a>, <a href="https://bioinfo-fr.net/mot-clef/maths" rel="tag">maths</a>					</div>	
+
+
+								
+		
+	</div><!--/.entry-->
+	
+		
+
+
+<div id="comments">
+
+<div style="margin: 0px 20px">
+<a href="https://bioinfo-fr.net/latex-les-maths/feed/rss">S'abonner au flux de commentaires de cet article</a></div>
+
+
+			<!-- If comments are open, but there are no comments. -->
+
+	 	
+
+
+		<div id="respond" class="comment-respond">
+							<h3 id="reply-title" class="comment-reply-title">Laisser un commentaire					<small><a rel="nofollow" id="cancel-comment-reply-link" href="https://bioinfo-fr.net/latex-les-maths#respond" style="display:none;">Annuler la réponse.</a></small>
+				</h3>
+						<form id="commentform" class="comment-form">
+				<iframe src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/a.html" style="width: 100%; height: 56px; border: 0px none;" name="jetpack_remote_comment" class="jetpack_remote_comment" id="jetpack_remote_comment" scrolling="no"></iframe>
+				<!--[if !IE]><!-->
+				<script>
+					document.addEventListener('DOMContentLoaded', function () {
+						var commentForms = document.getElementsByClassName('jetpack_remote_comment');
+						for (var i = 0; i < commentForms.length; i++) {
+							commentForms[i].allowTransparency = false;
+							commentForms[i].scrolling = 'no';
+						}
+					});
+				</script>
+				<!--<![endif]-->
+			<input id="ak_js" name="ak_js" value="1509885346359" type="hidden"></form>
+		</div>
+
+		
+		<input name="comment_parent" id="comment_parent" value="" type="hidden">
+
+		
+</div><!--/#comments-->
+	
+</div><!--/#post-16033-->	
+				
+					<div class="navigation">
+							<span class="nav-previous"><a href="https://bioinfo-fr.net/jouer-lapi-de-kegg" rel="prev"><span class="meta-nav">←</span> Précédent</a></span>
+							<span class="nav-next"></span>
+					</div>
+
+						
+			
+
+				
+			</div><!--/#content-->
+					</div><!--/#main-->
+<div id="sidebar">
+
+	<div id="search-2" class="widget"><form role="search" method="get" id="searchform" action="https://bioinfo-fr.net/">
+    <div>
+    <input name="s" id="s" type="text">
+    <input id="searchsubmit" value="Recherche" type="submit">
+    </div>
+    </form></div><div id="my_first_widget-2" class="widget"><h2>Articles au hasard</h2>
+<div id="random-posts" class="widget">
+
+<ul>
+
+
+ 
+
+
+<li><div class="image"><div class="excerptImg"><img class="size-medium" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/flags-300x205.png" scale="0"></div></div><div class="randomTitle"><a href="https://bioinfo-fr.net/master-bordeaux-international">Le Master de Bordeaux s'internationalise!</a><div class="meta"><span class="entry-date">mer 1 Juin 2016</span></div></div></li>
+
+
+<li><div class="image"><div class="excerptImg"><img class="size-medium" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/staticmap-300x150.png" scale="0"></div></div><div class="randomTitle"><a href="https://bioinfo-fr.net/automatiser-la-recuperation-de-donnees-biologiques">Automatiser la récupération de données biologiques</a><div class="meta"><span class="entry-date">mer 20 Avr 2016</span></div></div></li>
+
+
+<li><div class="image"><div class="excerptImg"><img class="size-medium" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/python-powered-h-140x182.png" scale="0"></div></div><div class="randomTitle"><a href="https://bioinfo-fr.net/bioservices-module-python">Bioservices, un module Python très utile</a><div class="meta"><span class="entry-date">mer 15 Jan 2014</span></div></div></li>
+
+
+<li><div class="image"><div class="excerptImg"><img class="size-medium" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/8VEYhhie.jpeg" scale="0"></div></div><div class="randomTitle"><a href="https://bioinfo-fr.net/questions-a-gabriel-chandesris">Questions à… Gabriel Chandesris</a><div class="meta"><span class="entry-date">mer 18 Mai 2016</span></div></div></li>
+
+
+<li><div class="image"><div class="excerptImg"><img class="size-medium" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/peterlongo-150x150.jpg" scale="0"></div></div><div class="randomTitle"><a href="https://bioinfo-fr.net/jobim-2012-interview-exclusive-des-organisateurs">JOBIM 2012 : interview exclusive des organisateurs</a><div class="meta"><span class="entry-date">lun 19 Mar 2012</span></div></div></li>
+
+
+
+</ul>
+
+</div>
+
+
+
+		</div><div id="linkcat-72" class="widget"><h2>Liens</h2>
+	<ul class="xoxo blogroll">
+<li><a href="https://www.biostars.org/" rel="colleague" title="A question and answer site for bioinformatics" target="_blank">BioStar</a></li>
+<li><a href="https://jebif.fr/" title="Le site des Jeunes Bioinformaticiens de France">JeBiF</a></li>
+<li><a href="https://www.bioinformations.fr/" title="Retrouvez les infos fraiches et essentielles de la bioinformatique francophone">Les Bioinformations</a></li>
+<li><a href="https://www.sfbi.fr/" rel="colleague" title="Société Française de Bio-Informatique" target="_blank">SFBI</a></li>
+
+	</ul>
+</div>
+<div id="categories-2" class="widget"><h2>Catégories</h2>		<ul>
+	<li class="cat-item cat-item-490"><a href="https://bioinfo-fr.net/categorie/actu" title="Ça fait l'actualité du moment, donc on en parle !">Actualité</a> (12)
+</li>
+	<li class="cat-item cat-item-45"><a href="https://bioinfo-fr.net/categorie/astuces">Astuce</a> (32)
+</li>
+	<li class="cat-item cat-item-638"><a href="https://bioinfo-fr.net/categorie/breve">Brèves</a> (8)
+</li>
+	<li class="cat-item cat-item-102"><a href="https://bioinfo-fr.net/categorie/conferences">Conférence</a> (12)
+</li>
+	<li class="cat-item cat-item-261"><a href="https://bioinfo-fr.net/categorie/contribuer">Contribuer</a> (1)
+</li>
+	<li class="cat-item cat-item-15"><a href="https://bioinfo-fr.net/categorie/decouverte">Découverte</a> (102)
+</li>
+	<li class="cat-item cat-item-335"><a href="https://bioinfo-fr.net/categorie/didacticiel">Didacticiel</a> (49)
+</li>
+	<li class="cat-item cat-item-9"><a href="https://bioinfo-fr.net/categorie/editorial" title="Les éditos. Quand l'équipe à quelque chose à dire, un message à faire passer.">Editorial</a> (42)
+</li>
+	<li class="cat-item cat-item-741"><a href="https://bioinfo-fr.net/categorie/bulle" title="Surtout ne pas changer l'identifiant de la catégorie ou la couleur à appliquer ne sera pas reconnue.">En image</a> (11)
+</li>
+	<li class="cat-item cat-item-334"><a href="https://bioinfo-fr.net/categorie/entretiens">Entretien</a> (13)
+</li>
+	<li class="cat-item cat-item-101"><a href="https://bioinfo-fr.net/categorie/formation-2">Formation</a> (13)
+</li>
+	<li class="cat-item cat-item-169"><a href="https://bioinfo-fr.net/categorie/jai-lu" title="Livres reçus, lus et critiqués.">J'ai lu</a> (8)
+</li>
+	<li class="cat-item cat-item-53"><a href="https://bioinfo-fr.net/categorie/journal-club">Journal Club</a> (4)
+</li>
+	<li class="cat-item cat-item-255"><a href="https://bioinfo-fr.net/categorie/opinion">Opinion</a> (25)
+</li>
+	<li class="cat-item cat-item-340"><a href="https://bioinfo-fr.net/categorie/suivez-l-guide" title="Installez-vous, on va vous prendre par la main et tenter de vous faire découvrir et aimer la bioinfo. Que le voyage commence !">Suivez l'guide</a> (22)
+</li>
+		</ul>
+</div><div id="recent-comments-2" class="widget"><h2>Commentaires récents</h2><ul id="recentcomments"><li class="recentcomments"><span class="comment-author-link">Yoann M.</span> dans <a href="https://bioinfo-fr.net/petite-introduction-elements-repetes#comment-82432">Petite introduction sur... les éléments répétés</a></li><li class="recentcomments"><span class="comment-author-link"><a href="http://magalimagaloche.wordpress.com/" rel="external nofollow" class="url">Magali Michaut</a></span> dans <a href="https://bioinfo-fr.net/petite-introduction-elements-repetes#comment-82429">Petite introduction sur... les éléments répétés</a></li><li class="recentcomments"><span class="comment-author-link"><a href="http://magalimagaloche.wordpress.com/" rel="external nofollow" class="url">Magali Michaut</a></span> dans <a href="https://bioinfo-fr.net/jouer-lapi-de-kegg#comment-82428">Jouer avec l'API de KEGG</a></li><li class="recentcomments"><span class="comment-author-link">Bastien</span> dans <a href="https://bioinfo-fr.net/pimp-my-workstation-avoir-le-terminal-le-plus-classe-du-bureau#comment-82427">Pimp my workstation: avoir le terminal le plus classe du bureau !</a></li><li class="recentcomments"><span class="comment-author-link">Nisaea</span> dans <a href="https://bioinfo-fr.net/pimp-my-workstation-avoir-le-terminal-le-plus-classe-du-bureau#comment-82422">Pimp my workstation: avoir le terminal le plus classe du bureau !</a></li></ul></div><div id="tag_cloud-2" class="widget"><h2>Étiquettes</h2><div class="tagcloud"><a href="https://bioinfo-fr.net/mot-clef/analyse" class="tag-cloud-link tag-link-141 tag-link-position-1" style="font-size: 13.526315789474pt;" aria-label="analyse (11 éléments)">analyse</a>
+<a href="https://bioinfo-fr.net/mot-clef/base-de-donnees" class="tag-cloud-link tag-link-61 tag-link-position-2" style="font-size: 16.842105263158pt;" aria-label="base de données (17 éléments)">base de données</a>
+<a href="https://bioinfo-fr.net/mot-clef/bioinformatique-2" class="tag-cloud-link tag-link-99 tag-link-position-3" style="font-size: 22pt;" aria-label="bioinformatique (34 éléments)">bioinformatique</a>
+<a href="https://bioinfo-fr.net/mot-clef/blast" class="tag-cloud-link tag-link-46 tag-link-position-4" style="font-size: 8pt;" aria-label="BLAST (5 éléments)">BLAST</a>
+<a href="https://bioinfo-fr.net/mot-clef/code" class="tag-cloud-link tag-link-22 tag-link-position-5" style="font-size: 9.2894736842105pt;" aria-label="code (6 éléments)">code</a>
+<a href="https://bioinfo-fr.net/mot-clef/concours" class="tag-cloud-link tag-link-285 tag-link-position-6" style="font-size: 9.2894736842105pt;" aria-label="concours (6 éléments)">concours</a>
+<a href="https://bioinfo-fr.net/mot-clef/conference" class="tag-cloud-link tag-link-205 tag-link-position-7" style="font-size: 11.131578947368pt;" aria-label="conférence (8 éléments)">conférence</a>
+<a href="https://bioinfo-fr.net/mot-clef/debutant" class="tag-cloud-link tag-link-149 tag-link-position-8" style="font-size: 16.842105263158pt;" aria-label="débutant (17 éléments)">débutant</a>
+<a href="https://bioinfo-fr.net/mot-clef/decouverte" class="tag-cloud-link tag-link-777 tag-link-position-9" style="font-size: 15.736842105263pt;" aria-label="Découverte (15 éléments)">Découverte</a>
+<a href="https://bioinfo-fr.net/mot-clef/edito" class="tag-cloud-link tag-link-196 tag-link-position-10" style="font-size: 18.684210526316pt;" aria-label="edito (22 éléments)">edito</a>
+<a href="https://bioinfo-fr.net/mot-clef/emploi" class="tag-cloud-link tag-link-181 tag-link-position-11" style="font-size: 11.131578947368pt;" aria-label="emploi (8 éléments)">emploi</a>
+<a href="https://bioinfo-fr.net/mot-clef/formation" class="tag-cloud-link tag-link-93 tag-link-position-12" style="font-size: 15.368421052632pt;" aria-label="formation (14 éléments)">formation</a>
+<a href="https://bioinfo-fr.net/mot-clef/genbank" class="tag-cloud-link tag-link-47 tag-link-position-13" style="font-size: 8pt;" aria-label="GenBank (5 éléments)">GenBank</a>
+<a href="https://bioinfo-fr.net/mot-clef/git" class="tag-cloud-link tag-link-370 tag-link-position-14" style="font-size: 9.2894736842105pt;" aria-label="git (6 éléments)">git</a>
+<a href="https://bioinfo-fr.net/mot-clef/genomique" class="tag-cloud-link tag-link-10 tag-link-position-15" style="font-size: 14.815789473684pt;" aria-label="Génomique (13 éléments)">Génomique</a>
+<a href="https://bioinfo-fr.net/mot-clef/institut" class="tag-cloud-link tag-link-337 tag-link-position-16" style="font-size: 9.2894736842105pt;" aria-label="institut (6 éléments)">institut</a>
+<a href="https://bioinfo-fr.net/mot-clef/interview" class="tag-cloud-link tag-link-97 tag-link-position-17" style="font-size: 14.078947368421pt;" aria-label="Interview (12 éléments)">Interview</a>
+<a href="https://bioinfo-fr.net/mot-clef/jebif" class="tag-cloud-link tag-link-124 tag-link-position-18" style="font-size: 10.210526315789pt;" aria-label="JeBiF (7 éléments)">JeBiF</a>
+<a href="https://bioinfo-fr.net/mot-clef/jobim" class="tag-cloud-link tag-link-98 tag-link-position-19" style="font-size: 12.789473684211pt;" aria-label="JOBIM (10 éléments)">JOBIM</a>
+<a href="https://bioinfo-fr.net/mot-clef/langage" class="tag-cloud-link tag-link-21 tag-link-position-20" style="font-size: 11.131578947368pt;" aria-label="langage (8 éléments)">langage</a>
+<a href="https://bioinfo-fr.net/mot-clef/latex" class="tag-cloud-link tag-link-242 tag-link-position-21" style="font-size: 10.210526315789pt;" aria-label="LaTeX (7 éléments)">LaTeX</a>
+<a href="https://bioinfo-fr.net/mot-clef/master" class="tag-cloud-link tag-link-95 tag-link-position-22" style="font-size: 9.2894736842105pt;" aria-label="master (6 éléments)">master</a>
+<a href="https://bioinfo-fr.net/mot-clef/modelisation" class="tag-cloud-link tag-link-173 tag-link-position-23" style="font-size: 10.210526315789pt;" aria-label="modélisation (7 éléments)">modélisation</a>
+<a href="https://bioinfo-fr.net/mot-clef/metagenomique" class="tag-cloud-link tag-link-8 tag-link-position-24" style="font-size: 8pt;" aria-label="Métagénomique (5 éléments)">Métagénomique</a>
+<a href="https://bioinfo-fr.net/mot-clef/ncbi" class="tag-cloud-link tag-link-59 tag-link-position-25" style="font-size: 9.2894736842105pt;" aria-label="NCBI (6 éléments)">NCBI</a>
+<a href="https://bioinfo-fr.net/mot-clef/ngs" class="tag-cloud-link tag-link-133 tag-link-position-26" style="font-size: 9.2894736842105pt;" aria-label="NGS (6 éléments)">NGS</a>
+<a href="https://bioinfo-fr.net/mot-clef/outil" class="tag-cloud-link tag-link-81 tag-link-position-27" style="font-size: 10.210526315789pt;" aria-label="outil (7 éléments)">outil</a>
+<a href="https://bioinfo-fr.net/mot-clef/perl" class="tag-cloud-link tag-link-11 tag-link-position-28" style="font-size: 10.210526315789pt;" aria-label="Perl (7 éléments)">Perl</a>
+<a href="https://bioinfo-fr.net/mot-clef/phylogenie" class="tag-cloud-link tag-link-70 tag-link-position-29" style="font-size: 9.2894736842105pt;" aria-label="phylogénie (6 éléments)">phylogénie</a>
+<a href="https://bioinfo-fr.net/mot-clef/programmation" class="tag-cloud-link tag-link-20 tag-link-position-30" style="font-size: 18.315789473684pt;" aria-label="programmation (21 éléments)">programmation</a>
+<a href="https://bioinfo-fr.net/mot-clef/proteine" class="tag-cloud-link tag-link-156 tag-link-position-31" style="font-size: 9.2894736842105pt;" aria-label="protéine (6 éléments)">protéine</a>
+<a href="https://bioinfo-fr.net/mot-clef/python" class="tag-cloud-link tag-link-18 tag-link-position-32" style="font-size: 17.947368421053pt;" aria-label="Python (20 éléments)">Python</a>
+<a href="https://bioinfo-fr.net/mot-clef/r" class="tag-cloud-link tag-link-19 tag-link-position-33" style="font-size: 18.684210526316pt;" aria-label="R (22 éléments)">R</a>
+<a href="https://bioinfo-fr.net/mot-clef/rentree" class="tag-cloud-link tag-link-254 tag-link-position-34" style="font-size: 11.131578947368pt;" aria-label="rentrée (8 éléments)">rentrée</a>
+<a href="https://bioinfo-fr.net/mot-clef/script" class="tag-cloud-link tag-link-48 tag-link-position-35" style="font-size: 12.052631578947pt;" aria-label="script (9 éléments)">script</a>
+<a href="https://bioinfo-fr.net/mot-clef/sfbi" class="tag-cloud-link tag-link-128 tag-link-position-36" style="font-size: 10.210526315789pt;" aria-label="SFBI (7 éléments)">SFBI</a>
+<a href="https://bioinfo-fr.net/mot-clef/shell" class="tag-cloud-link tag-link-271 tag-link-position-37" style="font-size: 9.2894736842105pt;" aria-label="shell (6 éléments)">shell</a>
+<a href="https://bioinfo-fr.net/mot-clef/sql" class="tag-cloud-link tag-link-109 tag-link-position-38" style="font-size: 9.2894736842105pt;" aria-label="SQL (6 éléments)">SQL</a>
+<a href="https://bioinfo-fr.net/mot-clef/statistiques" class="tag-cloud-link tag-link-134 tag-link-position-39" style="font-size: 10.210526315789pt;" aria-label="statistiques (7 éléments)">statistiques</a>
+<a href="https://bioinfo-fr.net/mot-clef/strip" class="tag-cloud-link tag-link-742 tag-link-position-40" style="font-size: 11.131578947368pt;" aria-label="strip (8 éléments)">strip</a>
+<a href="https://bioinfo-fr.net/mot-clef/sequencage" class="tag-cloud-link tag-link-132 tag-link-position-41" style="font-size: 12.789473684211pt;" aria-label="séquençage (10 éléments)">séquençage</a>
+<a href="https://bioinfo-fr.net/mot-clef/tips" class="tag-cloud-link tag-link-110 tag-link-position-42" style="font-size: 10.210526315789pt;" aria-label="Tips (7 éléments)">Tips</a>
+<a href="https://bioinfo-fr.net/mot-clef/tutoriel" class="tag-cloud-link tag-link-236 tag-link-position-43" style="font-size: 18.315789473684pt;" aria-label="tutoriel (21 éléments)">tutoriel</a>
+<a href="https://bioinfo-fr.net/mot-clef/vacances" class="tag-cloud-link tag-link-344 tag-link-position-44" style="font-size: 9.2894736842105pt;" aria-label="vacances (6 éléments)">vacances</a>
+<a href="https://bioinfo-fr.net/mot-clef/visualisation" class="tag-cloud-link tag-link-68 tag-link-position-45" style="font-size: 10.210526315789pt;" aria-label="visualisation (7 éléments)">visualisation</a></div>
+</div>			
+	
+</div><!--/#sidebar-->	
+
+<div class="clear"></div>
+			
+	
+
+		</div><!--/#main-->
+		
+
+	</div><!-- /#wrapper -->
+		<div class="clear"></div>		
+		
+		<div id="footer">
+
+<div class="wrapper">
+
+
+<p>Sauf mention contraire, tous les contenus sont publiés sous licence CC-by-SA 2.0 et supérieure.</p><p> Pour les scripts et binaires, référez-vous à la licence associée attribuée par l'auteur.</p>
+<p>Pour tout renseignement supplémentaire : admin AT bioinfo-fr.net.</p>
+
+<div id="designer"> Design: <a href="https://imago-fr.org/">imago-fr.org</a>.</div>
+
+				<div class="clear"></div>
+			</div>	
+
+
+
+
+
+		</div><!--/#footer-->
+	
+	
+
+	
+	<a href="#" class="scrollup" style="display: inline;">Aller en haut</a>			
+
+	<style type="text/css"></style>
+<!-- Highlight Search Terms 1.4.4 ( RavanH - http://status301.net/wordpress-plugins/highlight-search-terms/ ) -->
+<script type="text/javascript">
+var hlst_query = [];
+var hlst_areas = 
+["#groups-dir-list","#members-dir-list","div.bbp-topic-content,div.bbp-reply-content,li.bbp-forum-info,.bbp-topic-title,.bbp-reply-title","article","div.hentry","div.post","#content","#main","div.content","#middle","#container","div.container","div.page","#wrapper","body"];
+</script>
+	<div style="display:none">
+	<div class="grofile-hash-map-c082841ed3133af071ddfa5094a2b466">
+	</div>
+	</div>
+	<div id="sharing_email" style="display: none;">
+		<form action="/latex-les-maths" method="post">
+			<label for="target_email">Envoyer à l'adresse e-mail</label>
+			<input name="target_email" id="target_email" type="email">
+
+			
+				<label for="source_name">Votre nom</label>
+				<input name="source_name" id="source_name" type="text">
+
+				<label for="source_email">Votre adresse e-mail</label>
+				<input name="source_email" id="source_email" type="email">
+
+						<input id="jetpack-source_f_name" name="source_f_name" class="input" size="25" autocomplete="off" title="Ce champ est utilisé pour la validation du formulaire et ne doit pas être changé" type="text">
+			<script>jQuery( document ).ready( function(){ document.getElementById('jetpack-source_f_name').value = '' });</script>
+			
+			<img style="float: right; display: none" class="loading" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/loading.gif" alt="loading" scale="0" width="16" height="16">
+			<input value="Envoyer un e-mail" class="sharing_send" type="submit">
+			<a rel="nofollow" href="#cancel" class="sharing_cancel">Annuler</a>
+
+			<div class="errors errors-1" style="display: none;">
+				L'article n'a pas été envoyé - Vérifiez vos adresses e-mail&nbsp;!			</div>
+
+			<div class="errors errors-2" style="display: none;">
+				La vérification e-mail a échoué, veuillez réessayer			</div>
+
+			<div class="errors errors-3" style="display: none;">
+				Impossible de partager les articles de votre blog par e-mail.			</div>
+		</form>
+	</div>
+<!--[if lte IE 8]>
+<link rel='stylesheet' id='jetpack-carousel-ie8fix-css'  href='https://bioinfo-fr.net/wp-content/plugins/jetpack/modules/carousel/jetpack-carousel-ie8fix.css?ver=20121024' type='text/css' media='all' />
+<![endif]-->
+<script type="text/javascript" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/photon.js"></script>
+<script type="text/javascript" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/hlst-extend.js"></script>
+<script type="text/javascript" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/devicepx-jetpack.js"></script>
+<script type="text/javascript" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/gprofiles.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/wpgroho.js"></script>
+<script type="text/javascript" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/wp-embed.js"></script>
+<script type="text/javascript" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/spin.js"></script>
+<script type="text/javascript" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/jquery.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var jetpackCarouselStrings = 
+{"widths":[370,700,1000,1200,1400,2000],"is_logged_in":"","lang":"fr","ajaxurl":"https:\/\/bioinfo-fr.net\/wp-admin\/admin-ajax.php","nonce":"3352df9844","display_exif":"1","display_geo":"1","single_image_gallery":"1","single_image_gallery_media_file":"","background_color":"black","comment":"Commentaire","post_comment":"Laisser
+ un commentaire","write_comment":"\u00c9crire un 
+commentaire...","loading_comments":"Chargement des 
+commentaires\u2026","download_original":"Afficher dans sa taille 
+r\u00e9elle <span class=\"photo-size\">{0}<span 
+class=\"photo-size-times\">\u00d7<\/span>{1}<\/span>.","no_comment_text":"Veuillez
+ ajouter du contenu \u00e0 votre commentaire.","no_comment_email":"Merci
+ de renseigner une adresse e-mail.","no_comment_author":"Merci de 
+renseigner votre nom.","comment_post_error":"Une erreur s'est produite 
+\u00e0 la publication de votre commentaire. Veuillez nous en excuser, et
+ r\u00e9essayer dans quelques instants.","comment_approved":"Votre 
+commentaire a \u00e9t\u00e9 approuv\u00e9.","comment_unapproved":"Votre 
+commentaire est en attente de validation.","camera":"Appareil 
+photo","aperture":"Ouverture","shutter_speed":"Vitesse 
+d'obturation","focal_length":"Focale","copyright":"Copyright","comment_registration":"0","require_name_email":"1","login_url":"https:\/\/bioinfo-fr.net\/wp-login.php?itsec-hb-token=connection&redirect_to=https%3A%2F%2Fbioinfo-fr.net%2Flatex-les-maths","blog_id":"1","meta_data":["camera","aperture","shutter_speed","focal_length","copyright"],"local_comments_commenting_as":"<fieldset><label
+ for=\"email\">E-mail (requis)<\/label> <input type=\"text\" 
+name=\"email\" class=\"jp-carousel-comment-form-field 
+jp-carousel-comment-form-text-field\" 
+id=\"jp-carousel-comment-form-email-field\" 
+\/><\/fieldset><fieldset><label for=\"author\">Nom (requis)<\/label> 
+<input type=\"text\" name=\"author\" 
+class=\"jp-carousel-comment-form-field 
+jp-carousel-comment-form-text-field\" 
+id=\"jp-carousel-comment-form-author-field\" 
+\/><\/fieldset><fieldset><label for=\"url\">Site web<\/label> <input 
+type=\"text\" name=\"url\" class=\"jp-carousel-comment-form-field 
+jp-carousel-comment-form-text-field\" 
+id=\"jp-carousel-comment-form-url-field\" \/><\/fieldset>"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/jetpack-carousel.js"></script>
+<script type="text/javascript" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/comment-reply.js"></script>
+<script type="text/javascript" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/form.js"></script>
+<script type="text/javascript">
+// Because the `wp_localize_script` method makes everything a string
+infinite_scroll = jQuery.parseJSON(infinite_scroll);
+
+jQuery( infinite_scroll.contentSelector ).infinitescroll( 
+infinite_scroll, function(newElements, data, url) { 
+eval(infinite_scroll.callback); });
+</script>
+
+		<!--[if IE]>
+		<script type="text/javascript">
+			if ( 0 === window.location.hash.indexOf( '#comment-' ) ) {
+				// window.location.reload() doesn't respect the Hash in IE
+				window.location.hash = window.location.hash;
+			}
+		</script>
+		<![endif]-->
+		<script type="text/javascript">
+			(function () {
+				var comm_par_el = document.getElementById( 'comment_parent' ),
+					comm_par = ( comm_par_el && comm_par_el.value ) ? comm_par_el.value
+ : '',
+					frame = document.getElementById( 'jetpack_remote_comment' ),
+					tellFrameNewParent;
+
+				tellFrameNewParent = function () {
+					if ( comm_par ) {
+						frame.src = 
+"https://jetpack.wordpress.com/jetpack-comment/?blogid=126732177&postid=16033&comment_registration=0&require_name_email=1&stc_enabled=1&stb_enabled=1&show_avatars=1&avatar_default=blank&greeting=Laisser+un+commentaire&greeting_reply=R%C3%A9pondre+%C3%A0+%25s&color_scheme=light&lang=fr_FR&jetpack_version=5.4&sig=3a6ee4c16a4885ea20c0c514791ba00d1d0eb737#parent=https%3A%2F%2Fbioinfo-fr.net%2Flatex-les-maths"
+ + '&replytocom=' + parseInt( comm_par, 10 ).toString();
+					} else {
+						frame.src = 
+"https://jetpack.wordpress.com/jetpack-comment/?blogid=126732177&postid=16033&comment_registration=0&require_name_email=1&stc_enabled=1&stb_enabled=1&show_avatars=1&avatar_default=blank&greeting=Laisser+un+commentaire&greeting_reply=R%C3%A9pondre+%C3%A0+%25s&color_scheme=light&lang=fr_FR&jetpack_version=5.4&sig=3a6ee4c16a4885ea20c0c514791ba00d1d0eb737#parent=https%3A%2F%2Fbioinfo-fr.net%2Flatex-les-maths";
+
+					}
+				};
+
+				
+				if ( 'undefined' !== typeof addComment ) {
+					addComment._Jetpack_moveForm = addComment.moveForm;
+
+					addComment.moveForm = function ( commId, parentId, respondId, 
+postId ) {
+						var returnValue = addComment._Jetpack_moveForm( commId, parentId, 
+respondId, postId ),
+							cancelClick, cancel;
+
+						if ( false === returnValue ) {
+							cancel = document.getElementById( 'cancel-comment-reply-link' );
+							cancelClick = cancel.onclick;
+							cancel.onclick = function () {
+								var cancelReturn = cancelClick.call( this );
+								if ( false !== cancelReturn ) {
+									return cancelReturn;
+								}
+
+								if ( ! comm_par ) {
+									return cancelReturn;
+								}
+
+								comm_par = 0;
+
+								tellFrameNewParent();
+
+								return cancelReturn;
+							};
+						}
+
+						if ( comm_par == parentId ) {
+							return returnValue;
+						}
+
+						comm_par = parentId;
+
+						tellFrameNewParent();
+
+						return returnValue;
+					};
+				}
+
+				
+				// Do the post message bit after the dom has loaded.
+				document.addEventListener( 'DOMContentLoaded', function () {
+					var iframe_url = "https:\/\/jetpack.wordpress.com";
+					if ( window.postMessage ) {
+						if ( document.addEventListener ) {
+							window.addEventListener( 'message', function ( event ) {
+								var origin = event.origin.replace( /^http:\/\//i, 'https://' );
+								if ( iframe_url.replace( /^http:\/\//i, 'https://' ) !== origin )
+ {
+									return;
+								}
+								jQuery( frame ).height( event.data );
+							});
+						} else if ( document.attachEvent ) {
+							window.attachEvent( 'message', function ( event ) {
+								var origin = event.origin.replace( /^http:\/\//i, 'https://' );
+								if ( iframe_url.replace( /^http:\/\//i, 'https://' ) !== origin )
+ {
+									return;
+								}
+								jQuery( frame ).height( event.data );
+							});
+						}
+					}
+				})
+
+			})();
+		</script>
+
+		<script type="text/javascript" src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/e-201744.js" async="" defer="defer"></script>
+<script type="text/javascript">
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:5.4',blog:'126732177',post:'16033',tz:'1',srv:'bioinfo-fr.net'} ]);
+	_stq.push([ 'clickTrackerInit', '126732177', '16033' ]);
+</script>
+
+			<div id="cookie-notice" role="banner" class="cn-bottom bootstrap" style="color: rgb(255, 255, 255); background-color: rgb(0, 0, 0); display: block;"><div class="cookie-notice-container"><span id="cn-notice-text">Nous
+ utilisons des cookies pour vous garantir la meilleure expérience sur 
+notre site. Si vous continuez à utiliser ce dernier, nous considérerons 
+que vous acceptez l'utilisation des cookies.</span><a href="#" id="cn-accept-cookie" data-cookie-set="accept" class="cn-set-cookie button bootstrap" style="visibility: visible;">Ok</a>
+				</div>
+			</div>	
+
+
+
+
+
+
+
+
+<img src="LaTeX%C2%A0_%20les%20maths%C2%A0!%20|%20bioinfo-fr.net_fichiers/g.gif" alt=":)" id="wpstats" scale="0" width="6" height="5"></body></html>
+<!-- Dynamic page generated in 1.400 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2017-11-02 09:05:05 -->
+<!-- Compression = gzip -->

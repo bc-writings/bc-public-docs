@@ -1,0 +1,20 @@
+\documentclass[a4paper]{article}
+	\makeatletter
+		\newcommand{\testVide}[1]{
+			\ifx\relax#1\relax
+				VIDE
+			\else
+				NON VIDE : ''#1''
+			\fi%
+		}
+	\makeatother
+
+\begin{document}
+
+Appel avec un argument vide $\mapsto$ \testVide{}.
+
+Appel avec un argument non vide $\mapsto$ \testVide{quelque chose}.
+
+\end{document}
+
+

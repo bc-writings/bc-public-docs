@@ -1,0 +1,53 @@
+% Source : http://tex.stackexchange.com/questions/31038/numbering-theorems-within-the-innermost-sectioning-environment-present-at-that-po
+
+\documentclass{book}
+	\usepackage{etoolbox}
+	\newtheorem{theorem}{Theorem}
+
+% Modify theorem counter to match that of the section unit
+	\preto{\chapter}{\renewcommand{\thetheorem}{\thechapter.\arabic{theorem}}}%
+	\preto{\section}{\renewcommand{\thetheorem}{\thesection.\arabic{theorem}}}%
+	\preto{\subsection}{\renewcommand{\thetheorem}{\thesubsection.\arabic{theorem}}}%
+
+% Reset the counter at every sectional unit
+	\makeatletter
+		\@addtoreset{theorem}{chapter}
+		\@addtoreset{theorem}{section}
+		\@addtoreset{theorem}{subsection}
+	\makeatother
+
+
+\begin{document}
+
+\chapter{First chapter}
+
+\begin{theorem} This is a theorem \end{theorem}
+
+
+\section{First section}
+
+\begin{theorem} This is a theorem \end{theorem}
+
+
+\subsection{First subsection}
+
+\begin{theorem} This is a theorem \end{theorem}
+
+
+\section{Second section}
+
+\begin{theorem} This is a theorem \end{theorem}
+
+
+\subsection{First subsection}
+
+\begin{theorem} This is a theorem \end{theorem}
+
+\begin{theorem} This is a theorem \end{theorem}
+
+
+\subsection{Second subsection}
+
+\begin{theorem} This is a theorem \end{theorem}
+
+\end{document}

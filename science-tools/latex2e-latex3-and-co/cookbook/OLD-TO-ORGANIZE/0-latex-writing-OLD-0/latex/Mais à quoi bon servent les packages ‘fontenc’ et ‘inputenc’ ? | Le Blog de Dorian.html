@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<!--[if IE 7]>
+<html class="ie ie7" lang="fr-FR">
+<![endif]-->
+<!--[if IE 8]>
+<html class="ie ie8" lang="fr-FR">
+<![endif]-->
+<!--[if !(IE 7) & !(IE 8)]><!-->
+<html lang="fr-FR">
+<!--<![endif]-->
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Mais à quoi bon servent les packages &lsquo;fontenc&rsquo; et &lsquo;inputenc&rsquo; ? | Le Blog de Dorian</title>
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<link rel="pingback" href="http://blog.dorian-depriester.fr/xmlrpc.php">
+	<!--[if lt IE 9]>
+	<script src="http://blog.dorian-depriester.fr/wp-content/themes/twentyfourteen/js/html5.js"></script>
+	<![endif]-->
+	
+<link rel="stylesheet" href="http://blog.dorian-depriester.fr/wp-content/plugins/post-terminal/style/terminal.css" type="text/css" media="screen" />
+				<script type="text/javascript">
+					var bhittani_plugin_kksr_js = {"nonce":"c87ef93b1e","grs":true,"ajaxurl":"http:\/\/blog.dorian-depriester.fr\/wp-admin\/admin-ajax.php","func":"kksr_ajax","msg":"Noter cet article","fuelspeed":400,"thankyou":"A vot\u00e9, merci !","error_msg":"Une erreur s\\\\\\'est produite, d\u00e9sol\u00e9...","tooltip":"1","tooltips":[{"tip":"Mouai","color":"#ffffff"},{"tip":"OK.","color":"#ffffff"},{"tip":"Pas mal","color":"#ffffff"},{"tip":"Sympa !","color":"#ffffff"},{"tip":"Mais c\\\\\\\\\\\\\\'e\\\\\\\\\\\\\\'st \u00e9norme !","color":"#ffffff"}]};
+				</script>
+				<!-- Jetpack Site Verification Tags -->
+<meta name="google-site-verification" content="vKxwLlAjMJIQySBQ3SkThlFXXtONQSKASaWqu-EWrTQ" />
+<meta name="p:domain_verify" content="cd53d32bf49f7ae085fa6eef74ed31fb" />
+<link rel='dns-prefetch' href='//s0.wp.com' />
+<link rel='dns-prefetch' href='//s.gravatar.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link href='https://fonts.gstatic.com' crossorigin rel='preconnect' />
+<link rel="alternate" type="application/rss+xml" title="Le Blog de Dorian &raquo; Flux" href="http://blog.dorian-depriester.fr/feed" />
+<link rel="alternate" type="application/rss+xml" title="Le Blog de Dorian &raquo; Flux des commentaires" href="http://blog.dorian-depriester.fr/comments/feed" />
+<link rel="alternate" type="application/rss+xml" title="Le Blog de Dorian &raquo; Mais à quoi bon servent les packages &lsquo;fontenc&rsquo; et &lsquo;inputenc&rsquo;&#160;? Flux des commentaires" href="http://blog.dorian-depriester.fr/latex/mais-a-quoi-bon-servent-les-packages-fontenc-et-inputenc/feed" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/blog.dorian-depriester.fr\/wp-includes\/js\/wp-emoji-release.min.js?ver=e854e6c1e0227fea5321b08f97ab98ed"}};
+			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,56826,8203,55356,56819),0,0),c=j.toDataURL(),b!==c&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55358,56794,8205,9794,65039),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55358,56794,8203,9794,65039),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='google-language-translator-css'  href='http://blog.dorian-depriester.fr/wp-content/plugins/google-language-translator/css/style.css?ver=e854e6c1e0227fea5321b08f97ab98ed' type='text/css' media='all' />
+<link rel='stylesheet' id='twentyfourteen-jetpack-css'  href='http://blog.dorian-depriester.fr/wp-content/plugins/jetpack/modules/theme-tools/compat/twentyfourteen.css?ver=5.4' type='text/css' media='all' />
+<link rel='stylesheet' id='contact-form-7-css'  href='http://blog.dorian-depriester.fr/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=4.9' type='text/css' media='all' />
+<link rel='stylesheet' id='cookie-notice-front-css'  href='http://blog.dorian-depriester.fr/wp-content/plugins/cookie-notice/css/front.css?ver=e854e6c1e0227fea5321b08f97ab98ed' type='text/css' media='all' />
+<link rel='stylesheet' id='bhittani_plugin_kksr-css'  href='http://blog.dorian-depriester.fr/wp-content/plugins/kk-star-ratings/css.css?ver=2.5.1' type='text/css' media='all' />
+<link rel='stylesheet' id='prettyPhoto-css'  href='http://blog.dorian-depriester.fr/wp-content/plugins/onclick-show-popup/css/prettyPhoto.css?ver=e854e6c1e0227fea5321b08f97ab98ed' type='text/css' media='screen' />
+<link rel='stylesheet' id='toc_css-css'  href='http://blog.dorian-depriester.fr/wp-content/plugins/seo-friendly-table-of-contents/style.css?ver=e854e6c1e0227fea5321b08f97ab98ed' type='text/css' media='all' />
+<link rel='stylesheet' id='toc-screen-css'  href='http://blog.dorian-depriester.fr/wp-content/plugins/table-of-contents-plus/screen.min.css?ver=1509' type='text/css' media='all' />
+<link rel='stylesheet' id='dashicons-css'  href='http://blog.dorian-depriester.fr/wp-includes/css/dashicons.min.css?ver=e854e6c1e0227fea5321b08f97ab98ed' type='text/css' media='all' />
+<link rel='stylesheet' id='thickbox-css'  href='http://blog.dorian-depriester.fr/wp-includes/js/thickbox/thickbox.css?ver=e854e6c1e0227fea5321b08f97ab98ed' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-syntax-css-css'  href='http://blog.dorian-depriester.fr/wp-content/plugins/wp-syntax/css/wp-syntax.css?ver=1.1' type='text/css' media='all' />
+<link rel='stylesheet' id='twentyfourteen-lato-css'  href='https://fonts.googleapis.com/css?family=Lato%3A300%2C400%2C700%2C900%2C300italic%2C400italic%2C700italic&#038;subset=latin%2Clatin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='genericons-css'  href='http://blog.dorian-depriester.fr/wp-content/plugins/jetpack/_inc/genericons/genericons/genericons.css?ver=3.1' type='text/css' media='all' />
+<link rel='stylesheet' id='twentyfourteen-style-css'  href='http://blog.dorian-depriester.fr/wp-content/themes/twentyfourteen/style.css?ver=e854e6c1e0227fea5321b08f97ab98ed' type='text/css' media='all' />
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='twentyfourteen-ie-css'  href='http://blog.dorian-depriester.fr/wp-content/themes/twentyfourteen/css/ie.css?ver=20131205' type='text/css' media='all' />
+<![endif]-->
+<!-- Inline jetpack_facebook_likebox -->
+<style id='jetpack_facebook_likebox-inline-css' type='text/css'>
+.widget_facebook_likebox {
+	overflow: hidden;
+}
+
+</style>
+<link rel='stylesheet' id='social-logos-css'  href='http://blog.dorian-depriester.fr/wp-content/plugins/jetpack/_inc/social-logos/social-logos.min.css?ver=1' type='text/css' media='all' />
+<link rel='stylesheet' id='jetpack_css-css'  href='http://blog.dorian-depriester.fr/wp-content/plugins/jetpack/css/jetpack.css?ver=5.4' type='text/css' media='all' />
+<script type='text/javascript' src='http://blog.dorian-depriester.fr/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='http://blog.dorian-depriester.fr/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript' src='http://blog.dorian-depriester.fr/wp-content/plugins/google-language-translator/js/load-flags.js?ver=e854e6c1e0227fea5321b08f97ab98ed'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var related_posts_js_options = {"post_heading":"h4"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://blog.dorian-depriester.fr/wp-content/plugins/jetpack/modules/related-posts/related-posts.js?ver=20150408'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var cnArgs = {"ajaxurl":"http:\/\/blog.dorian-depriester.fr\/wp-admin\/admin-ajax.php","hideEffect":"fade","onScroll":"","onScrollOffset":"100","cookieName":"cookie_notice_accepted","cookieValue":"TRUE","cookieTime":"2592000","cookiePath":"\/","cookieDomain":"","redirection":"","cache":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://blog.dorian-depriester.fr/wp-content/plugins/cookie-notice/js/front.js?ver=1.2.39'></script>
+<script type='text/javascript' src='http://blog.dorian-depriester.fr/wp-content/plugins/kk-star-ratings/js.min.js?ver=2.5.1'></script>
+<script type='text/javascript' src='http://blog.dorian-depriester.fr/wp-content/plugins/onclick-show-popup/js/jquery.prettyPhoto.js?ver=e854e6c1e0227fea5321b08f97ab98ed'></script>
+<script type='text/javascript' src='https://code.jquery.com/ui/1.11.4/jquery-ui.js?ver=e854e6c1e0227fea5321b08f97ab98ed'></script>
+<script type='text/javascript' src='http://blog.dorian-depriester.fr/wp-content/plugins/the-moneytizer/js/jquery.validate.min.js?ver=e854e6c1e0227fea5321b08f97ab98ed'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var the_ajax_script = {"ajaxurl":"http:\/\/blog.dorian-depriester.fr\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://blog.dorian-depriester.fr/wp-content/plugins/the-moneytizer/js/custom-script.js?ver=e854e6c1e0227fea5321b08f97ab98ed'></script>
+<link rel='https://api.w.org/' href='http://blog.dorian-depriester.fr/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://blog.dorian-depriester.fr/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://blog.dorian-depriester.fr/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Afficher (franchement) des zones de saisie de texte' href='http://blog.dorian-depriester.fr/latex/afficher-franchement-des-zones-de-saisie-de-texte' />
+<link rel='next' title='Créer des scripts Nautilus' href='http://blog.dorian-depriester.fr/linux/creer-des-scripts-nautilus' />
+
+<link rel="canonical" href="http://blog.dorian-depriester.fr/latex/mais-a-quoi-bon-servent-les-packages-fontenc-et-inputenc" />
+<link rel='shortlink' href='http://wp.me/p31L9e-xj' />
+<link rel="alternate" type="application/json+oembed" href="http://blog.dorian-depriester.fr/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fblog.dorian-depriester.fr%2Flatex%2Fmais-a-quoi-bon-servent-les-packages-fontenc-et-inputenc" />
+<link rel="alternate" type="text/xml+oembed" href="http://blog.dorian-depriester.fr/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fblog.dorian-depriester.fr%2Flatex%2Fmais-a-quoi-bon-servent-les-packages-fontenc-et-inputenc&#038;format=xml" />
+<style type="text/css">p.hello { font-size:12px; color:darkgray; }#google_language_translator, #flags { text-align:left; }#google_language_translator { clear:both; }#flags { width:165px; }#flags a { display:inline-block; margin-right:2px; }.goog-tooltip {display: none !important;}.goog-tooltip:hover {display: none !important;}.goog-text-highlight {background-color: transparent !important; border: none !important; box-shadow: none !important;}#google_language_translator a {display: none !important; }.goog-te-gadget {color:transparent !important;}.goog-te-gadget { font-size:0px !important; }.goog-branding { display:none; }#google_language_translator { display:none; }.goog-te-banner-frame{visibility:hidden !important;}body { top:0px !important;}</style><link rel="stylesheet" type="text/css" href="http://blog.dorian-depriester.fr/wp-content/plugins/keyboard-key-thumbs/kdb-shortcode.css" /><style>.kk-star-ratings { width:120px; }.kk-star-ratings .kksr-stars a { width:24px; }.kk-star-ratings .kksr-stars, .kk-star-ratings .kksr-stars .kksr-fuel, .kk-star-ratings .kksr-stars a { height:24px; }.kk-star-ratings .kksr-star.gray { background-image: url(http://blog.dorian-depriester.fr/wp-content/plugins/kk-star-ratings/gray.png); }.kk-star-ratings .kksr-star.yellow { background-image: url(http://blog.dorian-depriester.fr/wp-content/plugins/kk-star-ratings/yellow.png); }.kk-star-ratings .kksr-star.orange { background-image: url(http://blog.dorian-depriester.fr/wp-content/plugins/kk-star-ratings/orange.png); }</style>	<link rel="search" type="application/opensearchdescription+xml" href="http://blog.dorian-depriester.fr/osd.xml" title="Le Blog de Dorian" />
+<script type="text/javascript">
+(function(url){
+	if(/(?:Chrome\/26\.0\.1410\.63 Safari\/537\.31|WordfenceTestMonBot)/.test(navigator.userAgent)){ return; }
+	var addEvent = function(evt, handler) {
+		if (window.addEventListener) {
+			document.addEventListener(evt, handler, false);
+		} else if (window.attachEvent) {
+			document.attachEvent('on' + evt, handler);
+		}
+	};
+	var removeEvent = function(evt, handler) {
+		if (window.removeEventListener) {
+			document.removeEventListener(evt, handler, false);
+		} else if (window.detachEvent) {
+			document.detachEvent('on' + evt, handler);
+		}
+	};
+	var evts = 'contextmenu dblclick drag dragend dragenter dragleave dragover dragstart drop keydown keypress keyup mousedown mousemove mouseout mouseover mouseup mousewheel scroll'.split(' ');
+	var logHuman = function() {
+		var wfscr = document.createElement('script');
+		wfscr.type = 'text/javascript';
+		wfscr.async = true;
+		wfscr.src = url + '&r=' + Math.random();
+		(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(wfscr);
+		for (var i = 0; i < evts.length; i++) {
+			removeEvent(evts[i], logHuman);
+		}
+	};
+	for (var i = 0; i < evts.length; i++) {
+		addEvent(evts[i], logHuman);
+	}
+})('//blog.dorian-depriester.fr/?wordfence_logHuman=1&hid=090ED417C0FD5A7BA70285EA13FB7C21');
+</script>
+<link rel='dns-prefetch' href='//v0.wordpress.com'/>
+<link rel='dns-prefetch' href='//jetpack.wordpress.com'/>
+<link rel='dns-prefetch' href='//s0.wp.com'/>
+<link rel='dns-prefetch' href='//s1.wp.com'/>
+<link rel='dns-prefetch' href='//s2.wp.com'/>
+<link rel='dns-prefetch' href='//public-api.wordpress.com'/>
+<link rel='dns-prefetch' href='//0.gravatar.com'/>
+<link rel='dns-prefetch' href='//1.gravatar.com'/>
+<link rel='dns-prefetch' href='//2.gravatar.com'/>
+<link rel='dns-prefetch' href='//i0.wp.com'/>
+<link rel='dns-prefetch' href='//i1.wp.com'/>
+<link rel='dns-prefetch' href='//i2.wp.com'/>
+<link rel='dns-prefetch' href='//widgets.wp.com'/>
+<style type='text/css'>img#wpstats{display:none}</style><style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #ffffff; }
+</style>
+
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Mais à quoi bon servent les packages &lsquo;fontenc&rsquo; et &lsquo;inputenc&rsquo;&#160;?" />
+<meta property="og:url" content="http://blog.dorian-depriester.fr/latex/mais-a-quoi-bon-servent-les-packages-fontenc-et-inputenc" />
+<meta property="og:description" content="Depuis vos premières heures sous LaTeX, on vous dit de toujours utiliser les packages « fontenc » et « inputenc », au moins jusqu&rsquo;à ce que vous vous mettiez à la langue de Miley Cyrus. Je vai…" />
+<meta property="article:published_time" content="2015-03-13T12:30:45+00:00" />
+<meta property="article:modified_time" content="2015-08-25T11:24:51+00:00" />
+<meta property="og:site_name" content="Le Blog de Dorian" />
+<meta property="og:image" content="http://blog.dorian-depriester.fr/wp-content/uploads/2015/03/pixels.png" />
+<meta property="og:image:width" content="453" />
+<meta property="og:image:height" content="310" />
+<meta property="og:locale" content="fr_FR" />
+<meta name="twitter:card" content="summary" />
+			<style type="text/css" id="wp-custom-css">
+				/*
+Bienvenue dans l&rsquo;éditeur CSS de l&rsquo;extension Design !
+
+CSS (Cascading Style Sheets) est un langage qui fournit des informations à
+votre navigateur concernant le style de la page web que vous visitez. Vous
+pouvez maintenant supprimer ces commentaires et commencer à ajouter votre
+propre code CSS.
+
+Par défaut, cette feuille de style sera chargée après la feuille de
+style de votre thème, ce qui veut dire que les nouvelles règles que vous
+ajouterez ici pourront remplacer celles créées par le thème.
+
+Vous pouvez donc ajouter ici les changements que vous souhaitez apporter à
+votre thème, sans avoir à copier la feuille de style existante de
+celui-ci, ou avoir à recréer toutes les règles de style de votre thème.
+*/
+.encart {
+	min-height: 20px;
+	margin: 10px auto 20px;
+	padding: 15px;
+	border-style: solid;
+	border-width: 1px 1px 2px 2px;
+	background: #e5e5ff;
+	border-color: #d8d8eb;
+}			</style>
+		</head>
+
+<body class="post-template-default single single-post postid-2065 single-format-standard custom-background header-image singular">
+<div id="page" class="hfeed site">
+		<div id="site-header">
+		<a href="http://blog.dorian-depriester.fr/" rel="home">
+			<img src="http://blog.dorian-depriester.fr/wp-content/uploads/2012/07/cropped-head-dorian.jpg" width="1260" height="306" alt="Le Blog de Dorian">
+		</a>
+	</div>
+	
+	<header id="masthead" class="site-header" role="banner">
+		<div class="header-main">
+			<h1 class="site-title"><a href="http://blog.dorian-depriester.fr/" rel="home">Le Blog de Dorian</a></h1>
+
+			<div class="search-toggle">
+				<a href="#search-container" class="screen-reader-text" aria-expanded="false" aria-controls="search-container">Recherche</a>
+			</div>
+
+			<nav id="primary-navigation" class="site-navigation primary-navigation" role="navigation">
+				<button class="menu-toggle">Menu principal</button>
+				<a class="screen-reader-text skip-link" href="#content">Aller au contenu</a>
+				<div id="primary-menu" class="nav-menu"><ul>
+<li class="page_item page-item-2"><a href="http://blog.dorian-depriester.fr/about">A propos de moi</a></li>
+<li class="page_item page-item-413"><a href="http://blog.dorian-depriester.fr/archives">Archives</a></li>
+<li class="page_item page-item-2058"><a href="http://blog.dorian-depriester.fr/contact">Contact</a></li>
+</ul></div>
+			</nav>
+		</div>
+
+		<div id="search-container" class="search-box-wrapper hide">
+			<div class="search-box">
+				<form role="search" method="get" class="search-form" action="http://blog.dorian-depriester.fr/">
+				<label>
+					<span class="screen-reader-text">Rechercher :</span>
+					<input type="search" class="search-field" placeholder="Recherche&hellip;" value="" name="s" />
+				</label>
+				<input type="submit" class="search-submit" value="Rechercher" />
+			</form>			</div>
+		</div>
+	</header><!-- #masthead -->
+
+	<div id="main" class="site-main">
+
+	<div id="primary" class="content-area">
+		<div id="content" class="site-content" role="main">
+			
+<article id="post-2065" class="post-2065 post type-post status-publish format-standard hentry category-latex tag-accents tag-encodage tag-fontenc tag-inputenc tag-latex tag-police">
+	
+	<header class="entry-header">
+				<div class="entry-meta">
+			<span class="cat-links"><a href="http://blog.dorian-depriester.fr/category/latex" rel="category tag">LaTeX</a></span>
+		</div>
+		<h1 class="entry-title">Mais à quoi bon servent les packages &lsquo;fontenc&rsquo; et &lsquo;inputenc&rsquo;&#160;?</h1>
+		<div class="entry-meta">
+			<span class="entry-date"><a href="http://blog.dorian-depriester.fr/latex/mais-a-quoi-bon-servent-les-packages-fontenc-et-inputenc" rel="bookmark"><time class="entry-date" datetime="2015-03-13T14:30:45+00:00">13 mars 2015</time></a></span> <span class="byline"><span class="author vcard"><a class="url fn n" href="http://blog.dorian-depriester.fr/author/dorian" rel="author">Dorian</a></span></span>			<span class="comments-link"><a href="http://blog.dorian-depriester.fr/latex/mais-a-quoi-bon-servent-les-packages-fontenc-et-inputenc#comments"><span class="dsq-postid" data-dsqidentifier="2065 http://blog.dorian-depriester.fr/?p=2065">3 commentaires</span></a></span>
+					</div><!-- .entry-meta -->
+	</header><!-- .entry-header -->
+
+		<div class="entry-content">
+		<p style="text-align: justify;">Depuis vos premières heures sous LaTeX, on vous dit de toujours utiliser les packages « fontenc » et « inputenc », au moins jusqu&rsquo;à ce que vous vous mettiez à la langue de Miley Cyrus. Je vais donc (enfin) vous dévoiler leur utilité.</p>
+<p style="text-align: justify;"><span id="more-2065"></span></p>
+<div id="toc_container" class="toc_light_blue no_bullets"><p class="toc_title">Table des mati&egrave;res</p><ul class="toc_list"><li><a href="#inputenc"><span class="toc_number toc_depth_1">1</span> inputenc</a></li><li><a href="#fontenc"><span class="toc_number toc_depth_1">2</span> fontenc</a></li><li><a href="#Exemples_de_rendus"><span class="toc_number toc_depth_1">3</span> Exemples de rendus</a></li><li><a href="#Retablissement_des_polices_vectorielles"><span class="toc_number toc_depth_1">4</span> Rétablissement des polices vectorielles</a></li><li><a href="#Conclusion"><span class="toc_number toc_depth_1">5</span> Conclusion</a><ul><li><a href="#Recommander_cet_article"><span class="toc_number toc_depth_2">5.1</span> Recommander cet article :</a></li><li><a href="#WordPress"><span class="toc_number toc_depth_2">5.2</span> WordPress:</a></li><li><a href="#Articles_similaires"><span class="toc_number toc_depth_2">5.3</span> Articles similaires</a></li></ul></li></ul></div>
+<h2 style="text-align: justify;" id='inputenc'><span id="inputenc">inputenc</span></h2>
+<p style="text-align: justify;">Son nom signifie globalement « encodage d&rsquo;entrée », c&rsquo;est-à-dire encodage des caractères utilisés dans le fichier source. Ce package sert à pouvoir taper les accents directement dans le fichier source (par exemple en utilisant « é » au lieu de <code>\'{e}</code>). <code>inputenc</code> se contente en fait de faire lui-même la conversion entre ces caractères accentués et les commandes d&rsquo;accentuation.</p>
+<p style="text-align: justify;">En option de ce package, il est impératif de préciser quel encodage est utilisé pour le fichier source&#160;:</p>
+
+<div class="wp_syntax" style="position:relative;"><table><tr><td class="code"><pre class="latex" style="font-family:monospace;"><span style="color: #E02020; ">\</span><span style="color: #800000;">usepackage</span><span style="color: #E02020; ">[</span><span style="color: #C08020; font-weight: normal;">utf8</span><span style="color: #E02020; ">]{</span><span style="color: #2020C0; font-weight: normal;">inputenc</span><span style="color: #E02020; ">}</span></pre></td></tr></table><p class="theCode" style="display:none;">\usepackage[utf8]{inputenc}</p></div>
+
+<h2 style="text-align: justify;" id='fontenc'><span id="fontenc">fontenc</span></h2>
+<p style="text-align: justify;">Ce package permet quant à lui d&rsquo;afficher et de prendre correctement en charge ces caractères accentués (du point de vue du fichier de sortie).</p>
+<p style="text-align: justify;">Dans la très grande majorité des cas, on utilisera l&rsquo;encodage T1&#160;:</p>
+
+<div class="wp_syntax" style="position:relative;"><table><tr><td class="code"><pre class="latex" style="font-family:monospace;"><span style="color: #E02020; ">\</span><span style="color: #800000;">usepackage</span><span style="color: #E02020; ">[</span><span style="color: #C08020; font-weight: normal;">T1</span><span style="color: #E02020; ">]{</span><span style="color: #2020C0; font-weight: normal;">fontenc</span><span style="color: #E02020; ">}</span></pre></td></tr></table><p class="theCode" style="display:none;">\usepackage[T1]{fontenc}</p></div>
+
+<p style="text-align: justify;">Il est préférable de charger <code>inputenc</code> <em>avant</em> <code>fontenc</code>.</p>
+<h2 style="text-align: justify;" id='Exemples-de-rendus'><span id="Exemples_de_rendus">Exemples de rendus</span></h2>
+<p style="text-align: justify;">On va donc torturer un peu <img src="//s0.wp.com/latex.php?latex=%5CLaTeX&#038;bg=ffffff&#038;fg=000&#038;s=0" alt="&#92;LaTeX" title="&#92;LaTeX" class="latex" /> avec les accents, en essayant de compiler le code suivant&#160;:</p>
+
+<div class="wp_syntax" style="position:relative;"><table><tr><td class="code"><pre class="latex" style="font-family:monospace;"><span style="color: #E02020; ">\</span><span style="color: #800000;">documentclass</span><span style="color: #E02020; ">{</span><span style="color: #2020C0; font-weight: normal;">minimal<span style="color: #E02020; ">}</span>
+<span style="color: #E02020; ">\</span><span style="color: #800000;">usepackage</span><span style="color: #E02020; ">[</span><span style="color: #C08020; font-weight: normal;">francais</span><span style="color: #E02020; ">]{</span>babel<span style="color: #E02020; ">}</span>
+&nbsp;
+<span style="color: #C00000; font-weight: normal;">\begin</span><span style="color: #E02020; ">{</span><span style="color: #0000D0; font-weight: normal;">document</span><span style="color: #E02020; ">}</span>
+	aïoli défaite abrègement désir dessécher dévot anthropoïde archaïque archaïsme aléa allégresse algèbre arachnoïde amèrement après arène amitié assèchement café céder céleri alcaloïde cicérone ambiguë androïde crémerie anéroïde crépi crépu abcès affrètement anthérozoïde
+<span style="color: #C00000; font-weight: normal;">\end</span><span style="color: #E02020; ">{</span><span style="color: #0000D0; font-weight: normal;">document</span></span><span style="color: #E02020; ">}</span></pre></td></tr></table><p class="theCode" style="display:none;">\documentclass{minimal}
+\usepackage[francais]{babel}
+
+\begin{document}
+	aïoli défaite abrègement désir dessécher dévot anthropoïde archaïque archaïsme aléa allégresse algèbre arachnoïde amèrement après arène amitié assèchement café céder céleri alcaloïde cicérone ambiguë androïde crémerie anéroïde crépi crépu abcès affrètement anthérozoïde
+\end{document}</p></div>
+
+<p>On obtient donc (sans surprise) ceci&#160;:</p>
+<figure id="attachment_2069" style="width: 729px" class="wp-caption aligncenter"><a href="https://i0.wp.com/blog.dorian-depriester.fr/wp-content/uploads/2015/03/Rien.png"><img class="size-full wp-image-2069" src="https://i0.wp.com/blog.dorian-depriester.fr/wp-content/uploads/2015/03/Rien.png?resize=474%2C76" alt="Sans inputenc ni fontenc" srcset="https://i0.wp.com/blog.dorian-depriester.fr/wp-content/uploads/2015/03/Rien.png?w=729 729w, https://i0.wp.com/blog.dorian-depriester.fr/wp-content/uploads/2015/03/Rien.png?resize=300%2C48 300w" sizes="(max-width: 474px) 100vw, 474px" data-recalc-dims="1" /></a><figcaption class="wp-caption-text">Sans <code>inputenc</code> ni <code>fontenc</code></figcaption></figure>
+<p>Aucun des caractères accentués n&rsquo;est sorti, puisqu&rsquo;ils ne peuvent même pas être lus par le compilateur&#160;!</p>
+<p>Si on rajoute <code>inputenc</code>&#160;:</p>
+<figure id="attachment_2068" style="width: 771px" class="wp-caption aligncenter"><a href="https://i0.wp.com/blog.dorian-depriester.fr/wp-content/uploads/2015/03/input.2.png"><img class="size-full wp-image-2068" src="https://i0.wp.com/blog.dorian-depriester.fr/wp-content/uploads/2015/03/input.2.png?resize=474%2C81" alt="inputenc seulement" srcset="https://i0.wp.com/blog.dorian-depriester.fr/wp-content/uploads/2015/03/input.2.png?w=771 771w, https://i0.wp.com/blog.dorian-depriester.fr/wp-content/uploads/2015/03/input.2.png?resize=300%2C51 300w" sizes="(max-width: 474px) 100vw, 474px" data-recalc-dims="1" /></a><figcaption class="wp-caption-text">inputenc seulement</figcaption></figure>
+<p style="text-align: justify;">Le rendu est pas mal (tous les caractères sont correctement lus et affichés), mais la césure est catastrophique&#160;: le compilateur ne connaît pas les règles de césure pour les mot accentués. Et c&rsquo;est, vous vous en doutez, <code>fontenc</code> qui va nous sortir de ce mauvais pas&#160;:</p>
+<figure id="attachment_2070" style="width: 735px" class="wp-caption aligncenter"><a href="https://i2.wp.com/blog.dorian-depriester.fr/wp-content/uploads/2015/03/tout.png"><img class="size-full wp-image-2070" src="https://i2.wp.com/blog.dorian-depriester.fr/wp-content/uploads/2015/03/tout.png?resize=474%2C83" alt="inputenc et fontenc" srcset="https://i2.wp.com/blog.dorian-depriester.fr/wp-content/uploads/2015/03/tout.png?w=735 735w, https://i2.wp.com/blog.dorian-depriester.fr/wp-content/uploads/2015/03/tout.png?resize=300%2C53 300w" sizes="(max-width: 474px) 100vw, 474px" data-recalc-dims="1" /></a><figcaption class="wp-caption-text">inputenc et fontenc</figcaption></figure>
+<p style="text-align: justify;">Le résultat semble maintenant parfait&#8230; de loin&#160;! Car si on zoome&#160;:</p>
+<figure id="attachment_2072" style="width: 453px" class="wp-caption aligncenter"><a href="https://i1.wp.com/blog.dorian-depriester.fr/wp-content/uploads/2015/03/pixels.png"><img class="size-full wp-image-2072" src="https://i1.wp.com/blog.dorian-depriester.fr/wp-content/uploads/2015/03/pixels.png?resize=453%2C310" alt="Cachez cette police matricielle que je ne saurais voir !" srcset="https://i1.wp.com/blog.dorian-depriester.fr/wp-content/uploads/2015/03/pixels.png?w=453 453w, https://i1.wp.com/blog.dorian-depriester.fr/wp-content/uploads/2015/03/pixels.png?resize=300%2C205 300w" sizes="(max-width: 453px) 100vw, 453px" data-recalc-dims="1" /></a><figcaption class="wp-caption-text">Cachez cette police matricielle que je ne saurais voir&#160;!</figcaption></figure>
+<p>&nbsp;</p>
+<p style="text-align: justify;">On en revient à <a title="Vérifier que toutes les polices d’un document PDF sont vectorielles" href="http://blog.dorian-depriester.fr/latex/verifier-que-toutes-les-polices-dun-document-pdf-sont-vectorielles">mon billet précédent</a> sur les polices <img src="//s0.wp.com/latex.php?latex=%5CLaTeX&#038;bg=ffffff&#038;fg=000&#038;s=0" alt="&#92;LaTeX" title="&#92;LaTeX" class="latex" />&#160;: le fait de charger <code>fontenc</code> remplace les polices par défaut par des fontes de type 3, c&rsquo;est-à-dire non vectorielles.</p>
+<h2 style="text-align: justify;" id='Rtablissement-des-polices-vectorielles'><span id="Retablissement_des_polices_vectorielles">Rétablissement des polices vectorielles</span></h2>
+<p style="text-align: justify;">Pour retourner dans le droit chemin, vous&nbsp; pouvez passer par le package <code>ae</code> ou bien utiliser les fontes modernes, voire les deux&#160;:</p>
+
+<div class="wp_syntax" style="position:relative;"><table><tr><td class="code"><pre class="latex" style="font-family:monospace;"><span style="color: #E02020; ">\</span><span style="color: #800000;">usepackage</span><span style="color: #E02020; ">{</span><span style="color: #2020C0; font-weight: normal;">ae,lmodern</span><span style="color: #E02020; ">}</span></pre></td></tr></table><p class="theCode" style="display:none;">\usepackage{ae,lmodern}</p></div>
+
+<p style="text-align: justify;">Il est conseillé de charger <code>lmodern</code> avant <code>fontenc</code></p>
+<h2 style="text-align: justify;" id='Conclusion'><span id="Conclusion">Conclusion</span></h2>
+<p style="text-align: justify;">Votre préambule doit donc <strong>toujours</strong> avoir au moins&#160;:</p>
+
+<div class="wp_syntax" style="position:relative;"><table><tr><td class="code"><pre class="latex" style="font-family:monospace;"><span style="color: #E02020; ">\</span><span style="color: #800000;">usepackage</span><span style="color: #E02020; ">{</span><span style="color: #2020C0; font-weight: normal;">ae,lmodern</span><span style="color: #E02020; ">}</span> <span style="color: #2C922C; font-style: italic;">% ou seulement l'un, ou l'autre, ou times etc.</span>
+<span style="color: #E02020; ">\</span><span style="color: #800000;">usepackage</span><span style="color: #E02020; ">[</span><span style="color: #C08020; font-weight: normal;">francais</span><span style="color: #E02020; ">]{</span><span style="color: #2020C0; font-weight: normal;">babel<span style="color: #E02020; ">}</span>
+<span style="color: #E02020; ">\</span><span style="color: #800000;">usepackage</span><span style="color: #E02020; ">[</span><span style="color: #C08020; font-weight: normal;">utf8</span><span style="color: #E02020; ">]{</span>inputenc<span style="color: #E02020; ">}</span>
+<span style="color: #E02020; ">\</span><span style="color: #800000;">usepackage</span><span style="color: #E02020; ">[</span><span style="color: #C08020; font-weight: normal;">T1</span>]{fontenc</span><span style="color: #E02020; ">}</span></pre></td></tr></table><p class="theCode" style="display:none;">\usepackage{ae,lmodern} % ou seulement l'un, ou l'autre, ou times etc.
+\usepackage[francais]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}</p></div>
+
+
+            <div class="kk-star-ratings  bottom-left lft" data-id="2065">
+                <div class="kksr-stars kksr-star gray">
+                    <div class="kksr-fuel kksr-star yellow" style="width:0%;"></div>
+                    <!-- kksr-fuel --><a href="#1"></a><a href="#2"></a><a href="#3"></a><a href="#4"></a><a href="#5"></a>
+                </div>
+                <!-- kksr-stars -->
+                <div class="kksr-legend"><div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">    <div itemprop="name" class="kksr-title">Mais à quoi bon servent les packages &lsquo;fontenc&rsquo; et &lsquo;inputenc&rsquo;&#160;&#160;?</div><span itemprop="ratingValue">4.5</span> (89.23&#160;%) <span itemprop="ratingCount">13</span> votes    <meta itemprop="bestRating" content="5"/>    <meta itemprop="worstRating" content="1"/>    <div itemprop="itemReviewed" itemscope itemtype="http://schema.org/CreativeWork">    <!-- Product properties -->    </div></div></div>
+                <!-- kksr-legend -->
+            </div>
+            <!-- kk-star-ratings -->
+            <div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-official sd-sharing"><h3 class="sd-title"><span id="Recommander_cet_article">Recommander cet article :</span></h3><div class="sd-content"><ul><li class="share-facebook"><div class="fb-share-button" data-href="http://blog.dorian-depriester.fr/latex/mais-a-quoi-bon-servent-les-packages-fontenc-et-inputenc" data-layout="button_count"></div></li><li class="share-twitter"><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://blog.dorian-depriester.fr/latex/mais-a-quoi-bon-servent-les-packages-fontenc-et-inputenc" data-text="Mais à quoi bon servent les packages &#039;fontenc&#039; et &#039;inputenc&#039; ?"  >Tweet</a></li><li class="share-google-plus-1"><div class="googleplus1_button"><div class="g-plus" data-action="share" data-annotation="bubble" data-href="http://blog.dorian-depriester.fr/latex/mais-a-quoi-bon-servent-les-packages-fontenc-et-inputenc"></div></div></li><li class="share-reddit"><div class="reddit_button"><iframe src="http://www.reddit.com/static/button/button1.html?newwindow=true&width=120&amp;url=http%3A%2F%2Fblog.dorian-depriester.fr%2Flatex%2Fmais-a-quoi-bon-servent-les-packages-fontenc-et-inputenc&amp;title=Mais%20%C3%A0%20quoi%20bon%20servent%20les%20packages%20%27fontenc%27%20et%20%27inputenc%27%20%3F" height="22" width="120" scrolling="no" frameborder="0"></iframe></div></li><li class="share-pinterest"><div class="pinterest_button"><a href="https://www.pinterest.com/pin/create/button/?url=http%3A%2F%2Fblog.dorian-depriester.fr%2Flatex%2Fmais-a-quoi-bon-servent-les-packages-fontenc-et-inputenc&#038;media=http%3A%2F%2Fblog.dorian-depriester.fr%2Fwp-content%2Fuploads%2F2015%2F03%2Fpixels.png&#038;description=Mais%20%C3%A0%20quoi%20bon%20servent%20les%20packages%20%27fontenc%27%20et%20%27inputenc%27%20%3F" data-pin-do="buttonPin" data-pin-config="beside"><img src="https://i0.wp.com/assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png?w=474" data-recalc-dims="1" /></a></div></li><li class="share-pocket"><div class="pocket_button"><a href="https://getpocket.com/save" class="pocket-btn" data-lang="en" data-save-url="http://blog.dorian-depriester.fr/latex/mais-a-quoi-bon-servent-les-packages-fontenc-et-inputenc" data-pocket-count="horizontal" >Pocket</a></div></li><li><a href="#" class="sharing-anchor sd-button share-more"><span>Plus</span></a></li><li class="share-end"></li></ul><div class="sharing-hidden"><div class="inner" style="display: none;"><ul><li class="share-email"><a rel="nofollow" data-shared="" class="share-email sd-button" href="http://blog.dorian-depriester.fr/latex/mais-a-quoi-bon-servent-les-packages-fontenc-et-inputenc?share=email" target="_blank" title="Cliquez pour envoyer par e-mail à un ami"><span>E-mail</span></a></li><li class="share-print"><a rel="nofollow" data-shared="" class="share-print sd-button" href="http://blog.dorian-depriester.fr/latex/mais-a-quoi-bon-servent-les-packages-fontenc-et-inputenc#print" target="_blank" title="Cliquer pour imprimer"><span>Imprimer</span></a></li><li class="share-end"></li><li class="share-end"></li></ul></div></div></div></div></div><div class='sharedaddy sd-block sd-like jetpack-likes-widget-wrapper jetpack-likes-widget-unloaded' id='like-post-wrapper-44748576-2065-59f015ff1447f' data-src='https://widgets.wp.com/likes/#blog_id=44748576&amp;post_id=2065&amp;origin=blog.dorian-depriester.fr&amp;obj_id=44748576-2065-59f015ff1447f' data-name='like-post-frame-44748576-2065-59f015ff1447f'><h3 class="sd-title"><span id="WordPress">WordPress:</span></h3><div class='likes-widget-placeholder post-likes-widget-placeholder' style='height: 55px;'><span class='button'><span>J&#039;aime</span></span> <span class="loading">chargement&hellip;</span></div><span class='sd-text-color'></span><a class='sd-link-color'></a></div>
+<div id='jp-relatedposts' class='jp-relatedposts' >
+	<h3 class="jp-relatedposts-headline"><span id="Articles_similaires"><em>Articles similaires</em></span></h3>
+</div>	</div><!-- .entry-content -->
+	
+	<footer class="entry-meta"><span class="tag-links"><a href="http://blog.dorian-depriester.fr/tag/accents" rel="tag">accents</a><a href="http://blog.dorian-depriester.fr/tag/encodage" rel="tag">encodage</a><a href="http://blog.dorian-depriester.fr/tag/fontenc" rel="tag">fontenc</a><a href="http://blog.dorian-depriester.fr/tag/inputenc" rel="tag">inputenc</a><a href="http://blog.dorian-depriester.fr/tag/latex" rel="tag">LaTeX</a><a href="http://blog.dorian-depriester.fr/tag/police" rel="tag">police</a></span></footer></article><!-- #post-## -->
+	<nav class="navigation post-navigation" role="navigation">
+		<h1 class="screen-reader-text">Navigation des articles</h1>
+		<div class="nav-links">
+			<a href="http://blog.dorian-depriester.fr/latex/afficher-franchement-des-zones-de-saisie-de-texte" rel="prev"><span class="meta-nav">Article précédent</span>Afficher (franchement) des zones de saisie de texte</a><a href="http://blog.dorian-depriester.fr/linux/creer-des-scripts-nautilus" rel="next"><span class="meta-nav">Article suivant</span>Créer des scripts Nautilus</a>		</div><!-- .nav-links -->
+	</nav><!-- .navigation -->
+	
+<div id="disqus_thread">
+            <div id="dsq-content">
+
+
+            <ul id="dsq-comments">
+                    <li class="comment even thread-even depth-1" id="dsq-comment-2763">
+        <div id="dsq-comment-header-2763" class="dsq-comment-header">
+            <cite id="dsq-cite-2763">
+                <span id="dsq-author-user-2763">iGor</span>
+            </cite>
+        </div>
+        <div id="dsq-comment-body-2763" class="dsq-comment-body">
+            <div id="dsq-comment-message-2763" class="dsq-comment-message"><p>Merci pour ce billet très didactique. Je comprends mieux ce que je fais désormais. Mais j&rsquo;utilise le package xunicode en m&rsquo;inspirant de <a href="https://www.zotero.org/igor.m/items/collectionKey/S73WQ7Z8/itemKey/3JIAT9SQ" rel="nofollow">https://www.zotero.org/igor.m/items/collectionKey/S73WQ7Z8/itemKey/3JIAT9SQ</a></p>
+<p>Bonne fin de semaine !</p>
+</div>
+        </div>
+
+    </li><!-- #comment-## -->
+    <li class="comment odd alt thread-odd thread-alt depth-1" id="dsq-comment-2910">
+        <div id="dsq-comment-header-2910" class="dsq-comment-header">
+            <cite id="dsq-cite-2910">
+                <span id="dsq-author-user-2910">Yvan</span>
+            </cite>
+        </div>
+        <div id="dsq-comment-body-2910" class="dsq-comment-body">
+            <div id="dsq-comment-message-2910" class="dsq-comment-message"><p>Bonne explication pour un débutant !<br />
+Cependant une incohérence apparaît dans votre article : vous stipulez  » Il est préférable de charger inputenc avant fontenc. » or dans l&rsquo;exemple de code en fin d&rsquo;article c&rsquo;est l&rsquo;inverse qui est mentionné&#8230;..  😉</p>
+</div>
+        </div>
+
+    <ul class="children">
+    <li class="comment even depth-2" id="dsq-comment-2914">
+        <div id="dsq-comment-header-2914" class="dsq-comment-header">
+            <cite id="dsq-cite-2914">
+                <a id="dsq-author-user-2914" href="http://blog.dorian-depriester.fr/" target="_blank" rel="nofollow">Dorian</a>
+            </cite>
+        </div>
+        <div id="dsq-comment-body-2914" class="dsq-comment-body">
+            <div id="dsq-comment-message-2914" class="dsq-comment-message"><p>Exact ! Merci pour cette remarque, c&rsquo;est maintenant corrigé.<br />
+Toutefois, renseignements pris, il semble que l&rsquo;ordre n&rsquo;importe plus beaucoup avec les version actuelles de (pdf)latex et <code>inputenc</code> [1].<br />
+[1] <a href="http://tex.stackexchange.com/a/2867" rel="nofollow">http://tex.stackexchange.com/a/2867</a></p>
+</div>
+        </div>
+
+    </li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+            </ul>
+
+
+        </div>
+
+    </div>
+
+		</div><!-- #content -->
+	</div><!-- #primary -->
+
+<div id="content-sidebar" class="content-sidebar widget-area" role="complementary">
+	<aside id="themoneytizer_widget-3" class="widget widget_themoneytizer_widget"><h1 class="widget-title">Pour que vive ce blog</h1><div id="9472-2"><script src="//ads.themoneytizer.com/s/gen.js"></script><script src="//ads.themoneytizer.com/s/requestform.js?siteId=9472&formatId=2" ></script></div></aside><aside id="top-posts-2" class="widget widget_top-posts"><h1 class="widget-title">Les articles qui ont la côte</h1><ul>				<li>
+										<a href="http://blog.dorian-depriester.fr/internet/une-bonne-arnaque-des-familles-sur-leboncoin" class="bump-view" data-bump-view="tp">
+						L&#039;arnaque du paiement par Mandat Cash sur LeBonCoin.fr					</a>
+									</li>
+							<li>
+										<a href="http://blog.dorian-depriester.fr/linux/afficher-utiliser-lhistoriques-commandes-utilisees" class="bump-view" data-bump-view="tp">
+						Afficher et utiliser l&#039;historique des commandes Linux					</a>
+									</li>
+							<li>
+										<a href="http://blog.dorian-depriester.fr/internet/lemail-tracking-par-george-abitbol" class="bump-view" data-bump-view="tp">
+						L&#039;email Tracking (par George Abitbol)					</a>
+									</li>
+							<li>
+										<a href="http://blog.dorian-depriester.fr/internet/appelez-depuis-votre-ligne-fixe-avec-votre-telephone-portable-android" class="bump-view" data-bump-view="tp">
+						Appelez depuis votre ligne fixe avec votre téléphone portable (Android)					</a>
+									</li>
+							<li>
+										<a href="http://blog.dorian-depriester.fr/latex/template-these/template-complet-pour-manuscrit-de-these" class="bump-view" data-bump-view="tp">
+						Template complet pour manuscrit de thèse					</a>
+									</li>
+							<li>
+										<a href="http://blog.dorian-depriester.fr/internet/telecharger-un-google-book-avec-firefox" class="bump-view" data-bump-view="tp">
+						Télécharger un Google Book avec Firefox					</a>
+									</li>
+							<li>
+										<a href="http://blog.dorian-depriester.fr/linux/raspberry/installation-xbmcsmbtransmission-sur-raspberry-pi" class="bump-view" data-bump-view="tp">
+						Installation de XBMC+SMB+Transmission sur Raspberry Pi					</a>
+									</li>
+							<li>
+										<a href="http://blog.dorian-depriester.fr/linux/diviser-le-terminal-en-plusieurs-fenetres-ou-linverse" class="bump-view" data-bump-view="tp">
+						Diviser le terminal en plusieurs fenêtres (ou l&#039;inverse…)					</a>
+									</li>
+							<li>
+										<a href="http://blog.dorian-depriester.fr/latex/page-de-garde-pour-manuscrit-de-these" class="bump-view" data-bump-view="tp">
+						Page de garde pour manuscrit de thèse					</a>
+									</li>
+							<li>
+										<a href="http://blog.dorian-depriester.fr/latex/tikz/tikz-de-magnifiques-figures-directement-sous-latex" class="bump-view" data-bump-view="tp">
+						TikZ : de magnifiques figures directement sous LaTeX					</a>
+									</li>
+			</ul></aside><aside id="facebook-likebox-2" class="widget widget_facebook_likebox"><h1 class="widget-title"><a href="https://www.facebook.com/pages/Le-blog-de-Dorian/290941460962511">Ma page facebook</a></h1>		<div id="fb-root"></div>
+		<div class="fb-page" data-href="https://www.facebook.com/pages/Le-blog-de-Dorian/290941460962511" data-width="300"  data-height="130" data-hide-cover="false" data-show-facepile="false" data-show-posts="false">
+		<div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/pages/Le-blog-de-Dorian/290941460962511"><a href="https://www.facebook.com/pages/Le-blog-de-Dorian/290941460962511">Ma page facebook</a></blockquote></div>
+		</div>
+		</aside><aside id="blog_subscription-2" class="widget jetpack_subscription_widget"><h1 class="widget-title">Abonnez-vous à ce blog par e-mail.</h1>
+			<form action="#" method="post" accept-charset="utf-8" id="subscribe-blog-blog_subscription-2">
+				<div id="subscribe-text"><p>Saisissez votre adresse e-mail pour vous abonner à ce blog et recevoir une notification de chaque nouvel article par email.</p>
+</div>					<p id="subscribe-email">
+						<label id="jetpack-subscribe-label" for="subscribe-field-blog_subscription-2">
+							Adresse e-mail						</label>
+						<input type="email" name="email" required="required" class="required" value="" id="subscribe-field-blog_subscription-2" placeholder="Adresse e-mail" />
+					</p>
+
+					<p id="subscribe-submit">
+						<input type="hidden" name="action" value="subscribe" />
+						<input type="hidden" name="source" value="http://blog.dorian-depriester.fr/latex/mais-a-quoi-bon-servent-les-packages-fontenc-et-inputenc" />
+						<input type="hidden" name="sub-type" value="widget" />
+						<input type="hidden" name="redirect_fragment" value="blog_subscription-2" />
+												<input type="submit" value="Abonnez-vous" name="jetpack_subscriptions_widget" />
+					</p>
+							</form>
+
+			<script>
+			/*
+			Custom functionality for safari and IE
+			 */
+			(function( d ) {
+				// In case the placeholder functionality is available we remove labels
+				if ( ( 'placeholder' in d.createElement( 'input' ) ) ) {
+					var label = d.querySelector( 'label[for=subscribe-field-blog_subscription-2]' );
+						label.style.clip 	 = 'rect(1px, 1px, 1px, 1px)';
+						label.style.position = 'absolute';
+						label.style.height   = '1px';
+						label.style.width    = '1px';
+						label.style.overflow = 'hidden';
+				}
+
+				// Make sure the email value is filled in before allowing submit
+				var form = d.getElementById('subscribe-blog-blog_subscription-2'),
+					input = d.getElementById('subscribe-field-blog_subscription-2'),
+					handler = function( event ) {
+						if ( '' === input.value ) {
+							input.focus();
+
+							if ( event.preventDefault ){
+								event.preventDefault();
+							}
+
+							return false;
+						}
+					};
+
+				if ( window.addEventListener ) {
+					form.addEventListener( 'submit', handler, false );
+				} else {
+					form.attachEvent( 'onsubmit', handler );
+				}
+			})( document );
+			</script>
+				
+</aside></div><!-- #content-sidebar -->
+<div id="secondary">
+		<h2 class="site-description">Le GNU ne mourra jamais !</h2>
+	
+		<nav role="navigation" class="navigation site-navigation secondary-navigation">
+		<div class="menu-categories-container"><ul id="menu-categories" class="menu"><li id="menu-item-348" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-has-children menu-item-348"><a href="http://blog.dorian-depriester.fr/category/latex">LaTeX</a>
+<ul  class="sub-menu">
+	<li id="menu-item-449" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-449"><a href="http://blog.dorian-depriester.fr/category/latex">LaTeX</a></li>
+	<li id="menu-item-339" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-339"><a href="http://blog.dorian-depriester.fr/category/latex/tikz">TikZ</a></li>
+	<li id="menu-item-412" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-412"><a href="http://blog.dorian-depriester.fr/category/latex/beamer">Beamer</a></li>
+</ul>
+</li>
+<li id="menu-item-340" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-340"><a href="http://blog.dorian-depriester.fr/category/linux">GNU/Linux</a>
+<ul  class="sub-menu">
+	<li id="menu-item-1626" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1626"><a href="http://blog.dorian-depriester.fr/category/linux">Linux</a></li>
+	<li id="menu-item-1625" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1625"><a href="http://blog.dorian-depriester.fr/category/linux/raspberry">Raspberry Pi</a></li>
+</ul>
+</li>
+<li id="menu-item-341" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-341"><a href="http://blog.dorian-depriester.fr/category/internet">Internet pratique</a></li>
+<li id="menu-item-342" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-342"><a href="http://blog.dorian-depriester.fr/category/graphisme">Graphisme</a></li>
+<li id="menu-item-343" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-343"><a href="http://blog.dorian-depriester.fr/category/android">Android</a></li>
+<li id="menu-item-344" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-344"><a href="http://blog.dorian-depriester.fr/category/traitement">Traitement de données</a></li>
+<li id="menu-item-1825" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1825"><a href="http://blog.dorian-depriester.fr/category/cours">Supports de cours</a>
+<ul  class="sub-menu">
+	<li id="menu-item-1826" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1826"><a href="http://blog.dorian-depriester.fr/category/cours/cours-latex">Cours LaTeX</a></li>
+	<li id="menu-item-1827" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1827"><a href="http://blog.dorian-depriester.fr/category/cours/mecanique">Mécanique générale</a></li>
+</ul>
+</li>
+<li id="menu-item-448" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-448"><a href="http://blog.dorian-depriester.fr/archives">Pour résumer</a>
+<ul  class="sub-menu">
+	<li id="menu-item-450" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-450"><a href="http://blog.dorian-depriester.fr/archives">Archives</a></li>
+	<li id="menu-item-416" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-416"><a href="http://blog.dorian-depriester.fr/about">A propos de moi</a></li>
+	<li id="menu-item-2060" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2060"><a href="http://blog.dorian-depriester.fr/contact">Contact</a></li>
+</ul>
+</li>
+</ul></div>	</nav>
+	
+		<div id="primary-sidebar" class="primary-sidebar widget-area" role="complementary">
+				<aside id="recent-posts-5" class="widget widget_recent_entries">		<h1 class="widget-title">Articles récents</h1>		<ul>
+					<li>
+				<a href="http://blog.dorian-depriester.fr/linux/resoudre-le-probleme-du-retro-eclairage-du-clavier-sous-linux">Résoudre le problème du rétro-éclairage du clavier sous Linux</a>
+						</li>
+					<li>
+				<a href="http://blog.dorian-depriester.fr/latex/aligner-un-ensemble-dequations-sous-latex">Aligner un ensemble d&rsquo;équations sous LaTeX</a>
+						</li>
+					<li>
+				<a href="http://blog.dorian-depriester.fr/latex/tikz/afficher-une-colorbar-avec-tikz">Afficher une colorbar avec TikZ</a>
+						</li>
+					<li>
+				<a href="http://blog.dorian-depriester.fr/programmation/matrices-dadjacence-orientees-en-c">Matrices d&rsquo;adjacence orientées en C++</a>
+						</li>
+					<li>
+				<a href="http://blog.dorian-depriester.fr/linux/fusionner-deux-fichiers-de-donnees-pour-pgfplots">Fusionner deux fichiers de données pour PGFPlots</a>
+						</li>
+				</ul>
+		</aside>			</div><!-- #primary-sidebar -->
+	</div><!-- #secondary -->
+
+		</div><!-- #main -->
+
+		<footer id="colophon" class="site-footer" role="contentinfo">
+
+			
+			<div class="site-info">
+								<a href="https://wordpress.org/">Fièrement propulsé par WordPress</a>
+			</div><!-- .site-info -->
+		</footer><!-- #colophon -->
+	</div><!-- #page -->
+
+	    <script>jQuery(document).ready(function($) { $('#flags a, a.single-language, .tool-items a').each(function() { $(this).attr('data-lang', $(this).attr('title')); }); $(document.body).on("click","a.flag", function(){function l(){doGoogleLanguageTranslator(default_lang+"|"+default_lang); }function n(){doGoogleLanguageTranslator(default_lang+"|"+lang_prefix); } lang_text=$(this).attr('data-lang'),default_lang="fr",lang_prefix=$(this).attr("class").split(" ")[2],$(".tool-container").hide(),lang_prefix==default_lang?l():n()}),0==$("body > #google_language_translator").length&&$("#glt-footer").html("<div id='google_language_translator'></div>"); });</script><script type='text/javascript' src='//translate.google.com/translate_a/element.js?cb=GoogleLanguageTranslatorInit'></script>
+
+    <div id="flags" style="display:none"><ul id="sortable" class="ui-sortable"><li id='Chinese (Simplified)'><a title='Chinese (Simplified)' class='notranslate flag zh-CN Chinese (Simplified)'></a></li><li id='English'><a title='English' class='notranslate flag en English'></a></li><li id='French'><a title='French' class='notranslate flag fr French'></a></li><li id='German'><a title='German' class='notranslate flag de German'></a></li><li id='Spanish'><a title='Spanish' class='notranslate flag es Spanish'></a></li></ul></div><div id='glt-footer'></div><script type='text/javascript'>function GoogleLanguageTranslatorInit() { new google.translate.TranslateElement({pageLanguage: 'fr', autoDisplay: false}, 'google_language_translator');}</script>	<div style="display:none">
+	</div>
+
+	<script type="text/javascript">
+		window.WPCOM_sharing_counts = {"http:\/\/blog.dorian-depriester.fr\/latex\/mais-a-quoi-bon-servent-les-packages-fontenc-et-inputenc":2065};
+	</script>
+<div id="fb-root"></div>
+			<script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = 'https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&appId=249643311490&version=v2.3'; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script>
+			<script>
+			jQuery( document.body ).on( 'post-load', function() {
+				if ( 'undefined' !== typeof FB ) {
+					FB.XFBML.parse();
+				}
+			} );
+			</script>
+						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+						<script>
+			function renderGooglePlus1() {
+				if ( 'undefined' === typeof gapi ) {
+					return;
+				}
+
+				jQuery( '.g-plus' ).each(function() {
+					var $button = jQuery( this );
+
+					if ( ! $button.data( 'gplus-rendered' ) ) {
+						gapi.plusone.render( this, {
+							href: $button.attr( 'data-href' ),
+							size: $button.attr( 'data-size' ),
+							annotation: $button.attr( 'data-annotation' )
+						});
+
+						$button.data( 'gplus-rendered', true );
+					}
+				});
+			}
+
+			(function() {
+				var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+				po.src = 'https://apis.google.com/js/plusone.js';
+				po.innerHTML = '{"parsetags": "explicit"}';
+				po.onload = renderGooglePlus1;
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+			})();
+
+			jQuery( document.body ).on( 'post-load', renderGooglePlus1 );
+			</script>
+								<script type="text/javascript">
+				// Pinterest shared resources
+				var s = document.createElement("script");
+				s.type = "text/javascript";
+				s.async = true;
+				s.setAttribute('data-pin-hover', true);				s.src = window.location.protocol + "//assets.pinterest.com/js/pinit.js";
+				var x = document.getElementsByTagName("script")[0];
+				x.parentNode.insertBefore(s, x);
+				// if 'Pin it' button has 'counts' make container wider
+				jQuery(window).load( function(){ jQuery( 'li.share-pinterest a span:visible' ).closest( '.share-pinterest' ).width( '80px' ); } );
+			</script>
+				<script>
+		// Don't use Pocket's default JS as it we need to force init new Pocket share buttons loaded via JS.
+		function jetpack_sharing_pocket_init() {
+			jQuery.getScript( 'https://widgets.getpocket.com/v1/j/btn.js?v=1' );
+		}
+		jQuery( document ).ready( jetpack_sharing_pocket_init );
+		jQuery( document.body ).on( 'post-load', jetpack_sharing_pocket_init );
+		</script>
+			<div id="sharing_email" style="display: none;">
+		<form action="/latex/mais-a-quoi-bon-servent-les-packages-fontenc-et-inputenc" method="post">
+			<label for="target_email">Envoyer à l'adresse e-mail</label>
+			<input type="email" name="target_email" id="target_email" value="" />
+
+			
+				<label for="source_name">Votre nom</label>
+				<input type="text" name="source_name" id="source_name" value="" />
+
+				<label for="source_email">Votre adresse e-mail</label>
+				<input type="email" name="source_email" id="source_email" value="" />
+
+						<input type="text" id="jetpack-source_f_name" name="source_f_name" class="input" value="" size="25" autocomplete="off" title="Ce champ est utilisé pour la validation du formulaire et ne doit pas être changé" />
+			<script>jQuery( document ).ready( function(){ document.getElementById('jetpack-source_f_name').value = '' });</script>
+			
+			<img style="float: right; display: none" class="loading" src="http://blog.dorian-depriester.fr/wp-content/plugins/jetpack/modules/sharedaddy/images/loading.gif" alt="loading" width="16" height="16" />
+			<input type="submit" value="Envoyer un e-mail" class="sharing_send" />
+			<a rel="nofollow" href="#cancel" class="sharing_cancel">Annuler</a>
+
+			<div class="errors errors-1" style="display: none;">
+				L'article n'a pas été envoyé - Vérifiez vos adresses e-mail&nbsp;!			</div>
+
+			<div class="errors errors-2" style="display: none;">
+				La vérification e-mail a échoué, veuillez réessayer			</div>
+
+			<div class="errors errors-3" style="display: none;">
+				Impossible de partager les articles de votre blog par e-mail.			</div>
+		</form>
+	</div>
+<script type='text/javascript' src='http://blog.dorian-depriester.fr/wp-content/plugins/jetpack/modules/photon/photon.js?ver=20130122'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wpcf7 = {"apiSettings":{"root":"http:\/\/blog.dorian-depriester.fr\/wp-json\/contact-form-7\/v1","namespace":"contact-form-7\/v1"},"recaptcha":{"messages":{"empty":"Merci de confirmer que vous n\u2019\u00eates pas un robot."}},"cached":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://blog.dorian-depriester.fr/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=4.9'></script>
+<script type='text/javascript' src='https://s0.wp.com/wp-content/js/devicepx-jetpack.js?ver=201743'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var tocplus = {"smooth_scroll":"1","visibility_show":"Afficher","visibility_hide":"Cacher","width":"Auto"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://blog.dorian-depriester.fr/wp-content/plugins/table-of-contents-plus/front.min.js?ver=1509'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var thickboxL10n = {"next":"Suiv.\u00a0>","prev":"<\u00a0Pr\u00e9c.","image":"Image","of":"sur","close":"Fermer","noiframes":"Cette fonctionnalit\u00e9 requiert des iframes. Les iframes sont d\u00e9sactiv\u00e9es sur votre navigateur, ou alors il ne les accepte pas.","loadingAnimation":"http:\/\/blog.dorian-depriester.fr\/wp-includes\/js\/thickbox\/loadingAnimation.gif"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://blog.dorian-depriester.fr/wp-includes/js/thickbox/thickbox.js?ver=3.1-20121105'></script>
+<script type='text/javascript' src='http://blog.dorian-depriester.fr/wp-content/plugins/wp-syntax/js/wp-syntax.js?ver=1.1'></script>
+<script type='text/javascript' src='http://s.gravatar.com/js/gprofiles.js?ver=2017Octaa'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://blog.dorian-depriester.fr/wp-content/plugins/jetpack/modules/wpgroho.js?ver=e854e6c1e0227fea5321b08f97ab98ed'></script>
+<script type='text/javascript' src='http://blog.dorian-depriester.fr/wp-includes/js/comment-reply.min.js?ver=e854e6c1e0227fea5321b08f97ab98ed'></script>
+<script type='text/javascript' src='http://blog.dorian-depriester.fr/wp-content/themes/twentyfourteen/js/functions.js?ver=20150315'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var jpfbembed = {"appid":"249643311490","locale":"fr_FR"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://blog.dorian-depriester.fr/wp-content/plugins/jetpack/_inc/facebook-embed.js'></script>
+<script type='text/javascript' src='http://blog.dorian-depriester.fr/wp-includes/js/wp-embed.min.js?ver=e854e6c1e0227fea5321b08f97ab98ed'></script>
+<script type='text/javascript' src='http://blog.dorian-depriester.fr/wp-content/plugins/jetpack/_inc/postmessage.js?ver=5.4'></script>
+<script type='text/javascript' src='http://blog.dorian-depriester.fr/wp-content/plugins/jetpack/_inc/jquery.jetpack-resize.js?ver=5.4'></script>
+<script type='text/javascript' src='http://blog.dorian-depriester.fr/wp-content/plugins/jetpack/modules/likes/queuehandler.js?ver=5.4'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var embedVars = {"disqusConfig":{"platform":"wordpress@4.8.2","language":"","remote_auth_s3":"W10= 02c8243cc858bbe0c27ada78e5aa10ef7566554c 1508906495","api_key":"nMmfQTIqLHbBd5ymnIN9XhxggZdyVSdbFZNU7iQ90KnTv7PJNqBNNwwqjx4u2TUk","sso":{"name":"Le Blog de Dorian","button":false,"url":"http:\/\/blog.dorian-depriester.fr\/wp-login.php","logout":"http:\/\/blog.dorian-depriester.fr\/wp-login.php?action=logout","width":"800","height":"700"}},"disqusIdentifier":"2065 http:\/\/blog.dorian-depriester.fr\/?p=2065","disqusShortname":"dorian-depriester","disqusTitle":"Mais \u00e0 quoi bon servent les packages \u2018fontenc\u2019 et \u2018inputenc\u2019\u00a0?","disqusUrl":"http:\/\/blog.dorian-depriester.fr\/latex\/mais-a-quoi-bon-servent-les-packages-fontenc-et-inputenc","options":{"manualSync":false},"postId":"2065"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://blog.dorian-depriester.fr/wp-content/plugins/disqus-comment-system/media/js/disqus.js?ver=e854e6c1e0227fea5321b08f97ab98ed'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var countVars = {"disqusShortname":"dorian-depriester"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://blog.dorian-depriester.fr/wp-content/plugins/disqus-comment-system/media/js/count.js?ver=e854e6c1e0227fea5321b08f97ab98ed'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var sharing_js_options = {"lang":"en","counts":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://blog.dorian-depriester.fr/wp-content/plugins/jetpack/modules/sharedaddy/sharing.js?ver=5.4'></script>
+<script type='text/javascript'>
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-facebook', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomfacebook', 'menubar=1,resizable=1,width=600,height=400' );
+				return false;
+			});
+</script>
+	<iframe src='https://widgets.wp.com/likes/master.html?ver=20170629#ver=20170629&amp;lang=fr' scrolling='no' id='likes-master' name='likes-master' style='display:none;'></iframe>
+	<div id='likes-other-gravatars'><div class="likes-text"><span>%d</span> blogueurs aiment cette page :</div><ul class="wpl-avatars sd-like-gravatars"></ul></div>
+	<script type='text/javascript' src='https://stats.wp.com/e-201743.js' async defer></script>
+<script type='text/javascript'>
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:5.4',blog:'44748576',post:'2065',tz:'2',srv:'blog.dorian-depriester.fr'} ]);
+	_stq.push([ 'clickTrackerInit', '44748576', '2065' ]);
+</script>
+
+			<div id="cookie-notice" role="banner" class="cn-top wp-default" style="color: #fff; background-color: #000;"><div class="cookie-notice-container"><span id="cn-notice-text">Afin d'améliorer votre expérience utilisateur, ce blog utilise des <a href="http://fr.wikipedia.org/wiki/Cookie_%28informatique%29" target="_blank">cookies</a>. Même si ceux-ci ne me rapportent rien, je suis dans l'obligation de vous informer de leur utilisation ici.</span><a href="#" id="cn-accept-cookie" data-cookie-set="accept" class="cn-set-cookie button wp-default">Ok, c'est cool</a><a href="http://www.cnil.fr/vos-obligations/sites-web-cookies-et-autres-traceurs/que-dit-la-loi/bandeau-cookie/" target="_blank" id="cn-more-info" class="cn-more-info button wp-default">En savoir plus</a>
+				</div>
+			</div></body>
+</html>
+<!-- Dynamic page generated in 1.938 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2017-10-25 06:41:35 -->
+
+<!-- super cache -->

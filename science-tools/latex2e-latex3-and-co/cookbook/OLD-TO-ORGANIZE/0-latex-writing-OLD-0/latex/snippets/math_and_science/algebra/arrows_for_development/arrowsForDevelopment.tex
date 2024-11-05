@@ -1,0 +1,25 @@
+% Source : http://tex.stackexchange.com/questions/35717/how-to-draw-arrows-between-parts-of-an-equation-to-show-the-math-distributive-pr
+
+\documentclass[border=10pt]{standalone}
+	\usepackage{amsmath}
+	\usepackage{tikz}
+	\usetikzlibrary{calc,shapes}
+
+	\newcommand{\tikzmark}[1]{\tikz[overlay,remember picture] \node (#1) {};}
+	\newcommand{\DrawBox}[2]{%
+		\begin{tikzpicture}[overlay,remember picture]
+			\draw[->,shorten >=5pt,shorten <=5pt,out=70,in=130,distance=0.5cm,#1]
+				(MarkA.north) to (MarkC.north);
+			\draw[->,shorten >=5pt,shorten <=5pt,out=50,in=140,distance=0.3cm,#2]
+				(MarkA.north) to (MarkB.north);
+		\end{tikzpicture}
+	}
+
+
+\begin{document}
+
+\begin{equation}
+	\tikzmark{MarkA}5 (x\tikzmark{MarkB} + 6\tikzmark{MarkC})\DrawBox{red}{blue}
+\end{equation}
+
+\end{document}

@@ -1,0 +1,74 @@
+\documentclass{beamer}
+\usetheme{Madrid}
+% disable navigation symbols on the main page
+% (the important ones are shown on the note page)
+\setbeamertemplate{navigation symbols}{}
+
+\usepackage{tikz}
+\title{Better Approach to a Note Page}
+\author{Benjamin Kellermann}
+\institute[TUD]{Technische Universit\"{a}t Dresden}
+\begin{document}
+\maketitle
+\note{%
+	\begin{itemize}
+		\item this is a note
+		\item do not forget to speak out loud
+		\item be convincing
+		\item the counter will start, when you leave the titlepage
+	\end{itemize}
+}
+\frame{\frametitle{Table of Contents}\tableofcontents}
+\section{Explanation}
+\subsection{Installation process}
+\begin{frame}{Installation process}%
+	\begin{itemize}[<+->]
+		\item configure your computer to 1400x1050
+		\item configure the projector to have 1024x786
+		\item the projector should use some pic in pic feature and display the upper right part, e.g.:\\
+		\texttt{xrandr --output VGA1 --mode 1024x786 --pos 376x0}
+	\end{itemize}
+\note{%
+	\begin{itemize}
+		\item this is only one frame, therefore the pagecounter counts for all pdfpages of this frame
+	\end{itemize}
+}
+\end{frame}
+\subsection{Advantages of this Note Page}
+\begin{frame}{Advantages of this Note Page}
+	\begin{itemize}
+		\item you can use the navigation on the side instead of a navigationbar on the slides
+		\item you can jump directly to pages (e.g., question from auditorium: ``Can you please jump to slide 10 once more?'')
+		\item you can jump to sections/subsections as you want directly
+		\item you can see the next slide, before it appears
+		\item you can see the time (use the package option \texttt{time=45} to let it count down from 45 minutes)
+	\end{itemize}
+\end{frame}
+\subsection{Counter Howto}
+\begin{frame}{How to use the counter}
+	\begin{itemize}
+		\item after you finished your talk, jump to the first page (Ctrl+Pos1)
+		\item turn the counting off (click on the checkbox)
+		\item you can go through the slides and look 
+			\begin{enumerate}
+				\item how long it took you to present one frame
+				\item what was the total time, when you were at the certain frame
+			\end{enumerate}
+		\item click on ``show summary'' to get a summary (yes, this is a button ;--))
+	\end{itemize}
+\end{frame}
+\section{another section}
+\foreach \i in {1,...,10}{
+	\subsection{Slide \i}
+	\frame{\frametitle{Some Frame}Just a Slide (\i)}
+}
+\appendix
+\title{Thank you for your attention!}
+\maketitle
+\section{Appendix starts here}
+\frame{foo}
+\section{bla}
+\frame{bar}
+\section{laber}
+\frame{baz}
+\end{document}

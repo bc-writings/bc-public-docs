@@ -1,0 +1,210 @@
+% 26/10/2010
+% remi.grolleau (à) free (point) fr
+% http://remi.grolleau.free.fr
+
+\documentclass[a4paper, 11pt]{article}
+
+% Langue
+\usepackage[english,french]{babel}
+
+% Encodage des caractères et langue
+\usepackage[utf8]{inputenc}
+
+% Polices de caractère
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{ti82statsfrfont} % touches TI-82 Stats FR
+
+% Marges et en-têtes
+\usepackage[height=250mm, width=183mm]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{\footnotesize{\LaTeX}}
+\rhead{\footnotesize{\textit{2010/2011}}}
+\lfoot{\footnotesize{Lycée Les Lombards}}
+
+% Tableaux
+\usepackage{array}
+
+\begin{document}
+\thispagestyle{fancy}
+
+\begin{center}
+{\Large Police : Ti-82 Stats Fr}
+\bigskip
+
+{\large Touches principales}\bigskip\\
+\begin{ttfamily}
+\setlength{\extrarowheight}{1.5pt}
+\begin{tabular}{| c | c | c | c | c |}
+\hline
+% ligne 1
+\tifunction & \tiwindow & \tizoom & \titrace & \tigraph
+\tabularnewline
+\textbackslash tifunction & \textbackslash tiwindow & \textbackslash tizoom & \textbackslash titrace & \textbackslash tigraph
+\tabularnewline \hline
+% ligne 2
+\tisecond & \timode & \tidel & \tileft & \tiright
+\tabularnewline
+\textbackslash tisecond & \textbackslash timode & \textbackslash tidel & \textbackslash tileft & \textbackslash tiright
+\tabularnewline \hline
+% ligne 3
+\tialpha & \tix & \tistat & \tiup & \tidown
+\tabularnewline
+\textbackslash tialpha & \textbackslash tix & \textbackslash tistat & \textbackslash tiup & \textbackslash tidown
+\tabularnewline \hline
+% ligne 4
+\timath & \timatrix & \tiprgm & \tivar & \ticlear
+\tabularnewline
+\textbackslash timath & \textbackslash timatrix & \textbackslash tiprgm & \textbackslash tivar & \textbackslash ticlear
+\tabularnewline \hline
+% ligne 5
+\tiinverse & \tisin & \ticos & \titan & \tipower
+\tabularnewline
+\textbackslash tiinverse & \textbackslash tisin & \textbackslash ticos & \textbackslash titan & \textbackslash tipower
+\tabularnewline \hline
+% ligne 6
+\tisquare & \ticomma & \tiobracket & \ticbracket & \tiover
+\tabularnewline
+\textbackslash tisquare & \textbackslash ticomma & \textbackslash tiobracket & \textbackslash ticbracket & \textbackslash tiover
+\tabularnewline \hline
+% ligne 7
+\tilog & \tiseven & \tieight & \tinine & \titimes
+\tabularnewline
+\textbackslash tilog & \textbackslash tiseven & \textbackslash tieight & \textbackslash tinine & \textbackslash titimes
+\tabularnewline \hline
+% ligne 8
+\tiln & \tifour & \tifive & \tisix & \timinus
+\tabularnewline
+\textbackslash tiln & \textbackslash tifour & \textbackslash tifive & \textbackslash tisix & \textbackslash timinus
+\tabularnewline \hline
+% ligne 9
+\tistore & \tione & \titwo & \tithree & \tiplus
+\tabularnewline
+\textbackslash tistore & \textbackslash tione & \textbackslash titwo & \textbackslash tithree & \textbackslash tiplus
+\tabularnewline \hline
+% ligne 9
+\tion & \tizero & \tidot & \tiopposite & \tienter
+\tabularnewline
+\textbackslash tion & \textbackslash tizero & \textbackslash tidot & \textbackslash tiopposite & \textbackslash tienter
+\tabularnewline \hline
+\end{tabular}
+\end{ttfamily}\bigskip
+
+{\large Touches secondaires}\bigskip\\
+\begin{ttfamily}
+\setlength{\extrarowheight}{1.5pt}
+\begin{tabular}{| c | c | c | c | c |}
+\hline
+% ligne 1
+\tistatplot & \titblset & \tiformat & \ticalc & \titable
+\tabularnewline
+\textbackslash tistatplot & \textbackslash titblset & \textbackslash tiformat & \textbackslash ticalc & \textbackslash titable
+\tabularnewline \hline
+% ligne 2
+ & \tiquit & \tiins & &
+\tabularnewline
+ & \textbackslash tiquit & \textbackslash tiins & &
+\tabularnewline \hline
+% ligne 3
+\tialock & \tilink & \tilist & &
+\tabularnewline
+\textbackslash tialock & \textbackslash tilink & \textbackslash tilist & &
+\tabularnewline \hline
+% ligne 4
+\titest & \tiangle & \tidraw & \tidistr &
+\tabularnewline
+\textbackslash titest & \textbackslash tiangle & \textbackslash tidraw & \textbackslash tidistr &
+\tabularnewline \hline
+% ligne 5
+\tifinance & \tiasin & \tiacos & \tiatan & \tipi
+\tabularnewline
+\textbackslash tifinance & \textbackslash tiasin & \textbackslash tiacos & \textbackslash tiatan & \textbackslash tipi
+\tabularnewline \hline
+% ligne 6
+\tisqrt & \tiee & \tiocbracket & \ticcbracket &
+\tabularnewline
+\textbackslash tisqrt & \textbackslash tiee & \textbackslash tiocbracket & \textbackslash ticcbracket &
+\tabularnewline \hline
+% ligne 7
+\titenx & \tiun & \tivn & \tiwn & \tiosbracket
+\tabularnewline
+\textbackslash titenx & \textbackslash tiun & \textbackslash tivn & \textbackslash tiwn & \textbackslash tiosbracket
+\tabularnewline \hline
+% ligne 8
+\tiexp & \tilfour & \tilfive & \tilsix & \ticsbracket
+\tabularnewline
+\textbackslash tiexp & \textbackslash tilfour & \textbackslash tilfive & \textbackslash tilsix & \textbackslash ticsbracket
+\tabularnewline \hline
+% ligne 9
+\tircl & \tilone & \tiltwo & \tilthree & \timem
+\tabularnewline
+\textbackslash tircl & \textbackslash tilone & \textbackslash tiltwo & \textbackslash tilthree & \textbackslash timem
+\tabularnewline \hline
+% ligne 10
+\tioff & \ticatalog & \tii & \tians & \tientry
+\tabularnewline
+\textbackslash tioff & \textbackslash ticatalog & \textbackslash tii & \textbackslash tians & \textbackslash tientry
+\tabularnewline \hline
+\end{tabular}
+\end{ttfamily}\bigskip
+
+\newpage
+{\large Touches alpha et divers}\bigskip\\
+\begin{ttfamily}
+\begin{tabular}{| c | c | c | c | c |}
+\hline
+% ligne 1
+\tifone & \tiftwo & \tifthree & \tiffour & \tiffive
+\tabularnewline 
+\textbackslash tifone & \textbackslash tiftwo & \textbackslash tifthree & \textbackslash tiffour & \textbackslash tiffive
+\tabularnewline \hline
+% divers 1
+\tiquote & \tispace & \tispacesmall & \tisolve & \tiarrow
+\tabularnewline
+\textbackslash tiquote & \textbackslash tispace & \textbackslash tispacesmall & \textbackslash tisolve & \textbackslash tiarrow
+\tabularnewline \hline
+% divers 2
+\ticursorwhite & \ticursorgray & \ticursorblack & \tiwhitesquare & \ticont
+\tabularnewline
+\textbackslash ticursorwhite & \textbackslash ticursorgray & \textbackslash ticursorblack & \textbackslash tiwhitesquare & \textbackslash ticont
+\tabularnewline \hline
+% divers 3
+\tihisto & \ticurve & \tiboxplot & \tibox & \tiregression
+\tabularnewline
+\textbackslash tihisto & \textbackslash ticurve & \textbackslash tiboxplot & \textbackslash tibox & \textbackslash tiregression
+\tabularnewline \hline
+% divers 4
+\tiprod & \tisum & \tipage & \tipagep & \tiii
+\tabularnewline
+\textbackslash tiprod & \textbackslash tisum & \textbackslash tipage & \textbackslash tipagep & \textbackslash tiii
+\tabularnewline \hline
+% divers 5
+\tidiag & \titridiag & \tiupper & \tilower & \tidiagbig
+\tabularnewline
+\textbackslash tidiag & \textbackslash titridiag & \textbackslash tiupper & \textbackslash tilower & \textbackslash tidiagbig
+\tabularnewline \hline
+% divers 6
+\timatzero & \til & \tialocked & \tiuparrow & \tinewline
+\tabularnewline
+\textbackslash timatzero & \textbackslash til & \textbackslash tialocked & \textbackslash tiuparrow & \textbackslash tinewline
+\tabularnewline \hline
+% divers 7
+\tin & \tiunminus & \tivnminus & \tiipercent & \tistuff
+\tabularnewline
+\textbackslash tin & \textbackslash tiunminus & \textbackslash tivnminus & tiipercent & \textbackslash tistuff
+\tabularnewline \hline
+% divers 8
+\titrigger & \tionhalt & \tinext & \tiplay & \tip
+\tabularnewline
+\textbackslash titrigger & \textbackslash tionhalt & \textbackslash tinext & tiplay & \textbackslash tip
+\tabularnewline \hline
+\end{tabular}
+\end{ttfamily}
+\end{center}
+\end{document}
+% divers 8
+\newcommand*{\titrigger}{\texasFont{"6A}}
+\newcommand*{\tionhalt}{\texasFont{"6B}}
+\newcommand*{\tinext}{\texasFont{"AE}}
+\newcommand*{\tiplay}{\texasFont{"AF}}

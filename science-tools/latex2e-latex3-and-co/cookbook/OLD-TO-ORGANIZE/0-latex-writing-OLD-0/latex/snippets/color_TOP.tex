@@ -1,0 +1,24 @@
+% Source: http://tex.stackexchange.com/a/356778/6880
+
+\documentclass{beamer}
+\usepackage{tikz}
+\usetheme{Madrid}
+\usebackgroundtemplate{
+    \begin{tikzpicture}
+        \coordinate (A) at (0,0);
+        \coordinate (B) at (0,\paperheight);
+        \coordinate (C) at (\paperwidth,0);;
+        \coordinate (D) at (\paperwidth,\paperheight);
+        \fill[blue] (A) -- (C) -- (B) -- cycle;
+        \fill[white](D) -- (C) -- (B) -- cycle;
+    \end{tikzpicture}
+}
+\begin{document}
+
+\begin{frame}
+    \frametitle{Example}
+    \pgfsetblendmode{difference}
+    \color{yellow}Could this text be automatically white on blue and blue on white?
+\end{frame}
+
+\end{document}

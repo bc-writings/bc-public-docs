@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN" "http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg-flat.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <title>LaTeX Tips</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="latex_fichiers/screen.css" />
+  <link rel="stylesheet" type="text/css" media="print" href="latex_fichiers/print.css" />
+  <link rel="shortcut icon" href="http://jblevins.org/favicon.ico" type="image/png" />
+  <link rel="alternate" type="application/atom+xml" href="http://jblevins.org/log/index.atom" />
+
+
+<script type="text/javascript" async="" src="latex_fichiers/js.js"></script><script type="text/javascript" async="" src="latex_fichiers/in.js"></script></head>
+
+<body>
+
+<div id="wrap">
+
+  <div id="header" class="meta">
+    <span id="path" class="noprint">
+      <a href="http://jblevins.org/" accesskey="1" title="Homepage">Jason Blevins</a> » <a href="http://jblevins.org/log/">log</a> » latex
+    </span>
+    <span id="nav" class="noprint">
+      
+        <a href="http://jblevins.org/log/#archives" title="Older posts">Archives</a> ·
+        <a href="http://jblevins.org/log/index.atom" title="Atom feed">Feed</a>
+      
+      
+    </span>
+  </div>
+
+  <div id="content">
+
+
+<h1>LaTeX Tips</h1>
+
+<div class="meta dateline">Durham, July 28, 2008</div>
+
+<h2>Contents</h2>
+
+<ol>
+<li><a href="#backlinks">Add backlinks to the bibliography</a></li>
+<li><a href="#independence">Stochastic independence</a></li>
+<li><a href="#roots">Roots</a></li>
+<li><a href="#natbib">Natbib</a></li>
+<li><a href="#conditioning">Conditional Probability and Expectation</a></li>
+</ol>
+
+<hr />
+
+<h2 id="backlinks">Add Backlinks to the Bibliography</h2>
+
+<p>You can add backlinks to the end of bibliography items using the
+<a href="http://www.ctan.org/tex-archive/help/Catalogue/entries/hyperref.html"><code>hyperref</code></a> package as follows:</p>
+
+<!-- Generator: GNU source-highlight 3.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><code lang="latex"><span class="keyword">\usepackage</span><span class="optionalargument">[backref]</span><span class="argument">{hyperref}</span>
+</code></pre>
+
+
+<p>This will add links to the <em>section</em> where each reference was cited.
+If you prefer to link to the _page_, use</p>
+
+<!-- Generator: GNU source-highlight 3.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><code lang="latex"><span class="keyword">\usepackage</span><span class="optionalargument">[pagebackref]</span><span class="argument">{hyperref}</span>
+</code></pre>
+
+
+<p>instead. The style of the links can be customized by modifying the
+<code>\backref</code> and <code>\backrefalt</code> macros as described in the <code>hyperref</code>
+README file. For example, to place the backlinks in square brackets,
+use:</p>
+
+<!-- Generator: GNU source-highlight 3.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><code lang="latex"><span class="keyword">\renewcommand</span><span class="symbol">*</span><span class="argument">{\backref}</span><span class="optionalargument">[1]</span><span class="argument">{[#1]}</span>
+</code></pre>
+
+
+<p>The result is a bibliography entry like the following:</p>
+
+<blockquote>
+<p>Künsch, H. R. (2005). Recursive Monte Carlo filters: algorithms and theoretical analysis.
+<em>Annals of Statistics</em> 33, 1983—2021. [3, 27]</p>
+</blockquote>
+
+<p>where 3 and 27 are hyperlinks to the pages where the paper was cited.</p>
+
+<h2 id="independence">Stochastic Independence</h2>
+
+<p>The stochastic independence symbol is not part of LaTeX itself, nor is it
+included in any of the AMS-LaTeX packages. The closest thing is <code>\perp</code>
+or <code>\bot</code>. There is, however, a <code>\Perp</code> macro defined in the
+<code>txfonts</code>/<code>psfonts</code> packages but these change the default fonts. Here
+is a cheap hack that fakes the symbol by using two <code>\perp</code>s separarated
+by some negative spacing:</p>
+
+<!-- Generator: GNU source-highlight 3.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><code lang="latex"><span class="keyword">\newcommand</span><span class="argument">{\Perp}{\perp \! \! \! \perp}</span>
+</code></pre>
+
+
+<p>The macro above is not robust to different math fonts, however,
+Donald Arseneau posted the following definition of an independence symbol
+to <code>comp.text.tex</code> which works well with any font:</p>
+
+<!-- Generator: GNU source-highlight 3.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><code lang="latex"><span class="keyword">\newcommand\independent</span><span class="argument">{\protect\mathpalette{\protect\independenT}{\perp}}</span>
+<span class="keyword">\def\independenT</span><span class="normal">#1#2</span><span class="argument">{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}</span>
+</code></pre>
+
+
+<h2 id="roots">Roots</h2>
+
+<p><code>\sqrt{n}</code> will produce the square root of <code>n</code> while
+<code>\sqrt[k]{n}</code> will produce the <code>k</code>-th root of <code>n</code>.
+For example, for the cube root of <code>n</code> use <code>\sqrt[3]{n}</code>.</p>
+
+<h2 id="natbib">Natbib</h2>
+
+<p>The <a href="http://www.ctan.org/tex-archive/help/Catalogue/entries/natbib.html">Natbib</a>
+package provides much better default citation behavior as well as finer control
+over citations in your documents.</p>
+
+<!-- Generator: GNU source-highlight 3.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><code lang="latex"><span class="keyword">\usepackage</span><span class="optionalargument">[longnamesfirst]</span><span class="argument">{natbib}</span>
+</code></pre>
+
+
+<p>The <code>longnamesfirst</code> option prints out all authors in full the first
+time a reference is cited and abbreviates subsequent citations using
+“et al.” if there are more than two authors.</p>
+
+<p>Natbib provides many new citation commands for citing references in
+various situations. See the
+<a href="http://www.ctan.org/tex-archive/macros/latex/contrib/natbib/natnotes.pdf">Natbib notes</a>
+for details.</p>
+
+<p>Natbib also provides several nice bibliography styles such as <code>chicago</code>:</p>
+
+<!-- Generator: GNU source-highlight 3.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><code lang="latex"><span class="keyword">\bibliographystyle</span><span class="argument">{chicago}</span>
+</code></pre>
+
+
+<h2 id="conditioning">Conditional Probability and Expectation</h2>
+
+<p>For simple, normal sized conditional probability and conditional
+expectation expressions, the <code>\mid</code> command from AMS-LaTeX
+should be used instead of the pipe (<code>|</code>) or the <code>\vert</code> macro
+because it is defined as a binary relation and gets the spacing
+right. For example, instead of</p>
+
+<!-- Generator: GNU source-highlight 3.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><code lang="latex"><span class="keyword">\Pr</span><span class="normal">( A | B )</span>
+</code></pre>
+
+
+<p>it is better to write</p>
+
+<!-- Generator: GNU source-highlight 3.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><code lang="latex"><span class="keyword">\Pr</span><span class="normal">( A </span><span class="keyword">\mid</span><span class="normal"> B )</span>
+</code></pre>
+
+
+<p>However, like braces, parentheses, and other delimiters, <code>\mid</code> is not
+stretchy on its own. For taller expressions, such as fractions, there
+are two options. LaTeX will try to automatically choose the correct
+size if you use a <code>\left</code>, <code>\middle</code>, and <code>\right</code> construct such as
+the following:</p>
+
+<!-- Generator: GNU source-highlight 3.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><code lang="latex"><span class="keyword">\Pr\left</span><span class="normal">( A \;</span><span class="keyword">\middle\vert</span><span class="normal">\; B </span><span class="keyword">\right</span><span class="normal">)</span>
+</code></pre>
+
+
+<p>Note that since <code>\mid</code> is not a stretchy delimiter, we have to use
+<code>\vert</code> here and add the spacing manually with the surrounding <code>\;</code>
+commands.</p>
+
+<p>Alternatively, if you need to control the size manually, the
+<code>\big</code>, <code>\Big</code>, <code>\bigg</code>, and <code>\Bigg</code> contructs will be useful:</p>
+
+<!-- Generator: GNU source-highlight 3.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><code lang="latex"><span class="keyword">\Pr\bigl</span><span class="normal">( A </span><span class="keyword">\bigm\vert</span><span class="normal"> B </span><span class="keyword">\bigr</span><span class="normal">)</span>
+<span class="keyword">\Pr\Bigl</span><span class="normal">( A </span><span class="keyword">\Bigm\vert</span><span class="normal"> B </span><span class="keyword">\Bigr</span><span class="normal">)</span>
+<span class="keyword">\Pr\biggl</span><span class="normal">( A </span><span class="keyword">\biggm\vert</span><span class="normal"> B </span><span class="keyword">\biggr</span><span class="normal">)</span>
+<span class="keyword">\Pr\Biggl</span><span class="normal">( A </span><span class="keyword">\Biggm\vert</span><span class="normal"> B </span><span class="keyword">\Biggr</span><span class="normal">)</span>
+</code></pre>
+
+
+
+
+
+
+  </div>
+
+  <div id="footer" class="meta">
+    <a href="http://jblevins.org/">Jason R. Blevins</a><br />
+    Last modified: March 23, 2010 14:14 EDT
+  </div>
+
+</div>
+
+<script type="text/javascript">
+var clicky_site_id = 66365798;
+(function() {
+  var s = document.createElement('script');
+  s.type = 'text/javascript';
+  s.async = true;
+  s.src = '//static.getclicky.com/js';
+  ( document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0] ).appendChild( s );
+})();
+</script>
+<noscript><p><img width="1" height="1" alt="Clicky" src="latex_fichiers/66365798ns.gif" /></p></noscript>
+
+</body>
+
+</html>

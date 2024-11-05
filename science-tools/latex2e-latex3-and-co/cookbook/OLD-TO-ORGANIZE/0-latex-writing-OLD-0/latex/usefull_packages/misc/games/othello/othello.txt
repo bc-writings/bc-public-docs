@@ -1,0 +1,2 @@
+example-rose-chps1-2
+othelloboard

@@ -1,0 +1,58 @@
+% Source : http://tex.stackexchange.com/questions/25597/wrapping-code-listings-verbatim-or-other-method-inside-a-newcommand
+
+\documentclass{article}
+	\usepackage[a4paper,margin=2cm]{geometry}
+	\usepackage[table,cmyk,dvipsnames]{xcolor}
+	\usepackage{array,longtable}
+	\usepackage{lipsum}
+
+	\usepackage{listings}
+
+	\arrayrulewidth=\fboxrule
+	\tabcolsep=2\fboxsep
+	\arrayrulecolor{white}
+
+	\newcolumntype{A}[2]{%
+		>{\begin{minipage}{%
+			\dimexpr#2\linewidth-2\tabcolsep-#1\arrayrulewidth\relax}%
+			\vspace\tabcolsep}c<{\vspace\tabcolsep
+		\end{minipage}}%
+	}
+
+	\lstset{
+		language=[Sharp]C,
+		breaklines=true,
+		breakindent=0pt,
+		tabsize=3,
+		aboveskip=0\dimexpr\fboxsep+\fboxrule\relax,
+		belowskip=-\dimexpr\fboxsep+\fboxrule\relax,
+		frame=single,
+		framesep=\fboxsep,
+		framerule=\fboxrule,
+		rulecolor=\color{Yellow!30},
+		xleftmargin=0\dimexpr\fboxsep+\fboxrule\relax,
+		xrightmargin=\dimexpr\fboxsep+\fboxrule\relax,
+		showstringspaces=false,
+		basicstyle=\color{Maroon}\scriptsize\tt,
+		keywordstyle=\color{Blue}\sf\bf,
+		commentstyle=\color{Cyan},
+		stringstyle=\color{Green},
+		backgroundcolor=\color{Yellow!30}
+	}
+
+
+\begin{document}
+
+\lipsum[1]
+
+\begin{longtable}{*2{|A{1.5}{0.45}}|}
+	\hline
+	\lstinputlisting{SourceCode1.c} & \lstinputlisting{SourceCode2.c}
+	\tabularnewline\hline
+	\lstinputlisting{SourceCode3.c} & \lstinputlisting{SourceCode4.c}
+	\tabularnewline\hline
+\end{longtable}
+
+\lipsum[2]
+
+\end{document}

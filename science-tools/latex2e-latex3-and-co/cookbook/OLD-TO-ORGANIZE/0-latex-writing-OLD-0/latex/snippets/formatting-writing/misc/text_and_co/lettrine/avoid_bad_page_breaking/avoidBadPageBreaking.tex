@@ -1,0 +1,30 @@
+% Source : http://tex.stackexchange.com/questions/30890/how-to-avoid-bad-page-breaks-with-lettrine
+
+\documentclass{article}
+	\usepackage{lettrine}
+	\usepackage{needspace}
+
+	\usepackage[
+		paperwidth=200pt, paperheight=300pt,
+		offset=0pt,
+		hmargin=40pt, tmargin=50pt, bmargin=80pt,
+		noheadfoot
+	]{geometry}
+
+	\newcommand{\TestLettrine}[2]{\lettrine[lines=2, loversize=1.0]{#1}{ #2}}
+
+
+\begin{document}
+
+\TestLettrine{L}{atex} as found in nature is a milky fluid found in 10\% of
+all flowering plants (angiosperms). It is a complex emulsion consisting of
+proteins, alkaloids, starches, sugars, oils, tannins, resins, and gums that
+coagulates on exposure to air. It is usually exuded after tissue injury. 
+In most plants, latex is white, but some have yellow, orange...
+
+\needspace{2\baselineskip}% Break if needed.
+
+\TestLettrine{L}{atex} as found in nature is a milky fluid found in 10\% of
+all flowering plants (angiosperms). It is a complex...
+
+\end{document}

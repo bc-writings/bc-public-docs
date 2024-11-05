@@ -1,0 +1,21 @@
+% Source : https://groups.google.com/forum/?hl=fr&fromgroups#!topic/fr.comp.text.tex/EoRzNcVXzpY
+
+\documentclass{article}
+	\usepackage[utf8]{inputenc}
+	\usepackage{ocr}
+	\usepackage[T1]{fontenc}
+
+	\newenvironment{myenv}{\ocrfamily}{}
+
+
+\begin{document}
+
+Some text with math $\frac{2}{x+4}$ in the standard font.
+
+\begin{myenv}
+	Some text with math $\frac{2}{x+4}$ in the standard font.
+\end{myenv}
+
+Some text with math $\frac{2}{x+4}$ in the standard font.
+
+\end{document}

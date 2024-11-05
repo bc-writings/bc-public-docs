@@ -1,0 +1,23 @@
+%Source : http://forum.mathematex.net/latex-f6/comment-ecrire-des-maths-a-l-envers-t2684-20.html#p101237
+%Remarque de l'auteur :les fbox sont là pour visualiser les boîtes, \parbox est là pour que soit pris en compte le saut de ligne qui n'a d'effet qu'en mode paragraphe (c'est identique à l'environnement minipage). Tu supprimes tout ce qui crée des cadres (remplacer framebox par makebox) et tu as ton zouli document.
+\documentclass[11pt,a4paper]{scrartcl}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{textcomp}
+\usepackage{graphicx}
+\usepackage[a4paper,pdftex,dvips]{geometry}
+\usepackage[frenchb]{babel}
+
+    %%\revision$Header: /home/debjjr/Documents/LaTeX/ecm.tex,v 0.0 2010/02/24 08:10:01 debjjr Exp$
+
+\begin{document}
+    Quelle est la couleur du cheval blanc de Henri IV (a, b, c ou d) ?
+
+\rotatebox[y=-5ex]{180}{\framebox[\textwidth][l]{ \fbox{\parbox[t]{15em}{ \scriptsize Réponses : \newline \fbox{\begin{tabular}[t]{llll}
+          a) ... & b)... & c)... & d)... \\
+          e)... & f)... & g)... & h)...\\
+          i)... & &&
+    \end{tabular}}}}}}
+
+\end{document}

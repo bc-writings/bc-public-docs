@@ -1,0 +1,55 @@
+% Source : http://forum.mathematex.net/latex-f6/changer-l-argument-optionnel-t12440.html#p120625
+
+\documentclass{article}
+	\usepackage[utf8]{inputenc}
+	\usepackage[T1]{fontenc}
+
+	\makeatletter
+		\def\casestrelse{\casestrelse}
+		
+		\newcommand\casestr[1]{ %
+			\def\temp@a{#1}\casestr@i %
+		}
+
+		\newcommand\casestr@i[1]{%
+			\def\temp@b{#1}%
+			\csname\ifx\temp@b\casestrelse @firstofone\else casestr@ii\fi\endcsname %
+		}
+
+		\newcommand\casestr@ii[1]{%
+			\csname @\ifx\temp@a\temp@b first\else second\fi oftwo\endcsname
+			{\case@gobbletoend{#1}}\casestr@i %
+		}
+
+		\long\def\case@gobbletoend#1#2\casestrelse#3{#1}
+	\makeatother
+
+	\newcommand\testarg[1]{
+		\casestr{#1}
+			{Bonjour}{
+				Bonjour à vous
+			}
+			{Au revoir}{
+				Vous avez entré ''Au revoir''
+			}
+			{fin}{
+				Fin de la discussion
+			}
+			{Cool}{
+				C'est vraiment trop cool !
+			}
+		\casestrelse
+			{
+				Code alternatif
+			}
+	}
+
+
+\begin{document}
+
+\testarg{Bonjour}
+\testarg{fin}
+\testarg{autre chose}
+\testarg{Cool}
+
+\end{document}

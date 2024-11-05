@@ -1,0 +1,59 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[frenchb]{babel}
+\usepackage{amsmath}
+
+\usepackage[noload=abbr]{siunitx}
+\sisetup{decimalsymbol=comma}
+\sisetup{inlinebold}
+
+% modification d'une commande du noyau de LaTeX
+\makeatletter
+\def\use@mathgroup#1#2{\relax\ifmmode
+     \math@bgroup
+         \expandafter\ifx\csname M@\f@encoding\endcsname#1\else
+         #1\fi
+         \def\current@math@fam{#2}% <--- partie modifiée pour obtenir la famille courante
+         \mathgroup#2\relax
+     \expandafter\math@egroup\fi}%
+\makeatother
+
+% modification d'une commande de siunitx
+\makeatletter
+\renewcommand*{\si@fam@ifbmaths}[1]{%
+  \renewcommand*{\si@tempa}{bold}%
+  \ifx\current@math@fam\undefined
+    \ifx\math@version\si@tempa
+      #1
+    \fi
+  \else
+    \def\target@math@fam{6}
+    \ifx\current@math@fam\target@math@fam#1\fi
+  \fi
+}
+\makeatother
+
+\begin{document}
+
+
+\begin{enumerate}
+\item En mode texte : \num[obeyall]{120000000000000000000000}.
+\item En mode texte : \textbf{\num[obeyall]{120000000000000000000000}}.
+\item En mode math (boldsymbol) : $\boldsymbol{\num[obeyall]{120000000000000000000000}}$.
+\item En mode math (mathbf) : $\mathbf{\num[obeyall]{120000000000000000000000}}$.
+\item En mode math (mathsf) : $\mathsf{\num[obeyall]{120000000000000000000000}}$.
+\item En mode math (mathit) : $\mathit{\num[obeyall]{120000000000000000000000}}$.
+\item En mode math (boldmath) : {\boldmath$\num[obeyall]{120000000000000000000000}$}.
+\item En mode displaymath (boldsymbol) :
+\[\boldsymbol{\num[obeyall]{120000000000000000000000}}\]
+\item En mode displaymath (mathbf) :
+\[\mathbf{\num[obeyall]{120000000000000000000000}}\]
+\item En mode displaymath (boldmath) :
+{\boldmath\[\num[obeyall]{120000000000000000000000}\]}
+\item En mode displaymath :
+\[\num[obeyall]{120000000000000000000000}\]
+\end{enumerate}
+
+\end{document}

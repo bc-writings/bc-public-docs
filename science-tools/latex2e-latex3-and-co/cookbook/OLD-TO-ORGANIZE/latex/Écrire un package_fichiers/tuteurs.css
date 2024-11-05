@@ -1,0 +1,173 @@
+body {
+  background: #FFFFFF;
+  color: #000000;
+  margin: 0 0 0 0;
+  padding: 0;
+}
+div.corps {
+  background: #FFFFFF;
+  margin: 0 0 0 9em;
+  border-left: solid 2px #60B0B0;
+  padding: 1ex 1ex 1ex 1ex;
+}
+div.navigation {
+  float: left;
+  width: 10.6em;
+  padding: 2ex 0.3em;
+  font-family: sans-serif;
+  font-size: 80%;
+  /*position: fixed;*/
+}
+div.navigation h1 {
+  font-size: 90%;
+  margin: 0;
+}
+ul.arbre, ul.menu {
+  padding-left: 0.7em;
+  list-style: none;
+  margin: 0;
+}
+ul.arbre a.ici {
+  font-weight: bold;
+}
+table.sommaire {
+  /*background: #FFFFFF;
+  border: outset 2px #A0A0A0;
+  width: auto;*/
+  margin: 0 auto;
+}
+table.sommaire ul {
+  padding: 0 1em 0 2em;
+  font-family: sans-serif;
+}
+div.resume {
+  margin: 1ex 5%;
+  font-family: sans-serif;
+}
+a:link {
+  text-decoration: none;
+  color: #0000FF;
+}
+a:visited {
+  text-decoration: none;
+  color: #6000FF;
+}
+a:link:hover, a:visited:hover {
+  color: #4040FF;
+}
+a.actuel {
+  font-weight: bold;
+}
+a.externe {  text-decoration: underline; }
+p {
+  margin: 0 0 1ex 0;
+  text-align: justify;
+  text-indent: 2em;
+}
+p.continue {
+  text-indent: 0;
+}
+p.auteur {
+  font-weight:bold;
+  text-align:right;
+}
+p.centre {
+  text-align: center;
+}
+h1 {
+  text-align: center;
+  font: bold 240% sans-serif;
+  margin: 1ex 2em 2ex 2em;
+  padding: 0.1ex;
+}
+h2 {
+  font: bold 192% sans-serif;
+  margin: 2ex 0 1ex 0;
+}
+h3 {
+  font: bold 144% sans-serif;
+  margin: 2ex 0 1ex 0;
+}
+div.encadre {
+  background: #FFFFD0;
+  border: solid 2px #C0C040;
+  margin: 2.5ex 12%;
+  padding: 0 1em;
+}
+div.attention {
+  background: #FFC0C0;
+  border: solid 2px #FF0000;
+  margin: 3ex 20%;
+  padding: 0.5ex 1em;
+}
+div.attention h1 {
+  font-size: 120%;
+  margin: 0;
+  padding: 0 1em;
+}
+pre {
+  background: #FFF9BF;
+  border: solid 1px #E0D8A0;
+  margin: 1.5ex 5%;
+  padding: 0.5ex;
+  text-align: left;
+}
+div.encadre pre, div.attention pre {
+  background: transparent;
+  border-style: none;
+}
+div.ens {
+  border-right: solid 16px #C0C0FF;
+  margin-right: 2em;
+  padding: 1ex 1em 1ex 0;
+}
+div.metainformation {
+  background: #D0D0D0;
+  margin: 8ex 0.5em 0 0.5em;
+  border: solid 1px #B0B0B0;
+  padding: 0.5ex;
+  font-size: 80%;
+  font-family: sans-serif;
+}
+span.prompt {
+  font-weight: bold;
+  text-decoration: underline;
+}
+img.danger {
+  vertical-align: -30%;
+  padding: 0 0.5em;
+  margin: 0;
+}
+img.ens {
+  float: left;
+  margin: 0 0.5em 0 0;
+  padding: 0;
+}
+div.illustration {
+  text-align: center;
+}
+table.tableau {
+  border: solid 2px #000000;
+  border-spacing: 0;
+  margin: 2ex auto;
+}
+table.tableau td, table.tableau th {
+  border: solid 1px #000000;
+  margin: 0;
+  padding: 0.7ex;
+}
+dt {  
+   font-weight: bold;
+   padding-bottom: .5em; 
+}
+dd {  
+   padding-bottom: 1.5em; 
+}
+@media screen {
+  body {
+    background: #A0D0D0;
+  }
+  div.corps {
+    background: #F8F8F0;
+  }
+}

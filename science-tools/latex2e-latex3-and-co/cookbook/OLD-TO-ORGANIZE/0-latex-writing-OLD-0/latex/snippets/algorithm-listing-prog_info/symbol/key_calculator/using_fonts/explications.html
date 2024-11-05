@@ -1,0 +1,228 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="fr" xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head>
+
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="MSSmartTagsPreventParsing" content="TRUE">
+  <meta name="ROBOTS" content="NOINDEX, FOLLOW">
+  
+  <title>Latex - Informatique, enseignement, divers</title>
+  <meta name="description" content="" lang="fr">
+  <meta name="copyright" content="">
+  <meta name="author" content="Rémi Grolleau">
+  <meta name="date" scheme="W3CDTF" content="2010-11-02T11:50:22+01:00">
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/">
+  <meta name="dc.title" content="Latex - Informatique, enseignement, divers" lang="fr">
+  <meta name="dc.description" content="" lang="fr">
+  <meta name="dc.language" content="fr">
+  <meta name="dc.publisher" content="Rémi Grolleau">
+  <meta name="dc.rights" content="">
+  <meta name="dc.date" scheme="W3CDTF" content="2010-11-02T11:50:22+01:00">
+  <meta name="dc.type" content="text">
+  <meta name="dc.format" content="text/html">
+  
+  <link rel="top" href="http://remi.grolleau.free.fr/index.php?" title="Accueil">
+  <link rel="contents" href="http://remi.grolleau.free.fr/index.php?archive" title="Archives">
+  
+                    
+    <link rel="chapter" href="http://remi.grolleau.free.fr/index.php?post/2010/10/28/Installation-sous-Latex-des-polices-pour-les-calculatrices-TI-82-Stats-FR%2C-Casio-Graph-35-et-similaires" title="Installation sous Latex des polices pour les calculatrices TI-82 Stats FR, Casio Graph 35+">
+    
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="http://remi.grolleau.free.fr/index.php?feed/category/Latex/atom">
+  
+  <style type="text/css" media="screen">
+@import url(/themes/default/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(/themes/default/../default/print.css);
+</style>
+
+<script type="text/javascript" src="explications_fichiers/jquery_002.js"></script>
+<script type="text/javascript" src="explications_fichiers/jquery.js"></script>
+
+<style type="text/css">
+
+</style>
+</head><body class="dc-category">
+<div id="page">
+<div id="top">
+  <h1><span><a href="http://remi.grolleau.free.fr/index.php?">Informatique, enseignement, divers</a></span></h1>
+
+  </div>
+
+<p id="prelude"><a href="#main">Aller au contenu</a> |
+<a href="#blognav">Aller au menu</a> |
+<a href="#search">Aller à la recherche</a></p>
+<div id="wrapper">
+
+<div id="main">
+  <div id="content">
+
+  <div id="content-info">
+    <h2>    Latex</h2>
+        
+          <p><a type="application/atom+xml" href="http://remi.grolleau.free.fr/index.php?feed/category/Latex/atom" title="Fil Atom des billets de cette catégorie" class="feed">Fil des billets</a>
+      
+            - <a type="application/atom+xml" href="http://remi.grolleau.free.fr/index.php?feed/category/Latex/atom/comments" title="Fil Atom des commentaires de cette catégorie" class="feed">Fil des commentaires</a>
+            </p>
+      </div>
+  
+    
+      <div id="p3" class="post odd first" xml:lang="fr" lang="fr">
+
+    <p class="day-date">jeudi, octobre 28 2010</p>    
+    <h2 class="post-title"><a href="http://remi.grolleau.free.fr/index.php?post/2010/10/28/Installation-sous-Latex-des-polices-pour-les-calculatrices-TI-82-Stats-FR%2C-Casio-Graph-35-et-similaires">Installation sous Latex des polices pour les calculatrices TI-82 Stats FR, Casio Graph 35+</a></h2>
+    
+    <p class="post-info">Par Rémi Grolleau    le jeudi, octobre 28 2010, 14:36</p>
+    
+        <ul class="post-tags">    <li><a href="http://remi.grolleau.free.fr/index.php?tag/calculatrices">calculatrices</a></li>
+                <li><a href="http://remi.grolleau.free.fr/index.php?tag/enseignement">enseignement</a></li>
+                <li><a href="http://remi.grolleau.free.fr/index.php?tag/latex">latex</a></li>
+                <li><a href="http://remi.grolleau.free.fr/index.php?tag/linux">linux</a></li>
+                <li><a href="http://remi.grolleau.free.fr/index.php?tag/math%C3%A9matiques">mathématiques</a></li>
+    </ul>    
+    
+    
+          <div class="post-content"><h2>Présentation</h2>
+
+
+<p>La réalisation de travaux pratiques utilisant la calculatrice est 
+toujours un exercice délicat. Aux difficultés techniques s'ajoutent 
+toujours d'inombrables difficultés d'ordre pratique qui peuvent 
+transformer une séance de TP en véritable parcours du combattant... 
+L'utilisation de polices sous Latex permettant d'insérer directement les
+ touches de la calculatrices dans les documents simplifie un peu le 
+problème.</p>
+
+
+<p>Ce billet détaille l'installation des polices sous <em>GNU/Linux</em> avec la distribution <em>Tex Live</em> pour les calculatrices <em>TI-82 Stats FR</em> et <em>Casio Graph 35+</em>. L'ensemble des fichiers fournis a été réalisé en suivant l'excellent tutorial disponible sur cette page&nbsp;: <a href="http://phil.pham.free.fr/index.php?page=fontes-casio-et-texas" hreflang="fr">Fontes casio et texas</a>.
+ Vous y trouverez des explications pas à pas pour créer les polices à 
+partir des fichiers mis en lignes par les constructeurs, ainsi que 
+différentes archives contenant l'ensemble des fichiers à installer pour 
+profiter directement du travail réalisé par différents enseignants.</p>
+
+
+<p>J'ai complété ces travaux pour mes besoins personnels en ajoutant quelques symboles pour la <em>TI-82 Stats FR</em>, ainsi que l'ensemble des touches pour la <em>Casio Graph 35+</em>.
+ Afin d'harmoniser au maximum les noms des commandes latex pour les deux
+ modèles, une grande partie des commandes diffère mais rien ne vous 
+empêche de les changer en éditant les fichiers de style associés. 
+Ci-dessous les fichiers regroupant l'ensemble des commandes définies 
+pour vous donner une idée :<br>
+- <a href="http://remi.grolleau.free.fr/public/latex/calculatrices/ti82statsindex.pdf">ti82statsindex.pdf</a> (<a href="http://remi.grolleau.free.fr/public/latex/calculatrices/ti82statsindex.tex">.tex</a>)<br>
+- <a href="http://remi.grolleau.free.fr/public/latex/calculatrices/casiographindex.pdf">casiographindex.pdf</a> (<a href="http://remi.grolleau.free.fr/public/latex/calculatrices/casiographindex.tex">.tex</a>)<br></p>
+
+
+<h2>Installation</h2>
+
+<ul>
+<li>Télécharger l'archive <a href="http://remi.grolleau.free.fr/public/latex/calculatrices/Latex-PolicesCalculatrices.tar.gz">Latex-PolicesCalculatrices.tar.gz</a>. Vous y trouverez&nbsp;:</li>
+</ul>
+<p>- un document texte expliquant l'installation des polices<br>
+- les polices d'origine téléchargées sur les sites de <a href="http://education.ti.com/educationportal/sites/FRANCE/productCategory/fr_key_fonts.html" hreflang="fr">Texas Instrument</a> et <a href="http://world.casio.com/edu/support/font/" hreflang="en">Casio</a><br>
+- les fichiers créés avec le logiciel <em>Fontforge</em><br>
+- les tables des symboles<br>
+- les fichiers de styles<br>
+- les index des commandes définies<br></p>
+
+<ul>
+<li>Décompresser l'archive dans votre dossier personnel (<em>/home/nomdutilisateur/</em>)</li>
+</ul>
+<ul>
+<li>Ouvrir un terminal et placer vous dans le répertoire <em>calculatrices</em> en tapant la commande&nbsp;:</li>
+</ul>
+<p><code>cd ~/calculatrices/</code></p>
+
+<ul>
+<li>Créer les répertoires suivants&nbsp;:</li>
+</ul>
+<p><code>mkdir ~/.texmf-var/fonts/afm/ti/</code><br>
+<code>mkdir ~/.texmf-var/fonts/tfm/ti/</code><br>
+<code>mkdir ~/.texmf-var/fonts/type1/ti/</code><br>
+<code>mkdir ~/.texmf-var/fonts/enc/ti/</code><br>
+<code>mkdir ~/.texmf-var/fonts/afm/casio/</code><br>
+<code>mkdir ~/.texmf-var/fonts/tfm/casio/</code><br>
+<code>mkdir ~/.texmf-var/fonts/type1/casio/</code><br>
+<code>mkdir ~/.texmf-var/fonts/enc/casio/</code><br></p>
+
+<ul>
+<li>Copier les fichiers <em>*.tfm</em>, <em>*.afm</em>, <em>*.pf</em>b, <em>*.enc</em> et <em>*.map</em> dans les répertoires adéquats&nbsp;:</li>
+</ul>
+<p><code>cp ti82statsfr/ti82statsfr.afm ~/.texmf-var/fonts/afm/ti/</code><br>
+<code>cp ti82statsfr/ti82statsfr.tfm ~/.texmf-var/fonts/tfm/ti/</code><br>
+<code>cp ti82statsfr/ti82statsfr.pfb ~/.texmf-var/fonts/type1/ti/</code><br>
+<code>cp ti82statsfr/ti82statsfr.enc ~/.texmf-var/fonts/enc/ti/</code><br>
+<code>cp ti82statsfr/ti.map ~/.texmf-var/fonts/map/dvips/updmap/ti.map</code><br>
+<code>cp casiograph/casiograph.afm ~/.texmf-var/fonts/afm/casio/</code><br>
+<code>cp casiograph/casiograph.tfm ~/.texmf-var/fonts/tfm/casio/</code><br>
+<code>cp casiograph/casiograph.pfb ~/.texmf-var/fonts/type1/casio/</code><br>
+<code>cp casiograph/casiograph.enc ~/.texmf-var/fonts/enc/casio/</code><br>
+<code>cp casiograph/casio.map ~/.texmf-var/fonts/map/dvips/updmap/casio.map</code><br></p>
+
+<ul>
+<li>Ajouter les lignes <code>Map ti.map</code> et <code>Map casio.map</code> au fichier <em>~/.texmf-config/updmap.d/10local.cfg</em></li>
+</ul>
+<p><code>echo "Map ti.map" &gt;&gt; ~/.texmf-config/updmap.d/10local.cfg</code><br>
+<code>echo "Map casio.map" &gt;&gt; ~/.texmf-config/updmap.d/10local.cfg</code><br></p>
+
+<ul>
+<li>Créer les répertoires <em>~/.texmf-var/tex/latex/ti82statsfr/</em> et <em>~/.texmf-var/tex/latex/casiograph/</em>&nbsp;:</li>
+</ul>
+<p><code>mkdir ~/.texmf-var/tex/latex/ti82statsfr/</code><br>
+<code>mkdir ~/.texmf-var/tex/latex/casiograph/</code><br></p>
+
+<ul>
+<li>Copier les fichiers de style <em>ti82statsfrfont.sty</em> et <em>casiograph.sty</em> ainsi que <em>uti82stats.fd</em> et <em>ucasiograph.fd</em>&nbsp;:</li>
+</ul>
+<p><code>cp ti82statsfr/ti82statsfrfont.sty ~/.texmf-var/tex/latex/ti82statsfr/</code><br>
+<code>cp ti82statsfr/uti82statsfr.fd ~/.texmf-var/tex/latex/ti82statsfr/</code><br>
+<code>cp casiograph/casiographfont.sty ~/.texmf-var/tex/latex/casiograph/</code><br>
+<code>cp casiograph/ucasiograph.fd ~/.texmf-var/tex/latex/casiograph/</code><br></p>
+
+<ul>
+<li>Enfin taper les commandes suivantes&nbsp;:</li>
+</ul>
+<p><code>sudo updmap</code><br>
+<code>sudo update-updmap</code><br>
+<code>sudo mktexlsr</code><br>
+Je ne connais pas le rôle de ces commandes, ni s'il est nécessaire de les lancer en tant que superutilisateur (précédées de <code>sudo</code>)... En cas de problème, les retaper plusieurs fois.</p>
+
+
+<h2>Utilisation</h2>
+
+
+<p>Pour utiliser les polices des calculatrices dans un document Latex, il suffit désormais juste d'ajouter dans le préambule :<br>
+<code>\usepackage{ti82statsfrfont} % touches TI-82 Stats FR </code><br>
+<code>\usepackage{casiographfont} % touches Casio Graph 35+</code><br>
+Il ne reste plus qu'à taper la commande <em>\timode</em> pour obtenir la touche "MODE" d'une TI-82 Stats FR par exemple...</p>
+
+
+<p>Essayer de compiler les fichiers <a href="http://remi.grolleau.free.fr/public/latex/calculatrices/ti82statsindex.tex">ti82statsindex.tex</a> et <a href="http://remi.grolleau.free.fr/public/latex/calculatrices/casiographindex.tex">casiographindex.tex</a> pour tester votre installation.</p>
+
+
+<p>Pour plus de détails sur la façon dont les polices ont été crées et vérifier l'installation des polices, je vous engage à lire <a href="http://phil.pham.free.fr/index.php?page=fontes-casio-et-texas" hreflang="fr">cette page</a> sur laquelle se base cette documentation.</p></div>
+    
+    
+          <p class="post-info-co">
+              <a href="http://remi.grolleau.free.fr/index.php?post/2010/10/28/Installation-sous-Latex-des-polices-pour-les-calculatrices-TI-82-Stats-FR%2C-Casio-Graph-35-et-similaires#comments" class="comment_count">aucun commentaire</a>
+              <a href="http://remi.grolleau.free.fr/index.php?post/2010/10/28/Installation-sous-Latex-des-polices-pour-les-calculatrices-TI-82-Stats-FR%2C-Casio-Graph-35-et-similaires#pings" class="ping_count">aucun rétrolien</a>          <a href="http://remi.grolleau.free.fr/index.php?post/2010/10/28/Installation-sous-Latex-des-polices-pour-les-calculatrices-TI-82-Stats-FR%2C-Casio-Graph-35-et-similaires#attachments" class="attach_count">5 annexes</a>          </p>
+        </div>
+    
+                  </div>
+</div> <!-- End #main -->
+
+<div id="sidebar">
+  <div id="blognav">
+    <div id="search"><h2><label for="q">Search</label></h2><form action="http://remi.grolleau.free.fr/index.php?" method="get"><fieldset><p><input size="10" maxlength="255" id="q" name="q" type="text"> <input class="submit" value="ok" type="submit"></p></fieldset></form></div><div id="topnav"><ul><li class="topnav-home"><a href="http://remi.grolleau.free.fr/index.php?">Accueil</a><span> - </span></li><li class="topnav-arch"><a href="http://remi.grolleau.free.fr/index.php?archive">Archives</a></li></ul></div><div class="categories"><h2>Categories</h2><ul><li><a href="http://remi.grolleau.free.fr/index.php?category/Latex">Latex</a></li><li><a href="http://remi.grolleau.free.fr/index.php?category/Geogebra">Geogebra</a></li><li><a href="http://remi.grolleau.free.fr/index.php?category/Informatique">Informatique</a></li><li><a href="http://remi.grolleau.free.fr/index.php?category/Enseignement">Enseignement</a><ul><li><a href="http://remi.grolleau.free.fr/index.php?category/Enseignement/Seconde-g%C3%A9n%C3%A9rale">Seconde générale</a></li><li><a href="http://remi.grolleau.free.fr/index.php?category/Enseignement/Premi%C3%A8re-STL-BGB">Première STL BGB</a></li><li><a href="http://remi.grolleau.free.fr/index.php?category/Enseignement/Terminale-STL-BGB">Terminale STL BGB</a></li></ul></li></ul></div><div class="tags"><h2>Tags</h2><ul><li><a href="http://remi.grolleau.free.fr/index.php?tag/calculatrices" class="tag50" rel="tag">calculatrices</a> </li><li><a href="http://remi.grolleau.free.fr/index.php?tag/enseignement" class="tag100" rel="tag">enseignement</a> </li><li><a href="http://remi.grolleau.free.fr/index.php?tag/geogebra" class="tag50" rel="tag">geogebra</a> </li><li><a href="http://remi.grolleau.free.fr/index.php?tag/gnome" class="tag50" rel="tag">gnome</a> </li><li><a href="http://remi.grolleau.free.fr/index.php?tag/latex" class="tag50" rel="tag">latex</a> </li><li><a href="http://remi.grolleau.free.fr/index.php?tag/linux" class="tag100" rel="tag">linux</a> </li><li><a href="http://remi.grolleau.free.fr/index.php?tag/math%C3%A9matiques" class="tag100" rel="tag">mathématiques</a> </li><li><a href="http://remi.grolleau.free.fr/index.php?tag/ubuntu" class="tag50" rel="tag">ubuntu</a> </li></ul><p><strong><a href="http://remi.grolleau.free.fr/index.php?tags">All tags</a></strong></p></div>  </div> <!-- End #blognav -->
+  
+  <div id="blogextra">
+    <div class="syndicate"><h2>Subscribe</h2><ul><li><a type="application/atom+xml" href="http://remi.grolleau.free.fr/index.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li><li><a type="application/atom+xml" href="http://remi.grolleau.free.fr/index.php?feed/atom/comments" title="Fil Atom des commentaires de ce blog" class="feed">Fil des commentaires</a></li></ul></div>  </div> <!-- End #blogextra -->
+</div>
+
+</div> <!-- End #wrapper -->
+
+<div id="footer">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body></html>

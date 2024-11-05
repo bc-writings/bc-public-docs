@@ -1,0 +1,61 @@
+% Source : http://forum.mathematex.net/latex-f6/amelioration-commande-presentation-equation-t14015.html
+
+\documentclass[11pt,a4paper]{article}
+	\usepackage[utf8]{inputenc}
+	\usepackage[T1]{fontenc}
+	\usepackage{lmodern}
+	\usepackage[frenchb]{babel}
+	\usepackage{ifthen}
+	\usepackage{linegoal}
+
+	\AtBeginDocument{%
+		\abovedisplayskip      = 1ex plus 0.5ex minus 0.25ex
+		\abovedisplayshortskip = 0.5ex plus 0.5ex
+		\belowdisplayskip      = 1ex plus 0.5ex minus 0.25ex
+		\belowdisplayshortskip = 0.5ex plus 0.5ex
+	}
+
+	\newlength{\longueurequation}
+	\newlength{\longueurrestante}
+
+	\protected\def\(#1\){%
+		\setlength{\longueurrestante}{\the\linegoal}%
+		\settowidth{\longueurequation}{$#1$}%
+		\ifthenelse{\longueurequation>\longueurrestante}%
+			{\begin{displaymath} #1 \end{displaymath}}%
+			{$#1$}%
+	}
+	\newcommand{\me}[1]{%
+		\setlength{\longueurrestante}{\the\linegoal}%
+		\settowidth{\longueurequation}{$#1$}%
+		\ifthenelse{\longueurequation>\longueurrestante}%
+			{\begin{displaymath} #1 \end{displaymath}}%
+			{$#1$}%
+	}
+
+	\textwidth=13cm
+
+
+\begin{document}
+
+\section{En mode dollars}
+
+Du texte en mode math $x=y$ et $x+y=z+t-x$ pour voir ce que ça fait en une seule ligne.
+
+Du texte en mode math $x=y$ mais j'allonge pour que l'équation  $x+y=z+t-x+\frac{1}{2}$ soit coupée et voir ce que ça fait
+
+
+\section{En mode me}
+
+Du texte en mode math \me{x=y} et \me{x+y=z+t-x} pour voir ce que ça fait en une seule ligne.
+
+Du texte en mode math \me{x=y} mais j'allonge pour que l'équation \me{x+y=z+t-x+\frac{1}{2}} soit coupée et voir ce que ça fait
+
+
+\section{En mode anti-slash parenthèses}
+
+Du texte en mode math \(x=y\) et \(x+y=z+t-x\) pour voir ce que ça fait en une seule ligne.
+
+Du texte en mode math \(x=y\) mais j'allonge pour que l'équation \(x+y=z+t-x+\frac{1}{2}\) soit coupée et voir ce que ça fait
+
+\end{document}

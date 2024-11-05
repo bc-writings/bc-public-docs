@@ -1,0 +1,33 @@
+\documentclass{book}
+\usepackage{xepersian}
+\newenvironment{vplace}[1][1]{%
+  \par\vspace*{\stretch{#1}}%
+}{%
+  \vspace*{\stretch{1}}%
+  \par}
+\newlength{\tpheight}\setlength{\tpheight}{0.9\textheight}
+\newlength{\txtheight}\setlength{\txtheight}{0.9\tpheight}
+\newlength{\tpwidth}\setlength{\tpwidth}{0.9\textwidth}
+\newlength{\txtwidth}\setlength{\txtwidth}{0.9\tpwidth}
+\newlength{\drop}
+\newcommand*{\titleAAT}{\begingroup% 
+\drop=0.1\txtwidth
+\vspace*{0.5\drop}
+{\huge نام نویسنده}
+
+\begin{vplace}[2]
+\begin{raggedright}
+\LARGE 
+عنوان کتاب
+\\[0.2\baselineskip]
+{\Huge\textbf{زیرعنوان کتاب}}\par
+\end{raggedright}
+\end{vplace}
+
+\large{نام انتشاراتی}
+\vspace*{0.5\drop}
+\endgroup}
+\begin{document}
+\pagestyle{empty}
+\titleAAT
+\end{document}

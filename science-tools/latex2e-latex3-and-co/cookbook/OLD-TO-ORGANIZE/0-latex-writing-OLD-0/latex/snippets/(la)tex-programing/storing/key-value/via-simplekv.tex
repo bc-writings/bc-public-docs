@@ -1,0 +1,21 @@
+\documentclass[12pt]{article}
+
+\usepackage{simplekv}
+\usepackage{xstring}
+
+\setKVdefault[test]{%
+    plein = Plein,
+    vide  =  ,
+    bool  % Vu comme vide si à "true"
+}
+
+
+\begin{document}
+
+kind : \useKV[test]{plein}
+
+vide : \useKV[test]{vide}
+
+bool : \useKV[test]{bool}
+
+\end{document}

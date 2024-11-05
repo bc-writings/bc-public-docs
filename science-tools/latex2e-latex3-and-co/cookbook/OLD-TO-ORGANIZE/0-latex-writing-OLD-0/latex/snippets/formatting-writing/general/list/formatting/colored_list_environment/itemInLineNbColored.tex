@@ -1,0 +1,16 @@
+% Source : http://tex.stackexchange.com/questions/8134/change-the-color-of-numberings-in-inline-itemization
+
+\documentclass{article}
+	\usepackage{xcolor}
+	\usepackage[inline,shortlabels]{enumitem}
+
+
+\begin{document}
+
+\begin{enumerate*}[\begingroup\color{red} 1)\endgroup]
+	\item  Number one item
+	\item  Number two item
+	\item  Number three item
+\end{enumerate*}
+
+\end{document}

@@ -1,0 +1,280 @@
+% Source : http://forum.mathematex.net/latex-f6/representer-une-multiplication-par-jalousie-t10964.html#p107205
+
+    \documentclass{article}
+    \usepackage[frenchb]{babel}% pour \addto
+    \newcommand*\eaddto[2]{% version développée de \addto
+       \edef\tmp{#2}%
+       \expandafter\addto
+       \expandafter#1%
+       \expandafter{\tmp}%
+    }
+    \usepackage{ifthen}% pour \whiledo
+    \usepackage{slashbox}% pour le tableau
+    \makeatletter
+    \def\@nameedef#1{\expandafter\edef\csname #1\endcsname}
+    \newcounter{tableaujalousie@somme@chiffres}
+    \newcommand{\tableaujalousie}[2]{%
+    %Calcul du nombre de colonnes et de lignes
+    \tableaujalousie@process@number{cols}{#1}%
+    \tableaujalousie@process@number{rows}{#2}%
+    % Calcul des éléments du tableau (sauf retenues et sommes partielles)
+    \def\tableaujalousie@i{1}%
+    \def\tableaujalousie@j{1}%
+    \whiledo{\tableaujalousie@i<\numexpr\tableaujalousie@nbrows+1\relax}{%
+      \def\tableaujalousie@j{1}%
+      \whiledo{\tableaujalousie@j<\numexpr\tableaujalousie@nbcols+1\relax}{%
+        \tableaujalousie@compute@product
+          {\tableaujalousie@i}
+          {\tableaujalousie@j}%
+        \edef\tableaujalousie@j{\number\numexpr\tableaujalousie@j+1\relax}%
+      }%
+      \edef\tableaujalousie@i{\number\numexpr\tableaujalousie@i+1\relax}%
+    }%
+    % Création de la liste des indices correspondant au k-ième chiffre du total
+    \def\tableaujalousie@i{0}%
+    \whiledo{\tableaujalousie@i<\numexpr\tableaujalousie@nbcols+\tableaujalousie@nbrows\relax}{%
+      \tableaujalousie@calcule@liste@indices{\tableaujalousie@i}%
+      \edef\tableaujalousie@i{\number\numexpr\tableaujalousie@i+1\relax}%
+    }%
+    % Boucle pour calculer les sommes de chiffres et les retenues
+    \@namedef{tableaujalousie@retenue@0}{0}%
+    \def\tableaujalousie@i{0}%
+    \whiledo{\tableaujalousie@i<\numexpr\tableaujalousie@nbcols+\tableaujalousie@nbrows\relax}{%
+       \setcounter{tableaujalousie@somme@chiffres}{0}%
+      \expandafter\@for\expandafter\temp
+      \expandafter:\expandafter=\expandafter{\csname
+         tableaujalousie@liste@indices@\tableaujalousie@i\endcsname}%
+       \do{\ifx\temp\empty
+           \else\edef\result{\noexpand\tjnb\temp}%
+                \addtocounter{tableaujalousie@somme@chiffres}{\result}%
+           \fi}%
+      \@nameedef{tableaujalousie@somme@chiffre@\tableaujalousie@i}%
+          {\number\value{tableaujalousie@somme@chiffres}}%
+       \tableaujalousie@process@retenue{\tableaujalousie@i}%
+       \edef\tableaujalousie@i{\number\numexpr\tableaujalousie@i+1\relax}
+    }
+    % Création du contenu du tableau \tableaujalousie@contenutableau
+    \def\tableaujalousie@contenutableau{}%
+    \addto\tableaujalousie@contenutableau{\multicolumn{1}{c}{}}
+    \def\tableaujalousie@i{1}
+    \whiledo{\tableaujalousie@i<\numexpr\tableaujalousie@nbcols+1\relax}{%
+      \eaddto\tableaujalousie@contenutableau{%
+         &\noexpand\multicolumn{1}{c}{\@nameuse{tableaujalousie@cols@\tableaujalousie@i}}
+      }
+      \edef\tableaujalousie@i{\number\numexpr\tableaujalousie@i+1\relax}%
+    }
+    \eaddto\tableaujalousie@contenutableau{&\noexpand\\\noexpand\cline{2-\number\numexpr\tableaujalousie@nbcols+1\relax}}
+
+    \def\tableaujalousie@i{1}%
+    \whiledo{\tableaujalousie@i<\numexpr\tableaujalousie@nbrows+1\relax}{%
+      \def\tableaujalousie@j{1}%
+      \eaddto\tableaujalousie@contenutableau{\@nameuse{tableaujalousie@somme@chiffre@\number\numexpr\tableaujalousie@nbcols+\tableaujalousie@nbrows-\tableaujalousie@i\relax}}
+      \whiledo{\tableaujalousie@j<\numexpr\tableaujalousie@nbcols+1\relax}{%
+        \eaddto\tableaujalousie@contenutableau{%
+           & \noexpand\tableaujalousie@case
+           {\@nameuse{tableaujalousie@\tableaujalousie@i @\tableaujalousie@j @0}}
+           {\@nameuse{tableaujalousie@\tableaujalousie@i @\tableaujalousie@j @1}}
+           {\ifnum\tableaujalousie@i=1
+            \ifnum\@nameuse{tableaujalousie@retenue@\number\numexpr
+                \tableaujalousie@nbcols+\tableaujalousie@nbrows
+                -\tableaujalousie@j\relax}=0\else
+              \@nameuse{tableaujalousie@retenue@\number\numexpr
+                \tableaujalousie@nbcols+\tableaujalousie@nbrows
+                -\tableaujalousie@j\relax}\fi\fi}
+           {\ifnum\tableaujalousie@j=\tableaujalousie@nbcols\space
+            \ifnum\@nameuse{tableaujalousie@retenue@\number\numexpr
+                \tableaujalousie@nbrows
+                -\tableaujalousie@i\relax}=0\else
+              \@nameuse{tableaujalousie@retenue@\number\numexpr
+                \tableaujalousie@nbrows
+                -\tableaujalousie@i\relax}\fi\fi}%
+        }%
+        \edef\tableaujalousie@j{\number\numexpr\tableaujalousie@j+1\relax}%
+      }%
+      \eaddto\tableaujalousie@contenutableau{&\@nameuse{tableaujalousie@rows@\tableaujalousie@i}\noexpand\\\noexpand\cline{2-\number\numexpr\tableaujalousie@nbcols+1\relax}}
+      \edef\tableaujalousie@i{\number\numexpr\tableaujalousie@i+1\relax}%
+    }%
+    \eaddto\tableaujalousie@contenutableau{\noexpand\multicolumn{1}{c}{}}
+    \def\tableaujalousie@j{1}%
+    \whiledo{\tableaujalousie@j<\numexpr\tableaujalousie@nbcols+1\relax}{%
+      \eaddto\tableaujalousie@contenutableau{&\noexpand\multicolumn{1}{c}{\@nameuse{tableaujalousie@somme@chiffre@\number\numexpr\tableaujalousie@nbcols-\tableaujalousie@j\relax}}}
+      \edef\tableaujalousie@j{\number\numexpr\tableaujalousie@j+1\relax}%
+    }%
+    % Affichage du tableau
+    \begin{center}
+    \begin{tabular}{c|*{\tableaujalousie@nbcols}{c|}c}
+    \tableaujalousie@contenutableau
+    \end{tabular}
+    %\smallbreak
+    %$#1 \times #2 = \number\numexpr#1*#2\relax$% a commenter pour éviter tout risque d'arithmetic overflow
+    \smallbreak
+    \def\tableaujalousie@result{}
+    \def\tableaujalousie@i{1}
+    \whiledo{\tableaujalousie@i<\number\numexpr\tableaujalousie@nbcols+\tableaujalousie@nbrows+1\relax}
+    {\edef\tableaujalousie@result{\tableaujalousie@result\@nameuse{tableaujalousie@somme@chiffre@\number\numexpr\tableaujalousie@nbcols+\tableaujalousie@nbrows-\tableaujalousie@i\relax}}
+    \edef\tableaujalousie@i{\number\numexpr\tableaujalousie@i+1\relax}}
+    $#1 \times #2 = \expandafter\tableaujalousie@enleve@zero\expandafter{\tableaujalousie@result}$
+    \end{center}
+    }
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % macros pour afficher les cases du tableau
+    \def\tableaujalousie@strut{\vrule width 0pt height 1.5em depth 0.5em}
+    \def\tableaujalousie@case#1#2#3#4{%
+    % #1 = chiffre 2
+    % #2 = chiffre 1
+    % #3 = retenue position 1
+    % #4 = retenue position 2
+      \slashbox{\tableaujalousie@strut#1$^{#3}$}{\tableaujalousie@strut#2\rlap{$^{#4}$}}
+    }
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % \tableaujalousie@process@number{#1}{#2}
+    %  #1 = suffixe (ici, cols ou rows)
+    %  #2 = nombre (4735, par exemple)
+    %  --> lit le nombre #2 et définit
+    %      * #1 = nombre de chiffres de #2
+    %      * \tableaujalousie@#1@i = chiffre i de #2 (gauche->droite)
+    %  exemple : \tableaujalousie@process@number{cols}{4735} définit
+    %  * cols égal à 4 (nb de chiffres de 4735)
+    %  * \tableaujalousie@cols@1 égal à 4
+    %  * \tableaujalousie@cols@2 égal à 7
+    %  * \tableaujalousie@cols@3 égal à 3
+    %  * \tableaujalousie@cols@4 égal à 5
+    \def\tableaujalousie@process@number#1#2{%
+    % #1 = suffice (cols ou rows)
+    % #2 = nombre
+      \tableaujalousie@process@number@aux{#1}{1}#2\@nil
+    }
+    \def\tableaujalousie@process@number@aux#1#2#3#4\@nil{%
+    % #1 = suffixe (cols ou rows)
+    % #2 = nombre de chiffres lus
+    % #3 = chiffre courant
+    % #4 = chiffres restant
+      \ifx\\#4\\
+        \@namedef{tableaujalousie@#1@#2}{#3}%
+        \@namedef{tableaujalousie@nb#1}{#2}%
+      \else
+        \@namedef{tableaujalousie@#1@#2}{#3}%
+        \tableaujalousie@process@number@aux{#1}{\number\numexpr#2+1\relax}#4\@nil
+      \fi
+    }
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % \tableaujalousie@compute@product{#1}{#2}
+    % #1 = indice de ligne i
+    % #2 = indice de colonne j
+    % --> définit des commandes contenant les chiffres du produit \tableaujalousie@cols@j * \tableaujalousie@cols@i :
+    %     * tableaujalousie@i@j@0 = premier chiffre
+    %     * tableaujalousie@i@j@1 = second chiffre
+    % exemples :
+    %     * si \tableaujalousie@cols@j = 4 et \tableaujalousie@cols@i = 2, alors tableaujalousie@i@j@0 = 0 et tableaujalousie@i@j@1 = 8
+    %     * si \tableaujalousie@cols@j = 4 et \tableaujalousie@cols@i = 6, alors tableaujalousie@i@j@0 = 3 et tableaujalousie@i@j@1 = 4
+    \def\tableaujalousie@compute@product#1#2{%
+    % #1 = indice de ligne i
+    % #2 = indice de colonne j
+      \expandafter\tableaujalousie@parse@twodigit@number\expandafter{\expandafter#1\expandafter}\expandafter{\expandafter#2\expandafter}\expandafter{%
+        \number\numexpr
+          \@nameuse{tableaujalousie@cols@#2}
+          *
+          \@nameuse{tableaujalousie@rows@#1}
+        \relax
+      }%
+    }
+    \def\tableaujalousie@parse@twodigit@number#1#2#3{%
+    % #1 = indice de ligne i
+    % #2 = indice de colonne j
+    % #3 = nombre à analyser
+      \tableaujalousie@parse@twodigit@number@aux{#1}{#2}#3\@nil
+    }
+    \def\tableaujalousie@parse@twodigit@number@aux#1#2#3#4\@nil{%
+    % #1 = indice de ligne i
+    % #2 = indice de colonne j
+    % #3 = premier chiffre à gauche du nombre à analyser
+    % #4 = reste du nombre à analyser
+      \ifx\\#4\\%
+        \@namedef{tableaujalousie@#1@#2@0}{0}%
+        \@namedef{tableaujalousie@#1@#2@1}{#3}%
+      \else
+        \@namedef{tableaujalousie@#1@#2@0}{#3}%
+        \@namedef{tableaujalousie@#1@#2@1}{#4}%
+      \fi
+    }
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % \tableaujalousie@calcule@liste@indices
+    % #1 = chiffre k
+    % --> liste des (i,j,e) avec i+j+e=k, i=1,...,nbrows,
+    %     j=1,...,nbcols et e=0,1
+    \def\tableaujalousie@calcule@liste@indices#1{%
+    \@nameedef{tableaujalousie@liste@indices@#1}{%
+      \ifnum\number\numexpr\tableaujalousie@nbcols+\tableaujalousie@nbrows+1-#1\relax>\tableaujalousie@nbrows\space
+        \ifnum\number\numexpr\tableaujalousie@nbcols-#1\relax>0
+          \expandafter\tableaujalousie@calcule@liste@indices@aux\number\numexpr\tableaujalousie@nbrows\number\numexpr\tableaujalousie@nbcols-#1\relax1\relax
+        \else
+          \expandafter\tableaujalousie@calcule@liste@indices@aux\number\numexpr\tableaujalousie@nbrows\number\numexpr\tableaujalousie@nbcols-#1+1\relax0\relax
+        \fi
+      \else
+        \expandafter\tableaujalousie@calcule@liste@indices@aux\number\numexpr\number\numexpr(\tableaujalousie@nbcols+\tableaujalousie@nbrows-#1)\relax10\relax
+      \fi}%
+    }
+    \def\tableaujalousie@calcule@liste@indices@aux#1#2#3{%
+      \ifx\\#1\\%
+        %
+      \else
+        \number\numexpr#1#2#3\relax,%
+        \ifnum#3=0
+          \ifnum#1>1
+                \expandafter\tableaujalousie@calcule@liste@indices@aux\number\numexpr\number\numexpr#1-1\relax#2\number\numexpr#3+1\relax\relax
+          \fi
+        \else
+          \ifnum#2<\tableaujalousie@nbcols\space
+            \expandafter\tableaujalousie@calcule@liste@indices@aux\number\numexpr#1\number\numexpr#2+1\relax\number\numexpr#3-1\relax\relax
+          \fi
+        \fi
+      \fi
+    }
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \def\tableaujalousie@process@retenue#1{%
+    % #1 = chiffre k
+       \expandafter\tableaujalousie@process@retenue@aux
+       \expandafter{\expandafter#1\expandafter}%
+       \number\numexpr\@nameuse{tableaujalousie@somme@chiffre@#1}+\@nameuse{tableaujalousie@retenue@#1}\relax\@nil
+    }
+    \def\tableaujalousie@process@retenue@aux#1#2#3\@nil{%
+      \ifx\\#3\\%
+        \@nameedef{tableaujalousie@retenue@\number\numexpr#1+1\relax}{0}%
+        \@nameedef{tableaujalousie@somme@chiffre@#1}{#2}%
+      \else
+        \@nameedef{tableaujalousie@retenue@\number\numexpr#1+1\relax}{#2}%
+        \@nameedef{tableaujalousie@somme@chiffre@#1}{#3}%
+      \fi
+    }
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % macro auxilliaire
+    \def\tjnb#1#2#3{\@nameuse{tableaujalousie@#1@#2@#3}}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % macro pour enlever l'éventuel zéro au début d'un nombre
+    \def\tableaujalousie@enleve@zero#1{%
+      \tableaujalousie@enleve@zero@aux#1\@nil
+    }
+    \def\tableaujalousie@enleve@zero@aux#1#2#3\@nil{%
+      \number\numexpr#1#2\relax#3%
+    }
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \makeatother
+    \begin{document}
+    \tableaujalousie{4735}{926}
+    \newpage
+    \tableaujalousie{13278}{56748}
+    \tableaujalousie{456}{67}
+    \tableaujalousie{99}{111}
+    \tableaujalousie{1}{2}
+    \newpage
+    \tableaujalousie{123456789}{123456789}
+
+    Code du tableau~: \begingroup\makeatletter\ttfamily\expandafter\strip@prefix\meaning\tableaujalousie@contenutableau\endgroup
+
+    \tableaujalousie{999999999}{999999999}
+
+    Code du tableau~: \begingroup\makeatletter\ttfamily\expandafter\strip@prefix\meaning\tableaujalousie@contenutableau\endgroup
+
+    \end{document}

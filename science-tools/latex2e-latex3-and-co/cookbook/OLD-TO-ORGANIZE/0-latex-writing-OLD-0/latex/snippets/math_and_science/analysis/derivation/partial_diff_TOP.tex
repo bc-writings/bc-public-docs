@@ -1,0 +1,32 @@
+% Source: https://tex.stackexchange.com/a/364747/6880
+
+\documentclass{article}
+\usepackage{listofitems,tikz}
+\newcounter{totalindex}
+\newcommand\pdiff[2][1]{%
+  \setsepchar{,/=}%
+  \readlist\Partialvars{#1}%
+  \setcounter{totalindex}{0}%
+  \foreach \Varindex in {1,...,\listlen\Partialvars[]}%
+    {%
+      \ifnum\listlen\Partialvars[\Varindex]>1\relax%
+        \addtocounter{totalindex}{\Partialvars[\Varindex,2]}%
+      \else%
+        \stepcounter{totalindex}%
+      \fi%
+    }%
+    \frac{\partial\ifnum\thetotalindex>1\relax^{\thetotalindex}\fi#2}%
+         {%
+          \foreach\Varindex in {1,...,\listlen\Partialvars[]}%
+           {%
+             \partial\Partialvars[\Varindex,1]%
+             \ifnum\listlen\Partialvars[\Varindex]>1\relax^{\Partialvars[\Varindex,2]}\fi%
+           }%
+         }%
+}
+\begin{document}
+\[ \pdiff[y]{f(x,y,z)} \]
+\[ \pdiff[y=3,x,z]{f(x,y,z)} \]
+\[ \pdiff[y=9999, x=3333, z=8888]{f(x,y,z)} \]
+\[ \pdiff[y=3,x,z,p=2,d=3,q,r=2,s]{f(x,y,z,p,d,q,r,s)} \]
+\end{document}

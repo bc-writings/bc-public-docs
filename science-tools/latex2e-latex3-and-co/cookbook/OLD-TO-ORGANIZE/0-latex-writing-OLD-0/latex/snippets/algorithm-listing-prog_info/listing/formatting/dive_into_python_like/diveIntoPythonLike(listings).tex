@@ -1,0 +1,86 @@
+% Source : http://forum.mathematex.net/latex-f6/decorer-un-listing-avec-le-package-listing-t11916.html#p115227
+
+\documentclass{article}
+	\usepackage{pifont}
+	\usepackage{listings}
+	\usepackage{hyperref}
+
+	\lstset{
+		columns=flexible,
+		basicstyle=\ttfamily,
+		breaklines=true,
+		keepspaces=true,
+	}
+
+	\makeatletter
+		\def\circledarabic#1{\expandafter\@circledarabic\csname c@#1\endcsname}
+		\def\@circledarabic#1{%
+			\ifcase#1\or \ding{172}\or \ding{173}\or \ding{174}\or \ding{175}\or \ding{176}\or \ding{177}\or \ding{178}\or \ding{179}\or \ding{180}\or \ding{181}\else\@ctrerr\fi%
+		}
+	\makeatother
+
+	\newcounter{listingnote}
+	\renewcommand{\thelistingnote}{\circledarabic{listingnote}}
+	\newcommand{\marklistingline}[1]{%
+		\refstepcounter{listingnote}#1%
+		\hbox to 0pt{\hspace*{\linewidth}\thelistingnote}%
+	}
+
+	\newcommand{\listingaccolade}[1]{%
+		\hbox to 0pt{\vbox to 0pt{\vskip-0.75em$\left\}\normalfont\begin{tabular}{@{}l@{}}#1\end{tabular}\right.$\vss}}%
+	}
+
+
+\begin{document}
+
+\begin{lstlisting}[escapechar=|]
+|\marklistingline{\label{sys-import}}|>>> import sys
+|\marklistingline{\label{sys-path}}|>>> sys.path
+[
+    '',
+    '/usr/lib/python31.zip',
+    '/usr/lib/python3.1',
+    '/usr/lib/python3.1/plat-linux2@EXTRAMACHDEPPATH@',
+    '/usr/lib/python3.1/lib-dynload',
+    '/usr/lib/python3.1/dist-packages',
+    '/usr/local/lib/python3.1/dist-packages'
+]
+|\marklistingline{\label{sys}}|>>> sys
+<module 'sys' (built-in)>
+|\marklistingline{\label{sys-path-insert}}|>>> sys.path.insert(0, '/home/mark/diveintopython3/examples')
+|\marklistingline{\label{sys-path-bis}}|>>> sys.path
+[
+    '/home/mark/diveintopython3/examples',
+    '',
+    '/usr/lib/python31.zip',                            |\listingaccolade{\\\\Divers\\\\\\}|
+    '/usr/lib/python3.1',
+    '/usr/lib/python3.1/plat-linux2@EXTRAMACHDEPPATH@',
+    '/usr/lib/python3.1/lib-dynload',
+    '/usr/lib/python3.1/dist-packages',
+    '/usr/local/lib/python3.1/dist-packages'
+]
+\end{lstlisting}
+
+\ref{sys-import} Importing the sys module makes all of its functions and attributes available.
+
+\ref{sys-path} sys.path is a list of directory names that constitute the current search path. 
+(Yours will look different, depending on your operating system, what version of Python you’re running,
+and where it was originally installed.) Python will look through these directories (in this order) 
+for a .py file whose name matches what you’re trying to import.
+
+\ref{sys} Actually, I lied; the truth is more complicated than that, because not all modules are stored
+as .py files. Some are built-in modules; they are actually baked right into Python itself. Built-in
+modules behave just like regular modules, but their Python source code is not available, because
+they are not written in Python! (Like Python itself, these built-in modules are written in C.)
+
+\ref{sys-path-insert} You can add a new directory to Python’s search path at runtime by adding
+the directory name to sys.path, and then Python will look in that directory as well, whenever
+you try to import a module. The effect lasts as long as Python is running.
+
+\ref{sys-path-bis} By using \lstinline|sys.path.insert(0, new_path)|, you inserted a new directory
+as the first item of the sys.path list, and therefore at the beginning of Python’s search path.
+This is almost always what you want. In case of naming conflicts (for example, if Python ships with
+version 2 of a particular library but you want to use version 3), this ensures that your modules
+will be found and used instead of the modules that came with Python.
+
+\end{document}

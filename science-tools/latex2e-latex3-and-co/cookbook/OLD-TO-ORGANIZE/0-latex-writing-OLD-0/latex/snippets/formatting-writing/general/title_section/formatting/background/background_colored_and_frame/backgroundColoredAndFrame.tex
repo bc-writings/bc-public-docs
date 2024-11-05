@@ -1,0 +1,20 @@
+% Source : http://forum.mathematex.net/latex-f6/couleur-de-fond-pour-les-sections-t12917.html#p124762
+
+\documentclass[10pt,a4paper]{article}
+	\usepackage[french]{babel}
+	\usepackage[T1]{fontenc}
+	\usepackage[latin1]{inputenc}
+	\usepackage{xcolor}
+
+	\newcommand{\Section}[1]{%
+		\fcolorbox{red}{blue!10}{\parbox{\textwidth}{\section{#1}}}
+	}
+
+
+\begin{document}
+
+\Section{Titre 1}
+
+Bla, bla, bla, bla, bla, bla, bla, bla, bla...
+
+\end{document}

@@ -1,0 +1,50 @@
+% Source: https://tex.stackexchange.com/a/699446/6880
+
+\documentclass{article}[12pt]
+\usepackage[hmargin=3.0cm,vmargin={2.0cm,4.5cm}]{geometry}
+
+\usepackage{lmodern}
+\usepackage{amsmath, amsthm}
+\usepackage{graphicx}
+%\usepackage{fancyhdr}  %not used in this MWE
+%\usepackage{tikz}      %loaded by tcolorbox
+%\usepackage[most]{tcolorbox}   % not used in this MWE
+
+\usepackage{xcolor}
+\usepackage{tabularray}
+
+%\renewcommand{\headrulewidth}{0pt}
+%\fancyhead[R]{\includegraphics[width=50mm]{example-image-duck}}
+%\chead{{\bf\scshape\large Exercises}\vspace{0.3cm}}
+
+
+\begin{document}
+%\thispagestyle{fancy}
+%\setlength{\headheight}{40pt}
+%\noindent
+%Course: \textsc{Analytical mathematics 5}
+\begin{center}
+TABLA DE TRANSFORMADA DE LAPLACE
+\end{center}
+
+\hrule\hrule
+
+\begin{table}[h]
+    \centering
+    \begin{tblr}{hlines, vlines,
+                 colspec = {c *{2}{X[c, mode=dmath]}},
+                 row{1}  = {bg=gray8, rowsep=5pt},
+                 row{2-Z} = {12mm,      % set rows height
+                             rowsep=0pt}
+                 }
+    &   f(t)=\mathcal{L}^{-1}[F(s)]    
+        & F(s)=\mathcal{L}[f(t)]=\displaystyle\int_0^{\infty}f(t)e^{-st}dt  \\
+1   &   af(t)+g(t)  
+        &   aF(s)+bG(s)     \\
+2   & 1 
+        &   \dfrac{1}{s}    \\
+3   &   &                   \\
+    \end{tblr}
+\end{table}
+
+\end{document}

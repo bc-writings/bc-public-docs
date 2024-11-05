@@ -1,0 +1,39 @@
+% Source : http://tex.stackexchange.com/questions/22597/how-to-highlight-specific-entries-in-a-tocloft-formatted-toc
+
+\documentclass{book}
+	\usepackage{tocloft}
+	\usepackage[svgnames]{xcolor}
+	\usepackage{tikz}
+% command to make a hidden node
+	\newcommand*{\hnode}[1]{%
+		\tikz[remember picture] \node[minimum size=0pt,inner sep=0pt,outer sep=5pt] (#1) {};%
+	}
+% create a node at the beginning of the part entry
+	\renewcommand{\cftpartfont}{\hnode{P1}\bfseries\Large}
+	\renewcommand{\cftpartpagefont}{\bfseries}
+% create a node at the end of the part page number and draw the gray box
+	\renewcommand{\cftpartafterpnum}{%
+		\hnode{P2}\tikz[remember picture,overlay] 
+		\draw (P1.north west)  [line width={25pt}, gray,opacity=.2] -- (P2.north east);%
+	}
+
+
+\begin{document}
+
+\tableofcontents
+
+\part{First part}
+	\chapter{A chapter}
+		\section{A section}
+		\section{B section}
+
+\part{Second Part}
+	\chapter{Another chapter}
+		\section{A section}
+		\section{B section}
+
+\part{Third Part}
+
+\part{Fourth Part}
+
+\end{document}

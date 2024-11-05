@@ -1,0 +1,37 @@
+% Source : http://tex.stackexchange.com/questions/34409/background-color-for-the-caption-of-a-listing
+
+\documentclass{article}
+	\usepackage{caption}
+	\usepackage{xcolor}
+	\usepackage{listings}
+	\usepackage{lipsum}
+
+	\DeclareCaptionFormat{myformat}{%
+		\colorbox{black!10}{\parbox{\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax}{\centering #1#2\ttfamily#3}}
+	}
+	\captionsetup[lstlisting]{format=myformat}
+
+
+\begin{document}
+
+\lipsum[1]
+
+\begin{lstlisting}[caption={A colored caption}]
+test
+\end{lstlisting}
+
+\lipsum[2]
+
+\begin{lstlisting}[caption={A colored caption}]
+test
+\end{lstlisting}
+
+\lipsum[3]
+
+\begin{lstlisting}[caption={A colored caption}]
+test
+\end{lstlisting}
+
+\lipsum[4]
+
+\end{document}

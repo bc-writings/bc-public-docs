@@ -1,0 +1,57 @@
+% Source : http://forum.mathematex.net/latex-f6/numeroter-les-repliques-d-interlocuteurs-multiples-t12567.html#p122013
+
+\documentclass[12pt,a4paper]{article}
+	\usepackage[utf8]{inputenc}
+	\usepackage[frenchb]{babel}
+	\usepackage[T1]{fontenc}
+
+	\makeatletter
+		\newcounter{loc@cnt}
+		\setcounter{loc@cnt}\z@
+		\newenvironment{entretien}{\normalsize\parindent\z@}\par
+		\newcommand\loca{%
+			\par\leavevmode\normalfont
+			\stepcounter{loc@cnt}%
+			\llap{\footnotesize\arabic{loc@cnt}. }\textbf{loca :}\space\itshape%
+		}
+
+		\newcommand\locb{%
+			\par\leavevmode\normalfont
+			\stepcounter{loc@cnt}%
+			\llap{\footnotesize\arabic{loc@cnt}. }\textbf{locb :}\space%
+		}
+
+		\@addtoreset{loc@cnt}{section}
+	\makeatother
+
+
+\begin{document}
+
+\section{section 1}
+
+Texte avant l'entretien Texte avant l'entretien Texte avant l'entretien Texte avant l'entretien
+Texte avant l'entretien Texte avant l'entretien Texte avant l'entretien Texte avant l'entretien
+Texte avant l'entretien Texte avant l'entretien
+
+\begin{entretien}
+	\loca Du texte du premier locuteur, qui pose les question et qui parle avec emphase.
+	\locb Du texte du deuxième locuteur qui parle pour ne rien dire si ce n'est arriver à la ligne un jour.
+	\loca Comment tu t'appelles?
+	\locb Je suis le second locuteur.
+\end{entretien}
+
+Texte après l'entretien Texte après l'entretien Texte après l'entretien Texte après l'entretien
+Texte après l'entretien Texte après l'entretien Texte après l'entretien Texte après l'entretien
+Texte après l'entretien Texte après l'entretien
+
+
+\section{section2}
+
+\begin{entretien}
+	\loca Du texte du premier locuteur, qui pose les question et qui parle avec emphase.
+	\locb Du texte du deuxième locuteur qui parle pour ne rien dire si ce n'est arriver à la ligne un jour.
+	\loca Comment tu t'appelles?
+	\locb Je suis le second locuteur.
+\end{entretien}
+
+\end{document}

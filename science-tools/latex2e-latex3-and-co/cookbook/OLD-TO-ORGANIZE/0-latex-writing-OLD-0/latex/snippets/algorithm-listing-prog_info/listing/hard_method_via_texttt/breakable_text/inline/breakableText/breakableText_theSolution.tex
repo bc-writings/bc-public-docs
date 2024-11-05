@@ -1,0 +1,36 @@
+% Source : Christian Tellechea, the author of xstring
+
+\documentclass{article}
+	\usepackage[utf8]{inputenc} % Pas de utf8x !!!!
+	\usepackage[T1]{fontenc}
+
+	\makeatletter
+		\newcommand*\breakabletexttt{%
+			\begingroup
+			\@makeother\_% This allows the use of special
+			\@makeother\#% character _ et # ...
+			\ttfamily
+			\afterassignment\@breakabletexttt
+			\edef\temp@%
+		}
+
+		\newcommand*\@breakabletexttt{%
+			\expandafter\breakable@texttt\temp@\breakable@texttt%
+		}
+
+		\newcommand*\breakable@texttt[1]{%
+			\ifx\breakable@texttt#1\endgroup
+			\else
+				#1\hskip\z@ plus.1pt minus.1pt
+				\expandafter\breakable@texttt
+			\fi%
+		}
+	\makeatother
+
+
+\begin{document}
+
+Du texte : 
+\breakabletexttt{érangerangerangerange_ran#gerangerange_rangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerange}
+
+\end{document}

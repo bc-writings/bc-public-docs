@@ -1,0 +1,13 @@
+calligraphy
+
+bloX
+
+tikz-3dplot
+
+
+coordsys
+featpostmanual
+pst-circ-doc
+pst-optic-doc
+pst-spirograph
+xyguide

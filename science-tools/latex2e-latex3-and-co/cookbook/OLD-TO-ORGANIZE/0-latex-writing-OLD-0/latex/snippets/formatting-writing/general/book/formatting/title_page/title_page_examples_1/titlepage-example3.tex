@@ -1,0 +1,50 @@
+\documentclass{book}
+\usepackage{color,xecolor}
+\usepackage{xepersian}
+\newlength{\tpheight}\setlength{\tpheight}{0.9\textheight}
+\newlength{\txtheight}\setlength{\txtheight}{0.9\tpheight}
+\newlength{\tpwidth}\setlength{\tpwidth}{0.9\textwidth}
+\newlength{\txtwidth}\setlength{\txtwidth}{0.9\tpwidth}
+\newlength{\drop}
+\newcommand*{\lqm}[1]{{\Huge\fontsize{#1}{#1}\selectfont ?}}
+\newcommand*{\titleCM}{\begingroup% 
+\drop=0.05\txtheight
+\vspace*{\drop}
+\begin{center}
+{\xecolor{red}\Huge 
+عنوان کتاب
+ \\
+نام نویسنده                  
+\par}
+\vspace{2\baselineskip}
+{\huge 
+زیرعنوان کتاب
+\par}
+\vspace{\baselineskip}
+\Large
+{\iranicfamily
+ویرایشگر اول: نام ویرایشگر اول
+ \\
+          ویرایشگر دوم: نام ویرایشگر دوم}
+\vfill
+\setlength{\unitlength}{3pt}
+\begin{picture}(0,40)
+  \thicklines
+  {\color{red}
+  \put(-20,0){\framebox(40,40){}}
+  \put(0,0){\line(0,1){40}}
+  \put(-20,20){\line(1,0){40}}}
+  \put(-10,10){\makebox(0,0){\lqm{60pt}}}
+  \put(-10,30){\makebox(0,0){\lqm{60pt}}}
+  \put(10,10){\makebox(0,0){\lqm{60pt}}}
+  \put(10,30){\makebox(0,0){\lqm{60pt}}}
+\end{picture}
+\vfill
+نام انتشاراتی
+\end{center}
+\vspace*{\drop}
+\endgroup}
+\begin{document}
+\pagestyle{empty}
+\titleCM
+\end{document}

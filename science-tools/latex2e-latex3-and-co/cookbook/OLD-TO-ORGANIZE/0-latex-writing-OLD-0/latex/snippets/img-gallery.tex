@@ -1,0 +1,11 @@
+% Source: https://tex.stackexchange.com/a/635682/6880
+
+\documentclass{article}
+\usepackage[most]{tcolorbox}
+
+\begin{document}
+\begin{tcbraster}[raster columns=4, enhanced, sharp corners, halign title=center, flip title={boxsep=1mm}, blank, colbacktitle=white, coltitle=black]
+\foreach \i in {a,b,c,a,b,c,a,b,c,a,b,c,a,b,c}{
+\tcbincludegraphics[title=image~\thetcbrasternum]{example-image-\i}}
+\end{tcbraster}
+\end{document}

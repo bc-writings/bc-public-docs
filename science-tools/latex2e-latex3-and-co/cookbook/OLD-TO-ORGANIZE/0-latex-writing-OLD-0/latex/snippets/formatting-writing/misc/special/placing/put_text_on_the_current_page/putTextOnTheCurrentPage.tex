@@ -1,0 +1,33 @@
+% Sources :
+%    1) https://groups.google.com/group/fr.comp.text.tex/browse_thread/thread/976b59d10f5d2648/12fd0440b9080758?hl=fr#12fd0440b9080758
+%    2) https://groups.google.com/group/fr.comp.text.tex/browse_thread/thread/4f0ebd623cc09cea?hl=fr
+
+\documentclass[10pt,a4paper]{article}
+	\usepackage[utf8x]{inputenc}
+	\usepackage{ucs}
+	\usepackage{atbegshi}
+
+	\newcommand\toRender{%
+		\AtBeginShipoutNext{
+			\AtBeginShipoutUpperLeft{
+				\raisebox{-2cm}{%
+					\makebox[\paperwidth][c]{
+						TEST \underline{\rule{8cm}{0pt}} TEST
+					}%
+				}
+			}
+		}
+	}
+
+	\usepackage{lipsum}
+
+
+\begin{document}
+
+\lipsum
+
+\newpage
+
+\toRender \lipsum
+
+\end{document}

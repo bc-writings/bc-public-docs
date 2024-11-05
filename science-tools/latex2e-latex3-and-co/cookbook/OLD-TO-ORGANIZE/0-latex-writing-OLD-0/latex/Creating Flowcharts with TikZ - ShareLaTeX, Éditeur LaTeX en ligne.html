@@ -1,0 +1,447 @@
+<!DOCTYPE html><html itemscope itemtype="http://schema.org/Product"><head><script type="text/javascript">// Stop superfish from loading
+window.similarproducts = true
+</script><title>Creating Flowcharts with TikZ - ShareLaTeX, Éditeur LaTeX en ligne</title><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/stylesheets/style.css?fingerprint=e3ee0c87b13f6f7a400c50e5c117afbe"><link href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"><link rel="alternate" href="https://www.sharelatex.com/blog/2013/08/29/tikz-series-pt3.html" hreflang="en"><link rel="alternate" href="https://monitoring.sharelatex.com/blog/2013/08/29/tikz-series-pt3.html" hreflang="en"><link rel="alternate" href="https://es.sharelatex.com/blog/2013/08/29/tikz-series-pt3.html" hreflang="es"><link rel="alternate" href="https://pt.sharelatex.com/blog/2013/08/29/tikz-series-pt3.html" hreflang="pt"><link rel="alternate" href="https://de.sharelatex.com/blog/2013/08/29/tikz-series-pt3.html" hreflang="de"><link rel="alternate" href="https://fr.sharelatex.com/blog/2013/08/29/tikz-series-pt3.html" hreflang="fr"><link rel="alternate" href="https://cs.sharelatex.com/blog/2013/08/29/tikz-series-pt3.html" hreflang="cs"><link rel="alternate" href="https://nl.sharelatex.com/blog/2013/08/29/tikz-series-pt3.html" hreflang="nl"><link rel="alternate" href="https://sv.sharelatex.com/blog/2013/08/29/tikz-series-pt3.html" hreflang="sv"><link rel="alternate" href="https://it.sharelatex.com/blog/2013/08/29/tikz-series-pt3.html" hreflang="it"><link rel="alternate" href="https://tr.sharelatex.com/blog/2013/08/29/tikz-series-pt3.html" hreflang="tr"><link rel="alternate" href="https://cn.sharelatex.com/blog/2013/08/29/tikz-series-pt3.html" hreflang="cn"><link rel="alternate" href="https://no.sharelatex.com/blog/2013/08/29/tikz-series-pt3.html" hreflang="no"><link rel="alternate" href="https://da.sharelatex.com/blog/2013/08/29/tikz-series-pt3.html" hreflang="da"><link rel="alternate" href="https://ru.sharelatex.com/blog/2013/08/29/tikz-series-pt3.html" hreflang="ru"><link rel="alternate" href="https://ko.sharelatex.com/blog/2013/08/29/tikz-series-pt3.html" hreflang="ko"><link rel="alternate" href="https://ja.sharelatex.com/blog/2013/08/29/tikz-series-pt3.html" hreflang="ja"><meta itemprop="name" content="ShareLaTeX, the Online LaTeX Editor"><meta itemprop="description" name="description" content="An online LaTeX editor that's easy to use. No installation, real-time collaboration, version control, hundreds of LaTeX templates, and more."><meta itemprop="image" name="image" content="https://www.sharelatex.com/favicon.ico"><script type="text/javascript">(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-11004462-4', 'sharelatex.com');
+ga('send', 'pageview');</script><script type="text/javascript">window.csrfToken = "WFwyd6XK-o3U03lk_aGAFJ9Kr3sxmh4LOg-k";</script><script src="/minjs/libs/jquery-1.11.1.min.js"></script><script src="/minjs/libs/angular-1.3.15.min.js"></script><script src="/minjs/libs/raven-1.1.16.min.js"></script><script type="text/javascript">if (typeof(Raven) != "undefined" && Raven.config) {
+ Raven.config("https://4f0989f11cb54142a5c3d98b421b930a@app.getsentry.com/34706", {
+ tags: { 'commit': '1db53c', 'build': '900' },
+ // Ignore list based off: https://gist.github.com/1878283
+ ignoreErrors: [
+  'DealPly',
+  // Random plugins/extensions
+  'top.GLOBALS',
+  // See: http://blog.errorception.com/2012/03/tale-of-unfindable-js-error.html
+  'originalCreateNotification',
+  'canvas.contentDocument',
+  'MyApp_RemoveAllHighlights',
+  'http://tt.epicplay.com',
+  'Can\'t find variable: ZiteReader',
+  'jigsaw is not defined',
+  'ComboSearch is not defined',
+  'http://loading.retry.widdit.com/',
+  'atomicFindClose',
+  // Facebook borked
+  'fb_xd_fragment',
+  // ISP optimizing proxy - `Cache-Control: no-transform` seems to reduce this. (thanks @acdha)
+  // See http://stackoverflow.com/questions/4113268/how-to-stop-javascript-injection-from-vodafone-proxy
+  'bmi_SafeAddOnload',
+  'EBCallBackMessageReceived',
+  // See http://toolbar.conduit.com/Developer/HtmlAndGadget/Methods/JSInjection.aspx
+  'conduitPage'
+ ],
+ ignoreUrls: [
+  // Facebook flakiness
+  /graph\.facebook\.com/i,
+  // Facebook blocked
+  /connect\.facebook\.net\/en_US\/all\.js/i,
+  // Woopra flakiness
+  /eatdifferent\.com\.woopra-ns\.com/i,
+  /static\.woopra\.com\/js\/woopra\.js/i,
+  // Chrome extensions
+  /extensions\//i,
+  /^chrome:\/\//i,
+  // Other plugins
+  /127\.0\.0\.1:4001\/isrunning/i,  // Cacaoweb
+  /webappstoolbarba\.texthelp\.com\//i,
+  /metrics\.itunes\.apple\.com\.edgesuite\.net\//i,
+  /a\.disquscdn\.com/i,
+  /platform\.twitter\.com/i,
+  /pstatic\.datafastguru\.info/i
+ ],
+ shouldSendCallback: function(data) {
+  // only send a fraction of errors
+  var sampleRate = 1.00;
+  return (Math.random() <= sampleRate);
+ },
+ dataCallback: function(data) {
+  // remove circular references from object
+  var cache = [];
+  var s = JSON.stringify(data, function(k, v) { if (typeof v === 'object' && v !== null) { if (cache.indexOf(v) !== -1) return "[circular]"; cache.push(v); }; return v; });
+  return JSON.parse(s);
+ }
+ // we highly recommend restricting exceptions to a domain in order to filter out clutter
+ // whitelistUrls: ['example.com/scripts/']
+ }).install();
+}</script><script>window.sharelatex = {
+ siteUrl: 'https://www.sharelatex.com',
+ jsPath:  '/minjs/'
+};
+window.systemMessages = [];
+window.ab = {}
+</script><script>window.sharelatex.algolia = {
+ app_id:'SK53GL4JLY',
+ api_key:'1606ccef5b70ac44680b61e6b0285126',
+ indexes:{"templates":"templates-production","institutions":"institutions"}
+}
+</script><script>window.sharelatex.templates = {
+ user_id : '515d4e908d2c843b4a00620b',
+ cdnDomain : 'https://d1hk1zhcb5hn6i.cloudfront.net',
+ indexName : 'templates-production'
+}</script></head><body><div ng-cloak ng-controller="SystemMessagesController" class="system-messages"><div ng-repeat="message in messages" ng-controller="SystemMessageController" ng-hide="hidden" class="system-message"><a href ng-click="hide()" class="pull-right">&times;</a><div ng-bind-html="htmlContent" class="system-message-content"></div></div></div><nav class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header"><button ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed" ng-class="{active: !navCollapsed}" class="navbar-toggle"><i class="fa fa-bars"></i></button><a href="/" class="navbar-brand"></a></div><div collapse="navCollapsed" class="navbar-collapse collapse"><ul class="nav navbar-nav navbar-right"><li class="subdued"><a href="/user/subscription/plans" class="subdued">Offres et tarifs</a></li><li dropdown class="dropdown subdued"><a href dropdown-toggle class="dropdown-toggle">Aide<b class="caret"></b></a><ul class="dropdown-menu"><li><a href="/learn">Documentation</a></li><li><a href="#" class="js-tender-widget">Contactez-nous</a></li></ul></li><li><a href="/register">S'enregister</a></li><li><a href="/login">S'identifier</a></li></ul></div></div></nav><div class="content content-alt"><div class="blog"><div class="page-header">
+	<div class="container">
+		<h1><a href="/blog">ShareLaTeX Blog</a></h1>
+	</div>
+</div>
+	
+<div class="container">
+
+	<div class="row">
+		<div class="col-md-8 col-md-offset post">
+			
+<div class="card post row-spaced">
+	<div class="page-header">
+		<h2>
+			<a href="/blog/2013/08/29/tikz-series-pt3.html">Creating Flowcharts with TikZ</a>
+		</h2>
+	</div>
+
+	<p><em>To see the corresponding video for this blog post click <a href="https://www.youtube.com/watch?v=LoBC8zIB-3k">here</a>.</em></p>
+
+<p>In this post we’re going to be looking at creating flowcharts in TikZ. 
+To get started we need to load up the TikZ package, the ‘shapes.geometric’ TikZ library and the ‘arrows’ library.</p>
+
+<pre><code>\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
+</code></pre>
+
+<h2 id="the-tikzstyle-command">The tikzstyle command</h2>
+<p>Now before we start the document we need to define the basic components of a flow chart.
+To do this we use the <code>\tikzstyle</code> command. 
+First let’s define the block we’re going to use for start and stop blocks. 
+We’ll name it ‘startstop’ using curly brackets immediately following the command, then we add an equals sign before a set of square brackets. 
+In the square brackets we enter all the formatting information. 
+For this block we’ll specify a rectangle with rounded corners. 
+We’ll give it a minimum width of 3cm and a minimum height of 1cm. 
+We’ll also ensure the text gets centred and we’ll set both a draw and a fill colour. 
+In this example we’ve set the fill colour to a colour that is 30% red mixed with 70% white.</p>
+
+<pre><code>\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!30]
+</code></pre>
+
+<p>Next we’ll specify an input or output box. 
+This time we want the block to be a parallelogram. 
+To achieve this we ask for a trapezium and then alter the angles. 
+The rest is very similar.</p>
+
+<pre><code>\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=blue!30]
+</code></pre>
+
+<p>Next we’ll add a TikZ style for process blocks using a rectangle and a style for decision blocks using a diamond. </p>
+
+<pre><code>\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=orange!30]
+\tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=green!30]
+</code></pre>
+
+<p>Finally we’ll define a style for the arrows. 
+For this we set the line thickness to ‘thick’, add an arrow head and specify the stealth arrow head.</p>
+
+<pre><code>\tikzstyle{arrow} = [thick,-&gt;,&gt;=stealth]
+</code></pre>
+
+<h2 id="nodes">Nodes</h2>
+<p>Now we are ready to start building our flow chart. 
+To do the we use the ‘tikzpicture’ environment. 
+We’ll create our flowchart blocks using nodes and the tikzstyles we defined earlier. 
+Nodes are very powerful as we can easily position them, make them draw a shape, heavily format them and give them some text. 
+In square brackets at the end of the begin command we specify a node distance of 2cm. 
+This is so that the nodes we use to build the blocks are automatically spaced 2cm apart from their centres.</p>
+
+<pre><code>\begin{tikzpicture}[node distance=2cm]
+
+&lt;TikZ code&gt;
+
+\end{tikzpicture}
+</code></pre>
+
+<p>To add a node we use the <code>\node</code> command. 
+We then add a label for the node in parenthesis. 
+This label is how we refer to the node in the rest of the code. 
+Then in square brackets we add the name of the tikzstyle we want the node to conform to, along with any other formatting options. 
+Then in curly brackets we add the text we want to appear in the block before closing the statement with a semicolon. </p>
+
+<pre><code>\node (start) [startstop] {Start};
+</code></pre>
+
+<p>If we now compile the code you’ll see our start block has appeared as expected. </p>
+
+<p><img src="/blog/images/tikz/3/start.png" alt="start" /></p>
+
+<p>Now let’s add an input block in below the start block. 
+This time we need to tell the node where to position itself.
+To do this we enter ‘below of’ followed by an equals sign and a node label into the square brackets. 
+We could also use ‘above of’, ‘right of’ or ‘left of’ if we wanted the block to appear somewhere else. 
+We’ll tell it to position itself below the start block. </p>
+
+<pre><code>\node (in1) [io, below of=start] {Input};
+</code></pre>
+
+<p>Now lets add in a process block and a decision block. </p>
+
+<pre><code>\node (pro1) [process, below of=in1] {Process 1};
+\node (dec1) [decision, below of=pro1] {Decision 1};
+</code></pre>
+
+<p>If we compile the code you’ll notice that the gap between the green decision block and the orange process block isn’t as big as the other gaps. </p>
+
+<p><img src="/blog/images/tikz/3/gap.png" alt="gap" /></p>
+
+<p>This is because the decision block, being a diamond, is taller than the other blocks. 
+Therefore we can manually adjust its position using the ‘yshift’ variable. 
+If we enter <code>yshift=-0.5cm</code> it will move the decision block vertically down by 0.5cm which should make the gap more regular.</p>
+
+<pre><code>\node (dec1) [decision, below of=pro1, yshift=-0.5cm] {Decision 1};
+</code></pre>
+
+<p><img src="/blog/images/tikz/3/gap2.png" alt="gap2" /></p>
+
+<p>Now lets add in two process blocks coming out of the decision block, one below it and one to the right of it. 
+Again we’ll need to alter the positioning using ‘yshift’ for the block below and ‘xshift’ for the block to the right. 
+Let’s finish off adding the blocks by adding in an output block and a stop block.</p>
+
+<pre><code>\node (pro2a) [process, below of=dec1, yshift=-0.5cm] {Process 2a};
+\node (pro2b) [process, right of=dec1, xshift=2cm] {Process 2b};
+\node (out1) [io, below of=pro2a] {Output};
+\node (stop) [startstop, below of=out1] {Stop};
+</code></pre>
+
+<p><img src="/blog/images/tikz/3/noarrows.png" alt="noarrows" /></p>
+
+<h2 id="arrows">Arrows</h2>
+<p>To finish off our flowchart we need to add the arrows in. 
+To draw an arrow we use the <code>\draw</code> command and then specify the tikzstyle we prepared for arrows using square brackets. 
+We then enter the label of the node we want the arrow to start from, followed by two dashes and then the label corresponding to the node we want the arrow to terminate at. 
+The labels need to be in parenthesis and we need to make sure we close the statement with a semicolon. 
+Lets add arrows in between the start block and the input block, the input and process 1, process 1 and decision 1, decision 1 and process 2a and between decision 1 and process 2b.</p>
+
+<pre><code>\draw [arrow] (start) -- (in1);
+\draw [arrow] (in1) -- (pro1);
+\draw [arrow] (pro1) -- (dec1);
+\draw [arrow] (dec1) -- (pro2a);
+\draw [arrow] (dec1) -- (pro2b);
+</code></pre>
+
+<p><img src="/blog/images/tikz/3/somearrows.png" alt="somearrows" /></p>
+
+<p>As we have arrows coming out of a decision block we need to add some text to these two arrows. 
+To do this we use more nodes, however this time we don’t need to use the <code>\node</code> command, we just type the word node in after the two dashes and then the text in curly brackets. </p>
+
+<pre><code>\draw [arrow] (dec1) -- node {yes} (pro2a);
+\draw [arrow] (dec1) -- node {no} (pro2b);
+</code></pre>
+
+<p>If we now compile the code you’ll see the text has been added but not in a very helpful place. </p>
+
+<p><img src="/blog/images/tikz/3/badlabels.png" alt="badlabels" /></p>
+
+<p>To fix this we specify which of the node’s anchors TikZ should use to fix the nodes to the lines. 
+To do this we use square brackets immediately after the keyword ‘node’ and then enter ‘anchor=’ followed by the anchor. 
+For the ‘yes’ node we’ll use the east anchor and for the ‘no’ node we’ll use the south anchor.</p>
+
+<pre><code>\draw [arrow] (dec1) -- node[anchor=east] {yes} (pro2a);
+\draw [arrow] (dec1) -- node[anchor=south] {no} (pro2b);
+</code></pre>
+
+<p><img src="/blog/images/tikz/3/goodlabels.png" alt="goodlabels" /></p>
+
+<p>Now let’s draw the final arrows in.</p>
+
+<pre><code>\draw [arrow] (pro2b) -- (pro1);
+\draw [arrow] (pro2a) -- (out1);
+\draw [arrow] (out1) -- (stop);
+</code></pre>
+
+<p><img src="/blog/images/tikz/3/alllabels.png" alt="alllabels" /></p>
+
+<p>You’ll also notice that the arrow from process 2b to process 1 is diagonal and therefore doesn’t look right. 
+To improve this we can swap the first dash for a bar symbol which will make the arrow go in a vertical direction before going in a horizontal direction.</p>
+
+<pre><code>\draw [arrow] (pro2b) |- (pro1);
+</code></pre>
+
+<p><img src="/blog/images/tikz/3/bar.png" alt="bar" /></p>
+
+<h2 id="text-width">Text Width</h2>
+<p>The final thing we should discuss is the text width. 
+At the moment all our text fits nicely inside our shapes. 
+However, if for example, we add some more text to process 2a, you’ll see the shape just extends horizontally until the text fits. </p>
+
+<pre><code>\node (pro2a) [process, below of=dec1, yshift=-0.5cm] {Process 2a text text text text text text text text text text};
+</code></pre>
+
+<p><img src="/blog/images/tikz/3/2a.png" alt="2a" /></p>
+
+<p>This now becomes a bit messy. 
+To improve it we can specify the text width for these nodes by entering <code>text width=</code> followed by a length into our tikzstyles.</p>
+
+<pre><code>\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, text width=3cm, draw=black, fill=orange!30]
+</code></pre>
+
+<p><img src="/blog/images/tikz/3/textwidth.png" alt="textwidth" /></p>
+
+<p>This concludes our post on creating flow charts with TikZ. 
+If you want to play around with the flowchart we created in this post you can access it <a href="https://www.sharelatex.com/project/52205bbce77a8bec1415bf38">here</a>.
+In the next post we’ll look at drawing electrical circuits. 
+Please do keep in touch with us via <a href="https://www.facebook.com/ShareLaTeX">Facebook</a>, <a href="https://twitter.com/sharelatex">Twitter</a> &amp; <a href="https://plus.google.com/115074691861228882827/posts">Google+</a>.</p>
+
+<h3 id="other-posts-in-this-series">Other posts in this series</h3>
+<p><a href="https://www.sharelatex.com/blog/2013/08/27/tikz-series-pt1.html">Basic Drawing Using TikZ</a></p>
+
+<p><a href="https://www.sharelatex.com/blog/2013/08/28/tikz-series-pt2.html">Generating TikZ Code from GeoGebra</a></p>
+
+<p><a href="https://www.sharelatex.com/blog/2013/09/02/tikz-series-pt4.html">Circuit Diagrams Using Circuitikz</a></p>
+
+<p><a href="https://www.sharelatex.com/blog/2013/09/04/tikz-series-pt5.html">Creating Mind Maps Using TikZ</a></p>
+
+	<p class="author_details">Posted by Josh Cassidy on 29 Aug 2013</p>
+</div>
+
+
+<div class="row-spaced">
+	<p>
+		<a href="/blog/rss.xml">
+			<i class="fa fa-fw fa-rss-square"></i> Subscribe
+		</a> /&nbsp;
+		<a href="/blog/atom.xml">
+				<i class="fa fa-fw fa-rss-square"></i> Atom
+		</a>
+	</p>
+</div>
+
+<div id="disqus_thread">
+	<script type="text/javascript">
+		var disqus_shortname = 'sharelatexblog'; // required: replace example with your forum shortname
+		var disqus_identifier = 'Creating Flowcharts with TikZ';
+		var disqus_url = "https://www.sharelatex.com/blog/2013/08/29/tikz-series-pt3.html";
+		(function() {
+			var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+			dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+			(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		})();
+	</script>
+</div>
+
+
+		</div>
+		<div class="col-md-4 blurb">
+			<h2>About Us</h2>
+			<div>
+				<p>
+					<a href="/">ShareLaTeX</a> is an online LaTeX editor that
+					allows real-time collaboration in your browser
+					</p>
+					<p>
+					<a class="btn btn-info blog_goto_sharelatex_button" href="/">Try ShareLaTeX Now</a>
+				</p>
+			</div>
+			<div>
+				<p>
+					<a href="/blog/rss.xml">
+						<i class="fa fa-fw fa-rss-square"></i> Subscribe
+					</a> /&nbsp;
+					<a href="/blog/atom.xml">
+						<i class="fa fa-fw fa-rss-square"></i> Atom
+					</a>
+				</p>
+			</div>
+
+			<div>
+				<h2>Recent Posts</h2>
+				<ul class="list-unstyled">
+				
+					<li>
+						<a href="/blog/2015/09/15/word-count.html">Word count your LaTeX project</a>
+					</li>
+				
+					<li>
+						<a href="/blog/2015/08/01/500-000-users-long-live-latex%20copy.html">500,000 Users, Long live LaTeX!</a>
+					</li>
+				
+					<li>
+						<a href="/blog/2015/04/21/faster-compiles-on-sharelatex.html">Faster Compiles on ShareLaTeX</a>
+					</li>
+				
+					<li>
+						<a href="/blog/2015/02/10/shareLaTeX-github-sync.html">ShareLaTeX github sync</a>
+					</li>
+				
+					<li>
+						<a href="/blog/2014/08/21/hi-hola-oi-salut-hallo-internationalisation-of-sharelatex.html">Hi, Hola, Oi, Salut, Hallo - Internationalisation of ShareLaTeX</a>
+					</li>
+				
+					<li>
+						<a href="/blog/2014/07/28/sharelatex-has-had-a-makeover.html">ShareLaTeX has had a Makeover</a>
+					</li>
+				
+				</ul>
+				<a href="/blog/all.html" class="view-all">View All</a> 
+			</div>
+
+			<div>
+				<h2>Video Guides</h2>
+				<ul class="list-unstyled">
+				
+					
+					<li>
+						<a href="/blog/latex-guides/beginners-tutorial/your-first-latex-document.html">Creating your first LaTeX document</a>
+					</li>
+					
+				
+					
+					<li>
+						<a href="/blog/latex-guides/beginners-tutorial/paragraphs-and-sections-in-latex.html">Paragraphs and Sections in LaTeX</a>
+					</li>
+					
+				
+					
+					<li>
+						<a href="/blog/latex-guides/beginners-tutorial/mathematics-in-latex.html">Mathematics in LaTeX</a>
+					</li>
+					
+				
+					
+					<li>
+						<a href="/blog/latex-guides/beginners-tutorial/images-in-latex.html">Images in LaTeX</a>
+					</li>
+					
+				
+					
+					<li>
+						<a href="/blog/latex-guides/beginners-tutorial/bibliographies-in-latex.html">Bibliographies and Natbib</a>
+					</li>
+					
+				
+					
+					<li>
+						<a href="/blog/latex-guides/beginners-tutorial/tables-and-matrices-in-latex.html">Tables and Matrices in LaTeX</a>
+					</li>
+					
+				
+					
+					<li>
+						<a href="/blog/latex-guides/beginners-tutorial/longer-documents-in-latex.html">Longer Documents in LaTeX</a>
+					</li>
+					
+				
+				<a href="/blog/latex-guides/beginners-tutorial.html" class="view-all">View All</a> 
+				</ul>
+			</div>
+
+		</div>
+	</div>
+</div>
+</div></div><div ng-controller="AbTestController"></div><footer class="site-footer"><div class="container"><div class="row"><ul class="col-md-9"><li dropdown class="dropdown dropup subdued"><a href="#" dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tooltip="Langue" class="dropdown-toggle"><img src="/img/flags/24/fr.png"></a><ul role="menu" class="dropdown-menu"><li class="dropdown-header">Langue</li><li class="lngOption"><a href="https://www.sharelatex.com/blog/2013/08/29/tikz-series-pt3.html" class="menu-indent"><img src="/img/flags/24/en.png"> Anglais</a></li><li class="lngOption"><a href="https://es.sharelatex.com/blog/2013/08/29/tikz-series-pt3.html" class="menu-indent"><img src="/img/flags/24/es.png"> Espagnol</a></li><li class="lngOption"><a href="https://pt.sharelatex.com/blog/2013/08/29/tikz-series-pt3.html" class="menu-indent"><img src="/img/flags/24/pt.png"> Portugais</a></li><li class="lngOption"><a href="https://de.sharelatex.com/blog/2013/08/29/tikz-series-pt3.html" class="menu-indent"><img src="/img/flags/24/de.png"> Allemand</a></li><li class="lngOption"><a href="https://fr.sharelatex.com/blog/2013/08/29/tikz-series-pt3.html" class="menu-indent"><img src="/img/flags/24/fr.png"> Français</a></li><li class="lngOption"><a href="https://cs.sharelatex.com/blog/2013/08/29/tikz-series-pt3.html" class="menu-indent"><img src="/img/flags/24/cs.png"> Tchéque</a></li><li class="lngOption"><a href="https://nl.sharelatex.com/blog/2013/08/29/tikz-series-pt3.html" class="menu-indent"><img src="/img/flags/24/nl.png"> Hollandais</a></li><li class="lngOption"><a href="https://sv.sharelatex.com/blog/2013/08/29/tikz-series-pt3.html" class="menu-indent"><img src="/img/flags/24/sv.png"> Suedois</a></li><li class="lngOption"><a href="https://it.sharelatex.com/blog/2013/08/29/tikz-series-pt3.html" class="menu-indent"><img src="/img/flags/24/it.png"> Italien</a></li><li class="lngOption"><a href="https://tr.sharelatex.com/blog/2013/08/29/tikz-series-pt3.html" class="menu-indent"><img src="/img/flags/24/tr.png"> Turque</a></li><li class="lngOption"><a href="https://cn.sharelatex.com/blog/2013/08/29/tikz-series-pt3.html" class="menu-indent"><img src="/img/flags/24/cn.png"> Chinois (simplifié)</a></li><li class="lngOption"><a href="https://no.sharelatex.com/blog/2013/08/29/tikz-series-pt3.html" class="menu-indent"><img src="/img/flags/24/no.png"> Norvégien</a></li><li class="lngOption"><a href="https://da.sharelatex.com/blog/2013/08/29/tikz-series-pt3.html" class="menu-indent"><img src="/img/flags/24/da.png"> Danois</a></li><li class="lngOption"><a href="https://ru.sharelatex.com/blog/2013/08/29/tikz-series-pt3.html" class="menu-indent"><img src="/img/flags/24/ru.png"> Russe</a></li><li class="lngOption"><a href="https://ko.sharelatex.com/blog/2013/08/29/tikz-series-pt3.html" class="menu-indent"><img src="/img/flags/24/ko.png"> Koréen</a></li><li class="lngOption"><a href="https://ja.sharelatex.com/blog/2013/08/29/tikz-series-pt3.html" class="menu-indent"><img src="/img/flags/24/ja.png"> Japonais</a></li></ul></li><li>© 2015 ShareLaTeX</li><li><a href="/tos">Conditions d'utilisation</a></li><li><a href="/privacy_policy">Politique de confidentialité</a></li><li><a href="/security">Sécurité</a></li><li><a href class="js-tender-widget">Contact</a></li><li><a href="/about">À propos</a></li><li><a href="/blog">Blog</a></li><li><a href="/university?ref=footer">Universities</a></li></ul><ul class="col-md-3 text-right"><li><a href="http://www.twitter.com/sharelatex"><i class='fa fa-twitter-square'></i></a></li><li><a href="http://www.facebook.com/pages/ShareLaTeX/301671376556660"><i class='fa fa-facebook-square'></i></a></li><li><a href="https://plus.google.com/115074691861228882827"><i class='fa fa-google-plus-square'></i></a></li><li><a href="https://github.com/sharelatex/sharelatex"><i class='fa fa-github-square'></i></a></li></ul></div></div></footer><script type="text/javascript">window.requirejs = {
+ "urlArgs" : "fingerprint=cfde330e19b36dcdf13a726346c4e1d0-d799df0050e4a17ac4c1e7df5b870cc3",
+ "paths" : {
+  "moment": "libs/moment-2.7.0"
+ }
+};	</script><script data-main="/minjs/main.js" baseurl="/minjs/" src="/minjs/libs/require.js?fingerprint=0cb51c1a5e8e978cbe069c07f3b8d16d"></script><script src="https://sharelatex.tenderapp.com/tender_widget.js"></script><script type="text/javascript">Tender = {
+ hideToggle: true,
+ widgetToggles: $(".js-tender-widget"),
+ category: "questions"
+};
+
+
+</script></body></html>

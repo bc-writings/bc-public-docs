@@ -1,0 +1,37 @@
+% Source : http://tex.stackexchange.com/questions/45812/vertical-numbering-with-multienumerate-environment
+
+\documentclass{article}
+	\usepackage{multienum}
+
+	\def\vmultienumerate#1{% number of entries in the column
+		\setcounter{multienumi}{-#1}%
+		\addtocounter{multienumi}{1}%
+		\renewcommand\labelenumi{%
+			\ifnum\value{multienumi}>#1
+				\addtocounter{multienumi}{-#1}%
+				\addtocounter{multienumi}{1}%
+			\else
+				\addtocounter{multienumi}{#1}%
+			\fi
+			\arabic{multienumi}.%
+		}
+	}
+
+
+\begin{document}
+
+\begin{multienumerate}
+	\mitemxx{item 1}{item 2}
+	\mitemxx{item 3}{item 4}
+	\mitemxx{item 5}{item 6}
+\end{multienumerate}
+
+\medskip
+
+\begin{multienumerate}\vmultienumerate{3}
+	\mitemxx{item 1}{item 4}
+	\mitemxx{item 2}{item 5}
+	\mitemxx{item 3}{item 6}
+\end{multienumerate}
+
+\end{document}

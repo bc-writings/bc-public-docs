@@ -1,0 +1,31 @@
+% Source : http://tex.stackexchange.com/questions/33754/vertical-spacing-in-tables-with-math
+
+\documentclass[xcolor=table,svgnames]{beamer} 
+\usepackage{booktabs}
+\usepackage{amsmath}
+\begin{document}
+%==============================================================================%
+  \begin{frame}{}
+    \begin{table}
+      \begin{center}
+        \rowcolors{1}{}{RoyalBlue!20}             % alternate row coloring
+        \newlength{\oldtabcolsep}                 % keep track of old \tabcolsep
+        \setlength{\oldtabcolsep}{\tabcolsep}     % 6.0pt
+        \setlength{\tabcolsep}{0pt}               % so coloring doesn't run off
+                                                  % ends of the table
+        \renewcommand{\arraystretch}{1.3}         % because math expressions
+                                                  % almost run into each other
+        \begin{tabular}{l<{\hspace{\oldtabcolsep}}l<{\hspace{\oldtabcolsep}}l}  
+          \toprule
+          Estimator & ME & MAE \\
+          \specialrule{\lightrulewidth}{0pt}{0pt} % so row-coloring aligns
+          \(\widehat{JV}_{\text{na\"{\i}ve}}\)          & 4.37e-07 & 4.37e-07 \\
+          \(\widetilde{JV}_{\text{na\"{\i}ve}}\)        & 3.88e-07 & 3.88e-07 \\
+          \(\widehat{JV}\)                              & 1.33e-06 & 1.33e-06 \\
+          \(\widetilde{JV}\)                            & 1.20e-06 & 1.20e-06 \\
+          \bottomrule
+        \end{tabular}
+      \end{center}
+    \end{table}
+  \end{frame}
+ \end{document}

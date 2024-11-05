@@ -1,0 +1,27 @@
+% Source : http://tex.stackexchange.com/questions/37559/having-all-one-single-line-with-black-background-and-text-in-white
+
+\documentclass{article}
+\usepackage{xcolor}
+	\usepackage{showframe}
+	\usepackage{adjustbox}
+
+	\newcommand*\mylineI[1]{%
+		\par\noindent
+		\colorbox{black}{\makebox[\dimexpr\linewidth-2\fboxsep\relax][l]{\strut\color{white}#1}}%
+		\par%
+	}
+
+	\newcommand*\mylineII[1]{%
+		\par\noindent\adjustbox{bgcolor=black,innercode={\color{white}}{},}%
+		{\makebox[\linewidth][l]{\strut #1}}%
+		\par%
+	}
+
+
+\begin{document}
+
+\mylineI{Text Text Text Text}
+
+\mylineII{Text Text Text Text}
+
+\end{document}

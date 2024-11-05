@@ -1,0 +1,32 @@
+% Source : http://tex.stackexchange.com/questions/29389/how-to-add-a-side-bar-non-intrusivly-over-more-then-one-paragraph
+
+\documentclass{article}
+	\usepackage[pdftex]{changebar}% http://ctan.org/pkg/changebar
+	\usepackage{xcolor}% http://ctan.org/pkg/xcolor
+
+
+\begin{document}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et urna odio. 
+Suspendisse vitae lacus orci. Morbi neque metus, sollicitudin eget varius 
+at, malesuada a urna. Integer bibendum quam ultrices est interdum a 
+placerat sem aliquet. Sed ipsum tellus, hendrerit eu iaculis eget, 
+facilisis a purus. Mauris id justo ligula, sed facilisis neque. Praesent 
+mauris mi, ultrices nec sodales ut, mollis at quam. Cras a est a mauris 
+ullamcorper aliquet. Nunc risus turpis, iaculis vel fermentum id, gravida 
+at nulla. Nam condimentum semper lectus. In et sollicitudin sem. Nunc nunc 
+ante, dapibus non luctus nec, laoreet vel leo. Fusce lorem risus, 
+fermentum in aliquet sed, pellentesque at est. Nam nec tempor eros.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et urna odio. 
+Suspendisse vitae lacus orci. Morbi neque metus, sollicitudin eget varius 
+at, malesuada a urna. \cbstart{\color{blue}In magna erat, suscipit vitae rutrum sit 
+amet, condimentum at velit. Aenean semper quam sed dolor malesuada id 
+aliquet mi fringilla.}\cbend\ Mauris id justo ligula, sed facilisis neque. 
+Praesent mauris mi, ultrices nec sodales ut, mollis at quam. Cras a est a 
+mauris ullamcorper aliquet. Nunc risus turpis, iaculis vel fermentum id, 
+gravida at nulla. Nam condimentum semper lectus. In et sollicitudin sem. 
+Nunc nunc ante, dapibus non luctus nec, laoreet vel leo. Fusce lorem risus, 
+fermentum in aliquet sed, pellentesque at est. Nam nec tempor eros.
+
+\end{document}

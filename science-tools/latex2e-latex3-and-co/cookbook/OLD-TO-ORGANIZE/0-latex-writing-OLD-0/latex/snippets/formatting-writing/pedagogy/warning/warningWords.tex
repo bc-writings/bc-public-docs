@@ -1,0 +1,19 @@
+% Source for the symbol : http://forum.mathematex.net/latex-f6/panneau-virages-dangereux-t13332.html#p128087
+
+\documentclass[a4paper,10pt]{article}
+	\usepackage[utf8x]{inputenc}
+	\usepackage{ucs}
+	\usepackage[x11names, svgnames]{xcolor}
+	\usepackage{manfnt}
+	\usepackage{relsize}
+	\newcommand{\myWarning}[1]{\textcolor{Red3}{\textbf{\relscale{0.5}\textdbend\relscale{2}\,#1}}}
+
+
+\begin{document}
+
+\dbend ATTENTION ! Vous êtes prévenu. Bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla,
+bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla.
+
+\myWarning{ATTENTION !} Vous êtes prévenu. Bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla,
+bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, \myWarning{bla}, bla.
+\end{document}

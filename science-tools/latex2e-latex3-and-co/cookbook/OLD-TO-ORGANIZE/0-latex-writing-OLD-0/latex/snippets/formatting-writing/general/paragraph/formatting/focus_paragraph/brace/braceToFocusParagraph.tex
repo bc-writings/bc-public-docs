@@ -1,0 +1,27 @@
+% Source : http://tex.stackexchange.com/questions/33993/brace-and-text-in-side-margin
+
+\documentclass{report} 
+	\usepackage{amsmath}
+	\usepackage{lipsum}
+
+	\newcommand\BrText[2]{%
+		\par\smallskip
+		\noindent\makebox[\textwidth][r]{%
+			$\text{#1}\left\{
+			\begin{minipage}{\textwidth}
+				#2
+			\end{minipage}
+			\right.\nulldelimiterspace=0pt$%
+		}\par\smallskip
+	}
+
+
+\begin{document}
+
+\lipsum[1]
+
+\BrText{Some text}{\lipsum[1]}
+
+\lipsum[1]
+
+\end{document}

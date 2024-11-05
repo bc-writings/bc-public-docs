@@ -1,0 +1,28 @@
+% Source : http://tex.stackexchange.com/questions/38046/how-to-typeset-with-lstlisting-package
+
+\documentclass[a4paper,10pt]{article}
+	\usepackage[utf8]{inputenc}
+	\usepackage{listings}
+
+
+\begin{document}
+
+\section{Default behavior}
+
+\begin{lstlisting}
+--   <-- Does not work !
+a--b <-- Does not work !
+-{}- <-- Unusefull !
+\end{lstlisting}
+
+
+\section{Better behavior}
+
+\lstset{language=sh,literate={--}{{-\,-}}1}
+\begin{lstlisting}
+--   <-- Works !
+a--b <-- Works !
+-{}- <-- Unusefull !
+\end{lstlisting}
+
+\end{document}

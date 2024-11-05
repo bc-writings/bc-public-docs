@@ -1,0 +1,18 @@
+% Source : http://tex.stackexchange.com/questions/3445/latex-tables-how-do-i-make-bold-horizontal-lines-typically-hline
+
+\documentclass[a4paper,10pt]{article}
+	\usepackage{tabularx}
+	\usepackage{makecell}
+
+
+\begin{document}
+
+\begin{tabular}{ccc}
+	plo & plo & plo \\
+	\Xhline{5\arrayrulewidth}
+	plo & plo & plo \\
+	\hline
+	plo & plo & plo
+\end{tabular}
+
+\end{document}

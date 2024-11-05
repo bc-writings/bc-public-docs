@@ -1,0 +1,20 @@
+% Source : http://tex.stackexchange.com/questions/34702/get-reference-to-current-section
+
+\documentclass{report}
+	\pagestyle{empty}
+
+
+\begin{document}
+
+\chapter{First} \label{chap:first}
+
+\section{First} \label{sec:first}
+
+This is the chapter number~\thechapter, section~\thesection.
+
+
+\section{Second} \label{sec:second}
+
+This is the chapter number~\thechapter, section~\thesection.
+
+\end{document}

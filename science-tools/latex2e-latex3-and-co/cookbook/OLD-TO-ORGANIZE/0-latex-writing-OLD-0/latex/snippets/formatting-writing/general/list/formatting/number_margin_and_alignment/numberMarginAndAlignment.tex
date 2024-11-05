@@ -1,0 +1,52 @@
+% Source : http://forum.mathematex.net/latex-f6/numerotation-et-alignement-t12803.html#p123891
+
+\documentclass{article}
+	\usepackage{enumitem}
+
+	\makeatletter
+		\newcommand{\nouveaumakelabel}[1]{ %
+			\rlap{\enit@format#1}\hss %
+		}
+	\makeatother
+
+
+\begin{document}
+
+	Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla.
+
+	\begin{enumerate}[label=(\arabic*)]
+		\item Ceci est un exemple.
+		\item Ceci est un exemple.
+		\item Ceci est un exemple.
+		\item Ceci est un exemple.
+		\item Ceci est un exemple.
+		\item Ceci est un exemple.
+		\item Ceci est un exemple.
+		\item Ceci est un exemple.
+		\item Ceci est un exemple.
+		\item Ceci est un exemple.
+		\item Ceci est un exemple.
+	\end{enumerate}
+
+	Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla.
+	
+	\begin{enumerate}[
+		before=\renewcommand{\makelabel}{\nouveaumakelabel},
+		label=(\arabic*)
+	]
+		\item Ceci est un exemple.
+		\item Ceci est un exemple.
+		\item Ceci est un exemple.
+		\item Ceci est un exemple.
+		\item Ceci est un exemple.
+		\item Ceci est un exemple.
+		\item Ceci est un exemple.
+		\item Ceci est un exemple.
+		\item Ceci est un exemple.
+		\item Ceci est un exemple.
+		\item Ceci est un exemple.
+	\end{enumerate}
+
+	Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla.
+
+\end{document}

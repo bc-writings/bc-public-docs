@@ -1,0 +1,67 @@
+% Source: https://tex.stackexchange.com/a/679886/6880
+
+\RequirePackage{fix-cm}
+\documentclass{article}
+\usepackage{xcolor}
+\usepackage{verbatim}
+
+\ExplSyntaxOn
+
+\tl_new:N \l__mystyle_style_tl
+
+\keys_define:nn { mystyle }
+ {
+  color .tl_set:N = \l__mystyle_color_tl,
+  size  .tl_set:N = \l__mystyle_size_tl,
+  skip  .tl_set:N = \l__mystyle_skip_tl,
+
+  style .choice:,
+  style/it .code:n = \tl_set:Nn \l__mystyle_style_tl { \itshape },
+  style/bf .code:n = \tl_set:Nn \l__mystyle_style_tl { \bfseries },
+  style/bfit .code:n = \tl_set:Nn \l__mystyle_style_tl { \bfseries\itshape },
+  style/unknown .code:n = \tl_set:Nn \l__mystyle_style_tl { #1 },
+
+  color .initial:n = red!75,
+  size  .initial:n = 12pt,
+  skip  .initial:n = 14.5pt,
+ }
+\NewDocumentCommand{\stress}{O{}m}
+ {
+  \group_begin:
+  \keys_set:nn { mystyle } { #1 }
+  \clist_map_inline:nn { #2 }
+   {
+    \mystyle:VVVVn
+    \l__mystyle_color_tl
+    \l__mystyle_size_tl
+    \l__mystyle_skip_tl
+    \l__mystyle_style_tl
+    {##1}
+   }
+  \group_end:
+ }
+\cs_new_protected:Nn \mystyle:nnnnn
+ {
+  \leavevmode\color{#1}\fontsize{#2}{#3}#4\selectfont#5
+ }
+\cs_generate_variant:Nn \mystyle:nnnnn { VVVV }
+
+\ExplSyntaxOff
+
+\begin{document}
+
+\stress{emphasize this sentence with default values}
+
+\stress[color=green!60!red,size=18pt]{emphasize this sentence with custom values}
+
+\stress[color=blue!80,size=10pt,skip=50pt,style=it]{emphasize this sentence with custom values}
+
+\stress[style=it]{blabla}
+
+\stress[style=bf]{blabla}
+
+\stress[style=bfit]{blabla}
+
+\stress[style=\scshape]{blabla}
+
+\end{document}

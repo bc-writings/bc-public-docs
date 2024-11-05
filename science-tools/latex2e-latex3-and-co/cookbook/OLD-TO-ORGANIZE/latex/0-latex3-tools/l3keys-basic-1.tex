@@ -1,0 +1,32 @@
+% Source: https://tex.stackexchange.com/a/192000/6880
+
+\documentclass{scrartcl}
+
+\ExplSyntaxOn
+
+\NewDocumentCommand \RULE {}
+  {
+    \rule { \l_tmpa_dim } { \l_tmpb_dim }
+  }
+
+\keys_define:nn { foo }
+  {
+    bar .code:n = { \keys_set:nn { foo / bar } {#1} },
+    bar / tmpa .dim_set:N = \l_tmpa_dim,
+    bar / tmpb .dim_set:N = \l_tmpb_dim,
+    bar / tmpa .initial:n = 1em,
+    bar / tmpb .initial:n = 4em,
+  }
+
+\NewDocumentCommand \dimsetup { m } { \keys_set:nn { foo } { #1 } }
+
+\ExplSyntaxOff
+
+\dimsetup{bar={tmpa=3em,tmpb=1em}}
+
+
+\begin{document}
+
+\RULE
+
+\end{document}

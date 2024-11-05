@@ -1,0 +1,23 @@
+\documentclass{article}
+
+\usepackage{tkz-tab}
+\usetikzlibrary{calc}
+
+\newcommand\commentthis[2]{
+%	\def\secondnode{T22}
+	\coordinate (M) at ($(T2#1)!.5!(T2\the\numexpr#1+1\relax)$); 
+	\path
+    	(M.east) +(.75,0) node[right,blue]{#2}
+	;
+}
+
+
+\begin{document}
+
+\begin{tikzpicture}
+    \tkzTabInit[espcl = 1.5]{$x$ / 1 , $-x+3$ / 1.5}{$-1$, $+1$}
+    \tkzTabLine { z , + , z }
+    \commentthis{1}{TEST}
+\end{tikzpicture}
+
+\end{document}

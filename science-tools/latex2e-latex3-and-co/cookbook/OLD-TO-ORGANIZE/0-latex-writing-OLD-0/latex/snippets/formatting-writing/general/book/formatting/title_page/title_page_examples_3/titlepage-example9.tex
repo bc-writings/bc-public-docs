@@ -1,0 +1,32 @@
+\documentclass{book}
+\usepackage{xepersian}
+\newlength{\tpheight}\setlength{\tpheight}{0.9\textheight}
+\newlength{\txtheight}\setlength{\txtheight}{0.9\tpheight}
+\newlength{\tpwidth}\setlength{\tpwidth}{0.9\textwidth}
+\newlength{\txtwidth}\setlength{\txtwidth}{0.9\tpwidth}
+\newlength{\drop}
+\newcommand*{\plogo}{\fbox{فانوس}}
+\newcommand*{\titleAM}{\begingroup% 
+\drop = 0.12\txtheight
+\centering
+\vspace*{\drop}
+{\large 
+نام نویسنده
+}\\[\baselineskip]
+{\Huge 
+عنوان کتاب
+}\\[\baselineskip]
+{\Huge 
+زیرعنوان کتاب
+}\\[\baselineskip]
+{\sayehfamily با صد شکل رنگی}\\
+{\sayehfamily و ۱۵ نمودار ریاضی}\\[\drop]
+{\plogo}\\[0.5\baselineskip]
+{\small\sayehfamily نام انتشاراتی}\par
+{\small\sayehfamily ۱۳۹۰}\par
+\vfill\null
+\endgroup}
+\begin{document}
+\pagestyle{empty}
+\titleAM
+\end{document}

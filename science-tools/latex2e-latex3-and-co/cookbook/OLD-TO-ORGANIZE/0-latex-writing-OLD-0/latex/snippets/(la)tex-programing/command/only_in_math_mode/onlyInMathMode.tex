@@ -1,0 +1,22 @@
+% Source : http://tex.stackexchange.com/questions/81725/how-do-i-make-a-macro-require-math-mode
+
+\documentclass{article}
+    \DeclareRobustCommand{\MyMathModeMacro}{%
+        \ifmmode
+             E = m c^2
+        \else
+            \GenericError{(my preamble)}
+                {Attempt to use MyMathModeMacro outside of math mode}
+                {See my preamble documentation for explanation.}
+                {Need to use either use inline or display math.}%
+        \fi
+    }%
+
+
+\begin{document}
+
+$\MyMathModeMacro$
+
+%\MyMathModeMacro% <--- This will produce an error
+
+\end{document}

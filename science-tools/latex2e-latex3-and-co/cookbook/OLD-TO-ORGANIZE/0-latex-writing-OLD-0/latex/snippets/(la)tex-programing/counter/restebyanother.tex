@@ -1,0 +1,25 @@
+% Source: https://tex.stackexchange.com/a/328299/6880
+
+\documentclass{article}
+
+\newcounter{maincounter}
+\newcounter{childcounter}[maincounter]
+
+
+\begin{document}
+
+\arabic{maincounter}-\arabic{childcounter}
+
+\refstepcounter{childcounter}
+\arabic{maincounter}-\arabic{childcounter}
+
+\refstepcounter{childcounter}
+\arabic{maincounter}-\arabic{childcounter}
+
+\refstepcounter{childcounter}
+\arabic{maincounter}-\arabic{childcounter}
+
+\refstepcounter{maincounter}
+\arabic{maincounter}-\arabic{childcounter}
+
+\end{document}

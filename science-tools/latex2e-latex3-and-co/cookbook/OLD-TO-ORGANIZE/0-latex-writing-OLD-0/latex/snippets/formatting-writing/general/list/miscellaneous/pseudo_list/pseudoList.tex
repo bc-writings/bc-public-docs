@@ -1,0 +1,20 @@
+% Source : http://forum.mathematex.net/latex-f6/hspace-sur-un-bloc-t12617.html#p122328
+
+\documentclass{article}
+	\usepackage[utf8x]{inputenc}
+
+	\makeatletter
+		\newcommand{\hangfrom}[1]{
+			\@hangfrom{#1}
+		}
+	\makeatother
+
+\begin{document}
+
+	\hangfrom{2.2.3E} $Ef(u,v)$ (resp. $Ek(u,v)$) mesure, représente, la dépense, pendant la période type,
+	par le secteur $s$, pour l'opération $u$, en fonctionnement courant (resp. en capital).
+
+	\hangfrom{2.2.3R} $Rf(u,v)$ (resp. $Rk(u,v)$) mesure, représente, la recette, pendant la période type,
+	du secteur $s$, pour l'opération $u$, en fonctionnement courant (resp. en capital).
+
+\end{document}

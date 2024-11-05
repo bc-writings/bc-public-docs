@@ -1,0 +1,74 @@
+% Source: https://tex.stackexchange.com/a/197085/6880
+
+\documentclass{article}
+
+\usepackage{expl3, xparse}
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+\ExplSyntaxOn
+
+\tl_new:N \__edu_planfigur_temp
+
+\DeclareDocumentCommand \planfigurLines { m } {
+
+  \tl_clear:N \__edu_planfigur_temp
+
+  \tl_if_in:nnT {#1} {a} {
+    \tl_put_right:Nn \__edu_planfigur_temp {\draw (b) -- (c);}
+  }
+
+  \tl_if_in:nnT {#1} {b} {
+    \tl_put_right:Nn \__edu_planfigur_temp {\draw (a) -- (c);}
+  }
+
+  \tl_if_in:nnT {#1} {c} {
+    \tl_put_right:Nn \__edu_planfigur_temp {\draw (a) -- (b);}
+  }
+
+  \tl_use:N \__edu_planfigur_temp
+}
+
+\DeclareExpandableDocumentCommand \planfigurAngles { m } {
+  \tl_if_in:nnT {#1} {a} {
+    \tl_put_right:Nn \__edu_planfigur_temp {\draw ($(a) + (0 \c_colon_str 1)$) arc (0 \c_colon_str 40 \c_colon_str 1) ($(a) + (20 \c_colon_str 0.7)$) node {$\alpha$};}
+  }
+  \tl_if_in:nnT {#1} {b} {
+    \tl_put_right:Nn \__edu_planfigur_temp {\draw ($(b) + (120 \c_colon_str 1)$) arc (120 \c_colon_str 180 \c_colon_str 1) ($(b) + (150 \c_colon_str 0.7)$) node {$\beta$};}
+  }
+  \tl_if_in:nnT {#1} {c} {
+    \tl_put_right:Nn \__edu_planfigur_temp {\draw ($(c) + (220 \c_colon_str 1)$) arc (220 \c_colon_str 300 \c_colon_str 1) ($(c) + (260 \c_colon_str 0.65)$) node {$\gamma$};}
+  }
+
+  \tl_use:N \__edu_planfigur_temp
+}
+
+\ExplSyntaxOff
+
+\DeclareExpandableDocumentCommand \planfigur { m m } {
+  \begin{tikzpicture}[scale=0.65, line join=round, thick]
+
+    \coordinate (a) at (0,0);
+    \coordinate (b) at (5,0);
+    \coordinate (c) at (3.37, 2.83);
+
+    \draw (a) -- node[below] {$c$} (b) -- node[above right] {$a$} (c) -- node[above left] {$b$} (a) -- cycle;
+
+    \draw (a) node[left] {$A$};
+    \draw (b) node[right] {$B$};
+    \draw (c) node[above] {$C$};
+
+    \begin{scope}[color=red, fill=red!25, very thick]
+      \planfigurLines{#1}
+      \planfigurAngles{#2}
+    \end{scope}
+
+\end{tikzpicture}
+}
+
+\begin{document}
+
+\planfigur{ac}{a}
+
+\end{document}

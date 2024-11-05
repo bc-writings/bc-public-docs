@@ -1,0 +1,60 @@
+\documentclass[12pt]{article}
+\usepackage{pgfkeys}
+
+\makeatletter
+    \newcommand\@init@new@exo[1]{%%
+        \pgfkeys{
+            /#1@keys/.is family,
+            /#1@keys,
+                pts/.initial  = {}, % Render the subject or not
+                src/.initial  = {}  % Number of the exam
+        }%%
+%%
+        \expandafter\newcommand\csname #1@number\endcsname{nb-#1}%%
+    }
+
+    \@init@new@exo{topic}
+    \@init@new@exo{exercice}
+
+% Source :
+%    * https://tex.stackexchange.com/a/398104/6880
+\newcommand\@add@new@exo[1]{\expandafter\@add@new@exo@pgfkeys
+                    \csname#1\expandafter\endcsname
+                    \csname#1@points\expandafter\endcsname
+                    \csname#1@source\expandafter\endcsname
+                    \csname#1@number\endcsname
+                    {#1}}
+
+\newcommand\@add@new@exo@pgfkeys[5]{%
+    \newcommand#1[1][]{%
+        \begingroup
+            \pgfkeys{/#5@keys, ##1}%%
+            \pgfkeysgetvalue{/#5@keys/pts}{#2}%%
+            \pgfkeysgetvalue{/#5@keys/src}{#3}%%
+            #5 #4{} %%
+            (#2{} pts)
+            [Source :#3{}] %%
+        \endgroup
+    }%%
+}
+
+
+\@add@new@exo{exercice}
+\@add@new@exo{topic}
+
+
+\makeatother
+
+
+
+\begin{document}
+
+\exercice[pts = 1, src = Imaginaire]
+
+\exercice
+
+\topic[pts = 1, src = Imaginaire]
+
+\topic[pts = 2]
+
+\end{document}

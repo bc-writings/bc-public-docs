@@ -1,0 +1,34 @@
+% Source : http://tex.stackexchange.com/questions/35167/highlighting-strings-between-and-in-lstlistings
+
+\documentclass[border=2pt]{standalone}
+	\usepackage{xcolor}
+	\usepackage{listings}
+	\usepackage{filecontents}% only need to provide the file foo.mylang
+
+	\lstdefinelanguage{myLang}{
+		sensitive=false,
+		morestring=[b]",
+		keywords={=},
+		morecomment=[l]{\#},
+	}
+
+	\lstdefinestyle{myLangStyleA}{
+		language=myLang,
+		moredelim=[is][\color{blue}\ttfamily]{[}{]}
+	}
+
+	\lstdefinestyle{myLangStyleB}{
+		language=myLang,
+		morecomment=[s][\color{red}\ttfamily]{[}{]}, 
+	}
+
+
+\begin{document}
+
+Using \textbf{style=myLangStyleA}:
+\lstinputlisting[style=myLangStyleA]{listingMoreDelmimiter1.mylang}
+
+Using \textbf{style=myLangStyleB}:
+\lstinputlisting[style=myLangStyleB]{listingMoreDelmimiter1.mylang}
+
+\end{document}

@@ -1,0 +1,26 @@
+% Source : http://forum.mathematex.net/latex-f6/fleche-allongee-resolu-t12380.html#p120114
+
+\documentclass{article}
+	\usepackage{amssymb}
+
+	\newcommand{\longhookrightarrow}{}% teste si deja defini
+	\DeclareRobustCommand{\longhookrightarrow}{\lhook\joinrel\relbar\joinrel\rightarrow}
+	\newcommand{\longtwoheadrightarrow}{}% teste si deja defini
+	\DeclareRobustCommand{\longtwoheadrightarrow}{\relbar\joinrel\twoheadrightarrow}
+
+
+\begin{document}
+
+$A \rightarrow B$
+
+$A \hookrightarrow B$
+
+$A \twoheadrightarrow B$
+
+$A \longrightarrow B$
+
+$A \longhookrightarrow B$
+
+$A \longtwoheadrightarrow B$
+
+\end{document}

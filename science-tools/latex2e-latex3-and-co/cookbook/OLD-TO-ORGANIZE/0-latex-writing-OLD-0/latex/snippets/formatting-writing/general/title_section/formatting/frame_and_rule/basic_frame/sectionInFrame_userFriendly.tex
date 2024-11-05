@@ -1,0 +1,21 @@
+% Source : http://tex.stackexchange.com/questions/11998/framing-section-headings
+
+\documentclass{article}
+	\usepackage{lipsum}
+
+	\usepackage{titlesec}
+
+	\titleformat{\section}[frame]
+		{\normalfont}
+		{}
+		{5pt}
+		{\Large\bfseries\filcenter\thesection.\quad}
+
+
+\begin{document}
+
+\section{A section}
+
+\lipsum[4]
+
+\end{document}

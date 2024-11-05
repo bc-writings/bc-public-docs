@@ -1,0 +1,32 @@
+% Source : http://forum.mathematex.net/latex-f6/environnement-pour-placer-exposants-et-indices-t7970.html#p80090
+
+\documentclass[10pt,a4paper]{article}
+	\usepackage[latin1]{inputenc}
+	\usepackage{amsmath}
+	\usepackage{amsfonts}
+	\usepackage{amssymb}
+	\usepackage{mathtools}
+	\usepackage{xargs}
+
+	\newcommandx*\param[5][2,3,4,5]{
+		\prescript{#5}{#4}{#1}^{#2}_{#3}
+	}
+
+
+\begin{document}
+
+\[
+	\param{CENTRE}[1][2][3][4] \quad
+	\param{CENTRE}[1][2][3] \quad
+	\param{CENTRE}[1][2] \quad
+	\param{CENTRE}[1]
+\]
+
+\[
+	\param{\sum}[1][2][3][4] \quad
+	\param{\sum}[1][2][3] \quad
+	\param{\sum}[1][2] \quad
+	\param{\sum}[1]
+\]
+
+\end{document}

@@ -1,0 +1,25 @@
+\documentclass[10pt,a4paper]{article}
+	\makeatletter
+		\newcommand{\test}{%
+			\@ifstar{Starred version}{Unstarred version}
+		}
+
+		\newcommand\testBis{\@ifstar{\@testBisStar}{\@testBisNoStar}} 
+		\newcommand{\@testBisStar}[1]{Starred version No #1}
+		\newcommand{\@testBisNoStar}[1]{Unstarred version No #1}
+	\makeatother
+
+
+\begin{document}
+
+The starred version \verb+\test{}+ : \test{}
+
+The unstarred version \verb+\test*{}+ : \test*{}
+
+\bigskip
+
+The starred version \verb+\testBis{2}+ : \testBis{2}
+
+The unstarred version \verb+\testBis*{2}+ : \testBis*{2}
+
+\end{document}

@@ -1,0 +1,24 @@
+\documentclass[10pt,a4paper]{article}
+	\usepackage[utf8x]{inputenc}
+	\usepackage{xstring}
+
+	\newcommand\test[1]{
+		\IfEqCase{#1}{
+			{0}{OK}
+			{1}{SOUCI \PackageWarning{}{Bof ce un !}}
+			{2}{\PackageError{}{Nom de Dieu, je hais les deux !}{}}
+		}
+	}
+
+
+\begin{document}
+
+Ok pour \test{0}.
+
+
+Un mini-problème ici : \test{1}.
+
+
+Pas possible d'aller plus loin: \test{2}.
+
+\end{document}

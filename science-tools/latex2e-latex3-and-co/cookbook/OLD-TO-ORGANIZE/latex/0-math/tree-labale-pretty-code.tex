@@ -1,0 +1,62 @@
+% Source: https://tex.stackexchange.com/a/274318/6880
+
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{forest,pifont}
+\begin{document}
+\begin{forest}
+  /tikz/every node/.append style={font=\sffamily},
+  toss/.style={
+    before drawing tree={% specify the prefix of the labels at the top here
+      tikz/.wrap pgfmath arg={\node at ([yshift=10pt].center |- h.north) {Ball ##1};}{level()},
+    }
+  },
+  tosses/.style={
+    name=h,
+    for current and ancestors={if level=0{}{toss}},
+    before packing={% specify the label for the final (rightmost) level here
+      !1.tikz={\node at ([yshift=10pt].center |- h.north) {Outcomes};}
+    }
+  },
+  for tree={
+    grow'=0,
+    parent anchor=east,
+    child anchor=west,
+    anchor=west,
+    tier/.wrap pgfmath arg={tier #1}{level()},
+    l sep+=20pt,
+    font=\sffamily,
+    delay={
+      if level=0{}{% specify the contents of the nodes here
+        if n=1{content=\ding{109}}{content=\ding{108}},
+      }
+    }
+  },
+  before typesetting nodes={
+    where n children=0{
+      append={[, edge={dashed}, anchor=west, font=\sffamily, content/.wrap 3 pgfmath args={(#1,#2,#3)}{content("!uuu")}{content("!uu")}{content("!u")}]}
+    }{}
+  }
+  [
+    [
+      [
+        [, tosses]
+        []
+      ]
+      [
+        []
+        []
+      ]
+    ]
+    [
+      [
+        []
+        []
+      ]
+      [
+        []
+        []
+      ]
+    ]
+  ]
+\end{forest}
+\end{document}

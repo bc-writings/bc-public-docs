@@ -1,0 +1,41 @@
+% Source : http://forum.mathematex.net/latex-f6/probleme-de-placement-de-texte-dans-la-marge-t13583.html#p131104
+
+\documentclass[10pt]{book}
+	\usepackage{mparhack}
+	\usepackage{xstring}
+
+% \raggedleft sert à bien placer les points à côté du texte.
+	\newcommand{\pointInMarge}[1]{
+		\marginpar{%
+			\ifodd\value{page}\else\raggedleft\fi %
+			\framebox{#1 %
+				\IfStrEq{#1}{1}{pt}{pts}%
+			}%
+		}
+	}
+
+\begin{document}
+
+\noindent bla \pointInMarge{1} bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla  bla bla bla
+
+\begin{enumerate}
+	\item bla \pointInMarge{2} bla
+	\item bla \pointInMarge{2} bla
+\end{enumerate}
+
+
+\newpage
+
+\noindent bla \pointInMarge{1} bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+
+\end{document}

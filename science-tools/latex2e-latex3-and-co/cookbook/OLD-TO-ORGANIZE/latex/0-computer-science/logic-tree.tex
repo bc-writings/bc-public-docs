@@ -1,0 +1,80 @@
+% Source: https://tex.stackexchange.com/a/726832/6880
+
+\documentclass[border=5pt]{standalone}
+\usepackage{forest}
+\newcommand* \lfalse{\mathord{\bot}}
+\forestset{% ateb: https://tex.stackexchange.com/a/726832/
+  declare boolean={pr}{0},
+  declare boolean={first infer}{0},
+  declare boolean={boxed}{0},
+  declare toks={inferred from}{},
+  declare toks={in box}{},
+  ass/.style={%
+    tier=ass,
+    pr,
+    delay={!u.first infer},
+  },
+  bdfl/.style={%
+    for tree={%
+      grow'=90,
+      math content,
+      no edge,
+      l sep'=0pt,
+      l'=0pt,
+      inner xsep=2pt,
+      inner ysep=4pt,
+    },
+    before drawing tree={%
+      delay={%
+        where={%
+          > O_= O |   {n children}{0} {first infer}
+        }{}{%
+          tikz+={%
+            \draw (!{first}.south west) ++(0pt,-.5pt) coordinate (a) -- (a -| !{last}.south east) ;
+          },
+        },
+      },
+    },
+  },
+  to box/.style={%
+    #1.boxed,
+    inferred from+=(#1),
+    #1.in box/.register=temptoksa,
+  },
+  subproof box/.style={%
+    before typesetting nodes={%
+      temptoksa/.option=name,
+      split={#1}{,}{to box},
+    },
+    before computing xy={%
+      tikz+/.process={%
+        OOw2{inferred from}{in box}{%
+          \node [fit=##1,draw,inner xsep=1.5pt,inner ysep=-2pt] (##2) {};
+        }%
+      },
+    },
+  },
+}
+\begin{document}
+\begin{forest}
+  bdfl,
+  [A
+    [A \lor B
+    ]
+    [A
+      [A \vdash, ass, subproof box={!c,!u},
+      ]
+    ]
+    [A
+      [\lfalse
+        [B
+          [B \vdash, ass, subproof box={!c,!u,!uu,!us,!uuu},
+          ]
+        ]
+        [\lnot B
+        ]
+      ]
+    ]
+  ]
+\end{forest}
+\end{document}

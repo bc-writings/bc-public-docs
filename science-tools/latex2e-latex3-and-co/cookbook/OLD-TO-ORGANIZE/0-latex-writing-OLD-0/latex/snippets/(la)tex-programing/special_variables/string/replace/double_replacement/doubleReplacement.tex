@@ -1,0 +1,19 @@
+% Source : http://forum.mathematex.net/latex-f6/probleme-de-remplacement-de-cdots-t13047.html#p125782
+
+\documentclass[a4paper]{article}
+	\usepackage{xstring}
+	\noexpandarg
+
+	\newcommand\test[1]{%
+		\StrSubstitute{#1}{a}{A}[\temp]%
+		\expandafter\StrSubstitute\expandafter{\temp}{b}{B}
+	}
+
+
+\begin{document}
+
+abcde : \test{abcde}
+
+\end{document}
+
+

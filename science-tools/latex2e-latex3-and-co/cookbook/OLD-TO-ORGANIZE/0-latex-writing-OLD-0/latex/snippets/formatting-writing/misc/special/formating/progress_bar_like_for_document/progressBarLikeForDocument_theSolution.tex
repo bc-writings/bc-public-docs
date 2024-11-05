@@ -1,0 +1,27 @@
+% Source : http://tex.stackexchange.com/questions/4180/how-to-use-pagereffoo-as-a-number
+
+\documentclass[oneside]{book}
+	\usepackage{fancyhdr,pageslts}
+	\setcounter{pagesLTS.pagenr}{1000}
+% because pagesLTS.pagenr is zero before
+% the .aux file has been loaded at the begin of the document
+% (and during the first compilation run).
+	\pagestyle{fancy}
+	\lhead{\rule{\dimexpr \textwidth*\theCurrentPage/\the\value{pagesLTS.pagenr}\relax}{2mm}}%
+
+	\usepackage{lipsum}
+
+
+\begin{document}
+
+\pagenumbering{arabic}
+
+\lipsum[1-30] % inserts dummy text for demonstration.
+
+\clearpage
+
+\pagenumbering{Roman}
+
+\lipsum[31-60] % inserts dummy text for demonstration.
+
+\end{document}

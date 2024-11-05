@@ -1,0 +1,73 @@
+% Source : http://forum.mathematex.net/latex-f6/table-des-matieres-tikz-t11297.html#p109842
+
+\documentclass{article}
+	\usepackage{framed}
+	\usepackage{tikz}
+
+	\newcommand{\tkzroundedframecmd}[1]{%
+		\begin{tikzpicture}
+			\node[fill=orange!10 , draw=blue!50!black , rounded corners , thick]{
+				\begin{minipage}{\textwidth}
+					#1
+				\end{minipage}
+			};
+		\end{tikzpicture}
+	}
+
+	\newenvironment{tkzroundedframe}{%
+		\def\FrameCommand{\tkzroundedframecmd}%
+			\MakeFramed{\hsize=.8\textwidth\FrameRestore}}%
+		{\endMakeFramed}
+
+% Redéfinition de la table des matières
+	\let\oldtableofcontents\tableofcontents
+	\renewcommand{\tableofcontents}{%
+		\begin{tkzroundedframe}
+			\oldtableofcontents
+		\end{tkzroundedframe}
+	}
+
+% Pour tester
+	\newcommand{\dummytext}{%
+		\dummytextcomponent
+		\dummytextcomponent
+		\dummytextcomponent
+		\dummytextcomponent
+		\dummytextcomponent
+	}
+
+	\newcommand{\dummytextcomponent}{
+		\section{Titre de section}
+
+		Bla bla.
+
+		Bla bla.
+
+		\subsection{Titre de sous-section}
+
+		Bla bla.
+
+		Bla bla.
+	}
+
+
+\begin{document}
+
+\tableofcontents
+
+\dummytext
+\dummytext
+\dummytext
+\dummytext
+\dummytext
+\dummytext
+\dummytext
+\dummytext
+\dummytext
+\dummytext
+\dummytext
+\dummytext
+\dummytext
+\dummytext
+
+\end{document}

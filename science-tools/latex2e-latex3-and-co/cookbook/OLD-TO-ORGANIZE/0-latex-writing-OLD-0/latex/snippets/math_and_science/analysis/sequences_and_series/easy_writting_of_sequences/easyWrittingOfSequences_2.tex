@@ -1,0 +1,18 @@
+% Source : http://tex.stackexchange.com/questions/44408/new-command-for-special-elements-in-parenthesis
+
+\documentclass{article}
+	\usepackage{amssymb}
+	\usepackage{xparse}
+
+	\DeclareDocumentCommand{\elementinset}{O{N}m}{%
+		\ensuremath{\left( #2_n \right)_{n \in \mathbb{#1}}}%
+	}
+
+\begin{document}
+
+$\elementinset{x}$
+
+$\elementinset[Z]{x}$
+
+\end{document}
+

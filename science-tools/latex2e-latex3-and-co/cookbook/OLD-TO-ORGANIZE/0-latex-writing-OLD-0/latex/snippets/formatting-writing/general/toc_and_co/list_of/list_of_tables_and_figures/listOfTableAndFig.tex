@@ -1,0 +1,57 @@
+% Source : http://tex.stackexchange.com/questions/20337/adding-word-table-before-each-entry-in-list-of-tables
+
+\documentclass{report}
+	\usepackage{chngcntr}  
+	\usepackage{tocloft}
+	\usepackage{hyperref}
+
+	\counterwithout{figure}{chapter}
+	\counterwithout{table}{chapter}
+
+	\renewcommand{\cftfigpresnum}{Figure\ }
+	\renewcommand{\cfttabpresnum}{Table\ }
+
+	\newlength{\mylenf}
+	\settowidth{\mylenf}{\cftfigpresnum}
+	\setlength{\cftfignumwidth}{\dimexpr\mylenf+1.5em}
+	\setlength{\cfttabnumwidth}{\dimexpr\mylenf+1.5em}
+
+	\makeatletter
+		\newcommand\listoftablesandfigures{%
+			\chapter*{List of Tables and Figures}%
+			\phantomsection
+			\@starttoc{lof}%
+			\bigskip
+			\@starttoc{lot}%
+		}
+	\makeatother
+
+
+\begin{document}
+
+\listoftablesandfigures
+
+\chapter{Test one}
+	\section{Test one one}
+
+\begin{table}
+	\caption{Test table one}
+\end{table}
+
+\begin{figure}
+	\caption{Test figure one}
+\end{figure}
+
+
+\chapter{Test two}
+	\section{Test two two}
+
+\begin{table}
+	\caption{Test table two}
+\end{table}
+
+\begin{figure}
+	\caption{Test figure two}
+\end{figure}
+
+\end{document}

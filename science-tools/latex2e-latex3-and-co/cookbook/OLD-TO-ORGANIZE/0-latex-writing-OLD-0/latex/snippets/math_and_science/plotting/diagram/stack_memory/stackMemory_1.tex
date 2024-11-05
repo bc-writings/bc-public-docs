@@ -1,0 +1,29 @@
+% Source : http://tex.stackexchange.com/questions/38032/create-an-array-in-tikz-with-underbrace-in-different-colors
+
+\documentclass{article}
+	\usepackage{xcolor}
+
+	\newsavebox{\tempbox}
+	\newcommand{\cbox}[2]{%
+		\fcolorbox{black}{#1}{\texttt{#2\strut}}\kern-\fboxrule%
+	}% Coloured box
+
+
+\begin{document}
+
+\[
+	\savebox{\tempbox}{\cbox{white}{~~~~~~}}
+	\underbrace{\cbox{red!30}{0000}}_{M_0}\!
+	\underbrace{\cbox{green!20}{0001}
+	\cbox{green!20}{0010}
+	\cbox{green!20}{0100}}_{M_1}\!
+	\rlap{\usebox{\tempbox}}%
+	\makebox[\wd\tempbox][c]{%
+	\fcolorbox{white}{white}{$\!\strut\cdot\!$}~%
+	\fcolorbox{white}{white}{$\!\strut\cdot\!$}~%
+	\fcolorbox{white}{white}{$\!\strut\cdot\!$}}\!
+	\cbox{white}{0111}\!
+	\underbrace{\cbox{blue!40}{1111}}_{M_d}
+\]
+
+\end{document}​

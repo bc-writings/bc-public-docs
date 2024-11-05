@@ -1,0 +1,21 @@
+% Source : http://forum.mathematex.net/latex-f6/new-year-edition-t12206-20.html#p118749
+%
+% Other possible methods are here : http://forum.mathematex.net/latex-f6/ecrire-une-fonction-en-latex-t1447.html#p11632
+
+\documentclass[10pt,a4paper]{article}
+	\usepackage[utf8x]{inputenc}
+	\usepackage{amsmath,amssymb}
+	\usepackage{array}
+
+	\newcommand{\function}[5]{ %
+		\begin{array}{l@{\;}|@{\;}r@{\;}c@{\;}l}
+				#1 \colon & #2 & \longrightarrow & #3 \\
+								 & #4 & \longmapsto & #5 %
+		 \end{array}}
+
+\begin{document}
+	Soit $\function{f}{E}{F}{x}{x^3}$
+
+	Ou bien,
+	 \[ \function{f}{E}{F}{x}{x^3} \]
+\end{document}

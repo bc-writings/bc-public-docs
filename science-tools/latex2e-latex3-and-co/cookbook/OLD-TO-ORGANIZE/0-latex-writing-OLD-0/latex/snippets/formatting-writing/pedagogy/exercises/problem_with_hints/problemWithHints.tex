@@ -1,0 +1,38 @@
+% Source : http://tex.stackexchange.com/questions/32413/how-does-one-make-a-single-block-of-text-span-two-columns-using-multicols
+
+\documentclass[10pt,a4paper]{article}
+	\usepackage[utf8x]{inputenc}
+	\usepackage{ucs}
+	\usepackage{amsmath}
+	\usepackage{amsfonts}
+	\usepackage{amssymb}
+
+	\usepackage{parcolumns}
+	\usepackage{lipsum}
+
+
+\begin{document}
+
+\begin{parcolumns}[
+	sloppy,
+	rulebetween,
+	colwidths={1=0.3\textwidth, 2=0.6\textwidth},
+	distance={0.1\textwidth}
+]{2}
+	\colchunk[1]{%
+		Indications :
+
+
+		\lipsum[1]
+	}
+	\colchunk[2]{%
+		Enoncé
+
+
+		\lipsum[1]
+	}
+	\colplacechunks
+\end{parcolumns}
+
+
+\end{document}

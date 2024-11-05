@@ -1,0 +1,38 @@
+% Source : http://tex.stackexchange.com/questions/25742/how-can-i-get-latex-to-warn-about-unreferenced-figures
+
+% Warning ! refcheck should be loaded after the ams packages and the hyperref package.
+
+\documentclass{article}
+	\usepackage{refcheck}
+
+
+\begin{document}
+
+\begin{equation}\label{eq:1}% Labelled and referred to
+	1+1=2
+\end{equation}
+
+\ref{eq:1}
+
+\begin{equation}\label{eq:2}% Labelled but not referred to
+	1-1=0
+\end{equation}
+
+\begin{equation}% Not labelled nor referred to
+	1+1=0
+\end{equation}
+
+\begin{table}[h]
+	\center
+	\begin{tabular}{cc}
+		1 & 2 \\
+		3 & 4 \\
+	\end{tabular}
+	\caption{Numbers}\label{tab:1}% Labelled but not referred to
+\end{table}
+
+\begin{figure}[h]\label{fig:1}% Labelled but not referred to
+	\caption{Foo}
+\end{figure}
+
+\end{document}

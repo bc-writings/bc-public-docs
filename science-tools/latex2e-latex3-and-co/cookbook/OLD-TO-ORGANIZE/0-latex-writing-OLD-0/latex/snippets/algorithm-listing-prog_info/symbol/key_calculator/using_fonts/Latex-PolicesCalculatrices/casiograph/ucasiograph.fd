@@ -1,0 +1,8 @@
+%% fonte des calculatrices du type Casio Graph 35+
+
+\ProvidesFile{ucasiograph.fd}[fontes de la Casio Graph 35+]
+
+\DeclareFontFamily{U}{casiograph}{}
+\DeclareFontShape{U}{casiograph}{m}{n}{<-> casiograph}{}
+
+\endinput

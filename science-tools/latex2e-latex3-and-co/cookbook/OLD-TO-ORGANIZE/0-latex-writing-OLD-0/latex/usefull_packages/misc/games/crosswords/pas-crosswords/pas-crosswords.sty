@@ -1,0 +1,122 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                               %
+%     pas-motscroises.sty         encodage : ANSI               %
+%                                                               %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                               %
+%           Créé par Stéphane PASQUET 		              		%
+%                                                               %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% MAJ : 24/03/2011
+
+% Informations générales
+\NeedsTeXFormat{LaTeX2e}[1999/01/01]
+\ProvidesPackage{pas-controle}[2011/03/24]
+
+% Chargement des packages nécessaires
+\RequirePackage{xkeyval}[2005/11/25]
+\RequirePackage{xstring} 
+\@ifpackageloaded{tikz}
+{\typeout{Le package TiKZ n'a pas été chargé une seconde fois.}}
+{\RequirePackage{tikz}}
+
+% Définitions diverses
+\newcommand{\cRM}[1]{\MakeUppercase{\tiny\romannumeral #1}}
+\tikzstyle{blackcasestyle}=[fill=black]
+\tikzstyle{gridstyle}=[draw=black]
+\tikzstyle{numberstyle}=[text=black]
+\tikzstyle{wordstyle}=[text=black]
+
+% Environnement "crossgrid"
+
+\define@cmdkey [PAS] {grille} {h}{}
+\define@cmdkey [PAS] {grille} {v}{}
+\define@cmdkey [PAS] {grille} {pas}{}
+\presetkeys    [PAS] {grille} {h=1, v=1, pas=.5}{}
+
+\newenvironment*{crossgrid}[1][]
+{
+	\setkeys[PAS]{grille}{#1}
+	\begin{scope}
+		\draw[step=\cmdPAS@grille@pas,gridstyle] (0,0) grid +(\cmdPAS@grille@h*\cmdPAS@grille@pas,\cmdPAS@grille@v*\cmdPAS@grille@pas);
+		\foreach \x in {1,...,\cmdPAS@grille@h}
+		{
+			\node[numberstyle] at (\x*\cmdPAS@grille@pas-.5*\cmdPAS@grille@pas,\cmdPAS@grille@v*\cmdPAS@grille@pas+0.25) {\tiny\x};
+		}
+		\pgfmathparse{\cmdPAS@grille@v*\cmdPAS@grille@pas}
+		\foreach \y in {1,2,...,\cmdPAS@grille@v}
+		{
+			\node[left,numberstyle] at (0,\pgfmathresult-\y*\cmdPAS@grille@pas+.5*\cmdPAS@grille@pas) {\cRM{\y}};
+		}
+}
+{
+	\end{scope}
+}
+
+
+% Commande "blackcase"
+
+\newcommand*{\blackcase}[2]
+{
+	\fill[blackcasestyle] (#1*\cmdPAS@grille@pas,\pgfmathresult-#2*\cmdPAS@grille@pas) rectangle +(-\cmdPAS@grille@pas,\cmdPAS@grille@pas);
+}
+
+% Commande "blackcases"
+
+\newcommand*{\blackcases}[1]
+{
+	\foreach \x/\y in {#1}
+	{
+		\blackcase{\x}{\y}
+	}
+}
+
+% Commande \word
+
+\define@boolkey[PAS] {mot} {h}[true]{} 
+\define@boolkey[PAS] {mot} {v}[true]{} 
+\presetkeys    [PAS] {mot} {h=false,v=false}{}
+
+\newcommand*{\word}[4][]
+{
+	\setkeys[PAS]{mot}{#1}
+	\pgfmathparse{\cmdPAS@grille@pas/2+\cmdPAS@grille@pas*(#2-1)}\let\debutX\pgfmathresult
+	\pgfmathparse{\cmdPAS@grille@v*\cmdPAS@grille@pas-#3*\cmdPAS@grille@pas+\cmdPAS@grille@pas/2}\let\debutY\pgfmathresult
+	\StrLen{#4}[\n]
+	\ifPAS@mot@h
+		\foreach \i in {1,...,\n}
+		{
+			\pgfmathparse{\debutX+(\i-1)*\cmdPAS@grille@pas}\let\posX\pgfmathresult
+			\node[wordstyle] at (\posX,\debutY) {\StrChar{#4}{\i}};
+		}
+	\fi
+	\ifPAS@mot@v
+		\foreach \i in {1,...,\n}
+		{
+			%\pgfmathparse{\debutX+(\i-1)*\cmdPAS@grille@pas}\let\posX\pgfmathresult
+			\pgfmathparse{\debutY-(\i-1)*\cmdPAS@grille@pas}\let\posY\pgfmathresult
+			\node[wordstyle] at (\debutX,\posY) {\StrChar{#4}{\i}};
+		}
+	\fi
+}
+
+% Commande "words"
+
+\define@boolkey[PAS] {mots} {h}[true]{} 
+\define@boolkey[PAS] {mots} {v}[true]{} 
+\presetkeys    [PAS] {mots} {h=false,v=false}{}
+
+\newcommand*{\words}[2][]
+{
+	\setkeys[PAS]{mots}{#1}
+	\foreach \x/\y/\m in {#2}
+	{
+		\ifPAS@mots@h
+			\word[h]{\x}{\y}{\m}
+		\fi
+		\ifPAS@mots@v
+			\word[v]{\x}{\y}{\m}
+		\fi
+		
+	}
+}

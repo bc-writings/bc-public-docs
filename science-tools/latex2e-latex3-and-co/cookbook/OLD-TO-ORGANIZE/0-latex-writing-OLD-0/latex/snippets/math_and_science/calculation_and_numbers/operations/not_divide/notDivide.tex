@@ -1,0 +1,33 @@
+% Source : http://tex.stackexchange.com/questions/4473/whats-a-good-way-to-write-x-does-not-divide-y
+
+\documentclass[10pt,a4paper]{article}
+	\usepackage[utf8x]{inputenc}
+	\usepackage{ucs}
+	\usepackage{amsmath}
+	\usepackage{amsfonts}
+	\usepackage{amssymb}
+	\usepackage{centernot}
+
+
+\begin{document}
+
+\[
+	\renewcommand{\arraystretch}{1.2}%
+	\begin{array}{llll}
+		\verb!\mid! & a \mid b
+		\\
+		\verb!|! & a | b
+		\\
+		\verb!\not\mid! & a \not\mid b
+		\\
+		\verb!\nmid! & a \nmid b
+		\\
+		\verb!\not|! & a \not| b
+		\\
+		\verb!\centernot|! & a \centernot| b
+		\\
+		\verb!\centernot\mid! & a \centernot\mid b
+	\end{array}
+\]
+
+\end{document}

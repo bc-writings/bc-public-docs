@@ -1,0 +1,29 @@
+% Source : http://tex.stackexchange.com/questions/44408/new-command-for-special-elements-in-parenthesis
+
+\documentclass{article}
+	\usepackage{amssymb}
+
+	\newcommand{\xinN}[2][N]{%
+		\ensuremath{%
+			\left( #2_n \right)_{n \in \mathbb{#1}}%
+		}%
+	}
+
+
+\begin{document}
+
+\begin{equation}
+	\xinN{x}
+\end{equation}
+
+\begin{equation}
+	\xinN{y}
+\end{equation}
+
+\begin{equation}
+	\xinN[C]{z}
+\end{equation}
+
+At inline text : $\xinN{k}$.
+
+\end{document}

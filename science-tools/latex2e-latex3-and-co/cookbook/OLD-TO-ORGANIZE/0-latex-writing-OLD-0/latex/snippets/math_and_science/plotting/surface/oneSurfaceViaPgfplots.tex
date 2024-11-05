@@ -1,0 +1,33 @@
+% Source : http://melusine.eu.org/syracuse/wiki/doku.php/pgf/tikz/index
+
+\documentclass{article}
+	\usepackage{fourier}
+	\usepackage{pgfplots}
+
+	\pagestyle{empty}
+
+
+\begin{document}
+
+\begin{tikzpicture}
+	\begin{axis}[grid=major,view={150}{30}]
+		\addplot3[surf,shader=faceted,samples=40,domain=-2:2,y domain=-2:2]%
+		{100*sin(deg(x))*sin(deg(y))*exp(-x*x+x*y-y*y)};
+	\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+	\begin{axis}[grid=major,view={100}{30}]
+		\addplot3[surf,shader=faceted,samples=40,domain=-2:2,y domain=-2:2]%
+		{100*sin(deg(x))*sin(deg(y))*exp(-x*x+x*y-y*y)};
+	\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+	\begin{axis}[grid=major,view={50}{30}]
+		\addplot3[surf,shader=faceted,samples=40,domain=-2:2,y domain=-2:2]%
+		{100*sin(deg(x))*sin(deg(y))*exp(-x*x+x*y-y*y)};
+	\end{axis}
+\end{tikzpicture}
+
+\end{document}

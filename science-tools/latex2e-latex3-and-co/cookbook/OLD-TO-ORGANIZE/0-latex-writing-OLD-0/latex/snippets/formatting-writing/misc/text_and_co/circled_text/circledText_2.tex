@@ -1,0 +1,54 @@
+% Source : http://tex.stackexchange.com/questions/7032/good-way-to-make-textcircled-numbers
+
+\documentclass{article}
+	\usepackage{enumitem}
+	\usepackage{tikz}
+
+	\newcommand{\pgftextcircled}[1]{
+		\setbox0=\hbox{#1}%
+		\dimen0\wd0%
+		\divide\dimen0 by 2%
+		\begin{tikzpicture}[baseline=(a.base)]%
+			\useasboundingbox (-\the\dimen0,0pt) rectangle (\the\dimen0,1pt);
+			\node[circle,draw,outer sep=0pt,inner sep=0.1ex] (a) {#1};
+		\end{tikzpicture}
+	}
+
+% For testing
+	\newcommand{\pangram}{%
+		\noindent{The \textcircled{0} quick \textcircled{1} brown \textcircled{2} fox \textcircled{3} jumps \textcircled{4} over \textcircled{5} the \textcircled{63} lazy \textcircled{733} dog.}
+	}
+
+
+\begin{document}
+
+\begin{description}
+	\item[textcircled] \pangram \pangram
+
+	\item[pgftextcircled] \let\textcircled=\pgftextcircled
+	                      \pangram \pangram
+\end{description}
+
+
+Lets' try in one list :
+
+\begin{enumerate}[label=\protect\pgftextcircled{\arabic*}]
+	\item First item
+	\item Second item
+	\item Third item
+	\item Fourth item
+	\item First item
+	\item Second item
+	\item Third item
+	\item Fourth item
+	\item First item
+	\item Second item
+	\item Third item
+	\item Fourth item
+	\item First item
+	\item Second item
+	\item Third item
+	\item Fourth item
+\end{enumerate}
+
+\end{document}

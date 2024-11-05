@@ -1,0 +1,25 @@
+% Source : http://forum.mathematex.net/latex-f6/compteur-copier-numerotation-page-t12402.html#p120318
+
+\documentclass{book}
+	\usepackage{atbegshi}% pour éxécuter du code à chaque changement de page
+	\usepackage{lipsum}% pour du texte bidon
+
+	\newcounter{masterpage}\setcounter{masterpage}{1}
+	\AtBeginShipout{\refstepcounter{masterpage}}
+
+
+\begin{document}
+
+\frontmatter
+
+\lipsum[1-25]
+
+\mainmatter
+
+\lipsum[1-100]
+
+\vspace*{1cm}
+
+Cette page est la num\'ero \themasterpage
+
+\end{document}

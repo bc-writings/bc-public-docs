@@ -1,0 +1,107 @@
+% Source: 
+
+\documentclass[12pt]{exam}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{framed} %box para
+\usepackage{multicol}
+\usepackage{tasks}
+\usepackage{xcolor}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{shapes.callouts}
+
+\newcommand*{\callout}[2]{\hspace{-5em}
+    \tikz[baseline=(X)] \node[shape = rectangle callout, 
+        fill=white, 
+        draw= black, 
+        minimum width=4.5em,
+        rounded corners,
+        callout relative pointer={(+0.55,-0.45)}, 
+        font = {\sffamily},
+        ] (X) {${\scriptsize\begin{matrix}\textrm{1st root/} \\ \textrm{solution}\end{matrix}}$};%
+    \tikz[baseline=(X.base)] \node[rectangle, fill=yellow, inner sep=1mm] (Y) at ([yshift = -2.2em]X) {$#1$};%
+    \tikz[baseline=(X.base)] \node[] at (Y.east) {$#2$};%
+}
+
+%\usepackage{bm}%bold equation
+\setlength{\parindent}{0pt} % removes paragraph indentation
+
+\pagestyle{head}
+\header{Algebra II: Assignment: 10-C Solving Polynomial Equations}
+       {}
+       {Due 03/12/2023} 
+
+\newcommand{\pagetop}{%
+  %\makebox[\textwidth]%{Name:\enspace\hrulefill}\par
+  \vspace{4mm}
+  \fbox{\fbox{\parbox{\dimexpr\textwidth-4\fboxsep-4\fboxrule}{
+    \textbf {Solve each polynomial equation by factoring. Find all real and/or  imaginary/complex roots. Simplify answers.}
+    %\par
+    %\bigskip
+
+  }}}\par
+  \vspace{0.5mm}
+}
+\setlength{\jot}{1em}
+%define highlighting
+
+\newcommand{\hll}[1]{\colorbox{yellow}{$\displaystyle #1$}}
+
+\begin{document}
+\pagetop
+
+\settasks{
+    after-item-skip=3em,    after-skip=2cm,
+    label-width=2em,
+    item-indent=3em,
+    label=(\arabic*),
+    column-sep=2em
+}
+
+\begin{tasks}(2)
+    % Problem 1:
+    \task \(
+    \begin{aligned}[t]
+        & x^3-216 = 0 \\
+        & \hspace{2em}
+        \begin{aligned}[t]
+            & \sqrt[3]{x^3} = 3 \qquad \sqrt[3]{216} = 6 \\
+            & \hll{(x-6)}(x^2+6x+6^2) \\[-2.2em]
+            % Do not space here:        ^
+            & \callout{(x-6)}{(x^2+6x+36)} \\
+            & a = 1; b = 6; c = 36 \\
+            & x = \frac{-(b)\pm\sqrt{(b^2)-4(a)(c)}}{2(a)} \\
+            & x = \frac{-(6)\pm\sqrt{(6^2)-4(1)(36)}}{2(1)} \\
+            & x = \frac{-6\pm\sqrt{-144}}{2} \\
+            & x = \frac{-(6)\pm\sqrt{(6^2)-4(1)(36)}}{2(1)} \\
+            & x = \frac{-6\pm\sqrt{-108}}{2} \\
+            & x = \frac{-6\pm 6i\sqrt{3}}{2} \\
+            & x = \frac{2(-3\pm 3i\sqrt{3})}{2} \\
+            & x = \-3\pm 3i\sqrt{3} \qquad x=6 \\
+        \end{aligned}
+    \end{aligned}
+    \)
+    % Problem #2
+    \task 
+    \(\begin{aligned}[t]
+        & 8x^3 +125 \\
+        & \hspace{2em}
+        \begin{aligned}[t]
+            & \sqrt[3]{8x^3} = 2x \qquad \sqrt[3]{125} = 5 \\
+            & \hll{(2x+5)}(4x^2-10x+5^2) \\[-2.2em]
+            & \callout{(2x+5)}{(4x^2-10x+25)} \\
+            & a = 4; b = -10; c = 25 \\
+            & x = \frac{-(b)\pm\sqrt{(b^2)-4(a)(c)}}{2(a)} \\
+            & x = \frac{-(-10)\pm\sqrt{(-10^2)-4(4)(25)}}{2(4)} \\
+            & x = \frac{10\pm\sqrt{-300}}{8} \\
+            & x = \frac{10\pm 10i\sqrt{3}}{8} \\
+            & x = \frac{2(5\pm 5i\sqrt{3})}{8} \\
+            & x = \frac{5\pm 5i\sqrt{3})}{4} \qquad x=-\frac{-5}{2} \\
+        \end{aligned}
+    \end{aligned}
+    \)
+    % Problem 3
+\end{tasks}
+
+\end{document}

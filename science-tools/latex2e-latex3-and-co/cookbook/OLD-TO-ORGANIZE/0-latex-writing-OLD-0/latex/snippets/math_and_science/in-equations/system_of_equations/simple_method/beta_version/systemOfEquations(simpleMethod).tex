@@ -1,0 +1,111 @@
+\documentclass[a4paper,11pt]{article}
+	\usepackage[utf8x]{inputenc}
+	\usepackage{ucs}
+	\usepackage{amsmath, systeme}
+
+% Solution given by ''un bon petit''
+	\newcommand\simpleSysteme[2][,]{%
+		\begingroup\noexpandarg
+			\ensuremath{%
+				\begin{cases}
+					\StrSubstitute{#2}{#1}\\
+				\end{cases}%
+			}%
+		\endgroup%
+	}
+
+\begin{document}
+	Résoudre le système suivant :
+		\systeme{
+			2a-3b+4c = 2,
+			a+8b+5c = 8,
+			-a+2b+c = -5
+		}.
+	C'est tout simple à taper !
+
+
+	Une version non étoilée donne : 
+		\systeme*{
+			2a-3b+4c = 2,
+			8b+5c = 8,
+			c = -5
+		}
+	et une version étoilée donne : 
+		\systeme*{
+			2a-3b+4c = 2,
+			8b+5c = 8,
+			c = -5
+		}.
+
+
+	D'autres exemple via cases de amsmath, puis ''étoilés'' et ''non étoilés''.
+
+		\simpleSysteme{
+			a+b+c = 2,
+			a+c = 8,
+			b+c = -5
+		}
+	et
+		\systeme*{
+			a+b+c = 2,
+			a+c = 8,
+			b+c = -5
+		}
+	et
+		\systeme{
+			a+b+c = 2,
+			a+c = 8,
+			b+c = -5
+		}
+
+		\simpleSysteme{
+			a+b+c+d+e = 2,
+			a+c+d+e = 2,
+			a+d+e = 2,
+			b+e = 2,
+			a = 2
+		}
+	et
+		\systeme*{
+			a+b+c+d+e = 2,
+			a+c+d+e = 2,
+			a+d+e = 2,
+			b+e = 2,
+			a = 2
+		}
+	et
+		\systeme{
+			a+b+c+d+e = 2,
+			a+c+d+e = 2,
+			a+d+e = 2,
+			b+e = 2,
+			a = 2
+		}
+
+
+		On peut changer de séparateur en interne localement.
+			\systeme[][\\]{
+				1,5x-0,45y = 0,7 \\
+				x-0,8y = 1,4
+			}
+
+% On change de spérateur ''définitivement''.
+	\syseqsep{\\}
+
+	On peut aussi indiquer les étapes : 
+		\systeme{
+			x+y = 125 @ L_1 \leftarrow L_1 - L_2 \\
+			x-y = 12
+		}
+
+
+	\syscodeextracol{\kern2.5em }{}
+	\sysextracolsign{|}
+
+	Un peu de texte ...
+			\systeme{
+				x+y = 125 | somme des deux nombres \\
+				x-y = 12   | différence des deux nombres
+			}
+
+\end{document}

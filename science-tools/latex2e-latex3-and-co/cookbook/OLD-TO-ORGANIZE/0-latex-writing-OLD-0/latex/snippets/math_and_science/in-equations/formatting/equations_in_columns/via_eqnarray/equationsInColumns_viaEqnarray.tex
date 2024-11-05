@@ -1,0 +1,48 @@
+% Source : http://forum.mathematex.net/latex-f6/supprimer-tout-espace-vertical-avant-et-apres-t7842.html#p121320
+
+\documentclass[a4paper,10pt]{article}
+	\usepackage[latin1]{inputenc}
+	\usepackage[T1]{fontenc}
+	\usepackage{lmodern}
+	\usepackage[frenchb]{babel}
+	\usepackage{mathtools}
+
+	\newcommand{\nodisplayskip}{\setlength{\abovedisplayshortskip}{0pt}
+	\setlength{\belowdisplayshortskip}{0pt}
+	\setlength{\abovedisplayskip}{0pt}
+	\setlength{\belowdisplayskip}{0pt}}
+	\makeatletter
+		\newenvironment{nodisplayskipalign*}{
+			\nodisplayskip\iffalse{\fi\ifnum0=`}\fi
+			\start@align\@ne\st@rredtrue\m@ne}{\endalign\ifnum0=`{\fi\iffalse}\fi
+		}
+	\makeatother
+	\newcommand{\test}[2]{
+		\begin{minipage}[t]{#1\linewidth}
+			\begin{nodisplayskipalign*}
+				#2
+			\end{nodisplayskipalign*}
+		\end{minipage}
+	}
+
+	\setlength{\parindent}{0mm}
+
+
+\begin{document}
+
+\begin{center}
+	\begin{tabular}{c|c}
+		\test{0.45}{
+			3 \div 0,25 & = 3 \times 0,25^{-1} \\
+			& = 3 \times 4 \\
+			& = \mathbf{12}
+		}
+		&
+		\test{0.45}{
+			3 \times 0,25 & = \frac{3}{4} \\
+			& = 3 \div 4
+		}
+	\end{tabular}
+\end{center}
+
+\end{document}

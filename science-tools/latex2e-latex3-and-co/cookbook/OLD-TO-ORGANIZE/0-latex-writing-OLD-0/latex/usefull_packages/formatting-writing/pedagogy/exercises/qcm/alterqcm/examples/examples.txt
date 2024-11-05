@@ -1,0 +1,11 @@
+alea
+annexe
+correct
+example_1
+example_2
+language
+points
+sep
+transparent-final
+transparent-init
+verb

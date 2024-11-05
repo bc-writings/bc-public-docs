@@ -1,0 +1,3 @@
+juste pour contenu text pure
+
+detex file.tex > newfile.txt

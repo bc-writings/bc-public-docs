@@ -1,0 +1,27 @@
+% Source : http://tex.stackexchange.com/questions/30817/how-to-use-siunitx-with-non-numerical-values
+
+\documentclass{article}
+	\usepackage{siunitx}
+
+	\NewDocumentCommand{\varSI}{O{}}{\SI[math-rm=\mathnormal,parse-numbers=false,#1]}
+
+
+\begin{document}
+
+\begin{tabular}{r}
+	\varSI{R}{\meter\per\second}
+	\\
+	\varSI[math-rm=\mathbf]{R}{\meter\per\second}
+	\\
+	\SI{5}{\meter\per\second}
+\end{tabular}
+
+ou
+
+\begin{tabular}{r}
+	\SI{5}{\meter\per\second}
+	\\
+	$R\,\si{\meter\per\second}$
+\end{tabular}
+
+\end{document}

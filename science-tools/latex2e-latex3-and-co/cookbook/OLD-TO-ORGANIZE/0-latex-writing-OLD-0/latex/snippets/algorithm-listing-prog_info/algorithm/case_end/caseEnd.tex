@@ -1,0 +1,48 @@
+% Source : http://tex.stackexchange.com/questions/79264/algorithm2e-different-ending-words-for-switch-and-case-blocks
+
+\documentclass{article}
+    \usepackage[longend]{algorithm2e}
+
+	\makeatletter
+		\renewcommand\algocf@Other[1]{%
+			\KwSty{otherwise}\algocf@block{#1}{%
+				\@algocf@endoption{end other}%
+			}%
+		}
+
+
+% Simpler method that only works for ``case``.
+%		\SetKwFor{Case}{case}{}{end case}%
+		\renewcommand\algocf@Case[2]{%
+			\KwSty{Case} #1 :\algocf@block{#1}{%
+				\@algocf@endoption{end case}%
+			}%
+		}
+	\makeatother
+
+\begin{document}
+
+\begin{algorithm}
+    \Begin{
+        \Switch{X}{
+            \Case{1}{
+                \While{Continue}{Action}
+            }
+            \Other{Other}
+        }
+    }
+\end{algorithm}
+
+\begin{algorithm}
+    \Begin{
+        \Switch{X}{
+            \Case{1}{
+                \While{Continue}{Action}
+            }
+            \Other{Other}
+        }
+    }
+\end{algorithm}
+
+
+\end{document}

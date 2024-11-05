@@ -1,0 +1,35 @@
+% Source : http://tex.stackexchange.com/questions/36716/rule-before-one-new-section
+
+\documentclass[12pt]{article}
+	\newcommand{\separatorrule}{%
+		\par\vspace{2\bigskipamount}
+		\leaders\vrule width \textwidth\vskip 0.4pt
+		\vspace{\smallskipamount}\nointerlineskip%
+	}
+	\let\origsection\section
+	\renewcommand\section{\separatorrule \origsection}
+
+	\usepackage{lipsum}
+
+
+\begin{document}
+
+\section*{One day}
+
+\noindent\lipsum[1]
+
+\section*{Another day}
+
+\noindent\lipsum[1]
+
+\section*{One more day}
+
+\noindent\lipsum[1]
+
+\newpage
+
+\section*{One last day}
+
+\noindent\lipsum[1]
+
+\end{document}

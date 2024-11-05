@@ -1,0 +1,26 @@
+\documentclass[a4paper, 12pt, french]{article}
+    \usepackage[utf8]{inputenc}
+    \usepackage[T1]{fontenc}
+    \usepackage{pgffor}
+
+    \setlength{\parindent}{0cm}
+
+    \newcommand\test[1]{%
+      \foreach \i in {1, ..., #1} {%
+        \par \i %
+      }
+    }
+
+
+\begin{document}
+
+\section{Test 3}
+
+\test{3}
+
+
+\section{Test 12}
+
+\test{12}
+
+\end{document} 

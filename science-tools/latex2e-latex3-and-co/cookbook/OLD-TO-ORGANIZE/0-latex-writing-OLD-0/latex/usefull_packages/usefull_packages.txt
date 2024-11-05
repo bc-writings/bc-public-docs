@@ -1,0 +1,44 @@
+beamerswitch
+
+fvextra
+    fancyvb amlioré !!!
+
+getmap
+    ---> importer carte Google Map ou Open Street Map
+
+getitems
+    ---> utile pour QCM !! Cf page 3 de la doc
+
+fitbox
+    --> redimensionnemnt pour tenter de laisser une image là où elle est inidqué dans le code source
+
+pdfpagediff
+    --> fusioonene deux documents en mode transparent et du coup les différences sont visibles par un humain
+
+clozepar
+    ---> texte visible ou non et si invisible apparait en souligné blanc TOP !!!
+
+tex4ebook
+    ---> ebook
+
+eledmac
+    ---> \beginnumbering ⟨text⟩ \endnumbering
+    ---> ledleftnote
+
+typicons
+    ---> icon web
+
+pdfbook2
+
+
+cryptocode
+    ---> Protocol le détourner TB !!!
+
+epyt
+
+
+lcd
+
+
+ticollege
+http://www.ctan.org/pkg/tipfr

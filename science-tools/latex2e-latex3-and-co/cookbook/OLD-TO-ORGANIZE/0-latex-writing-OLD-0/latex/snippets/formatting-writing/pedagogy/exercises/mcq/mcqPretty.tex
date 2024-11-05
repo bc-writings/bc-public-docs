@@ -1,0 +1,102 @@
+% Source : http://forum.mathematex.net/latex-f6/presentation-d-un-sujet-a-choix-multiples-t13393.html#p129072
+
+\documentclass[a4paper,10pt]{article}
+	\usepackage[latin1]{inputenc}
+	\usepackage[T1]{fontenc}
+	\usepackage{lmodern}
+	\usepackage[frenchb]{babel}
+	\usepackage{amsmath,mathrsfs,amssymb}
+	\everymath{\displaystyle}
+	\usepackage{lipsum,xcolor}
+	\frenchbsetup{StandardLists=true}
+	\usepackage{enumitem}
+
+	\newcommand{\plainmakelabel}[1]{\hspace{\labelsep}#1}
+	\newenvironment{questions}{%
+		\begin{enumerate}[
+			before=\renewcommand\makelabel\plainmakelabel,
+			leftmargin=0cm,
+			labelwidth=0cm,
+			label=\bfseries\arabic*)
+		]%
+	}{\end{enumerate}}
+
+	\newenvironment{sousquestions}{ %
+		\begin{enumerate}[
+			before=\renewcommand\makelabel\plainmakelabel,
+			leftmargin=0cm,
+			labelwidth=0cm,
+			label=\bfseries\alph*)
+		] %
+	}{\end{enumerate}}
+
+	\newenvironment{qcm}{ %
+		\begin{itemize}[
+			before=\renewcommand\makelabel\plainmakelabel,
+			leftmargin=0cm,
+			labelwidth=0cm,
+			label=$\Box$
+		] %
+	}{\end{itemize}}
+
+	\newlength{\itemlabelwidth}
+	\newsavebox{\itemencadrebox}
+	\newcommand{\itemencadrecouleur}{gray!50}
+	\newenvironment{itemencadre}[1][gray!50]{ %
+		\renewcommand{\itemencadrecouleur}{#1}%
+		\settowidth{\itemlabelwidth}{\theenumi\hspace{\labelsep}}%
+		\hspace{-\itemlabelwidth}\hspace{-\fboxsep}%
+		\begin{lrbox}{\itemencadrebox}\begin{minipage}[t]{\linewidth}%
+		{\theenumi}\hspace{\labelsep}}
+		{\end{minipage}\end{lrbox}\colorbox{\itemencadrecouleur}{\usebox{\itemencadrebox}}}
+
+
+\begin{document}
+
+\begin{questions}
+	\item
+	\begin{itemencadre}[blue!20]
+		\lipsum[1]
+	\end{itemencadre}
+
+	\begin{qcm}
+		\item L'axe des abscisses est une asymptote.
+		\item admet une asymptote parallèle à l'axe des ordonnées.
+		\item $\lim_{x\mapsto 3}f(x)=\dfrac{1}{6}\cdot$
+		\item $\lim_{x\mapsto +\infty}f(x)=+\infty$.
+	\end{qcm}
+
+	\item \lipsum[2]
+
+	\item
+	\begin{itemencadre}
+		\lipsum[3]
+
+		\begin{qcm}
+			\item Le point $I(1;1)$ est un centre de symétrie
+			\item $\lim_{\substack{x\mapsto 1\\x>1}}(f\circ f)(x)
+			      =\lim_{\substack{x\mapsto 1\\x<1}}(f\circ f)(x)$
+			\item Pour tout réel $a$, $\lim_{x\mapsto a}(f\circ f)(x)=a$.
+			\item Pour tout réel $a$,
+			$\lim_{x \mapsto a}\left[f\left(\dfrac{1}{x}\right)+f(x)\right]=0$.
+		\end{qcm}
+	\end{itemencadre}
+
+	\item \lipsum[4]
+
+	\begin{sousquestions}
+		\item bien aligné
+		\item bien aligné
+		\item encore correct
+		\item le système est centré sur la ligne de base
+	$\left[\begin{aligned} a=b\\c=d\end{aligned}\right.$
+		\item
+		$\renewcommand{\arraystretch}{1.25}
+		\begin{array}[t]{|l}
+			a=b \\
+			c=d
+		\end{array}$
+	\end{sousquestions}
+\end{questions}
+
+\end{document}

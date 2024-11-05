@@ -1,0 +1,36 @@
+\documentclass{book}
+\usepackage{color,xecolor}
+\usepackage{xepersian}
+\newlength{\tpheight}\setlength{\tpheight}{0.9\textheight}
+\newlength{\txtheight}\setlength{\txtheight}{0.9\tpheight}
+\newlength{\tpwidth}\setlength{\tpwidth}{0.9\textwidth}
+\newlength{\txtwidth}\setlength{\txtwidth}{0.9\tpwidth}
+\newlength{\drop}
+\newcommand*{\titleGWP}{\begingroup% 
+\drop=0.1\txtheight
+\vspace*{\drop}
+\begin{center}
+\Huge\xecolor{red}
+عنوان کتاب که کمی طولانی می‌شود تا در دو خط در وسط قرار بگیرد
+\end{center}
+\vfill
+\begin{center}
+{\normalfont\fontsize{256pt}{256pt}\selectfont ?}
+\end{center}
+\vfill
+\begin{center}
+\large
+{\iranicfamily با مقدمه‌ای بر هندسه تحلیلی\\
+نام نویسنده \\
+\normalsize
+نقاش: نام نقاش} \\
+\leavevmode{\color{red} \rule{\txtwidth}{0.4pt}}\\
+نام انتشاراتی
+\end{center}
+\vspace*{0.5\drop}
+
+\endgroup}
+\begin{document}
+\pagestyle{empty}
+\titleGWP
+\end{document}

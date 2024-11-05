@@ -1,0 +1,51 @@
+% Source : http://forum.mathematex.net/latex-f6/liste-t11829.html#p114427
+
+\documentclass{article}
+	\usepackage{enumitem}
+
+	\setdescription{style=newline}
+
+	\makeatletter
+		\def\enit@newlinestyle#1{%
+			\hskip-\itemindent
+			\global\everypar{%
+				\@minipagefalse
+				\global\@newlistfalse
+				\if@inlabel
+					\global\@inlabelfalse
+					{%
+						\setbox\z@\lastbox
+						\ifvoid\z@
+							\kern-\itemindent
+						\fi
+						\sbox\z@{\hskip\labelindent#1\hskip\labelsep}%
+						{\advance\leftskip-\leftmargin
+						\advance\leftskip\labelindent
+						\hskip-\labelsep
+						#1%
+						\par
+						\nobreak
+						\vskip-\parskip}%
+					}%
+				\setbox\@labels\box\voidb@x
+			\fi
+			\enit@break%
+			}%
+		}
+	\makeatother
+
+
+\begin{document}
+
+\begin{description}
+	\item[Titre] Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+	bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla.
+
+	\item[Titre plus long] Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+	bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla.
+
+	\item[A] Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+	bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla.
+\end{description}
+
+\end{document}

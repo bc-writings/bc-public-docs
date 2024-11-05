@@ -1,0 +1,23 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{xcolor}
+\usepackage{ulem}
+\usepackage[frenchb]{babel}
+\newcommand\underdash[1][black]{% <- règle la couleur du texte
+   \bgroup
+   \ifdim\ULdepth=\maxdimen\settodepth\ULdepth{(j}\advance\ULdepth.4pt\fi
+   \markoverwith{\kern0.2em% <- règle l'espacement avant un pointillé
+      \vtop{\kern0.5ex% <- règle l'altitude des pointillés
+      {\color{black}% <- règle la couleur des pointillés
+       \hrule width.4em% <- règle la largeur des pointillés
+      }}\kern0.2em% <- règle l'espacement après un pointillé
+   }\color{#1}\ULon}
+\begin{document}
+
+\underdash{Voici un texte souligné, comme on peut le voir, il s'étend sur plus d'une ligne et le soulignement aussi !}
+
+\underdash[white]{Voici un texte souligné, comme on peut le voir, il s'étend sur plus d'une ligne et le soulignement aussi !}
+
+\underdash[red]{Voici un texte souligné, comme on peut le voir, il s'étend sur plus d'une ligne et le soulignement aussi !}
+\end{document}

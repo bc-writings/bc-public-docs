@@ -1,0 +1,48 @@
+% Source : https://groups.google.com/group/fr.comp.text.tex/browse_thread/thread/261ca55f6af848db?hl=fr
+
+\documentclass[a4paper]{article}
+	\usepackage[utf8]{inputenc}
+	\usepackage[T1]{fontenc}
+	\usepackage{textcomp}
+	\usepackage{lmodern}
+	\usepackage{atbegshi}
+
+	\newcommand\renderText{Nom Prénom :}
+	\newif\ifrender
+	\newenvironment{toRender}{\rendertrue}{}
+
+	\AtBeginShipout{%
+		\ifrender
+			\AtBeginShipoutUpperLeft{%
+				\raisebox{-2cm}{%
+					\makebox[\paperwidth][c]{%
+						\renderText{} \underline{\rule{8cm}{0pt}}%
+					}%
+				}%
+			}%
+		\fi
+	}
+
+\begin{document}
+
+Test \clearpage
+
+\begin{toRender}
+  ICI \clearpage
+  ICI Il manque quelque chose
+\end{toRender}
+
+Test
+
+Test \clearpage
+
+% Hard method
+\rendertrue
+  bla \clearpage
+  bla \clearpage
+\renderfalse
+
+bla \clearpage
+bla \clearpage
+
+\end{document} 

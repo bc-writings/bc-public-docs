@@ -1,0 +1,63 @@
+% Source
+%	* https://tex.stackexchange.com/a/419706/6880
+
+\documentclass[border=10pt]{standalone}
+\usepackage[edges]{forest}
+\forestset{
+  AlignOddChildren/.style = {
+    for tree={
+      if={isodd(n_children())}{
+        calign primary child/.process={Ow+n {n children}{(##1+1)/2}},
+        calign=child edge
+      }{}
+    }
+  },
+  gradual fill/.style={
+    before typesetting nodes={
+      tempcounta/.max={level}{r,tree},
+      for tree={
+        fill/.process={
+          ROw2+nw {tempcounta} {level} { (100*##2)/##1 } {white!##1!black!60}
+        },
+      },
+    },
+  },
+}
+\begin{document}
+\begin{forest}
+  for tree = {draw, rectangle, thick, align=center},
+  forked edges,
+  gradual fill,
+  AlignOddChildren,
+    [ Maintenance
+      [ Corrective\\Maintenance\\(CM)
+        [ Run to failure\\(RTF) ]
+      ]
+      [ Preventive\\Maintenance\\(PvM)
+        [ Experience-based\\Maintenance\\(EBM) ]
+        [ Time-based\\Maintenance\\(TBM) ]
+      ]
+      [ Predictive\\Maintenance\\(PdM)
+        [ Condition-based\\Maintenance\\(CBM) ]
+      ]
+    ]
+\end{forest}    
+\begin{forest}
+  for tree = {draw, rectangle, thick, align=center},
+  forked edges,
+  gradual fill,
+  AlignOddChildren,
+    [ Maintenance
+      [ Corrective\\Maintenance\\(CM)
+        [ Run to failure\\(RTF) ]
+        [ Preventive\\Maintenance\\(PvM)
+          [ Experience-based\\Maintenance\\(EBM) ]
+          [ Time-based\\Maintenance\\(TBM) ]
+          [ Predictive\\Maintenance\\(PdM)
+            [ Condition-based\\Maintenance\\(CBM) ]
+          ]
+        ]
+      ]
+    ]
+\end{forest}    
+\end{document}

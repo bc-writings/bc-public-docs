@@ -1,0 +1,26 @@
+% Source : http://forum.mathematex.net/latex-f6/info-bulles-dans-un-pdf-t13171.html#p126906
+
+\documentclass{article}
+	\usepackage[utf8]{inputenc}
+	\usepackage[T1]{fontenc}
+	\usepackage[frenchb]{babel}
+	\usepackage{xcolor}
+	\usepackage{cooltooltips}
+
+
+\begin{document}
+
+One first test.
+
+\shorthandoff{:;!?}
+	\cooltooltip
+	[0 0 1]
+	{Example}
+	{This is an example of a cool tooltip. Pretty cool, eh?}
+	{http://www.ctan.org/}{Visit CTAN on the Web}
+	{This text\strut}
+\shorthandon{:;!?}
+
+Let's go...
+
+\end{document}

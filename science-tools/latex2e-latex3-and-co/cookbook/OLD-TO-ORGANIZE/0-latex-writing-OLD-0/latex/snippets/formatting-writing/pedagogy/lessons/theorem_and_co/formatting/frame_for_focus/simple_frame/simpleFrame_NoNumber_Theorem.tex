@@ -1,0 +1,90 @@
+\documentclass{article}
+	\usepackage[latin1]{inputenc}
+	\usepackage{calc,color}
+	\usepackage{fancybox}
+
+%Théorème
+	\newlength{\posThm}%
+	\newsavebox{\titreBoiteThm}%
+	\newcommand{\Thm}[2][]{%
+		\sbox{\titreBoiteThm}{\colorbox{white}{{\large\textbf{Théorème #1}}}}%
+		\settowidth{\posThm}{\usebox{\titreBoiteThm}}%
+		\vspace*{2ex}
+		\noindent \boxput*(-0.915,1.05){\makebox[\posThm][r]{\textwidth-2\fboxsep}\usebox{\titreBoiteThm}}%
+		{\setlength{\fboxsep}{6pt}%
+		\shadowbox{\begin{minipage}{\textwidth-2.79\fboxsep}{\vspace*{0.5ex}\textsl{#2}}\end{minipage}}}%
+	}%  \textwidth-2.12\fboxsep
+
+%Proposition
+	\newlength{\posProp}%
+	\newsavebox{\titreBoiteProp}%
+	\newcommand{\Prop}[2][]{%
+		\sbox{\titreBoiteProp}{\colorbox{white}{{\large\textbf{Proposition #1}}}}%
+		\settowidth{\posProp}{\usebox{\titreBoiteProp}}%
+		\vspace*{2ex}
+		\noindent \boxput*(-0.915,1.05){\makebox[\posProp][r]{\textwidth-2\fboxsep}\usebox{\titreBoiteProp}}%
+		{\setlength{\fboxsep}{6pt}%
+		\shadowbox{\begin{minipage}{\textwidth-2.79\fboxsep}{\vspace*{0.5ex}\textsl{#2}}\end{minipage}}}%
+	}%  \textwidth-2.12\fboxsep
+
+%Définition
+	\newlength{\posDef}%
+	\newsavebox{\titreBoiteDef}%
+	\newcommand{\Def}[2][]{%
+		\sbox{\titreBoiteDef}{\colorbox{white}{{\large\textbf{Définition #1}}}}%
+		\settowidth{\posDef}{\usebox{\titreBoiteDef}}%
+		\vspace*{2ex}
+		\noindent \boxput*(-0.915,1.05){\makebox[\posDef][r]{\textwidth-2\fboxsep}\usebox{\titreBoiteDef}}%
+		{\setlength{\fboxsep}{6pt}%
+		\shadowbox{\begin{minipage}{\textwidth-2.79\fboxsep}{\vspace*{0.5ex}\textsl{#2}}\end{minipage}}}%
+	}%  \textwidth-2.12\fboxsep
+
+%Méthode
+	\newlength{\posMeth}%
+	\newsavebox{\titreBoiteMeth}%
+	\newcommand{\Meth}[2][]{%
+		\sbox{\titreBoiteMeth}{\colorbox{white}{{\large\textbf{Méthode #1}}}}%
+		\settowidth{\posMeth}{\usebox{\titreBoiteMeth}}%
+		\vspace*{2ex}
+		\noindent \boxput*(-0.915,1.05){\makebox[\posMeth][r]{\textwidth-2\fboxsep}\usebox{\titreBoiteMeth}}%
+		{\setlength{\fboxsep}{6pt}%
+		\shadowbox{\begin{minipage}{\textwidth-2.79\fboxsep}{\vspace*{0.5ex}\textsl{#2}}\end{minipage}}}%
+	}%  \textwidth-2.12\fboxsep
+
+	\setlength{\oddsidemargin}{24pt}
+	\setlength{\marginparwidth}{72pt}
+	\setlength{\textwidth}{405pt}
+	\setlength{\marginparsep}{24pt}
+	\setlength{\headheight}{13pt}
+	\setlength{\headsep}{10pt}
+	\setlength{\footskip}{27pt}
+	\setlength{\textheight}{630pt}
+
+
+\begin{document}
+
+\Def{Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla.}
+
+\vspace{0.5cm}
+
+\Prop{Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla.}
+
+\vspace{0.5cm}
+
+\Thm{Pim Pam Poum Pim Pam Poum Pim Pam Poum Pim Pam Poum Pim Pam Poum Pim Pam Poum Pim Pam Poum Pim Pam
+Poum Pim Pam Poum Pim Pam Poum Pim Pam Poum Pim Pam Poum Pim Pam Poum.}
+
+\vspace{0.5cm}
+
+\Thm[Important]{Pim Pam Poum Pim Pam Poum Pim Pam Poum Pim Pam Poum Pim Pam Poum Pim Pam Poum Pim Pam
+Poum Pim Pam Poum Pim Pam Poum Pim Pam Poum Pim Pam Poum Pim Pam Poum Pim Pam Poum.}
+
+\end{document}

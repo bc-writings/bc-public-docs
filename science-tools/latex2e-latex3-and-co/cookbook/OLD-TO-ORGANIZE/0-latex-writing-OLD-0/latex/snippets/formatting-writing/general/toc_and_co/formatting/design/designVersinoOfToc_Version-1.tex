@@ -1,0 +1,93 @@
+% Sources :
+%	1) http://tex.stackexchange.com/questions/35825/pretty-table-of-contents
+%	2) http://tex.stackexchange.com/questions/35903/formatting-the-title-of-the-toc
+
+\documentclass{book}
+	\usepackage{xcolor}
+	\usepackage{framed}
+
+% Default values
+	\newcommand{\titleForTheToc}{Another title for the table of contents}
+	\definecolor{myred}{RGB}{160,0,0}
+	\definecolor{myyellow}{RGB}{169,121,69}
+
+	\renewenvironment{leftbar}{%
+		\def\FrameCommand{{\color{myyellow}\vrule width 2pt depth 6pt} \hspace{10pt}}%
+		\MakeFramed {\advance\hsize-\width \FrameRestore}%
+	}%
+	{\endMakeFramed}
+
+	\makeatletter
+		\def\@chapter[#1]#2{%
+			\ifnum \c@secnumdepth >\m@ne
+				\if@mainmatter
+					\refstepcounter{chapter}%
+					\typeout{\@chapapp\space\thechapter.}%
+					\addtocontents{toc}%
+					{%
+						{\protect\parbox{4.5em}{\hfill\Huge\color{myred}\bfseries\thepage}}%
+						\protect\hspace*{.5em}%
+						\protect\parbox{\dimexpr\linewidth-5em\relax}{%
+							\protect\begin{leftbar}
+							{\scshape\small\chaptername~\thechapter}\\\sffamily#1%
+							\protect\end{leftbar}%
+						}\par\noindent%
+					}%
+				\else
+					\addcontentsline{toc}{chapter}{#1}%
+				\fi
+			\else
+				\addcontentsline{toc}{chapter}{#1}%
+			\fi
+			\chaptermark{#1}%
+			\addtocontents{lof}{\protect\addvspace{10\p@}}%
+			\addtocontents{lot}{\protect\addvspace{10\p@}}%
+			\if@twocolumn
+				\@topnewpage[\@makechapterhead{#2}]%
+			\else
+				\@makechapterhead{#2}%
+				\@afterheading
+			\fi%
+		}
+		\AtBeginDocument{\renewcommand\contentsname{\titleForTheToc{}}}
+		\renewcommand\tableofcontents{%
+			\if@twocolumn
+				\@restonecoltrue\onecolumn
+			\else
+				\@restonecolfalse
+			\fi
+			\chapter*{%
+				{\color{myred}\contentsname}% change here the formatting
+				\@mkboth{%
+					\MakeUppercase\contentsname%
+				}{\MakeUppercase\contentsname}%
+			}%
+			\@starttoc{toc}%
+			\if@restonecol\twocolumn\fi
+		}
+	\makeatother
+
+
+\begin{document}
+
+% The colors of the TOC can be customized here.
+%
+% \definecolor{myred}{RGB}{0,100,50}
+% \definecolor{myyellow}{RGB}{50,121,0}
+% \renewcommand{\titleForTheToc}{We've changed the title of the table of contents locally}
+%
+\tableofcontents
+
+\tableofcontents
+
+\chapter{Beginning to learn design with \LaTeX}
+\section{This is a test section}
+\subsection{Long subsection title and some other text to span more than one line}
+
+\newpage\setcounter{page}{123}% just for the example
+
+\chapter{Beginning to learn design with HTML and some other text to span more than one line in the ToC}
+\section{This is a test section}
+\subsection{Long subsection title and some other text to span more than one line}
+
+\end{document}

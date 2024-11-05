@@ -1,0 +1,2756 @@
+<!DOCTYPE html>
+<html data-lt-installed="true" lang="en-US"><!--Copyright 2019 by Till Tantau
+
+This file may be distributed and/or modified
+
+1. under the LaTeX Project Public License and/or
+2. under the GNU Free Documentation License.
+
+See https://tikz.dev/license for more details.--><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta content="LaTeX Lwarp package" name="generator">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Creating Data Visualizations - PGF/TikZ Manual</title>
+    <link href="Creating%20Data%20Visualizations%20-%20PGF_TikZ%20Manual_fichiers/style.css" rel="stylesheet" type="text/css">
+
+    <script async="" id="MathJax-script" src="Creating%20Data%20Visualizations%20-%20PGF_TikZ%20Manual_fichiers/tex-chtml.js"></script>
+
+    <script src="Creating%20Data%20Visualizations%20-%20PGF_TikZ%20Manual_fichiers/pgfmanual.js"></script>
+
+    <script async="" src="Creating%20Data%20Visualizations%20-%20PGF_TikZ%20Manual_fichiers/lwarp-mathjax-emulation.js"></script>
+    <link href="Creating%20Data%20Visualizations%20-%20PGF_TikZ%20Manual_fichiers/css@3.css" rel="stylesheet">
+    <link href="https://tikz.dev/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+    <link href="https://tikz.dev/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="https://tikz.dev/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" type="image/png">
+    <link href="https://tikz.dev/site.webmanifest" rel="manifest">
+    <link href="https://tikz.dev/dv-main" rel="canonical">
+    <meta content="https://tikz.dev/dv-main" property="og:url">
+    <meta content="https://tikz.dev/social-media-banners/dv-main.png" property="og:image">
+    <meta content="max-image-preview:large" name="robots">
+    <meta content="article" property="og:type">
+    <meta content="Creating Data Visualizations - PGF/TikZ Manual" property="og:title">
+    <meta content="summary_large_image" name="twitter:card">
+  <script src="Creating%20Data%20Visualizations%20-%20PGF_TikZ%20Manual_fichiers/tagformat.js" charset="UTF-8"></script><script src="Creating%20Data%20Visualizations%20-%20PGF_TikZ%20Manual_fichiers/textmacros.js" charset="UTF-8"></script><style type="text/css">.CtxtMenu_InfoClose {  top:.2em; right:.2em;}
+.CtxtMenu_InfoContent {  overflow:auto; text-align:left; font-size:80%;  padding:.4em .6em; border:1px inset; margin:1em 0px;  max-height:20em; max-width:30em; background-color:#EEEEEE;  white-space:normal;}
+.CtxtMenu_Info.CtxtMenu_MousePost {outline:none;}
+.CtxtMenu_Info {  position:fixed; left:50%; width:auto; text-align:center;  border:3px outset; padding:1em 2em; background-color:#DDDDDD;  color:black;  cursor:default; font-family:message-box; font-size:120%;  font-style:normal; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 15px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius:15px;               /* Safari and Chrome */  -moz-border-radius:15px;                  /* Firefox */  -khtml-border-radius:15px;                /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */  filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color="gray", Positive="true"); /* IE */}
+</style><style type="text/css">.CtxtMenu_MenuClose {  position:absolute;  cursor:pointer;  display:inline-block;  border:2px solid #AAA;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  font-family: "Courier New", Courier;  font-size:24px;  color:#F0F0F0}
+.CtxtMenu_MenuClose span {  display:block; background-color:#AAA; border:1.5px solid;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  line-height:0;  padding:8px 0 6px     /* may need to be browser-specific */}
+.CtxtMenu_MenuClose:hover {  color:white!important;  border:2px solid #CCC!important}
+.CtxtMenu_MenuClose:hover span {  background-color:#CCC!important}
+.CtxtMenu_MenuClose:hover:focus {  outline:none}
+</style><style type="text/css">.CtxtMenu_Menu {  position:absolute;  background-color:white;  color:black;  width:auto; padding:5px 0px;  border:1px solid #CCCCCC; margin:0; cursor:default;  font: menu; text-align:left; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 5px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius: 5px;             /* Safari and Chrome */  -moz-border-radius: 5px;                /* Firefox */  -khtml-border-radius: 5px;              /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */}
+.CtxtMenu_MenuItem {  padding: 1px 2em;  background:transparent;}
+.CtxtMenu_MenuArrow {  position:absolute; right:.5em; padding-top:.25em; color:#666666;  font-family: null; font-size: .75em}
+.CtxtMenu_MenuActive .CtxtMenu_MenuArrow {color:white}
+.CtxtMenu_MenuArrow.CtxtMenu_RTL {left:.5em; right:auto}
+.CtxtMenu_MenuCheck {  position:absolute; left:.7em;  font-family: null}
+.CtxtMenu_MenuCheck.CtxtMenu_RTL { right:.7em; left:auto }
+.CtxtMenu_MenuRadioCheck {  position:absolute; left: .7em;}
+.CtxtMenu_MenuRadioCheck.CtxtMenu_RTL {  right: .7em; left:auto}
+.CtxtMenu_MenuInputBox {  padding-left: 1em; right:.5em; color:#666666;  font-family: null;}
+.CtxtMenu_MenuInputBox.CtxtMenu_RTL {  left: .1em;}
+.CtxtMenu_MenuComboBox {  left:.1em; padding-bottom:.5em;}
+.CtxtMenu_MenuSlider {  left: .1em;}
+.CtxtMenu_SliderValue {  position:absolute; right:.1em; padding-top:.25em; color:#333333;  font-size: .75em}
+.CtxtMenu_SliderBar {  outline: none; background: #d3d3d3}
+.CtxtMenu_MenuLabel {  padding: 1px 2em 3px 1.33em;  font-style:italic}
+.CtxtMenu_MenuRule {  border-top: 1px solid #DDDDDD;  margin: 4px 3px;}
+.CtxtMenu_MenuDisabled {  color:GrayText}
+.CtxtMenu_MenuActive {  background-color: #606872;  color: white;}
+.CtxtMenu_MenuDisabled:focus {  background-color: #E8E8E8}
+.CtxtMenu_MenuLabel:focus {  background-color: #E8E8E8}
+.CtxtMenu_ContextMenu:focus {  outline:none}
+.CtxtMenu_ContextMenu .CtxtMenu_MenuItem:focus {  outline:none}
+.CtxtMenu_SelectionMenu {  position:relative; float:left;  border-bottom: none; -webkit-box-shadow:none; -webkit-border-radius:0px; }
+.CtxtMenu_SelectionItem {  padding-right: 1em;}
+.CtxtMenu_Selection {  right: 40%; width:50%; }
+.CtxtMenu_SelectionBox {  padding: 0em; max-height:20em; max-width: none;  background-color:#FFFFFF;}
+.CtxtMenu_SelectionDivider {  clear: both; border-top: 2px solid #000000;}
+.CtxtMenu_Menu .CtxtMenu_MenuClose {  top:-10px; left:-10px}
+</style><script src="Creating%20Data%20Visualizations%20-%20PGF_TikZ%20Manual_fichiers/textcomp.js" charset="UTF-8"></script><style id="MJX-CHTML-styles">
+mjx-container[jax="CHTML"] {
+  line-height: 0;
+}
+
+mjx-container [space="1"] {
+  margin-left: .111em;
+}
+
+mjx-container [space="2"] {
+  margin-left: .167em;
+}
+
+mjx-container [space="3"] {
+  margin-left: .222em;
+}
+
+mjx-container [space="4"] {
+  margin-left: .278em;
+}
+
+mjx-container [space="5"] {
+  margin-left: .333em;
+}
+
+mjx-container [rspace="1"] {
+  margin-right: .111em;
+}
+
+mjx-container [rspace="2"] {
+  margin-right: .167em;
+}
+
+mjx-container [rspace="3"] {
+  margin-right: .222em;
+}
+
+mjx-container [rspace="4"] {
+  margin-right: .278em;
+}
+
+mjx-container [rspace="5"] {
+  margin-right: .333em;
+}
+
+mjx-container [size="s"] {
+  font-size: 70.7%;
+}
+
+mjx-container [size="ss"] {
+  font-size: 50%;
+}
+
+mjx-container [size="Tn"] {
+  font-size: 60%;
+}
+
+mjx-container [size="sm"] {
+  font-size: 85%;
+}
+
+mjx-container [size="lg"] {
+  font-size: 120%;
+}
+
+mjx-container [size="Lg"] {
+  font-size: 144%;
+}
+
+mjx-container [size="LG"] {
+  font-size: 173%;
+}
+
+mjx-container [size="hg"] {
+  font-size: 207%;
+}
+
+mjx-container [size="HG"] {
+  font-size: 249%;
+}
+
+mjx-container [width="full"] {
+  width: 100%;
+}
+
+mjx-box {
+  display: inline-block;
+}
+
+mjx-block {
+  display: block;
+}
+
+mjx-itable {
+  display: inline-table;
+}
+
+mjx-row {
+  display: table-row;
+}
+
+mjx-row > * {
+  display: table-cell;
+}
+
+mjx-mtext {
+  display: inline-block;
+}
+
+mjx-mstyle {
+  display: inline-block;
+}
+
+mjx-merror {
+  display: inline-block;
+  color: red;
+  background-color: yellow;
+}
+
+mjx-mphantom {
+  visibility: hidden;
+}
+
+_::-webkit-full-page-media, _:future, :root mjx-container {
+  will-change: opacity;
+}
+
+mjx-assistive-mml {
+  position: absolute !important;
+  top: 0px;
+  left: 0px;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 1px 0px 0px 0px !important;
+  border: 0px !important;
+  display: block !important;
+  width: auto !important;
+  overflow: hidden !important;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+mjx-assistive-mml[display="block"] {
+  width: 100% !important;
+}
+
+mjx-math {
+  display: inline-block;
+  text-align: left;
+  line-height: 0;
+  text-indent: 0;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 100%;
+  font-size-adjust: none;
+  letter-spacing: normal;
+  border-collapse: collapse;
+  word-wrap: normal;
+  word-spacing: normal;
+  white-space: nowrap;
+  direction: ltr;
+  padding: 1px 0;
+}
+
+mjx-container[jax="CHTML"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="CHTML"][display="true"][width="full"] {
+  display: flex;
+}
+
+mjx-container[jax="CHTML"][display="true"] mjx-math {
+  padding: 0;
+}
+
+mjx-container[jax="CHTML"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="CHTML"][justify="right"] {
+  text-align: right;
+}
+
+mjx-mn {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-c {
+  display: inline-block;
+}
+
+mjx-utext {
+  display: inline-block;
+  padding: .75em 0 .2em 0;
+}
+
+mjx-mspace {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-mi {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-c::before {
+  display: block;
+  width: 0;
+}
+
+.MJX-TEX {
+  font-family: MJXZERO, MJXTEX;
+}
+
+.TEX-B {
+  font-family: MJXZERO, MJXTEX-B;
+}
+
+.TEX-I {
+  font-family: MJXZERO, MJXTEX-I;
+}
+
+.TEX-MI {
+  font-family: MJXZERO, MJXTEX-MI;
+}
+
+.TEX-BI {
+  font-family: MJXZERO, MJXTEX-BI;
+}
+
+.TEX-S1 {
+  font-family: MJXZERO, MJXTEX-S1;
+}
+
+.TEX-S2 {
+  font-family: MJXZERO, MJXTEX-S2;
+}
+
+.TEX-S3 {
+  font-family: MJXZERO, MJXTEX-S3;
+}
+
+.TEX-S4 {
+  font-family: MJXZERO, MJXTEX-S4;
+}
+
+.TEX-A {
+  font-family: MJXZERO, MJXTEX-A;
+}
+
+.TEX-C {
+  font-family: MJXZERO, MJXTEX-C;
+}
+
+.TEX-CB {
+  font-family: MJXZERO, MJXTEX-CB;
+}
+
+.TEX-FR {
+  font-family: MJXZERO, MJXTEX-FR;
+}
+
+.TEX-FRB {
+  font-family: MJXZERO, MJXTEX-FRB;
+}
+
+.TEX-SS {
+  font-family: MJXZERO, MJXTEX-SS;
+}
+
+.TEX-SSB {
+  font-family: MJXZERO, MJXTEX-SSB;
+}
+
+.TEX-SSI {
+  font-family: MJXZERO, MJXTEX-SSI;
+}
+
+.TEX-SC {
+  font-family: MJXZERO, MJXTEX-SC;
+}
+
+.TEX-T {
+  font-family: MJXZERO, MJXTEX-T;
+}
+
+.TEX-V {
+  font-family: MJXZERO, MJXTEX-V;
+}
+
+.TEX-VB {
+  font-family: MJXZERO, MJXTEX-VB;
+}
+
+mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
+  font-family: MJXZERO, MJXTEX-S1, MJXTEX-S4, MJXTEX, MJXTEX-A ! important;
+}
+
+@font-face /* 0 */ {
+  font-family: MJXZERO;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Zero.woff") format("woff");
+}
+
+@font-face /* 1 */ {
+  font-family: MJXTEX;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Regular.woff") format("woff");
+}
+
+@font-face /* 2 */ {
+  font-family: MJXTEX-B;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Bold.woff") format("woff");
+}
+
+@font-face /* 3 */ {
+  font-family: MJXTEX-I;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Math-Italic.woff") format("woff");
+}
+
+@font-face /* 4 */ {
+  font-family: MJXTEX-MI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Italic.woff") format("woff");
+}
+
+@font-face /* 5 */ {
+  font-family: MJXTEX-BI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Math-BoldItalic.woff") format("woff");
+}
+
+@font-face /* 6 */ {
+  font-family: MJXTEX-S1;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size1-Regular.woff") format("woff");
+}
+
+@font-face /* 7 */ {
+  font-family: MJXTEX-S2;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size2-Regular.woff") format("woff");
+}
+
+@font-face /* 8 */ {
+  font-family: MJXTEX-S3;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size3-Regular.woff") format("woff");
+}
+
+@font-face /* 9 */ {
+  font-family: MJXTEX-S4;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size4-Regular.woff") format("woff");
+}
+
+@font-face /* 10 */ {
+  font-family: MJXTEX-A;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_AMS-Regular.woff") format("woff");
+}
+
+@font-face /* 11 */ {
+  font-family: MJXTEX-C;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Regular.woff") format("woff");
+}
+
+@font-face /* 12 */ {
+  font-family: MJXTEX-CB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Bold.woff") format("woff");
+}
+
+@font-face /* 13 */ {
+  font-family: MJXTEX-FR;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Fraktur-Regular.woff") format("woff");
+}
+
+@font-face /* 14 */ {
+  font-family: MJXTEX-FRB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Fraktur-Bold.woff") format("woff");
+}
+
+@font-face /* 15 */ {
+  font-family: MJXTEX-SS;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Regular.woff") format("woff");
+}
+
+@font-face /* 16 */ {
+  font-family: MJXTEX-SSB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Bold.woff") format("woff");
+}
+
+@font-face /* 17 */ {
+  font-family: MJXTEX-SSI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Italic.woff") format("woff");
+}
+
+@font-face /* 18 */ {
+  font-family: MJXTEX-SC;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Script-Regular.woff") format("woff");
+}
+
+@font-face /* 19 */ {
+  font-family: MJXTEX-T;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Typewriter-Regular.woff") format("woff");
+}
+
+@font-face /* 20 */ {
+  font-family: MJXTEX-V;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Vector-Regular.woff") format("woff");
+}
+
+@font-face /* 21 */ {
+  font-family: MJXTEX-VB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Vector-Bold.woff") format("woff");
+}
+
+mjx-c.mjx-c31::before {
+  padding: 0.666em 0.5em 0 0;
+  content: "1";
+}
+
+mjx-c.mjx-c30::before {
+  padding: 0.666em 0.5em 0.022em 0;
+  content: "0";
+}
+
+mjx-c.mjx-c1D465.TEX-I::before {
+  padding: 0.442em 0.572em 0.011em 0;
+  content: "x";
+}
+
+mjx-c.mjx-c1D466.TEX-I::before {
+  padding: 0.442em 0.49em 0.205em 0;
+  content: "y";
+}
+
+mjx-c.mjx-c1D467.TEX-I::before {
+  padding: 0.442em 0.465em 0.011em 0;
+  content: "z";
+}
+</style></head>
+  <body data-new-gr-c-s-check-loaded="8.904.0" data-gr-ext-installed="">
+    <a id="pgfmanual-autopage-6653"></a>
+
+    <div class="bodyandsidetoc grid-container">
+      <header>
+        <div id="hamburger-button">☰</div>
+        <strong><a href="https://tikz.dev/">PGF/<span class="tikzname">Ti<i>k</i>Z</span> Manual</a></strong>
+        <div id="search"><button type="button" class="DocSearch DocSearch-Button" aria-label="Search"><span class="DocSearch-Button-Container"><svg width="20" height="20" class="DocSearch-Search-Icon" viewBox="0 0 20 20"><path d="M14.386 14.386l4.0877 4.0877-4.0877-4.0877c-2.9418 2.9419-7.7115 2.9419-10.6533 0-2.9419-2.9418-2.9419-7.7115 0-10.6533 2.9418-2.9419 7.7115-2.9419 10.6533 0 2.9419 2.9418 2.9419 7.7115 0 10.6533z" stroke="currentColor" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="DocSearch-Button-Placeholder">Search</span></span><span class="DocSearch-Button-Keys"><kbd class="DocSearch-Button-Key">⌘</kbd><kbd class="DocSearch-Button-Key">K</kbd></span></button></div>
+      </header>
+      <div class="sidetoccontainer" id="local-toc-container">
+        <nav class="sidetoc">
+          <div class="sidetoctitle"><p>On this page</p></div>
+          <div class="sidetoccontents">
+            <p class=""><a class="tocsubsection" href="#sec-80.1">Overview</a></p>
+            <p class="current">
+              <a class="tocsubsection" href="#sec-80.2">Concept: Data Points and Data Formats</a>
+            </p>
+            <p>
+              <a class="tocsubsection" href="#sec-80.3">Concept: Axes, Ticks, and Grids</a>
+            </p>
+            <p>
+              <a class="tocsubsection" href="#sec-80.4">Concept: Visualizers</a>
+            </p>
+            <p>
+              <a class="tocsubsection" href="#sec-80.5">Concept: Style Sheets and Legends</a>
+            </p>
+            <p><a class="tocsubsection" href="#sec-80.6">Usage</a></p>
+            <p>
+              <a class="tocsubsection" href="#sec-80.7">Advanced: Executing User Code During a Data Visualization</a>
+            </p>
+            <p>
+              <a class="tocsubsection" href="#sec-80.8">Advanced: Creating New Objects</a>
+            </p>
+          </div>
+        </nav>
+      </div>
+      <div class="sidetoccontainer" id="chapter-toc-container">
+        <nav class="sidetoc">
+          <div class="sidetoctitle">
+            <p>
+              <span class="sidetocthetitle">The <span class="tikzname">Ti<i>k</i>Z</span> and PGF Packages<br>
+                Manual for version 3.1.9a</span>
+            </p>
+
+            <p>Contents</p>
+          </div>
+
+          <div class="sidetoccontents">
+            <p></p>
+
+            <p>
+              <a class="linkintro" href="https://tikz.dev/">Introduction</a>
+            </p>
+
+            <p>
+              <a class="tocpart" href="https://tikz.dev/tutorials-guidelines">Tutorials and Guidelines</a>
+            </p>
+
+            <p>
+              <a class="tocpart" href="https://tikz.dev/install">Installation and Configuration</a>
+            </p>
+
+            <p>
+              <a class="tocpart" href="https://tikz.dev/tikz">Ti<em>k</em>Z</a>
+            </p>
+
+            <p>
+              <a class="tocpart" href="https://tikz.dev/gd">Graph Drawing</a>
+            </p>
+
+            <p>
+              <a class="tocpart" href="https://tikz.dev/libraries">Libraries</a>
+            </p>
+
+            <p class="current-part">
+              <a class="tocpart" href="https://tikz.dev/dv">Data Visualization</a>
+            </p>
+
+            <p class="current-part">
+              <a class="tocsection" href="https://tikz.dev/dv-introduction">Introduction to Data Visualization</a>
+            </p>
+
+            <p class="current current-part">
+              <a class="tocsection" href="https://tikz.dev/dv-main">Creating Data Visualizations</a>
+            </p>
+
+            <p class="current-part">
+              <a class="tocsection" href="https://tikz.dev/dv-formats">Providing Data for a Data Visualization</a>
+            </p>
+
+            <p class="current-part">
+              <a class="tocsection" href="https://tikz.dev/dv-axes">Axes</a>
+            </p>
+
+            <p class="current-part">
+              <a class="tocsection" href="https://tikz.dev/dv-visualizers">Visualizers</a>
+            </p>
+
+            <p class="current-part">
+              <a class="tocsection" href="https://tikz.dev/dv-stylesheets">Style Sheets and Legends</a>
+            </p>
+
+            <p class="current-part">
+              <a class="tocsection" href="https://tikz.dev/dv-polar">Polar Axes</a>
+            </p>
+
+            <p class="current-part">
+              <a class="tocsection" href="https://tikz.dev/dv-backend">The Data Visualization Backend</a>
+            </p>
+
+            <p>
+              <a class="tocpart" href="https://tikz.dev/utilities">Utilities</a>
+            </p>
+
+            <p>
+              <a class="tocpart" href="https://tikz.dev/math">Mathematical and Object-Oriented Engines</a>
+            </p>
+
+            <p>
+              <a class="tocpart" href="https://tikz.dev/base">The Basic Layer</a>
+            </p>
+
+            <p>
+              <a class="tocpart" href="https://tikz.dev/pgfsys">The System Layer</a>
+            </p>
+          </div>
+        </nav>
+      </div>
+
+      <main class="bodycontainer">
+        <section class="textbody">
+          <h1>
+            The <span class="tikzname">Ti<i>k</i>Z</span> and PGF Packages<br>
+            Manual for version 3.1.9a
+          </h1>
+          <h2 class="inserted">Data Visualization</h2>
+
+          <!--MathJax customizations:-->
+
+          <div class="hidden">
+            <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="0"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container> <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="1"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container>
+            <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="2"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container>
+            <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="3"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container> <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="4"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container> <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="5"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container> <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="6"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container> <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="7"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container>
+            <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="8"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container> <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="9"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container> <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="10"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container> <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="11"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container> <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="12"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container>
+            <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="13"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container> <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="14"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container>
+            <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="15"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container> <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="16"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container> <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="17"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container> <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="18"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container> <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="19"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container> <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="20"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container> <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="21"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container>
+            <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="22"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container> <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="23"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container> <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="24"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container> <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="25"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container> <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="26"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container> <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="27"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container> <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="28"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container> <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="29"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container> <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="30"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container> <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="31"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container> <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="32"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container> <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="33"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container> <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="34"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container> <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="35"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container> <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="36"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container> <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="37"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container> <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="38"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container> <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="39"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container> <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="40"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container> <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="41"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container> <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="42"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container> <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="43"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container> <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="44"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container>
+            <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="45"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container> <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="46"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container> <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="47"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container> <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="48"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container> <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="49"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container> <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="50"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container> <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="51"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container> <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="52"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container> <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="53"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container> <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="54"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container> <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="55"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container> <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="56"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container> <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="57"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container> <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="58"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container> <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="59"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container> <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 113.1%; position: relative;" tabindex="0" ctxtmenu_counter="60"><mjx-math class="MJX-TEX" aria-hidden="true"></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"></math></mjx-assistive-mml></mjx-container>
+          </div>
+
+          <p></p>
+          <h4 id="autosec-6654">
+            <a id="section-dv-main"></a><span class="sectionnumber" id="sec-80">80</span>Creating Data
+            Visualizations
+          </h4>
+          <a id="pgfmanual-autopage-6654"></a>
+          <a id="pgfmanual-autofile-86"></a>
+
+          <a id="section-dv-main-setup"></a>
+          <h5 id="autosec-6655">
+            <span><span class="sectionnumber" id="sec-80.1">80.1</span>Overview</span><a class="anchor-link" href="#sec-80.1">¶</a>
+          </h5>
+          <a id="pgfmanual-autopage-6655"></a>
+
+          <p>
+            The present section explains how a data visualization is created in
+            <span class="tikzname">Ti<i>k</i>Z</span>. For this, you need to include
+            the <span class="texttt">datavisualization</span> library and then
+            use the command <span class="texttt">\datavisualization</span> whose
+            syntax is explained in the rest of the present section. This command
+            is part of the following library:
+          </p>
+
+          <div class="manualentry">
+            <ul style="list-style-type: none">
+              <div class="entryheadline">
+                <li>
+                  <p>
+                    <a id="pgf.datavisualization"></a>
+                    <span class="hl-def"><b><span class="tikzname">Ti<i>k</i>Z</span> Library</b>
+                      <kbd><span class="textcolor" style="color: #bf0000">datavisualization</span></kbd></span>
+                    <a class="anchor-link" href="#pgf.datavisualization" id="pgf.datavisualization">¶</a>
+                  </p>
+                </li>
+              </div>
+              <p>
+                <kbd>\usetikzlibrary{<span class="textcolor" style="color: #bf0000">datavisualization</span>} %
+                  <span class="latexlogofont"><span class="latexlogo">L<span class="latexlogosup">a</span>T<span class="latexlogosub">e</span>X</span></span>
+                  and plain
+                  <span class="latexlogofont"><span class="latexlogo">T<span class="latexlogosub">e</span>X</span></span></kbd><br>
+                <kbd>\usetikzlibrary[<span class="textcolor" style="color: #bf0000">datavisualization</span>] % Con<span class="latexlogofont"><span class="latexlogo">T<span class="latexlogosub">e</span>X</span></span>t</kbd><br>
+                <br>
+                This library must be loaded if you wish to use the
+                <span class="texttt">\datavisualization</span> command. It
+                defines all styles needed to create basic data visualizations;
+                additional, more specialized libraries need to be loaded for
+                more advanced features.
+              </p>
+            </ul>
+          </div>
+
+          <p>In order to visualize, you basically need to do three things:</p>
+          <ul style="list-style-type: none">
+            <li>
+              <p>
+                1. You need to select what kind of plot you would like to have
+                (a “school book plot” or a “scientific 2d
+                plot” or a “scientific spherical plot” etc.).
+                This is done by passing an option to the
+                <span class="texttt">\datavisualization</span>
+                command that selects this kind of plot.
+              </p>
+            </li>
+            <li>
+              <p>
+                2. You need to provide data points, which is done using the
+                <span class="texttt">data</span> command.
+              </p>
+            </li>
+            <li>
+              <p>
+                3. Additionally, you can add options that give you more
+                fine-grained control over the way the visualization will look.
+                You can configure the number of ticks and grid lines, where the
+                labels are placed, the colors, or the fonts. Indeed, since the
+                data visualization engine internally uses
+                <span class="tikzname">Ti<i>k</i>Z</span>-styles, you can have
+                extremely fine-grained control over how a plot will look like.
+              </p>
+            </li>
+          </ul>
+
+          <p>
+            The syntax of the
+            <span class="texttt">\datavisualization</span> command is designed
+            in such a way that you only need to provide very few options to
+            create plots that “look good by default”.
+          </p>
+
+          <p>
+            This section is structured as follows: First, the philosophy behind
+            concepts like “data points”, “axes”, or
+            “visualizers” is explained. Each of these concepts is
+            further detailed in later section. Then, the syntax of the
+            <span class="texttt">\datavisualization</span> command is covered.
+            The reference sections explain which predefined plot kinds are
+            available.
+          </p>
+          <h5 id="autosec-6656">
+            <span><span class="sectionnumber" id="sec-80.2">80.2</span>Concept:
+              Data Points and Data Formats</span><a class="anchor-link" href="#sec-80.2">¶</a>
+          </h5>
+          <a id="pgfmanual-autopage-6656"></a>
+
+          <p>
+            As explained in Section&nbsp;<a href="https://tikz.dev/dv-introduction#section-dv-intro-data-points">79.1</a>, data points are the basic entities that are processed by the data
+            visualization engine. In order to specify data points, you use the
+            <span class="texttt">data</span> command, whose syntax is explained
+            in more detail in Section&nbsp;<a href="https://tikz.dev/dv-main#section-dv-data-syntax">80.6</a>. The <span class="texttt">data</span> command allows you to either
+            specify points “inline”, directly inside your
+            <span class="latexlogofont"><span class="latexlogo">T<span class="latexlogosub">e</span>X</span></span>-file; or you can specify the name of file that contains the data
+            points.
+          </p>
+
+          <p>
+            <b>Specifying data points.</b> Data points can be formatted in
+            different ways. For instance, in the so called
+            <em>comma separated values</em> format, there is one line for each
+            data point and the different attributes of a data point are
+            separated by commas. Another common format is to specify data points
+            using the so called <em>key–value</em> format, where on each
+            line the different attributes of a data point are set using a
+            comma-separated list of strings of the form
+            <span class="texttt">attribute=value</span>.
+          </p>
+
+          <p>
+            Here are two examples, where similar data is given in different
+            formats:
+          </p>
+
+          <figure class="example">
+            <div class="example-image">
+              <p>
+                <span class="lateximagesource" id="lateximage-pgfmanual-2722"><!--
+     2
+
+
+     1
+
+
+
+−1 0 1
+--><img alt="(-tikz-&nbsp;diagram)" class="lateximage" loading="lazy" src="Creating%20Data%20Visualizations%20-%20PGF_TikZ%20Manual_fichiers/image-2722.png" style="" width="135.997" height="110.714"></span>
+              </p>
+            </div>
+
+            <div class="example-code">
+              <button class="clipboardButton" type="button">copy</button>
+
+              <code>
+                <span class="codepreamble">\usetikzlibrary {datavisualization} </span><br>
+                <span class="textcolor" style="color: #000000">\begin</span>{<span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/tikz-scopes#pgf.tikzpicture">tikzpicture</a></span>}<br>
+                <span class="spaces">  </span><span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/dv-main#pgf.back/datavisualization">\datavisualization</a></span> [<span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-axes#pgf.school:book:axes">school book axes</a></span>, <span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-visualizers#pgf.visualize:as:smooth:line">visualize as smooth line</a></span>]<br>
+                <span class="spaces">    </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/dv-main#pgf.data">data</a></span>
+                {<br>
+                <span class="spaces">      </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-coordinates#pgf.x">x</a></span>, <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-coordinates#pgf.y">y</a></span><br>
+                <span class="spaces">      </span><span class="textcolor" style="color: #000000">-1</span>.<span class="textcolor" style="color: #000000">5</span>, <span class="textcolor" style="color: #000000">2</span>.<span class="textcolor" style="color: #000000">25</span><br>
+                <span class="spaces">      </span><span class="textcolor" style="color: #000000">-1</span>, <span class="textcolor" style="color: #000000">1</span><br>
+                <span class="spaces">      </span><span class="textcolor" style="color: #000000">-</span>.<span class="textcolor" style="color: #000000">5</span>,<span class="spaces"> </span>.<span class="textcolor" style="color: #000000">25</span><br>
+                <span class="spaces">      </span><span class="textcolor" style="color: #000000">0</span>, <span class="textcolor" style="color: #000000">0</span><br>
+                <span class="spaces">      </span>.<span class="textcolor" style="color: #000000">5</span>,<span class="spaces"> </span>.<span class="textcolor" style="color: #000000">25</span><br>
+                <span class="spaces">      </span><span class="textcolor" style="color: #000000">1</span>, <span class="textcolor" style="color: #000000">1</span><br>
+                <span class="spaces">      </span><span class="textcolor" style="color: #000000">1</span>.<span class="textcolor" style="color: #000000">5</span>, <span class="textcolor" style="color: #000000">2</span>.<span class="textcolor" style="color: #000000">25</span><br>
+                <span class="spaces">    </span>};<br>
+                <span class="textcolor" style="color: #000000">\end</span>{<span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/tikz-scopes#pgf.tikzpicture">tikzpicture</a></span>}<br>
+              </code>
+            </div>
+          </figure>
+
+          <figure class="example">
+            <div class="example-image">
+              <p>
+                <span class="lateximagesource" id="lateximage-pgfmanual-2723"><!--
+     2
+
+
+     1
+
+
+
+−1 0 1
+--><img alt="(-tikz-&nbsp;diagram)" class="lateximage" loading="lazy" src="Creating%20Data%20Visualizations%20-%20PGF_TikZ%20Manual_fichiers/image-2723.png" style="" width="135.997" height="110.714"></span>
+              </p>
+            </div>
+
+            <div class="example-code">
+              <button class="clipboardButton" type="button">copy</button>
+
+              <code>
+                <span class="codepreamble">\usetikzlibrary {datavisualization.formats.functions} </span><br>
+                <span class="textcolor" style="color: #000000">\begin</span>{<span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/tikz-scopes#pgf.tikzpicture">tikzpicture</a></span>}<br>
+                <span class="spaces">  </span><span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/dv-main#pgf.back/datavisualization">\datavisualization</a></span> [<span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-axes#pgf.school:book:axes">school book axes</a></span>, <span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-visualizers#pgf.visualize:as:smooth:line">visualize as smooth line</a></span>]<br>
+                <span class="spaces">    </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/dv-main#pgf.data">data</a></span>
+                [<span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-main#pgf.format">format</a></span>=<span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-formats#pgf.function">function</a></span>] {<br>
+                <span class="spaces">      </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/pgffor#pgf.var">var</a></span>
+                <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-coordinates#pgf.x">x</a></span>
+                <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-paths#pgf.:">:</a></span>
+                <span class="textcolor" style="color: #000000">interval</span>
+                [<span class="textcolor" style="color: #008000">-1.5:1.5</span>] <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-plots#pgf.samples">samples</a></span>
+                <span class="textcolor" style="color: #000000">7</span>;<br>
+                <span class="spaces">      </span><span class="textcolor" style="color: #000000">func</span>
+                <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-coordinates#pgf.y">y</a></span>
+                <span class="textcolor" style="color: #000000">=</span>
+                <span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/dv-formats#pgf.back/value">\value</a></span> <span class="textcolor" style="color: #000000">x*</span><span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/dv-formats#pgf.back/value">\value</a></span> <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-coordinates#pgf.x">x</a></span>;<br>
+                <span class="spaces">    </span>};<br>
+                <span class="textcolor" style="color: #000000">\end</span>{<span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/tikz-scopes#pgf.tikzpicture">tikzpicture</a></span>}<br>
+              </code>
+            </div>
+          </figure>
+
+          <p>
+            In the first example, no format needed to be specified explicitly
+            since the default format is the one used for the data following the
+            <span class="texttt">data</span> keyword: A list of comma-separated
+            values, where each line represents a data point.
+          </p>
+
+          <p>
+            <b>Number accuracy.</b><a id="section-dv-expressions"></a> Data
+            visualizations typically demand a much higher accuracy and range of
+            values than
+            <span class="latexlogofont"><span class="latexlogo">T<span class="latexlogosub">e</span>X</span></span>
+            provides:
+            <span class="latexlogofont"><span class="latexlogo">T<span class="latexlogosub">e</span>X</span></span>
+            numbers are limited to 13 bits for the integer part and 16 bits for
+            the fractional part. Because of this, the data visualization engine
+            does not use <span class="textsc">pgf</span>’s standard
+            representation of numbers and
+            <span class="latexlogofont"><span class="latexlogo">T<span class="latexlogosub">e</span>X</span></span>
+            dimensions and does not use the standard parser when reading numbers
+            in a data point. Instead, the
+            <span class="texttt">fpu</span> library, described in
+            Section&nbsp;<a href="https://tikz.dev/library-fpu#section-library-fpu">56</a>, is
+            used to handle numbers.
+          </p>
+
+          <p>
+            This use of the <span class="texttt">fpu</span> library has several
+            effects that users of the data visualization system should be aware
+            of:
+          </p>
+          <ul style="list-style-type: none">
+            <li>
+              <p>
+                1. You can use numbers like
+                <span class="texttt">100000000000000</span> or
+                <span class="texttt">0.00000000001</span> in data points.
+              </p>
+            </li>
+            <li>
+              <p>
+                2. Since the <span class="texttt">fpu</span> library does not
+                support advanced parsing, you currently <em>cannot</em> write
+                things like <span class="texttt">3+2</span> in a data point
+                number. This will result in an error.
+              </p>
+            </li>
+            <li>
+              <p>
+                3. However, there is a loop-hole: If a “number” in a
+                data point starts with a parenthesis, the value between the
+                parentheses <em>is</em> parsed using the normal parser:
+              </p>
+              <ul style="list-style-type: none">
+                <li>
+                  <p>• <span class="texttt">100000</span> is allowed.</p>
+                </li>
+                <li>
+                  <p>• <span class="texttt">2+3</span> yields an error.</p>
+                </li>
+                <li>
+                  <p>
+                    • <span class="texttt">(2+3)</span> is allowed and
+                    evaluates to <span class="texttt">5</span>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    • <span class="texttt">(100000)</span> yields an error
+                    since <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 119%; position: relative;" tabindex="0" ctxtmenu_counter="61"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-mstyle><mjx-mspace style="width: 0.167em;"></mjx-mspace></mjx-mstyle><mjx-mn class="mjx-n"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>100</mn><mstyle scriptlevel="0"><mspace width="0.167em"></mspace></mstyle><mn>000</mn></math></mjx-assistive-mml></mjx-container> is beyond the normal parser’s
+                    precision.
+                  </p>
+                </li>
+              </ul>
+              <p>
+                The bottom line is that any normal calculations should be set
+                inside round parentheses, while large numbers should not be
+                surrounded by parentheses. Hopefully, in the future, these
+                restrictions will be lifted.
+              </p>
+            </li>
+          </ul>
+
+          <p>
+            Section&nbsp;<a href="https://tikz.dev/dv-formats#section-dv-formats">81</a> gives an
+            in-depth coverage of the available data formats and explains how new
+            data formats can be defined.
+          </p>
+          <h5 id="autosec-6661">
+            <span><span class="sectionnumber" id="sec-80.3">80.3</span>Concept:
+              Axes, Ticks, and Grids</span><a class="anchor-link" href="#sec-80.3">¶</a>
+          </h5>
+          <a id="pgfmanual-autopage-6661"></a>
+
+          <p>
+            Most plots have two or three axes: A horizontal axis usually called
+            the <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 119%; position: relative;" tabindex="0" ctxtmenu_counter="62"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>x</mi></math></mjx-assistive-mml></mjx-container>-axis, a vertical axis called the <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 119%; position: relative;" tabindex="0" ctxtmenu_counter="63"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>y</mi></math></mjx-assistive-mml></mjx-container>-axis, and possibly
+            some axis pointing in a sloped direction called the <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 119%; position: relative;" tabindex="0" ctxtmenu_counter="64"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D467 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>z</mi></math></mjx-assistive-mml></mjx-container>-axis. Axes
+            are usually drawn as lines with
+            <em>ticks</em> indicating interesting positions on the axes. The
+            data visualization engine gives you detailed control over where
+            these ticks are rendered and how many of them are used. Great care
+            is taken to ensure that the position of ticks are chosen well by
+            default.
+          </p>
+
+          <p>
+            From the point of view of the data visualization engine, axes are a
+            somewhat more general concept than “just” lines that
+            point “along” some dimension: The data visualization
+            engine uses axes to visualize any change of an attribute by varying
+            the position of data points in the plane. For instance, in a polar
+            plot, there is an “axis” for the angle and another
+            “axis” for the distance if the point from the center.
+            Clearly these axes vary the position of data points in the plane
+            according to some attribute of the data points; but just as clearly
+            they do not point in any “direction”.
+          </p>
+
+          <p>
+            A great benefit of this approach is that the powerful methods for
+            specifying and automatic inference of “good” positions
+            for ticks or grid lines apply to all sorts of situations. For
+            instance, you can use it to automatically put ticks and grid lines
+            at well-chosen angles of a polar plot.
+          </p>
+
+          <p>
+            Typically, you will not need to specify axes explicitly. Rather,
+            predefined styles take care of this for you:
+          </p>
+
+          <figure class="example">
+            <div class="example-image">
+              <p>
+                <span class="lateximagesource" id="lateximage-pgfmanual-2724"><!--
+ 2
+
+1.5
+
+ 1
+
+0.5
+
+ 0
+      −1 0 1
+--><img alt="(-tikz-&nbsp;diagram)" class="lateximage" loading="lazy" src="Creating%20Data%20Visualizations%20-%20PGF_TikZ%20Manual_fichiers/image-2724.png" style="" width="139.249" height="135.628"></span>
+              </p>
+            </div>
+
+            <div class="example-code">
+              <button class="clipboardButton" type="button">copy</button>
+
+              <code>
+                <span class="codepreamble">\usetikzlibrary {datavisualization.formats.functions} </span><br>
+                <span class="textcolor" style="color: #000000">\begin</span>{<span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/tikz-scopes#pgf.tikzpicture">tikzpicture</a></span>}<br>
+                <span class="spaces">  </span><span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/dv-main#pgf.back/datavisualization">\datavisualization</a></span> [<br>
+                <span class="spaces">    </span><span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-axes#pgf.scientific:axes">scientific axes</a></span>,<br>
+                <span class="spaces">    </span><span class="textcolor" style="color: #008000">x axis</span>=<span class="textcolor" style="color: #008000">{length=3cm,<span class="spaces"> </span>ticks=few}</span>,<br>
+                <span class="spaces">    </span><span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-visualizers#pgf.visualize:as:smooth:line">visualize as smooth line</a></span><br>
+                <br>
+                <span class="spaces">  </span>]<br>
+                <span class="spaces">    </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/dv-main#pgf.data">data</a></span>
+                [<span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-main#pgf.format">format</a></span>=<span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-formats#pgf.function">function</a></span>] {<br>
+                <span class="spaces">      </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/pgffor#pgf.var">var</a></span>
+                <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-coordinates#pgf.x">x</a></span>
+                <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-paths#pgf.:">:</a></span>
+                <span class="textcolor" style="color: #000000">interval</span>
+                [<span class="textcolor" style="color: #008000">-1.5:1.5</span>] <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-plots#pgf.samples">samples</a></span>
+                <span class="textcolor" style="color: #000000">7</span>;<br>
+                <span class="spaces">      </span><span class="textcolor" style="color: #000000">func</span>
+                <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-coordinates#pgf.y">y</a></span>
+                <span class="textcolor" style="color: #000000">=</span>
+                <span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/dv-formats#pgf.back/value">\value</a></span> <span class="textcolor" style="color: #000000">x*</span><span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/dv-formats#pgf.back/value">\value</a></span> <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-coordinates#pgf.x">x</a></span>;<br>
+                <span class="spaces">    </span>};<br>
+                <span class="textcolor" style="color: #000000">\end</span>{<span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/tikz-scopes#pgf.tikzpicture">tikzpicture</a></span>}<br>
+              </code>
+            </div>
+          </figure>
+
+          <figure class="example">
+            <div class="example-image">
+              <p>
+                <span class="lateximagesource" id="lateximage-pgfmanual-2725"><!--
+ 2
+
+1.5
+
+ 1
+
+0.5
+
+ 0
+      −1 0 1
+--><img alt="(-tikz-&nbsp;diagram)" class="lateximage" loading="lazy" src="Creating%20Data%20Visualizations%20-%20PGF_TikZ%20Manual_fichiers/image-2725.png" style="" width="143.365" height="139.734"></span>
+              </p>
+            </div>
+
+            <div class="example-code">
+              <button class="clipboardButton" type="button">copy</button>
+
+              <code>
+                <span class="codepreamble">\usetikzlibrary {datavisualization.formats.functions} </span><br>
+                <span class="textcolor" style="color: #000000">\begin</span>{<span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/tikz-scopes#pgf.tikzpicture">tikzpicture</a></span>}<br>
+                <span class="spaces">  </span><span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/dv-main#pgf.back/datavisualization">\datavisualization</a></span> [<br>
+                <span class="spaces">    </span><span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-axes#pgf.scientific:axes">scientific axes</a></span>=<span class="textcolor" style="color: #008000">clean</span>,<br>
+                <span class="spaces">    </span><span class="textcolor" style="color: #008000">x axis</span>=<span class="textcolor" style="color: #008000">{length=3cm,<span class="spaces"> </span>ticks=few}</span>,<br>
+                <span class="spaces">    </span><span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-axes#pgf.all:axes">all axes</a></span>=<span class="textcolor" style="color: #008000">{<a href="https://tikz.dev/tikz-paths#pgf.grid">grid</a>}</span>,<br>
+                <span class="spaces">    </span><span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-visualizers#pgf.visualize:as:smooth:line">visualize as smooth line</a></span><br>
+                <br>
+                <span class="spaces">  </span>]<br>
+                <span class="spaces">    </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/dv-main#pgf.data">data</a></span>
+                [<span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-main#pgf.format">format</a></span>=<span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-formats#pgf.function">function</a></span>] {<br>
+                <span class="spaces">      </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/pgffor#pgf.var">var</a></span>
+                <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-coordinates#pgf.x">x</a></span>
+                <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-paths#pgf.:">:</a></span>
+                <span class="textcolor" style="color: #000000">interval</span>
+                [<span class="textcolor" style="color: #008000">-1.5:1.5</span>] <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-plots#pgf.samples">samples</a></span>
+                <span class="textcolor" style="color: #000000">7</span>;<br>
+                <span class="spaces">      </span><span class="textcolor" style="color: #000000">func</span>
+                <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-coordinates#pgf.y">y</a></span>
+                <span class="textcolor" style="color: #000000">=</span>
+                <span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/dv-formats#pgf.back/value">\value</a></span> <span class="textcolor" style="color: #000000">x*</span><span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/dv-formats#pgf.back/value">\value</a></span> <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-coordinates#pgf.x">x</a></span>;<br>
+                <span class="spaces">    </span>};<br>
+                <span class="textcolor" style="color: #000000">\end</span>{<span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/tikz-scopes#pgf.tikzpicture">tikzpicture</a></span>}<br>
+              </code>
+            </div>
+          </figure>
+
+          <p>
+            Section&nbsp;<a href="https://tikz.dev/dv-axes#section-dv-axes">82</a> explains in
+            more detail how axes, ticks, and grid lines can be chosen and
+            configured.
+          </p>
+          <h5 id="autosec-6666">
+            <span><span class="sectionnumber" id="sec-80.4">80.4</span>Concept:
+              Visualizers</span><a class="anchor-link" href="#sec-80.4">¶</a>
+          </h5>
+          <a id="pgfmanual-autopage-6666"></a>
+
+          <p>
+            Data points and axes specify <em>what</em> is visualized and
+            <em>where</em>. A <em>visualizer</em> specifies <em>how</em> they
+            are visualized. One of the most common visualizers is a
+            <em>line visualizer</em> which connects the positions of the data
+            points in the plane using a line. Another common visualizer is the
+            <em>scatter plot visualizer</em> where small marks are drawn at the
+            positions of the data points. More advanced visualizers include,
+            say, box plot visualizers or pie chart visualizers.
+          </p>
+
+          <figure class="example">
+            <div class="example-image">
+              <p>
+                <span class="lateximagesource" id="lateximage-pgfmanual-2726"><!--
+ 2
+
+1.5
+
+ 1
+
+0.5
+
+ 0
+      −1 0 1
+--><img alt="(-tikz-&nbsp;diagram)" class="lateximage" loading="lazy" src="Creating%20Data%20Visualizations%20-%20PGF_TikZ%20Manual_fichiers/image-2726.png" style="" width="143.365" height="139.734"></span>
+              </p>
+            </div>
+
+            <div class="example-code">
+              <button class="clipboardButton" type="button">copy</button>
+
+              <code>
+                <span class="codepreamble">\usetikzlibrary {datavisualization.formats.functions} </span><br>
+                <span class="textcolor" style="color: #000000">\begin</span>{<span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/tikz-scopes#pgf.tikzpicture">tikzpicture</a></span>}<br>
+                <span class="spaces">  </span><span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/dv-main#pgf.back/datavisualization">\datavisualization</a></span> [<br>
+                <span class="spaces">    </span><span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-axes#pgf.scientific:axes">scientific axes</a></span>=<span class="textcolor" style="color: #008000">clean</span>,<br>
+                <span class="spaces">    </span><span class="textcolor" style="color: #008000">x axis</span>=<span class="textcolor" style="color: #008000">{length=3cm,<span class="spaces"> </span>ticks=few}</span>,<br>
+                <span class="spaces">    </span><span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-visualizers#pgf.visualize:as:smooth:line">visualize as smooth line</a></span><br>
+                <br>
+                <span class="spaces">  </span>]<br>
+                <span class="spaces">    </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/dv-main#pgf.data">data</a></span>
+                [<span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-main#pgf.format">format</a></span>=<span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-formats#pgf.function">function</a></span>] {<br>
+                <span class="spaces">      </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/pgffor#pgf.var">var</a></span>
+                <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-coordinates#pgf.x">x</a></span>
+                <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-paths#pgf.:">:</a></span>
+                <span class="textcolor" style="color: #000000">interval</span>
+                [<span class="textcolor" style="color: #008000">-1.5:1.5</span>] <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-plots#pgf.samples">samples</a></span>
+                <span class="textcolor" style="color: #000000">7</span>;<br>
+                <span class="spaces">      </span><span class="textcolor" style="color: #000000">func</span>
+                <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-coordinates#pgf.y">y</a></span>
+                <span class="textcolor" style="color: #000000">=</span>
+                <span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/dv-formats#pgf.back/value">\value</a></span> <span class="textcolor" style="color: #000000">x*</span><span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/dv-formats#pgf.back/value">\value</a></span> <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-coordinates#pgf.x">x</a></span>;<br>
+                <span class="spaces">    </span>};<br>
+                <span class="textcolor" style="color: #000000">\end</span>{<span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/tikz-scopes#pgf.tikzpicture">tikzpicture</a></span>}<br>
+              </code>
+            </div>
+          </figure>
+
+          <figure class="example">
+            <div class="example-image">
+              <p>
+                <span class="lateximagesource" id="lateximage-pgfmanual-2727"><!--
+ 2
+
+1.5
+
+ 1
+
+0.5
+
+ 0
+      −1 0 1
+--><img alt="(-tikz-&nbsp;diagram)" class="lateximage" loading="lazy" src="Creating%20Data%20Visualizations%20-%20PGF_TikZ%20Manual_fichiers/image-2727.png" style="" width="145.058" height="141.434"></span>
+              </p>
+            </div>
+
+            <div class="example-code">
+              <button class="clipboardButton" type="button">copy</button>
+
+              <code>
+                <span class="codepreamble">\usetikzlibrary {datavisualization.formats.functions} </span><br>
+                <span class="textcolor" style="color: #000000">\begin</span>{<span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/tikz-scopes#pgf.tikzpicture">tikzpicture</a></span>}<br>
+                <span class="spaces">  </span><span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/dv-main#pgf.back/datavisualization">\datavisualization</a></span> [<br>
+                <span class="spaces">    </span><span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-axes#pgf.scientific:axes">scientific axes</a></span>=<span class="textcolor" style="color: #008000">clean</span>,<br>
+                <span class="spaces">    </span><span class="textcolor" style="color: #008000">x axis</span>=<span class="textcolor" style="color: #008000">{length=3cm,<span class="spaces"> </span>ticks=few}</span>,<br>
+                <span class="spaces">    </span><span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-visualizers#pgf.visualize:as:scatter">visualize as scatter</a></span><br>
+                <br>
+                <span class="spaces">  </span>]<br>
+                <span class="spaces">    </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/dv-main#pgf.data">data</a></span>
+                [<span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-main#pgf.format">format</a></span>=<span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-formats#pgf.function">function</a></span>] {<br>
+                <span class="spaces">      </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/pgffor#pgf.var">var</a></span>
+                <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-coordinates#pgf.x">x</a></span>
+                <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-paths#pgf.:">:</a></span>
+                <span class="textcolor" style="color: #000000">interval</span>
+                [<span class="textcolor" style="color: #008000">-1.5:1.5</span>] <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-plots#pgf.samples">samples</a></span>
+                <span class="textcolor" style="color: #000000">7</span>;<br>
+                <span class="spaces">      </span><span class="textcolor" style="color: #000000">func</span>
+                <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-coordinates#pgf.y">y</a></span>
+                <span class="textcolor" style="color: #000000">=</span>
+                <span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/dv-formats#pgf.back/value">\value</a></span> <span class="textcolor" style="color: #000000">x*</span><span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/dv-formats#pgf.back/value">\value</a></span> <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-coordinates#pgf.x">x</a></span>;<br>
+                <span class="spaces">    </span>};<br>
+                <span class="textcolor" style="color: #000000">\end</span>{<span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/tikz-scopes#pgf.tikzpicture">tikzpicture</a></span>}<br>
+              </code>
+            </div>
+          </figure>
+
+          <p>
+            Section&nbsp;<a href="https://tikz.dev/dv-visualizers#section-dv-visualizers">83</a>
+            provides more information on visualizers as well as reference lists.
+          </p>
+          <h5 id="autosec-6671">
+            <span><span class="sectionnumber" id="sec-80.5">80.5</span>Concept:
+              Style Sheets and Legends</span><a class="anchor-link" href="#sec-80.5">¶</a>
+          </h5>
+          <a id="pgfmanual-autopage-6671"></a>
+
+          <p>
+            A single data visualizations may use more than one visualizer. For
+            instance, if you wish to create a plot containing several lines, a
+            separate visualizer is used for each line. In this case, two
+            problems arise:
+          </p>
+          <ul style="list-style-type: none">
+            <li>
+              <p>
+                1. You may wish to make it easy for the reader to differentiate
+                between the different visualizers. For instance, one line should
+                be black, another should be red, and another blue.
+                Alternatively, you might wish one line to be solid, another to
+                be dashed, and a third to be dotted.
+              </p>
+              <p>
+                Specifying such styles is trickier than one might expect;
+                experience shows that many plots use ill-chosen and inconsistent
+                styling. For this reason, the data visualization introduces the
+                notion of <em>style sheets</em> for visualizers and comes with
+                some well-designed predefined style sheets.
+              </p>
+            </li>
+            <li>
+              <p>
+                2. You may wish to add information concerning what the different
+                visualizers represent. This is typically done using a legend,
+                but it is even better to add labels directly inside the
+                visualization. Both approaches are supported.
+              </p>
+            </li>
+          </ul>
+
+          <p>
+            An example where three functions are plotted and a legend is added
+            is shown below. Two style sheets are used so that <em>both</em> the
+            coloring and the dashing is varied.
+          </p>
+
+          <figure class="example">
+            <div class="example-image">
+              <p>
+                <span class="lateximagesource" id="lateximage-pgfmanual-2728"><!--
+   1
+ 0.5
+   0 sin x
+                                cos x
+−0.5 tan x
+ −1
+
+
+       −1 0 1 2 3 4
+--><img alt="(-tikz-&nbsp;diagram)" class="lateximage" loading="lazy" src="Creating%20Data%20Visualizations%20-%20PGF_TikZ%20Manual_fichiers/image-2728.png" style="" width="306.074" height="139.734"></span>
+              </p>
+            </div>
+
+            <div class="example-code">
+              <button class="clipboardButton" type="button">copy</button>
+
+              <code>
+                <span class="codepreamble">\usetikzlibrary {datavisualization.formats.functions} </span><br>
+                <span class="textcolor" style="color: #000000">\begin</span>{<span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/tikz-scopes#pgf.tikzpicture">tikzpicture</a></span>}[<span class="textcolor" style="color: #008000"><a href="https://tikz.dev/tikz-scopes#pgf.baseline">baseline</a></span>]<br>
+                <span class="spaces">  </span><span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/dv-main#pgf.back/datavisualization">\datavisualization</a></span> [<span class="spaces"> </span><span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-axes#pgf.scientific:axes">scientific axes</a></span>=<span class="textcolor" style="color: #008000">clean</span>,<br>
+                <span class="spaces">                       </span><span class="textcolor" style="color: #008000">y axis</span>=<span class="textcolor" style="color: #008000"><a href="https://tikz.dev/tikz-paths#pgf.grid">grid</a></span>,<br>
+                <span class="spaces">                       </span><span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-visualizers#pgf.visualize:as:smooth:line">visualize as smooth line</a></span>/<span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/pgfkeys#pgf./handlers/.list">.list</a></span>=<span class="textcolor" style="color: #008000">{<a href="https://tikz.dev/tikz-paths#pgf.sin">sin</a>,<a href="https://tikz.dev/tikz-paths#pgf.cos">cos</a>,tan}</span>,<br>
+                <span class="spaces">                       </span><span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-stylesheets#pgf.style:sheet">style sheet</a></span>=<span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-stylesheets#pgf.strong:colors">strong colors</a></span>,<br>
+                <span class="spaces">                       </span><span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-stylesheets#pgf.style:sheet">style sheet</a></span>=<span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-stylesheets#pgf.vary:dashing">vary dashing</a></span>,<br>
+                <span class="spaces">                       </span><span class="textcolor" style="color: #008000"><a href="https://tikz.dev/tikz-paths#pgf.sin">sin</a></span>=<span class="textcolor" style="color: #008000">{<a href="https://tikz.dev/tikz-shapes#pgf.label">label</a>
+                  <a href="https://tikz.dev/library-edges#pgf.in">in</a> legend={text=$<span class="textcolor" style="color: #0000b2">\sin</span><span class="spaces"> </span>x$}}</span>,<br>
+                <span class="spaces">                       </span><span class="textcolor" style="color: #008000"><a href="https://tikz.dev/tikz-paths#pgf.cos">cos</a></span>=<span class="textcolor" style="color: #008000">{<a href="https://tikz.dev/tikz-shapes#pgf.label">label</a>
+                  <a href="https://tikz.dev/library-edges#pgf.in">in</a> legend={text=$<span class="textcolor" style="color: #0000b2">\cos</span><span class="spaces"> </span>x$}}</span>,<br>
+                <span class="spaces">                       </span><span class="textcolor" style="color: #008000">tan</span>=<span class="textcolor" style="color: #008000">{<a href="https://tikz.dev/tikz-shapes#pgf.label">label</a>
+                  <a href="https://tikz.dev/library-edges#pgf.in">in</a> legend={text=$<span class="textcolor" style="color: #0000b2">\tan</span><span class="spaces"> </span>x$}}</span>,<br>
+                <span class="spaces">                       </span><span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-main#pgf./pgf/data/format">data/format</a></span>=<span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-formats#pgf.function">function</a> </span>]<br>
+                <span class="spaces">  </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/dv-main#pgf.data">data</a></span>
+                [<span class="textcolor" style="color: #008000"><a href="https://tikz.dev/tikz-graphs#pgf.set">set</a></span>=<span class="textcolor" style="color: #008000"><a href="https://tikz.dev/tikz-paths#pgf.sin">sin</a></span>] {<br>
+                <span class="spaces">    </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/pgffor#pgf.var">var</a></span>
+                <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-coordinates#pgf.x">x</a></span>
+                <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-paths#pgf.:">:</a></span>
+                <span class="textcolor" style="color: #000000">interval</span>
+                [<span class="textcolor" style="color: #008000">-0.5*pi:4</span>];<br>
+                <span class="spaces">    </span><span class="textcolor" style="color: #000000">func</span>
+                <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-coordinates#pgf.y">y</a></span>
+                <span class="textcolor" style="color: #000000">=</span>
+                <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-paths#pgf.sin">sin</a></span><span class="textcolor" style="color: #800080">(\value x r)</span>;<br>
+                <span class="spaces">  </span>}<br>
+                <span class="spaces">  </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/dv-main#pgf.data">data</a></span>
+                [<span class="textcolor" style="color: #008000"><a href="https://tikz.dev/tikz-graphs#pgf.set">set</a></span>=<span class="textcolor" style="color: #008000"><a href="https://tikz.dev/tikz-paths#pgf.cos">cos</a></span>] {<br>
+                <span class="spaces">    </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/pgffor#pgf.var">var</a></span>
+                <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-coordinates#pgf.x">x</a></span>
+                <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-paths#pgf.:">:</a></span>
+                <span class="textcolor" style="color: #000000">interval</span>
+                [<span class="textcolor" style="color: #008000">-0.5*pi:4</span>];<br>
+                <span class="spaces">    </span><span class="textcolor" style="color: #000000">func</span>
+                <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-coordinates#pgf.y">y</a></span>
+                <span class="textcolor" style="color: #000000">=</span>
+                <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-paths#pgf.cos">cos</a></span><span class="textcolor" style="color: #800080">(\value x r)</span>;<br>
+                <span class="spaces">  </span>}<br>
+                <span class="spaces">  </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/dv-main#pgf.data">data</a></span>
+                [<span class="textcolor" style="color: #008000"><a href="https://tikz.dev/tikz-graphs#pgf.set">set</a></span>=<span class="textcolor" style="color: #008000">tan</span>] {<br>
+                <span class="spaces">    </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/pgffor#pgf.var">var</a></span>
+                <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-coordinates#pgf.x">x</a></span>
+                <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-paths#pgf.:">:</a></span>
+                <span class="textcolor" style="color: #000000">interval</span>
+                [<span class="textcolor" style="color: #008000">-0.3*pi:.3*pi</span>];<br>
+                <span class="spaces">    </span><span class="textcolor" style="color: #000000">func</span>
+                <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-coordinates#pgf.y">y</a></span>
+                <span class="textcolor" style="color: #000000">=</span>
+                <span class="textcolor" style="color: #000000">tan</span><span class="textcolor" style="color: #800080">(\value x r)</span>;<br>
+                <span class="spaces">  </span>};<br>
+                <span class="textcolor" style="color: #000000">\end</span>{<span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/tikz-scopes#pgf.tikzpicture">tikzpicture</a></span>}<br>
+              </code>
+            </div>
+          </figure>
+
+          <p>
+            Section&nbsp;<a href="https://tikz.dev/dv-stylesheets#section-dv-style-sheets">84</a>
+            details style sheets and legends.
+          </p>
+          <h5 id="autosec-6674">
+            <a id="section-dv-data-syntax"></a><span><span class="sectionnumber" id="sec-80.6">80.6</span>Usage</span><a class="anchor-link" href="#sec-80.6">¶</a>
+          </h5>
+          <a id="pgfmanual-autopage-6674"></a>
+
+          <p>
+            Inside a <span class="tikzname">Ti<i>k</i>Z</span> picture you can use the
+            <span class="texttt">\datavisualization</span> command to create a
+            data visualization. You can use this command several times in a
+            picture to create pictures containing multiple data visualizations.
+          </p>
+
+          <div class="manualentry">
+            <ul style="list-style-type: none">
+              <div class="entryheadline">
+                <li>
+                  <p>
+                    <a id="pgf.back/datavisualization"></a>
+                    <span class="hl-def"><span class="textcolor" style="color: #bf0000"><kbd>\datavisualization</kbd></span><span class="textcolor" style="color: #008000">[<span class="angle">⟨</span><i>data visualization options</i><span class="angle">⟩</span>]</span><span class="angle">⟨</span><i>data specification</i><span class="angle">⟩</span><span class="texttt">;</span></span>
+                    <a class="anchor-link" href="#\datavisualization" id="\datavisualization">¶</a>
+                  </p>
+                </li>
+              </div>
+              <p>
+                This command is available only inside a
+                <span class="texttt">{tikzpicture}</span> environment.
+              </p>
+              <p>
+                The <span class="angle">⟨</span><i>data visualization options</i><span class="angle">⟩</span> are used to configure the
+                data visualization, that is, how the data is to be depicted. The
+                options are executed with the path prefix
+                <span class="texttt">/tikz/data visualization</span>. This means
+                that normal <span class="tikzname">Ti<i>k</i>Z</span> options like
+                <span class="texttt">thin</span> or
+                <span class="texttt">red</span> cannot be used here. Rather, a
+                large number of options specific to data visualizations are
+                available.
+              </p>
+              <p>
+                As a minimum, you should specify at least two options: First,
+                you should use an option that selects an axis system that is
+                appropriate for your plot. Typical possible keys are
+                <span class="texttt">school book axes</span> or
+                <span class="texttt">scientific axes</span>, detailed
+                information on them can be found in Section&nbsp;<a href="https://tikz.dev/dv-axes#section-dv-axes">82</a>.
+              </p>
+              <p>
+                Second, you use an option to select <em>how</em> the data should
+                be visualized. This is done using a key like
+                <span class="texttt">visualize as line</span> which will, as the
+                name suggests, visualize the data by connecting data points in
+                the plane using a line. Similarly,
+                <span class="texttt">visualize as smooth cycle</span> will try
+                to fit a smooth cycle through the data points. Detailed
+                information on possible visualizers can be found in
+                Section&nbsp;<a href="https://tikz.dev/dv-visualizers#section-dv-visualizers">83</a>.
+              </p>
+              <p>
+                Following these options, the <span class="angle">⟨</span><i>data specification</i><span class="angle">⟩</span> is
+                used to provide the actual to-be-visualized data. The syntax is
+                somewhat similar to commands like
+                <span class="texttt">\path</span>: The
+                <span class="angle">⟨</span><i>data specification</i><span class="angle">⟩</span> is a sequence of keywords
+                followed by local options and parameters, terminated with a
+                semicolon. (Indeed, like for the
+                <span class="texttt">\path</span> command, the
+                <span class="angle">⟨</span><i>data visualizers options</i><span class="angle">⟩</span> need not be specified at
+                the beginning, but additional option surrounded by square
+                brackets may be given anywhere inside the
+                <span class="angle">⟨</span><i>data specification</i><span class="angle">⟩</span>.)
+              </p>
+              <p>
+                The different possible keywords inside the
+                <span class="angle">⟨</span><i>data specification</i><span class="angle">⟩</span> are explained in the
+                following.
+              </p>
+            </ul>
+          </div>
+
+          <div class="manualentry">
+            <ul style="list-style-type: none">
+              <div class="entryheadline">
+                <li>
+                  <p>
+                    <a id="pgf.data"></a>
+                    <span class="hl-def"><span class="textcolor" style="color: #808080"><kbd>\datavisualization</kbd> …</span>
+                      <span class="textcolor" style="color: #bf0000"><kbd>data</kbd></span><span class="textcolor" style="color: #008000">[<span class="angle">⟨</span><i>options</i><span class="angle">⟩</span>]</span><span class="textcolor" style="color: #008000">{<span class="angle">⟨</span><i>inline data</i><span class="angle">⟩</span>}</span>
+                      <span class="textcolor" style="color: #808080">…<kbd>;</kbd></span></span>
+                    <a class="anchor-link" href="#pgf.data" id="pgf.data">¶</a>
+                  </p>
+                </li>
+              </div>
+              <p>
+                This command is used to specify data for the data visualization.
+                It can be used several times inside a single visualization and
+                each time the to-be-read data may have a different format, but
+                the data will be visualized as if it have been specified inside
+                a single <span class="texttt">data</span> command.
+              </p>
+              <p>
+                The behavior of the <span class="texttt">data</span> command
+                depends on whether the <span class="angle">⟨</span><i>inline data</i><span class="angle">⟩</span> is
+                present. If it is not present, the
+                <span class="angle">⟨</span><i>options</i><span class="angle">⟩</span> must be used to specify a
+                source file from which the data is read; if the
+                <span class="angle">⟨</span><i>inline data</i><span class="angle">⟩</span> is present no file will be
+                used, instead the data should directly reside inside the
+                <span class="latexlogofont"><span class="latexlogo">T<span class="latexlogosub">e</span>X</span></span>-file and be given between the curly braces surrounding the
+                <span class="angle">⟨</span><i>inline data</i><span class="angle">⟩</span>.
+              </p>
+              <p>
+                The <span class="angle">⟨</span><i>options</i><span class="angle">⟩</span> are executed with the
+                prefix <span class="texttt">/pgf/data</span>. The following
+                options are always available:
+              </p>
+
+              <div class="manualentry">
+                <ul style="list-style-type: none">
+                  <div class="entryheadline">
+                    <li>
+                      <p>
+                        <a id="pgf./pgf/data/read:from:file"></a><a id="pgf.read:from:file"></a>
+                        <span class="hl-def"><kbd><span class="keyname"><span class="textcolor" style="color: #bf0000">/pgf/data/read from file</span></span>=</kbd><span class="angle">⟨</span><i>filename</i><span class="angle">⟩</span> </span><span class="hl-default">(no default, initially <kbd>empty</kbd>)</span>
+                        <a class="anchor-link" href="#pgf/data/read:from:file" id="pgf/data/read:from:file">¶</a>
+                      </p>
+                    </li>
+                  </div>
+                  <p>
+                    If you set the <span class="texttt">source</span> attribute
+                    to a non-empty <span class="angle">⟨</span><i>filename</i><span class="angle">⟩</span>, the
+                    data will be read from this file. In this case, no
+                    <span class="angle">⟨</span><i>inline data</i><span class="angle">⟩</span> may be present, not
+                    even empty curly braces should be provided.
+                  </p>
+
+                  <figure class="example">
+                    <div class="example-code">
+                      <button class="clipboardButton" type="button">
+                        copy
+                      </button>
+                      <code>
+                        <br>
+                        <span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/dv-main#pgf.back/datavisualization">\datavisualization</a></span><span class="spaces"> </span>...<br>
+                        <span class="spaces">  </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/dv-main#pgf.data">data</a></span>
+                        [<span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-main#pgf.read:from:file">read from file</a></span>=<span class="textcolor" style="color: #008000">file1.csv</span>]<br>
+                        <span class="spaces">  </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/dv-main#pgf.data">data</a></span>
+                        [<span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-main#pgf.read:from:file">read from file</a></span>=<span class="textcolor" style="color: #008000">file2.csv</span>];<br>
+                      </code>
+                    </div>
+                  </figure>
+                  <p>
+                    The other way round, if
+                    <span class="texttt">read from file</span> is empty, the
+                    data must directly follow as
+                    <span class="angle">⟨</span><i>inline data</i><span class="angle">⟩</span>.
+                  </p>
+
+                  <figure class="example">
+                    <div class="example-code">
+                      <button class="clipboardButton" type="button">
+                        copy
+                      </button>
+                      <code>
+                        <br>
+                        <span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/dv-main#pgf.back/datavisualization">\datavisualization</a></span><span class="spaces"> </span>...<br>
+                        <span class="spaces">  </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/dv-main#pgf.data">data</a></span>
+                        {<br>
+                        <span class="spaces">    </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-coordinates#pgf.x">x</a></span>, <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-coordinates#pgf.y">y</a></span><br>
+                        <span class="spaces">    </span><span class="textcolor" style="color: #000000">1</span>, <span class="textcolor" style="color: #000000">2</span><br>
+                        <span class="spaces">    </span><span class="textcolor" style="color: #000000">2</span>, <span class="textcolor" style="color: #000000">3</span><br>
+                        <span class="spaces">  </span>};<br>
+                      </code>
+                    </div>
+                  </figure>
+                  <p></p>
+                </ul>
+              </div>
+              <p>
+                The second important key is <span class="texttt">format</span>,
+                which is used to specify the data format:
+              </p>
+
+              <div class="manualentry">
+                <ul style="list-style-type: none">
+                  <div class="entryheadline">
+                    <li>
+                      <p>
+                        <a id="pgf./pgf/data/format"></a><a id="pgf.format"></a>
+                        <span class="hl-def"><kbd><span class="keyname"><span class="textcolor" style="color: #bf0000">/pgf/data/format</span></span>=</kbd><span class="angle">⟨</span><i>format</i><span class="angle">⟩</span> </span><span class="hl-default">(no default, initially <kbd>table</kbd>)</span>
+                        <a class="anchor-link" href="#pgf/data/format" id="pgf/data/format">¶</a>
+                      </p>
+                    </li>
+                  </div>
+                  <p>
+                    Use this key to locally set the format used for parsing the
+                    data, see Section&nbsp;<a href="https://tikz.dev/dv-formats#section-dv-formats">81</a>
+                    for a list of predefined formats.
+                  </p>
+                  <p>
+                    The default format is the
+                    <span class="texttt">table</span>-format, also known as
+                    “comma-separated values”. The first line
+                    contains names of attributes separated by commas, all
+                    following lines constitute a data point where the attributes
+                    are given by the comma-separated values in that line.
+                  </p>
+                </ul>
+              </div>
+              <p>
+                <b>Presetting attributes.</b> Normally, the inline data or the
+                external data contains for each data point the values of the
+                different attributes. However, sometimes you may also wish to
+                set an attribute to a fixed value for all data points of a data
+                set. Suppose, for instance, that you have to source files
+                <span class="texttt">experiment007.csv</span> and
+                <span class="texttt">experiment023.csv</span> and you would like
+                that for all data points of the first file the attribute
+                <span class="texttt">/data point/experiment id</span> is set to
+                7 while for the data points of the second file they are set to
+                23. In this case, you can specify the desired settings using an
+                absolute path inside the <span class="angle">⟨</span><i>options</i><span class="angle">⟩</span>. The effect
+                will be local to the current
+                <span class="texttt">data</span> command:
+              </p>
+
+              <figure class="example">
+                <div class="example-code">
+                  <button class="clipboardButton" type="button">copy</button>
+                  <code>
+                    <br>
+                    <span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/dv-main#pgf.back/datavisualization">\datavisualization</a></span>...<br>
+                    <span class="spaces">  </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/dv-main#pgf.data">data</a></span>
+                    [<span class="textcolor" style="color: #008000">/data point/experiment</span>=<span class="textcolor" style="color: #008000">7</span>,<span class="spaces">  </span><span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-main#pgf.read:from:file">read from file</a></span>=<span class="textcolor" style="color: #008000">experiment007.csv</span>]<br>
+                    <span class="spaces">  </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/dv-main#pgf.data">data</a></span>
+                    [<span class="textcolor" style="color: #008000">/data point/experiment</span>=<span class="textcolor" style="color: #008000">23</span>, <span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-main#pgf.read:from:file">read from file</a></span>=<span class="textcolor" style="color: #008000">experiment023.csv</span>];<br>
+                  </code>
+                </div>
+              </figure>
+
+              <figure class="example">
+                <div class="example-image">
+                  <p>
+                    <span class="lateximagesource" id="lateximage-pgfmanual-2729"><!--
+2
+
+
+1
+
+
+
+0 1 2
+--><img alt="(-tikz-&nbsp;diagram)" class="lateximage" loading="lazy" src="Creating%20Data%20Visualizations%20-%20PGF_TikZ%20Manual_fichiers/image-2729.png" style="" width="99.530" height="101.258"></span>
+                  </p>
+                </div>
+
+                <div class="example-code">
+                  <button class="clipboardButton" type="button">copy</button>
+                  <code>
+                    <span class="codepreamble">\usetikzlibrary {datavisualization} </span><br>
+                    <span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/tikz-scopes#pgf.back/tikz">\tikz</a></span><br>
+                    <span class="spaces">  </span><span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/dv-main#pgf.back/datavisualization">\datavisualization</a></span> [<span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-axes#pgf.school:book:axes">school book axes</a></span>, <span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-visualizers#pgf.visualize:as:line">visualize as line</a></span>]<br>
+                    <span class="spaces">    </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/dv-main#pgf.data">data</a></span>
+                    [<span class="textcolor" style="color: #008000">/data point/x</span>=<span class="textcolor" style="color: #008000">1</span>] {<br>
+                    <span class="spaces">      </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-coordinates#pgf.y">y</a></span><br>
+                    <span class="spaces">      </span><span class="textcolor" style="color: #000000">1</span><br>
+                    <span class="spaces">      </span><span class="textcolor" style="color: #000000">2</span><br>
+                    <span class="spaces">    </span>}<br>
+                    <span class="spaces">    </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/dv-main#pgf.data">data</a></span>
+                    [<span class="textcolor" style="color: #008000">/data point/x</span>=<span class="textcolor" style="color: #008000">2</span>] {<br>
+                    <span class="spaces">      </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-coordinates#pgf.y">y</a></span><br>
+                    <span class="spaces">      </span><span class="textcolor" style="color: #000000">2</span><br>
+                    <span class="spaces">      </span><span class="textcolor" style="color: #000000">0</span>.<span class="textcolor" style="color: #000000">5</span><br>
+                    <span class="spaces">    </span>};<br>
+                  </code>
+                </div>
+              </figure>
+              <p>
+                <b>Setting options for multiple
+                  <span class="texttt">data</span> commands.</b>
+                You may wish to generally set the format once and for all. This
+                can be done by using the following key:
+              </p>
+
+              <div class="manualentry">
+                <ul style="list-style-type: none">
+                  <div class="entryheadline">
+                    <li>
+                      <p>
+                        <a id="pgf./tikz/every:data"></a><a id="pgf.every:data"></a>
+                        <span class="hl-def"><kbd><span class="keyname"><span class="textcolor" style="color: #bf0000">/tikz/every data</span></span></kbd></span><span class="hl-default">(style, no value)</span>
+                        <a class="anchor-link" href="#tikz/every:data" id="tikz/every:data">¶</a>
+                      </p>
+                    </li>
+                  </div>
+                  <p>
+                    This key is executed for every
+                    <span class="texttt">data</span> command.
+                  </p>
+                </ul>
+              </div>
+              <p>
+                Another way of passing options to multiple
+                <span class="texttt">data</span> commands is to use the
+                following facility: Whenever an option with the path
+                <span class="texttt">/tikz/data visualization/data</span> is
+                used, the path will be remapped to
+                <span class="texttt">/pgf/data</span>. This means, in
+                particular, that you can pass an option like
+                <span class="texttt">data/format=table</span> to the
+                <span class="texttt">\datavisualization</span> command to set
+                the data format for all
+                <span class="texttt">data</span> commands of the data
+                visualization.
+              </p>
+              <p>
+                <b>Parsing inline data.</b> When you specify data inline,
+                <span class="latexlogofont"><span class="latexlogo">T<span class="latexlogosub">e</span>X</span></span>
+                needs to read the data “line-by-line”, while
+                <span class="latexlogofont"><span class="latexlogo">T<span class="latexlogosub">e</span>X</span></span>
+                normally largely ignores end-of-line characters. For this
+                reason, the data visualization system temporarily changes the
+                meaning of the end-of-line character. This is only possible if
+                <span class="latexlogofont"><span class="latexlogo">T<span class="latexlogosub">e</span>X</span></span>
+                has not already processed the data in some other way (namely as
+                the parameter to some macro).
+              </p>
+              <p>
+                The bottom line is that you cannot use inline data when the
+                whole <span class="texttt">\datavisualization</span> command is
+                passed as a parameter to some macro that is not setup to handle
+                “fragile” code. For instance, in a
+                <span class="textsc">beamer</span>
+                <span class="texttt">frame</span> you need to add the
+                <span class="texttt">fragile</span> option when a data
+                visualization contains inline data.
+              </p>
+              <p>
+                The problem does not arise when an external data
+                <span class="texttt">source</span> is specified.
+              </p>
+            </ul>
+          </div>
+
+          <div class="manualentry">
+            <ul style="list-style-type: none">
+              <div class="entryheadline">
+                <li>
+                  <p>
+                    <a id="pgf.data:point"></a>
+                    <span class="hl-def"><span class="textcolor" style="color: #808080"><kbd>\datavisualization</kbd> …</span>
+                      <span class="textcolor" style="color: #bf0000"><kbd>data point</kbd></span><span class="textcolor" style="color: #008000">[<span class="angle">⟨</span><i>options</i><span class="angle">⟩</span>]</span>
+                      <span class="textcolor" style="color: #808080">…<kbd>;</kbd></span></span>
+                    <a class="anchor-link" href="#pgf.data:point" id="pgf.data:point">¶</a>
+                  </p>
+                </li>
+              </div>
+              <p>
+                This command is used to specify data a single data point. The
+                <span class="angle">⟨</span><i>options</i><span class="angle">⟩</span> are simply executed with
+                the path <span class="texttt">/data point</span> and then a data
+                point is created. This means that inside the
+                <span class="angle">⟨</span><i>options</i><span class="angle">⟩</span> you just specify the values
+                of all attributes in key–value syntax.
+              </p>
+
+              <figure class="example">
+                <div class="example-image">
+                  <p>
+                    <span class="lateximagesource" id="lateximage-pgfmanual-2730"><!--
+2
+
+
+1
+
+
+
+0 1 2
+--><img alt="(-tikz-&nbsp;diagram)" class="lateximage" loading="lazy" src="Creating%20Data%20Visualizations%20-%20PGF_TikZ%20Manual_fichiers/image-2730.png" style="" width="99.530" height="101.258"></span>
+                  </p>
+                </div>
+
+                <div class="example-code">
+                  <button class="clipboardButton" type="button">copy</button>
+                  <code>
+                    <span class="codepreamble">\usetikzlibrary {datavisualization} </span><br>
+                    <span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/tikz-scopes#pgf.back/tikz">\tikz</a></span> <span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/dv-main#pgf.back/datavisualization">\datavisualization</a></span> [<span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-axes#pgf.school:book:axes">school book axes</a></span>, <span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-visualizers#pgf.visualize:as:line">visualize as line</a></span>]<br>
+                    <span class="spaces">  </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/dv-main#pgf.data">data</a></span>
+                    <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-coordinates#pgf.point">point</a></span>
+                    [<span class="textcolor" style="color: #008000"><a href="https://tikz.dev/tikz-coordinates#pgf.x">x</a></span>=<span class="textcolor" style="color: #008000">1</span>, <span class="textcolor" style="color: #008000"><a href="https://tikz.dev/tikz-coordinates#pgf.y">y</a></span>=<span class="textcolor" style="color: #008000">1</span>]<span class="spaces">    </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/dv-main#pgf.data">data</a></span>
+                    <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-coordinates#pgf.point">point</a></span>
+                    [<span class="textcolor" style="color: #008000"><a href="https://tikz.dev/tikz-coordinates#pgf.x">x</a></span>=<span class="textcolor" style="color: #008000">1</span>, <span class="textcolor" style="color: #008000"><a href="https://tikz.dev/tikz-coordinates#pgf.y">y</a></span>=<span class="textcolor" style="color: #008000">2</span>]<br>
+                    <span class="spaces">  </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/dv-main#pgf.data">data</a></span>
+                    <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-coordinates#pgf.point">point</a></span>
+                    [<span class="textcolor" style="color: #008000"><a href="https://tikz.dev/tikz-coordinates#pgf.x">x</a></span>=<span class="textcolor" style="color: #008000">2</span>, <span class="textcolor" style="color: #008000"><a href="https://tikz.dev/tikz-coordinates#pgf.y">y</a></span>=<span class="textcolor" style="color: #008000">2</span>]<span class="spaces">    </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/dv-main#pgf.data">data</a></span>
+                    <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-coordinates#pgf.point">point</a></span>
+                    [<span class="textcolor" style="color: #008000"><a href="https://tikz.dev/tikz-coordinates#pgf.x">x</a></span>=<span class="textcolor" style="color: #008000">2</span>, <span class="textcolor" style="color: #008000"><a href="https://tikz.dev/tikz-coordinates#pgf.y">y</a></span>=<span class="textcolor" style="color: #008000">0.5</span>];<br>
+                  </code>
+                </div>
+              </figure>
+            </ul>
+          </div>
+
+          <div class="manualentry">
+            <ul style="list-style-type: none">
+              <div class="entryheadline">
+                <li>
+                  <p>
+                    <a id="pgf./tikz/data:visualization/data:point"></a>
+                    <span class="hl-def"><kbd><span class="keyname"><span class="textcolor" style="color: #bf0000">/tikz/data visualization/data point</span></span>=</kbd><span class="angle">⟨</span><i>options</i><span class="angle">⟩</span></span><span class="hl-default">(no default)</span>
+                    <a class="anchor-link" href="#tikz/data:visualization/data:point" id="tikz/data:visualization/data:point">¶</a>
+                  </p>
+                </li>
+              </div>
+              <p>
+                This key is the “key version” of the previous
+                command. The difference is that this key can be used internally
+                inside styles.
+              </p>
+
+              <figure class="example">
+                <div class="example-image">
+                  <p>
+                    <span class="lateximagesource" id="lateximage-pgfmanual-2731"><!--
+2
+
+
+1
+
+
+
+0 1 2
+--><img alt="(-tikz-&nbsp;diagram)" class="lateximage" loading="lazy" src="Creating%20Data%20Visualizations%20-%20PGF_TikZ%20Manual_fichiers/image-2731.png" style="" width="99.530" height="101.258"></span>
+                  </p>
+                </div>
+
+                <div class="example-code">
+                  <button class="clipboardButton" type="button">copy</button>
+                  <code>
+                    <span class="codepreamble">\usetikzlibrary {datavisualization} </span><br>
+                    <span class="textcolor" style="color: #0000b2">\tikzdatavisualizationset</span>{<br>
+                    <span class="spaces">  </span><span class="textcolor" style="color: #000000">horizontal/</span>.<span class="textcolor" style="color: #000000">style=</span>{<br>
+                    <span class="spaces">    </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/dv-main#pgf.data">data</a></span>
+                    <span class="textcolor" style="color: #000000">point=</span>{<span class="textcolor" style="color: #000000">x=#1</span>, <span class="textcolor" style="color: #000000">y=1</span>}, <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/dv-main#pgf.data">data</a></span>
+                    <span class="textcolor" style="color: #000000">point=</span>{<span class="textcolor" style="color: #000000">x=#1</span>, <span class="textcolor" style="color: #000000">y=2</span>}},<br>
+                    }<br>
+                    <span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/tikz-scopes#pgf.back/tikz">\tikz</a></span> <span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/dv-main#pgf.back/datavisualization">\datavisualization</a></span><br>
+                    [<span class="spaces"> </span><span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-axes#pgf.school:book:axes">school book axes</a></span>, <span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-visualizers#pgf.visualize:as:line">visualize as line</a></span>,<br>
+                    <span class="spaces">  </span><span class="textcolor" style="color: #008000"><a href="https://tikz.dev/gd-usage-tikz#pgf.horizontal">horizontal</a></span>=<span class="textcolor" style="color: #008000">1</span>,<br>
+                    <span class="spaces">  </span><span class="textcolor" style="color: #008000"><a href="https://tikz.dev/gd-usage-tikz#pgf.horizontal">horizontal</a></span>=<span class="textcolor" style="color: #008000">2 </span>];<br>
+                  </code>
+                </div>
+              </figure>
+            </ul>
+          </div>
+
+          <div class="manualentry">
+            <ul style="list-style-type: none">
+              <div class="entryheadline">
+                <li>
+                  <p>
+                    <a id="pgf.data:group"></a>
+                    <span class="hl-def"><span class="textcolor" style="color: #808080"><kbd>\datavisualization</kbd> …</span>
+                      <span class="textcolor" style="color: #bf0000"><kbd>data group</kbd></span><span class="textcolor" style="color: #008000">[<span class="angle">⟨</span><i>options</i><span class="angle">⟩</span>]</span>{<span class="angle">⟨</span><i>name</i><span class="angle">⟩</span>}<span class="textcolor" style="color: #008000"><span class="texttt">+=</span>{<span class="angle">⟨</span><i>data specifications</i><span class="angle">⟩</span>}</span>
+                      <span class="textcolor" style="color: #808080">…<kbd>;</kbd></span></span>
+                    <a class="anchor-link" href="#pgf.data:group" id="pgf.data:group">¶</a>
+                  </p>
+                </li>
+              </div>
+              <p>
+                You can store a whole <span class="angle">⟨</span><i>data specification</i><span class="angle">⟩</span> in
+                a <em>data group</em>. This allows you to reuse data in multiple
+                places without having to write the data to an external file.
+              </p>
+              <p>
+                The syntax of this command comes in the following three
+                variants:
+              </p>
+              <ul style="list-style-type: none">
+                <li>
+                  <p>
+                    • <span class="texttt">data group</span>
+                    <span class="textcolor" style="color: #008000">[<span class="angle">⟨</span><i>options</i><span class="angle">⟩</span>]</span>
+                    {<span class="angle">⟨</span><i>name</i><span class="angle">⟩</span>}
+                    <span class="texttt">=</span> {<span class="angle">⟨</span><i>data specifications</i><span class="angle">⟩</span>}
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    • <span class="texttt">data group</span>
+                    <span class="textcolor" style="color: #008000">[<span class="angle">⟨</span><i>options</i><span class="angle">⟩</span>]</span>
+                    {<span class="angle">⟨</span><i>name</i><span class="angle">⟩</span>}
+                    <span class="texttt">+=</span> {<span class="angle">⟨</span><i>data specifications</i><span class="angle">⟩</span>}
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    • <span class="texttt">data group</span>
+                    <span class="textcolor" style="color: #008000">[<span class="angle">⟨</span><i>options</i><span class="angle">⟩</span>]</span>
+                    {<span class="angle">⟨</span><i>name</i><span class="angle">⟩</span>}
+                  </p>
+                </li>
+              </ul>
+              <p>
+                In the first case, a new data group called
+                <span class="angle">⟨</span><i>name</i><span class="angle">⟩</span> is created (an existing
+                data group of the same name will be erased) and the following
+                <span class="angle">⟨</span><i>data specifications</i><span class="angle">⟩</span> is stored in this data
+                group. The data group will not be fed to the rendering pipeline,
+                but it is parsed at this point as if it were. The defined data
+                group is defined globally, so you can used it in subsequent
+                visualizations. The <span class="angle">⟨</span><i>options</i><span class="angle">⟩</span> are saved
+                with the parsed <span class="angle">⟨</span><i>data specifications</i><span class="angle">⟩</span>.
+              </p>
+              <p>
+                In the second case, an already existing data group is extended
+                by adding the <span class="angle">⟨</span><i>data specifications</i><span class="angle">⟩</span> to it.
+              </p>
+              <p>
+                In the third case (detected by noting that the
+                <span class="angle">⟨</span><i>name</i><span class="angle">⟩</span> is neither followed by an
+                equal sign nor a plus sign), the contents of the previously
+                defined data group <span class="angle">⟨</span><i>name</i><span class="angle">⟩</span> is inserted. The
+                <span class="angle">⟨</span><i>options</i><span class="angle">⟩</span> are also executed.
+              </p>
+              <p>
+                Let is now first create a data group. Note that nothing is drawn
+                since the “dummy” data visualization is empty and
+                used only for the definition of the data group.
+              </p>
+
+              <figure class="example">
+                <div class="example-code">
+                  <button class="clipboardButton" type="button">copy</button>
+                  <code>
+                    <br>
+                    <span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/tikz-scopes#pgf.back/tikz">\tikz</a></span> <span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/dv-main#pgf.back/datavisualization">\datavisualization</a></span> <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/dv-main#pgf.data">data</a></span>
+                    <span class="textcolor" style="color: #000000">group</span>
+                    {<span class="textcolor" style="color: #000000"><a href="https://tikz.dev/library-patterns#pgf.points">points</a></span>} <span class="textcolor" style="color: #000000">=</span>
+                    {<br>
+                    <span class="spaces">  </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/dv-main#pgf.data">data</a></span>
+                    {<br>
+                    <span class="spaces">    </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-coordinates#pgf.x">x</a></span>, <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-coordinates#pgf.y">y</a></span><br>
+                    <span class="spaces">    </span><span class="textcolor" style="color: #000000">0</span>, <span class="textcolor" style="color: #000000">1</span><br>
+                    <span class="spaces">    </span><span class="textcolor" style="color: #000000">1</span>, <span class="textcolor" style="color: #000000">2</span><br>
+                    <span class="spaces">    </span><span class="textcolor" style="color: #000000">2</span>, <span class="textcolor" style="color: #000000">2</span><br>
+                    <span class="spaces">    </span><span class="textcolor" style="color: #000000">5</span>, <span class="textcolor" style="color: #000000">1</span><br>
+                    <span class="spaces">    </span><span class="textcolor" style="color: #000000">2</span>, <span class="textcolor" style="color: #000000">0</span><br>
+                    <span class="spaces">    </span><span class="textcolor" style="color: #000000">1</span>, <span class="textcolor" style="color: #000000">1</span><br>
+                    <span class="spaces">  </span>}<br>
+                    };<br>
+                  </code>
+                </div>
+              </figure>
+
+              <div class="hidden">
+                <span class="lateximagesource" id="lateximage-pgfmanual-2732"><!--
+--></span>
+              </div>
+              <p>We can now use this data in different plots:</p>
+
+              <figure class="example">
+                <div class="example-image">
+                  <p>
+                    <span class="lateximagesource" id="lateximage-pgfmanual-2733"><!--
+2
+
+
+1
+
+
+
+0 1 2 3 4 5
+--><img alt="(-tikz-&nbsp;diagram)" class="lateximage" loading="lazy" src="Creating%20Data%20Visualizations%20-%20PGF_TikZ%20Manual_fichiers/image-2733.png" style="" width="212.915" height="101.474"></span>  <span class="lateximagesource" id="lateximage-pgfmanual-2734"><!--
+ 2
+
+1.5
+
+ 1
+
+0.5
+
+ 0
+      0 1 2 3 4 5
+--><img alt="(-tikz-&nbsp;diagram)" class="lateximage" loading="lazy" src="Creating%20Data%20Visualizations%20-%20PGF_TikZ%20Manual_fichiers/image-2734.png" style="" width="220.802" height="142.970"></span>
+                  </p>
+                </div>
+
+                <div class="example-code">
+                  <button class="clipboardButton" type="button">copy</button>
+                  <code>
+                    <span class="codepreamble">\usetikzlibrary {datavisualization} </span><br>
+                    <span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/tikz-scopes#pgf.back/tikz">\tikz</a></span> <span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/dv-main#pgf.back/datavisualization">\datavisualization</a></span> [<span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-axes#pgf.school:book:axes">school book axes</a></span>,<span class="spaces">      </span><span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-visualizers#pgf.visualize:as:line">visualize as line</a></span>] <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/dv-main#pgf.data">data</a></span>
+                    <span class="textcolor" style="color: #000000">group</span>
+                    {<span class="textcolor" style="color: #000000"><a href="https://tikz.dev/library-patterns#pgf.points">points</a></span>};<br>
+                    <span class="textcolor" style="color: #0000b2">\qquad</span><br>
+                    <span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/tikz-scopes#pgf.back/tikz">\tikz</a></span> <span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/dv-main#pgf.back/datavisualization">\datavisualization</a></span> [<span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-axes#pgf.scientific:axes">scientific axes</a></span>=<span class="textcolor" style="color: #008000">clean</span>, <span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-visualizers#pgf.visualize:as:line">visualize as line</a></span>] <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/dv-main#pgf.data">data</a></span>
+                    <span class="textcolor" style="color: #000000">group</span>
+                    {<span class="textcolor" style="color: #000000"><a href="https://tikz.dev/library-patterns#pgf.points">points</a></span>};<br>
+                  </code>
+                </div>
+              </figure>
+            </ul>
+          </div>
+
+          <div class="manualentry">
+            <ul style="list-style-type: none">
+              <div class="entryheadline">
+                <li>
+                  <p>
+                    <span class="hl-def"><span class="textcolor" style="color: #808080"><kbd>\datavisualization</kbd> …</span>
+                      <span class="textcolor" style="color: #bf0000"><kbd>scope</kbd></span><span class="textcolor" style="color: #008000">[<span class="angle">⟨</span><i>options</i><span class="angle">⟩</span>]</span>{<span class="angle">⟨</span><i>data specification</i><span class="angle">⟩</span>}
+                      <span class="textcolor" style="color: #808080">…<kbd>;</kbd></span></span>
+                  </p>
+                </li>
+              </div>
+              <p>
+                Scopes can be used to nest hierarchical data sets. The
+                <span class="angle">⟨</span><i>options</i><span class="angle">⟩</span> will be executed with the
+                path <span class="texttt">/pgf/data</span> and will only apply
+                to the data sets specified inside the
+                <span class="angle">⟨</span><i>data specification</i><span class="angle">⟩</span>, which may contain
+                <span class="texttt">data</span> or
+                <span class="texttt">scope</span> commands once more:
+              </p>
+
+              <figure class="example">
+                <div class="example-code">
+                  <button class="clipboardButton" type="button">copy</button>
+                  <code>
+                    <br>
+                    <span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/dv-main#pgf.back/datavisualization">\datavisualization</a></span>...<br>
+                    <span class="spaces">  </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-scopes#pgf.scope">scope</a></span>
+                    [<span class="textcolor" style="color: #008000">/data point/experiment</span>=<span class="textcolor" style="color: #008000">7</span>]<br>
+                    <span class="spaces">  </span>{<br>
+                    <span class="spaces">    </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/dv-main#pgf.data">data</a></span>
+                    [<span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-main#pgf.read:from:file">read from file</a></span>=<span class="textcolor" style="color: #008000">experiment007-part1.csv</span>]<br>
+                    <span class="spaces">    </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/dv-main#pgf.data">data</a></span>
+                    [<span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-main#pgf.read:from:file">read from file</a></span>=<span class="textcolor" style="color: #008000">experiment007-part2.csv</span>]<br>
+                    <span class="spaces">    </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/dv-main#pgf.data">data</a></span>
+                    [<span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-main#pgf.read:from:file">read from file</a></span>=<span class="textcolor" style="color: #008000">experiment007-part3.csv</span>]<br>
+                    <span class="spaces">  </span>}<br>
+                    <span class="spaces">  </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-scopes#pgf.scope">scope</a></span>
+                    [<span class="textcolor" style="color: #008000">/data point/experiment</span>=<span class="textcolor" style="color: #008000">23</span>, <span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-main#pgf.format">format</a></span>=<span class="textcolor" style="color: #008000">foo</span>]<br>
+                    <span class="spaces">  </span>{<br>
+                    <span class="spaces">    </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/dv-main#pgf.data">data</a></span>
+                    [<span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-main#pgf.read:from:file">read from file</a></span>=<span class="textcolor" style="color: #008000">experiment023-part1.foo</span>]<br>
+                    <span class="spaces">    </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/dv-main#pgf.data">data</a></span>
+                    [<span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-main#pgf.read:from:file">read from file</a></span>=<span class="textcolor" style="color: #008000">experiment023-part2.foo</span>]<br>
+                    <span class="spaces">  </span>};<br>
+                  </code>
+                </div>
+              </figure>
+              <p></p>
+            </ul>
+          </div>
+
+          <div class="manualentry">
+            <ul style="list-style-type: none">
+              <div class="entryheadline">
+                <li>
+                  <p>
+                    <span class="hl-def"><span class="textcolor" style="color: #808080"><kbd>\datavisualization</kbd> …</span>
+                      <span class="textcolor" style="color: #bf0000"><kbd>info</kbd></span><span class="textcolor" style="color: #008000">[<span class="angle">⟨</span><i>options</i><span class="angle">⟩</span>]</span>{<span class="angle">⟨</span><i>code</i><span class="angle">⟩</span>}
+                      <span class="textcolor" style="color: #808080">…<kbd>;</kbd></span></span>
+                  </p>
+                </li>
+              </div>
+              <p>
+                This command will execute normal
+                <span class="tikzname">Ti<i>k</i>Z</span>
+                <span class="angle">⟨</span><i>code</i><span class="angle">⟩</span> at the end of a data
+                visualization. The <span class="angle">⟨</span><i>options</i><span class="angle">⟩</span> are executed
+                with the normal path <span class="texttt">/tikz/</span>.
+              </p>
+              <p>
+                The only difference between this command and just giving the
+                <span class="angle">⟨</span><i>code</i><span class="angle">⟩</span> directly following the data
+                visualization is that inside the
+                <span class="angle">⟨</span><i>code</i><span class="angle">⟩</span> following an
+                <span class="texttt">info</span> command you still have access
+                to the coordinate system of the data visualization. In sharp
+                contrast, <span class="tikzname">Ti<i>k</i>Z</span> code given after a
+                data visualization can no longer access this coordinate system.
+              </p>
+
+              <figure class="example">
+                <div class="example-image">
+                  <p>
+                    <span class="lateximagesource" id="lateximage-pgfmanual-2735"><!--
+    extremal point
+1
+
+
+
+0 1 2
+--><img alt="(-tikz-&nbsp;diagram)" class="lateximage" loading="lazy" src="Creating%20Data%20Visualizations%20-%20PGF_TikZ%20Manual_fichiers/image-2735.png" style="" width="125.148" height="76.226"></span>
+                  </p>
+                </div>
+
+                <div class="example-code">
+                  <button class="clipboardButton" type="button">copy</button>
+                  <code>
+                    <span class="codepreamble">\usetikzlibrary {datavisualization.formats.functions} </span><br>
+                    <span class="textcolor" style="color: #000000">\begin</span>{<span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/tikz-scopes#pgf.tikzpicture">tikzpicture</a></span>}[<span class="textcolor" style="color: #008000"><a href="https://tikz.dev/tikz-scopes#pgf.baseline">baseline</a></span>]<br>
+                    <span class="spaces">  </span><span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/dv-main#pgf.back/datavisualization">\datavisualization</a></span> [<span class="spaces"> </span><span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-axes#pgf.school:book:axes">school book axes</a></span>, <span class="textcolor" style="color: #008000">visualize as line </span>]<br>
+                    <span class="spaces">  </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/dv-main#pgf.data">data</a></span>
+                    [<span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-main#pgf.format">format</a></span>=<span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-formats#pgf.function">function</a></span>] {<br>
+                    <span class="spaces">    </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/pgffor#pgf.var">var</a></span>
+                    <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-coordinates#pgf.x">x</a></span>
+                    <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-paths#pgf.:">:</a></span>
+                    <span class="textcolor" style="color: #000000">interval</span>
+                    [<span class="textcolor" style="color: #008000">-0.1*pi:2</span>];<br>
+                    <span class="spaces">    </span><span class="textcolor" style="color: #000000">func</span>
+                    <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-coordinates#pgf.y">y</a></span>
+                    <span class="textcolor" style="color: #000000">=</span>
+                    <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-paths#pgf.sin">sin</a></span><span class="textcolor" style="color: #800080">(\value x r)</span>;<br>
+                    <span class="spaces">  </span>}<br>
+                    <span class="spaces">  </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/library-circuits#pgf.info">info</a></span>
+                    {<br>
+                    <span class="spaces">    </span><span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/tikz-actions#pgf.back/draw">\draw</a></span> [<span class="textcolor" style="color: #008000">red</span>] <span class="textcolor" style="color: #800080">(visualization cs: x={(.5*pi)}, y=1)</span> <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-paths#pgf.circle">circle</a></span>
+                    [<span class="textcolor" style="color: #008000"><a href="https://tikz.dev/tikz-coordinates#pgf.radius">radius</a></span>=<span class="textcolor" style="color: #008000">1pt</span>]<br>
+                    <span class="spaces">      </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-coordinates#pgf.node">node</a></span>
+                    [<span class="textcolor" style="color: #008000"><a href="https://tikz.dev/tikz-shapes#pgf.above">above</a></span>,<span class="textcolor" style="color: #008000"><a href="https://tikz.dev/tikz-shapes#pgf.font">font</a></span>=<span class="textcolor" style="color: #008000"><span class="textcolor" style="color: #0000b2">\footnotesize</span></span>] {<span class="textcolor" style="color: #000000">extremal</span>
+                    <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-coordinates#pgf.point">point</a></span>};<br>
+                    <span class="spaces">  </span>};<br>
+                    <span class="textcolor" style="color: #000000">\end</span>{<span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/tikz-scopes#pgf.tikzpicture">tikzpicture</a></span>}<br>
+                  </code>
+                </div>
+              </figure>
+              <p>
+                As can be seen, inside a data visualization a special coordinate
+                system is available:
+              </p>
+
+              <div class="manualentry">
+                <ul style="list-style-type: none">
+                  <div class="entryheadline">
+                    <li>
+                      <p>
+                        <a id="pgf.visualization"></a>
+                        <span class="hl-def"><b>Coordinate system</b>
+                          <kbd><span class="textcolor" style="color: #bf0000">visualization</span></kbd></span>
+                        <a class="anchor-link" href="#pgf.visualization" id="pgf.visualization">¶</a>
+                      </p>
+                    </li>
+                  </div>
+                  <p>
+                    As for other coordinate systems, the syntax is
+                    <span class="textcolor" style="color: #bf0000"><span class="texttt">(visualization cs:</span><span class="angle">⟨</span><i>list of attribute-value pairs</i><span class="angle">⟩</span><span class="texttt">)</span></span>. The effect is the following: For each pair
+                    <span class="angle">⟨</span><i>attribute</i><span class="angle">⟩</span><span class="texttt">=</span><span class="angle">⟨</span><i>value</i><span class="angle">⟩</span> in the
+                    <span class="angle">⟨</span><i>list</i><span class="angle">⟩</span> the key
+                    <span class="texttt">/data point/</span><span class="angle">⟨</span><i>attribute</i><span class="angle">⟩</span> is set to
+                    <span class="angle">⟨</span><i>value</i><span class="angle">⟩</span>. Then, it is computed
+                    where the resulting data point “would lie” on
+                    the canvas (however, no data point is passed to the
+                    visualizers).
+                  </p>
+                </ul>
+              </div>
+            </ul>
+          </div>
+
+          <div class="manualentry">
+            <ul style="list-style-type: none">
+              <div class="entryheadline">
+                <li>
+                  <p>
+                    <span class="hl-def"><span class="textcolor" style="color: #808080"><kbd>\datavisualization</kbd> …</span>
+                      <span class="textcolor" style="color: #bf0000"><kbd>info'</kbd></span><span class="textcolor" style="color: #008000">[<span class="angle">⟨</span><i>options</i><span class="angle">⟩</span>]</span>{<span class="angle">⟨</span><i>code</i><span class="angle">⟩</span>}
+                      <span class="textcolor" style="color: #808080">…<kbd>;</kbd></span></span>
+                  </p>
+                </li>
+              </div>
+              <p>
+                This command works like <span class="texttt">info</span>, only
+                the <span class="angle">⟨</span><i>code</i><span class="angle">⟩</span> will be executed just
+                before the visualization is done. This allows you to draw things
+                <em>behind</em> the visualization.
+              </p>
+
+              <figure class="example">
+                <div class="example-image">
+                  <p>
+                    <span class="lateximagesource" id="lateximage-pgfmanual-2736"><!--
+1
+
+
+
+0 1 2
+--><img alt="(-tikz-&nbsp;diagram)" class="lateximage" loading="lazy" src="Creating%20Data%20Visualizations%20-%20PGF_TikZ%20Manual_fichiers/image-2736.png" style="" width="110.076" height="72.050"></span>
+                  </p>
+                </div>
+
+                <div class="example-code">
+                  <button class="clipboardButton" type="button">copy</button>
+                  <code>
+                    <span class="codepreamble">\usetikzlibrary {datavisualization.formats.functions} </span><br>
+                    <span class="textcolor" style="color: #000000">\begin</span>{<span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/tikz-scopes#pgf.tikzpicture">tikzpicture</a></span>}[<span class="textcolor" style="color: #008000"><a href="https://tikz.dev/tikz-scopes#pgf.baseline">baseline</a></span>]<br>
+                    <span class="spaces">  </span><span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/dv-main#pgf.back/datavisualization">\datavisualization</a></span> [<span class="spaces"> </span><span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-axes#pgf.school:book:axes">school book axes</a></span>, <span class="textcolor" style="color: #008000">visualize as line </span>]<br>
+                    <span class="spaces">  </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/dv-main#pgf.data">data</a></span>
+                    [<span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-main#pgf.format">format</a></span>=<span class="textcolor" style="color: #008000"><a href="https://tikz.dev/dv-formats#pgf.function">function</a></span>] {<br>
+                    <span class="spaces">    </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/pgffor#pgf.var">var</a></span>
+                    <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-coordinates#pgf.x">x</a></span>
+                    <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-paths#pgf.:">:</a></span>
+                    <span class="textcolor" style="color: #000000">interval</span>
+                    [<span class="textcolor" style="color: #008000">-0.1*pi:2</span>];<br>
+                    <span class="spaces">    </span><span class="textcolor" style="color: #000000">func</span>
+                    <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-coordinates#pgf.y">y</a></span>
+                    <span class="textcolor" style="color: #000000">=</span>
+                    <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-paths#pgf.sin">sin</a></span><span class="textcolor" style="color: #800080">(\value x r)</span>;<br>
+                    <span class="spaces">  </span>}<br>
+                    <span class="spaces">  </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/library-circuits#pgf.info'">info'</a></span>
+                    {<br>
+                    <span class="spaces">    </span><span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/tikz-actions#pgf.back/fill">\fill</a></span> [<span class="textcolor" style="color: #008000">red</span>] <span class="textcolor" style="color: #800080">(visualization cs: x={(.5*pi)}, y=1)</span> <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/tikz-paths#pgf.circle">circle</a></span>
+                    [<span class="textcolor" style="color: #008000"><a href="https://tikz.dev/tikz-coordinates#pgf.radius">radius</a></span>=<span class="textcolor" style="color: #008000">2mm</span>];<br>
+                    <span class="spaces">  </span>};<br>
+                    <span class="textcolor" style="color: #000000">\end</span>{<span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/tikz-scopes#pgf.tikzpicture">tikzpicture</a></span>}<br>
+                  </code>
+                </div>
+              </figure>
+            </ul>
+          </div>
+
+          <a id="section-dv-bounding-box"></a>
+
+          <div class="manualentry">
+            <ul style="list-style-type: none">
+              <div class="entryheadline">
+                <li>
+                  <p>
+                    <a id="pgf.data:visualization:bounding:box"></a>
+                    <span class="hl-def"><b>Predefined node</b>
+                      <kbd><span class="textcolor" style="color: #bf0000">data visualization bounding box</span></kbd></span>
+                    <a class="anchor-link" href="#pgf.data:visualization:bounding:box" id="pgf.data:visualization:bounding:box">¶</a>
+                  </p>
+                </li>
+              </div>
+              <p>
+                This rectangle node stores a bounding box of the data
+                visualization that is currently being constructed. This node can
+                be useful inside <span class="texttt">info</span> commands or
+                when labels need to be added.
+              </p>
+            </ul>
+          </div>
+
+          <div class="manualentry">
+            <ul style="list-style-type: none">
+              <div class="entryheadline">
+                <li>
+                  <p>
+                    <a id="pgf.data:bounding:box"></a>
+                    <span class="hl-def"><b>Predefined node</b>
+                      <kbd><span class="textcolor" style="color: #bf0000">data bounding box</span></kbd></span>
+                    <a class="anchor-link" href="#pgf.data:bounding:box" id="pgf.data:bounding:box">¶</a>
+                  </p>
+                </li>
+              </div>
+              <p>
+                This rectangle node is similar to
+                <span class="texttt">data visualization bounding box</span>, but
+                it keeps track only of the actual data. The spaces needed for
+                grid lines, ticks, axis labels, tick labels, and all other
+                information that is not part of the actual data is not part of
+                this box.
+              </p>
+            </ul>
+          </div>
+          <h5 id="autosec-6691">
+            <a id="section-dv-user-code"></a><span><span class="sectionnumber" id="sec-80.7">80.7</span>Advanced:
+              Executing User Code During a Data Visualization</span><a class="anchor-link" href="#sec-80.7">¶</a>
+          </h5>
+          <a id="pgfmanual-autopage-6691"></a>
+
+          <p>
+            The following keys can be passed to the
+            <span class="texttt">\datavisualization</span> command and allow you
+            to execute some code at some special time during the data
+            visualization process. For details of the process and on which
+            signals are emitted when, see Section&nbsp;<a href="https://tikz.dev/dv-backend#section-dv-backend">86</a>.
+          </p>
+
+          <div class="manualentry">
+            <ul style="list-style-type: none">
+              <div class="entryheadline">
+                <li>
+                  <p>
+                    <a id="pgf./tikz/data:visualization/before:survey"></a><a id="pgf.before:survey"></a>
+                    <span class="hl-def"><kbd><span class="keyname"><span class="textcolor" style="color: #bf0000">/tikz/data visualization/before survey</span></span>=</kbd><span class="angle">⟨</span><i>code</i><span class="angle">⟩</span></span><span class="hl-default">(no default)</span>
+                    <a class="anchor-link" href="#tikz/data:visualization/before:survey" id="tikz/data:visualization/before:survey">¶</a>
+                  </p>
+                </li>
+              </div>
+              <p>
+                The <span class="angle">⟨</span><i>code</i><span class="angle">⟩</span> is passed to the
+                <span class="texttt">before survey</span> method of the data
+                visualization object and then executed at the appropriate time
+                (see Section&nbsp;<a href="https://tikz.dev/dv-backend#section-dv-backend">86</a>
+                for details).
+              </p>
+              <p>The following commands work likewise:</p>
+            </ul>
+          </div>
+
+          <div class="manualentry">
+            <ul style="list-style-type: none">
+              <div class="entryheadline">
+                <li>
+                  <p>
+                    <a id="pgf./tikz/data:visualization/at:start:survey"></a><a id="pgf.at:start:survey"></a>
+                    <span class="hl-def"><kbd><span class="keyname"><span class="textcolor" style="color: #bf0000">/tikz/data visualization/at start survey</span></span>=</kbd><span class="angle">⟨</span><i>code</i><span class="angle">⟩</span></span><span class="hl-default">(no default)</span>
+                    <a class="anchor-link" href="#tikz/data:visualization/at:start:survey" id="tikz/data:visualization/at:start:survey">¶</a>
+                  </p>
+                </li>
+              </div>
+              <p></p>
+            </ul>
+          </div>
+
+          <div class="manualentry">
+            <ul style="list-style-type: none">
+              <div class="entryheadline">
+                <li>
+                  <p>
+                    <a id="pgf./tikz/data:visualization/at:end:survey"></a><a id="pgf.at:end:survey"></a>
+                    <span class="hl-def"><kbd><span class="keyname"><span class="textcolor" style="color: #bf0000">/tikz/data visualization/at end survey</span></span>=</kbd><span class="angle">⟨</span><i>code</i><span class="angle">⟩</span></span><span class="hl-default">(no default)</span>
+                    <a class="anchor-link" href="#tikz/data:visualization/at:end:survey" id="tikz/data:visualization/at:end:survey">¶</a>
+                  </p>
+                </li>
+              </div>
+              <p></p>
+            </ul>
+          </div>
+
+          <div class="manualentry">
+            <ul style="list-style-type: none">
+              <div class="entryheadline">
+                <li>
+                  <p>
+                    <a id="pgf./tikz/data:visualization/after:survey"></a><a id="pgf.after:survey"></a>
+                    <span class="hl-def"><kbd><span class="keyname"><span class="textcolor" style="color: #bf0000">/tikz/data visualization/after survey</span></span>=</kbd><span class="angle">⟨</span><i>code</i><span class="angle">⟩</span></span><span class="hl-default">(no default)</span>
+                    <a class="anchor-link" href="#tikz/data:visualization/after:survey" id="tikz/data:visualization/after:survey">¶</a>
+                  </p>
+                </li>
+              </div>
+              <p></p>
+            </ul>
+          </div>
+
+          <div class="manualentry">
+            <ul style="list-style-type: none">
+              <div class="entryheadline">
+                <li>
+                  <p>
+                    <a id="pgf./tikz/data:visualization/before:visualization"></a><a id="pgf.before:visualization"></a>
+                    <span class="hl-def"><kbd><span class="keyname"><span class="textcolor" style="color: #bf0000">/tikz/data visualization/before visualization</span></span>=</kbd><span class="angle">⟨</span><i>code</i><span class="angle">⟩</span></span><span class="hl-default">(no default)</span>
+                    <a class="anchor-link" href="#tikz/data:visualization/before:visualization" id="tikz/data:visualization/before:visualization">¶</a>
+                  </p>
+                </li>
+              </div>
+              <p></p>
+            </ul>
+          </div>
+
+          <div class="manualentry">
+            <ul style="list-style-type: none">
+              <div class="entryheadline">
+                <li>
+                  <p>
+                    <a id="pgf./tikz/data:visualization/at:start:visualization"></a><a id="pgf.at:start:visualization"></a>
+                    <span class="hl-def"><kbd><span class="keyname"><span class="textcolor" style="color: #bf0000">/tikz/data visualization/at start
+                            visualization</span></span>=</kbd><span class="angle">⟨</span><i>code</i><span class="angle">⟩</span></span><span class="hl-default">(no default)</span>
+                    <a class="anchor-link" href="#tikz/data:visualization/at:start:visualization" id="tikz/data:visualization/at:start:visualization">¶</a>
+                  </p>
+                </li>
+              </div>
+              <p></p>
+            </ul>
+          </div>
+
+          <div class="manualentry">
+            <ul style="list-style-type: none">
+              <div class="entryheadline">
+                <li>
+                  <p>
+                    <a id="pgf./tikz/data:visualization/at:end:visualization"></a><a id="pgf.at:end:visualization"></a>
+                    <span class="hl-def"><kbd><span class="keyname"><span class="textcolor" style="color: #bf0000">/tikz/data visualization/at end visualization</span></span>=</kbd><span class="angle">⟨</span><i>code</i><span class="angle">⟩</span></span><span class="hl-default">(no default)</span>
+                    <a class="anchor-link" href="#tikz/data:visualization/at:end:visualization" id="tikz/data:visualization/at:end:visualization">¶</a>
+                  </p>
+                </li>
+              </div>
+              <p></p>
+            </ul>
+          </div>
+
+          <div class="manualentry">
+            <ul style="list-style-type: none">
+              <div class="entryheadline">
+                <li>
+                  <p>
+                    <a id="pgf./tikz/data:visualization/after:visualization"></a><a id="pgf.after:visualization"></a>
+                    <span class="hl-def"><kbd><span class="keyname"><span class="textcolor" style="color: #bf0000">/tikz/data visualization/after visualization</span></span>=</kbd><span class="angle">⟨</span><i>code</i><span class="angle">⟩</span></span><span class="hl-default">(no default)</span>
+                    <a class="anchor-link" href="#tikz/data:visualization/after:visualization" id="tikz/data:visualization/after:visualization">¶</a>
+                  </p>
+                </li>
+              </div>
+              <p></p>
+            </ul>
+          </div>
+          <h5 id="autosec-6692">
+            <span><span class="sectionnumber" id="sec-80.8">80.8</span>Advanced:
+              Creating New Objects</span><a class="anchor-link" href="#sec-80.8">¶</a>
+          </h5>
+          <a id="pgfmanual-autopage-6692"></a>
+
+          <p>
+            You will need the following key only when you wish to create new
+            rendering pipelines from scratch – instead of modifying an
+            existing pipeline as you would normally do. In the following it is
+            assumed that you are familiar with the concepts of Section&nbsp;<a href="https://tikz.dev/dv-backend#section-dv-backend">86</a>.
+          </p>
+
+          <div class="manualentry">
+            <ul style="list-style-type: none">
+              <div class="entryheadline">
+                <li>
+                  <p>
+                    <a id="pgf./tikz/data:visualization/new:object"></a><a id="pgf.new:object"></a>
+                    <span class="hl-def"><kbd><span class="keyname"><span class="textcolor" style="color: #bf0000">/tikz/data visualization/new object</span></span>=</kbd><span class="angle">⟨</span><i>options</i><span class="angle">⟩</span></span><span class="hl-default">(no default)</span>
+                    <a class="anchor-link" href="#tikz/data:visualization/new:object" id="tikz/data:visualization/new:object">¶</a>
+                  </p>
+                </li>
+              </div>
+              <p>This key serves two purposes:</p>
+              <ul style="list-style-type: none">
+                <li>
+                  <p>
+                    1. This method makes it easy to create a new object as part
+                    of the rendering pipeline, using
+                    <span class="angle">⟨</span><i>options</i><span class="angle">⟩</span> to specify arguments
+                    rather that directly calling
+                    <span class="texttt">\pgfoonew</span>. Since you have the
+                    full power of the keys mechanism at your disposal, it is
+                    easy, for instance, to control whether or not parameters to
+                    the constructor are expanded or not.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    2. The object is not created immediately, but only just
+                    before the visualization starts. This allows you to specify
+                    that an object must be created, but the parameter values of
+                    for its constructor may depend on keys that are not yet set.
+                    A typical application is the creating of an axis object:
+                    When you say <span class="texttt">scientific axes</span>,
+                    the <span class="texttt">new object</span> command is used
+                    internally to create two objects representing these axes.
+                    However, keys like
+                    <span class="texttt">x={length=5cm}</span> can only
+                    <em>later</em> be used to specify the parameters that need
+                    to be passed to the constructor of the objects.
+                  </p>
+                </li>
+              </ul>
+              <p>
+                The following keys may be used inside the
+                <span class="angle">⟨</span><i>options</i><span class="angle">⟩</span>:
+              </p>
+
+              <div class="manualentry">
+                <ul style="list-style-type: none">
+                  <div class="entryheadline">
+                    <li>
+                      <p>
+                        <a id="pgf./tikz/data:visualization/class"></a>
+                        <span class="hl-def"><kbd><span class="keyname"><span class="textcolor" style="color: #bf0000">/tikz/data visualization/class</span></span>=</kbd><span class="angle">⟨</span><i>class name</i><span class="angle">⟩</span></span><span class="hl-default">(no default)</span>
+                        <a class="anchor-link" href="#tikz/data:visualization/class" id="tikz/data:visualization/class">¶</a>
+                      </p>
+                    </li>
+                  </div>
+                  <p>The class of the to-be-created object.</p>
+                </ul>
+              </div>
+
+              <div class="manualentry">
+                <ul style="list-style-type: none">
+                  <div class="entryheadline">
+                    <li>
+                      <p>
+                        <a id="pgf./tikz/data:visualization/when"></a><a id="pgf.when"></a>
+                        <span class="hl-def"><kbd><span class="keyname"><span class="textcolor" style="color: #bf0000">/tikz/data visualization/when</span></span>=</kbd><span class="angle">⟨</span><i>phase name</i><span class="angle">⟩</span> </span><span class="hl-default">(no default, initially
+                          <kbd>before survey</kbd>)</span>
+                        <a class="anchor-link" href="#tikz/data:visualization/when" id="tikz/data:visualization/when">¶</a>
+                      </p>
+                    </li>
+                  </div>
+                  <p>
+                    This key is used to specify when the object is to be
+                    created. As described above, the object is not created
+                    immediately, but at some time during the rendering process.
+                    You can specify any of the phases defined by the data
+                    visualization object, see Section&nbsp;<a href="https://tikz.dev/dv-backend#section-dv-backend">86</a>
+                    for details.
+                  </p>
+                </ul>
+              </div>
+
+              <div class="manualentry">
+                <ul style="list-style-type: none">
+                  <div class="entryheadline">
+                    <li>
+                      <p>
+                        <a id="pgf./tikz/data:visualization/store"></a><a id="pgf.store"></a>
+                        <span class="hl-def"><kbd><span class="keyname"><span class="textcolor" style="color: #bf0000">/tikz/data visualization/store</span></span>=</kbd><span class="angle">⟨</span><i>key name</i><span class="angle">⟩</span></span><span class="hl-default">(no default)</span>
+                        <a class="anchor-link" href="#tikz/data:visualization/store" id="tikz/data:visualization/store">¶</a>
+                      </p>
+                    </li>
+                  </div>
+                  <p>
+                    If the <span class="angle">⟨</span><i>key name</i><span class="angle">⟩</span> is not empty, once the
+                    object has been created, a handle to the object will be
+                    stored in <span class="angle">⟨</span><i>key name</i><span class="angle">⟩</span>. If a handle is already
+                    stored in <span class="angle">⟨</span><i>key name</i><span class="angle">⟩</span>, the object is not
+                    created twice.
+                  </p>
+                </ul>
+              </div>
+
+              <div class="manualentry">
+                <ul style="list-style-type: none">
+                  <div class="entryheadline">
+                    <li>
+                      <p>
+                        <a id="pgf./tikz/data:visualization/before:creation"></a><a id="pgf.before:creation"></a>
+                        <span class="hl-def"><kbd><span class="keyname"><span class="textcolor" style="color: #bf0000">/tikz/data visualization/before creation</span></span>=</kbd><span class="angle">⟨</span><i>code</i><span class="angle">⟩</span></span><span class="hl-default">(no default)</span>
+                        <a class="anchor-link" href="#tikz/data:visualization/before:creation" id="tikz/data:visualization/before:creation">¶</a>
+                      </p>
+                    </li>
+                  </div>
+                  <p>
+                    This code is executed right before the object is finally
+                    created. It can be used to compute values that are then
+                    passed to the constructor.
+                  </p>
+                </ul>
+              </div>
+
+              <div class="manualentry">
+                <ul style="list-style-type: none">
+                  <div class="entryheadline">
+                    <li>
+                      <p>
+                        <a id="pgf./tikz/data:visualization/after:creation"></a><a id="pgf.after:creation"></a>
+                        <span class="hl-def"><kbd><span class="keyname"><span class="textcolor" style="color: #bf0000">/tikz/data visualization/after creation</span></span>=</kbd><span class="angle">⟨</span><i>code</i><span class="angle">⟩</span></span><span class="hl-default">(no default)</span>
+                        <a class="anchor-link" href="#tikz/data:visualization/after:creation" id="tikz/data:visualization/after:creation">¶</a>
+                      </p>
+                    </li>
+                  </div>
+                  <p>
+                    This code is executed right after the object has just been
+                    created. A handle to the just-created object is available in
+                    <span class="texttt">\tikzdvobj</span>.
+                  </p>
+                </ul>
+              </div>
+
+              <div class="manualentry">
+                <ul style="list-style-type: none">
+                  <div class="entryheadline">
+                    <li>
+                      <p>
+                        <a id="pgf./tikz/data:visualization/arg1"></a><a id="pgf.arg1"></a>
+                        <span class="hl-def"><kbd><span class="keyname"><span class="textcolor" style="color: #bf0000">/tikz/data visualization/arg1</span></span>=</kbd><span class="angle">⟨</span><i>value</i><span class="angle">⟩</span></span><span class="hl-default">(no default)</span>
+                        <a class="anchor-link" href="#tikz/data:visualization/arg1" id="tikz/data:visualization/arg1">¶</a>
+                      </p>
+                    </li>
+                  </div>
+                  <p>
+                    The value to be passed as the first parameter to the
+                    constructor. Similarly, the keys
+                    <span class="texttt">arg2</span> to
+                    <span class="texttt">arg8</span> specify further parameters
+                    passed. Naturally, only as many arguments are passed as
+                    parameters are set. Here is an example:
+                  </p>
+
+                  <figure class="example">
+                    <div class="example-code">
+                      <button class="clipboardButton" type="button">
+                        copy
+                      </button>
+                      <code>
+                        <br>
+                        <span class="textcolor" style="color: #0000b2">\tikzdatavisualizationset</span>{<br>
+                        <span class="spaces">  </span><span class="textcolor" style="color: #000000">new</span>
+                        <span class="textcolor" style="color: #000000">object=</span>{<br>
+                        <span class="spaces">    </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/drivers#pgf.class">class</a></span>
+                        <span class="textcolor" style="color: #000000">=</span>
+                        <span class="textcolor" style="color: #000000">example</span>
+                        <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/drivers#pgf.class">class</a></span>,<br>
+                        <span class="spaces">    </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/dv-main#pgf.arg1">arg1</a></span>
+                        <span class="spaces"> </span><span class="textcolor" style="color: #000000">=</span>
+                        <span class="textcolor" style="color: #000000">foo</span>,<br>
+                        <span class="spaces">    </span><span class="textcolor" style="color: #000000">arg2</span>
+                        <span class="spaces"> </span><span class="textcolor" style="color: #000000">=</span>
+                        <span class="textcolor" style="color: #0000b2">\bar</span><br>
+                        <span class="spaces">  </span>}<br>
+                        }<br>
+                      </code>
+                    </div>
+                  </figure>
+                  <p>
+                    causes the following object creation code to be executed
+                    later on:
+                  </p>
+
+                  <figure class="example">
+                    <div class="example-code">
+                      <button class="clipboardButton" type="button">
+                        copy
+                      </button>
+                      <code>
+                        <br>
+                        <span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/oo#pgf.back/pgfoonew">\pgfoonew</a></span> <span class="textcolor" style="color: #0000b2">\tikzdvobj</span><span class="textcolor" style="color: #000000">=new</span>
+                        <span class="textcolor" style="color: #000000">example</span>
+                        <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/drivers#pgf.class">class</a></span><span class="textcolor" style="color: #800080">(foo,\bar)</span><br>
+                      </code>
+                    </div>
+                  </figure>
+                  <p>
+                    Note that you key mechanisms like
+                    <span class="texttt">.expand once</span> to pass the value
+                    of a macro instead of the macro itself:
+                  </p>
+
+                  <figure class="example">
+                    <div class="example-code">
+                      <button class="clipboardButton" type="button">
+                        copy
+                      </button>
+                      <code>
+                        <br>
+                        <span class="textcolor" style="color: #0000b2">\tikzdatavisualizationset</span>{<br>
+                        <span class="spaces">  </span><span class="textcolor" style="color: #000000">new</span>
+                        <span class="textcolor" style="color: #000000">object=</span>{<br>
+                        <span class="spaces">    </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/drivers#pgf.class">class</a></span>
+                        <span class="spaces">             </span><span class="textcolor" style="color: #000000">=</span>
+                        <span class="textcolor" style="color: #000000">example</span>
+                        <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/drivers#pgf.class">class</a></span>,<br>
+                        <span class="spaces">    </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/dv-main#pgf.arg1">arg1</a></span>
+                        <span class="spaces">              </span><span class="textcolor" style="color: #000000">=</span>
+                        <span class="textcolor" style="color: #000000">foo</span>,<br>
+                        <span class="spaces">    </span><span class="textcolor" style="color: #000000">arg2/</span>.<span class="textcolor" style="color: #000000">expand</span>
+                        <span class="textcolor" style="color: #000000">once</span>
+                        <span class="spaces"> </span><span class="textcolor" style="color: #000000">=</span>
+                        <span class="textcolor" style="color: #0000b2">\bar</span><br>
+                        <span class="spaces">  </span>}<br>
+                        }<br>
+                      </code>
+                    </div>
+                  </figure>
+                  <p>
+                    Now, if <span class="texttt">\bar</span> is set to
+                    <span class="texttt">This \emph{is} it.</span> at the moment
+                    to object is created later on, the following object creation
+                    code is executed:
+                  </p>
+
+                  <figure class="example">
+                    <div class="example-code">
+                      <button class="clipboardButton" type="button">
+                        copy
+                      </button>
+                      <code>
+                        <br>
+                        <span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/oo#pgf.back/pgfoonew">\pgfoonew</a></span> <span class="textcolor" style="color: #0000b2">\tikzdvobj</span><span class="textcolor" style="color: #000000">=new</span>
+                        <span class="textcolor" style="color: #000000">example</span>
+                        <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/drivers#pgf.class">class</a></span><span class="textcolor" style="color: #800080">(foo,This \emph{is} it)</span><br>
+                      </code>
+                    </div>
+                  </figure>
+                  <p></p>
+                </ul>
+              </div>
+
+              <div class="manualentry">
+                <ul style="list-style-type: none">
+                  <div class="entryheadline">
+                    <li>
+                      <p>
+                        <a id="pgf./tikz/data:visualization/arg1:from:key"></a><a id="pgf.arg1:from:key"></a>
+                        <span class="hl-def"><kbd><span class="keyname"><span class="textcolor" style="color: #bf0000">/tikz/data visualization/arg1 from key</span></span>=</kbd><span class="angle">⟨</span><i>key</i><span class="angle">⟩</span></span><span class="hl-default">(no default)</span>
+                        <a class="anchor-link" href="#tikz/data:visualization/arg1:from:key" id="tikz/data:visualization/arg1:from:key">¶</a>
+                      </p>
+                    </li>
+                  </div>
+                  <p>
+                    Works like the <span class="texttt">arg1</span>, only the
+                    value that is passed to the constructor is the current value
+                    of the specified <span class="angle">⟨</span><i>key</i><span class="angle">⟩</span> at the moment
+                    when the object is created.
+                  </p>
+
+                  <figure class="example">
+                    <div class="example-code">
+                      <button class="clipboardButton" type="button">
+                        copy
+                      </button>
+                      <code>
+                        <br>
+                        <span class="textcolor" style="color: #0000b2">\tikzdatavisualizationset</span>{<br>
+                        <span class="spaces">  </span><span class="textcolor" style="color: #000000">new</span>
+                        <span class="textcolor" style="color: #000000">object=</span>{<br>
+                        <span class="spaces">    </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/drivers#pgf.class">class</a></span>
+                        <span class="spaces">             </span><span class="textcolor" style="color: #000000">=</span>
+                        <span class="textcolor" style="color: #000000">example</span>
+                        <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/drivers#pgf.class">class</a></span>,<br>
+                        <span class="spaces">    </span><span class="textcolor" style="color: #000000"><a href="https://tikz.dev/dv-main#pgf.arg1">arg1</a></span>
+                        <span class="textcolor" style="color: #000000">from</span>
+                        <span class="textcolor" style="color: #000000">key</span>
+                        <span class="spaces">     </span><span class="textcolor" style="color: #000000">=</span>
+                        <span class="textcolor" style="color: #000000">/tikz/some</span>
+                        <span class="textcolor" style="color: #000000">key</span><br>
+                        <span class="spaces">  </span>}<br>
+                        }<br>
+                        <a href="https://tikz.dev/tikz-scopes#pgf.back/tikzset">\tikzset</a>{<span class="textcolor" style="color: #008000">some key</span>/<span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/pgfkeys#pgf./handlers/.initial">.initial</a></span>=<span class="textcolor" style="color: #008000">foobar</span>}<br>
+                      </code>
+                    </div>
+                  </figure>
+                  <p>causes the following to be executed:</p>
+
+                  <figure class="example">
+                    <div class="example-code">
+                      <button class="clipboardButton" type="button">
+                        copy
+                      </button>
+                      <code>
+                        <br>
+                        <span class="textcolor" style="color: #0000b2"><a href="https://tikz.dev/oo#pgf.back/pgfoonew">\pgfoonew</a></span> <span class="textcolor" style="color: #0000b2">\tikzdvobj</span><span class="textcolor" style="color: #000000">=new</span>
+                        <span class="textcolor" style="color: #000000">example</span>
+                        <span class="textcolor" style="color: #000000"><a href="https://tikz.dev/drivers#pgf.class">class</a></span><span class="textcolor" style="color: #800080">(foobar)</span><br>
+                      </code>
+                    </div>
+                  </figure>
+                  <p>
+                    Naturally, the keys
+                    <span class="texttt">arg2 from key</span> to
+                    <span class="texttt">arg8 from key</span> are also provided.
+                  </p>
+                </ul>
+              </div>
+
+              <div class="manualentry">
+                <ul style="list-style-type: none">
+                  <div class="entryheadline">
+                    <li>
+                      <p>
+                        <a id="pgf./tikz/data:visualization/arg1:handle:from:key"></a><a id="pgf.arg1:handle:from:key"></a>
+                        <span class="hl-def"><kbd><span class="keyname"><span class="textcolor" style="color: #bf0000">/tikz/data visualization/arg1 handle from
+                                key</span></span>=</kbd><span class="angle">⟨</span><i>key</i><span class="angle">⟩</span></span><span class="hl-default">(no default)</span>
+                        <a class="anchor-link" href="#tikz/data:visualization/arg1:handle:from:key" id="tikz/data:visualization/arg1:handle:from:key">¶</a>
+                      </p>
+                    </li>
+                  </div>
+                  <p>
+                    Works like the <span class="texttt">arg1 from key</span>,
+                    only the key must store an object and instead of the object
+                    a handle to the object is passed to the constructor.
+                  </p>
+                </ul>
+              </div>
+            </ul>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <div class="footer-left">
+          <a href="https://tikz.dev/license">License</a> ·
+          <a href="https://ctan.org/pkg/pgf">CTAN</a> ·
+          <a href="https://pgf-tikz.github.io/pgf/pgfmanual.pdf">Official PDF version</a>
+          ·
+          <a href="https://github.com/DominikPeters/tikz.dev-issues/issues">Feedback and issues</a>
+          ·
+          <a href="https://github.com/DominikPeters/pgf-tikz-html-manual">About this HTML version</a>
+        </div>
+        <div class="footer-right">
+          <em>HTML version last updated: 2022-10-21</em>
+        </div>
+      </footer>
+    </div>
+
+    <script src="Creating%20Data%20Visualizations%20-%20PGF_TikZ%20Manual_fichiers/js@3"></script>
+    <script>
+      docsearch({
+        apiKey: "196e8c10ec187c9ae525dd5226fb9378",
+        indexName: "tikz",
+        appId: "JS6V5VZSDB",
+        container: "#search",
+      });
+    </script>
+  
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>

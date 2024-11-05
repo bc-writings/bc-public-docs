@@ -1,0 +1,33 @@
+\documentclass{article}
+	\usepackage[latin1]{inputenc}
+	\usepackage[T1]{fontenc}
+	\usepackage{lmodern}
+	\usepackage[frenchb]{babel}
+	\usepackage{amsmath}
+
+	\everymath{\displaystyle}
+
+	\newcommand{\totalline}{%
+		\noalign{\addvspace{3pt}}%
+		\hline
+% öur faire une ligne double si besoin...
+%		\noalign{\addvspace{1.5pt}}%
+%		\hline
+		\noalign{\addvspace{3pt}}%
+	}
+
+
+\begin{document}
+
+\begin{enumerate}
+	\item Comment tirer un trait pour séparer les éléments additionnés et le résultat de l'addition ?
+
+	\item $\begin{aligned}[t]
+		f(x)      & = ax^2+bx+\dfrac{x}{y}c\\
+		g(x)      & = 2x^2+3x+\dfrac{x}{y}c\\
+		\totalline
+		f(x)+g(x) & = (a+2)x^2+(b+3)x+2\dfrac{x}{y}c\\
+	\end{aligned}$
+\end{enumerate}
+
+\end{document}

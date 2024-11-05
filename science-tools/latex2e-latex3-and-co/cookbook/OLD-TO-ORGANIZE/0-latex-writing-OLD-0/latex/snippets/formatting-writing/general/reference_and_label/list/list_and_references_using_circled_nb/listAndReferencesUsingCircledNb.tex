@@ -1,0 +1,29 @@
+% Source : http://forum.mathematex.net/latex-f6/appeler-une-reference-dans-un-environnement-redefini-t12297.html#p119086
+
+\documentclass{article}
+	\usepackage{tikz}
+
+	\renewcommand\labelenumi{\theenumi}
+	\renewcommand{\theenumi}{%
+		\protect\begin{tikzpicture}[baseline=(text.base)]%
+			\protect\node[
+				circle,
+				draw,
+				color=blue,
+				inner sep=1pt
+			] (text) {\arabic{enumi}};%
+		\protect\end{tikzpicture}%
+	}
+
+
+\begin{document}
+
+\begin{enumerate}
+	\item\label{l1} bla bla
+	\item\label{l2} bla bla
+	\item\label{l3} bla bla
+\end{enumerate}
+
+Par les questions~\ref{l1}, \ref{l2} et \ref{l3}, ...
+
+\end{document}

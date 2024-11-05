@@ -1,0 +1,61 @@
+% Sources :
+%	1) http://tex.stackexchange.com/questions/7032/good-way-to-make-pgftextcircled-numbers
+%	2) http://tex.stackexchange.com/questions/33738/customize-diameter-of-a-circle-around-numbers/33744#33744
+
+\documentclass{article}
+	\usepackage[utf8x]{inputenc}
+	\usepackage{enumitem}
+	\usepackage{tikz}
+
+	\newbox\nodebox
+	\newcommand\pgftextcircled[2][0]{%
+		\ifnum#1=0%
+			\setbox\nodebox\hbox{#2}%
+		\else%
+			\setbox\nodebox\hbox{0}\wd\nodebox\dimexpr\wd\nodebox*#1\relax
+		\fi
+		\begin{tikzpicture}[baseline=(a.base)]%
+			\node[
+				draw,circle,
+				outer sep=0pt,
+				inner sep=0.5pt
+			](a){\hbox to \wd\nodebox{\hss#2\hss}};
+		\end{tikzpicture}%
+	}
+
+
+\begin{document}
+
+\section{Nine items}
+
+\begin{enumerate}[label=\protect{\pgftextcircled{\arabic*}}]
+	\item Item n°1
+	\item Item n°2
+	\item Item n°3
+	\item Item n°4
+	\item Item n°5
+	\item Item n°6
+	\item Item n°7
+	\item Item n°8
+	\item Item n°9
+\end{enumerate}
+
+
+\section{Twelve items}
+
+\begin{enumerate}[label=\protect{\pgftextcircled[2]{\arabic*}}]
+	\item Item n°1
+	\item Item n°2
+	\item Item n°3
+	\item Item n°4
+	\item Item n°5
+	\item Item n°6
+	\item Item n°7
+	\item Item n°8
+	\item Item n°9
+	\item Item n°10
+	\item Item n°11
+	\item Item n°12
+\end{enumerate}
+
+\end{document}

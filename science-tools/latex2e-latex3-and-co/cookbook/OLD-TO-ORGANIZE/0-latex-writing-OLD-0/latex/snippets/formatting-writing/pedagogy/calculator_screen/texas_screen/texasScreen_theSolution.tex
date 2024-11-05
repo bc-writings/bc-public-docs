@@ -1,0 +1,129 @@
+% Sources :
+%	1) http://tex.stackexchange.com/questions/37545/frame-environment-with-fixed-size-given-by-numbers-of-characters-and-lines
+%	2) http://tex.stackexchange.com/questions/37559/having-all-one-single-line-with-black-background-and-text-in-white
+%	3) http://tex.stackexchange.com/questions/37548/formatting-text-using-only-in-one-specific-environment/37566#37566
+%	4) http://tex.stackexchange.com/questions/37555/environment-with-breakable-text
+
+\documentclass{article}
+	\usepackage{adjustbox}
+	\usepackage{color}
+
+% For tests
+	\usepackage{comment}
+
+	\makeatletter
+		\catcode`\$=\active
+		\newenvironment{calculator}{%
+			\ttfamily
+			\let\(\calculator@error
+			\let\[\calculator@error
+			\let\array\calculator@error
+			% etc.
+			\catcode`\$=\active
+			\let$\calculator@error
+			\begin{lrbox}{\@tempboxa}%
+			\minipage[b]{8em}%
+		}{%
+			\endminipage
+			\end{lrbox}%
+			\par\smallskip
+			% Measure height and clip if required
+			\ifdim\ht\@tempboxa>8\baselineskip
+				\PackageWarning{calculator}{%
+					calculator environment to long%
+				}%
+				% clip to only show the 8 last lines:
+				\fbox{\clipbox*{0pt {\depth} {\width} 7.5\baselineskip}{%
+					\usebox\@tempboxa
+				}}%
+			\else
+				\fbox{\usebox\@tempboxa}%
+			\fi
+			\smallskip
+		}
+		\catcode`\$=3
+
+		\newcommand{\calculator@error}{%
+			\PackageError{calculator}{%
+				No math is allowed inside calculator environment%
+			}{}%
+		}
+
+		\newcommand{\tiFocus}[1]{%
+			\adjustbox{bgcolor=black,innercode={\color{white}}{},}%
+				{\strut #1}%
+		}
+
+		\newcommand{\tiLineFocus}[1]{%
+			\hspace{-\fboxsep}%
+			\adjustbox{bgcolor=black,innercode={\color{white}}{},}%
+				{\makebox[\linewidth][l]{\strut #1}}%
+			\hspace{-\fboxsep}%
+		}
+	\makeatother
+
+
+\begin{document}
+
+\section*{8 lines}
+
+\begin{calculator}
+1234567890123456
+\tiLineFocus{.2 4 6 8 A C}
+1 3 5 7 9 B D F
+.2 4 6 \tiFocus{8} A C E
+.2 4 6 \tiFocus{8} A C E
+\tiFocus{.2 4} 6 8 A C E
+1 3 5 7 9 B D F
+.2 4 6 8 A C E
+\end{calculator}
+
+
+\section*{Menus}
+
+\begin{calculator}
+1234567890123456
+.2 4 6 8 A C
+1 3 5 7 9 B D F
+.2 4 6 8 A C E
+.2 4 6 8 A C E
+.2 4 6 8 A C E
+1 3 5 7 9 B D F
+\tiLineFocus{ SEQ | ST | MTH }
+\end{calculator}
+
+
+\section*{9 lines (for warning)}
+
+\begin{calculator}
+1 3 5 7 9 B D F
+.2 4 6 8 A C E
+1 3 5 7 9 B D F
+.2 4 6 8 A C E
+1 3 5 7 9 B D F
+.2 4 6 8 A C E
+1 3 5 7 9 B D F
+.2 4 6 8 A C E
+1 3 5 7 9 B D F
+\end{calculator}
+
+
+\begin{comment}
+
+\section*{Math (for error)}
+
+\begin{calculator}
+1 3 5 7 9 B D F
+.2 4 6 8 A C E
+1 \(a+b\) B D F
+.2 4 6 8 A C E
+1 $a+b$  B D F
+.2 4 6 8 A C E
+1 \[i+b\] B D F
+.2 4 6 8 A C E
+\end{calculator}
+
+\end{comment}
+
+\end{document}
+

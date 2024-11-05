@@ -1,0 +1,37 @@
+% Source : http://tex.stackexchange.com/questions/24106/shaded-with-continue-on-next-page
+
+\documentclass{article}
+	\usepackage{mdframed}
+	\usepackage{xcolor}
+
+	\usepackage{lipsum}
+
+	\makeatletter
+		\let\orig@md@putbox@first\md@putbox@first
+		\def\md@putbox@first{%
+			\orig@md@putbox@first
+			\nopagebreak
+			\vspace{-\baselineskip}%
+			\vbox to 0pt{\hbox to \linewidth{\hss(continue on next page)}\vss}%
+		}
+		\let\orig@md@putbox@middle\md@putbox@middle
+		\def\md@putbox@middle{%
+			\orig@md@putbox@middle
+			\nopagebreak
+			\vspace{-\baselineskip}%
+			\vbox to 0pt{\hbox to \linewidth{\hss(continue on next page)}\vss}%
+		}
+	\makeatother
+
+
+\begin{document}
+
+\lipsum[1]
+
+\bigskip
+
+\begin{mdframed}[backgroundcolor=gray]
+	\lipsum[1-15]
+\end{mdframed}
+
+\end{document}

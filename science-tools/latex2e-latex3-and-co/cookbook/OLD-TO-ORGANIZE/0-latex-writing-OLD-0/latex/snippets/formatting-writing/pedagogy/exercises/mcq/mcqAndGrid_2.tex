@@ -1,0 +1,168 @@
+% Sources :
+%	* https://groups.google.com/forum/#!topic/fr.comp.text.tex/v9bGUkflfqE
+%	* http://tex.stackexchange.com/questions/12592/creating-multiple-choice-questions-without-using-exam-class
+
+\documentclass{article} 
+\usepackage{tabularx,multido} 
+
+\newcounter{choice} 
+\newcounter{block} 
+\renewcommand\thechoice{\Alph{choice}} 
+\newcommand\choicelabel{\thechoice.} 
+
+\makeatletter 
+\newcommand\numbloc[1]{% 
+   \nbblock{#1}% 
+} 
+\newcommand\numchoices[1]{% 
+   \nbchoices{#1}% 
+} 
+
+\newenvironment{choices}{% 
+   \stepcounter{block}% 
+   \list{\choicelabel}{% 
+     \usecounter{choice}\def\makelabel##1{\hss\llap{##1}}% 
+     \settowidth{\leftmargin}{W.\hskip\labelsep\hskip 2.5em}% 
+     \def\choice{% 
+       \item 
+       } %\choice 
+     \labelwidth\leftmargin\advance\labelwidth-\labelsep 
+     \topsep=0pt 
+     \partopsep=0pt 
+   }% 
+}% 
+{% 
+   \immediate\write\@mainaux{\numbloc{\theblock}}% 
+   \immediate\write\@mainaux{\numchoices{\the\c@choice}}% 
+   \endlist 
+} 
+
+\newenvironment{oneparchoices}{% 
+   \stepcounter{block}% 
+   \setcounter{choice}{0}% 
+   \def\choice{% 
+     \refstepcounter{choice}% 
+     \ifnum\value{choice}>1\relax 
+       \penalty -50\hskip 1em plus 1em\relax 
+     \fi 
+     \choicelabel 
+     \nobreak\enskip 
+   }% choice 
+   % If we're continuing the paragraph containing the question, 
+   % then leave a bit of space before the first choice: 
+   \ifvmode\else\enskip\fi 
+   \ignorespaces 
+}% 
+{% 
+   \immediate\write\@mainaux{\numbloc{\theblock}}% 
+   \immediate\write\@mainaux{\numchoices{\the\c@choice}}% 
+} 
+\makeatother 
+\def\nbblock#1{% 
+   \gdef\maxblock{#1}% 
+} 
+\def\maxchoices{0} 
+\def\nbchoices#1{% 
+   \ifnum#1>\maxchoices 
+     \gdef\maxchoices{#1}% 
+   \fi 
+} 
+
+\newtoks\TAB 
+\newcommand\DisplayGrid{% 
+   \global\TAB{% 
+\begin{tabularx}{\linewidth}{|c|*{\maxblock}{>{\centering\arraybackslash}X|}} 
+       \cline{2-\the\numexpr\maxblock+1} 
+       \multicolumn{1}{c|}{} 
+   } 
+   \multido{\nb=1+1}{\maxblock}{% 
+     \edef\TABC{& \nb}% 
+\global\TAB\expandafter\expandafter\expandafter{\expandafter\the\expandafter\TAB 
+\TABC} 
+   } 
+   \global\TAB\expandafter{\the\TAB \\\hline} 
+   \multido{\nc=1+1}{\maxchoices}{% 
+     \edef\TABC{\symbol{\the\numexpr 64+\nc}}%
+\global\TAB\expandafter\expandafter\expandafter{\expandafter\the\expandafter\TAB 
+\TABC} 
+     \multido{\nb=1+1}{\maxblock}{% 
+       \global\TAB\expandafter{\the\TAB & } 
+     } 
+     \global\TAB\expandafter{\the\TAB \\} 
+   } 
+   \global\TAB\expandafter{% 
+       \the\TAB 
+       \hline 
+     \end{tabularx} 
+   } 
+   \begin{center} 
+     \the\TAB 
+   \end{center} 
+} 
+
+\AtBeginDocument{% 
+   \let\nbblock\relax 
+   \let\nbchoices\relax 
+} 
+
+\begin{document} 
+
+\DisplayGrid
+\begin{enumerate} 
+\item One of these things is not like the others; one of these things 
+   is not the same. Which one doesn't belong? 
+
+   \begin{choices} 
+     \choice George 
+     \choice Paul 
+     \choice John 
+     \choice Ringo 
+     \choice Socrates 
+   \end{choices} 
+
+\item What was the color of George Washinton's white horse? 
+
+   \begin{choices} 
+     \choice Green 
+     \choice Yellow 
+     \choice White 
+   \end{choices} 
+
+\item One of these things is not like the others; one of these things 
+   is not the same.  Which one doesn't belong? 
+   \begin{oneparchoices} 
+     \choice George 
+     \choice Paul 
+     \choice John 
+     \choice Ringo 
+     \choice Socrates 
+   \end{oneparchoices} 
+
+\item What was the color of George Washinton's white horse? 
+   \begin{oneparchoices} 
+     \choice Green 
+     \choice Yellow 
+     \choice White 
+   \end{oneparchoices} 
+
+\item One of these things is not like the others; one of these things 
+   is not the same.  Which one doesn't belong? 
+
+   \begin{oneparchoices} 
+     \choice George 
+     \choice Paul 
+     \choice John 
+     \choice Ringo 
+     \choice Socrates 
+   \end{oneparchoices} 
+
+\item What was the color of George Washinton's white horse? 
+
+   \begin{oneparchoices} 
+     \choice Green 
+     \choice Yellow 
+     \choice White 
+   \end{oneparchoices} 
+\end{enumerate} 
+
+\end{document} 

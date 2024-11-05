@@ -1,0 +1,69 @@
+% Source : http://forum.mathematex.net/latex-f6/compter-les-lettres-de-plusieurs-mots-t12350.html#p119827
+
+\documentclass{article}
+	\usepackage[utf8]{inputenc}
+	\usepackage[T1]{fontenc}
+	\usepackage{lmodern}
+	\usepackage[frenchb]{babel}
+	\usepackage{xstring}
+
+	\makeatletter
+		\newcommand\phrasepi{%
+			\leavevmode
+			\begingroup
+			\expandarg\noexploregroups
+			\@makeother;\@makeother:\@makeother?\@makeother!%
+			\phrasepi@%
+		}
+
+		\def\fin@phrase{\fin@phrase}
+
+		\newcommand*\ponct@char[2]{\@firstofone{\ifdim\lastskip>\z@\unskip\penalty\@M#1\else#1\fi{\string#2}}}
+
+		\newcommand\phrasepi@[1]{%
+			\edef\phrase@{#1\noexpand\@firstofone\noexpand\fin@phrase}%
+			\StrSubstitute\phrase@{? }{\ponct@char\thinspace{? }}[\phrase@]%
+			\StrSubstitute\phrase@{ ?}{\ponct@char\thinspace?}[\phrase@]%
+			\StrSubstitute\phrase@{?}{\ponct@char\thinspace?}[\phrase@]%
+			\StrSubstitute\phrase@{! }{\ponct@char\thinspace{! }}[\phrase@]%
+			\StrSubstitute\phrase@{ !}{\ponct@char\thinspace!}[\phrase@]%
+			\StrSubstitute\phrase@!{\ponct@char\thinspace!}[\phrase@]%
+			\StrSubstitute\phrase@{; }{\ponct@char\thinspace{; }}[\phrase@]%
+			\StrSubstitute\phrase@{ ;}{\ponct@char\thinspace;}[\phrase@]%
+			\StrSubstitute\phrase@;{\ponct@char\thinspace;}[\phrase@]%
+			\StrSubstitute\phrase@{: }{\ponct@char\space{: }}[\phrase@]%
+			\StrSubstitute\phrase@{ :}{\ponct@char\space:}[\phrase@]%
+			\StrSubstitute\phrase@:{\ponct@char\space:}[\phrase@]%
+			\StrSubstitute\phrase@{. }{\@empty\@firstofone{. }}[\phrase@]%
+			\StrSubstitute\phrase@{, }{\@empty\@firstofone{, }}[\phrase@]%
+			\StrSubstitute\phrase@\space{\@empty\@firstofone\space}[\phrase@]%
+			\StrSubstitute\phrase@.{\@empty\@firstofone.}[\phrase@]%
+			\StrSubstitute\phrase@,{\@empty\@firstofone,}[\phrase@]%
+			\StrSubstitute\phrase@'{\@empty\@firstofone'}[\phrase@]%
+			\StrSubstitute\phrase@-{\@empty\@firstofone-}[\phrase@]%
+			\phrasepi@@}
+
+		\newcommand\phrasepi@@{%
+			\StrBefore\phrase@{\@empty\@firstofone}[\current@word]%
+			\StrBehind\phrase@{\@empty\@firstofone}[\phrase@]%
+			\unless\ifx\@empty\current@word
+				\setbox\z@\hbox{\current@word}%
+				\vbox{\hsize\wd\z@\parindent\z@{\scriptsize\hb@xt@\wd\z@{\hss\StrLen\current@word\hss}}\nointerlineskip\par\strut\current@word}%
+			\fi
+			\StrSplit\phrase@1\current@interword\phrase@
+			\ifx\current@interword\fin@phrase
+				\expandafter\endgroup
+			\else
+				\current@interword
+				\expandafter\phrasepi@@
+			\fi%
+		}
+	\makeatother
+
+
+\begin{document}
+
+Soit \phrasepi{Que j'aime à faire connaître ce nombre si utile aux sages.}, mais pas
+\phrasepi{Qui a aimé à faire l'imbécile là-devant moi? Parle !}.
+
+\end{document}

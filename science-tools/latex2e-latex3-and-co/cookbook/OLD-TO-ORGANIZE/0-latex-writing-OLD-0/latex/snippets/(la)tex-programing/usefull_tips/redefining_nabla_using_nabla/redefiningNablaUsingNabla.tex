@@ -1,0 +1,20 @@
+% Source : http://forum.mathematex.net/latex-f6/redefinir-nabla-t13076.html#p125970
+
+\documentclass[10pt,a4paper]{article}
+	\usepackage[utf8x]{inputenc}
+	\usepackage{ucs}
+	\usepackage{amsmath}
+	\usepackage{amsfonts}
+	\usepackage{amssymb}
+
+	\usepackage{esvect}
+
+	\let\oldnabla\nabla
+	\renewcommand{\nabla}{\vv{\oldnabla}}
+
+
+\begin{document}
+
+$\oldnabla \neq \nabla$
+
+\end{document}

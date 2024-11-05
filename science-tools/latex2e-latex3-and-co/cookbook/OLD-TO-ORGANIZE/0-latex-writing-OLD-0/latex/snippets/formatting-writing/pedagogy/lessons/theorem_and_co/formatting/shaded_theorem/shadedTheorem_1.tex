@@ -1,0 +1,70 @@
+\documentclass[11pt,a4paper]{article}
+	\usepackage[latin1]{inputenc}
+	\usepackage[T1]{fontenc}
+	\usepackage{lmodern}
+	\usepackage[frenchb]{babel}
+	\usepackage{amsmath}
+	\usepackage{amsfonts}
+	\usepackage{amssymb}
+	\usepackage{geometry,url,colortbl}
+	\usepackage{enumitem}
+
+	\frenchbsetup{StandardLists=true}
+	\geometry{textwidth=130mm,textheight=260mm,top=2cm}
+
+	\author{Zorba}
+
+
+\begin{document}
+
+\newcount\hh
+\newcount\mm
+\mm=\time
+\hh=\time
+\divide\hh by 60
+\divide\mm by 60
+\multiply\mm by 60
+\mm=-\mm
+\advance\mm by \time
+\def\hhmm{\number\hh\string:\ifnum\mm<10{}0\fi\number\mm}
+\noindent \today\, à \hhmm
+
+Fichier : \jobname
+
+\begin{center}
+	\colorbox[gray]{0.95}{
+		\begin{minipage}{0.95\textwidth}
+			\textbf{Suites adjacentes : Définition}
+			\\
+			On dit que deux suites $(u_n)$ et $(v_n)$ sont adjacentes lorsque :
+
+			\begin{itemize}[leftmargin=*,label=--]
+				\item l'une des deux suites est croissante et l'autre décroissante;
+				\item $\lim_{n\mapsto +\infty}(v_n-u_n)=0$.
+			\end{itemize}
+		\end{minipage}
+	}
+	
+	Présentation assez standard me convenant dans la majorité des cas.
+\end{center}
+
+
+\begin{center}
+	\colorbox[gray]{0.95}{
+		\begin{minipage}{0.95\textwidth}
+			\textbf{Suites adjacentes : Définition}
+			\\
+			On dit que deux suites $(u_n)$ et $(v_n)$ sont adjacentes lorsque :
+
+			\begin{enumerate}[leftmargin=*, label=\bfseries(\roman*),widest=(ii)]
+				\item l'une des deux suites est croissante et l'autre décroissante;
+				\item $\lim_{n\mapsto +\infty}(v_n-u_n)=0$.
+			\end{enumerate}
+		\end{minipage}
+	}
+\end{center}
+
+Dans ce second et dernier exemple, après avoir réglé les numéros de séquence (i) et (ii),
+je souhaite que ces items soient alignés sur la marge, comme dans le premier exemple.
+
+\end{document}

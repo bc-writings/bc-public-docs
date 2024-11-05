@@ -1,0 +1,60 @@
+% Source : http://forum.mathematex.net/latex-f6/formule-fleche-et-commentaires-t12939.html#p124959
+
+\documentclass[12pt]{article}
+	\usepackage[utf8]{inputenc}
+	\usepackage[french]{babel}
+	\usepackage[T1]{fontenc}
+
+	\usepackage{tikz}
+	\usetikzlibrary{calc,matrix}
+
+
+\begin{document}
+
+\begin{tikzpicture}[every node/.style={inner sep=0pt,outer sep=0pt}]
+	\matrix[matrix of nodes,above delimiter=\{] (m) {
+		\node (n1) {$n$};
+		\node[right] (n2) at (n1.east) {$\times n$};
+		\node[right] (n3) at (n2.east) {$\times n$};
+		\node[right] (n4) at (n3.east) {$\times \ldots$};
+		\node[right] (n5) at (n4.east) {$\times n$};
+		\node[right] (n6) at (n5.east) {$\times n$};
+		\\
+	};
+	\node[right] at (n6.east) {$=n^p$};
+
+	\draw[<-] 
+		($(n6.south)+(.1,-.1)$) 
+		to
+		[bend right=30] 
+		($(n6.south)+(0.1,-0.5)$) 
+		node[below right] {choix de la dernière composante};
+
+	\draw[<-] 
+		($(n5.south)+(.1,-.1)$) 
+		to[bend right=30] 
+		($(n5.south)+(0.1,-1)$) 
+		node[below right] {choix de l'avant-dernière composante};
+
+	\draw[<-] 
+		($(n3.south)+(.1,-.1)$) 
+		to[bend right=30] 
+		($(n3.south)+(0.1,-1.5)$) 
+		node[below right] {choix de la troisième composante};
+
+	\draw[<-] 
+		($(n2.south)+(.1,-.1)$) 
+		to[bend right=30] 
+		($(n2.south)+(0.1,-2)$) 
+		node[below right] {choix de la deuxième composante};
+
+	\draw[<-] 
+		($(n1.south)+(0,-.1)$) 
+		to[bend right=30] 
+		($(n1.south)+(0,-2.5)$) 
+		node[below right] {choix de la première composante};
+
+	\node[above of=m,yshift=-7pt] {$p$ facteurs};
+\end{tikzpicture}
+
+\end{document}

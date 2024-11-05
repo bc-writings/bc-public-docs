@@ -1,0 +1,54 @@
+% Source : http://tex.stackexchange.com/questions/37840/compact-collapsing-of-equations-and-paragraphs
+
+\documentclass{article}
+	\usepackage[margin=2.05in]{geometry}
+	\usepackage{amsmath}
+
+% Partial derivative
+	\newcommand{\pfrac}[2]{\frac{\partial #1}{\partial #2}}
+
+
+\begin{document}
+
+\setlength{\abovedisplayshortskip}{-.5\baselineskip plus 3pt}% Original value: 0pt plus 3pt
+\noindent \textit{Local variation of the velocity magnitude}
+
+Some simple but useful results follow immediately from the expression 
+for local vorticity in terms of rectuangular co-ordinates with axes
+parallel to the location directions of~$\mathbf{u}$, of the principal
+normal to the streamline (directed towards the centre of curvature),
+and of the binomial to the streamline. If $(s,n,b)$ represent
+co-ordinates in these three dimensions respectively, and $(u,v,w)$
+are the corresponding velocity components, we have
+\[
+	v = w = 0,
+	\quad
+	u = q,
+	\quad
+	\pfrac{v}{s} = \frac{q}{R},
+	\quad
+	\pfrac{w}{s} = 0
+\]
+locally, where~$R$ is the local radius of curvature of the streamline.
+The components of the vorticity locally are then
+\[
+  \omega_s=\pfrac{w}{n}-\pfrac{v}{b}, \quad 
+  \omega_n=\pfrac{u}{b}, \quad 
+  \omega_b=\frac{u}{R}-\pfrac{u}{n}.
+\]
+\noindent\leavevmode\rlap{Moreover,}%\hfill
+\centerline{$\displaystyle
+  \left(\pfrac{}{s},\pfrac{}{n},\pfrac{}{b}\right)u=
+  \left(\pfrac{}{s},\pfrac{}{n},\pfrac{}{b}\right)q$}
+%\hfill\null\\
+locally. Hence, in irrotational flow we have
+\begin{align}
+	\pfrac{q}{n}=\frac{q}{R},
+	\quad
+	\pfrac{q}{b}=0. \tag{6.2.13}\label{irrotational_flow}
+\end{align}
+
+The first of the relations~\eqref{irrotational_flow} shows that, when
+the streamlines \ldots
+
+\end{document}

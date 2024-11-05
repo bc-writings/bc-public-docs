@@ -1,0 +1,23 @@
+% Source : http://tex.stackexchange.com/questions/27074/how-to-emphasize-with-in-a-listing-an-identifier-containing-a-digit/27081#27081
+
+\documentclass{article}
+	\usepackage{xcolor}
+	\usepackage{listings}
+
+	\lstset{
+		language=[LaTeX]tex,
+		morecomment=[n][\color{blue!50!black}\bfseries]{\{}{\}},
+		morecomment=[s][\color{green!50!black}\bfseries\slshape]{$}{$},
+	}
+
+
+\begin{document}
+
+\begin{lstlisting}
+\documentclass[paper=a4,fontsize=12pt,version=last]{scrl n  ttr2}
+\begin{document}
+Pythagoras' Theorem: $a^2 + b^2 = c^2$
+\end{document}
+\end{lstlisting}
+
+\end{document}

@@ -1,0 +1,47 @@
+% Source : http://tex.stackexchange.com/questions/51038/different-background-colors-for-lstinline/51268#51268
+
+
+\documentclass{article}
+	\usepackage{xargs}
+	\usepackage{xcolor}
+	\usepackage{newverbs}
+	\usepackage{listings}
+
+	\makeatletter
+		\newcommand\myverb[1][green]{%
+			\@testopt{\@myverb{#1}}{-#1}% Handle second optional argument
+		}
+		\def\@myverb#1[#2]{%
+			\Collectverb{\@@myverb{#1}{#2}}%
+		}
+		\def\@@myverb#1#2#3{%
+			%\begingroup
+%			\fboxrule=0pt
+			%\fboxsep=...
+			\fcolorbox{#2}{#1}{\lstinline|#3|}%
+			%\endgroup
+		}
+	\makeatother
+
+% Usage:
+% \myverb[<background color>][<frame color>]<char><content><char>
+% or:
+% \myverb[<background color>][<frame color>]{<content>}
+\begin{document}
+
+\lstset{language=C}
+\myverb|int a = 1;|
+
+\lstset{language=python}
+\myverb[white][red]|for i in range(9):...|
+
+\lstset{language=tex}
+\myverb[yellow][green]{\relax % Just do it!}
+
+% Two very little problems...
+\lstset{showspaces=true, showtabs=true}
+\myverb[yellow][green]{\relax % Just	do it!}
+
+%\footnote{\myverb[yellow][green]{\relax % Just do it!}}
+
+\end{document}

@@ -1,0 +1,35 @@
+% Source : http://tex.stackexchange.com/questions/33696/no-section-numbers-but-still-have-pdf-bookmarks-with-hyperref
+
+\documentclass[a4paper]{article}
+	\usepackage{hyperref}
+	\usepackage{bookmark}
+
+	\makeatletter
+		\renewcommand\@seccntformat[1]{}
+	\makeatother
+
+	\usepackage{lipsum}
+
+
+\begin{document}
+
+\section{First section}
+
+\lipsum[1-10]
+
+
+\section{Secund section}
+
+\lipsum[1-10]
+
+
+\section{Third section}
+
+\lipsum[1-10]
+
+
+\section{Fourth section}
+
+\lipsum[1-10]
+
+\end{document}

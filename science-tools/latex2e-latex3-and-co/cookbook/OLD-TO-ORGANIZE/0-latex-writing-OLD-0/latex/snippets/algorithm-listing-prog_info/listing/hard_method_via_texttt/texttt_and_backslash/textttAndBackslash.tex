@@ -1,0 +1,12 @@
+% Source : http://tex.stackexchange.com/questions/9363/how-does-one-insert-a-backslash-or-a-tilde-into-latex
+
+\documentclass{article}
+	\newcommand{\myBackSlash}{\char`\\}
+
+
+\begin{document}
+
+Pour écrire \verb+\+, on peut aussi taper \texttt{\myBackSlash}.
+Par contre, \texttt{\textbackslash} a un autre rendu !
+
+\end{document}

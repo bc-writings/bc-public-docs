@@ -1,0 +1,22 @@
+% Source :
+
+\documentclass[10pt,a4paper]{article}
+	\usepackage[utf8x]{inputenc}
+	\usepackage{ucs}
+	\usepackage{amsmath}
+	\usepackage{amsfonts}
+	\usepackage{amssymb}
+
+	\newenvironment{myfont}{\fontfamily{fi4}\selectfont}{\par}
+
+\begin{document}
+
+Some text with math $\frac{2}{x+4}$ in the standard font.
+
+\begin{myfont}
+	Some text with math $\frac{2}{x+4}$ in the new font.
+\end{myfont}
+
+Some text with math $\frac{2}{x+4}$ in the standard font.
+
+\end{document}

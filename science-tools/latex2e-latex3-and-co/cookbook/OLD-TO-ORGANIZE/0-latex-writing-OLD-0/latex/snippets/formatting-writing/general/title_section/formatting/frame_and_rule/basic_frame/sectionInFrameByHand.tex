@@ -1,0 +1,103 @@
+% Source : http://tex.stackexchange.com/questions/11998/framing-section-headings
+
+\documentclass{article}
+	\usepackage{lipsum}
+
+	\makeatletter
+		\def\section{\@ifstar\unnumberedsection\numberedsection}
+
+		\def\numberedsection{%
+			\@ifnextchar[%]
+			\numberedsectionwithtwoarguments\numberedsectionwithoneargument%
+		}
+
+		\def\unnumberedsection{%
+			\@ifnextchar[%]
+			\unnumberedsectionwithtwoarguments\unnumberedsectionwithoneargument%
+		}
+
+		\def\numberedsectionwithoneargument#1{\numberedsectionwithtwoarguments[#1]{#1}}
+
+		\def\unnumberedsectionwithoneargument#1{\unnumberedsectionwithtwoarguments[#1]{#1}}
+
+		\def\numberedsectionwithtwoarguments[#1]#2{%
+			\ifhmode\par\fi
+			\removelastskip
+			\vskip 3ex\goodbreak
+			\refstepcounter{section}%
+			\hbox to \hsize{%
+				\fbox{%
+					\hbox to 1cm{\hss\bfseries\Large\thesection.\ }%
+					\vtop{%
+						\advance \hsize by -1cm
+						\advance \hsize by -2\fboxrule
+						\advance \hsize by -2\fboxsep
+						\parindent=0pt
+						\leavevmode\raggedright\bfseries\Large
+						#2
+					}%
+				}%
+			}\nobreak
+			\vskip 2mm\nobreak
+			\addcontentsline{toc}{section}{%
+				\protect\numberline{\thesection}%
+				#1%
+			}%
+			\ignorespaces
+		}
+
+		\def\unnumberedsectionwithtwoarguments[#1]#2{%
+			\ifhmode\par\fi
+			\removelastskip
+			\vskip 3ex\goodbreak
+		%  \refstepcounter{section}%
+			\hbox to \hsize{%
+				\fbox{%
+		%      \hbox to 1cm{\hss\bfseries\Large\thesection.\ }%
+					\vtop{%
+		%        \advance \hsize by -1cm
+						\advance \hsize by -2\fboxrule
+						\advance \hsize by -2\fboxsep
+						\parindent=0pt
+						\leavevmode\raggedright\bfseries\Large
+						#2
+					}%
+				}%
+			}\nobreak
+			\vskip 2mm\nobreak
+			\addcontentsline{toc}{section}{%
+		%    \protect\numberline{\thesection}%
+				#1%
+			}%
+			\ignorespaces
+		}
+	\makeatother
+
+	\pagestyle{empty}
+
+
+\begin{document}
+
+\section*{Introduction}
+
+\lipsum[1]
+
+
+\section{Suite}
+
+\lipsum[2]
+
+
+\section{Suite}
+
+\lipsum[3]
+
+
+\section{Fin}
+
+\lipsum[4]
+
+
+\tableofcontents
+
+\end{document}

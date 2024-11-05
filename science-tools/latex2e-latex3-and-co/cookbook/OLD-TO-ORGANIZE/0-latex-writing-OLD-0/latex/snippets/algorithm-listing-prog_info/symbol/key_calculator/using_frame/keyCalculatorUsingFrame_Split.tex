@@ -1,0 +1,39 @@
+% Source for the use of frames :
+%    * http://stackoverflow.com/questions/1661654/how-can-i-box-content-in-latex-such-that-all-boxes-are-on-the-same-line-and-the-s
+%
+% Source for the technical solution for splitting :
+%    * http://forum.mathematex.net/post125569.html#p125569
+
+
+\documentclass[10pt,a4paper]{article}
+	\usepackage[utf8x]{inputenc}
+	\usepackage{ucs}
+	\usepackage{xstring}
+
+	\newcommand{\key}[1]{
+		\fbox{#1\strut}
+	}
+
+	\makeatletter
+		\def\keySplit#1{\key@Split#1\@nil{}}
+		\def\key@Split#1#2\@nil#3{%
+			\ifx\@empty#2\@empty %
+				\expandafter\@firstoftwo
+			\else %
+				\expandafter\@secondoftwo %
+			\fi
+			{#3\key{#1}}
+			{\key@Split#2\@nil{#3\key{#1}}}}
+	\makeatother
+
+
+\begin{document}
+
+\key{5} \key{$\times$} \key{$x$} \key{$x$}
+and
+\key{ArcTan}
+
+
+\keySplit{5 {$\times$} {$x$} {$x$}} and \keySplit{Ar  cTan}
+
+\end{document}

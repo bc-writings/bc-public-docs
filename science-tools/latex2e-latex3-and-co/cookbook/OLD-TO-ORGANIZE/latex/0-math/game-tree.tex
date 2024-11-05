@@ -1,0 +1,35 @@
+% Source: https://tex.stackexchange.com/a/721098/6880
+
+
+
+\documentclass[border=5pt]{standalone}
+\usepackage{forest} 
+\begin{document}
+\begin{forest}
+  my label/.style={label=below:{$#1$}},
+  /tikz/my edge label/.style={align=center,pos=.65},
+  before typesetting nodes={
+    where content={}{}{
+      my label/.option=content,
+      delay={content=},
+    },
+  },
+  where level=1{circle,inner sep=1.5pt,fill,draw}{},
+  circle,inner sep=1.5pt,draw,fill=white,
+  for tree={%
+    s sep'+=15mm,
+    l sep'+=15mm,
+  }
+  [,label=above:Firm n
+    [,edge label={node [my edge label,left,anchor=base east]{Enter\\Firm m}}
+      [{\frac{1}{90},\frac{1}{9}},edge label={node [my edge label,left,anchor=base east]{Cournot}}
+      ]
+      [{-\frac{1}{10},0},edge label={node [my edge label,right,anchor=base west]{Aggressive}}
+      ]
+    ]
+    [\frac{1}{4},edge label={node [my edge label,right,anchor=base west]{Not enter\\Firm m}}
+    ]
+  ]
+\end{forest}
+\end{document}
+

@@ -1,0 +1,52 @@
+% Source : http://tex.stackexchange.com/questions/37508/how-to-build-one-efficient-alpha-numbering/37520#37520
+
+\documentclass{article}
+	\usepackage{expl3,xparse}
+
+	\ExplSyntaxOn
+		\DeclareDocumentCommand {\alphanumbering} { O{3} m } {
+			\exp_last_unbraced:Nf \use_none:n {
+				\int_to_alph:n {
+					\exp_args:Nf \int_from_alph:n { \prg_replicate:nn {#1} {z} }
+					+ #2
+				}
+			}
+		}
+	\ExplSyntaxOff
+
+	\newcommand{\testAlpha}[2][3]{%
+		#2 (#1) : \alphanumbering[#1]{#2}\par%
+	}
+
+\begin{document}
+
+\testAlpha{1}
+
+\testAlpha{2}
+
+\testAlpha{26}
+
+\testAlpha{27}
+
+\testAlpha{2*26}
+
+\testAlpha{26*26}
+
+\testAlpha{26*26*26}
+
+\testAlpha{26*26*26+1}
+
+
+\vspace{0.5cm}
+
+\testAlpha[4]{26*26*26}
+
+\testAlpha[4]{26*26*26+1}
+
+
+\vspace{0.5cm}
+
+\testAlpha[6]{12345}
+
+\end{document}
+

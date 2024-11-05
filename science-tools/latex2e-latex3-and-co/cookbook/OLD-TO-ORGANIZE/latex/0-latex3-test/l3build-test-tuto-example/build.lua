@@ -1,0 +1,3 @@
+module = "pkg"
+
+sourcefiles={"*.sty"}

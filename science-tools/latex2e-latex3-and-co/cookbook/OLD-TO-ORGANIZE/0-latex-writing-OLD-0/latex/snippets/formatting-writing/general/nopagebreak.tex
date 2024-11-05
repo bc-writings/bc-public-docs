@@ -1,0 +1,36 @@
+% Source: https://tex.stackexchange.com/a/94702/6880
+
+\documentclass{article}
+\usepackage{lipsum}
+
+\newenvironment{absolutelynopagebreak}
+  {\par\nobreak\vfil\penalty0\vfilneg
+   \vtop\bgroup}
+  {\par\xdef\tpd{\the\prevdepth}\egroup
+   \prevdepth=\tpd}
+
+\begin{document}
+
+\section {First case}
+
+\lipsum[1]
+
+\begin{absolutelynopagebreak}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX \lipsum[1-3]\lipsum*[4]
+\end{absolutelynopagebreak}
+
+HERE WE RESTART \lipsum[2]
+
+
+\newpage
+
+\section {Second case}
+
+\lipsum[1]
+
+\begin{absolutelynopagebreak}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX \lipsum[1]\lipsum*[4]
+\end{absolutelynopagebreak}
+
+HERE WE RESTART \lipsum[2]
+\end{document}

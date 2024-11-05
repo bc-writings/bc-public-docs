@@ -1,0 +1,64 @@
+% Source: https://tex.stackexchange.com/a/676516/6880
+ 
+ \documentclass[tikz]{standalone}
+\usetikzlibrary{calc, fit}
+\ExplSyntaxOn
+\NewDocumentCommand { \rows } { m m } {
+  \int_step_inline:nnnn { #1 } { 1 } { #2 } {
+    % no new row at the very first row
+    \int_compare:nNnF { ##1 } = { #1 } { \pgfmatrixendrow }
+    % for row ##1 draw ##1 balls
+    \int_step_inline:nnnn { 1 } { 1 } { ##1 } {
+      % this loop now uses ####1 as loop counter
+      \node [ball~node] (\tikzmatrixname-##1-1-####1) % 1 is the column number
+        % every ball's center is 6mm apart but each odd numbered ball is
+        % shifted to the right, closer to the next one
+        at (####1 * 6mm \int_if_odd:nT { ####1 } { +2mm }, 0) {};
+    }
+    \pgfmatrixnextcell
+    \node[matrix~node] {\pgfkeysvalueof{/lang1/##1}};
+    \pgfmatrixnextcell
+    \node[matrix~node] {\pgfkeysvalueof{/lang2/##1}};
+  }
+}
+\ExplSyntaxOff
+\tikzset{
+  setup language/.style={
+    /utils/exec=\def\pgfmathcounter{0},
+    /lang1/width/.initial=0pt, /lang2/width/.initial=0pt,
+    /utils/temp/.style args={##1/##2}{
+      /utils/exec=\edef\pgfmathcounter{\inteval{\pgfmathcounter+1}},
+      /lang1/width/.evaluated={max(\pgfkeysvalueof{/lang1/width},width("##1"))},
+      /lang2/width/.evaluated={max(\pgfkeysvalueof{/lang2/width},width("##2"))},
+      /lang1/\pgfmathcounter/.initial={##1},
+      /lang2/\pgfmathcounter/.initial={##2}},
+    /utils/temp/.list={#1}}}
+\begin{document}
+\begin{tikzpicture}[
+  ball node/.style={shape=circle, shading=ball, ball color=red!90},
+  matrix node/.style={
+    anchor=mid,
+    name=\tikzmatrixname-\the\pgfmatrixcurrentrow-\the\pgfmatrixcurrentcolumn},
+  setup language={un/one, deux/two, trois/three, quatre/four, cinq/five,
+                  six/six, sept/seven, huit/eight, neuf/nine, dix/ten}]
+\matrix[
+  row sep=5mm, column sep=5mm, align=left,
+  column 2/.append style={text width=\pgfkeysvalueof{/lang1/width}},
+  column 3/.append style={text width=\pgfkeysvalueof{/lang2/width}},
+  append after command={
+    % \tikzlastnode will be overwritten by the next coordinate/node
+    % let's save it in \tln, this will hold the matrix's name
+    \pgfextra{\let\tln\tikzlastnode}
+    foreach \row in {1,...,10}{
+      node[rounded corners, outer sep=+0pt, draw,
+        fit=(\tln-\row-1-1)(\tln-\row-3.east-|\tln.east)] (fit) {}
+      foreach \coord in {($(\tln-\row-3)!.5!(\tln-\row-2)$),
+                         ($(midway)!     2 !(\tln-\row-2)$)}{
+        \coord coordinate (midway)
+          (midway|-fit.north) edge (midway|-fit.south)}}}]{
+  \rows{1}{10}
+  % every matrix needs to end with \\ = \pgfmatrixendrow before closing brace
+  % this can't be done be L3's loop
+  \pgfmatrixendrow};
+\end{tikzpicture}
+\end{document}

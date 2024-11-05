@@ -1,0 +1,40 @@
+\documentclass{book}
+\usepackage{xepersian}
+\newlength{\tpheight}\setlength{\tpheight}{0.9\textheight}
+\newlength{\txtheight}\setlength{\txtheight}{0.9\tpheight}
+\newlength{\tpwidth}\setlength{\tpwidth}{0.9\textwidth}
+\newlength{\txtwidth}\setlength{\txtwidth}{0.9\tpwidth}
+\newlength{\drop}
+\newcommand*{\plogo}{\fbox{فانوس}}
+\newcommand*{\titleGM}{\begingroup% 
+\drop = 0.1\txtheight
+\vspace*{\baselineskip}
+\vfill
+  \leavevmode\hbox{%
+  \hspace*{0.2\txtwidth}%
+  \rule{1pt}{\txtheight}
+  \hspace*{0.05\txtwidth} 
+\parbox[b]{0.75\txtwidth}{
+  \vbox{%
+    \vspace{\drop}
+    {\noindent\Huge\bfseries 
+عنوان کتاب
+\\[0.5\baselineskip] 
+زیرعنوان کتاب
+}\\[2\baselineskip]
+    {\Large\iranicfamily 
+زیرزیرعنوان کتاب
+}\\[4\baselineskip]
+    {\Large نام نویسنده}\par
+    \vspace{0.5\txtheight}
+    {\noindent نام انتشاراتی}\\[\baselineskip]
+    }% end of vbox
+}% end of parbox
+ }% end of hbox
+\vfill
+\null
+\endgroup}
+\begin{document}
+\pagestyle{empty}
+\titleGM
+\end{document}

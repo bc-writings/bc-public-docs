@@ -1,0 +1,20 @@
+% Source : http://tex.stackexchange.com/questions/34713/mirror-effect-in-documents
+
+\documentclass{article}
+	\usepackage{graphicx}
+
+
+\begin{document}
+
+\textbf{Horizontal reflection}:
+\par
+Here is some text that is \reflectbox{reflected $\frac{a+2}{4-b}$}.
+\par
+Here is some text that is \scalebox{-1}[1]{also reflected $\frac{a+2}{4-b}$}.
+\par \bigskip
+\textbf{Vertical reflection}:
+\par
+Here is some text \raisebox{\depth}{\scalebox{1}[-1]{reflected $\frac{a+2}{4-b}$}} vertically
+or some text \scalebox{1}[-1]{reflected $\frac{a+2}{4-b}$} vertically without changing its depth.
+
+\end{document}

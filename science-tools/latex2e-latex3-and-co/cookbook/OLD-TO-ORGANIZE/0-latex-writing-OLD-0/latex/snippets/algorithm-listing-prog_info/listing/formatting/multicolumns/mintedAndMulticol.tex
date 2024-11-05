@@ -1,0 +1,23 @@
+% Source : http://tex.stackexchange.com/questions/25157/using-package-minted-inside-a-multicol-multicol-pacakge
+
+\documentclass{article}
+	\usepackage{minted, caption}
+	\usepackage{multicol}
+
+
+\begin{document}
+
+\begin{multicols}{2}
+	This is a listing inside a multicolumn:
+
+	\begin{minted}{sql}
+SELECT * FROM table1
+SELECT * FROM table1
+SELECT * FROM table1
+SELECT * FROM table1
+	\end{minted}
+	\captionof{listing}{Some random SQL Query}
+	\label{lst:sql}
+\end{multicols}
+
+\end{document}

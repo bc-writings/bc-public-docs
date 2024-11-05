@@ -1,0 +1,42 @@
+% Source: https://en.wikibooks.org/wiki/LaTeX/Boxes
+
+\documentclass[12pt]{article}
+
+% Pour \resizebox et \scalebox
+
+\usepackage{graphicx}
+
+\begin{document}
+
+\makebox[0pt]{Some text} over this text
+
+\makebox[15ex][s]{Censored text}\hspace{-15ex}\makebox[15ex][s]{XXXXXXXXX}
+
+Text \makebox[2\width][r]{running away}
+
+Text \makebox[\width][r]{running away}\makebox[\width][r]{running away}
+
+\setlength{\fboxsep}{10pt}
+\setlength{\fboxrule}{5pt}
+\fbox{A frame.}
+
+\setlength{\fboxsep}{0pt}
+\setlength{\fboxrule}{.75pt}
+\fbox{A}
+
+\setlength{\fboxsep}{0.5pt}
+\setlength{\fboxrule}{.75pt}
+\fbox{A}
+
+\newsavebox{\boxname}
+\savebox{\boxname}{some content}
+
+Bla, bla : \usebox{\boxname}
+
+Blo, blo : \usebox{\boxname}
+
+
+\resizebox{10ex}{2\baselineskip}{Dunhill style}
+\scalebox{10}{Giant}
+
+\end{document}

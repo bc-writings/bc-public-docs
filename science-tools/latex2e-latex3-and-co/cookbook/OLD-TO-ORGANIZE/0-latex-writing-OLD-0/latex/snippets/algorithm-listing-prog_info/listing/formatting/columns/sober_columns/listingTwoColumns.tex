@@ -1,0 +1,35 @@
+% Source : http://tex.stackexchange.com/questions/35155/lstlisting-in-two-columns
+
+\documentclass[
+	a4paper,
+	10pt,
+	twoside,
+	openright,
+	notitlepage,
+	parskip=half,
+]{scrreprt}
+	\usepackage{listings}
+	\usepackage{parcolumns}
+
+
+\begin{document}
+
+\noindent
+\begin{minipage}{.45\textwidth}
+	\begin{lstlisting}[caption=code 1,frame=tlrb]{Name}
+void code()
+{
+
+}
+	\end{lstlisting}
+\end{minipage}\hfill
+\begin{minipage}{.45\textwidth}
+	\begin{lstlisting}[caption=code 2,frame=tlrb]{Name}
+void code()
+{
+
+}
+	\end{lstlisting}
+\end{minipage}
+
+\end{document}

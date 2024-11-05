@@ -1,0 +1,462 @@
+%\documentclass[a4paper,11pt]{article}
+%\usepackage[cours]{deveaux}
+\documentclass[cours]{lycee-deveaux}
+\usepackage{tikz,tkz-tab}
+\usepackage{libertine}
+
+
+\LeTitre{Second Degré}
+\LaClasse{1STI2D}
+\LaDate{V. Deveaux}
+\LAuteur{Lycée Monge, Chambéry}
+\Commentaires{}
+
+\begin{document}
+
+%\TitreEtIndex
+
+\maketitle
+
+%
+%
+%
+%
+%
+\section{Polynômes de degré deux}
+
+Vous avez déjà vu les polynômes de degré deux en cours de seconde.
+Les méthodes vues étaient lourdes et peu manipulables.
+Ce cours va vous réconcilier avec ces fonctions : nous allons voir qu'ils ne sont pas si
+complexes qu'il n'y parait.
+
+
+\begin{definition}
+  Un \dfn{polynôme de degré deux} est une fonction de la forme
+  \[
+  f(x) = ax^2 + bx + c
+  \]
+  où $a$, $b$, $c$ sont des nombres réels fixes et $a\neq 0$.\\
+  On dit aussi parfois que $f$ est un \dfn{polynôme du second degré} ou encore que $f$
+  est un \dfn{trinôme}.
+\end{definition}
+
+\begin{exemple}
+  Deux exemples qui montrent que $a$, $b$ et $c$ ne sont pas nécessairement dans l'ordre et
+  qu'ils peuvent être nuls (sauf bien sûr $a$) :
+  \begin{enumerate}
+  \item
+    $f(x) = 4x^2+2x-1$ est du second degré avec $a=4$, $b=2$ et $c=-1$.
+  \item
+    $g(x) = 1-x^2$ est du second degré avec $a=-1$, $b=0$, $c=1$.
+  \end{enumerate}
+\end{exemple}
+
+
+\begin{propriete}
+  \label{propriete-factorisee-canonique}
+  Les fonctions suivantes sont toutes des polynômes de degré deux :
+  \[
+  f(x) = a(x-x_1)(x-x_2)
+  \]
+  \[
+  g(x) = a(x-x_0)^2+\beta
+  \]
+  où $a$, $x_0$, $x_1$, $x_2$ et $\beta$ sont des nombres réels avec
+  $a\neq 0$.
+\end{propriete}
+
+Il suffit de développer les fonctions $f$ et $g$ et
+de vérifier qu'à chaque fois, le nombre devant $x^2$ est $a\neq 0$.
+
+
+\begin{definition}
+  $f(x) = ax^2+bx+c$ est la \dfn{forme développée}\\
+  $f(x) = a(x-x_1)(x-x_2)$ est la \dfn{forme factorisée}\\
+  $f(x) = a(x-x_0)^2+\beta$ est la \dfn{forme canonique}\\
+  Les valeurs $x_1$ et $x_2$ sont appelés les \dfn{racines} ou
+  \dfn{zéros} du polynôme.
+\end{definition}
+
+La forme développée est facile à trouver:
+comme son nom l'indique, il suffira de développer.
+
+Même si elle n'est pas facile à trouver, la forme canonique existe toujours.
+Il suffira «d'essayer suffisamment fort» pour la trouver.
+
+En revanche, pour certains polynômes, il n'est pas possible de trouver une forme
+factorisée parce que celle-ci n'existe pas. L'un des objectifs de ce cours
+est de chercher cette forme factorisée et de comprendre pourquoi elle n'existe pas toujours.
+
+\begin{exemple}
+  Quelle est la forme développée de  $f(x)= 2(x-1)^2-8$ ?
+  et de $g(x) = 2(x+1)(x-3)$ ?\\
+  Dans chaque cas, on retrouve la même forme : $f(x) = g(x) = 2x^2-4x-6$.
+\end{exemple}
+
+%
+%
+%
+%
+%
+\section{Discriminant}
+
+\begin{definition}
+  \label{definition-discriminant}
+  Si $f(x) = ax^2+bx+c$ est un polynôme de degré deux, on appelle
+  \dfn{discriminant} de $f$ le nombre réel
+  \[
+  \Delta = b^2-4ac
+  \]
+\end{definition}
+
+Ce discriminant permet (entre autres) de retrouver la forme canonique 
+d'un polynôme de degré deux :
+\[
+f(x) = ax^2+bx+c = a\left(x+\frac{b}{2a}\right)^2-\frac{\Delta}{4a}
+\]
+d'où 
+\[
+x_0 = -\frac{b}{2a} \qquad \qquad \beta = -\frac{\Delta}{4a}
+\]
+
+\begin{exemple}
+  Retrouver la forme canonique de $f(x) = 2x^2-4x-6$.\\
+  Ici, $a=2$, $b=-4$ et $c=-6$. On calcule $\Delta = b^2-4ac = (-4)^2-4\times 2\times (-6) = 16+48=64$.
+  On a alors $x_0 = -\frac{b}{2a} = -\frac{-4}{2\times 2} = 1$ et
+  $\beta = -\frac{\Delta}{4a} = -\frac{64}{4\times 2} = -8$.\\
+  D'où $f(x) = a(x-x_0)^2+\beta = 2(x-1)^2-8$.
+\end{exemple}
+
+On peut donc passer simplement de la forme développée à la forme canonique.
+Reste à voir la forme factorisée...
+
+\begin{theoreme}
+  \label{theoreme-racines}
+  Soit $f(x) = ax^2+bx+c$ un polynôme de degré deux et $\Delta=b^2-4ac$ son discriminant.
+  Les racines de $f$ sont alors déterminées par le signe de $\Delta$ :
+  \begin{enumerate}
+    \item[$\star$]Si $\Delta > 0$, $f$ a deux racines :
+      \[
+      x_1 = \frac{-b-\sqrt{\Delta}}{2a} \qquad \text{ et } \qquad x_2 = \frac{-b+\sqrt{\Delta}}{2a}
+      \]
+    \item[$\star$]Si $\Delta = 0$, $f$ a une seule racine (dite double) :
+      \[
+      x_0 = -\frac{b}{2a}
+      \]
+      \item[$\star$]Si $\Delta < 0$, $f$ n'a pas de racine réelle.
+  \end{enumerate}
+\end{theoreme}
+
+C'est LE théorème de ce cours. Tout le reste du cours tourne autour.
+Il va sans dire que les formules sont à savoir par coeur sans réfléchir !
+
+Les notations $x_0$, $x_1$ et $x_2$ sont propres à ce cours. D'autres profs de maths utilisent d'autres notations.
+Par contre, la notation $\Delta$ est universelle parmi les mathématiciens : dans le contexte des polynômes de degré deux,
+tout le monde sait ce que représente $\Delta$ !
+
+\bigskip
+
+Le théorème permet en particulier de trouver la forme factorisée des polynômes de degré deux :
+
+\begin{propriete}
+  \label{propriete-factorisation}
+  Si $f(x)=ax^2+bx+c$ est la forme développée d'un polynôme du second degré et $\Delta$ son discriminant, alors
+  la forme factorisée de $f$ est déterminée par le signe de $\Delta$ :
+  \begin{enumerate}
+  \item[$\star$]Si $\Delta > 0$, $f(x) = a(x-x_1)(x-x_2)\qquad$ où $x_1$ et $x_2$ sont les racines de $f$.
+  \item[$\star$]Si $\Delta = 0$, $f(x) = a(x-x_0)^2\qquad$ où $x_0$ est la racine double de $f$.
+  \item[$\star$]Si $\Delta < 0$, $f$ n'a pas de forme factorisée.
+  \end{enumerate}
+\end{propriete}
+
+Une autre utilisation importante de ce théorème est la résolution de n'importe quelle équation de degré deux.
+
+\begin{propriete}
+  \label{propriete-equation}
+  Si $ax^2+bx+c=0$ est une équation de degré deux ($a\neq 0$), le signe de son discriminant $\Delta$
+  permet de déterminer ses solutions :
+  \begin{enumerate}
+  \item[$\star$]Si $\Delta > 0$, il y a deux solutions : $x_1$ et $x_2$
+  \item[$\star$]Si $\Delta = 0$, il n'y a qu'une solution : $x_0$
+  \item[$\star$]Si $\Delta < 0$, il n'y a pas de solution.
+  \end{enumerate}
+\end{propriete}
+
+
+\begin{exemple}
+  Voici trois exemples qui correspondent aux trois cas du théorème.
+  \begin{enumerate}
+  \item
+    Résoudre l'équation $2x^2+5x-7=0$.\\
+    Le discriminant associé est $\Delta = b^2-4ac = 5^2-4\times 2\times (-7) = 25+56 = 81$.
+    Puisque $\Delta>0$, l'équation admet donc deux solutions :\\
+    $x_1 = \frac{-b-\sqrt{\Delta}}{2a} = \frac{-5-9}{2\times 2} = \frac{-14}{4} = -\frac{7}{2}$
+    et $x_2 = \frac{-b+\sqrt{\Delta}}{2a} = \frac{-5+9}{2\times 2} = \frac{4}{4} = 1$.\\
+    Les solutions de l'équation $2x^2+5x-7=0$ sont donc $x=-\frac{7}{2}$ et $x=1$.
+  \item
+    Résoudre l'équation $1+9x^2=6x$.\\
+    La première étape est de transformer l'équation pour avoir un polynôme d'un coté et zéro de l'autre :
+    $1+9x^2-6x=0$.\\
+    Ensuite, on calcule son discriminant : $\Delta = b^2-4ac = (-6)^2-4\times 9\times 1 = 36-36=0$.
+    Puisque $\Delta=0$, l'équation admet une unique solution :\\
+    $x_0 = -\frac{b}{2a} = -\frac{-6}{2\times 9} = \frac{1}{3}$.\\
+    La seule solution de $4+9x^2=6x$ est $x=\frac13$.
+  \item
+    Résoudre l'équation $x^2+2x+4=0$.\\
+    Le discriminant associé est $\Delta = b^2-4ac = 2^2-4\times 1\times 4 = 4-16 = -12$.
+    Puisque $\Delta<0$, l'équation n'admet aucune solution.
+  \end{enumerate}
+\end{exemple}
+
+
+%
+%
+%
+%
+%
+\section{représentation graphique, signe et variations}
+
+\begin{definition}
+  La représentation graphique d'un polynôme de degré deux s'appelle une \dfn{parabole}.
+  Le point $S$ de coordonnées $S\left(x_0, f(x_0)\right)$ est appelé le \dfn{sommet} de la parabole.
+\end{definition}
+
+\begin{propriete}
+  \label{propriete-graphe}
+  Soit $f(x)=ax^2+bx+c$ un polynôme de degré.
+  \begin{enumerate}
+  \item
+    La parabole est symétrique par rapport à la droite verticale d'équation $x=x_0$.
+  \item
+    Si $a>0$, alors la parabole est tournée vers le haut et le sommet est le point le plus bas de la parabole.\\
+    Si $a<0$, alors la parabole est tournée vers le bas et le sommet est le point le plus haut de la parabole.
+  \item
+    Si $\Delta>0$, l'axe des abscisses coupe la parabole en deux points.\\
+    Si $\Delta=0$, l'axe des abscisses coupe la parabole en un seul point.\\
+    Si $\Delta<0$, l'axe des abscisses ne coupe pas la parabole.
+  \end{enumerate}
+\end{propriete}
+
+La notion de «tournée vers le haut» ou «vers le bas» n'est pas très explicite.
+Un dessin vallant mieux que de longs discours, voici les graphes des six possibilités, en fonction de $a$ et $\Delta$.
+A noter que seul l'axe des abscisses a été tracé. L'axe des ordonnées est moins intéressant et plus difficile à obtenir.
+
+\begin{center}
+  \begin{tabular}{ccc}
+    \includegraphics{parabole-haut-delta-positif.png} &
+    \includegraphics{parabole-haut-delta-nul.png} &
+    \includegraphics{parabole-haut-delta-negatif.png} \\
+    $a>0$  et $\Delta>0$ & $a>0$ et $\Delta=0$ & $a>0$ et $\Delta<0$ \\
+    & \vspace{1cm}& \\
+    \includegraphics{parabole-bas-delta-positif.png} &
+    \includegraphics{parabole-bas-delta-nul.png} &
+    \includegraphics{parabole-bas-delta-negatif.png} \\
+    $a<0$ et $\Delta>0$ & $a<0$ et $\Delta=0$ & $a<0$ et $\Delta<0$ \\
+  \end{tabular}
+\end{center}
+
+\bigskip
+
+Ceci nous amène naturellement aux variations d'un polynôme.
+Elles sont simples à retenir si on connait les six schémas ci-dessus.
+
+\begin{propriete}
+  \label{propriete-tabvar}
+  Les variations d'un polynôme de degré deux sont données par son coefficient de plus haut degré $a$ 
+  et son sommet $S(x_0, f(x_0))$ :
+
+  Si $a>0$ : $\qquad$
+      %% dommage, ça fait des carrés blancs et la case f(x) n'est pas assez haute
+      %% Grosse flemme de chercher à arranger ça...
+%      \begin{tikzpicture}
+%        \tkzTabInit{$x$/1, $f(x)$/1}{$-\infty$, $x_0$, $+\infty$}
+%        \tkzTabVar{+/, -/$f(x_0)$, +/}
+%      \end{tikzpicture}
+  \begin{tabular}{c|ccc}
+    $x$ & & $x_0$ & \\
+    \hline
+    \GrandeCase f(x) & $\searrow$ & $f(x_0)$ & $\nearrow$
+  \end{tabular}
+  
+  \bigskip
+
+  Si $a<0$ : $\qquad$
+  \begin{tabular}{c|ccc}
+    $x$ & & $x_0$ & \\
+    \hline
+    \GrandeCase f(x) & $\nearrow$ & $f(x_0)$ & $\searrow$
+  \end{tabular}
+\end{propriete}
+
+On voit clairement apparaitre le rôle central du sommet.
+
+\bigskip
+
+De la même manière, on obtient rapidement le signe d'un polynôme.
+Comme pour les variations, le signe est simple à retenir si on connait les allures des polynômes.
+
+\begin{propriete}
+  \label{propriete-tabsgn}
+  Soient $f$ un polynôme de degré deux, $a$ son coefficient de plus haut degré, $\Delta$ son discriminant et $x_1 \leq x_2$ ses racines éventuelles.
+  Alors 
+  
+  Si $\Delta>0$ : $\qquad$
+      %% dommage, ça fait des carrés blancs et la case f(x) n'est pas assez haute
+      %% Grosse flemme de chercher à arranger ça...
+%      \begin{tikzpicture}
+%        \tkzTabInit{$x$/1, $f(x)$/1}{$-\infty$, $x_0$, $+\infty$}
+%        \tkzTabVar{+/, -/$f(x_0)$, +/}
+%      \end{tikzpicture}
+  \begin{tabular}{c|ccccc}
+    $x$ & & $x_1$ & & $x_2$ & \\
+    \hline
+    $f(x)$ & sgn(a) & 0 & -sgn(a) & 0 & sgn(a) \\
+  \end{tabular}
+  
+  \bigskip
+  
+  Si $\Delta=0$ : $\qquad$
+  \begin{tabular}{c|ccc}
+    $x$ & & $x_0$ & \\
+    \hline
+    $f(x)$ & sgn(a) & 0 & sgn(a) \\
+  \end{tabular}
+  
+  \bigskip
+  
+  Si $\Delta<0$ : $\qquad$
+  \begin{tabular}{c|c}
+    $x$ &  \\
+    \hline
+    $f(x)$ & sgn(a) \\
+  \end{tabular}
+  
+  \bigskip
+  
+  où $sgn(a)$ signifie «signe de $a$» c'est-à-dire «+» si $a>0$ et «--» si $a<0$.
+\end{propriete}
+
+Ici, on a introduit la notation $sgn(a)$ pour éviter de faire six tableaux.
+On peut simplement résumer la propriété précédente par cette phrase :
+
+\begin{center}
+  \emph{Un polynôme est du signe de $a$ à l'extérieur des racines.}
+\end{center}
+
+S'il n'y a qu'une seule racine, il n'y a pas d'intérieur (racine double) donc
+le polynôme est toujours du signe de $a$.
+S'il n'y a pas de racine, on se considère toujours à l'extérieur (ce qui est logique si on regarde l'évolution de la courbe
+quand $\Delta$ diminue jusqu'à devenir négatif).
+
+
+
+
+%
+%
+%
+%
+%
+\section{Pour plus de rigueur}
+
+Cette partie n'est pas indispensable.
+Elle ne sera utile qu'aux curieux qui ont envie de savoir d'où viennent les choses et comment
+elles s'articulent.
+
+\begin{preuve}[Preuve de la Propriété \ref{propriete-factorisee-canonique}]
+  En développant la forme factorisée, on trouve 
+  \[
+  a(x-x_1)(x-x_2) = ax^2-a(x_1+x_2)x+ax_1x_2
+  \]
+  On en déduit que $a=a$ (tautologie...), $b=-a(x_1+x_2)$ et $c=ax_1x_2$.
+  Ces résultats s'appelle les relations coefficients-racines.
+  
+  Pour la forme canonique, on a $a=a$ (encore ! les notations sont vraiment bien choisies...) $b=-2a\alpha$ et $c=a\alpha^2+\beta$.
+\end{preuve}
+
+Ceci nous permet de retrouver facilement la forme canonique à l'aide du discriminant
+(remarque après la définition \ref{definition-discriminant}): $\alpha=\frac{-b}{2a}$ et
+$\beta = c-a\alpha^2 = c-\frac{b^2}{4a} = -\frac{b^2-4ac}{4a} = -\frac{\Delta}{4a}$.
+
+\begin{preuve}[Preuve du Théorème \ref{theoreme-racines}]
+  Modifions un peu la forme canonique :
+  \[
+  f(x) = a(x-x_0)^2-\frac{\Delta}{4a} = a\left((x-x_0)^2-\frac{\Delta}{4a^2}\right)
+  \]
+  \begin{itemize}
+    \item[$\star$]
+      Si $\Delta$ est strictement négatif (3\up{ème} cas du théorème), alors la grande parenthèse est constituée
+      d'un carré (toujours positif) additionné à un nombre strictement positif ($-\frac{\Delta}{4a^2}>0$).
+      Elle ne peut donc pas s'annuler. On ne peut donc pas trouver de racine à $f$.
+
+    \item[$\star$]
+      Si $\Delta$ est nul (2\up{ème} cas du théorème), la fonction devient
+      \[
+      f(x) = a(x-x_0)^2
+      \]
+      On voit facilement que seul $x=x_0$ peut être solution.
+
+    \item[$\star$]
+      Si $\Delta$ est strictement positif (1\up{er} cas du théorème), la quantité $\frac{\Delta}{4a^2}$ est strictement positive.
+      On peut donc lui appliquer une racine. La fonction $f$ peut alors s'écrire comme une identité remarquable :
+      \[\begin{split}
+      f(x)
+      & = a\left( \left(x-x_0\right)^2 - \left(\sqrt{\frac{\Delta}{4a^2}}\right)^2 \right) \\
+      & = a\left( \left((x-x_0)+\sqrt{\frac{\Delta}{4a^2}}\right) \left((x-x_0)-\sqrt{\frac{\Delta}{4a^2}}\right) \right)
+      \end{split}\]
+      On voit alors que les seules racines de $f$ sont\footnote{Pour ceux qui suivent encore, il y a une tentative d'escroquerie dans les deux lignes suivantes !\\
+        En effet $\sqrt{a^2}$ n'est égal à $a$ que si $a\geq 0$ et $-a$ sinon...
+        mais alors la formule de $x_1$ se transforme en $x_2$ et réciproquement...
+        Donc l'arnaque n'est pas très grosse et ça marche quand même mais si on veut formaliser correctement, c'est pénible.} :
+      \[
+      x_1 = x_0-\sqrt{\frac{\Delta}{4a^2}} = \frac{-b}{2a}-\frac{\sqrt{\Delta}}{2a} = \frac{-b-\sqrt{\Delta}}{2a}
+      \]
+      et
+      \[
+      x_2 = x_0+\sqrt{\frac{\Delta}{4a^2}} = \frac{-b}{2a}+\frac{\sqrt{\Delta}}{2a} = \frac{-b+\sqrt{\Delta}}{2a}
+      \]
+  \end{itemize}
+
+  Dans les trois cas, on retrouve bien les résultats annoncés.
+\end{preuve}
+
+\begin{preuve}[Preuve des Propriétés \ref{propriete-factorisation} et \ref{propriete-equation}]
+  La factorisation découle directement de la preuve du théorème \ref{theoreme-racines} ci-dessus.
+
+  Quant à la résolution d'équation, c'est une simple reformulation du théorème.
+\end{preuve}
+
+\begin{preuve}[Preuve de la Propriété \ref{propriete-graphe}]
+  \indent
+  Pour le premier point, prenons une abscisse éloignée de $x_0$ d'une distance de $h>0$.
+  Cette abscisse s'écrira $x_0+h$.
+  Son symétrique par rapport à la droite verticale d'équation $x=x_0$ est $x_0-h$.
+  Calculons $f(x_0+h)$ et $f(x_0-h)$ en utilisant la forme canonique :
+  \[
+  f(x_0+h) = a\Big((x_0+h)-x_0\big)^2+\beta = ah^2+\beta
+  \]
+  \[
+  f(x_0-h) = a\Big((x_0-h)-x_0\big)^2+\beta = a(-h)^2+\beta = ah^2+\beta
+  \]
+  On voit que les ordonnées du graphe de $f$ en $x_0+h$ et $x_0-h$ sont les mêmes.
+  $\C_f$ est donc bien symétrique par rapport à la droite verticale d'équation $x=x_0$.
+  
+  Pour le deuxième point, il vous manque quelques notions mais, pour schématiser, quand $x$ est très grand (positif ou négatif),
+  le comportement d'un polynôme $ax^2+bx+c$ est très proche du comportement de $ax^2$.
+  Or quand $x$ est très grand (positif ou négatif), $x^2$ est très grand positif. C'est donc le signe de $a$ qui détermine
+  si $ax^2+bx+c$ est très grand positif ou très grand négatif.
+
+  Pour le sommet, on le sait depuis le cours de seconde. Sinon, il suffit de reprendre la forme canonique :
+  $f(x) = a(x-x_0)^2-\frac{\Delta}{4a}$. Supposons que $a$ soit positif. $a(x-x_0)^2$ est donc toujours strictement positif
+  sauf pour $x=x_0$ où il est nul. Le point le plus bas de la courbe est donc atteint pour $x=x_0$ (puisque $-\frac{\Delta}{4a}$
+  est constant). $S$ est donc bien le point le plus bas de la courbe. Le même raisonnement peut être fait avec $a$ négatif.
+
+  Le troisième point est une reformulation du Théorème \ref{theoreme-racines} :
+  Les abscisses des points d'intersection de la courbe avec l'axe des abscisses sont les zéros de la fonction.
+\end{preuve}
+
+\begin{preuve}[Preuve des Propriétés \ref{propriete-tabvar} et \ref{propriete-tabsgn}]
+  Il suffit de transcrire les six graphes de la Propriété \ref{propriete-graphe}
+  en terme de tableau de variations ou tableau de signes.
+\end{preuve}
+
+\end{document}

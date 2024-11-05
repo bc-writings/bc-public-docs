@@ -1,0 +1,42 @@
+% Source : http://tex.stackexchange.com/questions/43487/how-to-change-color-of-some-particular-environment-for-entire-document
+
+\documentclass{article}
+	\usepackage[english]{babel} % needed for "blindtext"
+	\usepackage[pangram]{blindtext}
+	\usepackage{xcolor}
+	\usepackage{fancyvrb}
+	\usepackage{etoolbox}
+
+	\DefineVerbatimEnvironment{ColorVerbatim}{Verbatim}%
+		{formatcom=\color{purple},commandchars=\\\{\}}
+
+	\BeforeBeginEnvironment{Verbatim}{\begingroup\color{green}}%
+	\AfterEndEnvironment{Verbatim}{\endgroup}%
+
+
+\begin{document}
+
+\blindtext[1]
+
+\begin{Verbatim}
+Verbatim text with by hook predefined colour:
+This blindtext is no pangram.
+\end{Verbatim}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+Verbatim text with individual colour settings:
+{\color{red}\blindtext[1]}  \textcolor{blue}{\blindtext[1]}
+\end{Verbatim}
+
+\begin{ColorVerbatim}
+Custom verbatim environment with predefined colour:
+\blindtext[1]
+
+... and with individual colour settings:
+\textcolor{orange}{\blindtext[1]}
+{\color{teal}\blindtext[1]}
+\end{ColorVerbatim}
+
+\blindtext[1]
+
+\end{document}

@@ -1,0 +1,6 @@
+\documentclass{article}
+\usepackage{xcolor,xpatch}
+\xpatchcmd\verb\bgroup{\bgroup\color{red}}{}{}
+\begin{document}
+Un essai \verb|\foo 123 #{45}| suite.
+\end{document}

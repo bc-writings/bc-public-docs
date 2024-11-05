@@ -1,0 +1,20 @@
+% Source : http://tex.stackexchange.com/questions/36097/how-do-i-specify-a-round-parenthesis-below-some-text
+
+\documentclass{article}
+	\pagestyle{empty}
+	\makeatletter
+		\def\underparen#1{\mathop{\vtop{\m@th\ialign{##\crcr
+			$\hfil\displaystyle{#1}\hfil$\crcr
+			\noalign{\kern3\p@\nointerlineskip}%
+			\upparenfill\crcr\noalign{\kern3\p@}}}}\limits}
+		\def\upparenfill{$\m@th \setbox\z@\hbox{$\braceld$}%
+			\bracelu\leaders\vrule \@height\ht\z@ \@depth\z@\hfill\braceru$}
+	\makeatother
+
+
+\begin{document}
+
+$\underparen{\textrm{The quick brown fox jumped over the lazy dog}}$
+
+\end{document}
+

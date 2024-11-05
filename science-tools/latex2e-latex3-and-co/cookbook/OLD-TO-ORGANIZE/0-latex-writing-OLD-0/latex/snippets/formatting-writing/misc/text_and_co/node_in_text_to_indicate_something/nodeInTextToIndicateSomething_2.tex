@@ -1,0 +1,26 @@
+% Source : http://tex.stackexchange.com/questions/34224/adding-arrows-connecting-foreign-keys-in-relations-using-latex
+
+\documentclass{article}
+	\usepackage{tikz}
+	\usetikzlibrary{calc}
+
+
+\begin{document}
+
+\noindent
+\tikzset{
+	text depth=0ex,
+	text height=1ex,
+	inner sep=0pt,
+}%
+relation1(\tikz[remember picture]\node (1id) {\underline{id}};, \tikz[remember picture]\node (1r2) {relatjon2\_id};, \tikz[remember picture]\node (1r3) {relation3\_id};, attribute1)\\[.5cm]
+relation2(\tikz[remember picture]\node (2id) {\textbf{id}};, \tikz[remember picture]\node (2r3) {relation3\_id};, attribute2)\\[.5cm]
+relation3(\tikz[remember picture]\node (3id) {\textbf{id}};, attribute3)
+
+\begin{tikzpicture}[overlay, remember picture]
+	\path[draw,thick,-latex] (1r2.south) ++(0,-.1) -- ++(0,-.2) -| ($(2id.north) + (0,.1)$);
+	\path[draw,thick,-latex] (1r3.south) ++(0,-.1) -- ++(0,-.2) -- ++(1,0) -- ++(0,-.97) -| ($(3id.60) + (0,.1)$);
+	\path[draw,thick,-latex] (2r3.south) ++(0,-.1) -- ++(0,-.2) -| ($(3id.120) + (0,.1)$);
+\end{tikzpicture}
+
+\end{document}

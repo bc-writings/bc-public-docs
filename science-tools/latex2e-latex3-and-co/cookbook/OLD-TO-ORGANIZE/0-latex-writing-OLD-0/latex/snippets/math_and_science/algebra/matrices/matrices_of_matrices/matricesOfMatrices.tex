@@ -1,0 +1,50 @@
+% Source : http://forum.mathematex.net/latex-f6/comment-faire-de-belles-matrices-de-matrices-t12447.html#p120721
+
+\documentclass {article}
+	\usepackage[T1]{fontenc}
+	\usepackage[utf8]{inputenc}
+	\usepackage{amsmath, blkarray}
+
+
+\begin{document}
+
+Cette première solution intéressante a le défaut d'avoir du blanc inutile tout en bas...
+
+\begin{equation}
+	\left[\begin{blockarray}{[cc]}
+		T_{0,0} \\
+		\vdots \\
+		T_{N_x,0} \\
+		\begin{block}{cc}
+			\vdots\\
+		\end{block}
+		T_{N_x,N_y} \\
+		\vdots \\
+		T_{N_x,N_y}\\
+	\end{blockarray}\right]
+\end{equation}
+
+
+Une petite préférence pour la solution suivante :
+
+\[
+	\left[
+		\begin{array}{c}
+			\left[
+				\begin{array}{cc}
+					a_{11} & a_{12} \\
+					a_{21} & a_{22} \\
+				\end{array}
+			\right]  \\
+			\mathbf{\vdots} \\
+			\left[
+				\begin{array}{cc}
+					c_{11} & c_{12} \\
+					c_{21} & c_{22} \\
+				\end{array}
+			\right] \\
+		\end{array}
+	\right]
+\]
+
+\end{document}

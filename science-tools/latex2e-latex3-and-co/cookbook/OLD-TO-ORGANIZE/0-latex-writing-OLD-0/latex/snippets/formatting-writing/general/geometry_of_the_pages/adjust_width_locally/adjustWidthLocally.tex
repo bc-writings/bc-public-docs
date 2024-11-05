@@ -1,0 +1,18 @@
+% Source : http://tex.stackexchange.com/questions/32704/minipage-that-allows-page-breaks
+
+\documentclass{article}
+\usepackage[showframe=true]{geometry}
+\usepackage{changepage}
+\usepackage{lipsum}
+
+\begin{document}
+
+\section{Regular settings}
+\lipsum
+
+\begin{adjustwidth}{2cm}{}
+\section{Adjusted settings}
+\lipsum
+\end{adjustwidth}
+
+\end{document}

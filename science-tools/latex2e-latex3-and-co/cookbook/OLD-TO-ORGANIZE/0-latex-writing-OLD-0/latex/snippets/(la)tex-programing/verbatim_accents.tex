@@ -1,0 +1,18 @@
+% Source: http://tex.stackexchange.com/a/344401/6880
+
+\documentclass{report}
+\usepackage{fontspec, fancyvrb}
+\setmainfont{CMU Serif}
+\setmonofont{CMU Typewriter Text}[Ligatures=TeX]
+
+\DefineVerbatimEnvironment{VRB}{Verbatim}{commandchars=\\\{\}}
+
+\begin{document}
+
+J'écris en \emph{français}.
+
+\begin{VRB}
+J'écris en \emph{français}.
+\end{VRB}
+
+\end{document}

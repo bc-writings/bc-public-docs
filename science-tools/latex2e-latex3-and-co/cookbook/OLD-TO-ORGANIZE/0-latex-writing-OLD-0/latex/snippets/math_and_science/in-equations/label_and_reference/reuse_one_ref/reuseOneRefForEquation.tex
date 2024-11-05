@@ -1,0 +1,25 @@
+% Source : http://tex.stackexchange.com/questions/33750/using-the-same-number-for-repeated-use-of-the-same-equation/33751#33751
+
+\documentclass{scrbook}
+	\usepackage{amsmath}
+
+
+\begin{document}
+
+\section{Some equations}
+
+Here is a linear equation
+\begin{equation}
+	y=x+2 \label{eq:first}
+\end{equation}
+That is very interesting. However, the quadratic equation
+\begin{equation}
+	f(x)=ax^2+bx+c \label{eq:second}
+\end{equation}
+is far more complex. Come to think of it, I actually \emph{do\/} enjoy
+\begin{equation*}
+	y=x+2 \tag{\ref{eq:first}}
+\end{equation*}
+above~\eqref{eq:second}.
+
+\end{document}

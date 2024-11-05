@@ -1,0 +1,33 @@
+% Source : http://tex.stackexchange.com/questions/86267/list-of-short-problem-names
+
+\documentclass{book}
+
+\usepackage{ntheorem}
+\theoremlisttype{all}
+
+\makeatletter
+\newtheoremstyle{problem}
+  {\item[\hskip\labelsep \theorem@headerfont ##1\ ##2\theorem@separator]}%
+  {\item[\hskip\labelsep \theorem@headerfont ##1\ ##2\theorem@separator]}
+\makeatother
+\theoremstyle{problem}
+\newtheorem{Problem}{Problem}[chapter]
+
+\begin{document}
+
+\chapter*{List of problems}
+\listtheorems{Problem}
+
+\chapter{foo}
+
+\begin{Problem}[Short FOO name]
+  Foo!
+\end{Problem}
+
+\chapter{bar}
+
+\begin{Problem}[Short BAR name]
+  Bar!
+\end{Problem}
+
+\end{document}

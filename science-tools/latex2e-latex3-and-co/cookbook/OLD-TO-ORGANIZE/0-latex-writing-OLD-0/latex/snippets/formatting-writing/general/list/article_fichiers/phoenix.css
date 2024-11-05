@@ -1,0 +1,66 @@
+body
+{
+	color : black;
+	font-family : Helvetica, sans-serif;
+	font-size : 12px;
+	text-align: justify;
+	margin-top: 0.5em;
+	margin-right: 6em;
+	margin-bottom: 1em;
+    margin-left: 6em;
+}
+
+td, tr, li
+{
+	font-family : Helvetica, sans-serif;
+	font-size : 12px;
+}
+
+a:link, a:visited, a:active
+{
+	color: blue;
+	text-decoration: none;
+}
+a:hover
+{
+	color:white;
+	background-color: blue;
+}
+
+.chapo
+{
+	color:#404040;
+}
+
+h1
+{
+	background-color: #D2CEFF
+}
+
+.note
+{
+	font-size: 10px;
+	color:#606060;
+}
+
+.nouv
+{
+	background-color:#E070E0;
+}
+
+.grey50
+{
+	color:#808080;
+}
+
+.final
+{
+	color:red;
+}
+
+.cadre
+{
+	border-width: thin;
+	border-style: solid;
+	border-color: blue;
+}

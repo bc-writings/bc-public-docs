@@ -1,0 +1,44 @@
+% Source : http://forum.mathematex.net/latex-f6/titres-avec-un-fond-gris-et-une-numerotation-speciale-t12921.html#p124824
+
+\documentclass{article}
+	\usepackage[T1]{fontenc}
+	\usepackage[utf8]{inputenc}
+	\usepackage[explicit]{titlesec}
+	\usepackage{xcolor}
+
+	\newcommand\vlines[1]{%
+		\ifnum#1>0
+			\vrule height1.5ex width1pt depth0pt
+			\kern1.5pt
+			\expandafter\vlines\expandafter{
+				\number\numexpr#1-1\expandafter
+			}%
+		\else
+			\unkern
+		\fi %
+	}
+
+	\titleformat\section
+		{\bfseries\huge}{}{0pt}
+		{\colorbox{gray!40}{
+			\hbox to \dimexpr\linewidth -2 \fboxsep{
+				\vtop{
+					\hsize\dimexpr\linewidth -25pt-2\fboxsep\relax#1
+				}
+				\hfill\color{white}\vlines4}
+			}
+		}
+
+
+\begin{document}
+
+Bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+
+
+\section{Une introduction rapide à la programmation procédurale}
+
+Bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+
+\end{document}

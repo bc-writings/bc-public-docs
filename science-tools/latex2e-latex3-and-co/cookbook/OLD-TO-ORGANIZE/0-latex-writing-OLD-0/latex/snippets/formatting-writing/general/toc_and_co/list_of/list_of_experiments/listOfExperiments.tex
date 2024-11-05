@@ -1,0 +1,46 @@
+% Source : http://tex.stackexchange.com/questions/36893/how-to-define-an-experiments-section
+
+\documentclass{book}
+	\newcounter{exp}
+	\renewcommand\theexp{\thechapter.\arabic{exp}}
+
+	\newcommand\experimentname{Experiment}
+
+	\makeatletter
+		\@addtoreset{exp}{chapter}
+	\makeatother
+
+	\newenvironment{experiment}{%
+		\clearpage
+		%\phantomsection % un-comment if hyperref is to be used
+		\stepcounter{exp}
+		\addcontentsline{toc}{section}{\experimentname~\theexp}
+		\noindent{\Large\bfseries\experimentname~\theexp}%
+		\par\vspace*{2.3ex plus .2ex}\noindent\ignorespaces%
+	}{\clearpage}
+
+% Just for test.
+	\usepackage{lipsum}
+
+
+\begin{document}
+
+\tableofcontents
+
+\chapter{Test Chapter}
+	\section{Test Section One One}
+
+\lipsum[1]
+\begin{experiment}
+	\lipsum*[1]
+\end{experiment}
+
+
+	\section{Test Section One Two}
+
+\lipsum[1]
+\begin{experiment}
+	\lipsum*[1]
+\end{experiment}
+
+\end{document}

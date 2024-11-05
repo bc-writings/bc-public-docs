@@ -1,0 +1,46 @@
+% Source : http://tex.stackexchange.com/questions/36192/how-to-number-a-set-of-equations-separately-from-another-set
+
+\documentclass{report}
+	\usepackage{amsmath}
+	\newcounter{result}
+%	\renewcommand{\theresult}{R-\arabic{result}}
+
+	\makeatletter
+		\newcommand{\changeequationintoresult}{%
+			\let\c@equation\c@result\let\theequation\theresult%
+		}
+	\makeatletter
+
+	\newenvironment{results}{\changeequationintoresult}{}
+
+
+\begin{document}
+
+Equation
+\begin{equation} \label{Equation:1}
+	0+0=0
+\end{equation}
+
+Result
+\begin{results}
+	\begin{equation} \label{Result:1}
+	1*1=1
+	\end{equation}
+\end{results}
+
+Equation
+\begin{equation} \label{Equation:2}
+ 0+1=1
+\end{equation}
+
+Result
+\begin{results}
+	\begin{equation} \label{Result:2}
+		1*2=2
+	\end{equation}
+\end{results}
+
+Equation \ref{Equation:1} and Equation \ref{Equation:2}.
+Result \ref{Result:1} and Result \ref{Result:2}.
+
+\end{document}

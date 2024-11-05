@@ -1,0 +1,82 @@
+% Source : http://forum.mathematex.net/latex-f6/stocker-des-valeurs-t12986.html#p125364
+
+\documentclass{minimal}
+	\usepackage{verbatim}
+
+	\makeatletter
+		\newcount\val@cnt
+		\newcommand*\valeurs[1]{%
+			\val@cnt\z@\valeurs@#1,\valeurs@/\valeurs@,%
+		}
+		\def\valeurs@#1/#2,{%
+			\ifx\valeurs@#1%
+			\else
+				\advance\val@cnt\@ne
+				\@namedef{ValX\number\val@cnt}{#1}%
+				\@namedef{ValY\number\val@cnt}{#2}%
+				\expandafter\valeurs@
+			\fi
+		}
+		\newcommand*\ValX[1]{%
+			\@nameuse{ValX#1}%
+		}
+		\newcommand*\ValY[1]{%
+			\@nameuse{ValY#1}%
+		}
+	\makeatother
+
+% No indentation for the paragraphs...
+	\setlength\parindent{0mm}
+
+
+\begin{document}
+
+\begin{verbatim}
+\valeurs{1/1, 2/2, 3/3, 4/4, 5/5, 6/6, 7/7, 8/8, 9/9, 0/0, a/a}
+
+x1  = \ValX{1}   et  y1  = \ValY{1}
+
+x3  = \ValX{3}   et  y3  = \ValY{3}
+
+x10 = \ValX{10}  et  y10 = \ValY{10}
+
+x11=\ValX{11} et y11 = \ValY{11}
+\end{verbatim}
+
+\bigskip
+
+\valeurs{1/1, 2/2, 3/3, 4/4, 5/5, 6/6, 7/7, 8/8, 9/9, 0/0, a/a}
+
+x1  = \ValX{1}   et  y1  = \ValY{1}
+
+x3  = \ValX{3}   et  y3  = \ValY{3}
+
+x10 = \ValX{10}  et  y10 = \ValY{10}
+
+x11=\ValX{11} et y11 = \ValY{11}
+
+\bigskip
+
+\bigskip
+
+\begin{verbatim}
+\valeurs{3/4,10/11,-5/-4,6/0,9/7,-1/-1,6/100,15/1,10/11,99/100,-10/-11}
+
+x1  = \ValX{1}   et  y1  = \ValY{1}
+
+x3  = \ValX{3}   et  y3  = \ValY{3}
+
+x10 = \ValX{10}  et  y10 = \ValY{10}
+\end{verbatim}
+
+\bigskip
+
+\valeurs{3/4,10/11,-5/-4,6/0,9/7,-1/-1,6/100,15/1,10/11,99/100,-10/-11}
+
+x1  = \ValX{1}   et  y1  = \ValY{1}
+
+x3  = \ValX{3}   et  y3  = \ValY{3}
+
+x10 = \ValX{10}  et  y10 = \ValY{10}
+
+\end{document}

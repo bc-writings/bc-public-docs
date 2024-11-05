@@ -1,0 +1,37 @@
+% Source : http://tex.stackexchange.com/questions/26543/hyperlink-with-answers-package
+
+\documentclass[12pt,a4paper]{article}
+\usepackage{answers}
+\usepackage{amsthm}
+\usepackage{hyperref}
+
+\newcounter{moncompteur}
+\theoremstyle{definition}
+\newtheorem{ex}{%
+  \hyperlink{ex:\theex}{Exercise}\hypertarget{sol:\theex}{}}
+
+\Newassociation{sol}{Soln}{corr}
+
+\renewenvironment{Soln}[1]{\par\bigskip\noindent\phantomsection {\bfseries Solution  of exercise #1}\quad}{}
+
+
+\begin{document}
+\begin{ex}
+Here is an exercise. Solution is \hyperref[sol:first]{here}. \label{ex:first}
+\end{ex}
+
+\begin{ex}
+Here is another exercise. Solution is \hyperref[sol:second]{here}. \label{ex:second}
+\end{ex}
+
+\newpage
+
+\begin{Soln}{\ref{ex:first}}
+Here is the solution. \label{sol:first}
+\end{Soln}
+
+\begin{Soln}{\ref{ex:second}}
+Here is the solution. \label{sol:second}
+\end{Soln}
+
+\end{document}

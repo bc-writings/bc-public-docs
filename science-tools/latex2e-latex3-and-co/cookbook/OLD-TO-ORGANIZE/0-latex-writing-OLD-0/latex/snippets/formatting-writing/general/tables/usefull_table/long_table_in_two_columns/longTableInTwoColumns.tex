@@ -1,0 +1,50 @@
+% Source : http://tex.stackexchange.com/questions/13895/multicolumn-long-table-or-enumeration
+
+\documentclass{article}
+	\usepackage[margin=1in]{geometry}
+	\usepackage{xcolor,supertabular,multicol}
+
+	\newcount\n
+	\n=0
+	\def\tablebody{}
+	\makeatletter
+		\loop\ifnum\n<300
+			\advance\n by1
+			\protected@edef\tablebody{%
+				\tablebody
+				\textbf{\number\n.}&
+				\hfill T\hfill\hfill F\hfill\hskip0pt\endgraf
+				\vskip.5\baselineskip
+				\color@begingroup
+				\color{black!20}
+				\hrule height3ex
+				\color@endgroup
+				\tabularnewline
+			}
+		\repeat
+	\makeatother
+
+	\pagestyle{empty}
+
+
+\begin{document}
+
+\begin{multicols*}{2}
+	\let\mcnewpage=\newpage
+	\makeatletter
+	\renewcommand\newpage{%
+		\if@firstcolumn
+			\hrule width\linewidth height0pt
+			\columnbreak
+		\else
+			\mcnewpage
+		\fi
+	}
+	\makeatother
+	\tablehead{Item \#&\\}
+	\begin{supertabular}{lp{1.5in}}
+		\tablebody
+	\end{supertabular}
+\end{multicols*}
+
+\end{document}

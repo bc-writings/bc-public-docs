@@ -1,0 +1,160 @@
+% Source : http://tex.stackexchange.com/questions/21521/test-if-a-paragraph-has-a-page-break-in-it/21522#21522
+
+\documentclass[twoside]{book}
+	\usepackage{zref-abspage}
+	\usepackage{zref-user}
+	\usepackage{tikz}
+	\usepackage{atbegshi}
+	\usetikzlibrary{calc}
+
+	\usepackage{lipsum}
+	\newcommand\xlipsum[1][]{{\let\par\relax\lipsum*[#1]}}
+
+	\makeatletter
+		\newcommand{\currentsidemargin}{%
+			\ifodd\zref@extract{textarea-\thetextarea}{abspage}%
+				\oddsidemargin%
+			\else%
+				\evensidemargin%
+			\fi%
+		}
+
+		\newcounter{textarea}
+		\newcommand{\settextarea}{%
+			\stepcounter{textarea}%
+			\zlabel{textarea-\thetextarea}%
+			\begin{tikzpicture}[overlay,remember picture]
+				% Helper nodes
+				\path (current page.north west) ++(\hoffset, -\voffset)
+					node[
+						anchor=north west, 
+						shape=rectangle, 
+						inner sep=0, 
+						minimum width=\paperwidth,
+						minimum height=\paperheight
+					]
+					(pagearea) {};
+				\path (pagearea.north west) ++(1in+\currentsidemargin,-1in-\topmargin-\headheight-\headsep)
+					node[
+						anchor=north west, 
+						shape=rectangle, 
+						inner sep=0, 
+						minimum width=\textwidth, 
+						minimum height=\textheight
+					]
+					(textarea) {};
+			\end{tikzpicture}%
+		}
+
+		\tikzset{tikzborder/.style={line width=1mm,red,double=blue}}
+
+		\newcounter{tikzborder}
+		\newcounter{tikzborderpages}
+		\newenvironment{tikzborder}[1][]{%
+			\medskip\par
+% Allow user to overwrite the used style locally
+			\ifx&#1&\else
+				\tikzset{tikzborder/.style={#1}}%
+			\fi
+			\settextarea
+			\stepcounter{tikzborder}%
+			\tikz[overlay,remember picture] \coordinate (tikzborder-\thetikzborder);% Modified \tikzmark macro
+			\zlabel{tikzborder-begin-\thetikzborder}%
+% Test if end-label is at the same page and draw first half of border if not
+			\ifnum\zref@extract{tikzborder-begin-\thetikzborder}{abspage}=\zref@extract{tikzborder-end-\thetikzborder}{abspage} \else
+				\begin{tikzpicture}[overlay,remember picture]
+					\draw [tikzborder]
+						let \p0 = (textarea.north west), \p1 = (tikzborder-\thetikzborder), \p2 = (textarea.south east) in
+						(\x0-\fboxsep-.5\pgflinewidth,\y2-\fboxsep-.5\pgflinewidth)
+						|-
+						(\x2+\fboxsep+.5\pgflinewidth,\ht\strutbox+\fboxsep+.5\pgflinewidth)
+						--
+						(\x2+\fboxsep+.5\pgflinewidth,\y2-\fboxsep-.5\pgflinewidth)
+						;
+				\end{tikzpicture}%
+% If it spreads over more than two pages:
+				\setcounter{tikzborderpages}{\numexpr-\zref@extract{tikzborder-begin-\thetikzborder}{abspage}+\zref@extract{tikzborder-end-\thetikzborder}{abspage}}
+				\ifnum\value{tikzborderpages}>1
+					\AtBeginShipoutNext{\tikzborderpage}%
+				\fi
+			\fi
+		}{%
+			\zlabel{tikzborder-end-\thetikzborder}%
+% Test if begin-label is at the same page and draw while border if so
+			\ifnum\zref@extract{tikzborder-begin-\thetikzborder}{abspage}=\zref@extract{tikzborder-end-\thetikzborder}{abspage}
+				\begin{tikzpicture}[overlay,remember picture]
+					\draw [tikzborder]
+						let \p0 = (textarea.north west), \p1 = (tikzborder-\thetikzborder), \p2 = (textarea.south east) in
+						(\x0-\fboxsep-.5\pgflinewidth,\y1+\ht\strutbox+\fboxsep+.5\pgflinewidth)
+						|-
+						(\x2+\fboxsep+.5\pgflinewidth,-\dp\strutbox-\fboxsep-.5\pgflinewidth)
+						|-
+						(\x0-\fboxsep-.5\pgflinewidth,\y1+\ht\strutbox+\fboxsep+.5\pgflinewidth)
+						-- cycle
+						;
+				\end{tikzpicture}%
+% Otherwise draw second half of border
+			\else
+				\settextarea
+				\begin{tikzpicture}[overlay,remember picture]
+					\draw [tikzborder]
+						let \p0 = (textarea.north west), \p1 = (tikzborder-\thetikzborder), \p2 = (textarea.south east) in
+						(\x0-\fboxsep-.5\pgflinewidth,\y0+\fboxsep+.5\pgflinewidth)
+						|-
+						(\x2+\fboxsep+.5\pgflinewidth,-\dp\strutbox-\fboxsep-.5\pgflinewidth)
+						--
+						(\x2+\fboxsep+.5\pgflinewidth,\y0+\fboxsep+.5\pgflinewidth)
+						;
+				\end{tikzpicture}%
+			\fi
+			\par\medskip
+		}
+
+		\newcommand{\tikzborderpage}{%
+			\settextarea
+			\begin{tikzpicture}[overlay,remember picture]
+				\draw [tikzborder]
+					([shift={(-\fboxsep-.5\pgflinewidth, \fboxsep+.5\pgflinewidth)}]textarea.north west)
+					--
+					([shift={(-\fboxsep-.5\pgflinewidth,-\fboxsep-.5\pgflinewidth)}]textarea.south west)
+					;
+				\draw [tikzborder]
+					([shift={( \fboxsep+.5\pgflinewidth, \fboxsep+.5\pgflinewidth)}]textarea.north east)
+					--
+					([shift={( \fboxsep+.5\pgflinewidth,-\fboxsep-.5\pgflinewidth)}]textarea.south east)
+					;
+			\end{tikzpicture}%
+			\addtocounter{tikzborderpages}{-1}%
+			\ifnum\value{tikzborderpages}>1
+				\AtBeginShipoutNext{\tikzborderpage}%
+			\fi
+			\vspace{-\baselineskip}% Compensate for the generated extra line at begin of the page. No idea why exactly this happens. Also \baselineskip seems not to be 100% right.
+		}
+	\makeatother
+
+
+\begin{document}
+
+\begin{tikzborder}
+	\xlipsum[1]
+\end{tikzborder}
+
+\lipsum[2-4]
+
+\begin{tikzborder}
+	\xlipsum[1]
+\end{tikzborder}
+
+\lipsum[2-4]
+
+\begin{tikzborder}
+	\xlipsum[1-9]
+\end{tikzborder}
+
+\lipsum[2-4]
+
+\begin{tikzborder}
+	\xlipsum[1-20]
+\end{tikzborder}
+
+\end{document}

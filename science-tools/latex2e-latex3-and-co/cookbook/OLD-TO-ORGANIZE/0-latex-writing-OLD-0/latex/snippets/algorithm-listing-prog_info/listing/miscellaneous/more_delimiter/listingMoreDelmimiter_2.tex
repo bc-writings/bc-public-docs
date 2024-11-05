@@ -1,0 +1,18 @@
+% Source : http://tex.stackexchange.com/questions/15237/highlight-text-in-code-listing-while-also-keeping-syntax-highlighting
+
+\documentclass{article}
+\usepackage{listings,xcolor}
+
+\lstdefinestyle{SQL}{
+    language={SQL}, 
+    moredelim=**[is][\color{blue}]{`}{`},
+    moredelim=**[is][\color{orange}]{@}{@},
+}
+
+\begin{document}
+
+\begin{lstlisting}[style=SQL]
+SELECT name, password `FROM` users @WHERE@ name=@`UNION SELECT`@
+\end{lstlisting}
+
+\end{document}

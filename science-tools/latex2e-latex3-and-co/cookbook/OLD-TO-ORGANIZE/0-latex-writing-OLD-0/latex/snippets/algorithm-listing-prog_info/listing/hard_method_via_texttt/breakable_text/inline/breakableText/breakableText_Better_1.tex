@@ -1,0 +1,25 @@
+% Sources : 
+%	* http://forum.mathematex.net/latex-f6/forcer-le-retour-a-la-ligne-dans-texttt-t13246.html#p127511
+%	* http://tex.stackexchange.com/questions/33465/changing-the-catcode-of-in-one-command
+
+\documentclass{article}
+	\makeatletter
+		\newcommand\breakabletexttt{\begingroup\catcode`\_12 \breakabletexttt@i}
+		\newcommand\breakabletexttt@i[1]{\texttt{\breakable@texttt#1\@nil}\endgroup}
+		\def\@gobble@fi#1\fi{\fi#1}
+		\def\breakable@texttt#1#2\@nil{%
+			#1\hspace{0pt plus 0.1pt minus 0.1pt}%
+				\ifx\relax#2\relax
+			\else
+				\@gobble@fi\breakable@texttt#2\@nil
+			\fi
+		}
+	\makeatother
+
+
+\begin{document}
+
+
+\breakabletexttt{rangerangerangerangerange_rangerange_rangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangeran:ger/angerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerange}
+
+\end{document}

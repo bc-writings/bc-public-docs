@@ -1,0 +1,40 @@
+% Source : http://tex.stackexchange.com/questions/35056/creating-stackoverflow-like-tags
+
+\documentclass[12pt,a4paper]{article}
+	\usepackage{tikz}
+	\usepackage[framemethod=TikZ]{mdframed}
+
+	\global\mdfdefinestyle{tag}{%
+		innerlinewidth=1pt, innerlinecolor=black,%
+		middlelinewidth=2pt, middlelinecolor=white,%
+		outerlinewidth=1pt, outerlinecolor=black,%
+		backgroundcolor=black,%
+		fontcolor=white,%
+	}
+
+	\colorlet{gold}{yellow}
+	\colorlet{silver}{gray!20}
+	\colorlet{bronze}{orange}
+
+	\newcommand{\badge}[2]{%
+		\begin{mdframed}[
+			userdefinedwidth=5.5cm,
+			style=tag
+		]
+			\tikz{\draw[very thin,gray!75,fill=#1] (0,0) circle (1ex);
+			\pgfmathsetmacro{\triangleside}{sqrt(3)}
+			\draw[very thin,gray!75]
+				(0,1ex) -- ++(240:\triangleside ex) -- +(0:\triangleside ex) -- cycle;} #2
+		\end{mdframed}
+	}
+
+
+\begin{document}
+
+\badge{gold}{This is my \TeX\ badge}
+
+\badge{silver}{This is my \TeX\ badge}
+
+\badge{bronze}{This is my \TeX\ badge}
+
+\end{document}

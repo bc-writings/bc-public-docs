@@ -1,0 +1,4 @@
+// Source : http://tex.stackexchange.com/questions/68730/terminal-commands-to-have-information-about-latex-distribution#comment146632_68730
+
+console::
+    kpsewhich --var-value=TEXMFLOCAL

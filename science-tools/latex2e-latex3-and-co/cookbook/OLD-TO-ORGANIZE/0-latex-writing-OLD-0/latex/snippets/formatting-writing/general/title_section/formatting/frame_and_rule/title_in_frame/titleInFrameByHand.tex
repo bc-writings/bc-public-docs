@@ -1,0 +1,77 @@
+% Source : http://forum.mathematex.net/latex-f6/boite-titre-et-titre-t13445.html
+
+\documentclass{article}
+	\usepackage[utf8x]{inputenc}
+	\usepackage{ucs}
+	\usepackage[T1]{fontenc}
+	\usepackage{calc}
+
+%%%%%%%%%%%%%%
+% BOITE TITRE
+
+	\newsavebox{\boitetitre}
+	\newlength{\largeurboitetitre}
+	\newlength{\hauteurboitetitre}
+	\newlength{\tempdim}
+
+	\newcommand{\traitressort}[2][1]{%
+		\leaders\hrule height#2\hskip0pt plus #1fill\relax%
+	}
+
+	\newcommand{\titlebox}[2]{%
+		\begin{lrbox}{\boitetitre}% stockage du contenu
+			\kern\fboxsep#2\kern\fboxsep
+		\end{lrbox}
+% mesure de la largeur de la parbox centrale
+		\settowidth{\largeurboitetitre}{\usebox{\boitetitre}}%
+% mesure de la hauteur de la parbox centrale
+		\settoheight{\hauteurboitetitre}{\usebox{\boitetitre}}%
+		\settodepth{\tempdim}{\usebox{\boitetitre}}%
+		\addtolength{\hauteurboitetitre}{\tempdim+2\fboxrule+2\fboxsep+5pt}%
+
+		\parbox{\fboxrule}{% le trait de gauche
+			\rule{\fboxrule}{\hauteurboitetitre}}%
+		\parbox{\largeurboitetitre}{% la boîte centrale
+			\begin{flushleft}
+				\makebox[\largeurboitetitre]{%
+					\traitressort{\fboxrule}%
+					\raisebox{-.5ex}[0pt][5pt]{#1}%
+					\traitressort[1]{\fboxrule}}
+				\\
+				[\fboxsep]\nointerlineskip
+				\usebox{\boitetitre}\\[\fboxsep]\nointerlineskip
+				\rule{\largeurboitetitre}{\fboxrule}
+			\end{flushleft}}%
+		\parbox{\fboxrule}{% le trait de droite
+			\rule{\fboxrule}{\hauteurboitetitre}}}
+
+		\newcounter{chapitre}
+		\setcounter{chapitre}{2}
+
+	\makeatletter
+		\def\maketitle{%
+			\null
+			\begin{center}
+				\setlength{\fboxsep}{5pt}%
+				\setlength{\fboxrule}{0.6pt}%
+				\titlebox{~\small \bfseries Chapitre \thechapitre~}{%
+				\parbox{0.95\linewidth}{%
+				\begin{center}
+					\Large \bfseries \@title
+				\end{center}
+				\vspace{\topsep}%
+				{\raggedleft\small \@date~\textsc{\@author}\par}}}%
+			\end{center}
+		}
+	\makeatother
+
+	\title{Titre du chapitre}
+	\date{\today}
+	\author{M. Maurice}
+
+
+\begin{document}
+
+\maketitle
+
+\end{document}

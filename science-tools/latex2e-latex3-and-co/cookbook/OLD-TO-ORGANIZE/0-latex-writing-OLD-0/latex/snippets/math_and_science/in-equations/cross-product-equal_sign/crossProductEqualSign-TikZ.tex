@@ -1,0 +1,37 @@
+% Source : http://forum.mathematex.net/latex-f6/superposer-deux-caracteres-t12275.html#p118758
+
+\documentclass{article}
+	\usepackage{tikz}
+	\usetikzlibrary{arrows}
+	\usepackage{amsmath}
+
+	\makeatletter
+		\newcommand\tikzcr@ss[1]{\tikzpicture[gray,>=latex,<->]\draw(-#1,-#1)--(#1,#1);\draw(-#1,#1)--(#1,-#1);\endtikzpicture}
+		\newcommand\pcroix[1][1.25ex]{%
+			\mathrel{\setbox\z@\hbox{\tikzcr@ss{#1}}\edef\temp@{\the\wd\z@}\setbox\z@\hbox{=}%
+			\hb@xt@\wd\z@{\hss$\vcenter{\noindent\hsize\temp@\tikzcr@ss{#1}}$\hss}\kern-\wd\z@\box\z@}%
+		}
+
+		\newcommand\pcrux{\quad
+			{\color{blue}  % tu mets en gris
+			\makebox[0pt][c]{\rotatebox[origin=c]{45}{$\longleftrightarrow$}}  % tu met ta croix grise en
+			\makebox[0pt][c]{\rotatebox[origin=c]{-45}{$\longleftrightarrow$}}} % tikz si tu veux
+			\makebox[0pt][c]{=}  % modifié, on le = met après la croix
+			\quad%
+		}
+	\makeatother
+
+
+\begin{document}
+
+$\dfrac ab=\dfrac cd$
+
+$\dfrac ab\pcrux\dfrac cd$% mauvais espacement
+
+$\dfrac ab\pcroix\dfrac cd$
+
+$\dfrac ab\pcroix[1.5ex]\dfrac cd$  TB !!!
+
+$\dfrac ab\pcroix[0.9ex]\dfrac cd$
+
+\end{document}

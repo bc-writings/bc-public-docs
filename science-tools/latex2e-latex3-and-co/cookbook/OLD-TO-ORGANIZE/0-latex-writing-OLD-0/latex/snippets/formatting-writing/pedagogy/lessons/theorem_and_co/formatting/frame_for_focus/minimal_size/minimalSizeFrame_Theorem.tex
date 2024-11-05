@@ -1,0 +1,69 @@
+% Source : http://forum.mathematex.net/latex-f6/une-macro-pour-mettre-un-titre-a-ses-boites-t12446.html#p120695
+
+\documentclass{article}
+	\usepackage[utf8]{inputenc}
+	\usepackage[T1]{fontenc}
+	\usepackage[frenchb]{babel}
+
+	\makeatletter
+		\newcommand\titlebox[1][3pt]{%
+			\begingroup
+				\par\fboxsep#1\relax
+				\parindent\z@
+				\titlebox@ %
+		}
+
+		\newcommand\titlebox@[3][l]{%
+			\setbox\z@\hbox{#3}%
+			\edef\max@hsize{\the\dimexpr\linewidth-2\fboxrule-2\fboxsep}%
+			\ifdim\wd\z@>\max@hsize\let\box@hsize\max@hsize\else\edef\box@hsize{\the\wd\z@}\fi
+			\setbox\z@\hbox{\vrule width\z@$\vcenter{\hrule width\z@}$}%
+			\setbox\z@\hbox{\lower\ht\z@\hbox{\kern2pt#2\kern2pt}}%
+			\let\title@l@pos\relax\let\title@r@pos\relax
+			\if r\@car#1\@nil\let\title@l@pos\hfill\fi\if c\@car#1\@nil\let\title@l@pos\hfill\let\title@r@pos\hfill\fi
+			\title@l@pos\vrule depth.5\fboxrule height.5\fboxrule width1cm
+			\edef\dp@title@box{\the\dp\z@}\dp\z@\z@\copy\z@
+			\vrule depth.5\fboxrule height.5\fboxrule width\dimexpr\box@hsize-\wd\z@-1cm+2\fboxrule+2\fboxsep\relax
+			\title@r@pos\null\par\nointerlineskip
+			\title@l@pos\vrule\kern\fboxsep\vbox{\hsize\box@hsize\kern\dimexpr\dp@title@box+\fboxsep#3\par\kern\fboxsep}%
+			\kern\fboxsep\vrule\title@r@pos\null
+			\par\nointerlineskip
+			\title@l@pos\vrule depth.5\fboxrule height.5\fboxrule width\dimexpr\box@hsize+2\fboxrule+2\fboxsep\relax\title@r@pos\null\par
+		\endgroup %
+		}
+	\makeatother
+
+	\usepackage{amsmath}
+
+
+\begin{document}
+
+\titlebox{Titre}{ %
+	Le texte que je veux mettre dedans. %
+}
+
+\titlebox[6pt]{Titre}{ %
+	Le texte que je veux mettre dedans (+6pt). %
+}
+
+\titlebox[6pt][c]{Titre}{ %
+	Le texte que je veux mettre dedans (+6pt). %
+}
+
+\titlebox[6pt][r]{Titre}{ %
+	Le texte que je veux mettre dedans (+6pt). %
+}
+
+\titlebox{$F(x)=ax^2+bx+c$}{ %
+	Le texte que je veux mettre dedans. %
+}
+
+\titlebox{$F(x)=\dfrac{ax+b}{cx+d}$}{ %
+	Le texte que $x\in R \begin{cases} ax+b>0\\cx+d>0\end{cases}$je veux mettre dedans. %
+}
+
+\titlebox{Le théorème de Pytagore}{ %
+	Dans un triangle rectangle, le carré de l'hypoténuse est égal à la somme des carrés des deux autres côtés. %
+}
+
+\end{document}

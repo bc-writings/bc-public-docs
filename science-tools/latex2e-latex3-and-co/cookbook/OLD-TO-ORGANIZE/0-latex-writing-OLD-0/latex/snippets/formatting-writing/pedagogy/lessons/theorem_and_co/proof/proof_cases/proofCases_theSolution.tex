@@ -1,0 +1,26 @@
+% Source : http://tex.stackexchange.com/questions/35756/list-the-cases-in-text
+
+\documentclass{article}
+	\usepackage{enumitem}
+	\usepackage{lipsum}
+
+	\newlength\mylen
+	\settowidth\mylen{\textbf{Case~5.}}
+	\newlist{mycases}{enumerate}{1}
+	\setlist[mycases,1]{%
+		label=\textbf{Case~\arabic*.},
+		labelwidth=\dimexpr-\mylen-\labelsep\relax,
+		leftmargin=0pt,
+		align=right%
+	}
+
+\begin{document}
+
+\noindent There are three cases to consider:
+\begin{mycases}
+	\item \lipsum[1]
+	\item \lipsum[1]
+	\item \lipsum[1]
+\end{mycases}
+
+\end{document}

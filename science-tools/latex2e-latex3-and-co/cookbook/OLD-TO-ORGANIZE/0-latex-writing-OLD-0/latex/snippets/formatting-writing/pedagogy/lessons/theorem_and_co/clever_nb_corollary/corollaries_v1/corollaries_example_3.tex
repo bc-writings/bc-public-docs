@@ -1,0 +1,87 @@
+\documentclass{article}
+	\usepackage[UTF8]{inputenc}
+	\usepackage[T1]{fontenc}
+	\usepackage{lmodern}
+
+	\usepackage{framed}
+	\usepackage[framed]{ntheorem}
+	\usepackage{pstricks}
+
+	\usepackage{corollaries}
+
+	\newtheorem{theorem}{Th\'eor\`eme}
+	\newtheorem{proposition}{Proposition}
+	\newcorollary{corollary}{Corollaire}[theorem,proposition]
+	\newframedcorollary{framedcorollary}{Corollaire}[theorem,proposition]
+	\newshadedcorollary{shadedcorollary}{Corollaire}[theorem,proposition]
+
+	\newcounter{Corolle}
+	\DeclareCorollaryCounter{Corolle}
+	\AddToCorollaryReset{Corolle}{theorem,proposition}% pas d'espace ici
+	\renewcommand{\theCorolle}{\Alph{Corolle}}
+
+
+\begin{document}
+
+\begin{theorem}
+	Text of the theorem.
+\end{theorem}
+
+
+\stepcounter{Corolle}\noindent\textbf{Corolle~\theCorolle}
+
+\begin{shadedcorollary}
+	Text of the corollary.
+\end{shadedcorollary}
+
+\begin{proposition}
+	Text of the proposition.
+\end{proposition}
+
+
+\stepcounter{Corolle}\noindent\textbf{Corolle~\theCorolle}
+
+\begin{framedcorollary}
+	Text of the corollary.
+\end{framedcorollary}
+
+\begin{theorem}
+	Text of the theorem.
+\end{theorem}
+
+
+\stepcounter{Corolle}\noindent\textbf{Corolle~\theCorolle}
+
+\begin{corollary}
+	Text of the corollary.
+\end{corollary}
+
+\begin{corollary}
+	Text of the corollary.
+\end{corollary}
+
+\begin{corollary}
+	Text of the corollary.
+\end{corollary}
+
+
+\stepcounter{Corolle}\noindent\textbf{Corolle~\theCorolle}
+\stepcounter{Corolle}\noindent\textbf{Corolle~\theCorolle}
+
+\begin{proposition}
+	Text of the proposition.
+\end{proposition}
+
+
+\stepcounter{Corolle}\noindent\textbf{Corolle~\theCorolle}
+\stepcounter{Corolle}\noindent\textbf{Corolle~\theCorolle}
+
+\begin{corollary}
+	Text of the corollary.
+\end{corollary}
+
+\begin{corollary}
+	Text of the corollary.
+\end{corollary}
+
+\end{document}

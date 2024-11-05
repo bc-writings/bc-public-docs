@@ -1,0 +1,8 @@
+#comment
+[keyword]
+key1=value1
+key2=value with RegEx
+
+[keyword:NewKeyword]
+key1 = value1
+key2=value with RegEx

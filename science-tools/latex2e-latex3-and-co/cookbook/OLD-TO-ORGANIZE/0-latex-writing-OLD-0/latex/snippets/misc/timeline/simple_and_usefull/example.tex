@@ -1,0 +1,19 @@
+% Source : http://tex.stackexchange.com/questions/31602/unable-to-create-multiple-timelines-using-chronology-sty
+
+\documentclass{article}
+	\usepackage{chronologyPlus}
+
+
+\begin{document}
+
+\begin{chronology}[2]{2000}{2012}{5ex}{\textwidth}
+	\event{2004}{single event}
+	\event[2007]{2009}{Multi-year event}
+\end{chronology}% Inserted this missing environment \end
+
+\begin{chronology}[2]{2000}{2012}{5ex}{\textwidth}
+	\event{2002}{single event 2}
+	\event[2006]{2008}{Multi-year event 2}
+\end{chronology}
+
+\end{document}

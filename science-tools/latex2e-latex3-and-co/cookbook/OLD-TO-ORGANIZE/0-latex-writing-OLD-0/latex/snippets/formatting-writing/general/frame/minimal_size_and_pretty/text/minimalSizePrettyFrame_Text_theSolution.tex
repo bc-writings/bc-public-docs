@@ -1,0 +1,28 @@
+% Source : http://tex.stackexchange.com/questions/35319/a-boxed-alternative-with-minimal-spacing/35346#35346
+
+\documentclass{article}
+	\usepackage{xparse}
+	\usepackage{xcolor}
+
+	\newbox\FBox
+	\NewDocumentCommand\MyBox{O{black}O{white}mO{0.5pt}O{0pt}O{0pt}}{%
+		\setlength\fboxsep{#4}\sbox\FBox{\fcolorbox{#1}{#2}{#3\rule[-#5]{0pt}{#6}}}\usebox\FBox%
+	}
+
+
+\begin{document}
+
+Lorem ipsum dolor sit amet. \MyBox{Lorem ipsum} dolor sit amet. Lorem ipsum dolor sit amet.
+Lorem ipsum dolor sit amet. \MyBox[red]{$\frac{\frac{2}{5} - 7}{4 + x^3}$}
+Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.
+Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.
+Lorem  \MyBox[red!30][yellow!10]{$3.29 \times 10^{29}$} ipsum dolor sit amet.
+Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.
+Lorem \MyBox[olive][red!40]{$3.29 \times 10^{29}$}[8pt] ipsum dolor sit amet.
+Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.
+Lorem \MyBox[olive][red!40]{$3.29 \times 10^{29}$}[4pt][2pt][33pt] ipsum dolor sit amet.
+Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.
+Lorem \MyBox[olive][red!40]{$3.29 \times 10^{29}$}[4pt][23pt][2pt] ipsum dolor sit amet.
+Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.
+
+\end{document}

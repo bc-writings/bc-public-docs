@@ -1,0 +1,33 @@
+% Source : http://tex.stackexchange.com/questions/11291/dashed-box-environment
+
+\documentclass{article}
+	\usepackage{tikz}
+
+	\newenvironment{elaboration}{%
+		\par
+		\begin{tikzpicture}
+			\node[rectangle,minimum width=0.9\textwidth] (m)
+			\bgroup\begin{minipage}{0.85\textwidth}%
+	}{%
+			\end{minipage}\egroup;
+			\draw[dashed] (m.south west) rectangle (m.north east);
+		\end{tikzpicture}
+	}
+
+
+\begin{document}
+
+My Elaboration
+
+\begin{elaboration}
+	My item list is shown below:
+
+	\begin{itemize}
+		\item dummy item
+		\item dummy item 2
+		\item Other TikZ code: \tikz \draw (0,0) circle (10pt);
+		\item Verbatim: \verb+\section+
+	\end{itemize}
+\end{elaboration}
+
+\end{document}

@@ -1,0 +1,28 @@
+% Source : http://forum.mathematex.net/latex-f6/produit-en-croix-signe-egal-avec-une-croix-grise-t12239.html#p118353
+
+\documentclass[10pt,a4paper]{article}
+	\usepackage[utf8x]{inputenc}
+	\usepackage{xcolor}
+	\usepackage{amsmath}
+	\usepackage{amssymb}
+	\usepackage{graphicx}
+
+	\newcommand{\pcrux}{\quad %
+		\makebox[0pt][c]{=}{ %
+			\color{gray} %
+			\makebox[0pt][c]{ %
+				\rotatebox[origin=c]{45}{$\longleftrightarrow$} %
+			} %
+			\makebox[0pt][c]{ %
+				\rotatebox[origin=c]{-45}{$\longleftrightarrow$} %
+			} %
+		} %
+		\quad%
+	}
+
+
+\begin{document}
+
+$\frac {a}{b}  \pcrux \frac{c}{d}$
+
+\end{document}

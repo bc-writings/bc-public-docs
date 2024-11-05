@@ -1,0 +1,59 @@
+% Source : http://tex.stackexchange.com/questions/33758/professional-looking-tables-with-alternating-row-colors
+
+\documentclass{article}
+\usepackage{booktabs}% http://ctan.org/pkg/booktabs
+\usepackage{colortbl}% http://ctan.org/pkg/colortbl
+\usepackage{amsmath}% http://ctan.org/pkg/amsmath
+\usepackage{xcolor}% http://ctan.org/pkg/xcolor
+\usepackage{graphicx}% http://ctan.org/pkg/graphicx
+
+\colorlet{tableheadcolor}{gray!25} % Table header colour = 25% gray
+\newcommand{\headcol}{\rowcolor{tableheadcolor}} %
+\colorlet{tablerowcolor}{gray!10} % Table row separator colour = 10% gray
+\newcommand{\rowcol}{\rowcolor{tablerowcolor}} %
+    % Command \topline consists of a (slightly modified) \toprule followed by a \heavyrule rule of colour tableheadcolor (hence, 2 separate rules)
+\newcommand{\topline}{\arrayrulecolor{black}\specialrule{0.1em}{\abovetopsep}{0pt}%
+            \arrayrulecolor{tableheadcolor}\specialrule{\belowrulesep}{0pt}{0pt}%
+            \arrayrulecolor{black}}
+    % Command \midline consists of 3 rules (top colour tableheadcolor, middle colour black, bottom colour white)
+\newcommand{\midline}{\arrayrulecolor{tableheadcolor}\specialrule{\aboverulesep}{0pt}{0pt}%
+            \arrayrulecolor{black}\specialrule{\lightrulewidth}{0pt}{0pt}%
+            \arrayrulecolor{white}\specialrule{\belowrulesep}{0pt}{0pt}%
+            \arrayrulecolor{black}}
+    % Command \rowmidlinecw consists of 3 rules (top colour tablerowcolor, middle colour black, bottom colour white)
+\newcommand{\rowmidlinecw}{\arrayrulecolor{tablerowcolor}\specialrule{\aboverulesep}{0pt}{0pt}%
+            \arrayrulecolor{black}\specialrule{\lightrulewidth}{0pt}{0pt}%
+            \arrayrulecolor{white}\specialrule{\belowrulesep}{0pt}{0pt}%
+            \arrayrulecolor{black}}
+    % Command \rowmidlinewc consists of 3 rules (top colour white, middle colour black, bottom colour tablerowcolor)
+\newcommand{\rowmidlinewc}{\arrayrulecolor{white}\specialrule{\aboverulesep}{0pt}{0pt}%
+            \arrayrulecolor{black}\specialrule{\lightrulewidth}{0pt}{0pt}%
+            \arrayrulecolor{tablerowcolor}\specialrule{\belowrulesep}{0pt}{0pt}%
+            \arrayrulecolor{black}}
+    % Command \rowmidlinew consists of 1 white rule
+\newcommand{\rowmidlinew}{\arrayrulecolor{white}\specialrule{\aboverulesep}{0pt}{0pt}%
+            \arrayrulecolor{black}}
+    % Command \rowmidlinec consists of 1 tablerowcolor rule
+\newcommand{\rowmidlinec}{\arrayrulecolor{tablerowcolor}\specialrule{\aboverulesep}{0pt}{0pt}%
+            \arrayrulecolor{black}}
+    % Command \bottomline consists of 2 rules (top colour
+\newcommand{\bottomline}{\arrayrulecolor{white}\specialrule{\aboverulesep}{0pt}{0pt}%
+            \arrayrulecolor{black}\specialrule{\heavyrulewidth}{0pt}{\belowbottomsep}}%
+\newcommand{\bottomlinec}{\arrayrulecolor{tablerowcolor}\specialrule{\aboverulesep}{0pt}{0pt}%
+            \arrayrulecolor{black}\specialrule{\heavyrulewidth}{0pt}{\belowbottomsep}}%
+
+\begin{document}
+
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{llll}
+  \topline
+  \headcol Approach & Estimator & ME & MAE \\
+  \midline
+  & $\widehat{JV}_{\text{na\"ive}}$ & 4.37e-07 & 4.37e-07 \\
+  \rowcol \smash{\raisebox{1em}{Na\"ive}} & $\widetilde{JV}_{\text{na\"ive}}$ & 3.88e-07 & 3.88e-07 \\
+  & $\widehat{JV}$ & 1.33e-06 & 1.33e-06 \\
+   \rowcol \smash{\raisebox{1em}{Regular}} & $\widetilde{JV}$ & 1.20e-06 & 1.20e-06 \\
+  \bottomlinec
+\end{tabular}
+
+\end{document}

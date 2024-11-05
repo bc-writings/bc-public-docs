@@ -1,0 +1,25 @@
+% Source : http://forum.mathematex.net/latex-f6/probleme-avec-newtheoremstyle-t12544.html#p121603
+
+\documentclass[10pt,a4paper]{book}
+	\usepackage[utf8x]{inputenc}
+	\usepackage{ucs}
+	\usepackage{amsmath}
+	\usepackage{amsfonts}
+	\usepackage{amssymb}
+	\usepackage{amsthm}
+
+	\newtheoremstyle{Exo}{\topsep}{\topsep}{}{\parindent}{}{}{.5em}{\thmname{\bfseries #1}\thmnumber{{\bfseries #2.}}\thmnote{ {\bfseries #3.}}}
+	\theoremstyle{Exo}
+	\newtheorem{Exo}{}[chapter]
+
+\begin{document}
+
+	\begin{Exo}[{Condition suffisante pour que $\sqrt[n]{u_{n}}$ tende vers $1$}]
+		Démontrer que ....
+	\end{Exo}
+
+	\begin{Exo}[{Etude du coefficient directeur $a = \frac{\Delta y}{\Delta x}$}]
+		Soit une droite non verticale ....
+	\end{Exo}
+
+\end{document}

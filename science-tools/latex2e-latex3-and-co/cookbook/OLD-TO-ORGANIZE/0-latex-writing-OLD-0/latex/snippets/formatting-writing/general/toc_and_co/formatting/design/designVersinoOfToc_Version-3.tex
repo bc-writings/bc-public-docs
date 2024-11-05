@@ -1,0 +1,237 @@
+% Sources :
+%	1) http://tex.stackexchange.com/questions/35825/pretty-table-of-contents
+%	2) http://tex.stackexchange.com/questions/35903/formatting-the-title-of-the-toc
+
+\documentclass{memoir}
+\usepackage[T1]{fontenc}
+\usepackage{refcount}
+\usepackage[colorlinks,linkcolor=black]{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+% colors to be used
+\definecolor{myred}{RGB}{127,0,0}
+\definecolor{myyellow}{RGB}{169,121,69}
+
+% a command to circle the part numbers
+\newcommand\Circle[1]{\tikz[overlay,remember picture] 
+  \node[draw=myyellow,circle, text width=18pt,line width=1pt,align=center] {#1};}
+
+% redefinition of the name of the ToC
+\renewcommand\printtoctitle[1]{\HUGE\sffamily\bfseries\color{myred}#1}
+
+\makeatletter
+% redefinitions for part entries
+\renewcommand\cftpartfont{\Huge\sffamily\bfseries}
+\renewcommand\partnumberline[1]{%
+    \hbox to \textwidth{\hss\Circle{\textcolor{myyellow}{#1}}\hss}%
+  \vskip3.5ex\color{myred}}
+
+\renewcommand*{\l@part}[2]{%
+  \ifnum \c@tocdepth >-2\relax
+    \cftpartbreak
+    \begingroup
+      {\interlinepenalty\@M
+       \leavevmode
+       \settowidth{\@tempdima}{\cftpartfont\cftpartname}%
+       \addtolength{\@tempdima}{\cftpartnumwidth}%
+       \let\@cftbsnum \cftpartpresnum
+       \let\@cftasnum \cftpartaftersnum
+       \let\@cftasnumb \cftpartaftersnumb
+       \advance\memRTLleftskip\@tempdima \null\nobreak\hskip -\memRTLleftskip
+       \centering{\cftpartfont#1}\par%
+       }
+      \nobreak
+        \global\@nobreaktrue
+        \everypar{\global\@nobreakfalse\everypar{}}%
+    \endgroup
+  \fi}
+
+% redefinitions for chapter entries
+\renewcommand\chapternumberline[1]{\mbox{\Large\@chapapp~#1}\par\noindent}
+\renewcommand\cftchapterfont{\Large\sffamily}
+\cftsetindents{chapter}{0pt}{0pt}
+\renewcommand\cftchapterpagefont{\HUGE\sffamily\bfseries\color{myred}}
+
+\newcommand*{\l@mychap}[3]{%
+  \def\@chapapp{#3}\vskip1ex%
+  \par\noindent\begin{minipage}{\textwidth}%
+  \parbox{4.7em}{%
+    \hfill{\cftchapterpagefont#2}%
+  }\hspace*{1.5em}%
+  \parbox{\dimexpr\textwidth-4.7em-15pt\relax}{%
+    \cftchapterfont#1%
+  }%
+  \end{minipage}\par\vspace{2ex}%
+}
+
+\renewcommand*{\l@chapter}[2]{%
+  \l@mychap{#1}{#2}{\chaptername}%
+}
+
+\renewcommand*{\l@appendix}[2]{%
+  \l@mychap{#1}{#2}{\appendixname}%
+}
+
+% redefinitions for section entries
+\renewcommand\cftsectionfont{\sffamily}
+\renewcommand\cftsectionpagefont{\sffamily\itshape\color{myred}}
+\renewcommand{\cftsectionleader}{\nobreak}
+\renewcommand{\cftsectionafterpnum}{\cftparfillskip}
+\cftsetindents{section}{7.5em}{3em}
+\renewcommand\cftsectionformatpnum[1]{%
+  \hskip1em\hbox to 4em{{\cftsectionpagefont #1\hfill}}}
+
+% redefinitions for subsection entries
+\renewcommand\cftsubsectionfont{\sffamily}
+\renewcommand\cftsubsectionpagefont{\sffamily\itshape\color{myred}}
+\renewcommand\cftsubsectionleader{\nobreak}
+\renewcommand{\cftsubsectionafterpnum}{\cftparfillskip}
+\renewcommand\cftsubsectiondotsep{\cftnodots}
+\cftsetindents{subsection}{10.5em}{3em}
+\renewcommand\cftsubsectionformatpnum[1]{%
+  \hskip1em\hbox to 4em{{\cftsubsectionpagefont #1\hfill}}}
+\makeatother
+
+\settocdepth{subsection}
+\setsecnumdepth{subsection}
+
+% length to be used when drawing a line from the top of the text area
+\newlength\Myhead
+\setlength\Myhead{\dimexpr\headheight+\headsep+1in+\voffset+5ex\relax}
+
+% length to be used when drawing a line to the bottom of the text area
+\newlength\Myfoot
+\setlength\Myfoot{\dimexpr\paperheight-\Myhead-\textheight-\footskip+5ex\relax}
+
+% auxiliary counter to place labels
+\newcounter{chapmark}
+
+% Adds a mark and a label at the beginning of each chapter entry in the ToC and draws a line 
+% from the start of the chapter to the bottom of the text area if the mark 
+% for the chapter ending lies in a different page than the one from the end of the chapter.
+% (the value of tjose pages is calculated using the label)
+% Must be used right before each \chapter command
+\newcommand\StartMark{%
+  \addtocontents{toc}{\protect\label{st\thechapmark}%
+    \protect\begin{tikzpicture}[overlay,remember picture,baseline]   
+    \protect\node [anchor=base] (s\thechapmark) {};%
+    \ifnum\getpagerefnumber{st\thechapmark}=\getpagerefnumber{en\thechapmark} \else
+    \protect\draw[myyellow,line width=3pt] let \protect\p3= (s\thechapmark),%
+      \protect\p4 = (current page.south) in %
+      ($ (4em,\protect\y3) + (0,-1ex) $) -- ($ (4em,\protect\y4) + (0,\protect\the\Myfoot)$);\fi
+    \protect\end{tikzpicture}\par}%
+}
+
+% Adds a mark and a label at the end of each chapter entry in the ToC and draws a line from 
+% the top of the text area to the ending of the chapter if the mark 
+% for the chapter ending lies in a different page than the one from the start of the chapter
+% if both marks are in the same page, simple draws a line connecting the marks
+% (the value of tjose pages is calculated using the label)
+% Must be used right after the last sectional unit (that will go to the ToC) belonging to 
+% a chapter
+\newcommand\EndMark{
+\addtocontents{toc}{\protect\label{en\thechapmark}%
+  \protect\begin{tikzpicture}[overlay,remember picture,baseline]   
+  \protect\node [anchor=base] (e\thechapmark) {};
+  \ifnum\getpagerefnumber{st\thechapmark}=\getpagerefnumber{en\thechapmark} 
+  \protect\draw[myyellow,line width=3pt] let \protect\p1= (s\thechapmark), \protect\p2=(e\thechapmark) in ($ (4em,\protect\y1) + (0,-1ex) $) -- ($ (4em,\protect\y2) + (0,2ex) $);
+  \else%
+  \protect\draw[myyellow,line width=3pt] let \protect\p1= (e\thechapmark), \protect\p2=(current page.north) in ($(4em,\protect\y2) + (0,-\protect\the\Myhead)$) -- ($ (4em,\protect\y1) + (0,1.5ex) $);
+\fi
+\protect\end{tikzpicture}\par}\stepcounter{chapmark}%
+}
+
+\begin{document}
+
+\tableofcontents*
+
+\part{Designing with \TeX\ and \LaTeX}
+
+\StartMark
+\chapter{Beginning to learn design with \TeX}
+\section{Another test section}
+\section{Another test section }
+\subsection{A test subsection}
+\section{Another test section}
+\subsection{A test subsection}
+\subsection{A test subsection with a long title spanning more than one line in the table of contents}
+\section{Another test section}
+\section{Another test section}
+\section{Another test section}
+\EndMark
+
+\StartMark
+\chapter{Beginning to learn design with \LaTeX}
+\section{A test section with a long title spanning more than one line in the table of contents}
+\subsection{A test subsection}
+\subsection{Another test subsection}
+\section{A test section}
+\phantomsection
+\addcontentsline{toc}{section}{Test unnumbered section}
+\section*{Test unnumbered section}
+\subsection{A test subsection}
+\section{Another test section}
+\subsection{A test subsection}
+\subsection{A test subsection}
+\section{Another test section}
+\section{Another test section}
+\EndMark
+
+\newpage\setcounter{page}{123}% just for the example
+
+\part{Designing with HTML}
+\StartMark
+\chapter{Beginning to learn design with HTML and some other text to span more than one line} 
+\section{Another test section}
+\section{Another test section}
+\subsection{A test subsection}
+\section{Another test section with a long title spanning more than one line in the table of contents}
+\subsection{A test subsection}
+\section{Another test section}
+\section{Another test section}
+\subsection{A test subsection}
+\subsection{A test subsection}
+\section{Another test section}
+\section{Another test section}
+\subsection{A test subsection}
+\EndMark
+
+\StartMark
+\chapter{Beginning to learn design with HTML and some other text to span more than one line} 
+\section{Another test section}
+\section{Another test section}
+\subsection{A test subsection}
+\section{Another test section}
+\section{Another test section}
+\subsection{A test subsection with a long title spanning more than one line in the table of contents}
+\section{Another test section}
+\section{Another test section}
+\subsection{A test subsection}
+\section{Another test section}
+\section{Another test section}
+\subsection{A test subsection}
+\subsection{A test subsection}
+\section{Another test section}
+\section{Another test section}
+\subsection{A test subsection}
+\section{Another test section}
+\subsection{A test subsection}
+\section{Another test section}
+\section{Another test section}
+\section{Another test section}
+\subsection{A test subsection}
+\EndMark
+
+\appendix
+\StartMark
+\chapter{Test Appendix}
+\section{Another test section}
+\section{Another test section with a long title spanning more than one line in the table of contents}
+\section{Another test section}
+\subsection{A test subsection}
+\section{Another test section}
+\section{Another test section}
+\EndMark
+
+\end{document}

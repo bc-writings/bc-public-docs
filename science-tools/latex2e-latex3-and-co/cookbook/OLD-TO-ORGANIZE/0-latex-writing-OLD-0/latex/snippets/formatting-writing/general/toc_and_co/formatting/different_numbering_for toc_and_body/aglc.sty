@@ -1,0 +1,73 @@
+\ProvidesPackage{aglc}
+\NeedsTeXFormat{LaTeX2e}
+
+\RequirePackage{parskip}
+\RequirePackage{chngcntr}
+\RequirePackage{titlesec}
+
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
+
+\counterwithin*{subsection}{section}
+\counterwithin*{paragraph}{subsection}
+\counterwithin*{subparagraph}{paragraph}
+
+% AGLC Heading 1
+% I Section
+\renewcommand*\thesection{\Roman{section}}
+
+\renewcommand\section{\@startsection {section}{1}{\z@ }%
+    {-3.5ex \@plus -1ex \@minus -.2ex}%
+    {2.3ex \@plus  .2ex}{\normalfont \centering \large \sc }}
+
+
+% AGLC Heading 2
+% A SubSection
+\renewcommand*\thesubsection{\Alph{subsection}}
+
+\renewcommand\subsection{\@startsection {subsection}{2}{\z@ }%
+    {-3.25ex\@plus -1ex \@minus -.2ex}%
+    {1.5ex \@plus .2ex}{\normalfont \centering \large \emph }}
+
+% AGLC Heading 3
+% 1 SubSubSection
+\renewcommand*\thesubsubsection{\arabic{subsubsection}}
+
+\renewcommand\subsubsection{\@startsection {subsubsection}{3}{\z@ }%
+    {-3.25ex \@plus -1ex \@minus -.2ex}%
+    {1.5ex \@plus .2ex}{\normalfont \emph }}
+
+% AGLC Heading 4
+% (a) Paragraph
+\renewcommand*\theparagraph{(\alph{paragraph})}
+
+\titleformat{\paragraph}
+  {\normalfont\normalsize\em}
+  {\renewcommand*\theparagraph{%
+      \arabic{subsubsection}(\alph{paragraph})}\theparagraph}
+  {1em}{}
+
+\titlespacing*{\paragraph}
+  {0pt}{3.25ex plus 1ex minus .2ex}{1.5ex \@plus .2ex}
+
+% AGLC Heading 5
+% (i) SubParagraph
+\renewcommand*\thesubparagraph{(\roman{subparagraph})}
+
+\titleformat{\subparagraph}
+  {\normalfont\normalsize\em}
+  {\renewcommand*\thesubparagraph{%
+      \arabic{subsubsection}\theparagraph(\roman{subparagraph})}\thesubparagraph}
+  {1em}{}
+
+\titlespacing*{\subparagraph}
+  {0pt}{3.25ex plus 1ex minus .2ex}{1.5ex \@plus .2ex}
+
+\newcommand{\case}[1]{\emph{#1}}
+\newcommand{\caseref}[1]{[\emph{#1}]}
+
+\newcommand{\statute}[2][Qld]{\emph{#2} (#1)}
+
+\newcommand{\latin}[1]{\emph{#1}}
+
+\endinput

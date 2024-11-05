@@ -1,0 +1,60 @@
+% Source: https://tex.stackexchange.com/a/727022/6880
+
+\documentclass{article}
+
+\usepackage{tcolorbox}
+\tcbuselibrary{skins}
+
+\usepackage{keytheorems}
+
+\tcbset{
+  thmstyle/.style={
+    enhanced,
+    fontupper = \color{#1!45!black},
+    colback   = #1!5,
+    colframe  = #1!75!black!25,
+    shadow   = {.75mm}{-.75mm}{0mm}{black!30},
+ }
+}
+
+\newkeytheoremstyle{tcb-standard}{
+  % headpunct     = {},
+  % notebraces    = {}{},
+  % noteseparator = {: },
+  notefont      = \bfseries,
+%  bodyfont      = \normalfont,
+}
+
+\newcommand{\projetnewstyle}[1]{%
+  \newkeytheoremstyle{tcb-standard-#1}{
+  	inherit-style         = tcb-standard,
+	tcolorbox-no-titlebar = {thmstyle=#1}
+  }
+}
+
+\projetnewstyle{red}
+\projetnewstyle{orange}
+\projetnewstyle{blue}
+\projetnewstyle{green}
+
+\newkeytheorem{caution}[
+  name  = Caution,
+  style = tcb-standard-orange
+]
+
+\newkeytheorem{warning}[
+  style = tcb-standard-red
+]
+
+
+\begin{document}
+
+\begin{caution}
+  Bla, blo, bli, bla, blo, bli, bla, blo, bli, bla, blo, bli, bla, blo, bli, bla...
+\end{caution}
+
+\begin{warning}
+  Bla, blo, bli, bla, blo, bli, bla, blo, bli, bla, blo, bli, bla, blo, bli, bla...
+\end{warning}
+
+\end{document}

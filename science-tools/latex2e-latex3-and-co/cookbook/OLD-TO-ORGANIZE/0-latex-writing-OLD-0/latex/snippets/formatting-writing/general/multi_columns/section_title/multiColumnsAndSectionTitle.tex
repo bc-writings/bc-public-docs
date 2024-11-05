@@ -1,0 +1,26 @@
+% Source : http://tex.stackexchange.com/questions/36687/a-screenplay-with-two-columns-only-in-some-pages-and-in-one-page-there-can-be-a
+
+\documentclass{article}
+	\usepackage{multicol}
+
+	\usepackage{lipsum}
+
+
+\begin{document}
+
+\section{foo}
+
+\lipsum[1]
+
+\begin{multicols}{2}[%
+	\section{A long section title spanning both columns}%
+]
+	\lipsum[1]
+\end{multicols}
+
+
+\section{bar}
+
+\lipsum[1]
+
+\end{document}

@@ -1,0 +1,25 @@
+% Source : http://tex.stackexchange.com/questions/15237/highlight-text-in-code-listing-while-also-keeping-syntax-highlighting
+
+\documentclass{article}
+	\usepackage{listings}
+	\usepackage{xcolor}
+
+
+\begin{document}
+
+\lstset{escapechar=\⠶}  % On peut utiliser n'importe quel carcatère UTF-8 sans souci, ce qui est très utile.
+\lstset{language=Python}
+\begin{lstlisting}
+for i in range(5):
+    ⠶\textcolor{red}{print}⠶(i)
+print('Fin de la boucle...')
+\end{lstlisting}
+
+\lstset{escapechar={}} % On n'a plus de caractère d'échappement.
+\begin{lstlisting}
+for i in range(5):
+    ⠶\textcolor{red}{print}⠶(i)
+print('Fin de la boucle...')
+\end{lstlisting}
+
+\end{document}

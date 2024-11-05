@@ -1,0 +1,25 @@
+% Source : http://www.developpez.net/forums/d951227/autres-langages/autres-langages/latex/liseret-marge/#post5347010
+
+\documentclass{article}
+	\usepackage{graphicx}
+	\usepackage{eso-pic}
+	\usepackage{xcolor}
+
+	\usepackage{lipsum}
+
+	\AddToShipoutPicture{%
+		\AtPageLowerLeft{%
+			\rotatebox{90}{\colorbox{blue!20}{%
+				\begin{minipage}{\paperheight}\sffamily 
+					\vspace{0.5cm} \hspace*{\stretch{1}}\textcopyright~2009 Bla bla Corporation. Toute reproduction est strictement interdite.\hspace*{\stretch{1}}
+				\end{minipage}%
+				}}%
+		}%
+	}
+
+
+\begin{document}
+
+\lipsum[1-20]
+
+\end{document}

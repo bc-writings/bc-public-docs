@@ -1,0 +1,28 @@
+% Source : http://tex.stackexchange.com/questions/99814/line-breaks-in-listings-with-long-lines
+
+\documentclass[a5paper]{article}
+	\usepackage[T1]{fontenc}
+	\usepackage[utf8]{inputenc}
+	\usepackage{listings,xcolor}
+
+	\lstset{
+		keywords = demo,
+		keywordstyle = \color{red},
+		breaklines
+	}
+
+
+\begin{document}
+
+\begin{lstlisting}
+    demo
+    demodemodemodemodemodemodemodemodemodemodemodemodemodemodemodemodemodemodemodemodemodemodemo
+\end{lstlisting}
+
+
+\begin{lstlisting}[alsoother=o]
+    demo
+    demodemodemodemodemodemodemodemodemodemodemodemodemodemodemodemodemodemodemodemodemodemodemo
+\end{lstlisting}
+
+\end{document}

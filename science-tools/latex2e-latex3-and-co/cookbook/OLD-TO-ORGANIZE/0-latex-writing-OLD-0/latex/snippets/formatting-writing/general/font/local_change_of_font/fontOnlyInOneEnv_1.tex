@@ -1,0 +1,31 @@
+% Sources
+%    http://forum.mathematex.net/latex-f6/utilisation-d-une-police-bien-precise-t13210.html#p127146
+%    http://forum.mathematex.net/latex-f6/utilisation-d-une-police-bien-precise-t13210.html#p127178
+
+\documentclass{article}
+	\usepackage[latin1]{inputenc}
+	\usepackage[T1]{fontenc}
+	\usepackage[frenchb]{babel}
+	
+	\makeatletter
+		\newcommand\@cclxvipt{26.23}
+		\newcommand\VHuge{\fontsize{26.23}{300}\selectfont}
+	\makeatother
+	\newenvironment{aaaaaaa}{ %
+%		\fontsize{26.23}{300}\fontfamily{lmss}\fontseries{bx}\VHuge\selectfont %
+		\fontsize{26.23}{300}\fontfamily{lmss}\fontseries{bx}\selectfont %
+	}{}
+
+
+\begin{document}
+
+Some text with math $\frac{2}{x+4}$ in the standard font.
+
+\begin{aaaaaaa}
+	Some text with math $\frac{2}{x+4}$ in the standard font.
+\end{aaaaaaa}
+
+Some text with math $\frac{2}{x+4}$ in the standard font.
+
+\end{document}
+

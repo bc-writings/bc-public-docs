@@ -1,0 +1,141 @@
+\documentclass[10pt,a4paper]{article}
+	\usepackage[utf8x]{inputenc}
+	\usepackage{ucs}
+	\usepackage[T1]{fontenc}
+	\usepackage{lmodern}
+
+	\usepackage{amsfonts}
+	\usepackage{amssymb}
+
+	\usepackage[frenchb]{babel}
+
+	\usepackage[x11names, svgnames]{xcolor}
+	\usepackage{tikz}
+
+	\usepackage{listings}
+	\usepackage{spverbatim}
+
+	\lstset{
+%
+% Hack for utf-8 like possibilities
+		extendedchars = true,
+		literate =
+%	* A
+		{à}{{\`a}}1 {â}{{\^a}}1
+		{À}{{\`A}}1 {Â}{{\^A}}1
+%	* C
+		{ç}{{\c{c}}}1
+		{Ç}{{\c{C}}}1
+%	* E
+		{é}{{\'e}}1 {è}{{\`e}}1 {ê}{{\^e}}1 {ë}{{\"e}}1
+		{É}{{\'E}}1 {È}{{\`E}}1 {Ê}{{\^E}}1 {Ë}{{\"E}}1
+%	* I
+		{î}{{\^i}}1 {ï}{{\"i}}1
+		{Î}{{\^I}}1 {Ï}{{\"I}}1
+%	* O
+		{ô}{{\^o}}1
+		{Ô}{{\^O}}1
+%	* OE
+		{œ}{{\oe}}1
+		{Œ}{{\OE}}1
+%	* U
+		{ù}{{\`u}}1 {û}{{\^u}}1 {ü}{{\"u}}1
+		{Ù}{{\`U}}1 {Û}{{\^U}}1 {Ü}{{\"U}}1
+%	* Special characters
+		{°}{{\textdegree}}1
+		{±}{{\textpm}}1,
+%
+% Escaping character used to allow LaTeX formatting inside one listing.
+		escapechar=\⣿,
+% You can use a start and an end espcaping character.
+%	escapeinside={*!}{!*},
+%
+% Default style for listings
+%
+%    * Number for lines
+		numbers=left, 				% Where to put the line-numbers
+		numberstyle=\footnotesize, 	% Size of the fonts used for the line-numbers
+		stepnumber=1, 				% Step between two numbers
+		numbersep=5pt, 				% How far the line-numbers are from the code
+%
+%    * Back returns for long lines
+		breaklines=true, 			% Sets automatic line breaking
+		breakatwhitespace=false, 	% Automatic breaks only happen at whitespace ?
+		breakindent=0pt,			% Space before the text of a break
+		postbreak=\mbox{			% Character used at the begining of a break
+			\rotatebox[y=0.9ex]{180}{\color{Red} $\Lsh$}%
+		},
+% You can use a character at the end of line where there is one break.
+%	prebreak=\mbox{\tiny$\searrow$},
+%
+%    * Spacings and tabs
+		showspaces=true, 			% Spaces are displayed by a kind of underscore
+		showstringspaces=false,		% Underline spaces within strings
+		showtabs=true,				% Tabs are displayed by a kind of underscore
+		tabsize=4, 					% Default tabsize to 4 spaces
+%
+%	* Text formatting
+		basicstyle=\ttfamily, 		% Size of the font used
+		backgroundcolor=\color{Bisque},% The background color using the package ''color''
+%
+%	* Frames and lines
+		frame=single, 				% Frame around the code ?
+		frame=shadowbox,			% Style of frame
+%
+%	* Title and caption
+		captionpos=b,				% Position of the caption
+		title=\lstname,				% Show the filename of files included with ''\lstinputlisting''
+	}
+
+	\makeatletter
+		\newcommand\breakabletexttt[1]{\texttt{\breakable@texttt#1\@nil}}
+		\def\@gobble@fi#1\fi{\fi#1}
+		\def\breakable@texttt#1#2\@nil{%
+			#1\hspace{0pt plus 0.1pt minus 0.1pt}%
+			\ifx\relax#2\relax
+			%
+			\else
+			\@gobble@fi\breakable@texttt#2\@nil
+			\fi
+		}
+	\makeatother
+
+	\newcommand{\listingSpace}{\hspace{0em}\lstinline{ }\hspace{0em}}
+
+
+\begin{document}
+
+\section{Un bloc de code}
+
+\begin{lstlisting}[]
+⣿\color{Green}{\# Programme calculant $ \sum_{i=1}^{5} i^3 $}⣿
+⣿\color{Blue}{for}⣿ i in ⣿\color{Blue}{range}⣿ (5): ⣿\color{Blue}{for}⣿ i in ⣿\color{Blue}{range}⣿(5): ⣿\color{Blue}{for}⣿ i in ⣿\color{Blue}{range}⣿(5): ⣿\color{Blue}{for}⣿ i in ⣿\color{Blue}{range}⣿(5): ⣿\color{Blue}{for}⣿ i in ⣿\color{Blue}{range}⣿(5): ⣿\color{Blue}{for}⣿ i in ⣿\color{Blue}{range}⣿(5): ⣿\color{Blue}{for}⣿ i in ⣿\color{Blue}{range}⣿(5): ⣿\color{Blue}{for}⣿ i in ⣿\color{Blue}{range}⣿(5): ⣿\color{Blue}{for}⣿ i in ⣿\color{Blue}{range}⣿(5): ⣿\color{Blue}{for}⣿ i in ⣿\color{Blue}{range}⣿(5):
+    sum += i**3
+	sum += i**3
+⣿\color{Blue}{print}⣿ sum
+
+⣿\color{Blue}{print}⣿(⣿\color{Red}{'Fin de la boucle...'}⣿)
+\end{lstlisting}
+
+
+\section{Du code en ligne}
+
+??? \lstinline{ } \lstinline{	}
+
+
+Du listing dans une ligne : \texttt{\color{Blue}for} \texttt{i} \texttt{in} \texttt{\color{Blue}range}\texttt{(5):} \texttt{\color{Blue}for} \texttt{i} \texttt{in} \texttt{\color{Blue}range}\texttt{(5):} \texttt{\color{Blue}for} \texttt{i} \texttt{in} \texttt{\color{Blue}range}\texttt{(5):} .
+
+
+\section{Voir les espaces et les tabulations}
+
+Du listing dans une ligne avec des espaces visibles :
+{\color{Blue}\breakabletexttt{for}}\listingSpace{}\breakabletexttt{i}\hspace{0em}\textvisiblespace\hspace{0em}\breakabletexttt{in}\hspace{0em}\textvisiblespace\hspace{0em}{\color{Blue}\breakabletexttt{range}}\breakabletexttt{(5):}\hspace{0em}\textvisiblespace\hspace{0em}{\color{Blue}\breakabletexttt{for}}\hspace{0em}\textvisiblespace\hspace{0em}\breakabletexttt{i}\hspace{0em}\textvisiblespace\hspace{0em}\breakabletexttt{in}\hspace{0em}\textvisiblespace\hspace{0em}{\color{Blue}\breakabletexttt{range}}\breakabletexttt{(5):}\hspace{0em}\textvisiblespace\hspace{0em}{\color{Blue}\breakabletexttt{for}}\hspace{0em}\textvisiblespace\hspace{0em}\breakabletexttt{i}\hspace{0em}\textvisiblespace\hspace{0em}\breakabletexttt{in}\hspace{0em}\textvisiblespace\hspace{0em}{\color{Blue}\breakabletexttt{range}}\breakabletexttt{(5):}\hspace{0em}\textvisiblespace\hspace{0em}{\color{Blue}\breakabletexttt{for}}\hspace{0em}\textvisiblespace\hspace{0em}\breakabletexttt{i}\hspace{0em}\textvisiblespace\hspace{0em}\breakabletexttt{in}\hspace{0em}\textvisiblespace\hspace{0em}{\color{Blue}\breakabletexttt{range}}\breakabletexttt{(5):}\hspace{0em}\textvisiblespace\hspace{0em}{\color{Blue}\breakabletexttt{for}}\hspace{0em}\textvisiblespace\hspace{0em}\breakabletexttt{i}\hspace{0em}\textvisiblespace\hspace{0em}\breakabletexttt{in}\hspace{0em}\textvisiblespace\hspace{0em}{\color{Blue}\breakabletexttt{range}}\breakabletexttt{(5):}\hspace{0em}\textvisiblespace\hspace{0em}{\color{Blue}\breakabletexttt{for}}\hspace{0em}\textvisiblespace\hspace{0em}\breakabletexttt{i}\hspace{0em}\textvisiblespace\hspace{0em}\breakabletexttt{in}\hspace{0em}\textvisiblespace\hspace{0em}{\color{Blue}\breakabletexttt{range}}\breakabletexttt{(5):}\hspace{0em}\textvisiblespace\hspace{0em}
+
+
+
+Du listing dans une ligne avec des tabulations visibles : 
+
+
+Comment éviter les problèmes de débordement : {\color{Blue}\breakabletexttt{forforforforforforforforforforforforforforforforforforforforforforforforforforforforforforforforforforforforforforforforforforforforforforforforforforforforforforforforforforforforforforforforforforforforforforforforforforforforforforforfor}}. C'est ok !
+
+\end{document}

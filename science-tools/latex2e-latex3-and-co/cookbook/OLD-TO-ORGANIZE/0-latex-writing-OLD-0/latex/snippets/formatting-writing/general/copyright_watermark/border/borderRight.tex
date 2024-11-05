@@ -1,0 +1,34 @@
+% Source : http://forum.mathematex.net/latex-f6/liseret-cote-droit-t11233.html#p109330
+
+\documentclass[a4paper]{article}
+	\usepackage{graphicx}
+	\usepackage{eso-pic}
+	\usepackage{xcolor}
+
+	\usepackage{lipsum}
+
+	\makeatletter
+		\newcommand\At@Page@Upper@Right[1]{%
+			\put(\LenToUnit{\paperwidth},\LenToUnit{\paperheight}){#1}%
+		}
+		\newcommand\AtPageLowerRight[1]{\At@Page@Upper@Right{%
+			\put(0,\LenToUnit{-\paperheight}){\llap{#1}}}%
+		}
+	\makeatother
+
+	\AddToShipoutPicture{%
+		\AtPageLowerRight{%
+			\rotatebox{90}{\colorbox{orange}{%blue!20}{%
+				\begin{minipage}{\paperheight}\sffamily
+					\hspace*{\stretch{1}}\textcolor{white}{Second Year Internship}\hspace*{\stretch{1}}
+				\end{minipage}%
+			}}%
+		}%
+	}
+
+
+\begin{document}
+
+\lipsum[1-20]
+
+\end{document}

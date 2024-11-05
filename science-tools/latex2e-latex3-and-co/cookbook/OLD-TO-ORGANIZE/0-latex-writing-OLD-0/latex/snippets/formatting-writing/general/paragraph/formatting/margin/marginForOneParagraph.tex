@@ -1,0 +1,26 @@
+% Source : http://tex.stackexchange.com/questions/35933/indenting-a-whole-paragraph
+
+\documentclass{report}
+	\usepackage{lipsum}
+	\usepackage{changepage}
+
+
+\begin{document}
+
+\lipsum[1]
+
+\begin{adjustwidth}{2cm}{2cm}
+	\lipsum[1]
+\end{adjustwidth}
+
+\begin{adjustwidth}{2cm}{}
+	\lipsum[1]
+\end{adjustwidth}
+
+\begin{adjustwidth}{}{2cm}
+	\lipsum[1]
+\end{adjustwidth}
+
+\lipsum[1]
+
+\end{document}

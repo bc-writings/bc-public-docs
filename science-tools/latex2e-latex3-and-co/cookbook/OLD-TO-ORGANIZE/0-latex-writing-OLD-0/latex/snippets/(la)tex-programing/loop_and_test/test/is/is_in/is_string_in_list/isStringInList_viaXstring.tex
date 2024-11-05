@@ -1,0 +1,17 @@
+% Source : Christian Tellechea, the author of the package xstring.
+
+\documentclass{article}
+	\usepackage{xstring}
+
+	\newcommand\strInList[2]{\IfSubStr{,#2,}{,#1,}}
+
+
+\begin{document}
+
+\verb+\strInList{ab}{abcd,ab,eee}+ : \strInList{ab}{abcd,ab,eee}{Oui}{Non}
+
+\verb+\strInList{ab}{abcd,c,eee}+ : \strInList{ab}{abcd,c,eee}{Oui}{Non}
+
+\verb+\strInList{xxy}{abcd,c,eee,xxy}+ : \strInList{xxy}{abcd,c,eee,xxy}{Oui}{Non}
+
+\end{document}

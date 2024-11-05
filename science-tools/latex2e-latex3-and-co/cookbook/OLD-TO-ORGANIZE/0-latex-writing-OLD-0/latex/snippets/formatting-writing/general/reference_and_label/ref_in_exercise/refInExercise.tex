@@ -1,0 +1,161 @@
+\documentclass[a4paper,10pt]{article}
+	\usepackage[latin1]{inputenc}
+	\usepackage[T1]{fontenc}
+	\usepackage{lmodern}
+	\usepackage[frenchb]{babel}
+	\usepackage{amsmath,mathrsfs,amssymb}
+	\everymath{\displaystyle}
+	\usepackage{lipsum,graphicx,xcolor}
+	\usepackage{enumitem}
+	\usepackage{ntheorem}
+	\theorembodyfont{\upshape}
+	%\usepackage[xcas]{tablor}
+	\usepackage{geometry,url}
+	\geometry{textwidth=130mm,textheight=230mm,top=3cm}
+
+	\parindent=0pt
+	\AtBeginDocument{
+		\abovedisplayshortskip=3pt
+		\abovedisplayskip=3pt
+		\belowdisplayshortskip=3pt
+		\belowdisplayskip=3pt
+	}
+
+	\newcounter{exo}
+	\newtheorem{tempexo}[exo]{Exercice}
+	\newenvironment{exo}[1][]{\begin{tempexo}\leavevmode\par\nobreak
+	\noindent\ignorespaces#1\par\nobreak\medskip}{\vspace{2mm} \hrule \vspace{2mm}\end{tempexo}}
+
+	\newsavebox{\boiteretournee}
+
+	\newenvironment{retourne}
+		{%
+			\par\textcolor{white}{Bla bla}\par\vspace{-\baselineskip}\nobreak
+			\begin{lrbox}{\boiteretournee}%
+				\begin{minipage}{0.95\textwidth}%
+					\small\color{blue}%
+		}{%
+				\end{minipage}
+			\end{lrbox}%
+			\rotatebox{180}{%
+				\usebox{\boiteretournee}%
+			}%
+		}
+
+	\newenvironment{rappels}[1][green]%[green]%
+		{\begin{flushright}\small\slshape\color{#1}}%
+		{\end{flushright}}
+
+	\def\siecle#1{\textsc{\romannumeral #1}\textsuperscript{e}~si\`ecle}
+
+	% pour avoir des majuscules droites automatiquement
+
+	\DeclareMathSymbol{A}{\mathalpha}{operators}{`A}
+	\DeclareMathSymbol{B}{\mathalpha}{operators}{`B}
+	\DeclareMathSymbol{C}{\mathalpha}{operators}{`C}
+	\DeclareMathSymbol{D}{\mathalpha}{operators}{`D}
+	\DeclareMathSymbol{E}{\mathalpha}{operators}{`E}
+	\DeclareMathSymbol{F}{\mathalpha}{operators}{`F}
+	\DeclareMathSymbol{G}{\mathalpha}{operators}{`G}
+	\DeclareMathSymbol{H}{\mathalpha}{operators}{`H}
+	\DeclareMathSymbol{I}{\mathalpha}{operators}{`I}
+	\DeclareMathSymbol{J}{\mathalpha}{operators}{`J}
+	\DeclareMathSymbol{K}{\mathalpha}{operators}{`K}
+	\DeclareMathSymbol{L}{\mathalpha}{operators}{`L}
+	\DeclareMathSymbol{M}{\mathalpha}{operators}{`M}
+	\DeclareMathSymbol{N}{\mathalpha}{operators}{`N}
+	\DeclareMathSymbol{O}{\mathalpha}{operators}{`O}
+	\DeclareMathSymbol{P}{\mathalpha}{operators}{`P}
+	\DeclareMathSymbol{Q}{\mathalpha}{operators}{`Q}
+	\DeclareMathSymbol{R}{\mathalpha}{operators}{`R}
+	\DeclareMathSymbol{S}{\mathalpha}{operators}{`S}
+	\DeclareMathSymbol{T}{\mathalpha}{operators}{`T}
+	\DeclareMathSymbol{U}{\mathalpha}{operators}{`U}
+	\DeclareMathSymbol{V}{\mathalpha}{operators}{`V}
+	\DeclareMathSymbol{W}{\mathalpha}{operators}{`W}
+	\DeclareMathSymbol{X}{\mathalpha}{operators}{`X}
+	\DeclareMathSymbol{Y}{\mathalpha}{operators}{`Y}
+	\DeclareMathSymbol{Z}{\mathalpha}{operators}{`Z}
+
+	\newcommand{\et}{\llap{et \quad\,\,}}
+
+	\renewcommand{\textbf}[1]{\begingroup\bfseries\mathversion{bold}#1\endgroup}
+
+	\newcounter{parties}
+	\newenvironment{parties}{\begin{list}
+		{\hspace{\labelsep}\bfseries Partie \Alph{parties} --}
+		{%
+			\leftmargin=0pt
+			\labelwidth=0cm
+			\usecounter{parties}
+			\def\makelabel##1{##1}}}{\end{list}%
+		}
+
+	\newcounter{questions}
+	\renewcommand{\thequestions}{\textbf{\arabic{questions})}}
+	\newenvironment{questions}{\begin{list}
+		{\hspace{\labelsep}\bfseries\arabic{questions})}
+		{%
+			\leftmargin=0pt
+			\labelwidth=0cm
+			\usecounter{questions}
+			\def\makelabel##1{##1}}}{\end{list}%
+		}
+
+	\newcounter{sousquestions}
+	\renewcommand{\thesousquestions}{\textbf{\alph{sousquestions})}}
+	\newenvironment{sousquestions}{\begin{list}
+	  {\hspace{\labelsep}\bfseries\alph{sousquestions})}
+	  {\leftmargin=0pt
+	   \labelwidth=0cm
+	   \usecounter{sousquestions}
+	   \def\makelabel##1{##1}}}{\end{list}}
+
+
+	\newcommand{\intervalle}[2]{\mathopen{[}#1\,;#2\mathclose{]}}
+	\newcommand{\intervallefo}[2]{\mathopen{[}#1\,;#2\mathclose{[}}
+	\newcommand{\intervalleof}[2]{\mathopen{\left]}#1\,;#2\mathclose{\left]}}
+	\newcommand{\intervalleoo}[2]{\mathopen{]}#1\,;#2\mathclose{[}}
+	\def\R{{\ensuremath{\mathbb R}}\xspace} % les r\'eels
+	\def\Q{{\ensuremath{\mathbb Q}}\xspace}  % les rationnels
+	\def\Z{{\ensuremath{\mathbb Z}}\xspace}  % les entiers relatifs
+	\def\D{{\ensuremath{\mathbb D}}\xspace}  % les d\'ecimaux
+	\def\N{{\ensuremath{\mathbb N}}\xspace}  % les entiers naturels
+	\def\C{{\ensuremath{\mathbb C}}\xspace}  % les complexes
+	\newcommand{\V}{\ensuremath{ \overrightarrow}}
+	\pagestyle{empty}
+	\begin{document}
+	%\initablor
+	\newcount\hh
+	\newcount\mm
+	\mm=\time
+	\hh=\time
+	\divide\hh by 60
+	\divide\mm by 60
+	\multiply\mm by 60
+	\mm=-\mm
+	\advance\mm by \time
+	\def\hhmm{\number\hh\string:\ifnum\mm<10{}0\fi\number\mm}
+	\noindent \today\, \`a \hhmm
+	\setlength{\arrayrulewidth}{0.5pt}
+
+	\begin{exo}[EB-Suite-Arithm\'etico-G\'eom\'etrique-Fonction-R\'ecurrence-Limite.tex Chapitre 5 : Suites.]
+	Soit $(u_n)$ la suite d\'efinie par :\[u_0=1 \textrm{ et pour tout entier naturel } n \textrm{, } u_{n+1}=\dfrac{u_n+8}{2u_n+1}\cdot\] On appelle $f$ la fonction d\'efinie sur $\intervalleoo{-\dfrac{1}{2}}{+\infty}$ par :\[f(x)=\dfrac{x+8}{2x+1}\cdot\]
+	\begin{questions}
+	\item Etudier les variations de $f(x)$ sur $\intervalleoo{-\dfrac{1}{2}}{+\infty}$.
+	\item \label{etude}
+	\begin{sousquestions}
+	\item Tracer, dans un rep\`ere orthonorm\'e, la courbe $\mathscr{C}_f$ repr\'esentant la fonction $f$ et la droite $\Delta$ d'\'equation $y=x$.
+	\item Sur l'axe des abscisses, placer $u_0$, puis construire les termes $u_1$, $u_2$ et $u_3$ en utilisant la courbe $\mathscr{C}_f$ et la droite $\Delta$.
+	\item \label{conjectures} Que peut-on conjecturer sur le sens de variation de la suite $(u_n)$ et sur sa limite?
+	\end{sousquestions}
+	\item soit $(v_n)$ la suite d\'efinie par :\[\textrm{pour tout entier naturel } n \textrm{, }v_n=\dfrac{u_n-2}{u_n+2}\cdot\]
+	\begin{sousquestions}
+	\item D\'emontrer que $(v_n)$ est une suite g\'eom\'etrique. Calculer le premier terme $v_0$ et la raison $r$.
+	\item En d\'eduire l'expression de $v_n$ puis celle de $u_n$ en fonction de $n$.
+	\end{sousquestions}
+	\item D\'emontrer les conjectures \'emises en \ref{etude} \ref{conjectures}.
+	\end{questions}
+	\end{exo}
+
+\end{document}

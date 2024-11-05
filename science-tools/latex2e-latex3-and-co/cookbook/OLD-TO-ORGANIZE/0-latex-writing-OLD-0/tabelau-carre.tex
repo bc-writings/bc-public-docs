@@ -1,0 +1,40 @@
+% Source: https://tex.stackexchange.com/a/533485/6880
+
+\documentclass{article}
+\usepackage[margin=0.5cm]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{matrix}
+\begin{document}
+
+{
+\fontsize{22}{22} \selectfont
+\begin{tikzpicture}
+  \matrix(table)[
+  matrix of nodes,
+  row sep =-\pgflinewidth,
+  column sep = -\pgflinewidth,
+  nodes={anchor=center,
+         minimum width=1.25cm, 
+         minimum height=1.25cm, 
+         },
+  ] 
+  {X & H & C & M & O & N & O & Y & J & F & O & C & D & L & D \\
+T & Z & L & O & B & O & T & O & Q & L & O & T & H & Y & F \\
+O & M & W & M & C & L & F & V & S & R & V & L & R & G & I \\
+V & Y & C & Y & P & O & D & Y & R & D & X & M & I & E & Z \\
+E & K & O & D & V & J & D & E & C & A & B & R & A & E & O \\
+J & B & N & X & L & V & P & R & I & L & V & A & C & A & A \\
+A & A & E & V & V & G & J & C & I & R & A & Q & U & Y & D \\
+W & L & J & S & P & B & B & G & L & L & Y & B & A & N & I \\
+G & L & O & F & C & P & Z & V & S & K & O & G & E & L & F \\
+A & E & C & L & E & A & T & O & V & P & U & D & J & J & K \\
+T & N & H & M & R & T & B & R & R & T & I & C & Z & A & A \\
+O & A & G & V & A & F & W & A & R & R & O & F & R & P & B \\
+R & I & J & S & N & B & F & O & L & E & O & Z & G & E & J \\
+T & Q & R & W & A & U & T & E & O & L & N & I & D & R & W \\
+G & B & J & L & E & Y & C & G & E & C & O & P & M & X & J \\
+  };
+  \draw [black] (table-1-1.north west) -- (table-1-15.north east) -- (table-15-15.south east) -- (table-15-1.south west) -- cycle ;
+\end{tikzpicture}
+}
+\end{document}

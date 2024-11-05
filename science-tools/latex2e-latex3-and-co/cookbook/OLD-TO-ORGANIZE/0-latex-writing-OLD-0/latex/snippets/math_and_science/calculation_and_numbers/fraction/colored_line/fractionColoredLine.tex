@@ -1,0 +1,22 @@
+% Source: http://forum.mathematex.net/latex-f6/coloration-barre-de-fraction-t13144.html#p126684
+
+\documentclass{article}
+	\usepackage[latin1]{inputenc}
+	\usepackage[frenchb]{babel}
+	\usepackage{amsmath,xcolor}
+
+	\makeatletter
+		\newcommand{\Cfrac}[2]{{%
+			\begingroup%
+				#1%
+			\endgroup%
+			\color{red} \@@over \color{black} #2%
+		}}
+	\makeatother
+
+
+\begin{document}
+
+$\Cfrac{3}{x+2} \neq \frac{3}{x+2}$
+
+\end{document}

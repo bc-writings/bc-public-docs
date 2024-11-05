@@ -1,0 +1,33 @@
+% Source : http://tex.stackexchange.com/questions/31943/counting-letters-inside-paragraph
+
+\documentclass[10pt,a4paper]{article}
+	\usepackage[utf8x]{inputenc}
+	\usepackage{ucs}
+	\usepackage{amsmath}
+	\usepackage{amsfonts}
+	\usepackage{amssymb}
+
+	\newcounter{subpart}[section]
+	\renewcommand{\thesubpart}{\alph{subpart}}
+	\newcommand{\subpart}{\stepcounter{subpart}\paragraph*{\thesubpart}}
+
+
+\begin{document}
+
+ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum
+ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum
+ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum
+ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum
+ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum
+ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum
+
+\subpart Some text, questions : ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum,
+ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum
+ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum
+ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum
+ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum
+ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum, ipsulum
+
+\subpart some text questions
+
+\end{document}

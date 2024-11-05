@@ -1,0 +1,81 @@
+% Source : http://forum.mathematex.net/latex-f6/alignement-des-accolades-t12502.html#p121217
+
+\documentclass[a4paper,10pt,svgnames,landscape]{report}
+	\usepackage[height=170mm,width=270mm]{geometry}
+	\usepackage[utf8]{inputenc}
+	\usepackage[T1]{fontenc}
+	\usepackage[upright]{fourier}
+	\usepackage{amsmath}
+	\usepackage{enumerate}
+	\usepackage[overload]{empheq}
+
+	\newcommand{\intfo}[2]{$\left[#1\,;#2\right[$}
+
+
+\begin{document}
+
+Soit $x$ le nombre de roses et $y$ le nombre d'hortensias.
+La mise en équations de ce problème nous amène au système suivant :
+
+\begin{align*}[left={\empheqlbrace\,}]
+	& x+y+3 = 13, \\
+	& 0,7x+1,4y+3\times1,80 =14,50
+\end{align*}\\
+{Ce système équivaut successivement à :}
+\begin{alignat*}{3}
+	\left\{
+		\begin{aligned}
+			& x+y = 10, \\
+			& 0,7x+1,4y = 9,1
+		\end{aligned}
+	\right.
+	& \quad\iff\quad
+	& \left\{
+		\begin{aligned}
+			& x+y = 10, \\
+			& x+2y = 13
+		\end{aligned}
+	\right.
+	& \quad\iff\quad
+	& \left\{
+		\begin{aligned}
+			& y =3\\ & x = 7
+		\end{aligned}
+	\right.
+\end{alignat*}
+
+La composition du bouquet de Roméo est de 7 roses, 3 hortensias et 3 tournesols.\\
+
+Pour avoir tout aligné :\\
+
+\begin{align*}
+	& \left\{
+		\begin{aligned}
+			& x+y+3 = 13, \\
+			& 0,7x+1,4y+3\times1,80 =14,50
+		\end{aligned}
+	\right.
+	\\
+	\shortintertext{Ce système équivaut successivement à :}
+	& \left\{
+		\begin{aligned}
+			& x+y = 10, \\
+			& 0,7x+1,4y = 9,1
+		\end{aligned}
+	\right.
+	\\[3pt]
+	& \left\{
+		\begin{aligned}
+			& x+y = 10, \\
+			& x+2y = 13
+		\end{aligned}
+	\right.
+	\\[3pt]
+	& \left\{
+		\begin{aligned}
+			& y =3\\ & x = 7
+		\end{aligned}
+	\right.
+\end{align*}
+
+\end{document}

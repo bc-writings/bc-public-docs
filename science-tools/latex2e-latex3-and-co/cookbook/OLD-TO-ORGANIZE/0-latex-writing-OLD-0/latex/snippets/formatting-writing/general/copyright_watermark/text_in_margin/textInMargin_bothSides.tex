@@ -1,0 +1,105 @@
+% Source : http://forum.mathematex.net/latex-f6/texte-en-filigrane-vertical-dans-la-marge-t8536.html#p84469
+
+\documentclass{article}
+	\usepackage{lipsum}
+	\usepackage[a4paper]{geometry}
+	\usepackage{graphicx}
+
+	\usepackage{eso-pic}
+
+	\makeatletter
+		\newlength\@tempdim@x
+		\newlength\@tempdim@y
+% structure des commandes :
+%   #1 = deplacement selon x
+%   #2 = deplacement selon y
+%   #3 = texte à mettre
+		\newcommand\AtUpperLeftCorner[3]{%
+			\begingroup
+				\@tempdim@x=0cm
+				\@tempdim@y=\paperheight
+				\advance\@tempdim@x#1
+				\advance\@tempdim@y-#2
+				\put(\LenToUnit{\@tempdim@x},\LenToUnit{\@tempdim@y}){#3}%
+			\endgroup
+		}
+		\newcommand\AtUpperRightCorner[3]{%
+			\begingroup
+				\@tempdim@x=\paperwidth
+				\@tempdim@y=\paperheight
+				\advance\@tempdim@x-#1
+				\advance\@tempdim@y-#2
+				\put(\LenToUnit{\@tempdim@x},\LenToUnit{\@tempdim@y}){#3}%
+			\endgroup
+		}
+		\newcommand\AtLowerLeftCorner[3]{%
+			\begingroup
+				\@tempdim@x=0cm
+				\@tempdim@y=0cm
+				\advance\@tempdim@x#1
+				\advance\@tempdim@y#2
+				\put(\LenToUnit{\@tempdim@x},\LenToUnit{\@tempdim@y}){#3}%
+			\endgroup
+		}
+		\newcommand\AtLowerRightCorner[3]{%
+			\begingroup
+				\@tempdim@x=\paperwidth
+				\@tempdim@y=0cm
+				\advance\@tempdim@x-#1
+				\advance\@tempdim@y#2
+				\put(\LenToUnit{\@tempdim@x},\LenToUnit{\@tempdim@y}){#3}%
+			\endgroup
+		}
+		\newcommand\AtCenterRight[3]{%
+			\begingroup
+				\@tempdim@x=\paperwidth
+				\@tempdim@y=.5\paperheight
+				\advance\@tempdim@x-#1
+				\advance\@tempdim@y#2
+				\put(\LenToUnit{\@tempdim@x},\LenToUnit{\@tempdim@y}){#3}%
+			\endgroup
+		}
+		\newcommand\AtCenterLeft[3]{%
+			\begingroup
+				\@tempdim@x=0cm
+				\@tempdim@y=.5\paperheight
+				\advance\@tempdim@x#1
+				\advance\@tempdim@y#2
+				\put(\LenToUnit{\@tempdim@x},\LenToUnit{\@tempdim@y}){#3}%
+			\endgroup
+		}
+		\newcommand\AtTopCenter[3]{%
+			\begingroup
+				\@tempdim@x=.5\paperwidth
+				\@tempdim@y=\paperheight
+				\advance\@tempdim@x#1
+				\advance\@tempdim@y-#2
+				\put(\LenToUnit{\@tempdim@x},\LenToUnit{\@tempdim@y}){#3}%
+			\endgroup
+		}
+		\newcommand\AtBottomCenter[3]{%
+			\begingroup
+				\@tempdim@x=.5\paperwidth
+				\@tempdim@y=0cm
+				\advance\@tempdim@x#1
+				\advance\@tempdim@y#2
+				\put(\LenToUnit{\@tempdim@x},\LenToUnit{\@tempdim@y}){#3}%
+			\endgroup
+		}
+% ajout de texte ou d'images en haut à gauche, en haut à droite, etc.
+		\AddToShipoutPicture{%
+			\AtCenterRight{2cm}{0cm}{\ifodd\c@page\rotatebox[origin=c]{90}{PRELIMINARY VERSION \raisebox{0.1ex}{--} DO NOT CITE WITHOUT PERMISSION}\fi}
+			\AtCenterLeft{1.75cm}{0cm}{\ifodd\c@page\else\rotatebox[origin=c]{90}{PRELIMINARY VERSION \raisebox{0.1ex}{--} DO NOT CITE WITHOUT PERMISSION}\fi}
+			\AtLowerLeftCorner{1.75cm}{0cm}{\ifodd\c@page\rotatebox{90}{\begin{minipage}{\paperheight} \centering PRELIMINARY VERSION \raisebox{0.1ex}{--} DO NOT CITE WITHOUT PERMISSION\end{minipage}}\fi}
+			\AtLowerRightCorner{2cm}{0cm}{\ifodd\c@page\else\rotatebox{90}{\begin{minipage}{\paperheight} \centering PRELIMINARY VERSION \raisebox{0.1ex}{--} DO NOT CITE WITHOUT PERMISSION\end{minipage}}\fi}
+			\AtTopCenter{0cm}{2cm}{\makebox[0pt]{TEXTE TOUT EN HAUT}}
+			\AtBottomCenter{0cm}{2cm}{\makebox[0pt]{TEXTE TOUT EN BAS}}
+		}
+	\makeatother
+
+
+\begin{document}
+
+\lipsum[1-10]
+
+\end{document}

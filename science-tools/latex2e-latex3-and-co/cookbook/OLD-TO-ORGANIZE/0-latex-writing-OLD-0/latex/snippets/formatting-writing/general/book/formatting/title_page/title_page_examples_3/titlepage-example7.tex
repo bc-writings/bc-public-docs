@@ -1,0 +1,41 @@
+\documentclass{book}
+\usepackage{color}
+\usepackage{xepersian}
+\newlength{\tpheight}\setlength{\tpheight}{0.9\textheight}
+\newlength{\txtheight}\setlength{\txtheight}{0.9\tpheight}
+\newlength{\tpwidth}\setlength{\tpwidth}{0.9\textwidth}
+\newlength{\txtwidth}\setlength{\txtwidth}{0.9\tpwidth}
+\newlength{\drop}
+\newcommand*{\plogo}{\fbox{فانوس}}
+\newcommand*{\titleAT}{\begingroup% 
+\drop=0.1\txtheight
+\vspace*{\drop}
+\rule{\txtwidth}{1pt}\par
+\vspace{2pt}\vspace{-\baselineskip}
+\rule{\txtwidth}{0.4pt}\par
+\vspace{0.5\drop}
+\centering 
+\textcolor{red}{\Huge
+عنوان کتاب
+}\\[0.5\baselineskip]
+\textcolor{red}{\Huge
+زیرعنوان کتاب
+}
+\par
+\vspace{0.25\drop}
+\rule{0.3\txtwidth}{0.4pt}\par
+\vspace{\drop}
+{\Large \sayehfamily
+نام نویسنده
+}\par
+\vfill
+{\large \textcolor{red}{\plogo}}\\[0.5\baselineskip]
+{\large\sayehfamily
+نام انتشاراتی
+}\par
+\vspace*{\drop}
+\endgroup}
+\begin{document}
+\pagestyle{empty}
+\titleAT
+\end{document}

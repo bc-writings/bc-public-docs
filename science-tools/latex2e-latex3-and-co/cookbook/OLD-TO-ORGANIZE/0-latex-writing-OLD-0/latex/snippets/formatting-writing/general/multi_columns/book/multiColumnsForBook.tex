@@ -1,0 +1,54 @@
+% Source : http://tex.stackexchange.com/questions/39713/is-it-possible-to-define-a-multicols2-preamble-switch-that-works-for-chapte
+
+\documentclass{book}
+	\usepackage{multicol}
+
+	\makeatletter
+		\def\closeopenmulticols{%
+% Test if current env is "multicols" if so close it
+			\def\@tempa{multicols}%
+			\ifx\@tempa\@currenvir
+				\end{multicols}%
+			\fi%
+		}
+	\makeatother
+
+	\let\origchapter\chapter
+
+% Parse optional args if present and save them
+	\def\mychapter#1#{\gdef\buildmychapter{\origchapter#1}\mychapteri}
+
+% Parse mandatory arg and do the work
+	\def\mychapteri#1{%
+		\closeopenmulticols
+% Start new multicols with chapter
+		\begin{multicols}{\chaptercols}[\buildmychapter{#1}]%
+	}
+
+	\newcommand\startchaptercols[1][2]{\gdef\chaptercols{#1}\global\let\chapter\mychapter}
+	\def\stopchaptercols{\gdef\chapter{\closeopenmulticols\origchapter}}
+
+% Close last open multicols
+	\AtEndDocument{ \closeopenmulticols}
+
+	\usepackage{lipsum}
+
+
+\begin{document}
+
+\startchaptercols     % Start next chapter with two columns
+\tableofcontents
+\startchaptercols[3]  % Start next chapter with three columns
+
+\chapter{First}
+\section{foo} \lipsum[1-2]
+\startchaptercols     % Start next chapter with two columns (no immediate change)
+\section{foo} \lipsum[1-2]
+
+\chapter[Running second]{Second}
+\lipsum[1-2] \section{foo} \lipsum[1-2]
+\stopchaptercols      % Stop at next chapter (if any)
+\section{foo} \lipsum[1-2]
+\chapter*{Third}
+ \lipsum[1-2]
+\end{document}

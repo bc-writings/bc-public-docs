@@ -1,0 +1,134 @@
+% Source : http://tex.stackexchange.com/questions/46354/environment-for-step-by-step-modification-of-graphics/46429#46429
+
+\documentclass{article}
+	\usepackage[demo]{graphicx}% Add [demo] option if don't have figures
+	\usepackage{adjustbox}
+	\usepackage{etoolbox}
+
+	\usepackage{tikz}
+	\usetikzlibrary{calc}
+
+	\newcommand*{\WidthOfArrow}{1.5cm}%  Horizontal Arrow size (minimum)
+	\newcommand*{\HeightOfArrow}{1.5cm}% Vertical Arrow size
+	\newcommand*{\ArrowImageSep}{1.5pt}% Space between arrow and image
+	\newcommand*{\VerticalArrowAdjust}{8.5pt}% Kludge
+
+%------------------ Should not need to adjust below this
+	\newlength{\VerticalSep}%
+	\pgfmathsetlength{\VerticalSep}{\HeightOfArrow + 2*\ArrowImageSep}%
+	\newtoggle{FirstRow}% No vertical arrow in this case
+
+% We need to have the sizes of up to four pictures
+	\newlength{\HeightA}%
+	\newlength{\HeightB}%
+	\newlength{\HeightC}%
+	\newlength{\HeightD}%
+	\newlength{\WidthA}%
+	\newlength{\WidthB}%
+	\newlength{\WidthC}%
+	\newlength{\WidthD}%
+	\newcommand{\tikzmark}[1]{\tikz[overlay,remember picture] \node (#1) {};}
+
+% http://tex.stackexchange.com/questions/46418/measure-and-retain-lengths-between-tabular-rows
+	\makeatletter
+		\newcommand*{\MeasureAndPlaceFigure}[3]{%#=1Fig, #2=Width, #3=Length
+			\setbox\z@\hbox{#1}%
+			\global\csname#2\endcsname\wd\z@%
+			\global\csname#3\endcsname\ht\z@%
+			\adjustbox{width=!,height=!,valign=m}{\box\z@}%
+		}%
+
+		\newcommand*{\@stepAB}[2]{%  A --> B
+			\MeasureAndPlaceFigure{#1}{WidthA}{HeightA}%
+			\tikzmark{rightA}&&\tikzmark{leftB}%
+			\MeasureAndPlaceFigure{#2}{WidthB}{HeightB}%
+			\\[\VerticalSep]% Skip to next line
+			%
+			\ifdim\HeightB=0pt% Need both images to have horizontal arrrow
+			\else%
+				\DrawHorizontalArrow{rightA}{leftB}%
+			\fi%
+			%
+			\iftoggle{FirstRow}{}{%  Vertical arrow only if NOT first row
+				\DrawVerticalArrow{rightC}{-\WidthC}{\HeightC}{rightA}{-\WidthA}{\HeightA}%
+			}%
+			\global\togglefalse{FirstRow}%
+			\let\step\@stepCD% Next invocation of \step will call stepCD
+		}%
+
+		\newcommand*{\@stepCD}[2]{%  C <-- D
+			\MeasureAndPlaceFigure{#1}{WidthC}{HeightC}%
+			\tikzmark{rightC}&&\tikzmark{leftD}%
+			\MeasureAndPlaceFigure{#2}{WidthD}{HeightD}%
+			\\[\VerticalSep]% Skip to next line
+			\ifdim\HeightC=0pt\relax% Need both images to have horizontal arrrow
+			\else%
+				\DrawHorizontalArrow{leftD}{rightC}%
+			\fi%
+			\iftoggle{FirstRow}{}{%  Vertical arrow only if NOT first row
+				\DrawVerticalArrow{leftB}{\WidthB}{\HeightB}{leftD}{\WidthD}{\HeightD}%
+			}%
+			\global\togglefalse{FirstRow}%
+			\let\step\@stepAB% Next invocation of \step will call stepAB
+		}%
+
+		\let\step\@stepAB% First invocation of \step will call \@stepAB
+	\makeatother
+
+	\newcounter{CurrentSate}%
+	\newenvironment{stepByStep}{%
+		\setcounter{CurrentSate}{0}%
+		\global\toggletrue{FirstRow}% No vertical arrow until 2nd row
+		\begin{tabular}{@{}c@{} p{\WidthOfArrow} @{}c@{}}%
+	}{%
+		\end{tabular}%
+	}%
+
+	\newcommand*{\DrawHorizontalArrow}[3][]{%
+		\tikz[overlay,remember picture]{%
+			\draw[ultra thick, ->, red, 
+			shorten <=\ArrowImageSep, shorten >=\ArrowImageSep, #1]
+			($(#2)$) -- ($(#3)$);
+		}%
+	}%
+
+	\newcommand*{\DrawVerticalArrow}[7][]{%
+		\tikz[overlay,remember picture]{%
+			\draw[ultra thick, ->, red,
+			shorten <=\ArrowImageSep, shorten >=\ArrowImageSep, #1]
+			($(#2)+0.5*(#3,-#4+\VerticalArrowAdjust)$) --
+			($(#5)+0.5*(#6,#7+\VerticalArrowAdjust)$);
+		}%
+	}%
+
+
+\begin{document}
+
+\def\FigA{\includegraphics[width=2.0cm,height=1.0cm]{images/EiffelWide}}%
+\def\FigB{\includegraphics[width=1.5cm,height=3.0cm]{images/EiffelTall}}%
+\def\FigC{\includegraphics[width=3.0cm,height=1.5cm]{images/EiffelWide}}%
+\def\FigD{\includegraphics[width=2.0cm,height=4.0cm]{images/EiffelTall}}%
+
+\section*{Test 1}
+
+\begin{stepByStep}
+	\step{\FigA}{\FigB}
+	\step{\FigC}{\FigD}
+\end{stepByStep}
+%
+\section*{Test 2}
+
+\begin{stepByStep}
+	\step{\FigA}{\FigB}
+	\step{}{\FigD}
+\end{stepByStep}
+%
+\section*{Test 3}
+
+\begin{stepByStep}
+	\step{\FigA}{\FigB}
+	\step{\FigC}{\FigA}
+	\step{\FigD}{}
+\end{stepByStep}
+
+\end{document}

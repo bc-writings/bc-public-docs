@@ -1,0 +1,36 @@
+% Source :  http://tex.stackexchange.com/questions/37548/formatting-text-using-only-in-one-specific-environment/37566#37566
+
+\documentclass{article}
+	\usepackage{xcolor}
+
+	\catcode96=\active
+		\newenvironment{myenv}{%
+			\catcode96=\active% ASCII ` = 96
+			\def`##1`{%
+				\hspace{-\fboxsep}%
+				\colorbox{black}{\textcolor{white}{##1}}%
+				\hspace{-\fboxsep}%
+			}%
+		}{%
+		}
+	\catcode96=12
+
+
+\begin{document}
+
+`text`
+
+\begin{myenv}
+	text text text
+
+	`text` text text
+
+	text `text` text
+
+	text text  `text`
+\end{myenv}
+
+`text`
+
+\end{document}
+

@@ -1,0 +1,26 @@
+% Source : http://tex.stackexchange.com/questions/1223/is-there-a-test-for-the-different-styles-inside-maths-mode
+
+\documentclass{article}
+	\usepackage{mathtools}
+	\usepackage{mathstyle}
+
+	\usepackage{calc}
+
+	\newlength\mathheight
+	\newcommand*\intheight{%
+		\settototalheight{\mathheight}{$\currentmathstyle\int$}
+		\the\mathheight
+	}
+
+
+\begin{document}
+
+\begin{align}
+	\text{displaystyle}&={\displaystyle\text{\intheight}}\\
+	\text{textstyle}&={\textstyle\text{\intheight}} \\
+	\text{scriptstyle}&={\scriptstyle\text{\intheight}} \\
+	\text{scriptscriptstyle}&={\scriptscriptstyle\text{\intheight}} 
+\end{align}
+
+\end{document}
+

@@ -1,0 +1,19 @@
+\documentclass[10pt,a4paper]{article}
+	\usepackage[utf8x]{inputenc}
+	\usepackage{ucs}
+	\usepackage{xparse}
+
+	\NewDocumentCommand\exercise{gg}{Exercise \IfValueT{#1}{(#1 pts)}\IfValueT{#2}{ [#2]}} 
+
+
+\begin{document}
+
+\verb+\exercise           + $\rightarrow$ \exercise FIN
+
+\verb+\exercise{}         + $\rightarrow$ \exercise{} FIN
+
+\verb+\exercise{1}        + $\rightarrow$ \exercise{1} FIN
+
+\verb+\exercise{2}{Source}+ $\rightarrow$ \exercise{2}{Source} FIN
+
+\end{document}

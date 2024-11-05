@@ -1,0 +1,117 @@
+% Source : http://forum.mathematex.net/latex-f6/image-dans-la-marge-sur-chaque-page-t7697.html#p77859
+
+\documentclass{book}
+	\usepackage{graphicx}
+	\usepackage{xcolor}
+	\usepackage{calc}
+
+	\usepackage[a4paper,margin=2.5cm]{geometry}
+
+	\usepackage{fancyhdr}
+	\pagestyle{fancy}
+	\fancyhead{}
+	%\fancyheadoffset[RE,LO]{2.5cm}
+
+	\makeatletter
+		\newlength{\partie@marge@temp}
+		\fancyhead[RE]{
+			\leftmark\hbox to 0pt{
+				\setlength{\partie@marge@temp}{
+					2.5cm-\widthof{
+						\rotatebox{-90}{
+							\hbox to 0pt{
+								\Huge\fontfamily{ugq}\selectfont\rotatebox{180}{
+									\fboxsep=10pt\colorbox{\couleurpartie}{\color{white}\nomdepartie}
+								}
+							\hbox to 0.3cm{}
+							}
+						}
+					}
+				}
+				\hspace{\partie@marge@temp}\rotatebox{-90}{
+					hbox to 0pt{
+						\Huge\fontfamily{ugq}\selectfont\rotatebox{180}{
+							\fboxsep=10pt\colorbox{\couleurpartie}{\color{white}\nomdepartie}
+						}
+						\hbox to 0.3cm{}
+					}
+				}
+			}
+		}
+	\makeatother
+
+	\fancyhead[LO]{
+		\hspace{-2.5cm}\hbox to 0pt{
+			\rotatebox{-90}{
+				\hbox to 0pt{\Huge\fontfamily{ugq}\selectfont\rotatebox{180}{
+					\fboxsep=10pt\colorbox{\couleurpartie}{\color{white}\nomdepartie}
+				}
+				\hbox to 0.3cm{}}
+			}
+		}\hspace{2.5cm}\rightmark
+	}
+
+	\fancyhead[LE]{\rightmark}
+	\fancyhead[RO]{\leftmark}
+
+	\renewcommand{\headrulewidth}{0.4pt}
+
+
+\begin{document}
+
+\chapter{Physique}
+
+\def\couleurpartie{blue}
+\def\nomdepartie{Physique}
+
+Texte
+
+\section{Titre}
+
+Texte
+
+\clearpage
+
+Texte
+
+\clearpage
+
+Texte
+
+\clearpage
+
+Texte
+
+\clearpage
+
+Texte
+
+
+\chapter{Chimie}
+
+\def\couleurpartie{green!70!black}
+\def\nomdepartie{Chimie}
+
+Texte
+
+\section{Titre}
+
+Texte
+
+\clearpage
+
+Texte
+
+\clearpage
+
+Texte
+
+\clearpage
+
+Texte
+
+\clearpage
+
+Texte
+
+\end{document}

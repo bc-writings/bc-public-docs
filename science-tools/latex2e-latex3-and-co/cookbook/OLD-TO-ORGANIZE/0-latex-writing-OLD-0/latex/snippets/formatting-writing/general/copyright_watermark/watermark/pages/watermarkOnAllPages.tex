@@ -1,0 +1,27 @@
+% Source : http://forum.mathematex.net/latex-f6/texte-particulier-en-fond-t13453.html#p129709
+
+\documentclass{report}
+	\usepackage[latin1]{inputenc}
+	\usepackage[T1]{fontenc}
+	\usepackage[frenchb]{babel}
+
+	\usepackage{lipsum}
+
+	\usepackage{tikz}
+	\usepackage{eso-pic}
+
+
+\begin{document}
+
+\AddToShipoutPicture{%
+	\AtPageCenter{%
+		\begin{tikzpicture}[remember picture,overlay]
+			\node [rotate=60,scale=10,text opacity=0.3]
+			      at (current page.center) {moi};
+		\end{tikzpicture}
+	}%
+}
+
+\lipsum
+
+\end{document}

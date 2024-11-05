@@ -1,0 +1,21 @@
+% Source : http://tex.stackexchange.com/a/288095/6880
+
+\documentclass{article}
+\usepackage{tikz, lmodern}
+\usetikzlibrary{calc,tikzmark}
+\begin{document}
+
+\begin{tikzpicture}[overlay,remember picture]
+  \node [yshift=.6ex] at ( $(pic cs:A) !.5! (pic cs:B)$ ){ \fontsize{60}{60}\selectfont\textbf{\color{gray!20}A} };
+\end{tikzpicture}
+
+\begin{tabular}{llll}
+\tikzmark{A}%
+1 & 2 & 3 & 4 \\
+1 & 2 & 3 & 4 \\
+1 & 2 & 3 & 4 \\
+1 & 2 & 3 & 4 \\
+1 & 2 & 3 & 4\tikzmark{B}%
+\end{tabular}
+
+\end{document}

@@ -1,0 +1,32 @@
+% Source : http://tex.stackexchange.com/questions/33277/pdf-bookmark-customization
+
+\documentclass{article}
+	\usepackage{bookmark}% http://ctan.org/pkg/bookmark
+	\usepackage{lipsum}% http://ctan.org/pkg/lipsum
+
+	\bookmarksetup{bold}% Default bold bookmarks
+
+
+\begin{document}
+
+\section{First section}
+
+\lipsum[1]
+
+
+\bookmarksetupnext{bold=false,italic}% Non-bold and italic bookmark only for next sectional unit
+\subsection{A subsection}
+
+\lipsum[1-2]
+
+
+\section{Second section}
+
+\lipsum[2]
+
+
+\section{Last section}
+
+\lipsum[3]
+
+\end{document}

@@ -1,0 +1,52 @@
+% Source : http://tex.stackexchange.com/questions/1023/vertically-asymmetric-size-variation-for-parentheses
+
+\documentclass[10pt,a4paper]{article}
+	\usepackage[utf8x]{inputenc}
+	\usepackage{ucs}
+	\usepackage{amsmath}
+	\usepackage{amsfonts}
+	\usepackage{amssymb}
+
+%	\usepackage{nath} % The usefull package.
+% We comment so as to se below the difference between
+% the output given by nath and the default output.
+%
+% Trick used gievn here : http://tex.stackexchange.com/questions/32148/turn-off-locally-one-package/32150#32150
+
+
+\begin{document}
+
+\section{Without nath}
+
+\subsection{Inline...}
+
+$	\left( \sum_{0 \le i \le m \\ 0 < j < n} P(i,j) \right) = \left[ 1 + \frac{1 + x^2}{1 - \frac{x}{2}} \right]$
+
+
+\subsection{Alone...}
+
+\begin{equation}
+	\left( \sum_{0 \le i \le m \\ 0 < j < n} P(i,j) \right)
+	= \left[ 1 + \frac{1 + x^2}{1 - \frac{x}{2}} \right]
+\end{equation}
+
+
+\section{With nath}
+
+\makeatletter
+	\input{nath.sty}
+\makeatother
+
+\subsection{Inline...}
+
+$	\left( \sum_{0 \le i \le m \\ 0 < j < n} P(i,j) \right) = \left[ 1 + \frac{1 + x^2}{1 - \frac{x}{2}} \right]$
+
+
+\subsection{Alone...}
+
+\begin{equation}
+	( \sum_{0 \le i \le m \\ 0 < j < n} P(i,j) )
+	= [ 1 + \frac{1 + x^2}{1 - \frac{x}{2}} ]
+\end{equation}
+
+\end{document}

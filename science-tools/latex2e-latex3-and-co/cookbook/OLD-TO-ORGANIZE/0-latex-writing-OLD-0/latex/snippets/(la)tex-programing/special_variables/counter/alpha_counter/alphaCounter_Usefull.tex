@@ -1,0 +1,39 @@
+% Source : http://tex.stackexchange.com/questions/37447/a-new-kind-of-symbol-wrapping
+
+\documentclass[a4paper]{article}
+	\usepackage{expl3}
+
+	\ExplSyntaxOn
+		\cs_new:cpn {@weirdalph} #1 
+		{
+			\prg_replicate:nn {\int_div_truncate:nn {#1}{26}}{z}
+			\int_to_alph:n {\int_mod:nn {#1}{26}}
+		}
+
+		\cs_new:cpn {@dicecount} #1
+		{
+			\prg_replicate:nn {\int_div_truncate:nn {#1}{6}}{\epsdice{6}}
+			\exp_args:Nx \epsdice{\int_mod:nn{#1}{6}}
+		}
+	\ExplSyntaxOff
+
+	\makeatletter
+		\def\weirdalph#1{\expandafter\@weirdalph\csname c@#1\endcsname}
+		\def\dicecount#1{\expandafter\@dicecount\csname c@#1\endcsname}
+	\makeatother
+
+	\newcounter{pippo}
+
+	\newcommand{\testAlpha}[1]{%
+		\setcounter{pippo}{#1}%
+		\arabic{pippo}: \weirdalph{pippo}\par%
+	}
+
+
+\begin{document}
+
+\testAlpha{4}
+\testAlpha{27}
+\testAlpha{53}
+
+\end{document}

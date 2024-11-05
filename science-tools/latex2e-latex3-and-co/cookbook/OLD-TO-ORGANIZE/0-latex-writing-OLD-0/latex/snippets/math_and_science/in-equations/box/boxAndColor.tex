@@ -1,0 +1,62 @@
+\documentclass[12pt]{article}
+	\usepackage{amsmath}
+	\usepackage{xcolor}
+	\usepackage{calc}
+	\usepackage{etextools}
+
+	\makeatletter
+		\newlength{\boxed@align@width}
+		\newcommand{\boxedalign}[1]{\FE@testopt{#1}\boxed@align{black}}
+		\def\boxed@align[#1]#2{\boxed@align@process@ampersand[#1]#2\@nil}
+		\def\boxed@align@process@ampersand[#1]#2&#3\@nil{%
+			\hspace*{\fboxsep}\hspace*{\fboxrule}% pour que le centrage soit le même que la formule avec \boxed
+			\color{#1}#2
+			&
+			\setlength{\boxed@align@width}{%
+				\widthof{$\displaystyle#2$}+\fboxsep+\fboxrule}%
+			\hspace{-\boxed@align@width}%
+			\addtolength{\boxed@align@width}{-\fboxsep-\fboxrule}%
+			\begingroup
+				\color{#1}\boxed{\vphantom{#2}\hspace{\boxed@align@width}#3}%
+			\endgroup
+		}
+	\makeatother
+
+
+\begin{document}
+
+\begin{align}
+	A & = A' + B' + C' + D' + E' + F' \\
+	\boxedalign{A&=A' + B' + C' + D' + E' + F'} \\
+	\boxedalign[green]{A&=A' + B' + C' + D' + E' + F'}
+\end{align}
+
+\[\boxed{A= A'+B' + C' + D' + E' + F'}\]
+
+\begin{align}
+	\int_{0}^{1}{f(t)\,\mathrm{d}t}
+	& = B + C + D + E + F \\
+	& = B' + C' + D' + E' + F' \\
+	\boxedalign{\int_{0}^{1}{f(t)\,\mathrm{d}t}&= A'+B' + C' + D' + E' + F'} \\
+	\boxedalign[red]{\int_{0}^{1}{f(t)\,\mathrm{d}t}&= A'+B' + C' + D' + E' + F'}
+\end{align}
+
+\fboxsep=10pt\fboxrule=2pt
+\begin{align}
+	\int_{0}^{1}{f(t)\,\mathrm{d}t}
+	& = B + C + D + E + F \\
+	& = B' + C' + D' + E' + F' \\
+	\boxedalign{\int_{0}^{1}{f(t)\,\mathrm{d}t}&= A'+B' + C' + D' + E' + F'} \\
+	\boxedalign[blue]{\int_{0}^{1}{f(t)\,\mathrm{d}t}&= A'+B' + C' + D' + E' + F'}
+\end{align}
+
+\fboxsep=20pt\fboxrule=20pt
+\begin{align}
+	\int_{0}^{1}{f(t)\,\mathrm{d}t}
+	& = B + C + D + E + F \\
+	& = B' + C' + D' + E' + F' \\
+	\boxedalign{\int_{0}^{1}{f(t)\,\mathrm{d}t}&= A'+B' + C' + D' + E' + F' + G' + H' + I'} \\
+	\boxedalign[violet]{\int_{0}^{1}{f(t)\,\mathrm{d}t}&= A'+B' + C' + D' + E' + F' + G' + H' + I'}
+\end{align}
+
+\end{document}

@@ -1,0 +1,23 @@
+% Source : http://tex.stackexchange.com/questions/30858/new-command-using-inline-verbatim
+
+\documentclass{article}
+	\usepackage{amsmath,amsfonts,amssymb}
+	\usepackage{xcolor}
+	\usepackage{showexpl}
+
+	\lstdefinestyle{demoLatexStyle}{
+		basicstyle=\small\ttfamily,
+		numbers=none,
+		frame=none,
+		backgroundcolor=\color{yellow},
+		pos=r
+	}
+
+
+\begin{document}
+
+\begin{LTXexample}[style=demoLatexStyle]
+$\textbf{A}^\intercal$
+\end{LTXexample}
+
+\end{document}

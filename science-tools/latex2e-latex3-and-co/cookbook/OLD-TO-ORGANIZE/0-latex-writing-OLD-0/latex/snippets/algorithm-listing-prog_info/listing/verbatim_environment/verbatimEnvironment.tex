@@ -1,0 +1,34 @@
+% Source : https://groups.google.com/forum/?hl=fr&fromgroups#!topic/fr.comp.text.tex/chzAH5o4jQI
+
+\documentclass{article}
+	\usepackage[T1]{fontenc}
+	\usepackage[utf8]{inputenc}
+	\usepackage{fancyvrb}
+
+	\newenvironment{Latex}{%
+		\medskip \hrule \medskip
+		Attention, je vais entrer en mode verbatim mais avant je suis
+		capable de faire tout ce dont j'ai envie !
+		\VerbatimEnvironment
+		\Verbatim
+	}{%
+		\endVerbatim
+		Me voici maintenant sorti du mode verbatim et, là aussi, je fais
+		ce que je veux.
+		\par
+		\medskip \hrule \medskip
+	}
+
+
+\begin{document}
+
+C'est parti...
+
+\begin{Latex}
+Ici, on est en mode verbatim
+Les caractères $#&%$ sont lus verbatim.
+\end{Latex}
+
+Retour en mode non \texttt{verbatim} % coucou
+
+\end{document}

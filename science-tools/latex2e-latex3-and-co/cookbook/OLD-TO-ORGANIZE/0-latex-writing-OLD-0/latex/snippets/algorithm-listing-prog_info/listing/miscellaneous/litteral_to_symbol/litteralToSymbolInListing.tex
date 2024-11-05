@@ -1,0 +1,17 @@
+% Source : http://tex.stackexchange.com/questions/17266/how-to-insert-a-nice-tilde-in-a-lstlisting
+
+\documentclass{minimal}
+	\usepackage{listings}
+
+	\lstset{
+		literate={forall} {$\forall$}{1}
+	}
+
+
+\begin{document}
+
+\begin{lstlisting}
+forall x in R
+\end{lstlisting}
+
+\end{document}

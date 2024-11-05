@@ -1,0 +1,55 @@
+% Sources :
+%    1) http://forum.mathematex.net/latex-f6/probleme-de-placement-de-texte-dans-la-marge-t13583.html#p131104
+%    2) http://forum.mathematex.net/latex-f6/probleme-de-placement-de-texte-dans-la-marge-t13583.html#p131109
+
+\documentclass[10pt]{book}
+	\usepackage{mparhack}
+	\usepackage{xstring}
+	\usepackage[top=2.5cm, bottom=2.5cm, left=2cm, right=2cm]{geometry}
+
+	\newcommand\pointInMarge[1]{%
+		\marginpar{%
+			\unless\ifodd\value{page}\raggedleft\fi
+			\framebox{\StrSubstitute{#1}{.}{,}\,pt\ifdim#1pt>1.9pt%
+			s\fi}%
+		}%
+	}
+	
+	\newcommand\blabla{
+		bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla 
+		bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla 
+		bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla 
+		bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla 
+		bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla 
+		bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla  	}
+
+
+\begin{document}
+
+bla \pointInMarge{1} \blabla
+
+\begin{enumerate}
+	\item bla \pointInMarge{2} bla
+	\item bla \pointInMarge{2} bla
+
+	\begin{enumerate}
+		\item bla \pointInMarge{2} \blabla
+
+		\begin{enumerate}
+			\item bla \pointInMarge{2} \blabla
+		
+			\item bla \pointInMarge{2} bla
+		\end{enumerate}
+	
+		\item bla \pointInMarge{2} bla
+	\end{enumerate}
+\end{enumerate}
+
+bla \pointInMarge{1} \blabla
+
+
+\newpage
+
+\noindent bla \pointInMarge{1} \blabla
+
+\end{document}

@@ -1,0 +1,20 @@
+% Source : http://forum.mathematex.net/latex-f6/raccourcir-le-titre-d-un-chapitre-dans-les-entetes-t12349.html#p119740
+
+\documentclass{book}
+	\usepackage{lipsum}
+
+
+\begin{document}
+
+\tableofcontents
+
+\chapter{
+	Titre tres tres tres tres tres tres tres tres tres 
+	tres tres tres tres tres tres tres tres tres tres tres tres 
+	tres tres tres tres tres tres long
+}
+\markboth{Titre plus court}{}
+
+\lipsum[1-10]
+
+\end{document}

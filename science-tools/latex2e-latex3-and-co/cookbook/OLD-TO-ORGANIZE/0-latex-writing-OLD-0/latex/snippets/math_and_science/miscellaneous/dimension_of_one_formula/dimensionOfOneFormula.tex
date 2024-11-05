@@ -1,0 +1,23 @@
+% Source : http://texgraph.tuxfamily.org/forum/viewtopic.php?f=9&t=66&p=2574#p2572
+
+\documentclass[12pt]{article}
+	\usepackage{lmodern}
+	\usepackage{amsmath,amssymb,calc}
+	\pagestyle{empty}
+
+
+\begin{document}
+
+\newsavebox{\textbox}%
+\setbox\textbox\hbox\bgroup\input{formula.tex}\egroup%
+\newlength{\larg}\setlength{\larg}{\widthof{\usebox\textbox}}%
+\newlength{\haut}\setlength{\haut}{\totalheightof{\usebox\textbox}}%
+\newlength{\prof}\setlength{\prof}{\depthof{\usebox\textbox}}%
+\newwrite\OutFile%
+\immediate\openout\OutFile dim.txt\relax%
+\immediate\write\OutFile{\the\larg}%
+\immediate\write\OutFile{\the\haut}%
+\immediate\write\OutFile{\the\prof}%
+\immediate\closeout\OutFile%
+
+\end{document}

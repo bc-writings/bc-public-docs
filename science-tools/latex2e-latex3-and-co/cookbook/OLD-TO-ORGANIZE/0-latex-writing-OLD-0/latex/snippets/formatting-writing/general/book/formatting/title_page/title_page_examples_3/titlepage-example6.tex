@@ -1,0 +1,32 @@
+\documentclass{book}
+\usepackage{xepersian}
+\newlength{\tpheight}\setlength{\tpheight}{0.9\textheight}
+\newlength{\txtheight}\setlength{\txtheight}{0.9\tpheight}
+\newlength{\tpwidth}\setlength{\tpwidth}{0.9\textwidth}
+\newlength{\txtwidth}\setlength{\txtwidth}{0.9\tpwidth}
+\newlength{\drop}
+\newcommand*{\plogo}{\fbox{فانوس}}
+\newcommand*{\titleRF}{\begingroup% 
+\drop = 0.2\txtheight
+\centering
+\vfill
+{\Huge 
+عنوان کتاب
+}\\[\baselineskip]
+{\Huge 
+زیرعنوان کتاب
+}\\[\baselineskip]
+{\large
+ویرایشگر: نام ویرایشگر
+}\\[0.5\drop]
+{\Large \plogo}\\[0.5\baselineskip]
+{\Large 
+نام انتشاراتی
+}\par
+{\large\sayehfamily ۱۳۹۰}\par
+\vfill\null
+\endgroup}
+\begin{document}
+\pagestyle{empty}
+\titleRF
+\end{document}

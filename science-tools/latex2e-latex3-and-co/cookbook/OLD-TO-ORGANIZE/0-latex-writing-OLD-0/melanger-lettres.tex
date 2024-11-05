@@ -1,0 +1,15 @@
+% Source: https://tex.stackexchange.com/a/530893/6880
+
+\documentclass[tikz]{standalone}
+\begin{document}
+\begin{tikzpicture}
+  \fill[gray!60] (0,0) circle (2);
+  \node[color=black!80, font=\fontsize{60}{20}\fontfamily{ppl}\fontseries{b}\selectfont]
+    at (0.25,-0.25) {C};
+  \node[color=yellow!50, font=\fontsize{60}{20}\fontfamily{ppl}\fontseries{b}\selectfont] 
+    at (-0.25,0.25) {Q};
+  \clip (0,0) -- (0:2) arc (0:90:2) -- cycle;
+  \node[color=black!80, font=\fontsize{60}{20}\fontfamily{ppl}\fontseries{b}\selectfont]
+    at (0.25,-0.25) {C};
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,38 @@
+@import url(base.css);
+
+body {
+  padding:        1.5em;
+  font-size:     12pt;
+  color:           black;
+  letter-spacing: 0em;
+}
+#contents { margin-bottom: 5em; }
+#LSV, .extras, .actions, .more { display: none; }
+#edito h3, .box h3 { background-color: transparent; color: black; }
+
+/* Spell acronyms */
+abbr[title] { border: none; }
+#contents abbr[title]:after {
+  content: "(" attr(title) ")";
+  font-size: 90%;
+  margin-left: 0.5em;
+}
+
+/* Display URIs after link text */
+#contents a[href] { text-decoration: none; }
+#contents a[href]:after {
+  content: "(" attr(href) ")";
+  font-size: 90%;
+  text-decoration: underline;
+  margin-left: 0.5em;
+}
+#contents a[href^="/"]:after {
+  content: "(http://www.lsv.ens-cachan.fr" attr(href) ")";
+}
+
+/* Agenda */
+.agenda dl
+  { overflow: visible; overflow-x: visible; overflow-y: visible; }
+
+/* BibTeX */
+.bibtex .liens { display: none; }

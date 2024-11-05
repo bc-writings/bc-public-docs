@@ -1,0 +1,97 @@
+% Source : http://tex.stackexchange.com/questions/32798/a-step-by-step-environment/32801#32801
+
+\documentclass{article}
+	\usepackage{enumitem}
+
+% Since you want a blank line after the begin of a list
+% http://tex.stackexchange.com/questions/29517/forcing-new-line-after-item-number-in-enumerate-environment
+	\makeatletter
+		\def\step{%
+			\@ifnextchar[ \@myitem{\@noitemargtrue\@myitem[\@itemlabel]}%
+		}
+		\def\@myitem[#1]{\item[#1]\mbox{}\\}
+	\makeatother
+
+% Custom environments
+	\newenvironment{state}{%
+		\begin{enumerate}[label=State \arabic*,align=left, leftmargin=2.0cm]%
+	}{
+		\end{enumerate}%
+	}
+
+
+\begin{document}
+
+\noindent Bla, bla, here are the actions to do.
+
+\begin{state}
+	\step
+	Bla, bla, bla...
+
+	\step
+	Bla, bla, bla...
+
+
+	Bla, bla, bla...
+
+	\step
+	Bla, bla, bla...
+\end{state}
+
+
+\noindent When the preceding actions have been done, you must do the following things.
+
+\begin{state}
+	\step
+	Bla, bla, bla...
+
+	\step
+	Bla, bla, bla...
+
+	\step
+	Bla, bla, bla...
+
+	\step
+	Bla, bla, bla...
+
+	\step
+	Bla, bla, bla...
+
+	\step
+	Bla, bla, bla...
+
+	\step
+	Bla, bla, bla...
+
+	\step
+	Bla, bla, bla...
+
+	\step
+	Bla, bla, bla...
+
+	\step
+	Bla, bla, bla...
+
+	\step
+	Bla, bla, bla...
+
+	\step
+	Bla, bla, bla...
+
+	\step
+	Bla, bla, bla...
+
+	\step
+	Bla, bla, bla...
+
+	\step
+	Bla, bla, bla...
+
+	\step
+	Bla, bla, bla...
+
+	\step
+	Bla, bla, bla...
+\end{state}
+
+\end{document}

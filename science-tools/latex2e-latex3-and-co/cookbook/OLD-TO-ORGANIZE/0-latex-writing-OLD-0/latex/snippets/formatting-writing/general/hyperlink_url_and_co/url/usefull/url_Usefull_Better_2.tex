@@ -1,0 +1,105 @@
+% Sources : 
+%   * http://tex.stackexchange.com/questions/35095/special-footnotes-for-url/35097#35097
+%   * http://tex.stackexchange.com/questions/35043/how-to-reference-different-places-to-the-same-footnote
+%	* http://tex.stackexchange.com/questions/35105/test-equality-between-number-of-the-current-page-and-the-one-of-one-reference-in
+
+\documentclass[10pt]{article}
+	\usepackage[svgnames]{xcolor}
+	\usepackage{manyfoot}
+	\usepackage{xifthen}
+	\usepackage{hyperref}
+	\usepackage{varioref}
+	\usepackage{xstring}
+
+% Breakable texttt
+%
+% Sources : 
+%   * http://forum.mathematex.net/latex-f6/forcer-le-retour-a-la-ligne-dans-texttt-t13246.html#p127511
+%   * http://tex.stackexchange.com/questions/33465/changing-the-catcode-of-in-one-command
+	\makeatletter
+		\newcommand\breakabletexttt{\begingroup\catcode`\_12 \breakabletexttt@i}
+		\newcommand\breakabletexttt@i[1]{\texttt{\breakable@texttt#1\@nil}\endgroup}
+		\def\@gobble@fi#1\fi{\fi#1}
+		\def\breakable@texttt#1#2\@nil{%
+			#1\hspace{0pt plus 0.1pt minus 0.1pt}%
+				\ifx\relax#2\relax
+			\else
+				\@gobble@fi\breakable@texttt#2\@nil
+			\fi
+		}
+	\makeatother
+
+% Cosmetic
+	\hypersetup{urlcolor=blue}
+	\definecolor{urlColor}{named}{DarkRed}
+
+	\newcommand{\urlText}[2][0]{%
+		\textcolor{urlColor}{%
+			\ifthenelse{\equal{#1}{0}}{%
+				\textbf{\breakabletexttt{#2}}%
+			}{%
+				\ifthenelse{\equal{#1}{2}}{%
+					\textbf{\texttt{#2}}%
+				}{%
+					\emph{#2}%
+				}%
+			}%
+		}%
+	}
+
+% Special footnote
+	\newfootnote{Url}
+
+	\newcounter{footnoteUrl}
+	\newcommand{\footnoteUrl}{%
+%	   \renewcommand\thefootnoteUrl{\Alph{footnoteUrl}}
+		\stepcounter{footnoteUrl}%
+		\Footnotemark{\urlText[2]{\#\thefootnoteUrl}}\FootnotetextUrl{}%
+	}
+
+% New url
+	\newcounter{UrlCounter}
+	\newcommand{\newUrl}[2][0]{%
+		\stepcounter{UrlCounter}%
+		\urlText{http://link-\theUrlCounter/}%
+		\ifthenelse{\equal{#1}{0}}{%
+			\footnoteUrl{\, \url{#2}}%
+		}{%
+			\footnoteUrl{\,\label{#1} \url{#2}}%
+		}%
+	}
+
+% Old url
+	\newcommand{\oldUrl}[1]{%
+		\vrefpagenum{\urlpage}{#1}%
+%		\urlText{http://link\,{\StrGobbleLeft{\ref*{#1}}{2}}/}%
+		\urlText{http://link-{\ref*{#1}}/}%
+		\urlText[2]{\textsuperscript{\ref{#1}}}%
+		\ifthenelse{\equal{\urlpage}{\thepage}}{}{%
+			\urlText[1]{ (see\vpageref{#1})}%
+		}%
+	}
+
+	\usepackage{lipsum}
+
+
+\begin{document}
+
+Let's try to indicate one URL \newUrl[linkGoogle]{http://www.google.fr/}
+and another \newUrl{http://tex.stackexchange.com/}.
+Let's try to indicate one old URL \oldUrl{linkGoogle}.
+and one more \newUrl{http://tug.org/texlive/pkginstall.html}
+and another \newUrl[ctan]{http://www.ctan.org/}
+ and then the same \oldUrl{ctan}.
+I would like to indicate something \footnote{... but here !}.
+
+\lipsum
+Just only old URLS \oldUrl{linkGoogle} and \oldUrl{ctan}.
+I would like to indicate something \footnote{... but here !}.
+
+\lipsum
+
+Just only old URLS \oldUrl{linkGoogle} and \oldUrl{ctan}.
+I would like to indicate something \footnote{... but here !}.
+
+\end{document}

@@ -1,0 +1,49 @@
+% Source : http://tex.stackexchange.com/questions/42854/centering-a-very-wide-plot
+
+\documentclass[a4,12pt]{article}
+	\usepackage[utf8x]{inputenc}
+	\usepackage{ucs}
+	\usepackage{tikz}
+	\usepackage{pgf,tikz}
+	\usetikzlibrary{arrows}
+
+
+\begin{document}
+
+\hspace*{-2.7cm}
+	\definecolor{cqcqcq}{rgb}{0.75,0.75,0.75}
+	\begin{tikzpicture}[
+		line cap=round,
+		line join=round,
+		>=triangle 45,
+		x=2.0cm,
+		y=2.0cm
+	]
+		\draw [
+			color=cqcqcq,
+			dash pattern=on 4pt off 4pt,
+			xstep=2.0cm,
+			ystep=2.0cm
+		] (-3.39,-4.23) grid (5.49,4.35);
+
+		\draw[->,color=black] (-3.39,0) -- (5.49,0);
+
+		\foreach \x in {-3,-2,-1,1,2,3,4,5}
+			\draw[
+				shift={(\x,0)},
+				color=black
+			] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+
+		\draw[->,color=black] (0,-4.23) -- (0,4.35);
+
+		\foreach \y in {-4,-3,-2,-1,1,2,3,4}
+			\draw[
+				shift={(0,\y)},
+				color=black
+			] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+
+		\draw[color=black] (0pt,-10pt) node[right] {\footnotesize $0$};
+		\clip(-3.39,-4.23) rectangle (5.49,4.35);
+	\end{tikzpicture}
+
+\end{document}

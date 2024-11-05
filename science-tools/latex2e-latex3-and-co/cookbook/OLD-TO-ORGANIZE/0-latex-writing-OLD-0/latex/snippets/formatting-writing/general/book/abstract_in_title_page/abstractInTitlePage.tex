@@ -1,0 +1,36 @@
+% Source : http://tex.stackexchange.com/questions/40518/how-to-include-abstract-into-titlepage
+
+\documentclass[a4paper,12pt,titlepage]{scrartcl}
+	\usepackage{etoolbox}
+
+	\newsavebox{\abstractbox}
+	\renewenvironment{abstract}
+		{\begin{lrbox}{0}\begin{minipage}{\textwidth}
+		\begin{center}\normalfont\sectfont\abstractname\end{center}\quotation}
+		{\endquotation\end{minipage}\end{lrbox}%
+		\global\setbox\abstractbox=\box0 }
+
+	\makeatletter
+		\expandafter\patchcmd\csname\string\maketitle\endcsname
+			{\vskip\z@\@plus3fill}
+			{\vskip\z@\@plus2fill\box\abstractbox\vskip\z@\@plus1fill}
+			{}{}
+	\makeatother
+
+	\usepackage{lipsum}
+
+
+\begin{document}
+
+\titlehead{University}
+\title{Title}
+\subject{Subject}
+\author{Author}
+
+\begin{abstract}
+	\lipsum[1]
+\end{abstract}
+
+\maketitle
+
+\end{document}

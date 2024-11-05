@@ -1,0 +1,17 @@
+% Source : http://forum.mathematex.net/latex-f6/minipage-box-et-j-en-passe-t10085.html
+
+\documentclass[a4paper,10pt]{article}
+	\usepackage[utf8]{inputenc}
+	\usepackage[T1]{fontenc}
+	\usepackage{fancybox}
+	\usepackage{amsmath}
+
+	\newcommand\encadre[1]{\begin{center}\ovalbox{$#1$}\end{center}}
+
+
+\begin{document}
+
+Voici un résultat important : \encadre{%
+C.V.S = \dfrac{\text{moyenne des valeurs sur une période}}{\text{moyenne de toutes les valeurs}}}
+
+\end{document}

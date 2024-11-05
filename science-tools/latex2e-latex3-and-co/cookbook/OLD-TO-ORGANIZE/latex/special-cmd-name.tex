@@ -1,0 +1,17 @@
+\documentclass[12pt]{article}
+
+\ExpandArgs{c}
+\newcommand{cmd-1}{CMD 1 OK ?}
+
+\newcommand\nbid{2}
+
+\ExpandArgs{c}
+\newcommand{cmd-\nbid}[1]{#1 : CMD 2 OK ?}
+
+\begin{document}
+
+\UseName{cmd-1}
+
+\UseName{cmd-2}{TEST}
+
+\end{document}

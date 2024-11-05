@@ -1,0 +1,24 @@
+% Source : http://tex.stackexchange.com/a/311712/6880
+
+\documentclass{article}
+
+\usepackage{tikz}
+\usepackage[nobottomtitles*,explicit]{titlesec}
+\usepackage{lipsum}
+
+\titleformat{\section}[block]
+  {\Large\bfseries}
+  {}
+  {0pt}
+  {\hspace{-5em}% Move into margin
+   \tikz[overlay] \shade[left color=black!20, right color=white] (0,-1ex) rectangle (\dimexpr\textwidth+5em,1em);% Set background shaded rectangle
+   \makebox[5em][l]{\thesection}#1}% Set number + title
+
+\titlespacing*{\section}{0pt}{*1}{*1}
+
+\begin{document}
+
+\section{Here is my section title}
+\lipsum[1]
+
+\end{document}

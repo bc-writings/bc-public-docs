@@ -1,0 +1,36 @@
+% Source: 
+
+\documentclass{scrlttr2}
+
+\usepackage[ngerman]{babel}
+
+\usepackage[scaled]{sourcesanspro}
+\renewcommand\familydefault{\sfdefault}
+
+\usepackage{siunitx}
+
+\sisetup{
+  detect-all,
+  locale=DE,
+  separate-uncertainty,
+  output-decimal-marker={.},
+}
+
+\NewDocumentCommand{\EUR}{m}{%
+  \num[
+    group-minimum-digits=3,
+    round-mode=places,
+    group-separator={.},
+    output-decimal-marker={,}
+  ]{#1}\,€%
+}
+
+\begin{document}
+
+\EUR{1234.5678}
+    
+\qty{1234.56789}{g}
+    
+\qty{12345.6789}{m}
+
+\end{document}https://tex.stackexchange.com/a/682148/6880

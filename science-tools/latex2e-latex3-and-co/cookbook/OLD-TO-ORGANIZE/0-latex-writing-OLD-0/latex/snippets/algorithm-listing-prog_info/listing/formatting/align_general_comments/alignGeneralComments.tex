@@ -1,0 +1,34 @@
+% Source : http://tex.stackexchange.com/questions/31349/how-to-align-comments-with-lstlistings
+
+\documentclass{article}
+	\usepackage{listings}
+
+	\newcommand*{\Comment}[1]{\hfill\makebox[3.0cm][l]{#1}}%
+
+	\lstset{
+		language=C++,
+		basicstyle=\small\sffamily,
+		numbers=none,
+		frame=tb,
+		showstringspaces=false,
+		escapechar=\&
+	}
+
+
+\begin{document}
+
+\begin{lstlisting}
+  float f;                  // A float
+  int anAptlyNamedInteger;  // An integer
+\end{lstlisting}
+
+
+\lstset{columns=fullflexible}
+
+\begin{lstlisting}
+  float f;  &\Comment{// A float}&
+  int anAptlyNamedInteger;  &\Comment{// An integer}&
+\end{lstlisting}
+
+
+\end{document}

@@ -1,0 +1,46 @@
+% Source : http://tex.stackexchange.com/questions/31468/what-is-the-best-way-to-setup-this-statblock-as-a-macro
+
+\documentclass{article}
+	\usepackage{times}      % change font
+	\usepackage{xcolor}     % colours
+	\usepackage{colortbl}   % colour table
+	\usepackage{amssymb}    % symbols
+	\usepackage{epsdice}    % dice
+
+% define my own colours
+	\definecolor{darkgreen}{rgb}{0.25, 0.30, 0.15}
+	\definecolor{lightgray}{rgb}{0.9,0.9,0.9}
+	\definecolor{darkgray}{rgb}{0.75,0.75,0.75}
+
+	\newcommand{\printstattable}{%
+		\begin{tabular}{p{\linewidth}}
+			\rowcolor{darkgreen}\color{white}\bfseries \name \hfill \level \\
+			\rowcolor{darkgreen}\color{white} \creaturedescription    \hfill XP \experience\\
+			\rowcolor{lightgray}\textbf{HP} \hp; \textbf{Bloodied} \bloodied\, Initiative \initiative\\
+		\end{tabular}
+	}
+
+	\newcommand{\setbasicstats}[4]{%
+		\def\name{#1}%
+		\def\creaturedescription{#2}%
+		\def\level{#3}%
+		\def\experience{#4}%
+	}
+
+
+\begin{document}
+
+\setbasicstats{Impersonator Mimic}{Medium abberrant magical beast}{Level 16 Controller}{1,400} 
+\def\hp{160}
+\def\bloodied{80}
+\def\initiative{+14}
+\printstattable
+
+\vspace{2cm}
+\setbasicstats{Fantasy creature}{Something else}{Level 1 rogue}{2,100} 
+\def\hp{20}
+\def\bloodied{13}
+\def\initiative{-230}
+\printstattable
+
+\end{document}

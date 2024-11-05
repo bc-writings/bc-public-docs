@@ -1,0 +1,21 @@
+% Source : http://tex.stackexchange.com/questions/28477/how-to-split-an-example-into-two-parts?newsletter=1&nlcode=21434|99d4
+
+\documentclass{article}
+	\usepackage{amsthm}
+	\usepackage{thmtools}
+
+	\declaretheorem[style=definition]{example}
+	\renewcommand\thmcontinues[1]{Continued}
+
+\begin{document}
+
+
+\begin{example}[label=exa:cont]
+This is an example.
+\end{example}
+
+\begin{example}[continues=exa:cont]
+And here's the continuation of the example.
+\end{example}
+
+\end{document}

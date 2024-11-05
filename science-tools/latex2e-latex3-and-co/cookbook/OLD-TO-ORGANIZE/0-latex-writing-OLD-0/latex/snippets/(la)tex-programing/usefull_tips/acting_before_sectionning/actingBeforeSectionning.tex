@@ -1,0 +1,18 @@
+% Source : http://tex.stackexchange.com/questions/47047/how-to-make-section-start-automatically-in-new-page-except-first-in-a-chapter
+
+\documentclass{report}
+	\usepackage{etoolbox}
+
+	\pretocmd{\section}{%
+		\ifnum\value{section}=0 \else\clearpage\fi
+	}{}{}
+
+
+\begin{document}
+
+\chapter{First Chapter}
+\section{Section One One}
+\section{Section One Two}
+\section{Section One Three}
+
+\end{document}

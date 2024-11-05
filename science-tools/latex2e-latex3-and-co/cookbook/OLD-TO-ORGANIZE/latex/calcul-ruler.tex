@@ -1,0 +1,36 @@
+\documentclass{article}
+
+\usepackage{calc}
+
+\newcommand\blabla{
+	Bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla
+}
+
+\newcommand\rulerstest[2][4cm]{
+	\null\hfill\raisebox{2pt}{\rule{#1}{2pt}}\textbf{\,#2\,}\raisebox{2pt}{\rule{#1}{2pt}}\hfill\null
+
+	\blabla
+
+	% Indication donné par D. Bitouzé sur fr.comp.text.tex .
+	\null\hfill\raisebox{2pt}{\rule{#1*2+\widthof{\textbf{\,#2\,}}}{2pt}}\hfill\null
+}
+
+
+\begin{document}
+
+
+\rulerstest{Titre court}
+
+\bigskip
+
+\rulerstest{Titre trop long}
+
+\bigskip
+
+\rulerstest{Titre trop, trop, trop long}
+
+\bigskip
+
+\rulerstest[3cm]{Titre trop, trop, trop long}
+
+\end{document}

@@ -1,0 +1,70 @@
+% Source for the use of frames :
+%    * http://stackoverflow.com/questions/1661654/how-can-i-box-content-in-latex-such-that-all-boxes-are-on-the-same-line-and-the-s
+%
+% Source for the technical solution for Splitting :
+%    * http://forum.mathematex.net/latex-f6/decorer-les-groupes-t13016.html#p125575
+
+
+\documentclass[10pt,a4paper]{article}
+	\usepackage[utf8x]{inputenc}
+	\usepackage{ucs}
+	\usepackage{fancybox}
+
+	\makeatletter
+		\newcommand\key@b[1]{%
+			\fbox{#1\strut}%
+		}
+		\newcommand\key@o[1]{%
+			\ovalbox{#1\strut}%
+		}
+		\newcommand\key@d[1]{%
+			\doublebox{#1\strut}%
+		}
+		\newcommand\key[1][b]{%
+			\csname key@#1\endcsname%
+		}
+
+		\newcommand\keySplit[2][b]{%
+			\def\key@Split##1##2\@nil##3{%
+				\ifx\@empty##2\@empty
+					\expandafter\@firstoftwo%
+				\else
+					\expandafter\@secondoftwo%
+				\fi
+				{##3\key[#1]{##1}}%
+				{\key@Split##2\@nil{##3\key[#1]{##1} }}}%
+			\key@Split#2\@nil{}%
+		}
+	\makeatother
+
+
+\begin{document}
+
+\section{Three possibilities}
+
+\key{5} \key{$\times$} \key{$x$} \key{$x$}
+and
+\key[b]{ArcTan}
+
+
+\noindent \key[o]{5} \key[o]{$\times$} \key[o]{$x$} \key[o]{$x$}
+and
+\key[o]{ArcTan}
+
+
+\noindent \key[d]{5} \key[d]{$\times$} \key[d]{$x$} \key[d]{$x$}
+and
+\key[d]{ArcTan}
+
+
+\section{An automatic Splitting}
+
+\keySplit{5 {$\times$} {$x$} {$x$}} and \keySplit{ArcTan}
+
+
+\noindent \keySplit[o]{5 {$\times$} {$x$} {$x$}}  and \keySplit[o]{ArcTan}
+
+
+\noindent \keySplit[d]{5 {$\times$} {$x$} {$x$}}  and \keySplit[d]{ArcTan}
+
+\end{document}

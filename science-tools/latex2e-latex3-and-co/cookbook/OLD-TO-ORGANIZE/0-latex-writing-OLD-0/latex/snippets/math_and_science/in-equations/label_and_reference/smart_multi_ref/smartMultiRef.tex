@@ -1,0 +1,23 @@
+% Source : http://tex.stackexchange.com/questions/26413/get-ref-for-equations-working-like-cite-for-contiguous-references
+
+\documentclass{article}
+	\usepackage{cleveref}
+
+
+\begin{document}
+
+\begin{equation} \label{eq:a}
+	a^2 + b^2 = c^2
+\end{equation}
+
+\begin{equation} \label{eq:b}
+	d^2 + e^2 = f^2
+\end{equation}
+
+\begin{equation} \label{eq:c}
+	g^2 + h^2 = i^2
+\end{equation}
+
+See \cref{eq:a,eq:b,eq:c}.
+
+\end{document}

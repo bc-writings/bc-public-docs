@@ -1,0 +1,17 @@
+% Source : http://tex.stackexchange.com/questions/30550/force-upright-greek-letters-with-isomath
+
+\documentclass[12pt,a4paper]{article}
+	\usepackage[utopia]{mathdesign}
+% Options define which alphabets will be loaded,
+% i.e. if bold face font is not necessary, 
+% `OMLmathbf` can be ommitted.
+	\usepackage[OMLmathrm,OMLmathbf]{isomath} 
+
+
+\begin{document}
+
+$\Gamma$ $\mathrm{\Gamma}$ $\mathbf{\Gamma}$ $\mathbfit{\Gamma}$
+
+$\pi$ $\mathrm{\pi}$ $\mathbf{\pi}$ $\mathbfit{\pi}$
+
+\end{document}

@@ -1,0 +1,60 @@
+% Source : http://tex.stackexchange.com/questions/39940/customising-a-tikz-calendar
+
+\documentclass{article}
+	\usepackage{tikz}
+	\usetikzlibrary{arrows,shapes}
+	\usetikzlibrary{positioning,calendar,er}
+	\usetikzlibrary{decorations.markings}
+	\usetikzlibrary{shapes.geometric}
+	\usepackage[margin=1in, paperwidth=15.8in, paperheight=8.5in]{geometry}
+	\usepackage{geometry}
+	\pagenumbering{gobble}
+
+	\makeatletter%
+		\tikzoption{day headings}{\tikzstyle{day heading}=[#1]}
+		\tikzstyle{day heading}=[]
+		\tikzstyle{day letter headings}=[
+			execute before day scope={
+				\ifdate{day of month=1}{%
+					\pgfmathsetlength{\pgf@ya}{\tikz@lib@cal@yshift}%
+					\pgfmathsetlength\pgf@xa{\tikz@lib@cal@xshift}%
+					\pgftransformyshift{-\pgf@ya}
+					\foreach \d/\l in {0/M,1/T,2/W,3/T,4/F,5/S,6/S} {
+						\pgf@xa=\d\pgf@xa%
+						\pgftransformxshift{\pgf@xa}%
+						\pgftransformyshift{\pgf@ya}%
+						\node[every day,day heading]{\l};%
+					}
+				}{}%
+			}%
+		]
+	\makeatother%
+
+\begin{document}
+
+\begin{tikzpicture}[
+	every calendar/.style={
+		week list,
+		month label above centered,
+		day xshift = 0.8cm,
+		day headings=orange,
+		day letter headings,
+	}
+]
+	\matrix[column sep=5em, row sep=3em] {
+		\calendar[dates=2012-01-01 to 2012-01-last]; &
+		\calendar[dates=2012-02-01 to 2012-02-last]; &
+		\calendar[dates=2012-03-01 to 2012-03-last]; \\
+		\calendar[dates=2012-04-01 to 2012-04-last]; &
+		\calendar[dates=2012-05-01 to 2012-05-last]; &
+		\calendar[dates=2012-06-01 to 2012-06-last]; \\
+		\calendar[dates=2012-07-01 to 2012-07-last]; &
+		\calendar[dates=2012-08-01 to 2012-08-last]; &
+		\calendar[dates=2012-09-01 to 2012-09-last]; \\
+		\calendar[dates=2012-10-01 to 2012-10-last]; &
+		\calendar[dates=2012-11-01 to 2012-11-last]; &
+		\calendar[dates=2012-12-01 to 2012-12-last]; \\
+	};
+\end{tikzpicture}
+
+\end{document}

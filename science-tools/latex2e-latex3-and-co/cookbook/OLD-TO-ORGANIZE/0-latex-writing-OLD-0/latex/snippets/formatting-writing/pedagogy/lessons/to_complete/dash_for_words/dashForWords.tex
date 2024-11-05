@@ -1,0 +1,41 @@
+% Source : http://groups.google.it.ao/group/fr.comp.text.tex/browse_thread/thread/d6f1167ddd0ae084/78d29fb3f167c6d4?lnk=gst&q=pointill%C3%A9s#78d29fb3f167c6d4
+
+\documentclass{minimal}
+	\makeatletter
+		\newlength\l@ngth
+		\def\d@TheJ@b#1{%
+			\settowidth\l@ngth{#1}%
+			\hbox to\l@ngth{%
+				\xleaders\hbox to .44em{\hss-\hss}\hfil%
+			}%
+		}
+
+		\def\MakeDashes#1{%
+			\leavevmode\edef\c@ontent{#1}%
+			\expandafter\0neWord@ATime\c@ontent \relax%
+		}
+
+		\def\0neWord@ATime#1\relax{%
+			\def\next{\expandafter\OneW@rd@ATime}%
+			\next#1 \relax%
+		}
+
+		\def\OneW@rd@ATime#1 #2\relax{%
+			\d@TheJ@b{#1}%
+			\ifx\relax#2\relax\let\next\relax\else\ \fi
+			\next#2\relax%
+		}
+	\makeatother
+
+	\newcommand\cmd{}
+	\def\cmd{un mot court et un MOT TRES LONG pour faire un PeNdU coucou tralala coucou tralalacoucou
+	tralalacoucou tralalacoucou tralalacoucou tralalacoucou tralalacoucou tralalacoucou tralalacoucou
+	tralalacoucou tralala}
+
+
+\begin{document}
+
+\hsize=16cm % pour voir que la césure est perdue par \MakeDashes
+\cmd\par
+\MakeDashes\cmd\par
+\end{document}

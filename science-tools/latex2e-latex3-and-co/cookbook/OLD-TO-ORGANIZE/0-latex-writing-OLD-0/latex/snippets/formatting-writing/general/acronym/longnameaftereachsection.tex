@@ -1,0 +1,17 @@
+\documentclass{scrartcl}
+
+\usepackage{acronym}
+\newacro{FB}{foo bar}
+
+\usepackage{etoolbox}
+\preto\section\acresetall
+
+\begin{document}
+
+\section{foo}
+\ac{FB} and \ac{FB}
+
+\section{foo}
+\ac{FB} and \ac{FB}
+
+\end{document}

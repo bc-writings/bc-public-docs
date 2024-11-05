@@ -1,0 +1,22 @@
+% Source : http://tex.stackexchange.com/questions/26967/how-to-put-one-cartoon-in-the-background-of-one-book
+
+\documentclass[paper=a4]{scrbook}
+	\usepackage{scrpage2}
+	\usepackage{graphicx}
+	\usepackage{blindtext}
+
+	\newcommand{\cartoon}[1]{%
+		\begin{picture}(0,0)
+			\put(#1,-200){\includegraphics[width=35mm]{picture/{\the\numexpr\thepage/2\relax}.jpg}}
+		\end{picture}
+	}
+	%\cehead[\cartoon{-320}]{} % Left margin
+	\cohead[\cartoon{220}]{}  % Right margin
+	\pagestyle{scrplain}
+
+
+\begin{document}
+
+\Blinddocument
+
+\end{document}

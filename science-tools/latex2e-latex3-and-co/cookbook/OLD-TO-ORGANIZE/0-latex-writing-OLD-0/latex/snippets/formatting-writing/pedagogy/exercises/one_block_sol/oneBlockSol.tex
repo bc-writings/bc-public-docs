@@ -1,0 +1,18 @@
+% Source : http://tex.stackexchange.com/questions/146670/not-breaking-the-start-of-an-environment-for-solution-of-exercises/148341?noredirect=1#148341
+
+\documentclass[12pt,a5paper]{article}
+\usepackage[margin=20mm]{geometry}
+\usepackage{lipsum}
+
+\newenvironment{sol}{\paragraph{Solution:}}{\filbreak\bigbreak} 
+
+\begin{document}
+\begin{sol} \lipsum[3] \end{sol}
+\begin{sol} \lipsum[3] \end{sol}
+\begin{sol} \lipsum[3] \end{sol}
+\begin{sol} \lipsum[3-10] \end{sol}
+\begin{sol} Very short one \end{sol}
+\begin{sol} Very short one \end{sol}
+\begin{sol} \lipsum[3] \end{sol}
+\begin{sol} Very short one \end{sol}
+\end{document}

@@ -1,0 +1,52 @@
+\documentclass{book}
+\usepackage{graphicx}
+\usepackage{xepersian}
+\newcommand*{\cdiam}{\prec\kern-2pt\succ}
+\newfontfamily\borderfont[SizeFeatures={Size=12}]{WebOMints GD}
+\newlength{\tpheight}\setlength{\tpheight}{0.9\textheight}
+\newlength{\txtheight}\setlength{\txtheight}{0.9\tpheight}
+\newlength{\tpwidth}\setlength{\tpwidth}{0.9\textwidth}
+\newlength{\txtwidth}\setlength{\txtwidth}{0.9\tpwidth}
+\newlength{\drop}
+\newcommand*{\plogo}{\fbox{فانوس}}
+\newcommand*{\titleZD}{\begingroup% 
+\vspace*{2\baselineskip}
+\centering
+\begin{picture}(240,0)
+  \multiput(0,0)(24,0){10}{{\borderfont4}}
+  \multiput(-5,-21)(0,-24){15}{\rotatebox{90}{{\borderfont4}}}
+  \multiput(0,-360)(24,0){10}{{\borderfont4}}
+  \multiput(235,-21)(0,-24){15}{\rotatebox{90}{{\borderfont4}}}
+  \put(0,0){\begin{minipage}[t]{240pt}
+            \centering
+            \vspace*{2\baselineskip}
+             {\Huge عنوان کتاب}\\
+             {\large\iranicfamily
+ --- زیرعنوان کتاب ---
+} \\[0.5\baselineskip]
+             {\large 
+با ۱۵۰ نمودار و تصویر رنگی
+} \\[0.5\baselineskip]
+             {\large 
+نام نویسنده اول
+ } \\[0.5\baselineskip]
+             {\LARGE نام نویسنده دوم} \par
+             \vspace*{5\baselineskip}
+             $\cdiam$\\[0.25\baselineskip]
+             $\cdiam\cdiam\cdiam$\\[0.25\baselineskip]
+             $\cdiam\cdiam\cdiam\cdiam\cdiam$\\[0.25\baselineskip]
+             $\cdiam\cdiam\cdiam$\\[0.25\baselineskip]
+             $\cdiam$\par
+             \vspace*{4\baselineskip}
+             {\Large نام انتشاراتی}\\
+             {\Large\sayehfamily ۱۳۹۰}\par
+             \vspace*{2\baselineskip}
+            \end{minipage}}
+\end{picture}
+\vfill
+\null
+\endgroup}
+\begin{document}
+\pagestyle{empty}
+\titleZD
+\end{document}

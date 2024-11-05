@@ -1,0 +1,32 @@
+% Source : http://forum.mathematex.net/latex-f6/multicolumn-t11264.html#p109500
+
+\documentclass[12pt,a4paper]{report}
+	\usepackage[english]{babel}
+	\usepackage[T1]{fontenc} % Pour les accents
+	\usepackage{amsmath, amsfonts, amssymb, mathtools, amstext} % Pour ?crire des math?matiques
+	\usepackage{graphicx, subfigure,dsfont} % Pour les figures et sous-figures
+	\usepackage{hyperref}
+	\usepackage[T1]{fontenc}
+	\usepackage[latin1]{inputenc}
+	\usepackage{xcolor,times}
+	\usepackage{listings}
+
+
+\begin{document}
+
+\begin{table}
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+			\hline
+			{}          & \multicolumn{8}{c|}{Methods} \\
+			\cline{2-9}
+			Error Limit & \multicolumn{4}{|c|}{Parents} & \multicolumn{4}{|c|}{Parents and GPs}  \\
+			\cline{2-9}
+			{}          & Mean                          & Min & Max & Std & Mean & Min & Max & Std  \\
+			\hline
+		\end{tabular}
+		\caption{Titre ici}
+	\end{center}
+\end{table}
+
+\end{document}

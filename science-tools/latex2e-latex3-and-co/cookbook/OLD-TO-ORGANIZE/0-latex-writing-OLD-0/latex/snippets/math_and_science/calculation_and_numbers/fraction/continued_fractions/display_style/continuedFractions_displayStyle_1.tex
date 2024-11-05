@@ -1,0 +1,44 @@
+\documentclass[10pt,a4paper]{article}
+	\usepackage[utf8x]{inputenc}
+	\usepackage{ucs}
+	\usepackage{amsmath}
+	\usepackage{amsfonts}
+	\usepackage{amssymb}
+	\usepackage{graphics}
+
+	\usepackage{xstring}
+	\noexpandarg
+
+	\newcommand\contFrac[1]{
+		\exploregroups
+		\ensuremath{ \StrSubstitute{#1}{//}{+\cfrac{1}} }
+	}
+
+
+\begin{document}
+
+Une fraction continue :
+\[
+	\contFrac{u_0 // {u_1 // {u_2 // {\dots // {u_n}}}}}
+\]
+
+Au lieu de 
+
+\[
+	u_0 
+	+ \cfrac{1}{
+		u_1
+		+
+		\cfrac{1}{
+			u_2
+			+
+			\cfrac{1}{
+				\dots
+				+
+				\cfrac{1}{u_n}
+			}
+		}
+	}
+\]
+
+\end{document}

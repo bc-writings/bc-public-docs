@@ -1,0 +1,210 @@
+\documentclass{article}
+	\usepackage[a4paper,dvips,body={19cm,27.7cm}]{geometry}
+	\usepackage{array}
+	\usepackage[utf8]{inputenc}
+	\usepackage[frenchb]{babel}
+	\usepackage[T1]{fontenc}
+%% Package censé résoudre les pbs d'espaces verticaux dans les tableaux
+	\usepackage{cellspace}
+	\usepackage{amsmath}
+%% permet globalement de ne pas mettre de numéro de ligne
+%% Pour le faire sur juste la page courante : voir \thispagestyle
+	\pagestyle{empty}
+%% pour la fin à lire
+	\newcolumntype{M}{>{$\displaystyle}c<{$}}
+	\newcolumntype{H}{>{$\displaystyle}Sc<{$}}
+	\DeclareMathOperator{\Arcsin}{Arcsin}
+
+
+\begin{document}
+
+\begin{center}
+	\Large avec tabular
+\end{center}
+
+Sans rien :
+\begin{tabular}{|c|c|}
+	\hline
+	$\Arcsin{}(x)$& $\dfrac{1}{\sqrt{1-x^2}}$\\
+	\hline
+\end{tabular}
+\qquad
+Avec \textsl{Cellspace} :
+\begin{tabular}{|Sc|Sc|}
+	\hline
+	$\Arcsin{}(x)$& $\dfrac{1}{\sqrt{1-x^2}}$\\
+	\hline
+\end{tabular}
+
+Pour employer \textsl{Cellspace}~: \verb|\usepackage{cellspace}| et
+ajouter \textsl{S} au spécificteur de la colonne. Par exemple, \verb|Sc|
+au lieu de \verb|c| tout seul.
+
+Avec \textsl{Cellspace} et en réglant le paramètre
+\verb|\cellspacetoplimit| à 3pt :
+\begin{center}
+	\setlength{\cellspacetoplimit}{3pt}
+	\begin{tabular}{|Sc|Sc|}
+		\hline
+		$\Arcsin{}(x)$& $\dfrac{1}{\sqrt{1-x^2}}$\\
+		\hline
+	\end{tabular}
+\end{center}
+
+
+Avec \textsl{Cellspace} et en réglant le paramètre
+\verb|\cellspacebottomlimit| à 3pt :
+\begin{center}
+	\setlength{\cellspacebottomlimit}{3pt}
+	\begin{tabular}{|Sc|Sc|}
+		\hline
+		$\Arcsin{}(x)$& $\dfrac{1}{\sqrt{1-x^2}}$\\
+		\hline
+	\end{tabular}
+\end{center}
+
+Avec \textsl{Cellspace} et en réglant les 2 paramètres à 3pt :
+\begin{center}
+	\setlength{\cellspacebottomlimit}{3pt}
+	\setlength{\cellspacetoplimit}{3pt}
+	\begin{tabular}{|Sc|Sc|}
+		\hline
+		$\Arcsin{}(x)$& $\dfrac{1}{\sqrt{1-x^2}}$\\
+		\hline
+	\end{tabular}
+\end{center}
+
+
+Si je mets un texte pourri juste à côté avec le spécificateur \textsl{p}:
+\begin{center}
+	\begin{tabular}{|p{1cm}|c|}
+		\hline
+		Un texte ultra-pourri trouvé comme ça, par intuition
+		& $\dfrac{1}{\sqrt{1-x^2}}$\\
+		\hline
+	\end{tabular}
+\end{center}
+
+Je peux centrer la boîte de gauche sur la ligne avec le spécificateur
+\textsl{m}, de telle manière à recentrer la boîte de droite~:
+\begin{center}
+	\begin{tabular}{|m{1cm}|c|}
+		\hline
+		Un texte ultra-pourri trouvé comme ça, par intuition
+		& $\dfrac{1}{\sqrt{1-x^2}}$\\
+		\hline
+	\end{tabular}
+\end{center}
+
+On peut même utiliser \textsl{Cellspace} aussi dans ce cas (attention on
+ajoutera ici des parenthèses, par exemple~:\verb|S{m{1cm}}| ), ici les deux
+paramètres réglés à 5pt~:
+\begin{center}
+	\setlength{\cellspacebottomlimit}{5pt}
+	\setlength{\cellspacetoplimit}{5pt}
+	\begin{tabular}{|S{m{1cm}}|c|}
+		\hline
+		Un texte ultra-pourri trouvé comme ça, par intuition
+		& $\dfrac{1}{\sqrt{1-x^2}}$\\
+		\hline
+	\end{tabular}
+\end{center}
+
+
+\pagebreak
+\begin{center}
+	\Large avec array
+\end{center}
+
+Dans un tableau \textsl{array}, \textsl{Cellspace} ne marche plus...
+
+Mais le spécificateur \textsl{m}, marche encore~:
+$$
+\begin{array}{|m{1cm}|c|}
+	\hline
+	\textrm{Un texte ultra-pourri trouvé comme ça, par intuition}
+	& \dfrac{1}{\sqrt{1-x^2}}\\
+	\hline
+\end{array}
+$$
+
+Pour augmenter si ça touche les bords, tu écartes au-dessus avec
+\verb|\extrarowheight|, par exemple ici réglé à 1cm~:
+$$
+\setlength{\extrarowheight}{1cm}
+\begin{array}{|m{1cm}|c|}
+	\hline
+	\textrm{Un texte ultra-pourri trouvé comme ça, par intuition}
+	& \dfrac{1}{\sqrt{1-x^2}}\\
+	\hline
+\end{array}
+$$
+
+Pour le bas, tu utilises alors ce que tu utilises déjà dans ton fichier,
+c'est-à-dire \verb|\\[1cm]|~:
+$$
+\setlength{\extrarowheight}{1cm}
+\begin{array}{|m{1cm}|c|}
+	\hline
+	\textrm{Un texte ultra-pourri trouvé comme ça, par intuition}
+	& \dfrac{1}{\sqrt{1-x^2}}\\[1cm]
+	\hline
+\end{array}
+$$
+
+Mais...ça ne change rien, car le centrage sur la ligne de la cellule de
+gauche a une profondeur sous la ligne de plus de 1cm ! Faut donc mettre
+plus, ça s'appelle alors de la bidouille~:
+$$
+\setlength{\extrarowheight}{1cm}
+\begin{array}{|m{1cm}|c|}
+	\hline
+	\textrm{Un texte ultra-pourri trouvé comme ça, par intuition}
+	& \dfrac{1}{\sqrt{1-x^2}}\\[3cm]
+	\hline
+\end{array}
+$$
+
+\pagebreak
+\begin{center}
+	\Large Finalement
+\end{center}
+
+Passer à \textsl{array} est pénible\dots faudrait tout faire avec
+\textsl{tabular}, mais tu me diras que mettre des \verb|$| partout est
+chiant~! Donc on crée un nouveau type de spécificateur de colonne,
+\textsl{M} par exemple~:
+\verb|\newcolumntype{M}{>{$\displaystyle}c<{$}}| :
+
+\begin{verbatim}
+\begin{tabular}{|M|M|}
+    \hline
+    \Arcsin{}(x)& \frac{1}{\sqrt{1-x^2}}\\
+    \hline
+\end{tabular}
+\end{verbatim}
+\begin{tabular}{|M|M|}
+	\hline
+	\Arcsin{}(x)& \frac{1}{\sqrt{1-x^2}}\\
+	\hline
+\end{tabular}
+
+Pour utiliser \textsl{Cellspace}, on le met dans le
+\verb|\newcolumntype|, par exemple~:
+\verb|\newcolumntype{H}{>{$\displaystyle}Sc<{$}}|
+
+\begin{verbatim}
+\begin{tabular}{|H|H|}
+    \hline
+    \Arcsin{}(x)& \frac{1}{\sqrt{1-x^2}}\\
+    \hline
+\end{tabular}
+\end{verbatim}
+\begin{tabular}{|H|H|}
+	\hline
+	\Arcsin{}(x)& \frac{1}{\sqrt{1-x^2}}\\
+	\hline
+\end{tabular}
+
+
+\end{document}

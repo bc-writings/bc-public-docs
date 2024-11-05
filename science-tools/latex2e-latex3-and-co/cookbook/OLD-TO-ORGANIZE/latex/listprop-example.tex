@@ -1,0 +1,57 @@
+% Source: https://tex.stackexchange.com/a/325606/6880
+
+\begin{filecontents*}{\jobname.input.tex}
+\setmetadata{author}{The name of the author}
+\setmetadata[ifempty=\throwerror]{title}{The title}
+\end{filecontents*}
+\documentclass{article}
+\usepackage{xparse}
+\ExplSyntaxOn
+
+\keys_define:nn { metadata }
+  {
+    ifempty .tl_set:N = \l_metadata_ifempty_tl
+  }
+
+\prop_new:N \g_metadata_prop
+
+\cs_new_protected:Nn \metadata_gset:nn
+  {
+    \tl_if_empty:nTF { #2 }
+      { 
+        \tl_if_empty:NF \l_metadata_ifempty_tl
+          { \tl_use:N \l_metadata_ifempty_tl }
+      }
+      { \prop_gput:Nnn \g_metadata_prop { #1 } { #2 } }
+  }
+
+\cs_new_protected:Nn \metadata_get:n
+  {
+    \prop_item:Nn \g_metadata_prop { #1 }
+  }
+
+\NewDocumentCommand \setmetadata { o m m }
+  {
+    \group_begin:
+      \IfValueT { #1 }
+        { \keys_set:nn { metadata } { #1 } }
+      \metadata_gset:nn { #2 } { #3 }
+    \group_end:
+  }
+
+\NewDocumentCommand \getmetadata { m }
+  {
+    \metadata_get:n { #1 }
+  }
+
+\ExplSyntaxOff
+\begin{document}
+\def\throwerror{***ERROR***}
+
+\input{\jobname.input.tex}
+\getmetadata{author}
+\getmetadata{title}
+
+\setmetadata[ifempty=\throwerror]{title}{}
+
+\end{document}

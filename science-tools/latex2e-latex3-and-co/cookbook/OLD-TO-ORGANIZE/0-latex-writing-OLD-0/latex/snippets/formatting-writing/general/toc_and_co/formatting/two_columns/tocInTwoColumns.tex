@@ -1,0 +1,38 @@
+% Source : http://tex.stackexchange.com/questions/37935/table-of-contents-without-title
+
+\documentclass{article}
+	\usepackage{multicol}
+
+	\makeatletter
+		\renewcommand{\tableofcontents}{\@starttoc{toc}}
+	\makeatother
+
+
+\begin{document}
+
+\section*{My contents}
+
+\begin{multicols}{2}
+  \tableofcontents
+\end{multicols}
+
+
+\section{First section}%
+	\subsection{First subsection}%
+	\subsection{Second subsection}%
+	\subsection{Third subsection}%
+	\subsection{Last subsection}%
+
+\section{Second section}%
+	\subsection{First subsection}%
+	\subsection{Second subsection}%
+	\subsection{Third subsection}%
+	\subsection{Last subsection}%
+
+\section{Last section}%
+	\subsection{First subsection}%
+	\subsection{Second subsection}%
+	\subsection{Third subsection}%
+	\subsection{Last subsection}%
+
+\end{document}

@@ -1,0 +1,69 @@
+% Sources :
+%     1) http://forum.mathematex.net/latex-f6/bonnes-commandes-de-base-t12278.html
+%     2) http://tex.stackexchange.com/questions/30944/mathcalo-and-font-size
+
+\documentclass{article}
+	\usepackage{amsmath}
+	\usepackage{amsfonts}
+	\usepackage{amssymb}
+
+	\usepackage{graphicx}
+
+	\newcommand{\bigO}[1]{\ensuremath{\mathop{}\mathopen{}\mathcal{O}\mathopen{}\left(#1\right)}}
+
+	\newcommand\smallO[1]{
+		\mathchoice
+			{% \displaystyle
+				\ensuremath{\mathop{}\mathopen{}{\scriptstyle\mathcal{O}}\mathopen{}\left(#1\right)}
+			}
+			{% \textstyle
+				\ensuremath{\mathop{}\mathopen{}{\scriptstyle\mathcal{O}}\mathopen{}\left(#1\right)}
+			}
+			{% \scriptstyle
+				\ensuremath{\mathop{}\mathopen{}{\scriptscriptstyle\mathcal{O}}\mathopen{}\left(#1\right)}
+			}
+			{% \scriptscriptstyle  
+				\ensuremath{\mathop{}\mathopen{}{o}\mathopen{}\left(#1\right)}
+			}
+	}
+
+	\newcommand\smallOBis[1]{
+		\mathchoice
+			{% \displaystyle
+				\operatorname{\scriptstyle\mathcal{O}}\!\left(#1\right)
+			}
+			{% \textstyle
+				\operatorname{\scriptstyle\mathcal{O}}\!\left(#1\right)
+			}
+			{% \scriptstyle
+				\operatorname{\scriptscriptstyle\mathcal{O}}\left(#1\right)
+			}
+			{% \scriptscriptstyle
+				\operatorname{\scalebox{0.7}{$\scriptscriptstyle\mathcal{O}$}}\left(#1\right)
+			}
+	}
+
+
+\begin{document}
+
+\[
+	\renewcommand{\arraystretch}{1.2}%
+	\begin{array}{llll} 
+		\textbf{Style}            & \verb!\bigO!
+		& \verb!\smallO!                                  & \verb!\smallOBis!
+		\\ \hline
+		\verb!\displaystyle!      & \displaystyle      1 +\bigO{\frac{1}{n}}
+		& \displaystyle      1 + \smallO{\frac{1}{n}} - 2 & \displaystyle      1 + \smallOBis{\frac{1}{n}} - 2
+		\\
+		\verb!\textstyle!         & \textstyle         1 +\bigO{\frac{1}{n}}
+		& \textstyle         1 + \smallO{\frac{1}{n}} - 2 & \textstyle         1 + \smallOBis{\frac{1}{n}} - 2
+		\\
+		\verb!\scriptstyle!       & \scriptstyle       1 +\bigO{\frac{1}{n}}
+		& \scriptstyle       1 + \smallO{\frac{1}{n}} - 2 & \scriptstyle       1 + \smallOBis{\frac{1}{n}} - 2
+		\\
+		\verb!\scriptscriptstyle! & \scriptscriptstyle 1 +\bigO{\frac{1}{n}}
+		& \scriptscriptstyle 1 + \smallO{\frac{1}{n}} - 2 & \scriptscriptstyle 1 + \smallOBis{\frac{1}{n}} - 2
+	\end{array}
+\]
+
+\end{document}

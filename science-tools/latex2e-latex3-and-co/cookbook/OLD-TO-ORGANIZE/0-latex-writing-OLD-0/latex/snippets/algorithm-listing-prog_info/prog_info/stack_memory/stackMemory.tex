@@ -1,0 +1,24 @@
+% Source : http://tex.stackexchange.com/questions/87222/how-do-i-draw-cells-around-numbers-letters
+
+\documentclass{article}
+	\usepackage{array}
+
+	\newcolumntype{M}{>{\centering\arraybackslash}p{.3cm}}
+	\renewcommand\arraystretch{1.5}
+
+
+\begin{document}
+
+\begin{tabular}{|*4{M|}}
+	\hline
+	0 & 1 & 2 & 3 \\
+	\hline
+\end{tabular}
+
+\begin{tabular}{|*4{M|}}
+	\hline
+	t & e & s & t\\
+	\hline
+\end{tabular}
+
+\end{document}

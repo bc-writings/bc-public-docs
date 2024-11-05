@@ -1,0 +1,32 @@
+% Source : http://tex.stackexchange.com/questions/35929/using-string-variable-with-latex
+
+\documentclass{article}
+	\newcommand{\someSpecialText}{A text that can be changed locally...}
+	\newcommand{\testIt}{The value of someSpecialText is : ''\someSpecialText''.}
+
+
+\begin{document}
+
+% The default behavior.
+\testIt
+
+% Here I would like to change the definition of `\someSpecialText`
+% or anywhere else in the document.
+{% Start of group
+\renewcommand{\someSpecialText}{A text that \textit{WAS} changed locally\ldots}
+\testIt
+}% End of group
+
+% The default behavior.
+\testIt
+
+% Here I would like to change the definition of `\someSpecialText`
+% or anywhere else in the document.
+\renewcommand{\someSpecialText}{A text that \textit{WAS} changed locally\ldots}
+\testIt
+
+% We've lost he default behavior.
+\testIt
+
+\end{document}
+

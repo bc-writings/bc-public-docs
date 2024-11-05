@@ -1,0 +1,36 @@
+%Source : http://forum.mathematex.net/latex-f6/trait-vertical-devant-un-ou-plusieurs-paragraphes-t10214.html
+
+\documentclass{article}
+	\usepackage{framed}
+
+	\renewenvironment{leftbar}{%
+		\def\FrameCommand{\vrule width 0.4pt \hspace{10pt}}%
+		\MakeFramed{\advance\hsize-\width \FrameRestore} %
+	}%
+	{\endMakeFramed}
+
+
+\begin{document}
+
+\vspace*{14cm}
+
+\footnotetext[1]{Jolie intégrale.}   
+
+\begin{leftbar}
+	Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+	bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+	bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+
+	\[A = \int_a^b \frac{\mathrm{d} t}{t^2} \hspace{3cm} \footnotemark\] 
+
+	bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+	bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla...
+
+	Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+	bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+	bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla. \footnotemark
+\end{leftbar}
+
+\footnotetext{The End.}
+
+\end{document}

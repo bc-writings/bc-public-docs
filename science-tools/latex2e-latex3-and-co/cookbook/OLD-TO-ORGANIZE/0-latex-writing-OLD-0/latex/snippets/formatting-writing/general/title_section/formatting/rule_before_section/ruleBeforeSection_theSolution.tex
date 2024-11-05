@@ -1,0 +1,39 @@
+% Source : http://tex.stackexchange.com/questions/36716/rule-before-one-new-section
+
+\documentclass[12pt]{book}
+	\usepackage{titlesec}
+
+	\titleformat{\section}
+		{%
+			\leaders\vrule width \textwidth\vskip 0.4pt\vspace{.8ex}%
+			\normalfont\Large\bfseries%
+		}
+		{}
+		{0em}
+		{}
+
+	\usepackage{lipsum}
+
+
+\begin{document}
+
+% No rule ! 
+\section*{One day}
+
+\noindent\lipsum[1]
+
+\section*{Another day}
+
+\noindent\lipsum[1]
+
+\section*{One more day}
+
+\noindent\lipsum[1]
+
+\newpage
+% No rule !
+\section*{One last day}
+
+\noindent\lipsum[1]
+
+\end{document}

@@ -1,0 +1,2212 @@
+<!DOCTYPE html>
+<html itemscope="" itemtype="http://schema.org/QAPage" class="html__responsive"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+        <title>tex core - Is there a BNF grammar of the TeX language? - TeX - LaTeX Stack Exchange</title>
+        <link rel="shortcut icon" href="https://cdn.sstatic.net/Sites/tex/img/favicon.ico?v=9bda1236a05c">
+        <link rel="apple-touch-icon image_src" href="https://cdn.sstatic.net/Sites/tex/img/apple-touch-icon.png?v=0a90e8f91d4c">
+        <link rel="search" type="application/opensearchdescription+xml" title="TeX - LaTeX Stack Exchange" href="https://tex.stackexchange.com/opensearch.xml">
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0">
+
+
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://tex.stackexchange.com/questions/4201/is-there-a-bnf-grammar-of-the-tex-language">
+        <meta property="og:site_name" content="TeX - LaTeX Stack Exchange">
+        <meta property="og:image" itemprop="image primaryImageOfPage" content="https://cdn.sstatic.net/Sites/tex/img/apple-touch-icon@2.png?v=eaf26b461720">
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:domain" content="tex.stackexchange.com">
+        <meta name="twitter:site" content="@StackTeX">
+        <meta name="twitter:creator" content="@StackTeX">
+        <meta name="twitter:title" property="og:title" itemprop="name" content="Is there a BNF grammar of the TeX language?">
+        <meta name="twitter:description" property="og:description" itemprop="description" content="I'm looking for a BNF grammar of the TeX language, does it exist?
+
+EDIT
+
+For those of us who are not computer scientists, a BNF grammar is one kind of formal description of a CFG: Backus Naur Form....">
+            <script src="tex%20core%20-%20Is%20there%20a%20BNF%20grammar%20of%20the%20TeX%20language%3F%20-%20TeX%20-%20LaTeX%20Stack%20Exchange_fichiers/rules-p-c1rF4kxgLUzNc.js" async=""></script><script async="" src="tex%20core%20-%20Is%20there%20a%20BNF%20grammar%20of%20the%20TeX%20language%3F%20-%20TeX%20-%20LaTeX%20Stack%20Exchange_fichiers/quant.js"></script><script async="" src="tex%20core%20-%20Is%20there%20a%20BNF%20grammar%20of%20the%20TeX%20language%3F%20-%20TeX%20-%20LaTeX%20Stack%20Exchange_fichiers/beacon.js"></script><script async="" src="tex%20core%20-%20Is%20there%20a%20BNF%20grammar%20of%20the%20TeX%20language%3F%20-%20TeX%20-%20LaTeX%20Stack%20Exchange_fichiers/analytics.js"></script><script src="tex%20core%20-%20Is%20there%20a%20BNF%20grammar%20of%20the%20TeX%20language%3F%20-%20TeX%20-%20LaTeX%20Stack%20Exchange_fichiers/jquery.js"></script>
+        <script src="tex%20core%20-%20Is%20there%20a%20BNF%20grammar%20of%20the%20TeX%20language%3F%20-%20TeX%20-%20LaTeX%20Stack%20Exchange_fichiers/stub.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="tex%20core%20-%20Is%20there%20a%20BNF%20grammar%20of%20the%20TeX%20language%3F%20-%20TeX%20-%20LaTeX%20Stack%20Exchange_fichiers/stacks.css">
+    <link rel="stylesheet" type="text/css" href="tex%20core%20-%20Is%20there%20a%20BNF%20grammar%20of%20the%20TeX%20language%3F%20-%20TeX%20-%20LaTeX%20Stack%20Exchange_fichiers/primary.css">
+
+    
+            <link rel="alternate" type="application/atom+xml" title="Feed for question 'Is there a BNF grammar of the TeX language?'" href="https://tex.stackexchange.com/feeds/question/4201">
+            <meta name="twitter:app:country" content="US">
+            <meta name="twitter:app:name:iphone" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:iphone" content="871299723">
+            <meta name="twitter:app:url:iphone" content="se-zaphod://tex.stackexchange.com/questions/4201/is-there-a-bnf-grammar-of-the-tex-language">
+            <meta name="twitter:app:name:ipad" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:ipad" content="871299723">
+            <meta name="twitter:app:url:ipad" content="se-zaphod://tex.stackexchange.com/questions/4201/is-there-a-bnf-grammar-of-the-tex-language">
+            <meta name="twitter:app:name:googleplay" content="Stack Exchange Android">
+            <meta name="twitter:app:url:googleplay" content="http://tex.stackexchange.com/questions/4201/is-there-a-bnf-grammar-of-the-tex-language">
+            <meta name="twitter:app:id:googleplay" content="com.stackexchange.marvin">
+        <script>
+
+            StackExchange.ready(function () {
+                
+                StackExchange.using("postValidation", function () {
+                    StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+                });
+
+                
+                StackExchange.question.init({canOpenBounty:true,votesCast:[],canViewVoteCounts:true,totalCommentCount:0,shownCommentCount:0,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:4201});
+
+                styleCode();
+
+                    StackExchange.realtime.subscribeToQuestion('85', '4201');
+                                                    StackExchange.using("gps", function () { StackExchange.gps.trackOutboundClicks('#content', '.post-text'); });
+
+            });
+        </script>
+
+        
+        
+        
+        
+        
+        
+
+
+        <script>
+        StackExchange.ready(function () {
+            StackExchange.realtime.init('wss://qa.sockets.stackexchange.com');
+                StackExchange.realtime.subscribeToReputationNotifications('85');
+        StackExchange.realtime.subscribeToTopBarNotifications('85');
+        });
+    </script>
+    <script>
+        StackExchange.init({"locale":"en","serverTime":1557579090,"routeName":"Questions/Show","stackAuthUrl":"https://stackauth.com","networkMetaHostname":"meta.stackexchange.com","site":{"name":"TeX - LaTeX Stack Exchange","description":"Q&A for users of TeX, LaTeX, ConTeXt, and related typesetting systems","isNoticesTabEnabled":true,"enableNewTagCreationWarning":false,"insertSpaceAfterNameTabCompletion":false,"id":85,"childUrl":"https://tex.meta.stackexchange.com","enableSocialMediaInSharePopup":true,"protocol":"https"},"user":{"fkey":"a55da5c9dc98b29752e301f558c86d3643660ef80f33e1f9560416c659600092","tid":"6a4aa42f-af4d-440c-dfbd-c1f29fe1bf9b","rep":3122,"isRegistered":true,"userType":3,"userId":6880,"accountId":514343,"gravatar":"<div class=\"gravatar-wrapper-32\"><img src=\"https://www.gravatar.com/avatar/d15ffd7346ab944f5f3bc945aaf224be?s=32&amp;d=identicon&amp;r=PG\" alt=\"\" width=\"32\" height=\"32\"></div>","profileUrl":"https://tex.stackexchange.com/users/6880/projetmbc","canSeeDeletedPosts":false},"realtime":{"newest":true,"active":true,"tagged":true,"staleDisconnectIntervalInHours":0},"events":{"postType":{"question":1},"postEditionSection":{"title":1,"body":2,"tags":3}},"story":{"minCompleteBodyLength":75,"likedTagsMaxLength":300,"dislikedTagsMaxLength":300},"jobPreferences":{"maxNumDeveloperRoles":2,"maxNumIndustries":4},"svgIconPath":"https://cdn.sstatic.net/Img/svg-icons","svgIconHash":"727aa8e44190"}, {"userProfile":{},"userMessaging":{},"tags":{},"snippets":{"renderDomain":"stacksnippets.net"},"slack":{"sidebarAdDismissCookie":"slack-sidebar-ad"},"site":{"allowImageUploads":true,"enableUserHovercards":true,"styleCode":true,"enableImgurHttps":true,"forceHttpsImages":true},"paths":{},"monitoring":{"clientTimingsAbsoluteTimeout":30000,"clientTimingsDebounceTimeout":1000},"mentions":{"maxNumUsersInDropdown":50},"markdown":{"asteriskIntraWordEmphasis":true},"flags":{"allowRetractingFlags":true},"comments":{},"accounts":{"currentPasswordRequiredForChangingStackIdPassword":true}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.en.js":"914d2ed560a7","js/moderator.en.js":"c943e47407a7","js/pseudomoderator.en.js":"c0a9a418b269","js/full-anon.en.js":"c8c4e14d8045","js/full.en.js":"8d042fde1399","js/wmd.en.js":"5da425eecfcc","js/mobile.en.js":"32a7cb3d19b9","js/help.en.js":"8950cf6a6658","js/tageditor.en.js":"0fab02893f16","js/tageditornew.en.js":"b554b18a25b7","js/inline-tag-editing.en.js":"bd4171ec162a","js/revisions.en.js":"055fbe1202e9","js/review.en.js":"9aae5a12f3c1","js/tagsuggestions.en.js":"ddb0e41afe26","js/post-validation.en.js":"8823a2c24e74","js/explore-qlist.en.js":"66e52888786d","js/events.en.js":"5bd84c884897","js/keyboard-shortcuts.en.js":"d91f54666a24","js/adops.en.js":"22a9bd59b1e9","js/begin-edit-event.en.js":"3238dd301e69","js/stacks-polyfills.en.js":"a1aa8f715c76"});
+        StackExchange.using("gps", function() {
+             StackExchange.gps.init(true);
+        });
+    </script>
+    <noscript id="noscript-css"><style>body,.top-bar{margin-top:1.9em}</style></noscript>
+    <script async="" src="tex%20core%20-%20Is%20there%20a%20BNF%20grammar%20of%20the%20TeX%20language%3F%20-%20TeX%20-%20LaTeX%20Stack%20Exchange_fichiers/full.js"></script><script async="" src="tex%20core%20-%20Is%20there%20a%20BNF%20grammar%20of%20the%20TeX%20language%3F%20-%20TeX%20-%20LaTeX%20Stack%20Exchange_fichiers/post-validation.js"></script><script async="" src="tex%20core%20-%20Is%20there%20a%20BNF%20grammar%20of%20the%20TeX%20language%3F%20-%20TeX%20-%20LaTeX%20Stack%20Exchange_fichiers/prettify-full.js"></script><script async="" src="tex%20core%20-%20Is%20there%20a%20BNF%20grammar%20of%20the%20TeX%20language%3F%20-%20TeX%20-%20LaTeX%20Stack%20Exchange_fichiers/wmd.js"></script></head>
+        <body class="question-page unified-theme">
+    <div id="notify-container"></div>
+    <div id="custom-header"></div>
+
+
+
+
+<header class="top-bar js-top-bar top-bar__network _fixed">
+    <div class="-container">
+        <div class="-main">
+                <a href="#" class="left-sidebar-toggle p0 ai-center jc-center js-left-sidebar-toggle"><span class="ps-relative"></span></a>
+                            <a href="#" class="-logo js-gps-track js-network-logo network-logo" data-gps-track="stack_exchange_popup.show">
+                    <svg aria-hidden="true" class="svg-icon native iconLogoSEAlternativeSm" width="107" height="15" viewBox="0 0 107 15"><g><path d="M48.41 11.93l-1.96-3.2-1.04 1.16v2.04h-1.42V2.18h1.42v6.01L48.14 5h1.72l-2.44 2.7 2.74 4.22h-1.75zm-7.06.08c-1.59 0-3.14-.96-3.14-3.56s1.55-3.54 3.14-3.54c.97 0 1.65.27 2.31.97l-.97.93c-.44-.48-.79-.66-1.34-.66s-1 .22-1.3.62c-.31.38-.42.87-.42 1.68 0 .81.1 1.32.41 1.7.3.4.76.62 1.3.62.56 0 .9-.18 1.35-.66l.97.92c-.66.7-1.34.98-2.31.98zm-5.66-3.15h-1.65c-.83 0-1.26.37-1.26 1s.4.99 1.3.99c.53 0 .93-.04 1.3-.4.22-.2.31-.53.31-1.03v-.56zm.03 3.07v-.63c-.51.5-1 .71-1.87.71-.87 0-1.46-.2-1.89-.63a2.1 2.1 0 0 1-.55-1.49c0-1.16.82-2 2.42-2h1.86v-.5c0-.87-.44-1.3-1.54-1.3-.77 0-1.15.18-1.54.68l-.92-.86c.66-.77 1.35-1 2.52-1 1.93 0 2.9.8 2.9 2.38v4.64h-1.39zm-5.9 0c-1.32 0-1.93-.93-1.93-1.93V6.18h-.8V5.1h.8V3h1.41v2.1h1.36v1.07H29.3v3.75c0 .5.25.81.78.81h.58v1.2h-.85zm-6.33.08c-1.48 0-2.55-.34-3.49-1.28l1-.98c.72.72 1.51.94 2.52.94 1.3 0 2.04-.55 2.04-1.5 0-.42-.13-.78-.39-1.01-.25-.23-.5-.33-1.08-.41l-1.16-.17a3.4 3.4 0 0 1-1.88-.78 2.4 2.4 0 0 1-.72-1.86c0-1.7 1.25-2.86 3.3-2.86 1.3 0 2.22.33 3.07 1.1l-.96.94a2.92 2.92 0 0 0-2.15-.75c-1.16 0-1.8.65-1.8 1.52 0 .35.1.67.37.9.25.22.65.38 1.11.45l1.12.17c.92.13 1.43.35 1.85.72.54.47.8 1.17.8 2 0 1.8-1.48 2.86-3.55 2.86z" fill="#FFF"></path><path d="M104.15 7.09c-.19-.42-.58-.74-1.18-.74s-1 .32-1.19.74c-.1.25-.15.44-.16.75h2.7c-.02-.3-.06-.5-.17-.75zm-2.53 1.96c0 .9.56 1.57 1.55 1.57.78 0 1.16-.21 1.61-.66l1.08 1.04a3.4 3.4 0 0 1-2.7 1.11c-1.68 0-3.29-.76-3.29-3.62 0-2.3 1.26-3.6 3.1-3.6 1.98 0 3.1 1.44 3.1 3.37v.79h-4.45zm-5.48-2.57C95.1 6.48 95 7.37 95 8.3c0 .94.1 1.85 1.15 1.85 1.05 0 1.18-.91 1.18-1.85 0-.93-.13-1.82-1.18-1.82zm-.17 8.22c-1.1 0-1.84-.21-2.58-.92l1.1-1.11c.4.38.8.54 1.4.54 1.06 0 1.43-.74 1.43-1.46v-.72c-.47.51-1 .7-1.7.7-.69 0-1.29-.23-1.68-.62-.67-.66-.73-1.57-.73-2.8 0-1.24.06-2.13.73-2.8.4-.39 1-.62 1.7-.62.75 0 1.24.2 1.73.75v-.67h1.72v6.8c0 1.7-1.21 2.93-3.12 2.93zm-5.76-2.67V7.76c0-.96-.61-1.28-1.17-1.28-.56 0-1.18.32-1.18 1.28v4.27h-1.78V4.97h1.73v.65a2.44 2.44 0 0 1 1.78-.73c.7 0 1.28.23 1.67.62.58.57.73 1.24.73 2v4.52H90.2zm-7.1-2.98h-1.4c-.64 0-1 .3-1 .8 0 .49.33.81 1.02.81.5 0 .8-.04 1.12-.34.2-.17.26-.46.26-.89v-.38zm.04 2.98v-.6c-.48.47-.93.67-1.74.67-.8 0-1.4-.2-1.82-.62-.38-.4-.58-.97-.58-1.59 0-1.12.77-2.05 2.42-2.05h1.68V7.5c0-.77-.38-1.11-1.32-1.11-.68 0-1 .16-1.37.58l-1.13-1.1c.7-.75 1.38-.97 2.57-.97 1.99 0 3.02.84 3.02 2.5v4.64h-1.73zm-6.92 0v-4.3c0-.94-.6-1.25-1.16-1.25-.56 0-1.15.32-1.15 1.24v4.31h-1.77V2.38h1.77v3.24a2.35 2.35 0 0 1 1.7-.73c1.56 0 2.38 1.08 2.38 2.57v4.57h-1.77zm-6.97.08c-1.42 0-3.18-.76-3.18-3.62 0-2.85 1.76-3.6 3.18-3.6.98 0 1.72.3 2.34.95l-1.2 1.2c-.36-.4-.68-.56-1.14-.56-.42 0-.75.14-1.01.46-.27.33-.4.8-.4 1.55s.13 1.24.4 1.58c.26.3.59.46 1 .46.47 0 .79-.17 1.15-.56l1.2 1.18c-.62.65-1.36.96-2.34.96zm-5.53-.08l-1.3-2.11-1.3 2.11H59l2.45-3.6-2.35-3.46h2.12L62.42 7l1.21-2.02h2.13L63.4 8.43l2.46 3.6h-2.13zm-11.75 0V2.06h6.6V3.8h-4.65v2.33h3.96v1.74h-3.96v2.42h4.65v1.74h-6.6z" fill="#2F96E8"></path><path d="M2 1h8a2 2 0 0 1 2 2H0c0-1.1.9-2 2-2z" fill="#8FD8F7"></path><path d="M10 12l-3 3v-3H2a2 2 0 0 1-2-2h12a2 2 0 0 1-2 2z" fill="#155397"></path><path fill="#46A2D9" d="M0 4h12v2H0z"></path><path fill="#2D6DB5" d="M0 7h12v2H0z"></path></g></svg>
+                </a>
+                <div class="topbar-dialog network-logo-dialog js-network-logo-dialog dno">
+                    <div class="dialog-content">
+                        <h4 class="bold">Stack Exchange Network</h4>
+                        <p>
+                            Stack Exchange network consists of 175 Q&amp;A communities including <a href="https://stackoverflow.com/">Stack Overflow</a>, the largest, most trusted online community for developers to learn, share their knowledge, and build their careers.
+                        </p>
+                        <a class="btn-secondary" href="https://stackexchange.com/" data-gps-track="stack_exchange_popup.click">Visit Stack Exchange</a>
+                        <a class="icon-close js-close-button"><svg aria-hidden="true" class="svg-icon iconClear" width="18" height="18" viewBox="0 0 18 18"><path d="M15 4.41L13.59 3 9 7.59 4.41 3 3 4.41 7.59 9 3 13.59 4.41 15 9 10.41 13.59 15 15 13.59 10.41 9z"></path></svg></a>
+                    </div>
+                </div>
+
+
+
+        </div>
+
+            <form id="search" action="/search" method="get" class="searchbar js-searchbar " autocomplete="off" role="search">
+                    <div class="ps-relative">
+                        <input name="q" type="text" placeholder="Search on TeX - LaTeX…" autocomplete="off" maxlength="240" class="s-input js-search-field ">
+                        <button type="submit" aria-label="Search…" class="s-btn s-btn__primary s-btn__icon btn-topbar-primary js-search-submit"><svg aria-hidden="true" class="svg-icon iconSearch" width="18" height="18" viewBox="0 0 18 18"><path d="M12.86 11.32L18 16.5 16.5 18l-5.18-5.14v-.35a7 7 0 1 1 1.19-1.19h.35zM7 12A5 5 0 1 0 7 2a5 5 0 0 0 0 10z"></path></svg></button>
+                    </div>
+            </form>
+
+        
+
+
+
+
+
+<ol class="-secondary js-secondary-topbar-links drop-icons-responsively user-logged-in the-js-is-handling-responsiveness">
+        <li class="-item searchbar-trigger js-searchbar-trigger"><a href="#" class="-link"><svg aria-hidden="true" class="svg-icon iconSearch" width="18" height="18" viewBox="0 0 18 18"><path d="M12.86 11.32L18 16.5 16.5 18l-5.18-5.14v-.35a7 7 0 1 1 1.19-1.19h.35zM7 12A5 5 0 1 0 7 2a5 5 0 0 0 0 10z"></path></svg></a></li>
+                <li class="-item">
+                <a href="https://tex.stackexchange.com/users/6880/projetmbc" class="my-profile js-gps-track" data-gps-track="profile_summary.click()">
+                <div class="gravatar-wrapper-24" title="projetmbc"><img src="tex%20core%20-%20Is%20there%20a%20BNF%20grammar%20of%20the%20TeX%20language%3F%20-%20TeX%20-%20LaTeX%20Stack%20Exchange_fichiers/d15ffd7346ab944f5f3bc945aaf224be.png" alt="" class="-avatar js-avatar-me" width="24" height="24"></div>
+                    <div class="-rep js-header-rep" title="your reputation: 3,122">3,122</div>
+                        <div class="-badges">
+<span title="10 gold badges"><span class="badge1">●</span><span class="badgecount">10</span></span><span title="32 silver badges"><span class="badge2">●</span><span class="badgecount">32</span></span><span title="84 bronze badges"><span class="badge3">●</span><span class="badgecount">84</span></span>                        </div>
+                </a>
+            </li>
+        <li class="-item inbox-button-item">
+        <a href="https://stackexchange.com/users/514343?tab=inbox" class="-link js-inbox-button" title="Recent inbox messages">
+            <svg aria-hidden="true" class="svg-icon iconInbox" width="20" height="18" viewBox="0 0 20 18"><path d="M15.19 1H4.63c-.85 0-1.6.54-1.85 1.35L0 10.79V15c0 1.1.9 2 2 2h16a2 2 0 0 0 2-2v-4.21l-2.87-8.44A2 2 0 0 0 15.19 1zm-.28 10l-2 2h-6l-2-2H1.96L4.4 3.68A1 1 0 0 1 5.35 3h9.12a1 1 0 0 1 .95.68L17.86 11h-2.95z"></path></svg>
+            <span class="indicator-badge js-unread-count _important" style="display: none;"></span>
+        </a>
+    </li>
+    <li class="-item achievements-button-item">
+        <a href="https://stackexchange.com/users/514343?tab=reputation" class="-link js-achievements-button _highlighted-positive" title="You have new reputation changes" data-unread-class="_highlighted-positive">
+            <svg aria-hidden="true" class="svg-icon iconAchievements" width="18" height="18" viewBox="0 0 18 18"><path d="M15 2V1H3v1H0v4c0 1.6 1.4 3 3 3v1c.4 1.5 3 2.6 5 3v2H5s-1 1.5-1 2h10c0-.4-1-2-1-2h-3v-2c2-.4 4.6-1.5 5-3V9c1.6-.2 3-1.4 3-3V2h-3zM3 7c-.5 0-1-.5-1-1V4h1v3zm8.4 2.5L9 8 6.6 9.4l1-2.7L5 5h3l1-2.7L10 5h2.8l-2.3 1.8 1 2.7h-.1zM16 6c0 .5-.5 1-1 1V4h1v2z"></path></svg>
+            <span class="indicator-badge js-unread-count _positive">+40</span>
+        </a>
+    </li>
+
+    <li class="-item review-button-item" data-remove-order="2">
+        <a href="https://tex.stackexchange.com/review" class="-link js-gps-track js-review-button" title="Review queues - help improve the site" data-gps-track="review_popup.click({ in_danger: false })">
+            <svg aria-hidden="true" class="svg-icon iconReviewQueue" width="18" height="18" viewBox="0 0 18 18"><path d="M16 7.5l-5 4.97-1.79-1.77a1 1 0 0 0-1.4 0l-2.1 2.1a1 1 0 0 0 0 1.4L8.5 17H2a2 2 0 0 1-2-2V3c0-1.1.9-2 2-2h12a2 2 0 0 1 2 2v4.5zM12 7H2v2h10V7zm2-4H2v2h12V3zM2 11v2h3v-2H2zm16-.5l-7 7-4-4L8.5 12l2.5 2.5L16.5 9l1.5 1.5z"></path></svg>
+        </a>
+        
+    </li>
+    <li class="-item help-button-item" data-remove-order="1"><a href="#" class="-link js-help-button" title="Help Center and other resources">
+        <svg aria-hidden="true" class="svg-icon iconHelp" width="18" height="18" viewBox="0 0 18 18"><path d="M9 1a8 8 0 1 0 0 16A8 8 0 0 0 9 1zm.81 12.13c-.02.71-.55 1.15-1.24 1.13-.66-.02-1.17-.49-1.15-1.2.02-.72.56-1.18 1.22-1.16.7.03 1.2.51 1.17 1.23zM11.77 8a5.8 5.8 0 0 1-1.02.91l-.53.37c-.26.2-.42.43-.5.69a4 4 0 0 0-.09.75c0 .05-.03.16-.18.16H7.88c-.16 0-.18-.1-.18-.15.03-.66.12-1.21.4-1.66a5.29 5.29 0 0 1 1.43-1.22c.16-.12.28-.25.38-.39a1.34 1.34 0 0 0 .02-1.71c-.24-.31-.51-.46-1.03-.46-.51 0-.8.26-1.02.6-.21.33-.18.73-.18 1.1H5.75c0-1.38.35-2.25 1.1-2.76.52-.35 1.17-.5 1.93-.5 1 0 1.79.18 2.49.71.64.5.98 1.18.98 2.12 0 .57-.2 1.05-.48 1.44z"></path></svg>
+    </a></li>
+
+    <li class="-item site-switcher-item">
+        <a href="https://stackexchange.com/" class="-link js-site-switcher-button js-gps-track" data-gps-track="site_switcher.show" title="A list of all 175 Stack Exchange sites">
+            <svg aria-hidden="true" class="svg-icon iconStackExchange" width="18" height="18" viewBox="0 0 18 18"><path d="M1 13c0 1.1.9 2 2 2h8v3l3-3h1a2 2 0 0 0 2-2v-2H1v2zM15 1H3a2 2 0 0 0-2 2v2h16V3a2 2 0 0 0-2-2zM1 6h16v4H1V6z"></path></svg>
+        </a>
+    </li>
+
+
+    <li class="-dialog-container js-topbar-dialog-corral">
+
+
+    <div class="topbar-dialog siteSwitcher-dialog dno">
+        <div class="header">
+            <h3><a href="https://tex.stackexchange.com/">current community</a>
+            </h3>
+        </div>
+        <div class="modal-content current-site-container">
+            <ul class="current-site">
+                    <li class="grid">
+                            <div class="fl1">
+            <a href="https://tex.stackexchange.com/" class="current-site-link site-link js-gps-track grid gs8 gsx" data-id="85" data-gps-track="site_switcher.click({ item_type:3 })">
+        <div class="favicon favicon-tex site-icon grid--cell" title="TeX - LaTeX"></div>
+        <span class="grid--cell fl1">
+            TeX - LaTeX
+        </span>
+    </a>
+
+    </div>
+    <div class="related-links">
+            <a href="https://tex.stackexchange.com/help" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:14 })">help</a>
+                    <a href="https://chat.stackexchange.com/?tab=site&amp;host=tex.stackexchange.com" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:6 })">chat</a>
+                    <a href="https://tex.stackexchange.com/users/logout" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:8 })">log out</a>
+    </div>
+
+                    </li>
+                    <li class="related-site grid">
+                            <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                            <a href="https://tex.meta.stackexchange.com/" class="site-link js-gps-track grid gs8 gsx" data-id="87" data-gps-track="site.switch({ target_site:87, item_type:3 }),site_switcher.click({ item_type:4 })">
+        <div class="favicon favicon-texmeta site-icon grid--cell" title="TeX - LaTeX Meta"></div>
+        <span class="grid--cell fl1">
+            TeX - LaTeX Meta
+        </span>
+    </a>
+
+                    </li>
+            </ul>
+        </div>
+
+        <div class="header" id="your-communities-header">
+            <h3>
+                    <a href="https://stackexchange.com/users/514343/?tab=accounts">your communities</a>
+            </h3>
+
+                <a href="#" id="edit-pinned-sites">edit</a>
+                <a href="#" id="cancel-pinned-sites" style="display: none;">cancel</a>
+        </div>
+        <div class="modal-content" id="your-communities-section">
+
+                <ul class="my-sites">
+                        <li>
+                                <a href="https://tex.stackexchange.com/" class="site-link js-gps-track grid gs8 gsx" data-id="85" data-gps-track="site.switch({ target_site:85, item_type:3 }),site_switcher.click({ item_type:1 })">
+        <div class="favicon favicon-tex site-icon grid--cell" title="TeX - LaTeX"></div>
+        <span class="grid--cell fl1">
+            TeX - LaTeX
+        </span>
+            <span class="rep-score grid--cell">3,122</span>
+    </a>
+
+                        </li>
+                        <li>
+                                <a href="https://math.stackexchange.com/" class="site-link js-gps-track grid gs8 gsx" data-id="69" data-gps-track="site.switch({ target_site:69, item_type:3 }),site_switcher.click({ item_type:1 })">
+        <div class="favicon favicon-math site-icon grid--cell" title="Mathematics"></div>
+        <span class="grid--cell fl1">
+            Mathematics
+        </span>
+            <span class="rep-score grid--cell">414</span>
+    </a>
+
+                        </li>
+                        <li>
+                                <a href="https://stackoverflow.com/" class="site-link js-gps-track grid gs8 gsx" data-id="1" data-gps-track="site.switch({ target_site:1, item_type:3 }),site_switcher.click({ item_type:1 })">
+        <div class="favicon favicon-stackoverflow site-icon grid--cell" title="Stack Overflow"></div>
+        <span class="grid--cell fl1">
+            Stack Overflow
+        </span>
+            <span class="rep-score grid--cell">402</span>
+    </a>
+
+                        </li>
+                </ul>
+                    <div class="pinned-site-editor-container" style="display: none;">
+                        <input type="hidden" name="fkey" value="a55da5c9dc98b29752e301f558c86d3643660ef80f33e1f9560416c659600092">
+                        <input id="js-site-search-txt" type="text" class="site-filter-input" placeholder="Add a Stack Exchange community">
+                        <input type="submit" id="pin-site-btn" value="Add" disabled="disabled">
+                        <ul class="js-found-sites found-sites"></ul>
+                        <ul class="pinned-site-list sortable" data-custom-list="True">
+                        </ul>
+                        <input type="submit" value="Save" id="save-pinned-sites-btn" disabled="disabled">
+                        <a href="#" id="reset-pinned-sites">reset to default list</a>
+                    </div>
+        </div>
+
+        <div class="header">
+            <h3><a href="https://stackexchange.com/sites">more stack exchange communities</a>
+            </h3>
+            <a href="https://stackoverflow.blog/" class="fr">company blog</a>
+        </div>
+        <div class="modal-content">
+                <div class="child-content"></div>
+        </div>        
+    </div>
+            <div class="topbar-dialog help-dialog js-help-dialog dno">
+        <div class="modal-content">
+            <ul>
+                                    <li>
+                        <a href="https://tex.stackexchange.com/tour" class="js-gps-track" data-gps-track="help_popup.click({ item_type:1 })">
+                            Tour
+                            <span class="item-summary">
+                                Start here for a quick overview of the site
+                            </span>
+                        </a>
+                    </li>
+                <li>
+                    <a href="https://tex.stackexchange.com/help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:4 })">
+                        Help Center
+                        <span class="item-summary">
+                            Detailed answers to any questions you might have
+                        </span>
+                    </a>
+                </li>
+                        <li>
+                            <a href="https://tex.meta.stackexchange.com/" class="js-gps-track" data-gps-track="help_popup.click({ item_type:2 })">
+                                Meta
+                                <span class="item-summary">
+                                    Discuss the workings and policies of this site
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://stackoverflow.com/company/about" class="js-gps-track" data-gps-track="help_popup.click({ item_type:6 })">
+                                About Us
+                                <span class="item-summary">
+                                    Learn more about Stack Overflow the company
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.stackoverflowbusiness.com/?ref=topbar_help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:7 })">
+                                Business
+                                <span class="item-summary">
+                                    Learn more about hiring developers or posting ads with us
+                                </span>
+                            </a>
+                        </li>
+            </ul>
+        </div>
+    </div>
+                    <div class="topbar-dialog leftnav-dialog js-leftnav-dialog dno">
+                <div class="left-sidebar js-unpinned-left-sidebar" data-can-be="left-sidebar" data-is-here-when="sm"></div>
+            </div>
+    </li>
+</ol>
+
+    </div>
+</header>
+
+    <script>
+        StackExchange.ready(function () { StackExchange.topbar.init({ observeSize: true }); });
+        StackExchange.scrollPadding.setPaddingTop(50, 10);     </script>
+
+
+
+
+
+        <header class="site-header">
+            <div class="site-header--container">
+                <a class="site-header--link d-flex ai-center fs-headline1 fw-bold" href="https://tex.stackexchange.com/">
+                        <img class="h-auto wmx100" src="tex%20core%20-%20Is%20there%20a%20BNF%20grammar%20of%20the%20TeX%20language%3F%20-%20TeX%20-%20LaTeX%20Stack%20Exchange_fichiers/logo.svg" alt="TeX - LaTeX">
+                </a>
+
+            </div>
+        </header>
+
+    <div class="container">
+
+
+
+
+
+<div id="left-sidebar" data-is-here-when="md lg" class="left-sidebar js-pinned-left-sidebar">
+    <div class="left-sidebar--sticky-container js-sticky-leftnav">
+            <nav role="navigation">
+                <ol class="nav-links">
+                    <li>    </li><li>
+        <a href="https://tex.stackexchange.com/" class="pl8 js-gps-track nav-links--link" data-gps-track="top_nav.click({is_current:false, location:2, destination:8})">
+Home        </a>
+    </li>
+
+                    <li>
+                        <ol class="nav-links">
+                                <li class=" youarehere">
+        <a id="nav-questions" href="https://tex.stackexchange.com/questions" class="pl8 js-gps-track nav-links--link" data-gps-track="top_nav.click({is_current:true, location:2, destination:1})">
+Questions        </a>
+    </li>
+
+    <li>
+        <a id="nav-tags" href="https://tex.stackexchange.com/tags" class="pl8 js-gps-track nav-links--link" data-gps-track="top_nav.click({is_current:false, location:2, destination:2})">
+Tags        </a>
+    </li>
+    <li>
+        <a id="nav-users" href="https://tex.stackexchange.com/users" class="pl8 js-gps-track nav-links--link" data-gps-track="top_nav.click({is_current:false, location:2, destination:3})">
+Users        </a>
+    </li>
+    <li>
+        <a id="nav-unanswered" href="https://tex.stackexchange.com/unanswered" class="pl8 js-gps-track nav-links--link" data-gps-track="top_nav.click({is_current:false, location:2, destination:5})">
+Unanswered        </a>
+    </li>
+                                                    </ol>
+                    </li>
+                </ol>
+            </nav>
+    </div>
+</div>
+
+
+        <div id="content" class="">
+
+
+            
+
+
+<div itemprop="mainEntity" itemscope="" itemtype="http://schema.org/Question">
+    <link itemprop="image" href="https://cdn.sstatic.net/Sites/tex/img/apple-touch-icon.png?v=0a90e8f91d4c">
+
+    <div class="inner-content clearfix">
+    
+    
+
+            <div id="question-header" class="grid">
+                    <h1 itemprop="name" class="grid--cell fs-headline1 fl1 ow-break-word"><a href="https://tex.stackexchange.com/questions/4201/is-there-a-bnf-grammar-of-the-tex-language" class="question-hyperlink">Is there a BNF grammar of the TeX language?</a></h1>
+
+            
+<div class="pl8 aside-cta grid--cell" role="navigation" aria-label="ask new question">
+        <a href="https://tex.stackexchange.com/questions/ask" class="d-inline-flex ai-center ws-nowrap s-btn s-btn__primary">
+            Ask Question
+        </a>
+</div>
+
+        </div>
+            <div id="mainbar" role="main" aria-label="question and answers">
+
+            
+
+<div class="question" data-questionid="4201" id="question">
+
+    
+    <div class="post-layout">
+            <div class="votecell post-layout--left">
+                
+
+<div class="js-voting-container grid fd-column ai-stretch gs4 fc-black-200" data-post-id="4201">
+        <button class="js-vote-up-btn grid--cell s-btn s-btn__unset c-pointer" title="This question shows research effort; it is useful and clear" aria-pressed="false" aria-label="up vote" data-selected-classes="fc-theme-primary"><svg aria-hidden="true" class="svg-icon m0 iconArrowUpLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 26h32L18 10z"></path></svg></button>
+        <div class="js-vote-count grid--cell fc-black-500 fs-title grid fd-column ai-center c-pointer" itemprop="upvoteCount" data-value="81" title="View upvote and downvote totals" tabindex="0">81</div>
+        <button class="js-vote-down-btn grid--cell s-btn s-btn__unset c-pointer" title="This question does not show any research effort; it is unclear or not useful" aria-pressed="false" aria-label="down vote" data-selected-classes="fc-theme-primary"><svg aria-hidden="true" class="svg-icon m0 iconArrowDownLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 10h32L18 26z"></path></svg></button>
+
+        <button class="js-favorite-btn s-btn s-btn__unset c-pointer py8" aria-pressed="false" aria-label="favorite (30)" data-selected-classes="fc-yellow-600" title="Click to mark as favorite question (click again to undo)">
+            <svg aria-hidden="true" class="svg-icon iconStar" width="18" height="18" viewBox="0 0 18 18"><path d="M9 12.65l-5.29 3.63 1.82-6.15L.44 6.22l6.42-.17L9 0l2.14 6.05 6.42.17-5.1 3.9 1.83 6.16z"></path></svg>
+            <div class="js-favorite-count mt8" data-value="30">30</div>
+        </button>
+
+
+</div>
+
+            </div>
+
+            
+<div class="postcell post-layout--right">
+    
+    <div class="post-text" itemprop="text">
+
+<p>I'm looking for a BNF grammar of the TeX language, does it exist?</p>
+
+<h1>EDIT</h1>
+
+<p>For those of us who are not computer scientists, a BNF grammar is one kind of formal description of a CFG: <a href="https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_Form">Backus Naur Form</a>.</p>
+
+<p>For those who don't know their Chomsky, a CFG is a <a href="https://en.wikipedia.org/wiki/Context-free_grammar">context-free grammar</a>, which means (very roughly) that substitutions can be made independently of their use context.</p>
+    </div>
+
+        <div class="post-taglist grid gs4 gsy fd-column">
+            <div class="grid ps-relative d-block">
+                <a href="https://tex.stackexchange.com/questions/tagged/tex-core" class="post-tag js-gps-track" title="show questions tagged 'tex-core'" rel="tag">tex-core</a> <a href="https://tex.stackexchange.com/questions/tagged/parsing" class="post-tag js-gps-track" title="show questions tagged 'parsing'" rel="tag">parsing</a> <a href="https://tex.stackexchange.com/questions/tagged/grammar" class="post-tag js-gps-track" title="show questions tagged 'grammar'" rel="tag">grammar</a> 
+            </div>
+        </div>
+
+    <div class="mb0 ">
+        <div class="mt16 pt4 grid gs8 gsy fw-wrap jc-end ai-start">
+            <div class="grid--cell mr16" style="flex: 1 1 100px;">
+<div class="post-menu"><a href="https://tex.stackexchange.com/q/4201/6880" title="short permalink to this question" class="short-link" itemprop="url" id="link-post-4201">share</a><span class="lsep">|</span><a href="https://tex.stackexchange.com/posts/4201/edit" class="edit-post" title="revise and improve this post">edit</a><span class="lsep">|</span><a href="#" class="close-question-link" title="vote to close this question (when closed, no new answers can be added)" data-questionid="4201" data-isclosed="false">close</a><span class="lsep">|</span><a href="#" class="flag-post-link" title="flag this post for serious problems or moderator attention" data-postid="4201">flag</a></div>
+            </div>
+
+                <div class="post-signature grid--cell">
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        <a href="https://tex.stackexchange.com/posts/4201/revisions" title="show all edits to this post">edited <span title="2017-02-06 09:32:34Z" class="relativetime">Feb 6 '17 at 9:32</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://tex.stackexchange.com/users/5763/martin-schr%c3%b6der"><div class="gravatar-wrapper-32"><img src="tex%20core%20-%20Is%20there%20a%20BNF%20grammar%20of%20the%20TeX%20language%3F%20-%20TeX%20-%20LaTeX%20Stack%20Exchange_fichiers/d8110a8a8a97be0803549ea5ee2e638b.png" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://tex.stackexchange.com/users/5763/martin-schr%c3%b6der">Martin Schröder</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 12,950" dir="ltr">13k</span><span title="6 gold badges"><span class="badge1"></span><span class="badgecount">6</span></span><span title="40 silver badges"><span class="badge2"></span><span class="badgecount">40</span></span><span title="125 bronze badges"><span class="badge3"></span><span class="badgecount">125</span></span>
+        </div>
+    </div>
+</div>                </div>
+            <div class="post-signature owner grid--cell">
+<div class="user-info ">
+    <div class="user-action-time">
+        asked <span title="2010-10-16 20:08:12Z" class="relativetime">Oct 16 '10 at 20:08</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://tex.stackexchange.com/users/1271/rystsov"><div class="gravatar-wrapper-32"><img src="tex%20core%20-%20Is%20there%20a%20BNF%20grammar%20of%20the%20TeX%20language%3F%20-%20TeX%20-%20LaTeX%20Stack%20Exchange_fichiers/5ac7683a366643ee670692de4c5f4447.jpg" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        <a href="https://tex.stackexchange.com/users/1271/rystsov">rystsov</a><span class="d-none" itemprop="name">rystsov</span>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">508</span><span title="5 silver badges"><span class="badge2"></span><span class="badgecount">5</span></span><span title="6 bronze badges"><span class="badge3"></span><span class="badgecount">6</span></span>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </div>
+    
+</div>
+                
+    <div class="post-layout--right">
+	    <div id="comments-4201" class="comments js-comments-container  dno" data-post-id="4201">
+            <ul class="comments-list js-comments-list" data-remaining-comments-count="0" data-canpost="true" data-cansee="false" data-comments-unavailable="false" data-addlink-disabled="false">
+
+            </ul>
+				<div class="comment-form">
+					<form id="add-comment-4201" class="" data-placeholdertext="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments."></form>
+				</div>
+	    </div>
+
+        <div id="comments-link-4201">
+
+                <a class="js-add-link comments-link " title="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments." href="#">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </div>              <div class="bounty-notification post-layout--right">
+          <div style="margin-top:20px">
+            <a class="bounty-link bounty" title="offer some of your reputation for better answers">
+                start a bounty
+            </a>
+          </div>
+          </div>
+    </div>
+</div>
+
+
+
+            <div id="answers">
+
+                <a name="tab-top"></a>
+                <div id="answers-header">
+                    <div class="subheader answers-subheader">
+                        <h2 data-answercount="4">
+                                4 Answers
+                            <span style="display:none;" itemprop="answerCount">4</span>
+                        </h2>
+                        <div>
+                            
+<div id="tabs">
+        <a href="https://tex.stackexchange.com/questions/4201/is-there-a-bnf-grammar-of-the-tex-language?answertab=active#tab-top" data-nav-xhref="" title="Answers with the latest activity first" data-value="active" data-shortcut="A">
+            active</a>
+        <a href="https://tex.stackexchange.com/questions/4201/is-there-a-bnf-grammar-of-the-tex-language?answertab=oldest#tab-top" data-nav-xhref="" title="Answers in the order they were provided" data-value="oldest" data-shortcut="O">
+            oldest</a>
+        <a class="youarehere is-selected " href="https://tex.stackexchange.com/questions/4201/is-there-a-bnf-grammar-of-the-tex-language?answertab=votes#tab-top" data-nav-xhref="" title="Answers with the highest score first" data-value="votes" data-shortcut="V">
+            votes</a>
+    </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+  
+<a name="4205"></a>
+<div id="answer-4205" class="answer accepted-answer" data-answerid="4205" itemprop="acceptedAnswer" itemscope="" itemtype="http://schema.org/Answer">
+    <div class="post-layout">
+            <div class="votecell post-layout--left">
+                
+
+<div class="js-voting-container grid fd-column ai-stretch gs4 fc-black-200" data-post-id="4205">
+        <button class="js-vote-up-btn grid--cell s-btn s-btn__unset c-pointer" title="This answer is useful" aria-pressed="false" aria-label="up vote" data-selected-classes="fc-theme-primary"><svg aria-hidden="true" class="svg-icon m0 iconArrowUpLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 26h32L18 10z"></path></svg></button>
+        <div class="js-vote-count grid--cell fc-black-500 fs-title grid fd-column ai-center c-pointer" itemprop="upvoteCount" data-value="130" title="View upvote and downvote totals" tabindex="0">130</div>
+        <button class="js-vote-down-btn grid--cell s-btn s-btn__unset c-pointer" title="This answer is not useful" aria-pressed="false" aria-label="down vote" data-selected-classes="fc-theme-primary"><svg aria-hidden="true" class="svg-icon m0 iconArrowDownLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 10h32L18 26z"></path></svg></button>
+
+
+                <div class="js-accepted-answer-indicator grid--item fc-green-500 ta-center p4" title="loading when this answer was accepted..." tabindex="0" role="note" aria-label="accepted"><svg aria-hidden="true" class="svg-icon iconCheckmarkLg" width="36" height="36" viewBox="0 0 36 36"><path d="M6 14l8 8L30 6v8L14 30l-8-8z"></path></svg></div>
+
+</div>
+
+            </div>
+            
+
+<div class="answercell post-layout--right">
+    
+    <div class="post-text" itemprop="text">
+<h2>Parsing TeX is Turing complete</h2>
+
+<p>TeX can only be parsed by a complete Turing machine (modulo the 
+finite space available), which precludes it from having a BNF.  This 
+comes from a combination of two features: first, TeX is Turing complete 
+(if you need proof, <a href="https://web.archive.org/web/20150908020612/http://en.literateprograms.org:80/Turing_machine_simulator_%28LaTeX%29" rel="noreferrer">this Turing machine simulator</a>
+ should suffice); and second, TeX can redefine macros (and their parsing
+ rules) at runtime.  Since TeX can require that macros be followed by 
+specific characters, redefining a macro can mean redefining the syntax 
+of TeX.  Combining these facts means that we can write TeX code like the
+ following, where <code>\f</code> is defined to be the algorithmic representation in TeX of some arbitrary (computable) function <em>f</em> : ℤ → ℤ:</p>
+
+<pre class="lang-tex prettyprint prettyprinted" style=""><code><span class="kwd">\def\TuringCompleteness</span><span class="pln">#1#2</span><span class="pun">{</span><span class="com">%</span><span class="pln">
+  </span><span class="kwd">\edef\Output</span><span class="pun">{</span><span class="pln">#1</span><span class="pun">{</span><span class="pln">#2</span><span class="pun">}}</span><span class="com">%</span><span class="pln">
+  </span><span class="kwd">\ifnum\Output</span><span class="pun">=</span><span class="pln">0
+    </span><span class="kwd">\def\Required</span><span class="pln">!</span><span class="pun">{</span><span class="pln">Bang!</span><span class="pun">}</span><span class="com">%</span><span class="pln">
+  </span><span class="kwd">\else</span><span class="pln">
+    </span><span class="kwd">\def\Required</span><span class="pln">?</span><span class="pun">{</span><span class="pln">Huh?</span><span class="pun">}</span><span class="com">%</span><span class="pln">
+  </span><span class="kwd">\fi</span><span class="pun">}</span><span class="pln">
+</span><span class="kwd">\TuringCompleteness</span><span class="pun">{</span><span class="kwd">\f</span><span class="pun">}{</span><span class="pln">0</span><span class="pun">}</span><span class="pln">
+</span><span class="kwd">\Required</span><span class="pln">!</span></code></pre>
+
+<p>Will this TeX parse?  That depends on the value of <em>f</em>(0) / <code>\f{0}</code>!
+  And since TeX is Turing-complete, computing this value may require a 
+full Turing machine, and therefore so will determining whether or not <code>\Required!</code> is valid TeX syntax.</p>
+
+<p><br></p>
+
+<h2>It gets worse: category codes</h2>
+
+<p>Perhaps, though, you think that you can still perform a rough check 
+for code that looks like a backslash, followed by letters, followed by 
+braced stuff.  This will already get inadequate quickly, but that's not 
+all.  If delimited macros weren't bad enough, things get even worse when
+ you realize that the reason that the characters <code>\</code>, <code>{</code>, <code>}</code>, <code>$</code>,
+ and so on have the behavior they do is simply because TeX specifies 
+that they have particular "category codes".  The ability to redefine 
+these means that writing TeX like</p>
+
+<pre class="lang-tex prettyprint prettyprinted" style=""><code><span class="kwd">\catcode</span><span class="pln">`</span><span class="kwd">\~</span><span class="pun">=</span><span class="pln">0
+</span><span class="kwd">\catcode</span><span class="pln">`</span><span class="kwd">\]</span><span class="pun">=</span><span class="pln">1
+</span><span class="kwd">\catcode</span><span class="pln">`</span><span class="kwd">\[</span><span class="pun">=</span><span class="pln">2
+</span><span class="kwd">\catcode</span><span class="pln">`</span><span class="kwd">\}</span><span class="pun">=</span><span class="pln">12
+</span><span class="kwd">\catcode</span><span class="pln">`</span><span class="kwd">\{</span><span class="pun">=</span><span class="pln">12
+</span><span class="kwd">\catcode</span><span class="pln">`</span><span class="kwd">\\</span><span class="pun">=</span><span class="pln">12</span></code></pre>
+
+<p>means that all <em>subsequent</em> (La)TeX code must be written like so:</p>
+
+<pre class="lang-tex prettyprint prettyprinted" style=""><code><span class="pln">~textbf</span><span class="pun">]</span><span class="pln">This is bold-faced text.</span><span class="pun">[</span><span class="pln">  This text contains a literal backslash
+</span><span class="pun">(</span><span class="pln">~texttt</span><span class="pun">]</span><span class="kwd">\[</span><span class="pun">)</span><span class="pln"> and literal curly braces </span><span class="pun">(</span><span class="pln">~texttt</span><span class="pun">]{}[)</span><span class="pln">.</span></code></pre>
+
+<p>to get output like so:</p>
+
+<blockquote>
+  <p><b>This is bold-faced text.</b>  This text contains a literal backslash (<code>\</code>) and literal curly braces (<code>{}</code>).</p>
+</blockquote>
+
+<p><br></p>
+
+<h2>Constructive Proof that TeX is (at least) Context-Sensitive</h2>
+
+<p>Additionally, inspired by <a href="https://tex.stackexchange.com/questions/4201/is-there-a-bnf-grammar-of-tex-language/4203#4203">TH.'s answer</a>,
+ here's a specific constructive proof that TeX is not context-free.  And
+ note that it doesn't have to rely on catcode trickery—just TeX's 
+ability to define arbitrarily-delimited macros.  (Yes, this is implied 
+by the first section, but it's still nice to see a specific case in 
+action.)</p>
+
+<pre class="lang-tex prettyprint prettyprinted" style=""><code><span class="kwd">\newcount\nesting</span><span class="pln">
+
+</span><span class="kwd">\def\RecognizeABC</span><span class="pln">#1</span><span class="pun">{</span><span class="kwd">\begingroup</span><span class="pln">
+  </span><span class="kwd">\nesting</span><span class="pun">=</span><span class="pln">0
+  </span><span class="kwd">\OneStep</span><span class="pln">#1</span><span class="kwd">\relax</span><span class="pln">
+  </span><span class="kwd">\ifnum\nesting</span><span class="pun">=</span><span class="pln">1
+    There was </span><span class="kwd">\the\nesting\ </span><span class="pln">copy of each control sequence.</span><span class="kwd">\par</span><span class="pln">
+  </span><span class="kwd">\else</span><span class="pln">
+    There were </span><span class="kwd">\the\nesting\ </span><span class="pln">copies of each control sequence.</span><span class="kwd">\par</span><span class="pln">
+  </span><span class="kwd">\fi</span><span class="pln">
+</span><span class="kwd">\endgroup</span><span class="pun">}</span><span class="pln">
+
+</span><span class="kwd">\def\CheckFinished</span><span class="pln">#1</span><span class="pun">{</span><span class="com">%</span><span class="pln">
+  </span><span class="kwd">\ifx</span><span class="pln">#1</span><span class="kwd">\relax</span><span class="pln">
+    </span><span class="kwd">\def\OneStep</span><span class="pln">#1</span><span class="pun">{</span><span class="kwd">\relax</span><span class="pun">}</span><span class="com">%</span><span class="pln">
+  </span><span class="kwd">\fi</span><span class="pln">
+  </span><span class="kwd">\OneStep</span><span class="pln">#1</span><span class="pun">}</span><span class="pln">
+
+</span><span class="kwd">\def\OneStep\a</span><span class="pln">#1</span><span class="kwd">\b</span><span class="pln">#2</span><span class="kwd">\c</span><span class="pln">#3</span><span class="kwd">\relax</span><span class="pun">{</span><span class="com">%</span><span class="pln">
+  </span><span class="kwd">\advance\nesting</span><span class="pln"> by 1
+  </span><span class="kwd">\CheckFinished</span><span class="pln">#1#2#3</span><span class="kwd">\relax</span><span class="pun">}</span></code></pre>
+
+<p>This code is set up to recognize what <a href="http://en.wikipedia.org/wiki/Context-sensitive_grammar#Examples" rel="noreferrer">Wikipedia</a> calls "the canonical non-context free language" of <em>n</em> copies of <code>\a</code> followed by <em>n</em> copies of <code>\b</code> followed by <em>n</em> copies of <code>\c</code>, where <em>n</em>
+ is at least one.  The first line just allocates a counter; we'll use 
+this to keep track of how many copies of the control sequences we see, 
+but it's just so we can display some text at the end, not for parsing.  
+To attempt recognition of some text, call <code>\RecognizeABC{...}</code>.  This simply sets <code>\nesting</code> to zero (for, again, output purposes), and calls <code>\OneStep</code>.  <code>\OneStep</code> is set up to take three arguments <em>delimited by <code>\a</code>, <code>\b</code>, and <code>\c</code></em>.  The first argument must come between <code>\a</code> and <code>\b</code>, the second between <code>\b</code> and <code>\c</code>, and the third between <code>\c</code> and <code>\relax</code>.  If there are the same number of each of <code>\a</code>, <code>\b</code>, and <code>\c</code>, then this will eventually be <code>\OneStep\a\b\c\relax</code> and all the arguments will be empty.  With <code>\OneStep</code>, we just record the fact that there's one more of each <code>\a</code>, <code>\b</code>, and <code>\c</code> (which is, again, just for output), and then we see if we're done.  <code>\CheckFinished</code> looks to see what the next token in the input stream is.  If it's <code>\relax</code>, then the arguments were empty, and we're done; redefine <code>\OneStep</code> not to do anything.  Now, call <code>\OneStep</code>—whether it's the parsing macro or nothing at all—on the remaining input stream, recursing.  Once we're done, we finally finish <code>\RecognizeABC</code>, where we typeset how many copies of each control sequence we saw.</p>
+
+<p>Phew!  If you didn't follow all that, here's what a trace looks like, if we only look at the important macros:</p>
+
+<pre class="lang-tex prettyprint prettyprinted" style=""><code><span class="pun">[</span><span class="pln">START</span><span class="pun">]</span><span class="pln"> </span><span class="kwd">\RecognizeABC</span><span class="pun">{</span><span class="kwd">\a\a\a\b\b\b\c\c\c</span><span class="pun">}</span><span class="pln">
+    --&gt; </span><span class="kwd">\OneStep\a\a\a\b\b\b\c\c\c\relax</span><span class="pln">
+                  -#1-  -#2-  -#3-
+    --&gt; </span><span class="kwd">\CheckFinished\a\a\b\b\c\c\relax</span><span class="pln">
+    --&gt; </span><span class="kwd">\OneStep\a\a\b\b\c\c\relax</span><span class="pln">
+                  #1  #2  #3
+    --&gt; </span><span class="kwd">\CheckFinished\a\b\c\relax</span><span class="pln">
+    --&gt; </span><span class="kwd">\OneStep\a\b\c\relax</span><span class="pln">
+          </span><span class="pun">(</span><span class="pln">All the arguments are empty.</span><span class="pun">)</span><span class="pln">
+    --&gt; </span><span class="kwd">\CheckFinished\relax</span><span class="pln">
+    --&gt; ``There were 3 copies of each control sequence.''</span></code></pre>
+
+<p>Thus, the following TeX</p>
+
+<pre class="lang-tex prettyprint prettyprinted" style=""><code><span class="kwd">\RecognizeABC</span><span class="pun">{</span><span class="kwd">\a\b\c</span><span class="pun">}</span><span class="pln">
+</span><span class="kwd">\RecognizeABC</span><span class="pun">{</span><span class="kwd">\a\a\b\b\c\c</span><span class="pun">}</span><span class="pln">
+</span><span class="kwd">\RecognizeABC</span><span class="pun">{</span><span class="kwd">\a\a\a\b\b\b\c\c\c</span><span class="pun">}</span></code></pre>
+
+<p>Yields the following output:</p>
+
+<blockquote>
+  <p>There was 1 copy of each control sequence.<br>
+  There were 2 copies of each control sequence.<br>
+  There were 3 copies of each control sequence.</p>
+</blockquote>
+
+<p>But TeX such as</p>
+
+<pre class="lang-tex prettyprint prettyprinted" style=""><code><span class="kwd">\RecognizeABC</span><span class="pun">{}</span><span class="pln">
+</span><span class="kwd">\RecognizeABC</span><span class="pun">{</span><span class="kwd">\a</span><span class="pun">}</span><span class="pln">
+</span><span class="kwd">\RecognizeABC</span><span class="pun">{</span><span class="kwd">\a\a\b\b\c\c\c</span><span class="pun">}</span><span class="pln">
+</span><span class="kwd">\RecognizeABC</span><span class="pun">{</span><span class="kwd">\a\b\c\garbage</span><span class="pun">}</span></code></pre>
+
+<p>fails.</p>
+
+<hr>
+
+<p><strong>Edit 1:</strong> In addition to minor bugfixes/cleanup and 
+breaking the answer into sections with headings, I expanded the 
+rationale for TeX being unparsable by anything short of a Turing machine
+ to hopefully make it slightly more clear.  This involved removing the 
+previous <code>\weird</code> example, replacing it with something that's more of a proof.  If you'd rather have a concrete <em>example</em> (but non-proof) with a command which redefines <em>itself</em>, consider the following TeX, which was there before:</p>
+
+<pre class="lang-tex prettyprint prettyprinted" style=""><code><span class="kwd">\def\weird</span><span class="pun">[</span><span class="pln">#1</span><span class="pun">][</span><span class="pln">#2</span><span class="pun">]{</span><span class="com">%</span><span class="pln">
+  </span><span class="kwd">\ifx</span><span class="pln">#1</span><span class="kwd">\relax</span><span class="pln">
+    </span><span class="kwd">\def\weird</span><span class="pln">!</span><span class="pun">{</span><span class="pln">I was previously called with a relaxing first argument.</span><span class="pun">}</span><span class="com">%</span><span class="pln">
+  </span><span class="kwd">\else\ifx</span><span class="pln">#2</span><span class="kwd">\relax</span><span class="pln">
+    </span><span class="kwd">\def\weird</span><span class="pun">(</span><span class="pln">##1</span><span class="pun">){</span><span class="pln">I can only be called with one argument; I was given </span><span class="pun">(</span><span class="pln">##1</span><span class="pun">)</span><span class="pln">.</span><span class="pun">}</span><span class="com">%</span><span class="pln">
+  </span><span class="kwd">\fi\fi</span><span class="pln">
+  I was called with </span><span class="pun">[</span><span class="pln">#1</span><span class="pun">]</span><span class="pln"> and </span><span class="pun">[</span><span class="pln">#2</span><span class="pun">]</span><span class="pln">.</span><span class="pun">}</span></code></pre>
+
+<p>To start, <code>\weird</code> must be called as <code>\weird[stuff][other stuff]</code>.  But if its first argument is <code>\relax</code>, then it redefines itself to require being called as <code>\weird!</code>; if its second argument is nothing, it redefines itself to require being called as <code>\weird(stuff)</code>;
+ and it always typesets text.  This can't be captured by a BNF grammar 
+(I don't think).  And of course, in the general case, we need a Turing 
+machine.</p>
+    </div>
+    <div class="grid mb0 fw-wrap ai-start jc-end gs8 gsy">
+        <time itemprop="dateCreated" datetime="2010-10-16T23:36:07"></time>
+    <div class="grid--cell mr16" style="flex: 1 1 100px;">
+<div class="post-menu"><a href="https://tex.stackexchange.com/a/4205/6880" title="short permalink to this answer" class="short-link" itemprop="url" id="link-post-4205">share</a><span class="lsep">|</span><a href="https://tex.stackexchange.com/posts/4205/edit" class="edit-post" title="revise and improve this post">edit</a><span class="lsep">|</span><a href="#" class="flag-post-link" title="flag this post for serious problems or moderator attention" data-postid="4205">flag</a></div>                    </div>
+    <div class="post-signature grid--cell fl0">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="https://tex.stackexchange.com/posts/4205/revisions" title="show all edits to this post">edited <span title="2018-03-28 22:01:53Z" class="relativetime">Mar 28 '18 at 22:01</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://tex.stackexchange.com/users/159383/joel"><div class="gravatar-wrapper-32"><img src="tex%20core%20-%20Is%20there%20a%20BNF%20grammar%20of%20the%20TeX%20language%3F%20-%20TeX%20-%20LaTeX%20Stack%20Exchange_fichiers/3533bbda1c6aec7da60610157c660df5.png" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://tex.stackexchange.com/users/159383/joel">Joel</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">103</span><span title="3 bronze badges"><span class="badge3"></span><span class="badgecount">3</span></span>
+        </div>
+    </div>
+</div>    </div>
+            
+
+
+    <div class="post-signature grid--cell fl0">
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2010-10-16 23:36:07Z" class="relativetime">Oct 16 '10 at 23:36</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://tex.stackexchange.com/users/1425/antal-spector-zabusky"><div class="gravatar-wrapper-32"><img src="tex%20core%20-%20Is%20there%20a%20BNF%20grammar%20of%20the%20TeX%20language%3F%20-%20TeX%20-%20LaTeX%20Stack%20Exchange_fichiers/HRZOt.png" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        <a href="https://tex.stackexchange.com/users/1425/antal-spector-zabusky">Antal Spector-Zabusky</a><span class="d-none" itemprop="name">Antal Spector-Zabusky</span>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 10,427" dir="ltr">10.4k</span><span title="6 gold badges"><span class="badge1"></span><span class="badgecount">6</span></span><span title="38 silver badges"><span class="badge2"></span><span class="badgecount">38</span></span><span title="43 bronze badges"><span class="badge3"></span><span class="badgecount">43</span></span>
+        </div>
+    </div>
+</div>
+
+    </div>
+    </div>
+    
+</div>
+
+    
+    <div class="post-layout--right">
+	    <div id="comments-4205" class="comments js-comments-container " data-post-id="4205">
+            <ul class="comments-list js-comments-list" data-remaining-comments-count="6" data-canpost="true" data-cansee="false" data-comments-unavailable="false" data-addlink-disabled="false">
+
+
+    <li id="comment-6203" class="comment js-comment " data-comment-id="6203">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score js-comment-edit-hide">
+                    <span title="number of 'useful comment' votes received" class="cool">3</span>
+            </div>
+                <div class="comment-voting mtn2 js-comment-edit-hide">
+                        <a tabindex="0" role="button" href="#" class="comment-up comment-up-off" aria-label="Upvote Comment" title="This comment adds something useful to the post">
+                            <svg aria-hidden="true" class="svg-icon iconArrowUp" width="18" height="18" viewBox="0 0 18 18"><path d="M1 13h16L9 5z"></path></svg>
+                        </a>
+                </div>
+                            <div class="comment-flagging js-comment-edit-hide">
+                        <a tabindex="0" role="button" href="#" class="comment-flag" aria-label="Flag Comment" title="Flag this comment for serious problems or moderator attention">
+                            <svg aria-hidden="true" class="svg-icon iconFlag" width="18" height="18" viewBox="0 0 18 18"><path d="M3 2v14h2v-6h3.6l.4 1h6V3H9.5L9 2z"></path></svg>
+                        </a>
+                </div>
+        </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body js-comment-edit-hide">
+                
+                <span class="comment-copy">Very nice answer! It might be
+ easier to read if you removed the unnecessary comments at the ends of 
+most of the lines. (Only six lines in your lists need comments, one of 
+which is missing one. The others are unnecessary.)</span>
+                
+                    –&nbsp;<a href="https://tex.stackexchange.com/users/647/th" title="48,474 reputation" class="comment-user">TH.</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment6203_4205"><span title="2010-10-17 00:27:14Z" class="relativetime-clean">Oct 17 '10 at 0:27</span></a></span>
+                                                            </div>
+        </div>
+    </li>
+    <li id="comment-6209" class="comment js-comment " data-comment-id="6209">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score js-comment-edit-hide">
+                    <span title="number of 'useful comment' votes received" class="cool">2</span>
+            </div>
+                <div class="comment-voting mtn2 js-comment-edit-hide">
+                        <a tabindex="0" role="button" href="#" class="comment-up comment-up-off" aria-label="Upvote Comment" title="This comment adds something useful to the post">
+                            <svg aria-hidden="true" class="svg-icon iconArrowUp" width="18" height="18" viewBox="0 0 18 18"><path d="M1 13h16L9 5z"></path></svg>
+                        </a>
+                </div>
+                            <div class="comment-flagging js-comment-edit-hide">
+                        <a tabindex="0" role="button" href="#" class="comment-flag" aria-label="Flag Comment" title="Flag this comment for serious problems or moderator attention">
+                            <svg aria-hidden="true" class="svg-icon iconFlag" width="18" height="18" viewBox="0 0 18 18"><path d="M3 2v14h2v-6h3.6l.4 1h6V3H9.5L9 2z"></path></svg>
+                        </a>
+                </div>
+        </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body js-comment-edit-hide">
+                
+                <span class="comment-copy">It's what makes TeX so much fun to program in. It's always a puzzle!</span>
+                
+                    –&nbsp;<a href="https://tex.stackexchange.com/users/647/th" title="48,474 reputation" class="comment-user">TH.</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment6209_4205"><span title="2010-10-17 02:15:10Z" class="relativetime-clean">Oct 17 '10 at 2:15</span></a></span>
+                                                            </div>
+        </div>
+    </li>
+    <li id="comment-6211" class="comment js-comment " data-comment-id="6211">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score js-comment-edit-hide">
+                    <span title="number of 'useful comment' votes received" class="warm">12</span>
+            </div>
+                <div class="comment-voting mtn2 js-comment-edit-hide">
+                        <a tabindex="0" role="button" href="#" class="comment-up comment-up-off" aria-label="Upvote Comment" title="This comment adds something useful to the post">
+                            <svg aria-hidden="true" class="svg-icon iconArrowUp" width="18" height="18" viewBox="0 0 18 18"><path d="M1 13h16L9 5z"></path></svg>
+                        </a>
+                </div>
+                            <div class="comment-flagging js-comment-edit-hide">
+                        <a tabindex="0" role="button" href="#" class="comment-flag" aria-label="Flag Comment" title="Flag this comment for serious problems or moderator attention">
+                            <svg aria-hidden="true" class="svg-icon iconFlag" width="18" height="18" viewBox="0 0 18 18"><path d="M3 2v14h2v-6h3.6l.4 1h6V3H9.5L9 2z"></path></svg>
+                        </a>
+                </div>
+        </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body js-comment-edit-hide">
+                
+                <span class="comment-copy">Fantastic answer. This question comes up periodically, and I've never seen such a useful reply.</span>
+                
+                    –&nbsp;<a href="https://tex.stackexchange.com/users/179/will-robertson" title="59,559 reputation" class="comment-user">Will Robertson</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment6211_4205"><span title="2010-10-17 03:22:37Z" class="relativetime-clean">Oct 17 '10 at 3:22</span></a></span>
+                                                            </div>
+        </div>
+    </li>
+    <li id="comment-6224" class="comment js-comment " data-comment-id="6224">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score js-comment-edit-hide">
+                    <span title="number of 'useful comment' votes received" class="cool">3</span>
+            </div>
+                <div class="comment-voting mtn2 js-comment-edit-hide">
+                        <a tabindex="0" role="button" href="#" class="comment-up comment-up-off" aria-label="Upvote Comment" title="This comment adds something useful to the post">
+                            <svg aria-hidden="true" class="svg-icon iconArrowUp" width="18" height="18" viewBox="0 0 18 18"><path d="M1 13h16L9 5z"></path></svg>
+                        </a>
+                </div>
+                            <div class="comment-flagging js-comment-edit-hide">
+                        <a tabindex="0" role="button" href="#" class="comment-flag" aria-label="Flag Comment" title="Flag this comment for serious problems or moderator attention">
+                            <svg aria-hidden="true" class="svg-icon iconFlag" width="18" height="18" viewBox="0 0 18 18"><path d="M3 2v14h2v-6h3.6l.4 1h6V3H9.5L9 2z"></path></svg>
+                        </a>
+                </div>
+        </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body js-comment-edit-hide">
+                
+                <span class="comment-copy">Thank you for this 
+comprehensive answer, I knew nothing about catcode. It seems that 
+parsing tex is not a simple task as I thought before. My final task is 
+to extract all math formulas from a set of articles (in tex), I thought I
+ could parse them to do it, but now I'm not sure about it. What approach
+ could you recommend? I think casual articles do not use catcode, so to 
+extract correct math formulas I may parse tex and process newcommand. 
+The alternative is to try use existing engine to parse and extract the 
+needed information from its internals.</span>
+                
+                    –&nbsp;<a href="https://tex.stackexchange.com/users/1271/rystsov" title="508 reputation" class="comment-user owner">rystsov</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment6224_4205"><span title="2010-10-17 07:42:27Z" class="relativetime-clean">Oct 17 '10 at 7:42</span></a></span>
+                                                            </div>
+        </div>
+    </li>
+    <li id="comment-6229" class="comment js-comment " data-comment-id="6229">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score js-comment-edit-hide">
+                    <span title="number of 'useful comment' votes received" class="warm">12</span>
+            </div>
+                <div class="comment-voting mtn2 js-comment-edit-hide">
+                        <a tabindex="0" role="button" href="#" class="comment-up comment-up-off" aria-label="Upvote Comment" title="This comment adds something useful to the post">
+                            <svg aria-hidden="true" class="svg-icon iconArrowUp" width="18" height="18" viewBox="0 0 18 18"><path d="M1 13h16L9 5z"></path></svg>
+                        </a>
+                </div>
+                            <div class="comment-flagging js-comment-edit-hide">
+                        <a tabindex="0" role="button" href="#" class="comment-flag" aria-label="Flag Comment" title="Flag this comment for serious problems or moderator attention">
+                            <svg aria-hidden="true" class="svg-icon iconFlag" width="18" height="18" viewBox="0 0 18 18"><path d="M3 2v14h2v-6h3.6l.4 1h6V3H9.5L9 2z"></path></svg>
+                        </a>
+                </div>
+        </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body js-comment-edit-hide">
+                
+                <span class="comment-copy">@rystsov: I think the best 
+approach is to make assumptions. Assume that your TeX files use only a 
+certain set of standard packages and certain user-defined macros. Write 
+your parser so that it only tries to understand this particular tiny 
+subset of TeX. Be conservative: whenever your parser sees something that
+ it does not understand, throw an error. The end result is likely 
+something very specific to <i>your</i> own style of using TeX in your 
+articles, but it might be enough for your needs. Most importantly, this 
+allows you to extract "semantic" things (e.g., the parameters of your 
+own macros).</span>
+                
+                    –&nbsp;<a href="https://tex.stackexchange.com/users/100/jukka-suomela" title="14,344 reputation" class="comment-user">Jukka Suomela</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment6229_4205"><span title="2010-10-17 08:37:56Z" class="relativetime-clean">Oct 17 '10 at 8:37</span></a></span>
+                                                            </div>
+        </div>
+    </li>
+            </ul>
+				<div class="comment-form">
+					<form id="add-comment-4205" class="" data-placeholdertext="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></form>
+				</div>
+	    </div>
+
+        <div id="comments-link-4205">
+
+                <a class="js-add-link comments-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”." href="#">add a comment</a><span class="js-link-separator ">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link " title="expand to show all comments on this post" href="#" onclick="">show <b>6</b> more comments</a>
+        </div>         
+    </div>    </div>
+</div>
+
+  
+<a name="4224"></a>
+<div id="answer-4224" class="answer" data-answerid="4224" itemprop="suggestedAnswer" itemscope="" itemtype="http://schema.org/Answer">
+    <div class="post-layout">
+            <div class="votecell post-layout--left">
+                
+
+<div class="js-voting-container grid fd-column ai-stretch gs4 fc-black-200" data-post-id="4224">
+        <button class="js-vote-up-btn grid--cell s-btn s-btn__unset c-pointer" title="This answer is useful" aria-pressed="false" aria-label="up vote" data-selected-classes="fc-theme-primary"><svg aria-hidden="true" class="svg-icon m0 iconArrowUpLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 26h32L18 10z"></path></svg></button>
+        <div class="js-vote-count grid--cell fc-black-500 fs-title grid fd-column ai-center c-pointer" itemprop="upvoteCount" data-value="25" title="View upvote and downvote totals" tabindex="0">25</div>
+        <button class="js-vote-down-btn grid--cell s-btn s-btn__unset c-pointer" title="This answer is not useful" aria-pressed="false" aria-label="down vote" data-selected-classes="fc-theme-primary"><svg aria-hidden="true" class="svg-icon m0 iconArrowDownLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 10h32L18 26z"></path></svg></button>
+
+
+                <div class="js-accepted-answer-indicator grid--item fc-green-500 ta-center p4 d-none" title="loading when this answer was accepted..." tabindex="0" role="note" aria-label="accepted"><svg aria-hidden="true" class="svg-icon iconCheckmarkLg" width="36" height="36" viewBox="0 0 36 36"><path d="M6 14l8 8L30 6v8L14 30l-8-8z"></path></svg></div>
+
+</div>
+
+            </div>
+            
+
+<div class="answercell post-layout--right">
+    
+    <div class="post-text" itemprop="text">
+<p>Just to add another angle to the excellent posts by TH. and Antal, is
+ that besides TeX being a Turing complete machine, it can also be 
+coerced to do lambda calculus, the
+basis of all functional languages. On CTAN there is a package called <a href="http://www.ctan.org/tex-archive/macros/plain/contrib/lambda/">lambda</a> developed by Alan Jeffrey that implements, among other lambda concepts, 
+unbounded lists. Not only does TeX do  all these, but impressively, the routines were implemented in TeX's mouth, proving that <strong>TeX's mouth</strong> is as powerful as any computer anywhere.</p>
+
+<p>To understand the relationship between the lambda calculus and Turing machines one needs to refer to the <a href="http://en.wikipedia.org/wiki/Entscheidungsproblem">Entscheidungsproblem</a> which is  one of the famous 23 problems proposed by  David Hilbert.</p>
+
+<p>In 1936 and 1937 Alonzo Church and Alan Turing respectively, 
+published independent papers showing that it is impossible to decide 
+algorithmically whether statements in arithmetic are true or false, and 
+thus a general solution to the Entscheidungsproblem is impossible.</p>
+
+<p>This was done by Alonzo Church in 1936 with the concept of "effective
+ calculability" based on his λ calculus and by Alan Turing in the same 
+year with his concept of Turing machines. It was later recognized that 
+these are equivalent models of computation. The work of both authors was
+ heavily influenced by Kurt Gödel's earlier work on his incompleteness 
+theorem - Wikipedia</p>
+
+<p>So the lambda calculus, Turing machines and TeX are not just closely 
+related but they are equivalent models of computation and this is one of
+ many aspects that makes TeX and friends interesting!</p>
+    </div>
+    <div class="grid mb0 fw-wrap ai-start jc-end gs8 gsy">
+        <time itemprop="dateCreated" datetime="2010-10-17T17:31:08"></time>
+    <div class="grid--cell mr16" style="flex: 1 1 100px;">
+<div class="post-menu"><a href="https://tex.stackexchange.com/a/4224/6880" title="short permalink to this answer" class="short-link" itemprop="url" id="link-post-4224">share</a><span class="lsep">|</span><a href="https://tex.stackexchange.com/posts/4224/edit" class="edit-post" title="revise and improve this post">edit</a><span class="lsep">|</span><a href="#" class="flag-post-link" title="flag this post for serious problems or moderator attention" data-postid="4224">flag</a></div>                    </div>
+    <div class="post-signature grid--cell fl0">
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        <a href="https://tex.stackexchange.com/posts/4224/revisions" title="show all edits to this post">edited <span title="2011-05-21 19:27:48Z" class="relativetime">May 21 '11 at 19:27</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://tex.stackexchange.com/users/2693/alan-munn"><div class="gravatar-wrapper-32"><img src="tex%20core%20-%20Is%20there%20a%20BNF%20grammar%20of%20the%20TeX%20language%3F%20-%20TeX%20-%20LaTeX%20Stack%20Exchange_fichiers/fea119cd75e85ff3356c1987bfed76c1.png" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://tex.stackexchange.com/users/2693/alan-munn">Alan Munn</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 164,360" dir="ltr">164k</span><span title="29 gold badges"><span class="badge1"></span><span class="badgecount">29</span></span><span title="433 silver badges"><span class="badge2"></span><span class="badgecount">433</span></span><span title="716 bronze badges"><span class="badge3"></span><span class="badgecount">716</span></span>
+        </div>
+    </div>
+</div>    </div>
+            
+
+
+    <div class="post-signature grid--cell fl0">
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2010-10-17 17:31:08Z" class="relativetime">Oct 17 '10 at 17:31</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://tex.stackexchange.com/users/963/yiannis-lazarides"><div class="gravatar-wrapper-32"><img src="tex%20core%20-%20Is%20there%20a%20BNF%20grammar%20of%20the%20TeX%20language%3F%20-%20TeX%20-%20LaTeX%20Stack%20Exchange_fichiers/ad0d03aec03eb09398cb09cea2bcb6cd.jpg" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        <a href="https://tex.stackexchange.com/users/963/yiannis-lazarides">Yiannis Lazarides</a><span class="d-none" itemprop="name">Yiannis Lazarides</span>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 93,175" dir="ltr">93.2k</span><span title="21 gold badges"><span class="badge1"></span><span class="badgecount">21</span></span><span title="235 silver badges"><span class="badge2"></span><span class="badgecount">235</span></span><span title="518 bronze badges"><span class="badge3"></span><span class="badgecount">518</span></span>
+        </div>
+    </div>
+</div>
+
+    </div>
+    </div>
+    
+</div>
+
+    
+    <div class="post-layout--right">
+	    <div id="comments-4224" class="comments js-comments-container " data-post-id="4224">
+            <ul class="comments-list js-comments-list" data-remaining-comments-count="0" data-canpost="true" data-cansee="false" data-comments-unavailable="false" data-addlink-disabled="false">
+
+
+    <li id="comment-6354" class="comment js-comment " data-comment-id="6354">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score js-comment-edit-hide">
+                    <span title="number of 'useful comment' votes received" class="hot">25</span>
+            </div>
+                <div class="comment-voting mtn2 js-comment-edit-hide">
+                        <a tabindex="0" role="button" href="#" class="comment-up comment-up-off" aria-label="Upvote Comment" title="This comment adds something useful to the post">
+                            <svg aria-hidden="true" class="svg-icon iconArrowUp" width="18" height="18" viewBox="0 0 18 18"><path d="M1 13h16L9 5z"></path></svg>
+                        </a>
+                </div>
+                            <div class="comment-flagging js-comment-edit-hide">
+                        <a tabindex="0" role="button" href="#" class="comment-flag" aria-label="Flag Comment" title="Flag this comment for serious problems or moderator attention">
+                            <svg aria-hidden="true" class="svg-icon iconFlag" width="18" height="18" viewBox="0 0 18 18"><path d="M3 2v14h2v-6h3.6l.4 1h6V3H9.5L9 2z"></path></svg>
+                        </a>
+                </div>
+        </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body js-comment-edit-hide">
+                
+                <span class="comment-copy">For those unfamiliar with the
+ terminology, ‘TeX's mouth’ refers to the scanning stage before macros 
+and registers can be set (although their contents can be retrieved); 
+i.e, code involving only <code>\ifx</code>, <code>\expandafter</code>, <code>\csname</code>, <code>\the</code>, etc. etc., but not <code>\def</code>, <code>\let</code>, and others. When a macro is said to be ‘expandable’, this means it executes in TeX's mouth.</span>
+                
+                    –&nbsp;<a href="https://tex.stackexchange.com/users/179/will-robertson" title="59,559 reputation" class="comment-user">Will Robertson</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment6354_4224"><span title="2010-10-19 02:58:35Z" class="relativetime-clean">Oct 19 '10 at 2:58</span></a></span>
+                        <span title="this comment was edited 3 times">
+                            <svg aria-hidden="true" class="svg-icon va-text-bottom o50 iconPencilSm" width="14" height="14" viewBox="0 0 14 14"><path d="M8.37 3.7L2 10.11V12h1.88l6.37-6.43zM12.23 2.83L11.1 1.71a.5.5 0 0 0-.7 0L9.2 2.86l1.88 1.84 1.14-1.16a.5.5 0 0 0 0-.71z"></path></svg>
+                        </span>
+                                                            </div>
+        </div>
+    </li>
+            </ul>
+				<div class="comment-form">
+					<form id="add-comment-4224" class="" data-placeholdertext="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></form>
+				</div>
+	    </div>
+
+        <div id="comments-link-4224">
+
+                <a class="js-add-link comments-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”." href="#">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </div>    </div>
+</div>
+
+  
+<a name="4203"></a>
+<div id="answer-4203" class="answer" data-answerid="4203" itemprop="suggestedAnswer" itemscope="" itemtype="http://schema.org/Answer">
+    <div class="post-layout">
+            <div class="votecell post-layout--left">
+                
+
+<div class="js-voting-container grid fd-column ai-stretch gs4 fc-black-200" data-post-id="4203">
+        <button class="js-vote-up-btn grid--cell s-btn s-btn__unset c-pointer" title="This answer is useful" aria-pressed="false" aria-label="up vote" data-selected-classes="fc-theme-primary"><svg aria-hidden="true" class="svg-icon m0 iconArrowUpLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 26h32L18 10z"></path></svg></button>
+        <div class="js-vote-count grid--cell fc-black-500 fs-title grid fd-column ai-center c-pointer" itemprop="upvoteCount" data-value="12" title="View upvote and downvote totals" tabindex="0">12</div>
+        <button class="js-vote-down-btn grid--cell s-btn s-btn__unset c-pointer" title="This answer is not useful" aria-pressed="false" aria-label="down vote" data-selected-classes="fc-theme-primary"><svg aria-hidden="true" class="svg-icon m0 iconArrowDownLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 10h32L18 26z"></path></svg></button>
+
+
+                <div class="js-accepted-answer-indicator grid--item fc-green-500 ta-center p4 d-none" title="loading when this answer was accepted..." tabindex="0" role="note" aria-label="accepted"><svg aria-hidden="true" class="svg-icon iconCheckmarkLg" width="36" height="36" viewBox="0 0 36 36"><path d="M6 14l8 8L30 6v8L14 30l-8-8z"></path></svg></div>
+
+</div>
+
+            </div>
+            
+
+<div class="answercell post-layout--right">
+    
+    <div class="post-text" itemprop="text">
+<p>It's extremely unlikely. TeX can change how it parses input while 
+it's in the middle of reading the input. I'd have to think a bit longer,
+ but I think that precludes TeX from having a context-free grammar and 
+thus it could have no BNF.</p>
+    </div>
+    <div class="grid mb0 fw-wrap ai-start jc-end gs8 gsy">
+        <time itemprop="dateCreated" datetime="2010-10-16T21:13:00"></time>
+    <div class="grid--cell mr16" style="flex: 1 1 100px;">
+<div class="post-menu"><a href="https://tex.stackexchange.com/a/4203/6880" title="short permalink to this answer" class="short-link" itemprop="url" id="link-post-4203">share</a><span class="lsep">|</span><a href="https://tex.stackexchange.com/posts/4203/edit" class="edit-post" title="revise and improve this post">edit</a><span class="lsep">|</span><a href="#" class="flag-post-link" title="flag this post for serious problems or moderator attention" data-postid="4203">flag</a></div>                    </div>
+    <div class="post-signature grid--cell fl0">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="https://tex.stackexchange.com/posts/4203/revisions" title="show all edits to this post">edited <span title="2010-10-16 22:49:27Z" class="relativetime">Oct 16 '10 at 22:49</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>    </div>
+            
+
+
+    <div class="post-signature grid--cell fl0">
+<div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2010-10-16 21:13:00Z" class="relativetime">Oct 16 '10 at 21:13</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://tex.stackexchange.com/users/647/th"><div class="gravatar-wrapper-32"><img src="tex%20core%20-%20Is%20there%20a%20BNF%20grammar%20of%20the%20TeX%20language%3F%20-%20TeX%20-%20LaTeX%20Stack%20Exchange_fichiers/4ca2ec0a1d8cd38a9dbf8969966ccf8c.png" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        <a href="https://tex.stackexchange.com/users/647/th">TH.</a><span class="d-none" itemprop="name">TH.</span>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 48,474" dir="ltr">48.5k</span><span title="10 gold badges"><span class="badge1"></span><span class="badgecount">10</span></span><span title="134 silver badges"><span class="badge2"></span><span class="badgecount">134</span></span><span title="200 bronze badges"><span class="badge3"></span><span class="badgecount">200</span></span>
+        </div>
+    </div>
+</div>
+
+    </div>
+    </div>
+    
+</div>
+
+    
+    <div class="post-layout--right">
+	    <div id="comments-4203" class="comments js-comments-container  dno" data-post-id="4203">
+            <ul class="comments-list js-comments-list" data-remaining-comments-count="0" data-canpost="true" data-cansee="false" data-comments-unavailable="false" data-addlink-disabled="false">
+
+            </ul>
+				<div class="comment-form">
+					<form id="add-comment-4203" class="" data-placeholdertext="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></form>
+				</div>
+	    </div>
+
+        <div id="comments-link-4203">
+
+                <a class="js-add-link comments-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”." href="#">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </div>    </div>
+</div>
+
+  
+<a name="102418"></a>
+<div id="answer-102418" class="answer" data-answerid="102418" itemprop="suggestedAnswer" itemscope="" itemtype="http://schema.org/Answer">
+    <div class="post-layout">
+            <div class="votecell post-layout--left">
+                
+
+<div class="js-voting-container grid fd-column ai-stretch gs4 fc-black-200" data-post-id="102418">
+        <button class="js-vote-up-btn grid--cell s-btn s-btn__unset c-pointer" title="This answer is useful" aria-pressed="false" aria-label="up vote" data-selected-classes="fc-theme-primary"><svg aria-hidden="true" class="svg-icon m0 iconArrowUpLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 26h32L18 10z"></path></svg></button>
+        <div class="js-vote-count grid--cell fc-black-500 fs-title grid fd-column ai-center c-pointer" itemprop="upvoteCount" data-value="5" title="View upvote and downvote totals" tabindex="0">5</div>
+        <button class="js-vote-down-btn grid--cell s-btn s-btn__unset c-pointer" title="This answer is not useful" aria-pressed="false" aria-label="down vote" data-selected-classes="fc-theme-primary"><svg aria-hidden="true" class="svg-icon m0 iconArrowDownLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 10h32L18 26z"></path></svg></button>
+
+
+                <div class="js-accepted-answer-indicator grid--item fc-green-500 ta-center p4 d-none" title="loading when this answer was accepted..." tabindex="0" role="note" aria-label="accepted"><svg aria-hidden="true" class="svg-icon iconCheckmarkLg" width="36" height="36" viewBox="0 0 36 36"><path d="M6 14l8 8L30 6v8L14 30l-8-8z"></path></svg></div>
+
+</div>
+
+            </div>
+            
+
+<div class="answercell post-layout--right">
+    
+    <div class="post-text" itemprop="text">
+<p>I can't prove that there is a BNF grammar for Tex but I would like to argue against couple of points made in Antal's answer:</p>
+
+<ol>
+<li><p>There are examples of Turing machine simulators in C/C++/Java on 
+the same website mentioned above. That does not mean you can't write a 
+BNF grammar for C/C++/Java.</p></li>
+<li><p>The fact that Tex lets you change the category code or meaning of
+ command codes does not mean Tex is context sensitive from a parser's 
+point of view. This is related to the semantics of Tex. I think this is 
+analogous lexical scope in languages like Java. You can have two 
+different variables with same name in the same java class where one is a
+ class field and the other one is a local variable. And the type of 
+these two variables can even be different. That does not mean Java 
+parser is context sensitive.</p></li>
+</ol>
+
+<p>Sorry that I have posted this as a separate answer but the site won't let me make this long comment.</p>
+    </div>
+    <div class="grid mb0 fw-wrap ai-start jc-end gs8 gsy">
+        <time itemprop="dateCreated" datetime="2013-03-14T07:56:34"></time>
+    <div class="grid--cell mr16" style="flex: 1 1 100px;">
+<div class="post-menu"><a href="https://tex.stackexchange.com/a/102418/6880" title="short permalink to this answer" class="short-link" itemprop="url" id="link-post-102418">share</a><span class="lsep">|</span><a href="https://tex.stackexchange.com/posts/102418/edit" class="edit-post" title="revise and improve this post">edit</a><span class="lsep">|</span><a href="#" class="flag-post-link" title="flag this post for serious problems or moderator attention" data-postid="102418">flag</a></div>                    </div>
+            
+
+
+    <div class="post-signature grid--cell fl0">
+<div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2013-03-14 07:56:34Z" class="relativetime">Mar 14 '13 at 7:56</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://tex.stackexchange.com/users/13388/codefx"><div class="gravatar-wrapper-32"><img src="tex%20core%20-%20Is%20there%20a%20BNF%20grammar%20of%20the%20TeX%20language%3F%20-%20TeX%20-%20LaTeX%20Stack%20Exchange_fichiers/bd8e93613dba2b3b39c97afd6d065279.png" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        <a href="https://tex.stackexchange.com/users/13388/codefx">codefx</a><span class="d-none" itemprop="name">codefx</span>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">382</span><span title="3 silver badges"><span class="badge2"></span><span class="badgecount">3</span></span><span title="7 bronze badges"><span class="badge3"></span><span class="badgecount">7</span></span>
+        </div>
+    </div>
+</div>
+
+    </div>
+    </div>
+    
+</div>
+
+    
+    <div class="post-layout--right">
+	    <div id="comments-102418" class="comments js-comments-container " data-post-id="102418">
+            <ul class="comments-list js-comments-list" data-remaining-comments-count="5" data-canpost="true" data-cansee="false" data-comments-unavailable="false" data-addlink-disabled="false">
+
+
+    <li id="comment-223048" class="comment js-comment " data-comment-id="223048">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score js-comment-edit-hide">
+                    <span title="number of 'useful comment' votes received" class="warm">7</span>
+            </div>
+                <div class="comment-voting mtn2 js-comment-edit-hide">
+                        <a tabindex="0" role="button" href="#" class="comment-up comment-up-off" aria-label="Upvote Comment" title="This comment adds something useful to the post">
+                            <svg aria-hidden="true" class="svg-icon iconArrowUp" width="18" height="18" viewBox="0 0 18 18"><path d="M1 13h16L9 5z"></path></svg>
+                        </a>
+                </div>
+                            <div class="comment-flagging js-comment-edit-hide">
+                        <a tabindex="0" role="button" href="#" class="comment-flag" aria-label="Flag Comment" title="Flag this comment for serious problems or moderator attention">
+                            <svg aria-hidden="true" class="svg-icon iconFlag" width="18" height="18" viewBox="0 0 18 18"><path d="M3 2v14h2v-6h3.6l.4 1h6V3H9.5L9 2z"></path></svg>
+                        </a>
+                </div>
+        </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body js-comment-edit-hide">
+                
+                <span class="comment-copy">The difference between TeX 
+and most languages (one might say "sensible languages") is that these 
+sorts of changes can affect the <i>parsing</i> of TeX.  (I imagine Perl might have similar problems thanks to source filters and <code>BEGIN</code> blocks?)  For instance, <code>\ifx\f\g\catcode`\\{=12\fi{}</code> is a parse error if and only if <code>\f</code> and <code>\g</code> are equal; and as discussed above, the Turing-completeness of TeX (and <a href="http://tex.stackexchange.com/a/4224/1425">of TeX's mouth</a>!) means that the equality of <code>\f</code> and <code>\g</code> is undecidable.  Does that help clear things up?</span>
+                
+                    –&nbsp;<a href="https://tex.stackexchange.com/users/1425/antal-spector-zabusky" title="10,427 reputation" class="comment-user">Antal Spector-Zabusky</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment223048_102418"><span title="2013-03-14 15:34:03Z" class="relativetime-clean">Mar 14 '13 at 15:34</span></a></span>
+                        <span title="this comment was edited 2 times">
+                            <svg aria-hidden="true" class="svg-icon va-text-bottom o50 iconPencilSm" width="14" height="14" viewBox="0 0 14 14"><path d="M8.37 3.7L2 10.11V12h1.88l6.37-6.43zM12.23 2.83L11.1 1.71a.5.5 0 0 0-.7 0L9.2 2.86l1.88 1.84 1.14-1.16a.5.5 0 0 0 0-.71z"></path></svg>
+                        </span>
+                                                            </div>
+        </div>
+    </li>
+    <li id="comment-785998" class="comment js-comment " data-comment-id="785998">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score js-comment-edit-hide">
+                    <span title="number of 'useful comment' votes received" class="cool">1</span>
+            </div>
+                <div class="comment-voting mtn2 js-comment-edit-hide">
+                        <a tabindex="0" role="button" href="#" class="comment-up comment-up-off" aria-label="Upvote Comment" title="This comment adds something useful to the post">
+                            <svg aria-hidden="true" class="svg-icon iconArrowUp" width="18" height="18" viewBox="0 0 18 18"><path d="M1 13h16L9 5z"></path></svg>
+                        </a>
+                </div>
+                            <div class="comment-flagging js-comment-edit-hide">
+                        <a tabindex="0" role="button" href="#" class="comment-flag" aria-label="Flag Comment" title="Flag this comment for serious problems or moderator attention">
+                            <svg aria-hidden="true" class="svg-icon iconFlag" width="18" height="18" viewBox="0 0 18 18"><path d="M3 2v14h2v-6h3.6l.4 1h6V3H9.5L9 2z"></path></svg>
+                        </a>
+                </div>
+        </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body js-comment-edit-hide">
+                
+                <span class="comment-copy">@alexraasch: The difference – and this is subtle! – is that in TeX, <i>parsing</i> is Turing-complete, not simply evaluation.  In C, we know that <code>a + b * c</code> is syntactically valid as long as <code>a</code>, <code>b</code>, and <code>c</code> are arbitrary syntactically valid expressions.  In TeX, the expression <code>\a + \b * \c</code> may trigger a parse error depending on the definitions of <code>\a</code>, <code>\b</code>, and <code>\c</code>.</span>
+                
+                    –&nbsp;<a href="https://tex.stackexchange.com/users/1425/antal-spector-zabusky" title="10,427 reputation" class="comment-user">Antal Spector-Zabusky</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment785998_102418"><span title="2016-07-29 13:33:21Z" class="relativetime-clean">Jul 29 '16 at 13:33</span></a></span>
+                        <span title="this comment was edited 1 time">
+                            <svg aria-hidden="true" class="svg-icon va-text-bottom o50 iconPencilSm" width="14" height="14" viewBox="0 0 14 14"><path d="M8.37 3.7L2 10.11V12h1.88l6.37-6.43zM12.23 2.83L11.1 1.71a.5.5 0 0 0-.7 0L9.2 2.86l1.88 1.84 1.14-1.16a.5.5 0 0 0 0-.71z"></path></svg>
+                        </span>
+                                                            </div>
+        </div>
+    </li>
+    <li id="comment-786022" class="comment js-comment " data-comment-id="786022">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score js-comment-edit-hide">
+                    <span title="number of 'useful comment' votes received" class="cool">2</span>
+            </div>
+                <div class="comment-voting mtn2 js-comment-edit-hide">
+                        <a tabindex="0" role="button" href="#" class="comment-up comment-up-off" aria-label="Upvote Comment" title="This comment adds something useful to the post">
+                            <svg aria-hidden="true" class="svg-icon iconArrowUp" width="18" height="18" viewBox="0 0 18 18"><path d="M1 13h16L9 5z"></path></svg>
+                        </a>
+                </div>
+                            <div class="comment-flagging js-comment-edit-hide">
+                        <a tabindex="0" role="button" href="#" class="comment-flag" aria-label="Flag Comment" title="Flag this comment for serious problems or moderator attention">
+                            <svg aria-hidden="true" class="svg-icon iconFlag" width="18" height="18" viewBox="0 0 18 18"><path d="M3 2v14h2v-6h3.6l.4 1h6V3H9.5L9 2z"></path></svg>
+                        </a>
+                </div>
+        </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body js-comment-edit-hide">
+                
+                <span class="comment-copy">@alexraasch: It does show Turing-completeness, b/c it talks about <i>both</i> – parsing can do evaluation! My use of a <code>\RecognizeABC{…}</code>
+ macro obscures that slightly, I know, b/c we're used to that being a 
+guaranteed-to-parse form that just evaluates; however, that's <i>not</i> what's going on. Rather, it expands to include the string <code>\OneStep…\relax</code>, where <code>\OneStep</code> only parses when followed by an <code>\a</code>, a <code>\b</code>, &amp; a <code>\c</code> (with some intervening junk, and followed by <code>\relax</code>). <code>\OneStep</code> keeps expanding recursively, and eventually either <i>fails to parse</i> or terminates when reaching the empty string.</span>
+                
+                    –&nbsp;<a href="https://tex.stackexchange.com/users/1425/antal-spector-zabusky" title="10,427 reputation" class="comment-user">Antal Spector-Zabusky</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment786022_102418"><span title="2016-07-29 14:09:57Z" class="relativetime-clean">Jul 29 '16 at 14:09</span></a></span>
+                                                            </div>
+        </div>
+    </li>
+    <li id="comment-861951" class="comment js-comment " data-comment-id="861951">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score js-comment-edit-hide">
+                    <span title="number of 'useful comment' votes received" class="cool">1</span>
+            </div>
+                <div class="comment-voting mtn2 js-comment-edit-hide">
+                        <a tabindex="0" role="button" href="#" class="comment-up comment-up-off" aria-label="Upvote Comment" title="This comment adds something useful to the post">
+                            <svg aria-hidden="true" class="svg-icon iconArrowUp" width="18" height="18" viewBox="0 0 18 18"><path d="M1 13h16L9 5z"></path></svg>
+                        </a>
+                </div>
+                            <div class="comment-flagging js-comment-edit-hide">
+                        <a tabindex="0" role="button" href="#" class="comment-flag" aria-label="Flag Comment" title="Flag this comment for serious problems or moderator attention">
+                            <svg aria-hidden="true" class="svg-icon iconFlag" width="18" height="18" viewBox="0 0 18 18"><path d="M3 2v14h2v-6h3.6l.4 1h6V3H9.5L9 2z"></path></svg>
+                        </a>
+                </div>
+        </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body js-comment-edit-hide">
+                
+                <span class="comment-copy">@AntalSpector-Zabusky: Well, 
+you can write a TeX program that contains an infinite loop but it may 
+still be syntactically valid. So I think we need another proof. It will 
+probably be rather complicated because of the parse-eval intermixing, as
+ you said.</span>
+                
+                    –&nbsp;<a href="https://tex.stackexchange.com/users/23627/alexraasch" title="687 reputation" class="comment-user">alexraasch</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment861951_102418"><span title="2017-01-28 18:05:53Z" class="relativetime-clean">Jan 28 '17 at 18:05</span></a></span>
+                                                            </div>
+        </div>
+    </li>
+    <li id="comment-861955" class="comment js-comment " data-comment-id="861955">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score js-comment-edit-hide">
+                    <span title="number of 'useful comment' votes received" class="cool">1</span>
+            </div>
+                <div class="comment-voting mtn2 js-comment-edit-hide">
+                        <a tabindex="0" role="button" href="#" class="comment-up comment-up-off" aria-label="Upvote Comment" title="This comment adds something useful to the post">
+                            <svg aria-hidden="true" class="svg-icon iconArrowUp" width="18" height="18" viewBox="0 0 18 18"><path d="M1 13h16L9 5z"></path></svg>
+                        </a>
+                </div>
+                            <div class="comment-flagging js-comment-edit-hide">
+                        <a tabindex="0" role="button" href="#" class="comment-flag" aria-label="Flag Comment" title="Flag this comment for serious problems or moderator attention">
+                            <svg aria-hidden="true" class="svg-icon iconFlag" width="18" height="18" viewBox="0 0 18 18"><path d="M3 2v14h2v-6h3.6l.4 1h6V3H9.5L9 2z"></path></svg>
+                        </a>
+                </div>
+        </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body js-comment-edit-hide">
+                
+                <span class="comment-copy">@alexraasch: But it's not obvious that such a program "may still be syntactically valid".  Is the program <code>\def\loop{\loop}\loop}\bye</code> invalid?  How about <code>\def\loop{\loop}\loop\catcode`}=12 }\bye</code>?  Or how about <code>\def\x{…}\def\loop{\loop}\loop\ifnum\x=0\catcode`}=12\fi}\bye</code>?
+  It's not clear what it means to say that a TeX program after an 
+infinite loop even has a well-defined syntactic validity; you can't 
+check such validity without running the program!  So I'm leaning towards
+ the conclusion that a TeX program can only be syntactically well-formed
+ if parsing and evaluation terminates.</span>
+                
+                    –&nbsp;<a href="https://tex.stackexchange.com/users/1425/antal-spector-zabusky" title="10,427 reputation" class="comment-user">Antal Spector-Zabusky</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment861955_102418"><span title="2017-01-28 18:15:19Z" class="relativetime-clean">Jan 28 '17 at 18:15</span></a></span>
+                        <span title="this comment was edited 1 time">
+                            <svg aria-hidden="true" class="svg-icon va-text-bottom o50 iconPencilSm" width="14" height="14" viewBox="0 0 14 14"><path d="M8.37 3.7L2 10.11V12h1.88l6.37-6.43zM12.23 2.83L11.1 1.71a.5.5 0 0 0-.7 0L9.2 2.86l1.88 1.84 1.14-1.16a.5.5 0 0 0 0-.71z"></path></svg>
+                        </span>
+                                                            </div>
+        </div>
+    </li>
+            </ul>
+				<div class="comment-form">
+					<form id="add-comment-102418" class="" data-placeholdertext="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></form>
+				</div>
+	    </div>
+
+        <div id="comments-link-102418">
+
+                <a class="js-add-link comments-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”." href="#">add a comment</a><span class="js-link-separator ">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link " title="expand to show all comments on this post" href="#" onclick="">show <b>5</b> more comments</a>
+        </div>         
+    </div>    </div>
+</div>
+                                    <a name="new-answer"></a>
+                        <form id="post-form" action="/questions/4201/answer/submit" method="post" class="post-form">
+                            <input type="hidden" id="post-id" value="4201">
+                            <input type="hidden" id="qualityBanWarningShown" name="qualityBanWarningShown" value="false">
+                            <input type="hidden" name="referrer" value="">
+                            <h2 class="space">
+                                Your Answer
+                            </h2>
+
+
+
+        
+
+<script>
+    StackExchange.ready(function() {
+        var channelOptions = {
+            tags: "".split(" "),
+            id: "85"
+        };
+        initTagRenderer("".split(" "), "".split(" "), channelOptions);
+       
+        StackExchange.using("externalEditor", function() {
+                // Have to fire editor after snippets, if snippets enabled
+                if (StackExchange.settings.snippets.snippetsEnabled) {
+                    StackExchange.using("snippets", function() {
+                        createEditor();
+                    });
+                }
+                else {
+                    createEditor();
+                }
+            });
+
+            function createEditor() {
+                StackExchange.prepareEditor({
+                    heartbeatType: 'answer',
+                    autoActivateHeartbeat: false,
+                    convertImagesToLinks: false,
+                noModals: true,
+                showLowRepImageUploadWarning: false,
+                reputationToPostImages: null,
+                bindNavPrevention: true,
+                postfix: "",
+                imageUploader: {
+                    brandingHtml: "Powered by \u003ca class=\"icon-imgur-white\" href=\"https://imgur.com/\"\u003e\u003c/a\u003e",
+                    contentPolicyHtml: "User contributions licensed under \u003ca href=\"https://creativecommons.org/licenses/by-sa/3.0/\"\u003ecc by-sa 3.0 with attribution required\u003c/a\u003e \u003ca href=\"https://stackoverflow.com/legal/content-policy\"\u003e(content policy)\u003c/a\u003e",
+                    allowUrls: true
+                },
+                    onDemand: false,
+                    discardSelector: ".discard-answer"
+                    ,userId:6880
+                    });
+                
+
+        }
+    });
+</script>
+
+
+<div id="post-editor" class="post-editor js-post-editor js-wz-element" data-wz-state="8,16,32,64,128,256">
+
+    <div class="ps-relative"> 
+        <div class="wmd-container mb8">
+            <div id="wmd-button-bar" class="wmd-button-bar btr-sm"><ul id="wmd-button-row" class="wmd-button-row"><li class="wmd-button" id="wmd-bold-button" title="Strong &lt;strong&gt; Ctrl+B"><span style="background-position: 0px 0px;"></span></li><li class="wmd-button" id="wmd-italic-button" title="Emphasis &lt;em&gt; Ctrl+I"><span style="background-position: -20px 0px;"></span></li><li class="wmd-spacer wmd-spacer1" id="wmd-spacer1"></li><li class="wmd-button" id="wmd-link-button" title="Hyperlink &lt;a&gt; Ctrl+L"><span style="background-position: -40px 0px;"></span></li><li class="wmd-button" id="wmd-quote-button" title="Blockquote &lt;blockquote&gt; Ctrl+Q"><span style="background-position: -60px 0px;"></span></li><li class="wmd-button" id="wmd-code-button" title="Code Sample &lt;pre&gt;&lt;code&gt; Ctrl+K"><span style="background-position: -80px 0px;"></span></li><li class="wmd-button" id="wmd-image-button" title="Image &lt;img&gt; Ctrl+G"><span style="background-position: -100px 0px;"></span></li><li class="wmd-spacer wmd-spacer2" id="wmd-spacer2"></li><li class="wmd-button" id="wmd-olist-button" title="Numbered List &lt;ol&gt; Ctrl+O"><span style="background-position: -120px 0px;"></span></li><li class="wmd-button" id="wmd-ulist-button" title="Bulleted List &lt;ul&gt; Ctrl+U"><span style="background-position: -140px 0px;"></span></li><li class="wmd-button" id="wmd-heading-button" title="Heading &lt;h1&gt;/&lt;h2&gt; Ctrl+H"><span style="background-position: -160px 0px;"></span></li><li class="wmd-button" id="wmd-hr-button" title="Horizontal Rule &lt;hr&gt; Ctrl+R"><span style="background-position: -180px 0px;"></span></li><li class="wmd-spacer wmd-spacer3" id="wmd-spacer3"></li><li class="wmd-button" id="wmd-undo-button" title="Undo - Ctrl+Z"><span style="background-position: -200px -20px;"></span></li><li class="wmd-button" id="wmd-redo-button" title="Redo - Ctrl+Shift+Z"><span style="background-position: -220px -20px;"></span></li><li class="wmd-spacer wmd-spacer-max"></li><li class="wmd-button wmd-help-button" id="wmd-help-button" style="right: 0px;" title="Markdown Editing Help"><span style="background-position: -240px 0px;"></span></li></ul></div>
+                        <div class="js-stacks-validation">
+                <div class="ps-relative">
+                    <textarea id="wmd-input" class="wmd-input js-wz-element s-input bar0 processed" name="post-text" cols="92" rows="15" tabindex="101" data-wz-state="256" data-min-length=""></textarea>
+                <div class="grippie bbr-sm" style="margin-right: 0px;"></div></div>
+                <div class="s-input-message mt4 d-none js-stacks-validation-message"></div>
+            </div>
+        </div>
+    </div>
+
+    <aside class="grid ai-start jc-space-between js-answer-help s-notice s-notice__warning pb0 pr4 pt4 mb8 d-none" role="status" aria-hidden="true">
+    <div class="grid--cell pt8">
+        <p>Thanks for contributing an answer to TeX - LaTeX Stack Exchange!</p><ul><li>Please be sure to <em>answer the question</em>. Provide details and share your research!</li></ul><p>But <em>avoid</em> …</p><ul><li>Asking for help, clarification, or responding to other answers.</li><li>Making statements based on opinion; back them up with references or personal experience.</li></ul><p>To learn more, see our <a href="https://tex.stackexchange.com/help/how-to-answer">tips on writing great answers</a>.</p>
+    </div>
+    <button class="grid--cell js-answer-help-close-btn s-btn s-btn__muted fc-dark">
+        <svg aria-hidden="true" class="svg-icon iconClear" width="18" height="18" viewBox="0 0 18 18"><path d="M15 4.41L13.59 3 9 7.59 4.41 3 3 4.41 7.59 9 3 13.59 4.41 15 9 10.41 13.59 15 15 13.59 10.41 9z"></path></svg>
+    </button>
+</aside>
+
+
+    <div id="draft-saved" class="draft-saved community-option fl" style="height:24px; display:none;">draft saved</div>
+    <div id="draft-discarded" class="draft-discarded community-option fl" style="height:24px; display:none;">draft discarded</div>
+
+    <div class="community-option g-row ai-center f-checkbox">
+        <div class="g-col -input">
+            <input id="communitymode" name="communitymode" type="checkbox">
+        </div>
+        <div class="g-col">
+            <label for="communitymode" class="f-label _small" title="Marking an answer community wiki encourages others to edit it by lowering the reputation barrier required to edit. However, you will not gain any upvote reputation from it. This cannot be undone.">community wiki</label>
+        </div>
+    </div>
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" type="hidden" value="a55da5c9dc98b29752e301f558c86d3643660ef80f33e1f9560416c659600092">
+        <input id="author" name="author" type="text">
+    </div>
+
+
+
+</div>
+
+                            <div class="ps-relative">
+                                
+                                
+                            </div>
+
+                                                            <div class="form-submit cbt grid gsx gs4">
+                                    <button id="submit-button" class="grid--cell s-btn s-btn__primary s-btn__icon" type="submit" tabindex="120" autocomplete="off">
+Post Your Answer                                    </button>
+                                    <button class="grid--cell s-btn s-btn__danger discard-answer dno">
+                                        Discard
+                                    </button>
+                                </div>
+                        </form>
+
+                    <script>
+                        StackExchange.using("inlineEditing", function () {
+                            StackExchange.inlineEditing.init();
+                        });
+                    </script>
+
+
+                        <h2 class="bottom-notice" data-loc="1">
+Not the answer you're looking for?                            Browse other questions tagged <a href="https://tex.stackexchange.com/questions/tagged/tex-core" class="post-tag" title="show questions tagged 'tex-core'" rel="tag">tex-core</a> <a href="https://tex.stackexchange.com/questions/tagged/parsing" class="post-tag" title="show questions tagged 'parsing'" rel="tag">parsing</a> <a href="https://tex.stackexchange.com/questions/tagged/grammar" class="post-tag" title="show questions tagged 'grammar'" rel="tag">grammar</a>  or <a href="https://tex.stackexchange.com/questions/ask">ask your own question</a>.                        </h2>
+            </div>
+        </div>
+                <div id="sidebar" class="show-votes" role="complementary" aria-label="sidebar">
+                            <div class="module question-stats">
+                    <table id="qinfo">
+                        <tbody><tr>
+                            <td>
+                                <p class="label-key">asked</p>
+                            </td>
+                            <td style="padding-left: 10px">
+                                <p class="label-key" title="2010-10-16 20:08:12Z">
+                                    <b>
+                                        <time itemprop="dateCreated" datetime="2010-10-16T20:08:12">8 years, 6 months ago</time>
+                                    </b>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="label-key">viewed</p>
+                            </td>
+
+                            <td style="padding-left: 10px">
+                                <p class="label-key">
+                                    <b>9,542 times</b>
+                                </p>
+                            </td>
+                        </tr>
+                            <tr>
+                                <td>
+                                    <p class="label-key">active</p>
+                                </td>
+                                <td style="padding-left: 10px">
+                                    <p class="label-key"><b><a href="https://tex.stackexchange.com/questions/4201/is-there-a-bnf-grammar-of-the-tex-language?lastactivity" class="lastactivity-link" title="2018-03-28 22:01:53Z">1 year, 1 month ago</a></b></p>
+                                </td>
+                            </tr>
+                    </tbody></table>
+                </div>
+            <div class="s-sidebarwidget s-sidebarwidget__yellow s-anchors s-anchors__default mb16" data-tracker="cb=1">
+            <div class="s-sidebarwidget--header s-sidebarwidget__small-bold-text">
+                Featured on Meta
+            </div>
+        <ul class="s-sidebarwidget--content s-sidebarwidget__items pt0 pr16 pb0 pl16">
+    <li class="s-sidebarwidget--item grid">
+        <div class="grid--cell1 fl-shrink0">
+                <a href="https://meta.stackexchange.com/questions/327538/unicorn-meta-zoo-2-what-is-the-role-of-moderators?cb=1" data-ga="[&quot;community bulletin board&quot;,&quot;Featured on Meta&quot;,&quot;https://meta.stackexchange.com/questions/327538/unicorn-meta-zoo-2-what-is-the-role-of-moderators&quot;,null,null]">
+<div class="favicon favicon-stackexchangemeta" title="Meta Stack Exchange"></div>                </a>
+        </div>
+        <div class="grid--cell">
+            <a href="https://meta.stackexchange.com/questions/327538/unicorn-meta-zoo-2-what-is-the-role-of-moderators?cb=1" data-ga="[&quot;community bulletin board&quot;,&quot;Featured on Meta&quot;,&quot;https://meta.stackexchange.com/questions/327538/unicorn-meta-zoo-2-what-is-the-role-of-moderators&quot;,null,null]">Unicorn Meta Zoo #2: What is the role of moderators?</a>
+        </div>
+    </li>
+        </ul>
+            <div class="s-sidebarwidget--header s-sidebarwidget__small-bold-text">
+                Hot Meta Posts
+            </div>
+        <ul class="s-sidebarwidget--content s-sidebarwidget__items pt0 pr16 pb0 pl16">
+    <li class="s-sidebarwidget--item grid">
+        <div class="grid--cell1 fl-shrink0">
+                <span class="fc-black-500" title="Vote score (upvotes - downvotes)">9</span>
+        </div>
+        <div class="grid--cell">
+            <a href="https://tex.meta.stackexchange.com/questions/8270/we-will-have-a-moderator-election-or-will-we?cb=1" data-ga="[&quot;community bulletin board&quot;,&quot;Hot Meta Posts&quot;,&quot;https://tex.meta.stackexchange.com/questions/8270/we-will-have-a-moderator-election-or-will-we&quot;,null,null]">We will have a moderator election… or will we?</a>
+        </div>
+    </li>
+        </ul>
+        <ul class="s-sidebarwidget--content s-sidebarwidget__items pt0 pr16 pb0 pl16">
+    <li class="s-sidebarwidget--item grid">
+        <div class="grid--cell1 fl-shrink0">
+                <span class="fc-black-500" title="Vote score (upvotes - downvotes)">12</span>
+        </div>
+        <div class="grid--cell">
+            <a href="https://tex.meta.stackexchange.com/questions/8286/changing-the-site-name?cb=1" data-ga="[&quot;community bulletin board&quot;,&quot;Hot Meta Posts&quot;,&quot;https://tex.meta.stackexchange.com/questions/8286/changing-the-site-name&quot;,null,null]">Changing the site name</a>
+        </div>
+    </li>
+        </ul>
+        <ul class="s-sidebarwidget--content s-sidebarwidget__items pt0 pr16 pb0 pl16">
+    <li class="s-sidebarwidget--item grid">
+        <div class="grid--cell1 fl-shrink0">
+                <span class="fc-black-500" title="Vote score (upvotes - downvotes)">14</span>
+        </div>
+        <div class="grid--cell">
+            <a href="https://tex.meta.stackexchange.com/questions/8275/the-elsarticle-tag-and-elseviers-new-classes?cb=1" data-ga="[&quot;community bulletin board&quot;,&quot;Hot Meta Posts&quot;,&quot;https://tex.meta.stackexchange.com/questions/8275/the-elsarticle-tag-and-elseviers-new-classes&quot;,null,null]">The {elsarticle} tag and Elsevier's new classes</a>
+        </div>
+    </li>
+        </ul>
+        <ul class="s-sidebarwidget--content s-sidebarwidget__items pt0 pr16 pb0 pl16">
+    <li class="s-sidebarwidget--item grid">
+        <div class="grid--cell1 fl-shrink0">
+                <span class="fc-black-500" title="Vote score (upvotes - downvotes)">5</span>
+        </div>
+        <div class="grid--cell">
+            <a href="https://tex.meta.stackexchange.com/questions/8283/how-to-deal-with-overleaf-incompatibilities?cb=1" data-ga="[&quot;community bulletin board&quot;,&quot;Hot Meta Posts&quot;,&quot;https://tex.meta.stackexchange.com/questions/8283/how-to-deal-with-overleaf-incompatibilities&quot;,null,null]">How to deal with overleaf incompatibilities?</a>
+        </div>
+    </li>
+        </ul>
+</div>
+<style>
+    .ad-container {
+        width: 300px;
+        height: 250px;
+        overflow: hidden;
+        margin-bottom: 10px;
+    }
+
+    .ad-container .ad {
+        height: 250px;
+    }
+
+    .ad-container a:hover {
+        text-decoration: underline;
+    }
+
+    .ad-container .footer {
+        font-family: Arial,Helvetic,Sans-Serif;
+        font-size: 12px;
+        text-align: center;
+        padding: 8px 0;
+        background-color: #000;
+        color: #EFF;
+
+        transition: transform 225ms ease, opacity 225ms ease;
+        transform: translateY(0);
+        opacity: 0;
+    }
+
+    .ad-container:hover .footer {
+        transform: translateY(-100%);
+        opacity: 0.9;
+    }
+
+    #adzerk2 {
+        height: 250px;
+    }
+</style>
+    <div class="ad-container">
+        <div class="ad">
+            <a href="http://tex.meta.stackexchange.com/ads/ct/8070?url=http%3a%2f%2ftug.org%2ftexlive%2f&amp;s=5a229b8bce2e9f763ae53ac147e22e1671b7a54f416d70ca9dc54865f590c5b3" rel="nofollow" target="_blank"><img src="tex%20core%20-%20Is%20there%20a%20BNF%20grammar%20of%20the%20TeX%20language%3F%20-%20TeX%20-%20LaTeX%20Stack%20Exchange_fichiers/gYqMV.png" alt="TeX Live - cross-platform TeX software" title="TeX Live - cross-platform TeX software" width="300" height="250"></a>
+        </div>
+        <div class="footer">
+            15 votes ·
+            <a href="https://tex.meta.stackexchange.com/questions/8048#8070" title="click to comment on this ad" target="_blank">
+                comment
+            </a> ·
+            <a href="https://tex.meta.stackexchange.com/ads/display/8048" target="_blank">
+                stats
+            </a>
+        </div>
+    </div>
+            <div class="module sidebar-linked">
+	<h4 id="h-linked">Linked</h4>
+	<div class="linked" data-tracker="lq=1">
+
+<div class="spacer">
+	<a href="https://tex.stackexchange.com/q/172407?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">2</div>
+	</a>
+	<a href="https://tex.stackexchange.com/questions/172407/is-latex-a-context-free-grammar?noredirect=1&amp;lq=1" class="question-hyperlink">Is LaTeX a context-free grammar?</a>
+</div>
+<div class="spacer">
+	<a href="https://tex.stackexchange.com/q/247830?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">13</div>
+	</a>
+	<a href="https://tex.stackexchange.com/questions/247830/what-type-of-chomsky-hierarchy-is-tex?noredirect=1&amp;lq=1" class="question-hyperlink">What type of Chomsky hierarchy is TeX?</a>
+</div>
+<div class="spacer">
+	<a href="https://tex.stackexchange.com/q/4223?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">16</div>
+	</a>
+	<a href="https://tex.stackexchange.com/questions/4223/what-parsers-for-latex-mathematics-exist-outside-of-the-tex-engines?noredirect=1&amp;lq=1" class="question-hyperlink">What parsers for (La)TeX mathematics exist outside of the TeX engines?</a>
+</div>
+<div class="spacer">
+	<a href="https://tex.stackexchange.com/q/151035?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">21</div>
+	</a>
+	<a href="https://tex.stackexchange.com/questions/151035/are-the-tex-semantics-and-grammar-defined-somewhere-in-some-official-documents?noredirect=1&amp;lq=1" class="question-hyperlink">Are the TeX semantics and grammar defined somewhere in some official documents?</a>
+</div>
+<div class="spacer">
+	<a href="https://tex.stackexchange.com/q/123655?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">2</div>
+	</a>
+	<a href="https://tex.stackexchange.com/questions/123655/using-newcommand-with-math-environment?noredirect=1&amp;lq=1" class="question-hyperlink">Using newcommand with math environment</a>
+</div>
+<div class="spacer">
+	<a href="https://tex.stackexchange.com/q/251747?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">5</div>
+	</a>
+	<a href="https://tex.stackexchange.com/questions/251747/is-there-a-formal-grammar-for-equations-in-tex-latex?noredirect=1&amp;lq=1" class="question-hyperlink">Is there a formal grammar for *Equations* in TeX/LaTeX?</a>
+</div>
+<div class="spacer">
+	<a href="https://tex.stackexchange.com/q/41260?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">1</div>
+	</a>
+	<a href="https://tex.stackexchange.com/questions/41260/are-there-any-document-viewers-that-use-tex-as-a-backend?noredirect=1&amp;lq=1" class="question-hyperlink">Are there any document viewers that use Tex as a backend?</a>
+</div>
+<div class="spacer">
+	<a href="https://tex.stackexchange.com/q/151787?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">2</div>
+	</a>
+	<a href="https://tex.stackexchange.com/questions/151787/where-is-the-miktex-list-of-keywords?noredirect=1&amp;lq=1" class="question-hyperlink">Where is the MiKTeX list of keywords?</a>
+</div>
+<div class="spacer">
+	<a href="https://tex.stackexchange.com/q/87968?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">7</div>
+	</a>
+	<a href="https://tex.stackexchange.com/questions/87968/automatic-way-of-searching-for-syntax-inconsistencies?noredirect=1&amp;lq=1" class="question-hyperlink">Automatic Way of Searching for Syntax Inconsistencies</a>
+</div>
+<div class="spacer">
+	<a href="https://tex.stackexchange.com/q/377082?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">0</div>
+	</a>
+	<a href="https://tex.stackexchange.com/questions/377082/remove-a-specific-latex-command-from-the-text-and-closing-bracket-behind-it?noredirect=1&amp;lq=1" class="question-hyperlink">Remove a specific latex command from the text AND closing bracket behind it</a>
+</div>					<div class="spacer more">
+				<a href="https://tex.stackexchange.com/questions/linked/4201?lq=1">see more linked questions…</a>
+			</div>
+	</div>
+</div>
+
+                <div class="module sidebar-related">
+                    <h4 id="h-related">Related</h4>
+                    <div class="related js-gps-related-questions" data-tracker="rq=1">
+                        <div class="spacer js-gps-track"><a href="https://tex.stackexchange.com/q/61622?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">6</div></a><a href="https://tex.stackexchange.com/questions/61622/templates-for-books-on-grammar-phonetics-for-language-learning?rq=1" class="question-hyperlink">Templates for Books on Grammar, Phonetics for Language Learning</a></div><div class="spacer js-gps-track"><a href="https://tex.stackexchange.com/q/151035?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">21</div></a><a href="https://tex.stackexchange.com/questions/151035/are-the-tex-semantics-and-grammar-defined-somewhere-in-some-official-documents?rq=1" class="question-hyperlink">Are the TeX semantics and grammar defined somewhere in some official documents?</a></div><div class="spacer js-gps-track"><a href="https://tex.stackexchange.com/q/172407?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">2</div></a><a href="https://tex.stackexchange.com/questions/172407/is-latex-a-context-free-grammar?rq=1" class="question-hyperlink">Is LaTeX a context-free grammar?</a></div><div class="spacer js-gps-track"><a href="https://tex.stackexchange.com/q/227674?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">1</div></a><a href="https://tex.stackexchange.com/questions/227674/is-there-a-bnf-grammar-for-simple-constructs-of-the-tex-language?rq=1" class="question-hyperlink">Is there a BNF-grammar for simple constructs of the TeX language?</a></div><div class="spacer js-gps-track"><a href="https://tex.stackexchange.com/q/251747?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">5</div></a><a href="https://tex.stackexchange.com/questions/251747/is-there-a-formal-grammar-for-equations-in-tex-latex?rq=1" class="question-hyperlink">Is there a formal grammar for *Equations* in TeX/LaTeX?</a></div><div class="spacer js-gps-track"><a href="https://tex.stackexchange.com/q/277758?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">3</div></a><a href="https://tex.stackexchange.com/questions/277758/typesetting-a-calculus-grammar?rq=1" class="question-hyperlink">Typesetting a calculus' grammar</a></div><div class="spacer js-gps-track"><a href="https://tex.stackexchange.com/q/318614?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">4</div></a><a href="https://tex.stackexchange.com/questions/318614/combinatory-categorial-grammar-style?rq=1" class="question-hyperlink">Combinatory Categorial Grammar style</a></div><div class="spacer js-gps-track"><a href="https://tex.stackexchange.com/q/325241?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">4</div></a><a href="https://tex.stackexchange.com/questions/325241/grammar-check-in-texwork?rq=1" class="question-hyperlink">Grammar check in TexWork</a></div><div class="spacer js-gps-track"><a href="https://tex.stackexchange.com/q/329943?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">1</div></a><a href="https://tex.stackexchange.com/questions/329943/is-there-a-bnf-grammar-for-tex-math-expression?rq=1" class="question-hyperlink">Is there a BNF Grammar for tex math expression</a></div><div class="spacer js-gps-track"><a href="https://tex.stackexchange.com/q/455578?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">3</div></a><a href="https://tex.stackexchange.com/questions/455578/is-there-a-bnf-grammar-of-the-latex-format?rq=1" class="question-hyperlink">Is there a BNF grammar of the LaTeX format?</a></div>
+                    </div>
+                </div>
+
+<div id="hot-network-questions" class="module tex2jax_ignore">
+    <h4>
+        <a href="https://stackexchange.com/questions?tab=hot" class="js-gps-track s-link s-link__inherit" data-gps-track="posts_hot_network.click({ item_type:1, location:11 })">
+            Hot Network Questions
+        </a>
+    </h4>
+    <ul>
+            <li>
+                <div class="favicon favicon-history" title="History Stack Exchange"></div><a href="https://history.stackexchange.com/questions/52517/was-there-a-contingency-plan-in-place-if-little-boy-failed-to-detonate" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:324 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Was there a contingency plan in place if Little Boy failed to detonate?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-worldbuilding" title="Worldbuilding Stack Exchange"></div><a href="https://worldbuilding.stackexchange.com/questions/146732/is-a-diamond-sword-feasible" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:579 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is a diamond sword feasible?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-electronics" title="Electrical Engineering Stack Exchange"></div><a href="https://electronics.stackexchange.com/questions/437871/why-cant-rgb-or-bicolour-leds-produce-a-decent-yellow" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:135 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why can't RGB or bicolour LEDs produce a decent yellow?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="https://codegolf.stackexchange.com/questions/185414/as-programers-say-strive-to-be-lazy" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    As programers say: Strive to be lazy
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="https://math.stackexchange.com/questions/3221741/prove-two-numbers-are-coprime" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Prove two numbers are coprime
+                </a>
+
+            </li>
+            <li class="js-hidden" style="">
+                <div class="favicon favicon-bicycles" title="Bicycles Stack Exchange"></div><a href="https://bicycles.stackexchange.com/questions/61855/can-i-do-brevets-long-distance-rides-on-my-hybrid-bike-if-yes-how-to-start" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:126 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Can I do brevets (long distance rides) on my hybrid bike? If yes, how to start?
+                </a>
+
+            </li>
+            <li class="js-hidden" style="">
+                <div class="favicon favicon-writing" title="Writing Stack Exchange"></div><a href="https://writing.stackexchange.com/questions/45107/how-can-i-answer-high-school-writing-prompts-without-sounding-weird-and-fake" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:166 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How can I answer high-school writing prompts without sounding weird and fake?
+                </a>
+
+            </li>
+            <li class="js-hidden" style="">
+                <div class="favicon favicon-stackoverflow" title="Stack Overflow"></div><a href="https://stackoverflow.com/questions/56086411/why-does-typescript-pack-a-class-in-an-iife" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:1 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why does TypeScript pack a Class in an IIFE?
+                </a>
+
+            </li>
+            <li class="js-hidden" style="">
+                <div class="favicon favicon-unix" title="Unix &amp; Linux Stack Exchange"></div><a href="https://unix.stackexchange.com/questions/518318/what-does-i386-mean-on-macos-mojave" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:106 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What does i386 mean on macOS Mojave?
+                </a>
+
+            </li>
+            <li class="js-hidden" style="">
+                <div class="favicon favicon-cs" title="Computer Science Stack Exchange"></div><a href="https://cs.stackexchange.com/questions/109204/can-the-sorting-of-a-list-be-verified-without-comparing-neighbors" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:419 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Can the sorting of a list be verified without comparing neighbors?
+                </a>
+
+            </li>
+            <li class="js-hidden" style="">
+                <div class="favicon favicon-cseducators" title="Computer Science Educators Stack Exchange"></div><a href="https://cseducators.stackexchange.com/questions/5644/on-studying-computer-science-vs-software-engineering-to-become-a-proficient-cod" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:678 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    On studying Computer Science vs. Software Engineering to become a proficient coder
+                </a>
+
+            </li>
+            <li class="js-hidden" style="">
+                <div class="favicon favicon-german" title="German Language Stack Exchange"></div><a href="https://german.stackexchange.com/questions/52154/what-does-ich-wusste-dass-aus-dir-mal-was-wird-mean" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:253 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What does "Ich wusste, dass aus dir mal was wird" mean?
+                </a>
+
+            </li>
+            <li class="js-hidden" style="">
+                <div class="favicon favicon-electronics" title="Electrical Engineering Stack Exchange"></div><a href="https://electronics.stackexchange.com/questions/437787/noob-at-soldering-can-anyone-explain-why-my-circuit-wont-work" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:135 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Noob at soldering, can anyone explain why my circuit won't work?
+                </a>
+
+            </li>
+            <li class="js-hidden" style="">
+                <div class="favicon favicon-bicycles" title="Bicycles Stack Exchange"></div><a href="https://bicycles.stackexchange.com/questions/61831/how-to-slow-yourself-down-for-playing-nice-with-others" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:126 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to slow yourself down (for playing nice with others)
+                </a>
+
+            </li>
+            <li class="js-hidden" style="">
+                <div class="favicon favicon-rpg" title="Role-playing Games Stack Exchange"></div><a href="https://rpg.stackexchange.com/questions/147824/how-can-a-lich-look-like-a-human-without-magic" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:122 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How can a Lich look like a human without magic?
+                </a>
+
+            </li>
+            <li class="js-hidden" style="">
+                <div class="favicon favicon-academia" title="Academia Stack Exchange"></div><a href="https://academia.stackexchange.com/questions/130312/two-researchers-want-to-work-on-the-same-extension-to-my-paper-who-to-help" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:415 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Two researchers want to work on the same extension to my paper. Who to help?
+                </a>
+
+            </li>
+            <li class="js-hidden" style="">
+                <div class="favicon favicon-history" title="History Stack Exchange"></div><a href="https://history.stackexchange.com/questions/52521/is-there-any-evidence-to-support-the-claim-that-the-united-states-was-suckered" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:324 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is there any evidence to support the claim that the 
+United States was "suckered into WW1" by Zionists, made by Benjamin 
+Freedman in his 1961 speech?
+                </a>
+
+            </li>
+            <li class="js-hidden" style="">
+                <div class="favicon favicon-academia" title="Academia Stack Exchange"></div><a href="https://academia.stackexchange.com/questions/130273/thesis-future-work-section-is-it-acceptable-to-omit-personal-involvement-in" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:415 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Thesis' "Future Work" section – is it acceptable to omit personal involvement in a mentioned project?
+                </a>
+
+            </li>
+            <li class="js-hidden" style="">
+                <div class="favicon favicon-bitcoin" title="Bitcoin Stack Exchange"></div><a href="https://bitcoin.stackexchange.com/questions/87652/51-attack-apparently-very-easy-refering-to-czs-rollback-btc-chain-how-t" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:308 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    51% attack - apparently very easy? refering to CZ's 
+"rollback btc chain" - How to make sure such corruptible scenario can 
+never happen so easily?
+                </a>
+
+            </li>
+            <li class="js-hidden" style="">
+                <div class="favicon favicon-physics" title="Physics Stack Exchange"></div><a href="https://physics.stackexchange.com/questions/479302/could-one-theoretically-use-the-expansion-of-the-universe-to-travel-through-it" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:151 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Could one theoretically use the expansion of the universe to travel through it? At least in one direction?
+                </a>
+
+            </li>
+            <li class="js-hidden" style="">
+                <div class="favicon favicon-chemistry" title="Chemistry Stack Exchange"></div><a href="https://chemistry.stackexchange.com/questions/115146/reaction-of-borax-with-naoh" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:431 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Reaction of borax with NaOH
+                </a>
+
+            </li>
+            <li class="js-hidden" style="">
+                <div class="favicon favicon-electronics" title="Electrical Engineering Stack Exchange"></div><a href="https://electronics.stackexchange.com/questions/437946/is-it-a-bad-idea-to-replace-pull-up-resistors-with-hard-pull-ups" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:135 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is it a bad idea to replace pull-up resistors with hard pull-ups?
+                </a>
+
+            </li>
+            <li class="js-hidden" style="">
+                <div class="favicon favicon-travel" title="Travel Stack Exchange"></div><a href="https://travel.stackexchange.com/questions/138282/can-you-book-a-one-way-ticket-to-the-uk-on-a-visa" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:273 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Can you book a one-way ticket to the UK on a visa?
+                </a>
+
+            </li>
+            <li class="js-hidden" style="">
+                <div class="favicon favicon-diy" title="Home Improvement Stack Exchange"></div><a href="https://diy.stackexchange.com/questions/164660/what-can-cause-a-never-frozen-indoor-copper-drain-pipe-to-crack" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:73 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What can cause a never-frozen indoor copper drain pipe to crack?
+                </a>
+
+            </li>
+    </ul>
+
+        
+</div>
+
+<div id="feed-link">
+    <a href="https://tex.stackexchange.com/feeds/question/4201" title="feed of this question and its answers">
+        <svg aria-hidden="true" class="svg-icon fc-orange-400 iconRss" width="18" height="18" viewBox="0 0 18 18"><path d="M1 3c0-1.1.9-2 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3zm14.5 12C15.5 8.1 9.9 2.5 3 2.5V5a10 10 0 0 1 10 10h2.5zm-5 0A7.5 7.5 0 0 0 3 7.5V10a5 5 0 0 1 5 5h2.5zm-5 0A2.5 2.5 0 0 0 3 12.5V15h2.5z"></path></svg>
+        question feed
+    </a>
+</div>
+        </div>
+    </div>
+<script>StackExchange.ready(function(){$.get('/posts/4201/ivc/0bd8');});</script>
+<noscript><div><img src="/posts/4201/ivc/0bd8" class="dno" alt="" width="0" height="0"></div></noscript><div style="display:none" id="prettify-lang">lang-tex</div></div>
+
+    <script>
+        $('#wmd-input').one("keypress", function() {
+            $.ajax({
+                url: '/accounts/email-settings-form',
+                cache: false,
+                success: function(data) {
+                    $('#submit-button').parent().prepend(data);
+                }
+            });
+        });
+
+    </script>
+
+        </div>
+    </div>
+
+    <footer id="footer" class="site-footer js-footer" role="contentinfo">
+        <div class="site-footer--container">
+            
+            <nav class="site-footer--nav">
+                    <div class="site-footer--col site-footer--col__visible js-footer-col" data-name="default">
+                        <h5 class="-title"><a href="https://tex.stackexchange.com/">TeX - LaTeX</a></h5>
+                        <ul class="-list js-primary-footer-links">
+                                    <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 2 })" href="https://tex.stackexchange.com/tour">Tour</a></li>
+                                <li class="-item"><a href="https://tex.stackexchange.com/help" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 3 })">Help</a></li>
+                                    <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 5 })" href="https://chat.stackexchange.com/?tab=site&amp;host=tex.stackexchange.com">Chat</a></li>
+                            <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 13 })" href="https://tex.stackexchange.com/contact">Contact</a></li>
+                                <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 14 })" href="https://tex.meta.stackexchange.com/">Feedback</a></li>
+                                                            <li class="-item"><a onclick='StackExchange.switchMobile("on")' class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 12 })">Mobile</a></li>
+                        <li class="-item"><a class="-link" role="button">Disable Responsiveness</a></li></ul>
+                    </div>
+                <div class="site-footer--col site-footer--col__visible js-footer-col" data-name="default">
+                    <h5 class="-title"><a class="js-gps-track" data-gps-track="footer.click({ location: 2, link: 1 })" href="https://stackoverflow.com/company/about">Company</a></h5>
+                    <ul class="-list">
+                                                    <li class="-item"><a href="https://stackoverflow.com/" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 15})">Stack Overflow</a></li>
+                            <li class="-item"><a href="https://www.stackoverflowbusiness.com/" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 19 })">Stack Overflow Business</a></li>
+                            <li class="-item"><a href="https://stackoverflow.com/jobs" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 17})">Developer Jobs</a></li>
+                                <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 1 })" href="https://stackoverflow.com/company/about">About</a></li>
+                        <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 27 })" href="https://stackoverflow.com/company/press">Press</a></li>
+                        <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 7 })" href="https://stackoverflow.com/legal">Legal</a></li>
+                        <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 8 })" href="https://stackoverflow.com/legal/privacy-policy">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="site-footer--col site-footer--categories-nav site-footer--col__visible">
+                    <a href="#" class="site-footer--back js-footer-back"><svg aria-hidden="true" class="svg-icon iconArrowLeftAlt" width="18" height="18" viewBox="0 0 18 18"><path d="M10.58 16L12 14.59 6.4 9 12 3.41 10.57 2l-7 7z"></path></svg></a>
+                    <div>
+                        <h5 class="-title"><a href="https://stackexchange.com/">Stack Exchange<br> Network</a></h5>
+                        <ul class="-list">
+                            <li class="-item"><a href="#" class="-link _expandable js-footer-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Technology">Technology</a></li>
+                            <li class="-item"><a href="#" class="-link _expandable js-footer-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Life / Arts">Life / Arts</a></li>
+                            <li class="-item"><a href="#" class="-link _expandable js-footer-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Culture / Recreation">Culture / Recreation</a></li>
+                            <li class="-item"><a href="#" class="-link _expandable js-footer-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Science">Science</a></li>
+                            <li class="-item"><a href="#" class="-link _expandable js-footer-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Other">Other</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="site-footer--categories">
+                    <div class="site-footer--col site-footer--category js-footer-col" data-name="Technology">
+        <ul class="-list">
+                <li class="-item"><a href="https://stackoverflow.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="professional and enthusiast programmers">Stack Overflow</a></li>
+                <li class="-item"><a href="https://serverfault.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="system and network administrators">Server Fault</a></li>
+                <li class="-item"><a href="https://superuser.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="computer enthusiasts and power users">Super User</a></li>
+                <li class="-item"><a href="https://webapps.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="power users of web applications">Web Applications</a></li>
+                <li class="-item"><a href="https://askubuntu.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="Ubuntu users and developers">Ask Ubuntu</a></li>
+                <li class="-item"><a href="https://webmasters.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="pro webmasters">Webmasters</a></li>
+                <li class="-item"><a href="https://gamedev.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="professional and independent game developers">Game Development</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Technology"><ul class="-list">
+                <li class="-item"><a href="https://tex.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="users of TeX, LaTeX, ConTeXt, and related typesetting systems">TeX - LaTeX</a></li>
+                <li class="-item"><a href="https://softwareengineering.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="professionals, academics, and students working within the systems development life cycle">Software Engineering</a></li>
+                <li class="-item"><a href="https://unix.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="users of Linux, FreeBSD and other Un*x-like operating systems">Unix &amp; Linux</a></li>
+                <li class="-item"><a href="https://apple.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="power users of Apple hardware and software">Ask Different (Apple)</a></li>
+                <li class="-item"><a href="https://wordpress.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="WordPress developers and administrators">WordPress Development</a></li>
+                <li class="-item"><a href="https://gis.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="cartographers, geographers and GIS professionals">Geographic Information Systems</a></li>
+                <li class="-item"><a href="https://electronics.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="electronics and electrical engineering professionals, students, and enthusiasts">Electrical Engineering</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Technology"><ul class="-list">
+                <li class="-item"><a href="https://android.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="enthusiasts and power users of the Android operating system">Android Enthusiasts</a></li>
+                <li class="-item"><a href="https://security.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="information security professionals">Information Security</a></li>
+                <li class="-item"><a href="https://dba.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="database professionals who wish to improve their database skills and learn from others in the community">Database Administrators</a></li>
+                <li class="-item"><a href="https://drupal.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="Drupal developers and administrators">Drupal Answers</a></li>
+                <li class="-item"><a href="https://sharepoint.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="SharePoint enthusiasts">SharePoint</a></li>
+                <li class="-item"><a href="https://ux.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="user experience researchers and experts">User Experience</a></li>
+                <li class="-item"><a href="https://mathematica.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="users of Wolfram Mathematica">Mathematica</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Technology"><ul class="-list">
+                <li class="-item"><a href="https://salesforce.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="Salesforce administrators, implementation experts, developers and anybody in-between">Salesforce</a></li>
+                <li class="-item"><a href="https://expressionengine.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="administrators, end users, developers and designers for ExpressionEngine® CMS">ExpressionEngine® Answers</a></li>
+                <li class="-item"><a href="https://pt.stackoverflow.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="programadores profissionais e entusiastas">Stack Overflow em Português</a></li>
+                <li class="-item"><a href="https://blender.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="people who use Blender to create 3D graphics, animations, or games">Blender</a></li>
+                <li class="-item"><a href="https://networkengineering.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="network engineers">Network Engineering</a></li>
+                <li class="-item"><a href="https://crypto.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="software developers, mathematicians and others interested in cryptography">Cryptography</a></li>
+                <li class="-item"><a href="https://codereview.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="peer programmer code reviews">Code Review</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Technology"><ul class="-list">
+                <li class="-item"><a href="https://magento.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="users of the Magento e-Commerce platform">Magento</a></li>
+                <li class="-item"><a href="https://softwarerecs.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="people seeking specific software recommendations">Software Recommendations</a></li>
+                <li class="-item"><a href="https://dsp.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="practitioners of the art and science of signal, image and video processing">Signal Processing</a></li>
+                <li class="-item"><a href="https://emacs.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="those using, extending or developing Emacs">Emacs</a></li>
+                <li class="-item"><a href="https://raspberrypi.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="users and developers of hardware and software for Raspberry Pi">Raspberry Pi</a></li>
+                <li class="-item"><a href="https://ru.stackoverflow.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="программистов">Stack Overflow на русском</a></li>
+                <li class="-item"><a href="https://codegolf.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="programming puzzle enthusiasts and code golfers">Programming Puzzles &amp; Code Golf</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Technology"><ul class="-list">
+                <li class="-item"><a href="https://es.stackoverflow.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="programadores y profesionales de la informática">Stack Overflow en español</a></li>
+                <li class="-item"><a href="https://ethereum.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="users of Ethereum, the decentralized application platform and smart contract enabled blockchain">Ethereum</a></li>
+                <li class="-item"><a href="https://datascience.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="Data science professionals, Machine Learning specialists, and those interested in learning more about the field">Data Science</a></li>
+                <li class="-item"><a href="https://arduino.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="developers of open-source hardware and software that is compatible with Arduino">Arduino</a></li>
+                <li class="-item"><a href="https://bitcoin.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="Bitcoin crypto-currency enthusiasts">Bitcoin</a></li>
+                            <li class="-item">
+                    <a href="https://stackexchange.com/sites#technology" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 26 })">
+                        <strong>
+                            more (31)
+                        </strong>
+                    </a>
+                </li>
+        </ul>
+    </div>
+    <div class="site-footer--col site-footer--category js-footer-col" data-name="Life / Arts">
+        <ul class="-list">
+                <li class="-item"><a href="https://photo.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="professional, enthusiast and amateur photographers">Photography</a></li>
+                <li class="-item"><a href="https://scifi.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="science fiction and fantasy enthusiasts">Science Fiction &amp; Fantasy</a></li>
+                <li class="-item"><a href="https://graphicdesign.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="Graphic Design professionals, students, and enthusiasts">Graphic Design</a></li>
+                <li class="-item"><a href="https://movies.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="movie and tv enthusiasts">Movies &amp; TV</a></li>
+                <li class="-item"><a href="https://music.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="musicians, students, and enthusiasts">Music: Practice &amp; Theory</a></li>
+                <li class="-item"><a href="https://worldbuilding.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="writers/artists using science, geography and culture to construct imaginary worlds and settings">Worldbuilding</a></li>
+                <li class="-item"><a href="https://cooking.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="professional and amateur chefs">Seasoned Advice (cooking)</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Life / Arts"><ul class="-list">
+                <li class="-item"><a href="https://diy.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="contractors and serious DIYers">Home Improvement</a></li>
+                <li class="-item"><a href="https://money.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="people who want to be financially literate">Personal Finance &amp; Money</a></li>
+                <li class="-item"><a href="https://academia.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="academics and those enrolled in higher education">Academia</a></li>
+                <li class="-item"><a href="https://law.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="legal professionals, students, and others with experience or interest in law">Law</a></li>
+                            <li class="-item">
+                    <a href="https://stackexchange.com/sites#lifearts" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 26 })">
+                        <strong>
+                            more (15)
+                        </strong>
+                    </a>
+                </li>
+        </ul>
+    </div>
+    <div class="site-footer--col site-footer--category js-footer-col" data-name="Culture / Recreation">
+        <ul class="-list">
+                <li class="-item"><a href="https://english.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="linguists, etymologists, and serious English language enthusiasts">English Language &amp; Usage</a></li>
+                <li class="-item"><a href="https://skeptics.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="scientific skepticism">Skeptics</a></li>
+                <li class="-item"><a href="https://judaism.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="those who base their lives on Jewish law and tradition and anyone interested in learning more">Mi Yodeya (Judaism)</a></li>
+                <li class="-item"><a href="https://travel.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="road warriors and seasoned travelers">Travel</a></li>
+                <li class="-item"><a href="https://christianity.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="committed Christians, experts in Christianity and those interested in learning more">Christianity</a></li>
+                <li class="-item"><a href="https://ell.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="speakers of other languages learning English">English Language Learners</a></li>
+                <li class="-item"><a href="https://japanese.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="students, teachers, and linguists wanting to discuss the finer points of the Japanese language">Japanese Language</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Culture / Recreation"><ul class="-list">
+                <li class="-item"><a href="https://gaming.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="passionate videogamers on all platforms">Arqade (gaming)</a></li>
+                <li class="-item"><a href="https://bicycles.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="people who build and repair bicycles, people who train cycling, or commute on bicycles">Bicycles</a></li>
+                <li class="-item"><a href="https://rpg.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="gamemasters and players of tabletop, paper-and-pencil role-playing games">Role-playing Games</a></li>
+                <li class="-item"><a href="https://anime.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="anime and manga fans">Anime &amp; Manga</a></li>
+                <li class="-item"><a href="https://puzzling.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="those who create, solve, and study puzzles">Puzzling</a></li>
+                <li class="-item"><a href="https://mechanics.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="mechanics and DIY enthusiast owners of cars, trucks, and motorcycles">Motor Vehicle Maintenance &amp; Repair</a></li>
+                            <li class="-item">
+                    <a href="https://stackexchange.com/sites#culturerecreation" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 26 })">
+                        <strong>
+                            more (33)
+                        </strong>
+                    </a>
+                </li>
+        </ul>
+    </div>
+    <div class="site-footer--col site-footer--category js-footer-col" data-name="Science">
+        <ul class="-list">
+                <li class="-item"><a href="https://mathoverflow.net/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="professional mathematicians">MathOverflow</a></li>
+                <li class="-item"><a href="https://math.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="people studying math at any level and professionals in related fields">Mathematics</a></li>
+                <li class="-item"><a href="https://stats.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="people interested in statistics, machine learning, data analysis, data mining, and data visualization">Cross Validated (stats)</a></li>
+                <li class="-item"><a href="https://cstheory.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="theoretical computer scientists and researchers in related fields">Theoretical Computer Science</a></li>
+                <li class="-item"><a href="https://physics.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="active researchers, academics and students of physics">Physics</a></li>
+                <li class="-item"><a href="https://chemistry.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="scientists, academics, teachers, and students in the field of chemistry">Chemistry</a></li>
+                <li class="-item"><a href="https://biology.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="biology researchers, academics, and students">Biology</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Science"><ul class="-list">
+                <li class="-item"><a href="https://cs.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="students, researchers and practitioners of computer science">Computer Science</a></li>
+                <li class="-item"><a href="https://philosophy.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="those interested in the study of the fundamental nature of knowledge, reality, and existence">Philosophy</a></li>
+                            <li class="-item">
+                    <a href="https://stackexchange.com/sites#science" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 26 })">
+                        <strong>
+                            more (10)
+                        </strong>
+                    </a>
+                </li>
+        </ul>
+    </div>
+    <div class="site-footer--col site-footer--category js-footer-col" data-name="Other">
+        <ul class="-list">
+                <li class="-item"><a href="https://meta.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="meta-discussion of the Stack Exchange family of Q&amp;A websites">Meta Stack Exchange</a></li>
+                <li class="-item"><a href="https://stackapps.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="apps, scripts, and development with the Stack Exchange API">Stack Apps</a></li>
+                <li class="-item"><a href="https://api.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="programmatic interaction with Stack Exchange sites">API</a></li>
+                <li class="-item"><a href="https://data.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="querying Stack Exchange data using SQL">Data</a></li>
+                    </ul>
+    </div>
+                </div>
+            </nav>
+            <div class="site-footer--copyright fs-fine">
+                <ul class="-list">
+                    <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link:4 })" href="https://stackoverflow.blog/?blb=1">Blog</a></li>
+                    <li class="-item"><a href="https://www.facebook.com/officialstackoverflow/" class="-link">Facebook</a></li>
+                    <li class="-item"><a href="https://twitter.com/stackoverflow" class="-link">Twitter</a></li>
+                    <li class="-item"><a href="https://linkedin.com/company/stack-overflow" class="-link">LinkedIn</a></li>
+                </ul>
+
+                <p class="mt-auto mb24">
+site design / logo © 2019 Stack Exchange Inc; user contributions licensed under <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc by-sa 3.0</a>
+                            with <a href="https://stackoverflow.blog/2009/06/25/attribution-required/" rel="license">attribution required</a>.
+                    <span id="svnrev">rev&nbsp;2019.5.10.33661</span>
+                </p>
+            </div>
+        </div>
+
+            </footer>
+            <script>StackExchange.ready(function () { StackExchange.responsiveness.addSwitcher(); })</script>
+    <noscript>
+        <div id="noscript-warning">TeX - LaTeX Stack Exchange works best with JavaScript enabled
+        </div>
+    </noscript>
+
+<script>
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+            StackExchange.ready(function () {
+
+                StackExchange.ga.init({
+                    sendTitles: true,
+                    tracker: window.ga,
+                    trackingCodes: [
+                        'UA-108242619-5'
+                    ]
+                });
+
+                    StackExchange.ga.setDimension('dimension1', '514343');
+
+
+                    StackExchange.ga.setDimension('dimension2', '|tex-core|parsing|grammar|');
+
+                    StackExchange.ga.setDimension('dimension3', 'Questions/Show');
+
+
+                StackExchange.ga.trackPageView();
+            });
+            
+/**/
+            
+            var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+            (function() {
+                var ssl = 'https:' == document.location.protocol,
+                    s = document.getElementsByTagName('script')[0],
+                    qc = document.createElement('script');
+                 qc.async = true;
+                    qc.src = (ssl ? 'https://secure' : 'http://edge') + '.quantserve.com/quant.js';
+                    s.parentNode.insertBefore(qc, s);
+                    _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+/**/
+                 var sc = document.createElement('script');
+                    sc.async = true;
+                    sc.src = (ssl ? 'https://sb' : 'http://b') + '.scorecardresearch.com/beacon.js';
+                    s.parentNode.insertBefore(sc, s);
+                    _comscore.push({ c1: "2", c2: "17440561" });
+            })();
+            
+
+</script>
+            
+    
+    
+</body></html>

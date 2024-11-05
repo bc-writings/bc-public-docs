@@ -1,0 +1,82 @@
+\documentclass{article}
+
+\usepackage{xcolor}
+\usepackage{lipsum}
+
+\makeatletter
+\newcounter{mastersection}
+\@addtoreset{section}{mastersection}
+\newcommand{\horsprogramme}{%
+\refstepcounter{mastersection}%
+\renewcommand{\section}{\secdef\section@nostar\section@star}
+\def\section@nostar[##1]##2{%
+  \if@noskipsec\leavevmode\fi\par
+  \addvspace{3.5ex plus 1ex minus 0.2ex}
+  \refstepcounter{section}%
+  \csname sectionmark\endcsname{##1}%
+  \addcontentsline{toc}{section}{%
+     Annexe~\thesection\ifx&##1&\else.~##1\fi}
+  \begingroup
+    \normalfont\Large\bfseries{%
+      \@hangfrom{Annexe~\thesection\ifx&##2&\else~:~\fi}%
+        \interlinepenalty \@M \ifx&##2&\else##2\fi \@@par}%
+  \endgroup
+  \thetexteavertissement
+}
+\def\section@star##1{%
+  \if@noskipsec\leavevmode\fi\par
+  \addvspace{3.5ex plus 1ex minus 0.2ex}
+  \begingroup
+    \normalfont\Large\bfseries{%
+    \@hangfrom{}\interlinepenalty \@M ##1\@@par}%
+  \endgroup
+  \thetexteavertissement
+}
+}
+\makeatother
+
+\newcommand{\thetexteavertissement}{%
+\begin{center}\color{red}
+\textbf{Avertissement~:} ce qui suit est hors programme.
+\end{center}
+}
+
+\begin{document}
+
+\tableofcontents
+
+\section*{Introduction au programme}
+
+\lipsum[10]
+
+\section{Titre au programme}
+
+\lipsum[11]
+
+\horsprogramme
+
+\section{Titre hors programme}
+
+\lipsum[1]
+
+\section{Titre hors programme qui est très très très très très très très très très très très très très très très très très très long}
+
+\lipsum[2]
+
+\section[Titre hp dans la table des matieres]{Titre hors programme}
+
+\lipsum[3]
+
+\section{}
+
+\lipsum[4]
+
+\section[Titre hp dans la table de matieres]{}
+
+\lipsum[5]
+
+\section*{Conclusion du hors programme}
+
+\lipsum[6]
+
+\end{document}

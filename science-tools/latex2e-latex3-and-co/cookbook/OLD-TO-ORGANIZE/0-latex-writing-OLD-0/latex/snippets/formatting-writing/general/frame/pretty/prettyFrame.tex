@@ -1,0 +1,48 @@
+% Source : http://tex.stackexchange.com/questions/40774/placing-text-and-equations-inside-a-box
+
+\documentclass[12pt article]{article}
+	\usepackage{amsmath}
+	\usepackage{amssymb}
+	\usepackage{calc}
+	\usepackage[framemethod=tikz,xcolor=true]{mdframed}
+
+	\newmdenv[%
+		leftmargin=0.5cm,
+		backgroundcolor=yellow!10,%
+		roundcorner=5pt,%
+		tikzsetting={draw=red, line width=2.0pt}%
+	]{SpecialText}%
+
+	\newcommand*{\Format}[1]{\makebox[\widthof{$xyz$}][r]{$#1$}}%
+	\newcommand*{\PhantomLet}{\mbox{\hphantom{Let }}}%
+
+
+\begin{document}
+
+\begin{SpecialText}
+Let $\Format{a(b)} = \left\{ \begin{array}{c l} hi & \mbox{if } t^5 \mbox{ reduced} \\ t & \mbox{otherwise} \end{array} \right.$,
+
+\smallskip
+\PhantomLet $\Format{xyz} = \left\{ \begin{array}{c l} GH & \mbox{if } tr^{\pi} \mbox{ secluded} \\ x& \mbox{otherwise} \end{array} \right.$,
+
+\smallskip
+\PhantomLet $\Format{s} = \left\{ \begin{array}{c l} up^{-5} & \mbox{if } t^55 \mbox{ reduced} \\ lo & \mbox{otherwise} \end{array} \right.$. \\ \\
+
+Define the magician $M_n$ recursively, where $M_1 = \bigstar$ and 
+%
+\begin{align*}
+    M_{3}   &=   tr(Md) \\ 
+    M_{hat} &=   norbert(2304) \\ 
+    Mtri    &=   solution
+\end{align*}
+%
+where $z$ is the smallest integer such that $z \notin \{ 0 \}$. Terminate the magician at $M_{3}$ where $3$ is such that $M_{3}, ... , M_{3}$ have all already appeared in $M_1, ... , M_{t},$ i.e.
+%
+\[
+Mtr = g, \underbrace{hi, hello, good day}_{\mbox{cousins}}, \underbrace{1,2,3,4,4,5}_{\mbox{enemies of first cousin of } g} , ... \ , M_{3}, M_{3}, M_{3}
+\]
+%
+where $i$ is smallest such that $rt \neq z$.
+\end{SpecialText}
+
+\end{document}

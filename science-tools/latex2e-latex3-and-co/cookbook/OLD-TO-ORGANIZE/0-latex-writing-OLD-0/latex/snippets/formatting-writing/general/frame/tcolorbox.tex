@@ -1,0 +1,14 @@
+\documentclass{article}
+
+\usepackage{blindtext,pgffor}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable}
+
+\begin{document}
+
+\begin{tcolorbox}[breakable]
+\foreach \n in {1,...,455}
+  {\textbf{\color{red}(\n)} \blindtext[1]\par}
+\end{tcolorbox}
+
+\end{document}

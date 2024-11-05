@@ -1,0 +1,48 @@
+\documentclass[10pt,a4paper]{article}
+	\usepackage[utf8x]{inputenc}
+	\usepackage{ucs}
+	\usepackage{minted}
+
+
+\begin{document}
+
+\section{Basic usage}
+
+\begin{minted}{python}
+def boring(args = None):
+    def boring(args = None):
+        pass
+\end{minted}
+
+
+\section{One special style}
+
+	\subsection{One style}
+
+\usemintedstyle{tango}
+
+\begin{minted}{python}
+def boring(args = None):
+    def boring(args = None):
+        pass
+\end{minted}
+
+
+	\subsection{Default style}
+
+\usemintedstyle{default}
+
+\begin{minted}{python}
+def boring(args = None):
+    def boring(args = None):
+        pass
+\end{minted}
+
+\section{Long lines}
+
+\begin{minted}{python}
+a = 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1
+\end{minted}
+
+
+\end{document}

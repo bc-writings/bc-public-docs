@@ -1,0 +1,76 @@
+% Source : http://tex.stackexchange.com/questions/30799/enumerated-examples
+
+\documentclass{article}
+	\usepackage{etoolbox}% http://ctan.org/pkg/etoolbox
+	\newbool{insubexample}
+	\newtheorem{example}{Example}[section]% Example
+	\newtheorem{subexample}{Example}[example]% Sub-example
+	\renewcommand{\thesubexample}{\theexample(\alph{subexample})}%
+	\AtBeginEnvironment{example}{\global\boolfalse{insubexample}}%
+	\AtBeginEnvironment{subexample}{%
+	  \ifbool{insubexample}{}{\global\booltrue{insubexample}%
+	    \refstepcounter{example}}%
+	}%
+
+
+\begin{document}
+
+\setcounter{section}{11}% Just because...
+\section{A section}
+
+\noindent One first example and sub examples...
+
+\begin{example}
+	Here's an example.
+\end{example}
+
+\begin{subexample}
+	Here's a sub-example.
+\end{subexample}
+
+\begin{subexample}
+	Here's a sub-example.
+\end{subexample}
+
+\begin{subexample}
+	Here's a sub-example.
+\end{subexample}
+
+\begin{subexample}
+	Here's a sub-example.
+\end{subexample}
+
+
+\noindent One isolated example...
+
+\begin{example}
+	Here's another example.
+\end{example}
+
+
+\noindent Here is one second example with sub examples...
+
+\begin{example}
+	Here's one more example.
+\end{example}
+
+\begin{subexample}
+	Here's a sub-example.
+\end{subexample}
+
+\begin{subexample}
+	Here's a sub-example.
+\end{subexample}
+
+\begin{subexample}
+	Here's a sub-example.
+\end{subexample}
+
+
+\noindent One last very short example...
+
+\begin{example}
+	Here's one last example.
+\end{example}
+
+\end{document}

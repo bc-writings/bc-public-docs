@@ -1,0 +1,66 @@
+% Source : http://tex.stackexchange.com/questions/33689/how-to-number-equations-and-floating-materials-by-page-number
+
+\documentclass{article}
+	\usepackage{chngcntr}
+	\usepackage{lipsum}
+	\usepackage{perpage}
+
+	\MakePerPage{equation}
+	\renewcommand{\theequation}{\theperpage--\arabic{equation}}
+
+
+\begin{document}
+
+\lipsum[1]
+
+\begin{equation}
+	f(x)=ax^2+bx+c
+\end{equation}
+
+
+\lipsum[2]
+
+\begin{equation}
+	f(x)=ax^2+bx+c
+\end{equation}
+
+
+\lipsum[3]
+
+\begin{equation}
+	f(x)=ax^2+bx+c
+\end{equation}
+
+
+\lipsum[4]
+
+A short paragraph.
+
+Another short paragraph.
+
+\begin{equation}
+	f(x)=ax^2+bx+c
+\end{equation}
+
+
+\lipsum[5]
+
+\begin{equation}
+	f(x)=ax^2+bx+c
+\end{equation}
+
+
+\lipsum[6]
+
+\begin{equation}
+	f(x)=ax^2+bx+c
+\end{equation}
+
+
+\lipsum[7]
+
+\begin{equation}
+	f(x)=ax^2+bx+c
+\end{equation}
+
+\end{document}

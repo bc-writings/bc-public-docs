@@ -1,0 +1,44 @@
+% Source : http://tex.stackexchange.com/questions/32755/chapters-inside-lof-and-lot
+
+\documentclass{book}
+	\newcommand{\mypart}[1]{%
+		\part{#1}
+		\addcontentsline{lof}{part}{\thepart\hspace{1em}#1}
+	}
+
+	\newcommand{\mychapter}[1]{%
+		\chapter{#1}
+		\addcontentsline{lof}{chapter}{\numberline{\thechapter}#1}
+	}
+
+
+\begin{document}
+
+\tableofcontents
+
+\listoffigures
+
+
+\mypart{A}
+	\mychapter{A1}
+		\section{A11}
+
+\begin{figure}
+	\caption{FigA1}
+\end{figure}
+
+\begin{figure}
+	\caption{FigA2}
+\end{figure}
+
+
+\mychapter{A2}
+
+\begin{figure}
+	\caption{FigA21}
+\end{figure}
+
+
+	\mypart{B}
+
+\end{document}

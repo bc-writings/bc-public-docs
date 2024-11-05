@@ -1,0 +1,36 @@
+% Compilation :
+%    1) Start with one normal compilation in the current directory.
+%    2) Then do :
+% makeindex listOfSymbolsUsed.nlo -s nomencl.ist -o listOfSymbolsUsed.nls
+%    3) Finish with one noprmal compilation.
+
+\documentclass{article}
+	\usepackage{nomencl}
+
+	\makenomenclature
+
+
+\begin{document}
+
+\section*{Main equations}
+
+\begin{equation}
+	a=\frac{N}{A}
+\end{equation}%
+
+\nomenclature{$a$}{The number of angels per unit area}%
+\nomenclature{$N$}{The number of angels per needle point}%
+\nomenclature{$A$}{The area of the needle point}%
+
+The equation $\sigma = m a$%
+
+\nomenclature{$\sigma$}{The total mass of angels per unit area}%
+\nomenclature{$m$}{The mass of one angel} follows easily.
+
+Let's try with another $a$... %
+\nomenclature{$a$}{The area of the needle point}%
+
+\printnomenclature
+
+There is a problem with the a !!!!
+\end{document}

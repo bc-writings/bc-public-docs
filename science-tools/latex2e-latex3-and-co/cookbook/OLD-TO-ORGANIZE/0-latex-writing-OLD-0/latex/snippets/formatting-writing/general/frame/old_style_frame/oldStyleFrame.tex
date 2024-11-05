@@ -1,0 +1,31 @@
+% Source : http://tex.stackexchange.com/questions/31807/where-i-can-find-examples-of-decorated-borders-margins
+
+\documentclass[12pt]{scrartcl}
+	\usepackage{blindtext}
+	\usepackage[utf8]{inputenc}
+	\usepackage{niceframe}
+	\usepackage{swrule}% englische Linien
+
+
+\begin{document}
+
+\section{niceframe}
+	\subsection{niceframe}
+
+\niceframe{\blindtext}
+
+
+\subsection{artdecoframe}
+
+\artdecoframe{\blindtext}
+
+
+\subsection{\curlyframe}
+
+\curlyframe{\blindtext}
+
+
+~\swrule{0.6\textwidth}{1pt}~
+
+
+\end{document}

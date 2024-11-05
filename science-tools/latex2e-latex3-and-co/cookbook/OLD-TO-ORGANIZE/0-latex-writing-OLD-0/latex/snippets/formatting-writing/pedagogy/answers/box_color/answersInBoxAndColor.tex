@@ -1,0 +1,24 @@
+\documentclass[a4paper,10pt]{article}
+	\usepackage[latin1]{inputenc}
+	\usepackage[T1]{fontenc}
+	\usepackage{lmodern}
+	\usepackage[frenchb]{babel}
+	\usepackage{amsmath,xcolor}
+
+	\everymath{\displaystyle}
+
+	\renewcommand{\textbf}[1]{\begingroup\bfseries\mathversion{bold}#1\endgroup}
+	\newcommand{\resultats}[2][blue]{{\textcolor{#1}{\fbox{#2}}}}
+
+
+\begin{document}
+
+\today\,
+
+Voici un résultat encadré en bleu : \resultats{$\cos{x}^2+\sin{x}^2=1$}
+
+Un autre \resultats{$\cos{x}^2+\sin{x}^2=1$}
+
+Avec du texte \resultats{La suite est croissante.}
+
+\end{document}

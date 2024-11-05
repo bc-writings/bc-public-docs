@@ -1,0 +1,26 @@
+\documentclass{book}
+\usepackage{xepersian}
+\newlength{\tpheight}\setlength{\tpheight}{0.9\textheight}
+\newlength{\txtheight}\setlength{\txtheight}{0.9\tpheight}
+\newlength{\tpwidth}\setlength{\tpwidth}{0.9\textwidth}
+\newlength{\txtwidth}\setlength{\txtwidth}{0.9\tpwidth}
+\newlength{\drop}
+\newcommand*{\plogo}{\fbox{فانوس}}
+\newcommand*{\titleDB}{\begingroup% 
+\drop = 0.14\txtheight
+\centering
+\vspace*{\drop}
+{\Large کتاب}\\[\baselineskip]
+{\Huge عنوان کتاب}\\[\baselineskip]
+{\Huge 
+زیرعنوان کتاب
+}\\[1.5\baselineskip]
+{\LARGE نویسنده}\\[\baselineskip]
+{\LARGE نام نویسنده}\par
+\vfill
+{\small\sayehfamily نام انتشاراتی}\par
+\endgroup}
+\begin{document}
+\pagestyle{empty}
+\titleDB
+\end{document}

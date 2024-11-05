@@ -1,0 +1,46 @@
+% Source : http://forum.mathematex.net/latex-f6/carre-blanc-au-lieu-de-noir-en-fin-de-preuve-t12411.html#p120363
+
+\documentclass{article}
+	\usepackage{amsmath}
+	\usepackage{amsthm}
+	\usepackage{amssymb,amsmath,amsfonts,amsxtra,amsthm}
+	\usepackage{thmbox}
+
+	\makeatletter
+		\renewenvironment{proof}[1][\proofname]{%
+			\par
+			\pushQED{\qed}%
+			\normalfont \topsep6\p@\@plus6\p@\relax
+			\trivlist
+			\item[\hskip\labelsep\itshape#1\@addpunct{.}]\ignorespaces
+		}{%
+			\popQED\endtrivlist\@endpefalse
+		}
+	\makeatother
+
+
+\begin{document}
+
+\begin{proof}
+	We have
+	$$ A=B \qedhere $$ % This produces one warning and the square is not at the right place.
+\end{proof}
+
+\begin{proof}
+	We have
+	$$ A=B $$ \qedhere
+\end{proof}
+
+\begin{proof}
+	We have
+	\[ A=B \qedhere \]
+\end{proof}
+
+\begin{proof}
+	We have
+	\begin{align*}
+		A&=B\\&=C \qedhere
+	\end{align*}
+\end{proof}
+
+\end{document}

@@ -1,0 +1,62 @@
+% Source : http://tex.stackexchange.com/questions/36017/a-layout-for-writing-a-budget
+
+\documentclass[a4paper, oneside,imperial]{octavo} 
+	\usepackage[utf8]{inputenc} % set input encoding to utf8
+	\usepackage{xcolor}
+	\usepackage{booktabs}
+	\usepackage{longtable}
+
+%% Set some local commands and colors
+	\usepackage{colortbl}
+	\definecolor{green}{rgb}{0.1,0.1,0.1}
+%	\color{green!40!yellow})
+
+	\newcommand{\done}{\cellcolor{teal}done}  %{0.9}
+	\newcommand{\hcyan}[1]{{\color{teal} #1}}
+
+
+\begin{document}
+
+\leftskip-1.5cm\begin{tabular}{lrlr}
+	\toprule
+	Details                                            & Amount         & Amount                    & 30 Jan 2011
+	\\
+	\midrule
+	Materials received to-date                         &                & 148,349,154.57            & 149,387,782.00
+	\\
+	Materials awaiting delivery                        &                & 20,779,350.27             & 22,074,223.60
+	\\
+	Materials still to be ordered by HS                &
+	\\
+	\phantom{ZZ}Mechanical                             & 158,030.10     &                           & 38,351.40
+	\\
+	\phantom{ZZ}Electrical                             & 344,162.53     &                           & 287,394.98
+	\\
+	LPOs to be released by HLG                         & 3,337,934.08   &                           & 1,276,883.12
+	\\
+	Materials with HOK issues etc.,                    & 22,692,102.00 &&22,692,102.00
+	\\
+	\textsc{Sub-total}                                 &                & \underline{24,517,848.38} & \underline{24,294,731.50}
+	\\
+	\textsc{Contingency}                               & 2,000,000.00&
+	\\
+	\textsc{Total Projected Materials Cost}            &                & 197,660,733.55            & 197,660,733.55
+	\\
+
+	Materials used in Phase II                         & (2,000,000.00) &
+	\\
+	Materials damaged in fire                          & (2,130,000.00) &
+	\\
+	Scrap recovery                                     & (2,000,000.00) &
+	\\
+	Salvage value on ending stock                      & (3,000,000.00) &
+	\\
+	\textsc{Sub-total}                                 & (9,130,000.00) &
+	\\
+
+	\textsc{Total Projected Materials Cost (PhaseIII)} &                & \fbox{188,530,733.55}     & \fbox{188,530,733.55}
+	\\
+	\bottomrule
+\end{tabular}
+
+\end{document}

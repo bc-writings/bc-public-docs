@@ -1,0 +1,61 @@
+% Source : http://forum.mathematex.net/latex-f6/affichage-d-un-compteur-en-debut-de-document-t12628.html#p122378
+
+\documentclass[12pt]{article}
+	\usepackage[francais]{babel}
+	\usepackage{amsmath,amsfonts,amssymb,amstext,amsopn,amsthm,lscape,cases}
+	\usepackage[dvips]{epsfig}
+	\usepackage[utf8]{inputenc}
+	\usepackage[T1]{fontenc}
+	\usepackage{multicol}
+	\usepackage{geometry}
+	\geometry{hmargin=2.5cm,vmargin=1.5cm}
+
+	\newcounter{ponderation}
+	\setcounter{ponderation}{0}
+
+	\newtheoremstyle{question}{}{}{}{}{}{}{\newline}
+	{{\thmname{#1} \thmnumber{{ #2}}}\thmnote{: (#3} points)\addtocounter{ponderation}{#3}}
+	\theoremstyle{question}
+	\newtheorem{quest}{Question}
+	\selectlanguage{francais}
+
+
+\begin{document}
+
+\begin{multicols}{2}
+	Nom:\rule{5cm}{1.2pt}
+	
+	\columnbreak
+	
+	\flushright{Note: \rule{2cm}{1.2pt} sur \ref{totalponderation}} 
+\end{multicols}
+
+
+\begin{center}
+	\null \textbf{Mini-test \#2- Calcul I \\
+	Aucune documentation permise\\
+	Toute tentative ou collaboration au plagiat \'equivaut \`a une note de 0.\\
+	Des points seront attribu\'es pour les d\'emarches.}
+\end{center}
+
+
+\begin{quest}[20] %entre crochet c'est la pondération de ma question
+	Premi\`ere question...\\
+\end{quest}
+
+
+\begin{quest}[10]
+	Deuxi\`eme question...\\
+\end{quest}
+
+\begin{quest}[2]
+	Deuxi\`eme question...\\
+\end{quest}
+
+%\flushright Total: \rule{2cm}{1.2pt} sur \theponderation
+% C'est un test pour vérifier le total des points pour le test.
+% J'aimerais cependant écrire le résultat en début de document et non pas à la fin.
+
+\makeatletter\edef\@currentlabel{\arabic{ponderation}}\makeatother\label{totalponderation}
+
+\end{document}

@@ -1,0 +1,60 @@
+% Source : http://forum.mathematex.net/latex-f6/barrer-avec-differents-styles-t11106.html#p108420
+
+    \documentclass{article}
+
+    \usepackage{tikz}
+    \usetikzlibrary{shapes.misc}
+
+    \makeatletter
+    \definecolor{cancelcolor}{rgb}{0.127,0.372,0.987}
+    \newcommand{\tikz@bcancel}[1]{%
+      \begin{tikzpicture}[baseline=(textbox.base),inner sep=0pt]
+      \node[strike out,draw] (textbox) {#1}[color=cancelcolor];
+      \useasboundingbox (textbox);
+      \end{tikzpicture}%
+    }
+    \newcommand{\bcancel}[1]{%
+      \relax\ifmmode
+        \mathchoice{\tikz@bcancel{$\displaystyle#1$}}
+                   {\tikz@bcancel{$\textstyle#1$}}
+                   {\tikz@bcancel{$\scriptstyle#1$}}
+                   {\tikz@bcancel{$\scriptscriptstyle#1$}}
+      \else
+        \tikz@bcancel{\strut#1}%
+      \fi
+    }
+    \newcommand{\tikz@xcancel}[1]{%
+      \begin{tikzpicture}[baseline=(textbox.base),inner sep=0pt]
+      \node[cross out,draw] (textbox) {#1}[color=cancelcolor];
+      \useasboundingbox (textbox);
+      \end{tikzpicture}%
+    }
+    \newcommand{\xcancel}[1]{%
+      \relax\ifmmode
+        \mathchoice{\tikz@xcancel{$\displaystyle#1$}}
+                   {\tikz@xcancel{$\textstyle#1$}}
+                   {\tikz@xcancel{$\scriptstyle#1$}}
+                   {\tikz@xcancel{$\scriptscriptstyle#1$}}
+      \else
+        \tikz@xcancel{\strut#1}%
+      \fi
+    }
+    \makeatother
+
+    \begin{document}
+
+    \bcancel{xxx} \bcancel{xpx} \bcancel{xdx} \bcancel{x(x)x}
+
+    \xcancel{xxx} \xcancel{xpx} \xcancel{xdx} \xcancel{x(x)x}
+
+    Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla \xcancel{bla} bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla \bcancel{bla bla bla bla} bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla \xcancel{bla bla bla bla bla bla bla bla bla bla bla bla} bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla.
+
+    bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla $5+\bcancel{\frac{4^3}{1+7}}$ bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+    \[\frac{5^{\bcancel{2}}}{\bcancel{5}}+\bcancel{\frac{4^3}{1+7}}\]
+    bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla.
+
+    bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla $5+\xcancel{\frac{4^3}{1+7}}$ bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+    \[\frac{5^{\xcancel{2}}}{\xcancel{5}}+\xcancel{\frac{4^3}{1+7}}\]
+    bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla.
+
+    \end{document}

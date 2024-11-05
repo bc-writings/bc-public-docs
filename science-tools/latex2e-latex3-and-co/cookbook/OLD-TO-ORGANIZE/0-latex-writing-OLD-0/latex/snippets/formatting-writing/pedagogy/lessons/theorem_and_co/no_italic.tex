@@ -1,0 +1,38 @@
+% Source: http://tex.stackexchange.com/a/341188/6880
+
+\documentclass{article}
+
+\usepackage{amsthm}
+\usepackage{enumitem}
+\newtheorem{thm}{Theorem}
+
+% Comment to see italic for items !
+\usepackage{etoolbox}
+\AtBeginEnvironment{thm}{%
+	\setlist[enumerate, 1]{%
+		font=\upshape,%
+		nosep,%
+		wide=0.5em,%
+		before=\leavevmode%
+	}%
+}
+
+
+\begin{document}
+
+\begin{thm}
+  \begin{enumerate}[series=thmenum]
+  \item Blablabla
+  \item Bliblibli
+  \end{enumerate}
+\end{thm}
+
+\begin{thm}
+  \begin{enumerate}[thmenum]
+  \item Blablabla
+  \item Bliblibli
+  \item Blobloblo
+  \end{enumerate}
+\end{thm}
+
+\end{document}

@@ -1,0 +1,76 @@
+\documentclass{article}
+
+\usepackage{tkz-euclide}
+
+\ExplSyntaxOn
+
+\NewDocumentCommand\polygonom{ m }{  
+  \zazou_polygonom:n {#1}
+}
+
+\clist_new:N \l_zazou_names_clist
+\int_new:N   \l_zazou_nb_item_remain_int
+\tl_new:N    \l_zazou_bary_spec_tl
+
+\cs_new:Npn \zazou_polygonom:n #1 {
+  \tkzDrawPolygon(#1)
+
+  \clist_set:Nn \l_zazou_names_clist 
+                { #1 }
+                
+  \int_set:Nn \l_zazou_nb_item_remain_int 
+              { \clist_count:N \l_zazou_names_clist }
+
+  \tl_clear:N \l_zazou_bary_spec_tl
+  
+  \clist_map_inline:Nn \l_zazou_names_clist {
+    \tl_put_right:Nn \l_zazou_bary_spec_tl { ##1=1 }
+
+    \int_decr:N \l_zazou_nb_item_remain_int 
+    \int_compare:nNnF {\int_use:N \l_zazou_nb_item_remain_int } = { 0 }
+      { \tl_put_right:Nn \l_zazou_bary_spec_tl { , } }
+  }
+  
+  \tkzDefBarycentricPoint( \tl_use:N \l_zazou_bary_spec_tl )
+    
+  \clist_map_inline:Nn \l_zazou_names_clist {
+    \tkzFindSlopeAngle(##1,Barycentre)
+    \tkzLabelPoint[anchor=\tkzAngleResult](##1){$##1$}
+  }
+}
+
+\ExplSyntaxOff
+
+
+\begin{document}
+
+\section{À la main}
+
+\begin{tikzpicture}[scale=1]
+  \tkzDefPoints{0/0/S,2/3/O,-1/1/P}
+  \tkzDrawPolygon(S,O,P)
+  \tkzDefBarycentricPoint(S=1,O=1,P=1)
+  \tkzGetPoint{Barycentre}
+  \foreach \i in {S,O,P}{
+    \tkzFindSlopeAngle(\i,Barycentre)
+    \tkzLabelPoint[anchor=\tkzAngleResult](\i){$\i$}
+  }
+\end{tikzpicture}
+
+
+\section{Semi-automatisé}
+
+\begin{tikzpicture}[scale=1]
+  \tkzDefPoints{0/0/S,2/3/O,-1/1/P}
+  \polygonom{S,O,P}
+\end{tikzpicture}
+
+
+\section{Semi-automatisé bis}
+
+\begin{tikzpicture}[scale=1]
+  \tkzDefPoints{0/0/A,2/3/B,-1/3/C,-4/-3/D}
+  \polygonom{A,B,C,D}
+\end{tikzpicture}
+
+\end{document}

@@ -1,0 +1,100 @@
+% Source: https://tex.stackexchange.com/a/555222/6880
+
+\documentclass{article}
+\usepackage{luacode}
+\begin{luacode}
+-- Lookup table to convert tokens to numbers
+local numbers = {
+    [token.create(string.byte("1")).tok] = 1,
+    [token.create(string.byte("2")).tok] = 2,
+    [token.create(string.byte("3")).tok] = 3,
+    [token.create(string.byte("4")).tok] = 4,
+    [token.create(string.byte("5")).tok] = 5,
+    [token.create(string.byte("6")).tok] = 6,
+    [token.create(string.byte("7")).tok] = 7,
+    [token.create(string.byte("8")).tok] = 8,
+    [token.create(string.byte("9")).tok] = 9,
+    [token.create(string.byte("0")).tok] = 0,
+}
+
+-- Register a new Lua function with TeX
+local lft = lua.get_functions_table()
+lft[#lft + 1] = function()
+    -- Scan a list of tokens delimited by balanced braces
+    local toks = token.scan_toks()
+
+    local result = {}
+    local stack = {}
+    local currentgrouplevel = 0
+    local n = 1
+    while n <= #toks do
+        -- We have to scan balanced braces, so we in/decrease the
+        -- currentgrouplevel on every brace
+        if toks[n].cmdname == "left_brace" then
+            currentgrouplevel = currentgrouplevel + 1
+        elseif toks[n].cmdname == "right_brace" then
+            currentgrouplevel = currentgrouplevel - 1
+        end
+
+        -- Collect tokens on a stack
+        table.insert(stack, toks[n])
+
+        -- If we are not inside braces, check for the ^
+        if currentgrouplevel == 0 then
+            if toks[n + 1] and toks[n + 1].cmdname == "sup_mark" and
+               toks[n + 2] and toks[n + 2].cmdname == "other_char" then
+                -- Convert the token right after ^ to a number by looking it up
+                local rep = assert(numbers[toks[n + 2].tok], "Token is not a number")
+                -- Append the stack to the result rep times
+                for i = 1, rep do
+                    for _, t in ipairs(stack) do
+                        table.insert(result, t)
+                    end
+                end
+                -- Flush the stack
+                stack = {}
+                -- Skip the next two tokens (^ and number)
+                n = n + 2
+            else
+                -- We are not inside braces but there is also no ^, so we flush the stack
+                for _, t in ipairs(stack) do
+                    table.insert(result, t)
+                end
+                stack = {}
+            end
+        end
+
+        -- Move on to the next token
+        n = n + 1
+    end
+
+    -- Flush whatever is still on the stack
+    for _, t in ipairs(stack) do
+        table.insert(result, t)
+    end
+
+    -- Put the result back into the input stream
+    token.put_next(result)
+end
+
+-- Bind the registered function to "test"
+token.set_lua("test", #lft, "global")
+-- The "global" definition (similar to gdef) is needed because the luacode*
+-- environment is an implicit TeX group and set_lua obey TeX grouping
+\end{luacode}
+
+\begin{document}
+\test{$x$}
+
+\test{$x y$}
+
+\test{$x^1 y^12$}
+
+\test{$x^3 y^2 z$}
+
+\test{${x_1}^3 {a{bc}de}^2$}
+
+\test{$\{x_1\}^3$}
+
+\test{$\alpha^2\lambda^3\omega^4$}
+\end{document}

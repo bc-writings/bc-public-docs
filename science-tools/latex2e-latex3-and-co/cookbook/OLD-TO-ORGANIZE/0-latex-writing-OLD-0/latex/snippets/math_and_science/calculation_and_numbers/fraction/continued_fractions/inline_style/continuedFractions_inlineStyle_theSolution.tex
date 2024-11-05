@@ -1,0 +1,111 @@
+% Sources :
+%    * https://groups.google.com/forum/?hl=fr&fromgroups#!topic/fr.comp.text.tex/UrUZiurKwm0
+%    * http://tex.stackexchange.com/questions/68190/continued-fraction-in-inline-equations/68196#68196
+
+\documentclass[10pt,a4paper]{article}
+    \usepackage[utf8]{inputenc}
+    \usepackage{mathtools}
+    \usepackage{ifmtarg}
+
+    \makeatletter
+	\def\@singleContFrac#1#2{%
+		\begin{array}{@{}c@{}}
+			\multicolumn{1}{c|}{#1}\\%
+			\hline
+			\multicolumn{1}{|c}{#2}
+		\end{array}%
+	}
+
+        \newcommand\contFrac{\@ifstar{\@contFracStar}{\@contFracNoStar}}
+
+        \def\@contFracNoStar#1{%
+% //\@nil is usefull if only one argument is given.
+            \ensuremath{\@contFracNoStar@#1//\@nil}%
+        }
+        \def\@contFracNoStar@#1//#2\@nil{%
+            \@ifmtarg{#2}{%
+                #1%
+            }{%
+                #1 \@@contFracNoStar@@#2\@nil%
+            }%
+        }
+        \def\@@contFracNoStar@@#1//#2\@nil{%
+            \@ifmtarg{#2}{%
+                + \@singleContFrac{1}{#1}%
+            }{%
+                + \@singleContFrac{1}{#1} \@@contFracNoStar@@#2\@nil%
+            }%
+        }
+
+        \def\@contFracStar#1{%
+% ////\@nil is usefull if only one argument is given.
+            \ensuremath{\@contFracStar@#1//\@nil}%
+        }
+        \def\@contFracStar@#1//#2\@nil{%
+            \@ifmtarg{#2}{%
+                #1%
+            }{%
+                #1 \@@contFracStar@@#2\@nil%
+            }%
+        }
+        \def\@@contFracStar@@#1//#2//#3\@nil{%
+            \@ifmtarg{#3}{%
+                + \@singleContFrac{#1}{#2}%
+            }{%
+                + \@singleContFrac{#1}{#2} \@@contFracStar@@#3\@nil%
+            }%
+        }
+    \makeatother
+
+
+
+%\newcommand\smallO[1]{%
+%	\mathchoice{% * Display style
+%		\operatorname{\scriptstyle\mathcal{O}}\!\left(#1\right)%
+%	}{%           * Text style
+%		\operatorname{\scriptstyle\mathcal{O}}\!\left(#1\right)%
+%	}{%           * Script style
+%		\operatorname{\scriptscriptstyle\mathcal{O}}\left(#1\right)%
+%	}{%           * Script script style
+%		\operatorname{\scalebox{0.8}{$\scriptscriptstyle\mathcal{O}$}}\left(#1\right)%
+%	}%
+%}
+
+
+\begin{document}
+
+\begin{center}
+    \verb+\contFrac{u_0 // u_1 // u_2 // \dots // u_n}+
+    \[
+        \contFrac{u_0 // u_1 // u_2 // \dots // u_n}
+    \]
+
+    \medskip
+    \hrule
+    \bigskip
+
+    \verb+\contFrac{u_0 // \contFrac{a_0 // \dots // a_n} // u_2 // \dots // u_n}+
+    \[
+        \contFrac{u_0 // \contFrac{a_0 // \dots // a_n} // u_2 // \dots // u_n}
+    \]
+
+    \medskip
+    \hrule
+    \bigskip
+
+    \verb+\contFrac*{a // b // c // d // \dots // y // z}+
+    \[
+        \contFrac*{a // b // c // d // \dots // y // z}
+    \]
+
+    \medskip
+    \hrule
+    \bigskip
+
+    \verb+\contFrac*{a // b // \contFrac{A // \dots // B} // d // \dots // y // z}+
+    \[
+        \contFrac*{a // b // \contFrac{A // \dots // B} // d // \dots // y // z}
+    \]
+\end{center}
+
+\end{document}

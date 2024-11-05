@@ -1,0 +1,34 @@
+% Source : http://forum.mathematex.net/latex-f6/classe-pour-des-dossiers-t13644.html#p131593
+
+\documentclass[12pt]{article}
+	\usepackage[latin1]{inputenc}
+	\usepackage[frenchb]{babel}
+	\usepackage[T1]{fontenc}
+	\usepackage{titlesec}
+	\usepackage[table]{xcolor}
+
+	\usepackage{lipsum}
+
+	\makeatletter
+		\newcommand*\Section[1]{%
+			\stepcounter{section}\vspace*{3.5ex \@plus -1ex \@minus -.2ex}\noindent%
+			\colorbox{gray!10}{%
+				\parbox{\textwidth}{\Large\bfseries\thesection\hspace*{2.3ex \@plus.2ex}#1\strut}%
+			}%
+			\vspace*{3.5ex \@plus -1ex \@minus -.2ex}%
+		}
+	\makeatother
+
+
+\begin{document}
+
+\Section{Blablabla}
+
+\lipsum[1]
+
+
+\Section{Blablabla}
+
+\lipsum[1]
+
+\end{document}

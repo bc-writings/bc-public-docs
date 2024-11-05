@@ -1,0 +1,43 @@
+\documentclass[11pt, a4paper]{book}
+
+\usepackage{lipsum}
+\newcommand\abstractname{Abstract}  %%% here
+\makeatletter
+\if@titlepage
+  \newenvironment{abstract}{%
+      \titlepage
+      \null\vfil
+      \@beginparpenalty\@lowpenalty
+      \begin{center}%
+        \bfseries \abstractname
+        \@endparpenalty\@M
+      \end{center}}%
+     {\par\vfil\null\endtitlepage}
+\else
+  \newenvironment{abstract}{%
+      \if@twocolumn
+        \section*{\abstractname}%
+      \else
+        \small
+        \begin{center}%
+          {\bfseries \abstractname\vspace{-.5em}\vspace{\z@}}%
+        \end{center}%
+        \quotation
+      \fi}
+      {\if@twocolumn\else\endquotation\fi}
+\fi
+\makeatother
+
+\begin{document}
+
+\begin{titlepage}
+\begin{abstract}
+  \lipsum[1]
+\end{abstract}
+\end{titlepage}
+
+\chapter{This and That}
+
+\lipsum[2]
+
+\end{document}

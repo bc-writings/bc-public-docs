@@ -1,0 +1,59 @@
+% SOURCE : http://forum.mathematex.net/latex-f6/s-inspirer-de-la-classe-exam-t11133-20.html#p108611
+
+    \documentclass{article}
+
+    \usepackage[frenchb]{babel}
+
+    \newcounter{question}
+    \newcounter{sousquestion}[question]
+    \renewcommand{\thequestion}{\arabic{question}}
+    \renewcommand{\thesousquestion}{\thequestion.\alph{sousquestion}}
+    \makeatletter
+    \newif\if@following@question
+    \def\question{%
+      \ifhmode\par\fi
+      \refstepcounter{question}%
+      \@following@questiontrue
+      \everypar{\hspace{-\parindent}%
+                \@hangfrom{\quad\thequestion.\enspace}%
+                \everypar{}%
+               \@following@questionfalse}%
+    }
+    \def\subquestion{%
+      \ifhmode\par\fi
+      \refstepcounter{sousquestion}%
+      \everypar{\hspace{-\parindent}%
+                \@hangfrom{\if@following@question
+                             \quad\thequestion.\enspace
+                           \else
+                             \phantom{\quad\thequestion.\enspace}%
+                           \fi
+                           (\alph{sousquestion})\enspace
+                          }%
+                \everypar{}%
+               \@following@questionfalse}
+    }
+    \makeatother
+
+    \parskip=6pt
+
+    \begin{document}
+
+    \question
+        \subquestion
+            \begin{itemize}
+               \item Bla bla bla
+               \item Bla bla bla
+               \item Bla bla bla
+           \end{itemize}
+        \subquestion Bla bla bla bla
+
+    \paragraph{Titre de paragraphe}%\leavevmode % pour afficher le titre de paragraphe
+
+    \question
+        \subquestion Bla bla bla bla
+        \subquestion Bla bla bla bla
+
+    Bla bla bla bla
+
+    \end{document}

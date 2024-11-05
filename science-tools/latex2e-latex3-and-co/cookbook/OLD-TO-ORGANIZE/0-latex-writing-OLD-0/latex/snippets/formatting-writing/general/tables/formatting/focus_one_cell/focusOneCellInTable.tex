@@ -1,0 +1,19 @@
+% Source : http://tex.stackexchange.com/questions/34652/commands-in-newcolumntype-arguments
+
+\documentclass{article}
+	\usepackage{array}
+	\usepackage[table,dvipsnames]{xcolor}
+	\usepackage{colortbl}
+
+	\newenvironment{tablegoals}[1]
+		{\begin{tabular}{l|>{\columncolor{#1}}c}}
+		{\end{tabular}}
+
+
+\begin{document}
+
+\begin{tablegoals}{SkyBlue!30}
+	Goal 7  & Something \\
+\end{tablegoals}
+
+\end{document}

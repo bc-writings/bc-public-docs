@@ -1,0 +1,713 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <title>color - Is there a way to have coloured hyperref hyperlinks 
+in the PDF, but have them print "as if" they were black? - TeX - LaTeX -
+ Stack Exchange</title>
+    <link rel="shortcut icon" href="http://cdn.sstatic.net/tex/img/favicon.ico">
+    <link rel="apple-touch-icon" href="http://cdn.sstatic.net/tex/img/apple-touch-icon.png">
+    <link rel="search" type="application/opensearchdescription+xml" title="TeX - LaTeX - Stack Exchange" href="http://tex.stackexchange.com/opensearch.xml">
+    <script src="is-there-a-way-to-have-coloured-hyperref-hyperlinks-in-the-pdf-but-have-them-pr_fichiers/ga.js" async="" type="text/javascript"></script><script type="text/javascript" src="is-there-a-way-to-have-coloured-hyperref-hyperlinks-in-the-pdf-but-have-them-pr_fichiers/jquery.js"></script>
+    <script type="text/javascript" src="is-there-a-way-to-have-coloured-hyperref-hyperlinks-in-the-pdf-but-have-them-pr_fichiers/stub.js"></script>
+    <link rel="stylesheet" type="text/css" href="is-there-a-way-to-have-coloured-hyperref-hyperlinks-in-the-pdf-but-have-them-pr_fichiers/all.css">
+    
+    <link rel="canonical" href="http://tex.stackexchange.com/questions/4425/is-there-a-way-to-have-coloured-hyperref-hyperlinks-in-the-pdf-but-have-them-pr">
+    <link rel="alternate" type="application/atom+xml" title="Feed for question 'Is there a way to have coloured hyperref hyperlinks in the PDF, but have them print &quot;as if&quot; they were black?'" href="http://tex.stackexchange.com/feeds/question/4425">
+    <meta name="title" content="color - Is there a way to have coloured hyperref hyperlinks in the PDF, but have them print &amp;quot;as if&amp;quot; they were black? - TeX - LaTeX - Stack Exchange">
+    <link rel="image_src" href="http://sstatic.net/tex/img/apple-touch-icon.png">
+    <script type="text/javascript">
+        
+        StackExchange.ready(function () {
+
+            StackExchange.question.init({canOpenBounty:true,votesCast:[],totalCommentCount:0,shownCommentCount:0,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:4425});
+
+            styleCode();
+        });
+    </script>
+
+
+    <script type="text/javascript">
+        StackExchange.init({"stackAuthUrl":"http://stackauth.com","serverTime":1321910089,"styleCode":true,"newTagEditor":true,"enableUserHovercards":true,"enableTabCompletion":true,"site":{"name":"TeX - LaTeX","description":"Q&A for users of TeX, LaTeX, ConTeXt, and related typesetting systems"},"enableAccountEmails":true,"user":{"isRegistered":true,"guid":"06f6b36e-26c9-412e-a3b0-a6794a51f17a","accountId":514343,"gravatar":"\u003cdiv class=\"\"\u003e\u003cimg src=\"http://www.gravatar.com/avatar/d15ffd7346ab944f5f3bc945aaf224be?s=32&amp;d=identicon&amp;r=PG\" alt=\"\"\u003e\u003c/div\u003e","profileUrl":"http://tex.stackexchange.com/users/6880/projetmbc","fkey":"5129ddfeeb5bf604daec4aa951a76176","inboxUnviewedCount":0}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.js":"0324556b7bf7","js/moderator.js":"a38ca3c6143d","js/full-anon.js":"8fcefa158ad3","js/full.js":"a168b3deac0f","js/wmd.js":"688233b2af68","js/third-party/jquery.autocomplete.min.js":"e5f01e97f7c3","js/mobile.js":"97644ef9b7d4","js/help.js":"7f83495f785a","js/tageditor.js":"75954ba7b6f1","js/tageditornew.js":"9d9998359a54","js/inline-tag-editing.js":"364e12111b4b","js/mathjax-editing.js":"a47e02eb0282","js/revisions.js":"63c88065da1f"});
+    </script>
+
+<script src="is-there-a-way-to-have-coloured-hyperref-hyperlinks-in-the-pdf-but-have-them-pr_fichiers/full.js" type="text/javascript" async=""></script><script src="is-there-a-way-to-have-coloured-hyperref-hyperlinks-in-the-pdf-but-have-them-pr_fichiers/prettify-full.js" type="text/javascript" async=""></script><script src="is-there-a-way-to-have-coloured-hyperref-hyperlinks-in-the-pdf-but-have-them-pr_fichiers/wmd.js" type="text/javascript" async=""></script></head>
+<body class="question-page">
+    <noscript><div id="noscript-padding"></div></noscript>
+    <div id="notify-container"></div>
+    <div id="overlay-header"></div>
+    <div id="custom-header"></div>
+
+    <div class="container">
+        <div id="header">
+            <div id="portalLink">
+                <a class="genu" onclick="StackExchange.ready(function(){genuwine.click();});return false;">Stack Exchange</a>
+            </div>
+            <div id="topbar">
+                <div id="hlinks">
+                    <span id="hlinks-user">
+                  <span class="profile-triangle">▾</span><a href="http://tex.stackexchange.com/users/6880/projetmbc" class="profile-link">projetmbc</a>&nbsp;<a href="http://tex.stackexchange.com/users/6880/projetmbc?tab=reputation"><span class="reputation-score" title="your reputation; view reputation changes">737</span></a><span title="1 silver badge"><span class="badge2"></span><span class="badgecount">1</span></span><span title="9 bronze badges"><span class="badge3"></span><span class="badgecount">9</span></span>
+ <span class="lsep">|</span>
+
+                  </span>
+                  <span id="hlinks-nav">
+                  <a href="http://tex.stackexchange.com/review/">review</a>
+ <span class="lsep">|</span>
+
+                  </span>
+                  <span id="hlinks-custom">
+                  <a href="http://chat.stackexchange.com/">chat</a>
+ <span class="lsep">|</span>
+<a href="http://meta.tex.stackexchange.com/">meta</a>
+ <span class="lsep">|</span>
+<a href="http://tex.stackexchange.com/about">about</a>
+ <span class="lsep">|</span>
+<a href="http://tex.stackexchange.com/faq">faq</a>
+                  </span>
+                </div>
+                <div id="hsearch">
+                    <form id="search" action="/search" method="get" autocomplete="off">
+                    <div>
+                        <input autocomplete="off" name="q" class="textbox" placeholder="search" tabindex="1" maxlength="140" size="28" type="text">
+                    </div>
+                    </form>
+                </div>
+            </div>
+            <br class="cbt">
+            <div id="hlogo">
+                <a href="http://tex.stackexchange.com/">TeX - LaTeX</a>
+            </div>
+            <div id="hmenus">
+                <div class="nav mainnavs">
+                    <ul>
+                        <li class="youarehere"><a id="nav-questions" href="http://tex.stackexchange.com/questions">Questions</a></li>
+                        <li><a id="nav-tags" href="http://tex.stackexchange.com/tags">Tags</a></li>
+                        <li><a id="nav-users" href="http://tex.stackexchange.com/users">Users</a></li>
+                        <li><a id="nav-badges" href="http://tex.stackexchange.com/badges">Badges</a></li>
+                        <li><a id="nav-unanswered" href="http://tex.stackexchange.com/unanswered">Unanswered</a></li>
+                    </ul>
+                </div>
+                <div class="nav askquestion">
+                    <ul>
+                        <li>
+                            <a id="nav-askquestion" href="http://tex.stackexchange.com/questions/ask">Ask Question</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        
+
+
+        <div id="content">
+            
+
+
+
+<div id="question-header">
+    <h1><a href="http://tex.stackexchange.com/questions/4425/is-there-a-way-to-have-coloured-hyperref-hyperlinks-in-the-pdf-but-have-them-pr" class="question-hyperlink">Is there a way to have coloured hyperref hyperlinks in the PDF, but have them print “as if” they were black?</a></h1>
+</div>
+<div id="mainbar">
+
+
+<div class="question" id="question">
+
+    <table>
+    <tbody><tr>
+    <td class="votecell">
+        
+<div class="vote">
+    <input value="4425" type="hidden">
+    <a class="vote-up-off" title="This question shows research effort; it is useful and clear (click again to undo)">up vote</a>
+    <span class="vote-count-post">32</span>
+    <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful (click again to undo)">down vote</a>
+
+    <a class="star-off" href="#" title="This is a favorite question (click again to undo)">favorite</a>
+    <div class="favoritecount"><b>17</b></div>    
+
+    <script type="text/javascript">
+        StackExchange.ready(function() {
+            var shareUrl = "http%3a%2f%2ftex.stackexchange.com%2fq%2f4425%2f6880";
+            var shareMsg = "Is+there+a+way+to+have+coloured+hyperref+hyperlinks+in+the+PDF%2c+but+have+them+print+%22as+if%22+they+were+black%3f";
+            StackExchange.share.facebook($("#fb-share-4425"), shareUrl, shareMsg);
+            StackExchange.share.twitter($("#twitter-share-4425"), shareUrl, shareMsg);
+        });
+    </script>
+    <a id="fb-share-4425" class="fb-share" title="share link to this question on Facebook">share [fb]</a>
+    <a id="twitter-share-4425" class="twitter-share" title="share link to this question on Twitter">share [tw]</a>    
+
+</div>
+
+    </td>
+<td class="postcell">
+<div>          
+    <div class="post-text">
+        <p>I like having my hyperref hyperlinks a different colour, so 
+it's obvious that they are links. But when I print a copy of the PDF, I 
+don't want the links to be coloured, because you can't click them, so it
+ doesn't matter and it's distracting.</p>
+
+<p>Other than just having a separate "for printing" version of the PDF 
+where I turn off the hyperlinks, is there a way to have the printed 
+version come out without the coloured links?</p>
+
+    </div>            
+    <div class="post-taglist">
+        <a href="http://tex.stackexchange.com/questions/tagged/hyperref" class="post-tag" title="show questions tagged 'hyperref'" rel="tag">hyperref</a> <a href="http://tex.stackexchange.com/questions/tagged/color" class="post-tag" title="" rel="tag">color</a> <a href="http://tex.stackexchange.com/questions/tagged/printing" class="post-tag" title="show questions tagged 'printing'" rel="tag">printing</a> 
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+        <div class="post-menu"><a href="http://tex.stackexchange.com/q/4425/6880" title="short permalink to this question" id="link-post-4425">link</a><span class="lsep">|</span><a href="http://tex.stackexchange.com/posts/4425/edit" title="revise and improve this post">edit</a><span class="lsep">|</span><a href="http://tex.stackexchange.com/posts/4425/edit?tagsonly=true" title="edit tags on this post">retag</a><span class="lsep">|</span><a id="flag-post-4425" href="#" title="flag this post for serious problems or moderator attention">flag</a></div>
+    </td>
+    <td class="post-signature" align="right">
+<div class="user-info"><div class="user-action-time">edited <a href="http://tex.stackexchange.com/posts/4425/revisions" title="show all edits to this post"><span title="2011-01-26 00:22:27Z" class="relativetime">Jan 26 at 0:22</span></a></div><div class="user-gravatar32"><a href="http://tex.stackexchange.com/users/1189/samb"><div class=""><img src="is-there-a-way-to-have-coloured-hyperref-hyperlinks-in-the-pdf-but-have-them-pr_fichiers/165e55c78689e561c554c3dec671fb50.jpg" alt=""></div></a></div><div class="user-details"><a href="http://tex.stackexchange.com/users/1189/samb">SamB</a><br><span class="reputation-score" title="reputation score">869</span><span title="3 silver badges"><span class="badge2"></span><span class="badgecount">3</span></span><span title="15 bronze badges"><span class="badge3"></span><span class="badgecount">15</span></span></div></div>    </td>
+    <td class="post-signature owner">
+    <div class="user-info user-hover"><div class="user-action-time">asked <span title="2010-10-22 17:22:21Z" class="relativetime">Oct 22 '10 at 17:22</span></div><div class="user-gravatar32"><a href="http://tex.stackexchange.com/users/215/seamus"><div class=""><img src="is-there-a-way-to-have-coloured-hyperref-hyperlinks-in-the-pdf-but-have-them-pr_fichiers/0ca7fea0bf4a793db7d83b7e281e1148.jpg" alt=""></div></a></div><div class="user-details"><a href="http://tex.stackexchange.com/users/215/seamus">Seamus</a><br><span class="reputation-score" title="reputation score 14417">14.4k</span><span title="1 gold badge"><span class="badge1"></span><span class="badgecount">1</span></span><span title="27 silver badges"><span class="badge2"></span><span class="badgecount">27</span></span><span title="77 bronze badges"><span class="badge3"></span><span class="badgecount">77</span></span></div></div>
+        <br class="cbt">
+        <div class="accept-rate accept-answer-link" title="this user has accepted an answer for 97 of 101 eligible questions">96% accept rate</div>
+    </td>
+    </tr>
+    </tbody></table>
+</div>
+</td>    </tr>
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-4425" class="comments dno">
+        <table>
+        <tbody>
+        
+            <tr><td></td><td></td></tr>
+        
+        </tbody>
+    
+        <tfoot>
+            <tr>
+                <td></td>
+                <td class="comment-form"><form id="add-comment-4425"></form></td>
+            </tr>
+        </tfoot>
+    
+        </table>
+    </div>
+    <a id="comments-link-4425" class="comments-link" title="ask author for clarification about this post">add comment</a>
+    
+</td>
+</tr>          <tr class="bounty-notification">
+          <td class="votecell"></td>
+          <td>
+          <div style="margin-top:20px">
+            <a class="bounty-link bounty" title="offer some of your reputation for better answers">
+                start a bounty
+            </a>
+          </div>
+          </td>
+          </tr>
+    </tbody></table>    
+</div>
+
+
+
+<div id="answers">
+
+    <a name="tab-top"></a>
+    <div id="answers-header">
+        <div class="subheader answers-subheader">
+            <h2>2 Answers</h2>
+            <div id="tabs">
+                <a href="http://tex.stackexchange.com/questions/4425/is-there-a-way-to-have-coloured-hyperref-hyperlinks-in-the-pdf-but-have-them-pr?answertab=active#tab-top" title="Answers with the latest activity first">active</a>
+<a href="http://tex.stackexchange.com/questions/4425/is-there-a-way-to-have-coloured-hyperref-hyperlinks-in-the-pdf-but-have-them-pr?answertab=oldest#tab-top" title="Answers in the order they were provided">oldest</a>
+<a class="youarehere" href="http://tex.stackexchange.com/questions/4425/is-there-a-way-to-have-coloured-hyperref-hyperlinks-in-the-pdf-but-have-them-pr?answertab=votes#tab-top" title="Answers with the highest score first">votes</a>
+
+            </div>
+        </div>    
+    </div>    
+
+
+  
+    <a name="4428"></a>
+    <div id="answer-4428" class="answer">
+        <table>
+        <tbody><tr>
+        <td class="votecell">
+            
+<div class="vote">
+    <input value="4428" type="hidden">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post">31</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+<span class="vote-accepted-on" title="The question owner accepted this as the best answer Oct 23 '10 at 12:32">accepted</span>
+</div>
+
+        </td>
+
+
+<td class="answercell">
+    <div class="post-text"><p>Yes. Use </p>
+
+<pre class="lang-tex prettyprint"><code><span class="kwd">\usepackage</span><span class="pun">[</span><span class="pln">ocgcolorlinks</span><span class="pun">]{</span><span class="pln">hyperref</span><span class="pun">}</span><span class="pln"><br></span></code></pre>
+
+<p>This option must be given when loading hyperref. You cannot give it in <code>\hypersetup</code>.</p>
+
+<p>With this option hypreref will make the colorlinks as Optional Contents Groups (OCG) with <code>/PrintState/OFF</code> and <code>/ViewState/ON</code>. Your pdf reader needs to support OCG.</p>
+
+<p>Also, the default behaviour of hyperref is to draw a coloured box around links. This box does not print. </p>
+</div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+        <div class="post-menu"><a href="http://tex.stackexchange.com/questions/4425/is-there-a-way-to-have-coloured-hyperref-hyperlinks-in-the-pdf-but-have-them-pr/4428#4428" title="permalink to this answer" id="link-post-4428">link</a><span class="lsep">|</span><a href="http://tex.stackexchange.com/posts/4428/edit" title="revise and improve this post">edit</a><span class="lsep">|</span><a id="flag-post-4428" href="#" title="flag this post for serious problems or moderator attention">flag</a></div>
+    </td>
+            
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info"><div class="user-action-time">answered <span title="2010-10-22 18:32:20Z" class="relativetime">Oct 22 '10 at 18:32</span></div><div class="user-gravatar32"><a href="http://tex.stackexchange.com/users/565/martin-heller"><div class=""><img src="is-there-a-way-to-have-coloured-hyperref-hyperlinks-in-the-pdf-but-have-them-pr_fichiers/52d6cb9a446fdbbf1bb8a4c85961bde5.png" alt=""></div></a></div><div class="user-details"><a href="http://tex.stackexchange.com/users/565/martin-heller">Martin Heller</a><br><span class="reputation-score" title="reputation score">4,222</span><span title="6 silver badges"><span class="badge2"></span><span class="badgecount">6</span></span><span title="16 bronze badges"><span class="badge3"></span><span class="badgecount">16</span></span></div></div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>        </tr>
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-4428" class="comments">
+        <table>
+        <tbody>
+                    
+    <tr id="comment-6553" class="comment">
+        <td class="comment-actions"><table><tbody><tr>
+<td class="comment-score">
+<span title="number of 'great comment' votes received" class="warm">11</span>
+</td>
+<td>
+<a class="comment-up comment-up-off" title="this is a great comment">upvote</a>
+</td></tr>
+<tr><td>&nbsp;</td><td><a class="comment-flag" title="flag this comment as unconstructive, offensive, or spam">flag</a></td></tr></tbody></table></td>
+        <td class="comment-text"><div><span class="comment-copy">The <code>ocgcolorlinks</code>
+ does indeed colour the links for the screen version and leave them 
+black for the printed version, but it has some downsides: the links 
+cannot break across lines; any spaces within the links are set at their 
+natural width and not stretched or shrunk to match with the surrounding 
+text. Therefore <code>ocgcolorlinks</code> is really only a good option 
+when the links are short, unbreakable, single words. I've been pondering
+ if there is a way to use the power of the <code>soul</code> package to get around these restrictions, but I haven't spent a lot of time on it.</span> –&nbsp;<a href="http://tex.stackexchange.com/users/627/lev-bishop" title="15277 reputation" class="comment-user">Lev Bishop</a> <span class="comment-date"><span title="2010-10-22 23:42:44Z">Oct 22 '10 at 23:42</span></span><span class="edited-yes" title="this comment was edited"></span></div></td>
+    </tr>
+            
+    <tr id="comment-6579" class="comment">
+        <td class="comment-actions"><table><tbody><tr>
+<td class="comment-score">
+<span title="number of 'great comment' votes received" class="cool">2</span>
+</td>
+<td>
+<a class="comment-up comment-up-off" title="this is a great comment">upvote</a>
+</td></tr>
+<tr><td>&nbsp;</td><td><a class="comment-flag" title="flag this comment as unconstructive, offensive, or spam">flag</a></td></tr></tbody></table></td>
+        <td class="comment-text"><div><span class="comment-copy">(Yeah I
+ should have mentioned that I changed the link behaviour from "ugly as 
+hell primary colour boxes" to "sexy subtle dark coloured text")</span> –&nbsp;<a href="http://tex.stackexchange.com/users/215/seamus" title="14417 reputation" class="comment-user owner">Seamus</a> <span class="comment-date"><span title="2010-10-23 12:32:17Z">Oct 23 '10 at 12:32</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-6584" class="comment">
+        <td class="comment-actions"><table><tbody><tr>
+<td class="comment-score">
+<span title="number of 'great comment' votes received" class="cool">1</span>
+</td>
+<td>
+<a class="comment-up comment-up-off" title="this is a great comment">upvote</a>
+</td></tr>
+<tr><td>&nbsp;</td><td><a class="comment-flag" title="flag this comment as unconstructive, offensive, or spam">flag</a></td></tr></tbody></table></td>
+        <td class="comment-text"><div><span class="comment-copy">Perhaps
+ you could incorporate Lev Bishop's comment into your answer, I think 
+it's worth making clear the option has its downsides...</span> –&nbsp;<a href="http://tex.stackexchange.com/users/215/seamus" title="14417 reputation" class="comment-user owner">Seamus</a> <span class="comment-date"><span title="2010-10-23 12:39:00Z">Oct 23 '10 at 12:39</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-52219" class="comment">
+        <td class="comment-actions"><table><tbody><tr>
+<td class="comment-score">
+<span>&nbsp;</span>
+</td>
+<td>
+<a class="comment-up comment-up-off" title="this is a great comment">upvote</a>
+</td></tr>
+<tr><td>&nbsp;</td><td><a class="comment-flag" title="flag this comment as unconstructive, offensive, or spam">flag</a></td></tr></tbody></table></td>
+        <td class="comment-text"><div><span class="comment-copy">@LevBishop, could <a href="http://tex.stackexchange.com/questions/5959/cool-text-highlighting-in-latex/6029#6029">this answer</a>
+ provide a possible approach?  (Admittedly, it'd make one very powerful 
+package dependent on another very powerful one...)  But basically, it 
+gives a (fairly robust) way of detecting linebreaks, and maybe that 
+could be used to reset the text coloring on each line without needing to
+ box up the text?  Failing that, is there any hook to detect line breaks
+ short of monkeying around with the output routine?</span> –&nbsp;<a href="http://tex.stackexchange.com/users/5277/ben-lerner" title="1094 reputation" class="comment-user">Ben Lerner</a> <span class="comment-date"><span title="2011-08-28 02:53:09Z">Aug 28 at 2:53</span></span></div></td>
+    </tr>
+
+        </tbody>
+    
+        <tfoot>
+            <tr>
+                <td></td>
+                <td class="comment-form"><form id="add-comment-4428"></form></td>
+            </tr>
+        </tfoot>
+    
+        </table>
+    </div>
+    <a id="comments-link-4428" class="comments-link" title="ask author for clarification about this post">add comment</a>
+    
+</td>
+</tr>    </tbody></table>
+</div>
+
+  
+    <a name="4427"></a>
+    <div id="answer-4427" class="answer">
+        <table>
+        <tbody><tr>
+        <td class="votecell">
+            
+<div class="vote">
+    <input value="4427" type="hidden">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post">7</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+
+</div>
+
+        </td>
+
+
+<td class="answercell">
+    <div class="post-text"><p>Try the (experimental) option ocgcolorlinks to the hyperref package. I don't think it's documented in the manual, but see <a href="http://www.tug.org/applications/hyperref/ftp/README" rel="nofollow">http://www.tug.org/applications/hyperref/ftp/README</a> for a description.</p>
+</div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+        <div class="post-menu"><a href="http://tex.stackexchange.com/questions/4425/is-there-a-way-to-have-coloured-hyperref-hyperlinks-in-the-pdf-but-have-them-pr/4427#4427" title="permalink to this answer" id="link-post-4427">link</a><span class="lsep">|</span><a href="http://tex.stackexchange.com/posts/4427/edit" title="revise and improve this post">edit</a><span class="lsep">|</span><a id="flag-post-4427" href="#" title="flag this post for serious problems or moderator attention">flag</a></div>
+    </td>
+            
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info user-hover"><div class="user-action-time">answered <span title="2010-10-22 18:30:07Z" class="relativetime">Oct 22 '10 at 18:30</span></div><div class="user-gravatar32"><a href="http://tex.stackexchange.com/users/275/villemoes"><div class=""><img src="is-there-a-way-to-have-coloured-hyperref-hyperlinks-in-the-pdf-but-have-them-pr_fichiers/487f27bb6514f1d9ef83e16b5074e0ad.png" alt=""></div></a></div><div class="user-details"><a href="http://tex.stackexchange.com/users/275/villemoes">Villemoes</a><br><span class="reputation-score" title="reputation score">1,948</span><span title="3 silver badges"><span class="badge2"></span><span class="badgecount">3</span></span><span title="14 bronze badges"><span class="badge3"></span><span class="badgecount">14</span></span></div></div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>        </tr>
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-4427" class="comments dno">
+        <table>
+        <tbody>
+        
+            <tr><td></td><td></td></tr>
+        
+        </tbody>
+    
+        <tfoot>
+            <tr>
+                <td></td>
+                <td class="comment-form"><form id="add-comment-4427"></form></td>
+            </tr>
+        </tfoot>
+    
+        </table>
+    </div>
+    <a id="comments-link-4427" class="comments-link" title="ask author for clarification about this post">add comment</a>
+    
+</td>
+</tr>    </tbody></table>
+</div>
+    <a name="new-answer"></a>
+    <form id="post-form" action="/questions/4425/answer/submit" method="post" class="post-form">
+        <h2 class="space">Your Answer</h2>
+       
+
+<script type="text/javascript">
+    StackExchange.ready(function() {
+    
+        initTagRenderer("".split(" "), "".split(" "));
+
+              
+            prepareEditor({
+                
+                heartbeatType: 'answer',
+                bindNavPrevention: true,
+                postfix: "",
+                onDemand: false                
+            });
+            
+    });  
+</script>
+
+
+<div id="post-editor" class="post-editor">  
+
+    
+    <div class="wmd-container">
+        <div id="wmd-button-bar" class="wmd-button-bar"><ul class="wmd-button-row" id="wmd-button-row"><li title="Strong &lt;strong&gt; Ctrl+B" id="wmd-bold-button" style="left: 0px;" class="wmd-button"><span style="background-position: 0px 0px;"></span></li><li title="Emphasis &lt;em&gt; Ctrl+I" id="wmd-italic-button" style="left: 25px;" class="wmd-button"><span style="background-position: -20px 0px;"></span></li><li id="wmd-spacer1" class="wmd-spacer wmd-spacer1"></li><li title="Hyperlink &lt;a&gt; Ctrl+L" id="wmd-link-button" style="left: 75px;" class="wmd-button"><span style="background-position: -40px 0px;"></span></li><li title="Blockquote &lt;blockquote&gt; Ctrl+Q" id="wmd-quote-button" style="left: 100px;" class="wmd-button"><span style="background-position: -60px 0px;"></span></li><li title="Code Sample &lt;pre&gt;&lt;code&gt; Ctrl+K" id="wmd-code-button" style="left: 125px;" class="wmd-button"><span style="background-position: -80px 0px;"></span></li><li title="Image &lt;img&gt; Ctrl+G" id="wmd-image-button" style="left: 150px;" class="wmd-button"><span style="background-position: -100px 0px;"></span></li><li id="wmd-spacer2" class="wmd-spacer wmd-spacer2"></li><li title="Numbered List &lt;ol&gt; Ctrl+O" id="wmd-olist-button" style="left: 200px;" class="wmd-button"><span style="background-position: -120px 0px;"></span></li><li title="Bulleted List &lt;ul&gt; Ctrl+U" id="wmd-ulist-button" style="left: 225px;" class="wmd-button"><span style="background-position: -140px 0px;"></span></li><li title="Heading &lt;h1&gt;/&lt;h2&gt; Ctrl+H" id="wmd-heading-button" style="left: 250px;" class="wmd-button"><span style="background-position: -160px 0px;"></span></li><li title="Horizontal Rule &lt;hr&gt; Ctrl+R" id="wmd-hr-button" style="left: 275px;" class="wmd-button"><span style="background-position: -180px 0px;"></span></li><li id="wmd-spacer3" class="wmd-spacer wmd-spacer3"></li><li title="Undo - Ctrl+Z" id="wmd-undo-button" style="left: 325px;" class="wmd-button"><span style="background-position: -200px -20px;"></span></li><li title="Redo - Ctrl+Shift+Z" id="wmd-redo-button" style="left: 350px;" class="wmd-button"><span style="background-position: -220px -20px;"></span></li><li title="Markdown Editing Help" style="right: 0px;" id="wmd-help-button" class="wmd-button wmd-help-button"><span style="background-position: -240px 0px;"></span></li></ul></div>
+        <textarea id="wmd-input" class="wmd-input processed" name="post-text" cols="92" rows="15" tabindex="101"></textarea>
+    <div style="margin-right: 0px;" class="grippie"></div></div>
+
+    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+    <div id="draft-saved" class="draft-saved community-option fl" style="margin-top: 8px; height:24px; display:none;">draft saved</div>
+
+    <div class="community-option">
+        <input id="communitymode" name="communitymode" type="checkbox">
+        <label for="communitymode" title="Marking an answer community wiki encourages others to edit it by lowering the reputation barrier required to edit. However, you will not gain any upvote reputation from it. This cannot be undone.">community wiki</label>
+    </div>
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" value="5129ddfeeb5bf604daec4aa951a76176" type="hidden">
+        <input id="author" name="author" type="text">
+    </div>
+</div>           
+        <div class="form-submit cbt"><input id="submit-button" value="Post Your Answer" tabindex="110" type="submit"></div>
+    </form>
+
+
+        <h2 class="bottom-notice">
+                Not the answer you're looking for? 
+            Browse other questions tagged <a href="http://tex.stackexchange.com/questions/tagged/hyperref" class="post-tag" title="show questions tagged 'hyperref'" rel="tag">hyperref</a> <a href="http://tex.stackexchange.com/questions/tagged/color" class="post-tag" title="show questions tagged 'color'" rel="tag">color</a> <a href="http://tex.stackexchange.com/questions/tagged/printing" class="post-tag" title="show questions tagged 'printing'" rel="tag">printing</a> 
+                or <a href="http://tex.stackexchange.com/questions/ask">ask your own question</a>.
+        </h2>
+</div>
+</div>
+<div id="sidebar">
+    <div class="module">
+        <p class="label-key">tagged</p>
+        <div class="tagged"><a href="http://tex.stackexchange.com/questions/tagged/hyperref" class="post-tag" title="show questions tagged 'hyperref'" rel="tag">hyperref</a>&nbsp;<span class="item-multiplier">×&nbsp;300</span><br>
+<a href="http://tex.stackexchange.com/questions/tagged/color" class="post-tag" title="show questions tagged 'color'" rel="tag">color</a>&nbsp;<span class="item-multiplier">×&nbsp;220</span><br>
+<a href="http://tex.stackexchange.com/questions/tagged/printing" class="post-tag" title="show questions tagged 'printing'" rel="tag">printing</a>&nbsp;<span class="item-multiplier">×&nbsp;33</span><br>
+</div>
+        <table id="qinfo">
+            <tbody><tr>
+                <td><p class="label-key">asked</p></td>
+                <td style="padding-left: 10px;"><p class="label-key" title="2010-10-22 17:22:21Z"><b>1 year ago</b></p></td>
+            </tr>
+            <tr>
+                <td><p class="label-key">viewed</p></td>
+
+                <td style="padding-left: 10px;"><p class="label-key"><b>767 times</b></p></td>
+            </tr>
+            <tr>
+                <td><p class="label-key">active</p></td>
+                <td style="padding-left: 10px;"><p class="label-key"><b><a href="http://tex.stackexchange.com/questions/4425/is-there-a-way-to-have-coloured-hyperref-hyperlinks-in-the-pdf-but-have-them-pr?lastactivity" class="lastactivity-link" title="2011-01-26 00:22:27Z">9 months ago</a></b></p></td>
+            </tr>
+        </tbody></table>
+    </div>
+        <div class="module" id="meta-feature">
+        <h4><a href="http://meta.tex.stackexchange.com/" id="h-meta">Visit Meta</a></h4>
+        <div class="related">
+           <div class="spacer">
+<a href="http://meta.tex.stackexchange.com/questions/1914/celebrating-the-birthday-of-our-tex-site" class="question-hyperlink">Celebrating the birthday of our {TeX} site</a>
+</div>
+<div class="spacer">
+<a href="http://meta.tex.stackexchange.com/questions/1220/what-are-your-favourite-tikz-pgf-answers" class="question-hyperlink">What are your favourite TikZ/PGF answers?</a>
+</div>
+<div class="spacer">
+<a href="http://meta.tex.stackexchange.com/questions/1827/who-is-interested-in-a-tex-sx-group-on-linkedin" class="question-hyperlink">Who is interested in a TeX.SX group on LinkedIn?</a>
+</div>
+
+        </div>
+    </div>
+      
+
+    <div class="module">
+    <h4 id="h-linked">Linked</h4>
+    <div class="linked">
+    <div class="spacer">
+<a href="http://tex.stackexchange.com/questions/5959/cool-text-highlighting-in-latex" class="question-hyperlink">Cool Text Highlighting in LaTeX</a>
+</div>
+<div class="spacer">
+<a href="http://tex.stackexchange.com/questions/33259/recommended-color-for-hyperlinks-in-a-cv" class="question-hyperlink">Recommended color for hyperlinks in a CV</a>
+</div>
+<div class="spacer">
+<a href="http://tex.stackexchange.com/questions/35644/best-way-to-have-two-kinds-of-formattings-for-my-documents" class="question-hyperlink">Best way to have two kinds of formattings for my documents?</a>
+</div>
+
+    </div>
+    </div>
+    <div class="module">
+    <h4 id="h-related">Related</h4>
+    <div class="related">
+    <div class="spacer">
+<a href="http://tex.stackexchange.com/questions/823/remove-ugly-borders-around-clickable-crossreferences-and-hyperlinks" class="question-hyperlink">Remove ugly borders around clickable crossreferences and hyperlinks</a>
+</div>
+<div class="spacer">
+<a href="http://tex.stackexchange.com/questions/3193/how-to-link-from-my-pdf-to-a-txt-file-using-hyperref" class="question-hyperlink">How to link from my pdf to a txt-file using hyperref</a>
+</div>
+<div class="spacer">
+<a href="http://tex.stackexchange.com/questions/4440/how-do-i-print-a-syntax-highlighted-latex-source-file" class="question-hyperlink">How do I print a syntax-highlighted LaTeX source file?</a>
+</div>
+<div class="spacer">
+<a href="http://tex.stackexchange.com/questions/4503/how-do-i-specify-color-in-rgb-using-hypersetup-in-hyperref" class="question-hyperlink">How do I specify color in RGB using \hypersetup in hyperref?</a>
+</div>
+<div class="spacer">
+<a href="http://tex.stackexchange.com/questions/4597/how-do-i-make-sure-that-pagereflastpage-doesnt-get-colored-like-the-other-li" class="question-hyperlink">How do I make sure that \pageref{LastPage} doesn't get colored like the other links identified by hyperref?</a>
+</div>
+<div class="spacer">
+<a href="http://tex.stackexchange.com/questions/4871/disabling-the-colored-box-surrounding-links-in-hyperref" class="question-hyperlink">Disabling the colored box surrounding links in hyperref</a>
+</div>
+<div class="spacer">
+<a href="http://tex.stackexchange.com/questions/6555/how-to-print-low-resolution-96dpi-raster-images-correctly" class="question-hyperlink">How to print low resolution (96dpi) raster images correctly?</a>
+</div>
+<div class="spacer">
+<a href="http://tex.stackexchange.com/questions/14306/link-formatting-colors-underlines-in-cv" class="question-hyperlink">Link formatting: colors, underlines in CV</a>
+</div>
+<div class="spacer">
+<a href="http://tex.stackexchange.com/questions/14620/how-to-preserve-hyperlinks-in-included-pdf" class="question-hyperlink">How to preserve hyperlinks in included pdf?</a>
+</div>
+<div class="spacer">
+<a href="http://tex.stackexchange.com/questions/15834/options-and-suggestions-for-hyperref-font" class="question-hyperlink">Options and suggestions for hyperref font?</a>
+</div>
+<div class="spacer">
+<a href="http://tex.stackexchange.com/questions/19875/letter-e-when-printed-in-the-default-tex-font-missing-a-stroke" class="question-hyperlink">Letter 'e', when printed in the default TeX font, missing a stroke</a>
+</div>
+<div class="spacer">
+<a href="http://tex.stackexchange.com/questions/20912/how-do-i-draw-a-white-border-on-a-black-page" class="question-hyperlink">How do I draw a white border on a black page ?</a>
+</div>
+<div class="spacer">
+<a href="http://tex.stackexchange.com/questions/22026/fontspec-setmainfont-over-rides-href-color" class="question-hyperlink">fontspec \setmainfont over-rides href color</a>
+</div>
+<div class="spacer">
+<a href="http://tex.stackexchange.com/questions/22609/how-can-i-have-text-colored-on-screen-and-black-on-printing" class="question-hyperlink">How can I have text colored on screen and black on printing?</a>
+</div>
+<div class="spacer">
+<a href="http://tex.stackexchange.com/questions/23434/hyperlinks-not-working-after-preview" class="question-hyperlink">Hyperlinks not working after preview?</a>
+</div>
+<div class="spacer">
+<a href="http://tex.stackexchange.com/questions/26071/how-can-i-have-colored-and-underlined-links-with-hyperref" class="question-hyperlink">How can I have colored and underlined links with hyperref?</a>
+</div>
+<div class="spacer">
+<a href="http://tex.stackexchange.com/questions/26628/printing-a6-on-a4-paper" class="question-hyperlink">Printing A6 on A4 paper</a>
+</div>
+<div class="spacer">
+<a href="http://tex.stackexchange.com/questions/26697/how-to-get-email-to-show-in-color-when-typed-in-text" class="question-hyperlink">How to get email to show in color when typed in text?</a>
+</div>
+<div class="spacer">
+<a href="http://tex.stackexchange.com/questions/26721/how-do-i-change-the-color-of-the-pages-text-in-the-bibliography-when-using-hyp" class="question-hyperlink">How do I change the color of the 'pages' text in the bibliography when using hyperref with pagebackref enabled?</a>
+</div>
+<div class="spacer">
+<a href="http://tex.stackexchange.com/questions/27059/how-do-signatures-work-in-printing-and-how-can-i-use-them-in-latex" class="question-hyperlink">How do signatures work in printing, and how can I use them in LaTeX?</a>
+</div>
+<div class="spacer">
+<a href="http://tex.stackexchange.com/questions/27379/printed-page-differs-pdf-page" class="question-hyperlink">Printed page differs pdf page</a>
+</div>
+<div class="spacer">
+<a href="http://tex.stackexchange.com/questions/29711/hyperbaseurl-works-for-html-but-not-for-pdf" class="question-hyperlink">\hyperbaseurl works for .html, but not for .pdf</a>
+</div>
+<div class="spacer">
+<a href="http://tex.stackexchange.com/questions/30441/how-do-i-turn-a-whole-document-to-have-blue-text" class="question-hyperlink">How do I turn a whole document to have blue text?</a>
+</div>
+<div class="spacer">
+<a href="http://tex.stackexchange.com/questions/32376/emulate-web-hyperlinks-in-latex" class="question-hyperlink">emulate web hyperlinks in latex?</a>
+</div>
+<div class="spacer">
+<a href="http://tex.stackexchange.com/questions/33259/recommended-color-for-hyperlinks-in-a-cv" class="question-hyperlink">Recommended color for hyperlinks in a CV</a>
+</div>
+
+    </div>
+    </div>
+</div>
+
+<div id="feed-link">
+    <div id="feed-link-text"><a href="http://tex.stackexchange.com/feeds/question/4425" title="feed of this question and its answers"><span class="feed-icon"></span>question feed</a></div>
+</div>
+<script type="text/javascript" src="is-there-a-way-to-have-coloured-hyperref-hyperlinks-in-the-pdf-but-have-them-pr_fichiers/28cb.txt"></script>
+<noscript>
+    <div><img src="/posts/4425/ivc/28cb" class="dno" alt=""></div>
+</noscript>
+<div style="display:none" id="prettify-lang">lang-tex</div>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="footerwrap">
+            <div id="footer-menu">
+                <a href="http://tex.stackexchange.com/about">about</a> |
+                <a href="http://tex.stackexchange.com/faq">faq</a> |
+                <a href="http://tex.blogoverflow.com/">blog</a> |
+                    <a href="http://chat.stackexchange.com/">chat</a> |
+                <a href="http://data.stackexchange.com/">data</a> |
+                <a href="http://blog.stackoverflow.com/category/podcasts/">podcast</a> |
+                <a href="http://shop.stackexchange.com/">shop</a> |
+                <a href="http://stackexchange.com/legal">legal</a> |
+                <a href="http://stackexchange.com/about/contact">advertising info</a> |
+
+                <a onclick="StackExchange.switchMobile('on', '/questions/4425/is-there-a-way-to-have-coloured-hyperref-hyperlinks-in-the-pdf-but-have-them-pr')">mobile</a> |
+
+                <b><a href="mailto:team%2btex@stackexchange.com">contact us</a></b>
+                  | <b><a href="http://meta.tex.stackexchange.com/">feedback</a></b>
+                <div id="footer-sites">
+                    
+                        <span style="color:#FE7A15;font-size:140%">■</span>&nbsp;<a href="http://stackoverflow.com/">stackoverflow.com</a>&nbsp; 
+                        <span style="color:#FE7A15;font-size:140%">■</span>&nbsp;<a href="http://stackapps.com/">api/apps</a>&nbsp; 
+                        <span style="color:#FE7A15;font-size:140%">■</span>&nbsp;<a href="http://careers.stackoverflow.com/">careers</a>&nbsp; 
+                        <span style="color:#E8272C;font-size:140%">■</span>&nbsp;<a href="http://serverfault.com/">serverfault.com</a>&nbsp; 
+                        <span style="color:#00AFEF;font-size:140%">■</span>&nbsp;<a href="http://superuser.com/">superuser.com</a>&nbsp; 
+                        <span style="color:#969696;font-size:140%">■</span>&nbsp;<a href="http://meta.stackoverflow.com/">meta</a>&nbsp; 
+                        <span style="color:#46937D;font-size:140%">■</span>&nbsp;<a href="http://area51.stackexchange.com/">area&nbsp;51</a>&nbsp; 
+                        <span style="color:#C0D0DC;font-size:140%">■</span>&nbsp;<a href="http://webapps.stackexchange.com/">webapps</a>&nbsp; 
+                        <span style="color:#000000;font-size:140%">■</span>&nbsp;<a href="http://gaming.stackexchange.com/">gaming</a>&nbsp; 
+                        <span style="color:#dd4814;font-size:140%">■</span>&nbsp;<a href="http://askubuntu.com/">ubuntu</a>&nbsp; 
+                        <span style="color:#9ce4fe;font-size:140%">■</span>&nbsp;<a href="http://webmasters.stackexchange.com/">webmasters</a>&nbsp; 
+                        <span style="color:#cf4d3f;font-size:140%">■</span>&nbsp;<a href="http://cooking.stackexchange.com/">cooking</a>&nbsp; 
+                        <span style="color:#f4f28d;font-size:140%">■</span>&nbsp;<a href="http://gamedev.stackexchange.com/">game development</a>&nbsp; 
+                        <span style="color:#0f3559;font-size:140%">■</span>&nbsp;<a href="http://math.stackexchange.com/">math</a>&nbsp; 
+                        <span style="color:#f2f2f2;font-size:140%">■</span>&nbsp;<a href="http://photo.stackexchange.com/">photography</a>&nbsp; 
+                        <span style="color:#037187;font-size:140%">■</span>&nbsp;<a href="http://stats.stackexchange.com/">stats</a>&nbsp; 
+                        <span style="color:#f1e7cc;font-size:140%">■</span>&nbsp;<a href="http://tex.stackexchange.com/">tex</a>&nbsp; 
+                        <span style="color:#e1cdae;font-size:140%">■</span>&nbsp;<a href="http://english.stackexchange.com/">english</a>&nbsp; 
+                        <span style="color:#a2d9f6;font-size:140%">■</span>&nbsp;<a href="http://cstheory.stackexchange.com/">theoretical cs</a>&nbsp; 
+                        <span style="color:#1b3e6c;font-size:140%">■</span>&nbsp;<a href="http://programmers.stackexchange.com/">programmers</a>&nbsp; 
+                        <span style="color:#293a5d;font-size:140%">■</span>&nbsp;<a href="http://unix.stackexchange.com/">unix</a>&nbsp;
+                        <span style="color:#bec0cb;font-size:140%">■</span>&nbsp;<a href="http://apple.stackexchange.com/">apple</a>&nbsp;
+                        <span style="color:#939185;font-size:140%">■</span>&nbsp;<a href="http://wordpress.stackexchange.com/">wordpress</a>&nbsp;
+                        <span style="color:#b5cda4;font-size:140%">■</span>&nbsp;<a href="http://physics.stackexchange.com/">physics</a>&nbsp;
+                        <span style="color:#4176ab;font-size:140%">■</span>&nbsp;<a href="http://diy.stackexchange.com/">home&nbsp;improvement</a>&nbsp;
+                        <span style="color:#d1d8d7;font-size:140%">■</span>&nbsp;<a href="http://gis.stackexchange.com/">gis</a>&nbsp;
+                        <span style="color:#e5e2d3;font-size:140%">■</span>&nbsp;<a href="http://electronics.stackexchange.com/">electronics</a>&nbsp;
+                        <span style="color:#a4c639;font-size:140%">■</span>&nbsp;<a href="http://android.stackexchange.com/">android</a>&nbsp;
+                        <span style="color:#2e4e60;font-size:140%">■</span>&nbsp;<a href="http://security.stackexchange.com/">security</a>&nbsp;
+                        <span style="color:#45bcb5;font-size:140%">■</span>&nbsp;<a href="http://bicycles.stackexchange.com/">bicycles</a>&nbsp;
+                        <span style="color:#00adee;font-size:140%">■</span>&nbsp;<a href="http://dba.stackexchange.com/">dba</a>&nbsp;
+                        <span style="color:#2edaf0;font-size:140%">■</span>&nbsp;<a href="http://drupal.stackexchange.com/">drupal</a>&nbsp;
+                        <span style="color:#213951;font-size:140%">■</span>&nbsp;<a href="http://sharepoint.stackexchange.com/">sharepoint</a>&nbsp;
+                </div>
+            </div>
+            <div id="footer-flair">
+                <a class="peer1" href="http://www.peer1.com/stackoverflow"></a>  
+	            <a href="http://creativecommons.org/licenses/by-sa/3.0/" class="cc-wiki-link"></a>
+                <div id="svnrev">rev 2011.11.20.1</div>
+            </div>
+            <div id="copyright">
+                site design / logo © 2011 stack exchange inc; 
+                user contributions licensed under <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc-wiki</a> with <a href="http://blog.stackoverflow.com/2009/06/attribution-required/" rel="license">attribution required</a>
+            </div>
+            
+
+        </div>
+    </div>
+    
+    <noscript>
+        <div id="noscript-warning">TeX - LaTeX - Stack Exchange works best with JavaScript enabled<img src="http://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno"></div>
+    </noscript>
+    
+    <script type="text/javascript">var _gaq=_gaq||[];_gaq.push(['_setAccount','UA-5620270-24']);_gaq.push(['_setDomainName','.stackexchange.com']);_gaq.push(['_trackPageview']);(function(){var ga=document.createElement('script');ga.type='text/javascript';ga.async=true;ga.src='http://www.google-analytics.com/ga.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(ga,s);})();_qoptions={qacct:"p-c1rF4kxgLUzNc"};</script>
+    <script type="text/javascript" src="is-there-a-way-to-have-coloured-hyperref-hyperlinks-in-the-pdf-but-have-them-pr_fichiers/quant.js"></script>
+    
+
+
+</body></html>

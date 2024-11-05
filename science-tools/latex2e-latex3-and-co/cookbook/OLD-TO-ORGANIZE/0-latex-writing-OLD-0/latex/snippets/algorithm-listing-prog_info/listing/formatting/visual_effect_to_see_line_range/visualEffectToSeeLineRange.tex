@@ -1,0 +1,74 @@
+% Source : http://tex.stackexchange.com/questions/30043/visual-separation-when-using-linerange-in-listings
+
+\documentclass{article}
+	\usepackage{filecontents}
+	\usepackage{listings}
+
+% Used for ornament between listings
+% Ornament from http://tex.stackexchange.com/questions/11320/end-of-paragraph-with-ornament
+	\usepackage{pifont,fourier-orns}
+
+	\newcommand\crulefill[1][1ex]{%
+		\leavevmode\leaders\hrule depth \dimexpr-#1+0.4pt height #1\hfill\kern0pt%
+	}
+	\newcommand\ornline[2][1ex]{%
+		\trivlist\item\crulefill[#1]#2\crulefill[#1]\endtrivlist%
+	}
+
+% Used for ornament at end of listings
+% http://tex.stackexchange.com/questions/30973/how-do-i-insert-a-border-below-text/30979#30979
+	\usepackage{xcolor}
+	\usepackage{xparse}
+	\NewDocumentCommand{\myrule}{O{1pt} O{3pt} O{black}}{%
+		\par\nobreak % don't break a page here
+		\kern\the\prevdepth % don't take into account the depth of the preceding line
+		\kern#2 % space before the rule
+		{\color{#3}\hrule height #1 width\hsize} % the rule
+		\kern#2 % space after the rule
+		\nointerlineskip % no additional space after the rule
+	}
+
+
+	\begin{filecontents*}{foo.java}
+public int nextInt(int n) {
+    if (n<=0)
+       throw new IllegalArgumentException("n must be positive");
+
+    if ((n & -n) == n)  // i.e., n is a power of 2
+        return (int)((n * (long)next(31)) >> 31);
+
+    int bits, val;
+    do {
+        bits = next(31);
+        val = bits % n;
+    } while(bits - val + (n-1) < 0);
+    return val;
+}
+	\end{filecontents*}
+
+	\lstdefinestyle{MyListStyle} {numbers=left, language=Java}
+
+
+\begin{document}
+
+\lstinputlisting[style=MyListStyle,linerange={2-6},firstnumber=2]{foo.java}
+\ornline[0.6ex]{\decoone}
+
+\lstinputlisting[style=MyListStyle,linerange={9-11},firstnumber=9]{foo.java}
+\myrule[5pt][5pt][orange]
+
+\end{document}
+
+
+The following \emph{inline} code snippet should appear in a frame (or highlighted)
+if lstinline command is properly redefined above : \lstinline´chainl1(term)´.
+Now let's go back to regular text.
+
+\bigskip
+
+The lstlisting environment is not affected:
+
+\begin{lstlisting}
+	chainl1(term, "+" ^^^ Add | "-" ^^^ Sub)
+\end{lstlisting}
+\end{document}

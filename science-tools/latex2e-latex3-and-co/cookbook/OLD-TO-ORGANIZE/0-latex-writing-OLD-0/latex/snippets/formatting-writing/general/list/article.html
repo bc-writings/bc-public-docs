@@ -1,0 +1,687 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html><head>
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+
+
+
+<title>Apprivoiser LaTeX - 3 - Listes</title>
+<meta name="description" content="Apprivoiser LaTeX - 3 - Listes">
+<meta name="keywords" content="deb3">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="Generator" content="LaTeX2HTML v2K.1beta">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" href="article_fichiers/phoenix.css">
+
+</head><body>
+<p align="center">
+<script type="text/javascript"><!--
+google_ad_client = "pub-8754116739312248";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_type = "text_image";
+google_ad_channel ="";
+//--></script>
+<script type="text/javascript" src="article_fichiers/show_ads.js">
+</script><script src="article_fichiers/show_ads_impl.js"></script><script src="article_fichiers/expansion_embed.js"></script><script src="article_fichiers/test_domain.js"></script><script>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</script><ins style="display: inline-table; border: medium none; height: 90px; margin: 0pt; padding: 0pt; position: relative; visibility: visible; width: 728px;"><ins id="google_ads_frame1_anchor" style="display: block; border: medium none; height: 90px; margin: 0pt; padding: 0pt; position: relative; visibility: visible; width: 728px;"><iframe allowtransparency="true" hspace="0" id="google_ads_frame1" marginheight="0" marginwidth="0" name="google_ads_frame" src="article_fichiers/ads.html" style="left: 0pt; position: absolute; top: 0pt;" vspace="0" frameborder="0" height="90" scrolling="no" width="728"></iframe></ins></ins>
+</p>
+<h1 align="CENTER">Apprivoiser LaTeX - 3 - Listes</h1>
+
+<p>
+<i>  Cette série d'articles a pour but de démontrer que LaTeX est
+  accessible au plus grand nombre, que LaTeX n'est pas élitiste et
+  qu'avec un peu de bonne volonté et un coup de pouce, tout le monde
+  peut s'en sortir. Ces articles assurent le coup de pouce aux
+  débutants, à vous de fournir la volonté.
+</i>
+</p><p>
+<i>Nous voici au troisième épisode de cette saga qui a pour objet les 
+listes. Nous allons voir les moyens que nous donne LaTeX pour mettre en 
+forme des énumérations de texte.</i>
+<br>
+</p><p>
+Le mois dernier je vous avais promis que nous parlerions cette fois-ci des listes <i>et</i>
+ des tableaux mais je me suis vite rendu compte que les deux sujets 
+auraient du mal à cohabiter dans un nombre raisonnable de pages. Comme 
+je n'ai voulu écourter les explications ni sur l'un ni sur l'autre, j'ai
+ donc décidé d'écrire deux articles séparés. Les tableaux attendrons le 
+mois prochain.
+
+</p><p>
+
+</p><h1>
+Les bases
+</h1>
+
+<p>
+
+</p><h2>
+Types de liste
+</h2>
+
+<p>
+Les listes servent à structurer des énumérations de texte : cela peut 
+être des objets (liste de courses), des ingrédients (recette de 
+cuisine), des propriétés (fiche technique), ou tout autre inventaire de 
+situations. LaTeX propose par défaut (nous verrons plus loin les 
+possibilités d'extension) sous la forme d'environnements trois types de 
+liste que nous allons découvrir sous la forme d'une liste :
+
+</p><p>
+
+</p><ul>
+<li>la liste non numérotée ou liste d'articles (article au sens d'objet, <i>item</i>
+ en anglais) : chaque article est introduit par une puce «  ». La 
+typographie française impose que ce soit un tiret moyen « - » aussi, si 
+vous utilisez <i>babel</i> avec l'option française, c'est à dire si vous avez la ligne suivante en en-tête de votre source :
+	<pre>	\usepackage[french]{babel}
+</pre>
+	vos listes d'articles respecteront la typographie française ;
+
+<p>
+
+</p></li><li>la liste énumérée ou numérotée : chaque article est précédé
+ d'un numéro dont la nature est paramétrable (chiffre arabe ou romain, 
+lettre majuscule ou minuscule) ;
+
+<p>
+
+</p></li><li>la liste descriptive : idéale pour une liste de définitions, chaque article peut être précédé d'un mot-clé, que précisez.
+</li>
+</ul>
+
+<p>
+
+</p><h2>
+Syntaxe
+</h2>
+
+<p>
+La syntaxe d'une liste est extrêmement simple. Il s'agit d'un 
+environnement à l'intérieur duquel les articles sont introduits par la 
+commande <code>\item</code> comme ceci pour une liste d'articles :
+</p><pre>Les libertés offertes par le logiciel libre :
+\begin{itemize}
+\item la liberté d'utiliser le logiciel, pour quelque usage que ce soit ;
+\item la liberté d'étudier le fonctionnement du programme, et de l'adapter à vos propres besoins ;
+\item la liberté de redistribuer des copies de façon à pouvoir aider votre voisin ;
+\item la liberté d'améliorer le programme, et de diffuser vos améliorations au public.
+\end{itemize}
+</pre>
+
+<p>
+<img src="article_fichiers/img1.html" alt="\fbox{\begin{minipage}{8cm}
+Les libertés offertes par le logiciel libre :
+\be...
+...ramme, et de diffuser vos améliorations au public.
+\end{itemize} \end{minipage}}" align="MIDDLE" border="0">
+
+</p><p>
+Nous voulons maintenant une liste numérotée, utilisons l'environnement <i>enumerate</i> à la place de <i>itemize</i> :
+</p><pre>\begin{enumerate}
+\item la liberté d'utiliser le logiciel, pour quelque usage que ce soit ;
+...
+\end{enumerate}
+</pre>
+
+<p>
+<img src="article_fichiers/img2.png" alt="\fbox{\begin{minipage}{8cm}
+Les libertés offertes par le logiciel libre :
+\be...
+...mme, et de diffuser vos améliorations au public.
+\end{enumerate} \end{minipage}}" align="MIDDLE" border="0">
+
+</p><p>
+La syntaxe de la liste de description diffère un peu de ses cons&#339;urs. Vous pouvez donner à la commande <code>\item</code>
+ l'intitulé de l'article en paramètre. Ce n'est pas une obligation, si 
+vous ne précisez rien, c'est comme si vous passiez un paramètre vide.
+
+</p><p>
+</p><pre>Exemples de logiciels libres :
+\begin{description}
+\item[Linux] c'est l'un des composants les plus importants du système GNU puisqu'il s'agit du noyau ;
+\item[Apache] le serveur web le plus utilisé sur le marché ;
+\item[Gimp] logiciel de création numérique en mode bitmap ;
+\item[PostgreSQL] base de données relationnelle.
+\end{description}
+</pre>
+
+<p>
+<img src="article_fichiers/img3.png" alt="\fbox{\begin{minipage}{8cm}
+Exemples de logiciels libres :
+\begin{description...
+...tem[PostgreSQL] base de données relationnelle.
+\end{description} \end{minipage}}" align="MIDDLE" border="0">
+
+</p><p>
+A partir de celà vous pouvez imbriquer des listes à l'intérieur d'autres
+ listes même de natures différentes. Les sous-listes seront décalées par
+ rapport à leur liste parente. Nous verrons plus loin comment 
+personnaliser l'élément introductif (numéro ou symbole) pour chacun des 
+niveaux d'imbrication.
+
+</p><p>
+Vous remarquerez (n'hésitez pas à prendre une loupe) que l'espace entre 
+l'élément introductif et le premier mot de l'article est rigoureusement 
+identique à chaque article.
+
+</p><p>
+
+</p><h2>
+Un peu de typographie
+</h2>
+
+<p>
+Certaines règles de la typographie française s'appliquent aux listes ; 
+il convient de les respecter afin de produire des documents correctement
+ structurés.
+
+</p><p>
+On peut classer les listes en deux catégories :
+
+</p><ul>
+<li>celles dont les articles sont tous membres d'une même phrase, on les appelle des listes simples ;
+</li>
+<li>celles contenant plusieurs phrases, chaque article peut lui-même 
+être composé de plusieurs phrases, et pour cela on les appelle des 
+listes complexes.
+</li>
+</ul>
+
+<p>
+Les articles d'une liste simple commencent par une minuscule du fait 
+qu'ils appartiennent à la même phrase et doivent se terminer par un 
+point-virgule dans le cas d'une liste de premier niveau, et par une 
+virgule dans le cas de sous-listes. Le dernier article se termine par un
+ point. A noter que le point suivant le chiffre dans le cas d'une liste 
+numérotée n'impose pas de majuscule sur le premier mot de l'article.
+
+</p><p>
+Pour les listes complexes, la construction est identique aux phrases : majuscule au début et point à la fin.
+
+</p><p>
+
+</p><h1>
+Personnalisez vos listes
+</h1>
+
+<p>
+Ce que nous allons voir maintenant est un peu plus complexe que le 
+reste, mais si vous avez suivi et compris les précédents articles ainsi 
+que le début de celui-ci, il n'y a aucune raison de décrocher 
+maintenant. Toutefois, vous pouvez vous arrêter là pour aujourd'hui, 
+mettre en pratique ce que vous avez appris sur les listes et revenir à 
+cette partie plus tard. Ne perdez pas de vue que les listes définies par
+ défaut sont typographiquement correctes ; ce que nous allons voir 
+maintenant vous permettra de faire des choses qui ne le seront pas 
+forcément. C'est aussi ça la liberté offerte par LaTeX, faire ce que 
+l'on veut.
+
+</p><p>
+Il existe de nombreuses façons de modifier les listes, mais nous ne verrons que les plus simples.
+
+</p><p>
+
+</p><h2>
+La plus simple (barbare ?)
+</h2>
+
+<p>
+Vous avez constaté précédemment que la commande <code>\item</code> s'emploie seule dans le cas des listes <i>itemize</i> et <i>enumerate</i> et avec un paramètre passé entre crochets dans le cas de la <i>description</i>.
+ Pourtant il s'agit de la même commande dans les deux cas (en effet, 
+LaTeX ne permet pas que deux commandes différentes aient le même nom). 
+Les paramètres passés entre crochets sont optionnels, contrairement aux 
+paramètres passés entre accolades.
+
+</p><p>
+La commande <code>\item</code> s'utilise donc de la même façon quelle 
+que soit l'environnement de liste dans lequel elle se trouve. Par contre
+ son comportement dépend du type de liste. Dans le cas d'une liste <i>itemize</i>, si <code>\item</code> ne reçoit aucun paramètre, elle affiche un tiret moyen (document français). Pour une liste <i>enumerate</i>,
+ elle affiche par défaut un caractère de numérotation suivi d'un point 
+qui s'incrémente à chaque article. Et enfin, pour la liste <i>description</i>, elle affiche le paramètre en caractères gras ; s'il n'y a pas de paramètre, elle n'affiche rien.
+
+</p><p>
+Donc, vous l'aurez compris, on peut passer un paramètre à <code>\item</code> même si l'on ne fait pas de liste <i>description</i>. Observons ce que cela donne :
+
+</p><p>
+</p><pre>\begin{itemize}
+\item[a] on met un &lt;&lt; a &gt;&gt; comme élément ;
+\item on ne met rien ici.
+\end{itemize}
+</pre>
+
+<p>
+<img src="article_fichiers/img4.png" alt="\fbox{\begin{minipage}{8cm}
+\begin{itemize}
+\item[a] on met un &lt;&lt; a &gt;&gt; comme élément ;
+\item on ne met rien ici.
+\end{itemize} \end{minipage}}" align="MIDDLE" border="0">
+
+</p><p>
+Et avec une énumération :
+</p><pre>\begin{enumerate}
+\item[a] on met un &lt;&lt; a &gt;&gt; comme élément ;
+\item on ne met rien ici.
+\end{enumerate}
+</pre>
+
+<p>
+<img src="article_fichiers/img5.png" alt="\fbox{\begin{minipage}{8cm}
+\begin{enumerate}
+\item[a] on met un &lt;&lt; a &gt;&gt; comme élément ;
+\item on ne met rien ici.
+\end{enumerate} \end{minipage}}" align="MIDDLE" border="0">
+
+</p><p>
+On constate plusieurs choses : tout d'abord le paramètre donné à <code>\item</code>
+ se retrouve tel quel à la place de l'élément introductif de l'article 
+concerné. On peut ainsi mettre en évidence un article au moyen d'une 
+flèche par exemple. Ensuite dans le cas de l'énumération, vous remarquez
+ que les articles dont un paramètre est passé à <code>\item</code> ne 
+sont pas pris en compte dans l'incrémentation (ici, le second article 
+porte le numéro 1, donc le premier n'est pas compté). A l'aide de cet 
+artifice nous pouvons reprendre l'exemple utilisé précédemment et 
+rétablir la numérotation des libertés offertes par le logiciel libre 
+telle que la voit Richard Stallman. Modifiez donc l'exemple de liste 
+énumérée pour obtenir ceci :
+
+</p><p>
+<img src="article_fichiers/img6.png" alt="\fbox{\begin{minipage}{8cm}
+\begin{enumerate}
+\item[0.] la liberté d'utiliser...
+...mme, et de diffuser vos améliorations au public.
+\end{enumerate} \end{minipage}}" align="MIDDLE" border="0">
+
+</p><p>
+Toutefois, cette méthode peut s'apparenter à du bidouillage, surtout si 
+vous voulez que vos modifications portent sur toute la liste. La 
+solution n'est pas de modifier chacun des articles, c'est fastidieux et 
+un oubli est si vite arrivé (et surtout, cela ressemble aux pratiques de
+ certains traitements de texte).
+
+</p><p>
+
+</p><h2>
+Modification globale
+</h2>
+
+<p>
+La commande <code>\item</code> appelle en interne une autre commande 
+pour déterminer l'affichage de l'élément introductif. Cette commande 
+dépend du type de liste ainsi que du niveau d'imbrication, et c'est elle
+ que nous devons modifier.
+
+</p><p>
+Petite parenthèse technique, LaTeX offre la possibilité de créer de 
+nouvelles commandes mais nous n'en sommes pas encore là. Cela se fait au
+ travers de la commande <code>\newcommand</code>. Seulement, vous ne 
+pouvez créer une nouvelle commande portant le nom d'une commande 
+existante ; aussi, pour modifier une commande existante vous devez 
+utiliser <code>\renewcommand</code> à la place de <code>\newcommand</code>. Et c'est précisement ce que nous allons faire ici.
+
+</p><p>
+Pour une liste d'articles non numérotés, les commandes à modifier sont <code>\labelitemi</code>, <code>\labelitemii</code>, <code>\labelitemiii</code> et <code>\labelitemiv</code> pour les niveaux d'imbrication respectivement du premier au quatrième. Modifions, par exemple, les listes de premier niveau :
+
+</p><p>
+</p><pre>\begin{itemize}
+\renewcommand{\labelitemi}{&gt;}
+\item la liberté d'utiliser le logiciel, pour quelque usage que ce soit ;
+...
+\end{itemize}
+</pre>
+
+<p>
+<img src="article_fichiers/img7.png" alt="\fbox{\begin{minipage}{8cm}
+\begin{itemize}
+\renewedcommand{labelitemi}{&gt;}
+\i...
+...ramme, et de diffuser vos améliorations au public.
+\end{itemize} \end{minipage}}" align="MIDDLE" border="0">
+
+</p><p>
+Il est possible d'utiliser des symboles tels que le disque, le cercle, 
+le carré ou encore les flèches. En voici une liste non exhaustive mais 
+probablement utile :
+
+</p><p>
+<img src="article_fichiers/tab_symboles.png" border="0">
+</p><p>
+Exemple d'utilisation :
+
+</p><p>
+</p><pre>\begin{itemize}
+\renewcommand{\labelitemi}{$\bullet$}
+...
+\end{itemize}
+</pre>
+
+<p>
+Toutes les commandes sont encadrées d'une paire de $. Il s'agit là de 
+commandes uniquement disponibles en mode mathématique différent du mode 
+normal que vous connaissez, le caractère $ permettant de passer de l'un à
+ l'autre. Le mode mathématique de LaTeX offre des facilités pour la 
+rédaction de textes comportants des équations, des symboles 
+mathématiques en tout genre. Mais il n'est pas le propos de cet article 
+et j'y reviendrai dans un prochain.
+
+</p><p>
+
+</p><h2>
+Cas des listes énumérées
+</h2>
+
+<p>
+La méthode énoncée précédemment ne peut s'appliquer aux listes 
+énumérées. En effet, l'élément introductif est dynamique (comprenez par 
+là qu'il change à chaque article) alors que la méthode précédente le 
+remplace par un élément fixe. La mécanique est ici un peu plus complexe 
+car elle fait appel à la notion de « compteur » (en programmation, on 
+appelle cela une variable).
+
+</p><p>
+Plutôt que de nous aventurer dans les ténébreuses contrées de la 
+programmation LaTeX, nous allons plutôt utiliser le module d'extension <i>enumerate</i> ; attention, ne confondez pas avec l'environnement <i>enumerate</i>
+ dont nous parlons depuis le début de cet article. Ici, il s'agit bien 
+d'un ajout à la base de LaTeX, comme nous le faisons déjà avec <i>babel</i>, <i>fontenc</i> ou encore <i>inputenc</i> (cf. articles précédents ou la fin de celui-ci). Ajoutons donc cette ligne dans l'en-tête du source :
+</p><pre>\usepackage{enumerate}
+</pre>
+
+<p>
+Ce module modifie l'utilisation de l'environnement <i>enumerate</i>, il lui rajoute un paramètre optionnel qui détermine le style de numérotation sous la forme d'un caractère clé :
+
+</p><p>
+</p><dl>
+<dt><strong>A</strong></dt>
+<dd>lettre majuscule, la numérotation sera A, B, C, etc. ;
+</dd>
+<dt><strong>a</strong></dt>
+<dd>lettre minuscule, a, b, c ;
+</dd>
+<dt><strong>I</strong></dt>
+<dd>chiffre romain majuscule, I, II, III ;
+</dd>
+<dt><strong>i</strong></dt>
+<dd>chiffre romain minuscule, i, ii, iii ;
+</dd>
+<dt><strong>1</strong></dt>
+<dd>chiffre arabe, 1, 2, 3.
+</dd>
+</dl>
+
+<p>
+Et cela s'utilise ainsi :
+</p><pre>\begin{enumerate}[I]
+\item premier point ;
+\item deuxième point ;
+\item troisième point.
+\end{enumerate}
+</pre>
+
+<p>
+<img src="article_fichiers/img27.html" alt="\fbox{\begin{minipage}{8cm}
+\begin{enumerate}[I]
+\item premier point ;
+\item deuxième point ;
+\item troisième point.
+\end{enumerate} \end{minipage}}" align="MIDDLE" border="0">
+
+</p><p>
+Et l'on peut même se permettre quelques raffinements du genre :
+
+</p><p>
+</p><pre>\begin{enumerate}[{Liberté} 1 :]
+\item utiliser le logiciel, pour quelque usage que ce soit ;
+\item étudier le fonctionnement du programme, et l'adapter à vos
+      propres besoins ;
+\item redistribuer des copies de façon à pouvoir aider votre voisin ;
+\item améliorer le programme, et diffuser vos améliorations au public.
+\end{enumerate}
+</pre>
+
+<p>
+<img src="article_fichiers/img28.png" alt="\fbox{\begin{minipage}{8cm}
+\begin{enumerate}[L{i}berté 1 :]
+\item utiliser l...
+...gramme, et diffuser vos améliorations au public.
+\end{enumerate} \end{minipage}}" align="MIDDLE" border="0">
+
+</p><p>
+Si le texte entre crochets contient plusieurs caractères clés, c'est le 
+dernier qui déterminera le style ; mais tous les caractères clés 
+contenus entre crochets seront remplacés. Aussi, pour utiliser un 
+caractère clé tel quel (comme le « i » dans notre exemple) il faut 
+l'entourer d'accolades.
+
+</p><p>
+Notez que :
+</p><pre>\begin{enumerate}[L{i}berté 1 :]
+</pre>
+
+<p>
+est équivalent, mais moins lisible, à :
+
+</p><p>
+</p><pre>\begin{enumerate}[{Liberté} 1 :]
+</pre>
+
+<p>
+mais pas à :
+
+</p><p>
+</p><pre>\begin{enumerate}[Liberté 1 :]
+</pre>
+
+<p>
+Les accolades n'ont aucune influence sur les caractères autre que A, a, 
+I, i et 1. Vous pouvez les disposer à votre guise (si besoin est) pour 
+une meilleure lisibilité de votre source.
+
+</p><p>
+
+</p><h2>
+Style de caractère
+</h2>
+
+<p>
+Et pour finir nous allons changer le style de caractère de l'élément introductif ; c'est surtout intéressant pour les listes <i>description</i>. Commençons par un exemple :
+
+</p><p>
+</p><pre>\begin{description}
+\renewcommand{\makelabel}[1]{\sffamily\textbf{#1}}
+...
+</pre>
+
+<p>
+On y apprend que c'est la commande <code>\makelabel</code> qu'il faut 
+modifier. Cette commande prend un paramètre obligatoire comme l'atteste «
+ [1] ». Dans la redéfinition de la commande le paramètre est représenté 
+par « #1 ». Cela signifie que lorsque <code>\makelabel</code> sera 
+utilisé, #1 sera remplacé par le paramètre. Si vous n'avez pas tout 
+compris, ce n'est pas grave, cela ne vous empêchera pas d'utiliser ceci.
+
+</p><p>
+Cet exemple produit une liste descriptive dont les éléments introductifs
+ sont en gras sans empattements (cf. article du mois dernier). Et voilà 
+ce que l'on obtient :
+
+</p><p>
+<img src="article_fichiers/img29.png" alt="\fbox{\begin{minipage}{8cm}
+Exemples de logiciels libres :
+\begin{description...
+...tem[PostgreSQL] base de données relationnelle.
+\end{description} \end{minipage}}" align="MIDDLE" border="0">
+
+</p><p>
+
+</p><h1>
+Complément sur les styles de caractères
+</h1>
+
+<p>
+Je tenais à apporter quelques précisions d'ordre typographique sur 
+l'article du mois précédent, dans lequel notamment certains auront 
+remarqué l'absence du souligné. Voici donc quelques réflexions sur 
+l'usage du gras, de l'italique et du souligné.
+
+</p><p>
+Le souligné est un héritage de l'ère des machines à écrire à l'époque où
+ elles n'étaient pas encore truffées d'électronique. Les caractères gras
+ et italiques étant absents, on utilisait abondamment le souligné pour 
+mettre du texte en évidence. C'est également le meilleur moyen en 
+écriture manuscrite. Mais le gras et l'italique ont un usage différent 
+l'un de l'autre.
+
+</p><p>
+Le gras accroche l'&#339;il. Un mot en <b>gras</b> dans un paragraphe en 
+romain (caractère normal) se remarquera sans même avoir à lire ledit 
+paragraphe. On utilise généralement le gras avec parcimonie, pour mettre
+ en évidence les titres de section, sous-section, ou encore pour les 
+mots-clés d'un document que l'on consulte (dictionnaire, annuaire 
+téléphonique). Mais pas dans un texte destiné à être lu linéairement du 
+début à la fin (roman, article, rapport). Plus le caractère est gras, 
+moins il est lisible, donc plus on est obligé d'augmenter la taille de 
+la police (le corps).
+
+</p><p>
+L'italique est une écriture oblique, qui contrairement au penché, n'a 
+pas le même dessin que le romain. L'italique est un moyen de mettre un 
+mot en évidence discrètement. C'est à dire que vous ne remarquerez un <i>mot</i>
+ en italique dans un paragraphe tout en romain, qu'au moment où vous le 
+lirez. On utilisera donc l'italique pour faire remarquer au lecteur 
+qu'il y a une différence sans attirer son &#339;il. C'est le moyen de 
+prédilection pour mettre du texte en évidence dans un document à lecture
+ linéaire. On peut l'utiliser pour les mots étrangers, les noms d'&#339;uvres
+ ou simplement pour mettre un mot en emphase, souligner (au sens figuré)
+ son caractère particulier. Comme le gras, l'italique n'est pas très 
+lisible ; il vaut mieux ne pas l'utiliser pour tout un paragraphe, 
+sinon, il perdrait sa propriété de mise en valeur.
+
+</p><p>
+Le souligné attire l'&#339;il comme le gras, mais il coupe les jambages. Le 
+jambage est la partie de la lettre qui descend en dessous de la ligne 
+d'écriture ; c'est le cas de <i>y, p, q, g,</i> et <i>j</i>. Il est donc à proscrire.
+
+</p><p>
+N'oubliez pas que le caractère romain est le plus facile à lire ; il 
+doit être utilisé par défaut, les autres styles ne devant être que des 
+exceptions.
+
+</p><p>
+Pour une réflexion plus poussée je vous invite à consulter la <i>Petite leçon de typographie</i> de Jacques André concernant ce sujet. L'adresse est dans les liens.
+
+</p><p>
+
+</p><h1>
+Rappels
+</h1>
+Petits rappels pour ceux qui ont manqué les épisodes précédents. Le 
+source de base dans lequel vous pouvez insérer nos exemples doit 
+ressembler à ceci :
+
+<p>
+</p><pre>\documentclass[a4paper,10pt]{article}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+
+\title{Apprivoiser LaTeX - 3 - Listes}
+\author{Dimitri ROBERT}
+
+\begin{document}
+
+\maketitle
+
+\end{document}
+</pre>
+
+<p>
+Ce que j'appelle <i>source</i> (sans doute à cause de mes habitudes de 
+programmeur) est le fichier qui va contenir votre texte mais aussi les 
+commandes de mises en forme. Le <i>document</i> est le résultat de la compilation du source. Votre texte doit être inséré à l'intérieur de l'environnement <i>document</i>.
+
+</p><p>
+Comment utiliser votre <i>source</i> (commandes à taper dans une console texte) :
+
+</p><p>
+</p><dl>
+<dt><strong>latex fichier.tex</strong></dt>
+<dd>compilation, obtention du document mis en forme « fichier.dvi » ;
+</dd>
+<dt><strong>xdvi fichier.dvi</strong></dt>
+<dd>aperçu de fichier.dvi ;
+</dd>
+<dt><strong>dvips fichier.dvi -o fichier.ps</strong></dt>
+<dd>transformation en fichier.ps (PostScript) ;
+</dd>
+<dt><strong>lpr fichier.ps</strong></dt>
+<dd>impression (cela peut être <tt>lp</tt> au lieu de <tt>lpr</tt>).
+</dd>
+</dl>
+
+<p>
+&nbsp;
+<br>
+Le mois prochain nous parlerons effectivement des tableaux ; cette fois, c'est sûr.
+
+</p><p>
+</p><div align="RIGHT">Dimitri Robert
+<br>
+dimitri-robert CHEZ wanadoo.fr
+<br></div>
+
+<p>
+
+</p><h1>
+Liens
+</h1>
+
+<p>
+
+</p><h2>
+Sur Internet
+</h2>
+
+<p>
+
+</p><ul>
+<li>LaTeX FR : <tt><a name="tex2html1" href="http://www.freesoftware.fsf.org/latexfr/">http://www.freesoftware.fsf.org/latexfr/</a></tt>
+</li>
+<li>La FAQ (receuil de questions fréquemment posées) de Grappa
+  maintenue, entre autres, par Benjamin B<small>AYART</small> :
+  <tt><a name="tex2html2" href="http://www.grappa.univ-lille3.fr/FAQ-LaTeX/">http://www.grappa.univ-lille3.fr/FAQ-LaTeX/</a></tt>
+</li>
+<li>L'encyclopédie LaTeX de Loria (essentiellement en anglais, mais
+  vous trouverez des liens en français dans la partie « General
+  documentation ») :
+  <tt><a name="tex2html3" href="http://tex.loria.fr/index.html">http://tex.loria.fr/index.html</a></tt>
+</li>
+<li><i>Petites leçons de typographie</i> de Jacques A<small>NDRÉ</small> : <tt><a name="tex2html4" href="http://tex.loria.fr/typographie/typo.dvi">http://tex.loria.fr/typographie/typo.dvi</a></tt> (au format dvi, donc lisible avec xdvi)
+</li>
+<li>Règles de typographie française : <tt><a name="tex2html5" href="http://www.citi2.fr/typo/">http://www.citi2.fr/typo/</a></tt>
+</li>
+<li>L'Association Pour la Promotion et la Recherche en Informatique Libre (April) pour les extraits utilisés dans les exemples : <tt><a name="tex2html6" href="http://www.april.org/">http://www.april.org</a></tt>
+</li>
+</ul>
+
+<p>
+
+</p><h2>
+Sur la table de chevet
+</h2>
+
+<ul>
+<li><i>LaTeX : Apprentissage, guide et référence</i> de Bernard
+  D<small>ESGRAUPES</small> chez Vuibert ;
+</li>
+<li><i>LaTeX par la pratique</i> de Christian R<small>OLLAND</small> chez O'Reilly.
+</li>
+</ul>
+</body></html>

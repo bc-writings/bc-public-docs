@@ -1,0 +1,25 @@
+% Source : http://tex.stackexchange.com/questions/12360/overriding-italicized-list-counters-in-plain-theoremstyles
+
+\documentclass{article}
+	\usepackage{amsthm}
+	\usepackage{enumitem}
+
+	\theoremstyle{plain}
+	\newtheorem{theorem}{Theorem}
+% << WARNING ! >> If the following line is not used, then the counters of the items appear in italic !
+	\setenumerate{label={\normalfont\arabic*.}} % or \upshape
+
+
+\begin{document}
+
+\begin{theorem}
+	The following are not equivalent.
+
+	\begin{enumerate}
+		\item $n$ is an even integer.
+		\item $n$ is divisible by 4.
+		\item $n$ is 3 more than some positive odd integer.  
+	\end{enumerate}
+\end{theorem}
+
+\end{document}

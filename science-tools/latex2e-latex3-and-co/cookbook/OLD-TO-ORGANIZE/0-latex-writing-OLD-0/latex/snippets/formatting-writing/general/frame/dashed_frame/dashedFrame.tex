@@ -1,0 +1,21 @@
+% Source : http://tex.stackexchange.com/questions/11291/dashed-box-environment
+
+\documentclass{article}
+	\usepackage{adjustbox}
+	\usepackage{dashbox}
+
+
+\begin{document}
+
+\noindent My Elaboration
+
+\begin{adjustbox}{minipage=0.85\textwidth,precode=\dbox}
+	My item list is shown below:
+	\begin{itemize}
+		\item dummy item
+		\item dummy item 2
+		\item Verbatim: \verb+\section+
+	\end{itemize}
+\end{adjustbox}
+
+\end{document}

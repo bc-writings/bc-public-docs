@@ -1,0 +1,31 @@
+% Source : http://tex.stackexchange.com/questions/30641/side-braces-can-somebody-make-sure-im-reading-this-right
+
+\documentclass{article}
+	\usepackage{tikz}
+	\usetikzlibrary{decorations.pathreplacing}
+
+
+\begin{document}
+
+\begin{itemize}
+	\item one length one length one length
+		\tikz[remember picture] \node[coordinate, yshift=0.7em] (n1) {};
+
+	\item another length
+		\tikz[remember picture] \node[coordinate, yshift=-0.2em] (n2) {};
+
+	\item the longest length
+		\tikz[remember picture] \node[coordinate, yshift=-0.2em] (n3) {};
+
+	\item short
+		\tikz[remember picture] \node[coordinate, yshift=-0.2em] (n4) {};
+\end{itemize}
+
+\begin{tikzpicture}[overlay,remember picture]
+	\path (n4) -| node[coordinate] (n5) {} (n3);
+	\path (n1) -| node[coordinate] (n6) {} (n3);
+	\draw[thick,decorate,decoration={brace, amplitude=4pt}] 
+		(n6) -- (n5) node[midway, right=3pt]{brace text};
+\end{tikzpicture}
+
+\end{document}

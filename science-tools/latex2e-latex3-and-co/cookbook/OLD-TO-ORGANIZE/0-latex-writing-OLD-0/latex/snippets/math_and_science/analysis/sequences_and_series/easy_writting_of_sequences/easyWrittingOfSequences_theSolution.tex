@@ -1,0 +1,61 @@
+\documentclass{article}
+	\usepackage{amssymb}
+	\usepackage{xstring}
+
+	\makeatletter
+		\newcommand{\sequ}[1]{%
+% No argument is one short cut for \sequ{u,n}.
+			\ifx\relax#1\relax
+				\def\@setFound{0}
+				\def\@name{u}
+				\def\@index{n}
+			\else
+% Looking for one set.
+				\IfSubStr{#1}{;}{
+					\def\@setFound{1}
+					\StrBehind{#1}{;}[\@set]
+					\StrBefore{#1}{;}[\@withoutSet]
+				}{
+					\def\@setFound{0}
+					\def\@withoutSet{#1}
+				}
+% Looking for one name and one possible index.
+				\expandafter\IfSubStr\expandafter{\@withoutSet}{,}{
+% We have to use a trick so as to use \@withoutSet like one string variable.
+% This trick was given to me by the author of the package xstring.
+					\expandafter\StrBefore\expandafter{\@withoutSet}{,}[\@name]
+					\expandafter\StrBehind\expandafter{\@withoutSet}{,}[\@index]
+				}{
+					\def\@name{\@withoutSet}
+					\def\@index{n}
+				}
+			\fi
+% Display it !
+			\ensuremath{%
+				\ifnum\@setFound=1
+					\left( {\@name}_{\@index} \right)_{\@index \in \mathbb{\@set}} %
+				\else
+					\left( {\@name}_{\@index} \right)%
+				\fi
+			}%
+		}
+	\makeatother
+
+
+\begin{document}
+
+\verb+$\sequ{x,k;Z}$+ : $\sequ{x,k;Z}$
+
+\medskip
+
+\verb+$\sequ{u;N}$+ : $\sequ{u;N}$
+
+\medskip
+
+\verb+$\sequ{x}$+ : $\sequ{x}$
+
+\medskip
+
+\verb+$\sequ{}$+ : $\sequ{}$
+
+\end{document}

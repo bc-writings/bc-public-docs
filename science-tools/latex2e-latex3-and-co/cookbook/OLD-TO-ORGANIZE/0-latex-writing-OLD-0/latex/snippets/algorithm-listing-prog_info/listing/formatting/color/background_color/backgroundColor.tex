@@ -1,0 +1,88 @@
+% Source : tex.stackexchange.com/questions/28179/colored-background-in-inline-listings
+
+\documentclass{article}
+	\usepackage{etoolbox}
+	\usepackage{atbegshi,ifthen,listings,tikz}
+
+% change this to customize the appearance of the highlight
+	\tikzstyle{highlighter} = [
+		blue!20,% set the color for inline listings here.
+		line width = \baselineskip,
+	]
+
+% enable these two lines for a more human-looking highlight
+%\usetikzlibrary{decorations.pathmorphing}
+%\tikzstyle{highlighter} += [decorate, decoration = random steps]
+
+% implementation of the core highlighting logic; do not change!
+	\newcounter{highlight}[page]
+
+	\newcommand{\tikzhighlightanchor}[1]{%
+		\ensuremath{%
+			\vcenter{%
+				\hbox{%
+					\tikz[remember picture, overlay]{
+						\coordinate (#1 highlight \arabic{highlight});
+					}%
+				}%
+			}
+		}%
+	}
+
+	\newcommand{\bh}[0]{\stepcounter{highlight}\tikzhighlightanchor{begin}}
+	\newcommand{\eh}[0]{\tikzhighlightanchor{end}}
+	\AtBeginShipout{%
+		\AtBeginShipoutUpperLeft{
+			\ifthenelse{\value{highlight} > 0}{\tikz[remember picture, overlay]{\foreach \stroke in {1,...,\arabic{highlight}} \draw[highlighter] (begin highlight \stroke) -- (end highlight \stroke);}}{}
+		}
+	}
+
+	\makeatletter %   Redefine macros from listings package:
+		\newtoggle{@InInlineListing}%
+		\togglefalse{@InInlineListing}%
+
+		\renewcommand\lstinline[1][]{%
+			\leavevmode\bgroup\toggletrue{@InInlineListing}\bh % \hbox\bgroup --> \bgroup
+			\def\lst@boxpos{b}%
+			\lsthk@PreSet\lstset{flexiblecolumns,#1}%
+			\lsthk@TextStyle
+			\@ifnextchar\bgroup{\afterassignment\lst@InlineG \let\@let@token}%
+				\lstinline@}%
+
+		\def\lst@LeaveAllModes{%
+			\ifnum\lst@mode=\lst@nomode
+				\expandafter\lsthk@EndGroup\iftoggle{@InInlineListing}{\eh{}}{}%
+			\else
+				\expandafter\egroup\expandafter\lst@LeaveAllModes
+			\fi%
+		}
+	\makeatother
+
+	\lstset{backgroundcolor=\color{red!20}}%
+
+
+\begin{document}
+
+\tikzstyle{highlighter} = [
+	red!20,% set the color for inline listings here.
+	line width = \baselineskip,
+]
+This is a test where \lstinline{A = 1} should have a yellow background.
+
+\tikzstyle{highlighter} = [
+	blue!20,% set the color for inline listings here.
+	line width = \baselineskip,
+]
+This is a test where \lstinline{A = 1} should have a yellow background.
+
+This, on the other hand, actually works:
+\begin{lstlisting}
+A = 1
+\end{lstlisting}
+
+This, on the other hand, actually works:
+\begin{lstlisting}[backgroundcolor=\color{green}]
+A = 1
+\end{lstlisting}
+
+\end{document}

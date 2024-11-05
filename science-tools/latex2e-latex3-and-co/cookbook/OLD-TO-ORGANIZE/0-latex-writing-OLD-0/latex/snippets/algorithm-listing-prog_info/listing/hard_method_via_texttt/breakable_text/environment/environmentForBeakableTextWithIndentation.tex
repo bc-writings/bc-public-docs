@@ -1,0 +1,39 @@
+% Source : http://tex.stackexchange.com/questions/33459/listing-how-to-deal-with-very-long-lines-that-do-not-contain-spaces/33463#33463
+
+\documentclass{article}
+	\makeatletter
+		{\obeylines\gdef\bt@eol{^^M}}
+		\newenvironment{breakabletexttt}{%
+			\ttfamily\hfuzz=0.4em
+			\list{}{%
+				\leftmargin=2em
+				\itemindent=-\leftmargin
+				\listparindent=-\leftmargin
+				\parsep=0pt%
+			}
+			\item\relax\obeylines\breakable@texttt%
+		}
+		{\endlist}
+		\def\breakable@texttt#1{%
+			\ifx#1\end
+				\expandafter\end
+			\else
+				\expandafter\ifx\bt@eol#1%
+					#1%
+				\else
+					\string#1\hskip1sp
+				\fi
+				\expandafter\breakable@texttt
+			\fi%
+		}
+	\makeatother
+
+
+\begin{document}
+
+\begin{breakabletexttt}
+rangerangerangerangerange_rangerange_rangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerangerange
+33b7a2f7c4cc93c46dd4ee2ed81aa1eb_9409135542c79d1ed50c9fde07fa600a_cce5a2fe76bfbd0c48d79fb43a7106f0_263e9a8711c1400fb2a716a1b820ac9a
+\end{breakabletexttt}
+
+\end{document}

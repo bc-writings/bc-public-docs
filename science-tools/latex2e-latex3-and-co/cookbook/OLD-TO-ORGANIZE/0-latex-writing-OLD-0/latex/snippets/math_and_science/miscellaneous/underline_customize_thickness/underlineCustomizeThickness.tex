@@ -1,0 +1,14 @@
+% Source : http://tex.stackexchange.com/questions/32405/how-can-i-overscore-a-character
+
+\documentclass{article}
+	\usepackage{calc}
+	\usepackage{accents}
+
+	\newcommand*{\negbool}[2][0.4pt]{\ensuremath{\accentset{\rule{\widthof{#2}}{#1}}{#2}}}
+
+
+\begin{document}
+
+$\overline{x} \quad \bar{x} \quad \negbool{x} \quad \negbool[1pt]{x}$
+
+\end{document}

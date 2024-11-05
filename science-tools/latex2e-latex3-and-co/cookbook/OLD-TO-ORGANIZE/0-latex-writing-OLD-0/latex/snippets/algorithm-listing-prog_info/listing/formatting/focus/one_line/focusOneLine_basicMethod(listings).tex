@@ -1,0 +1,28 @@
+\documentclass[10pt,a4paper]{book}
+	\usepackage{listings}
+	\usepackage{xcolor}
+	
+	\lstnewenvironment{lstlistingUP}{\lstset{belowskip=0cm}}{}
+	\lstnewenvironment{lstlistingMIDDLE}{\lstset{belowskip=0cm, aboveskip=0cm, backgroundcolor= \color{yellow}}}{}
+	\lstnewenvironment{lstlistingDOWN}{\lstset{aboveskip=0cm}}{}
+
+
+\begin{document}
+
+\begin{lstlistingUP}
+	for i:=maxint to 0 do begin
+\end{lstlistingUP}
+
+\begin{lstlistingMIDDLE}
+		{
+			do nothing
+		}
+\end{lstlistingMIDDLE}
+
+\begin{lstlistingDOWN}
+	end;
+	Write(’Case insensitive ’); 
+	WritE(’Pascal keywords.’);
+\end{lstlistingDOWN}
+
+\end{document}

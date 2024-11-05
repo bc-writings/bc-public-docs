@@ -1,0 +1,59 @@
+% Source : http://forum.mathematex.net/latex-f6/options-pour-la-mise-en-forme-des-items-t12570.html#p121987
+
+\documentclass[a4paper,10pt]{article}
+	\usepackage[utf8]{inputenc}
+	\usepackage[T1]{fontenc}
+	\usepackage{lmodern}
+	\usepackage[frenchb]{babel}
+	\usepackage{amsmath,mathrsfs,amssymb}
+	\usepackage{xcolor}
+	
+	\newcounter{questions}
+	\renewcommand{\thequestions}{\textbf{\arabic{questions})}}
+	\newenvironment{questions}[1][]{%
+		\begin{list}
+		{\hspace{\labelsep}\ifx\relax#1\relax\else\color{#1}\fi\bfseries\arabic{questions})}
+			{\leftmargin=0pt
+			\labelwidth=0cm
+			\usecounter{questions}
+		\def\makelabel##1{##1}}}{\end{list}%
+	}
+	
+	\newcounter{sousquestions}
+	\renewcommand{\thesousquestions}{\textbf{\alph{sousquestions})}}
+	\newenvironment{sousquestions}{\begin{list}
+	  {\hspace{\labelsep}\bfseries\alph{sousquestions})}
+	  {\leftmargin=0pt
+	   \labelwidth=0cm
+	   \usecounter{sousquestions}
+	   \def\makelabel##1{##1}}}{\end{list}}
+
+\begin{document}
+
+	\begin{questions}
+		\item Première question.
+
+		\item On a :
+		\begin{sousquestions}
+			\item Etape pour commencer,
+			\item pour continuer,
+			\item pour conclure.
+		\end{sousquestions}
+
+		\item Dernière question.
+	\end{questions}
+	
+	\begin{questions}[red]
+		\item Première question.
+
+		\item On a :
+		\begin{sousquestions}
+			\item Etape pour commencer,
+			\item pour continuer,
+			\item pour conclure.
+		\end{sousquestions}
+
+		\item Dernière question.
+	\end{questions}
+
+\end{document}

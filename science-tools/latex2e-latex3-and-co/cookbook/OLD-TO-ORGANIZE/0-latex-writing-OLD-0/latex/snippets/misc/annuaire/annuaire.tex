@@ -1,0 +1,175 @@
+\documentclass[12pt,a5paper,openany,dvipdfm]{scrbook}
+	\usepackage[T1]{fontenc}
+	\usepackage[latin1]{inputenc}
+	\usepackage{datatool}
+	\usepackage{multido}
+	\usepackage[frenchb]{babel}
+	\usepackage{hyperref}
+
+
+\begin{document}
+
+\tableofcontents
+\cleardoublepage
+
+%-----------------------------------------------------------------------------------------------
+
+% chargement de la base de données élèves
+% le fichier csv ne doit contenir aucun caractère dans les cellules non renseignées
+% ne pas renseigner le lycée si on a fait une ECS1 et/ou une ECS2 au lycée
+% si on a fait une ECS1 et/ou une ECS2 à l'extérieur, ne pas renseigner l'année mais renseigner ce lycée
+% renseigner l'année d'intégration même si on a intégré à partir d'un autre lycée (cube à l'extérieur, préciser le lycée) ou après une admission parallèle (préciser la formation intermédiaire)
+\DTLloaddb{ecs}{base_annuaire.csv}
+
+% pas de séparateur de chiffres dans la partie entière et un point comme séparateur décimal
+\DTLsetnumberchars{}{.}
+
+%-----------------------------------------------------------------------------------------------
+
+\addcontentsline{toc}{chapter}{Les promotions}
+\part*{Les promotions}
+\cleardoublepage
+
+% tri alphabétique pour établir les fiches individuelles
+\DTLsort*{NOM,Prenom,ECS11,ECS21,ECS22,ECS12}{ecs}
+
+% calcul de la première année de promotion
+\DTLminforkeys{ecs}{ECS11,ECS12,ECS21,ECS22}{\anneemin}
+% calcul de la dernière année de promotion, de la  année ainsi que du nombre de promotions
+\DTLmaxforkeys{ecs}{ECS11,ECS12,ECS21,ECS22}{\anneemax}
+% calcul du nombre de promotions
+\DTLsub{\nb}{\anneemax}{\anneemin}
+\DTLadd{\nb}{\nb}{1}
+
+% affichage par promotion
+\multido{\i=\anneemin+1}{\nb}{%
+\DTLadd{\j}{\i}{1}
+
+
+\chapter*{Promotion \i-\j}
+\addcontentsline{toc}{section}{Année scolaire \i-\j}
+
+\section*{ECS1}
+\DTLforeach*{ecs}{\nom=NOM,\prenom=Prenom,\bizut=ECS11,\bizutbis=ECS12,\esc=ESC,\nonesc=NonESC}{%
+	\begin{itemize}
+% gestion des redoublants de 1ère année (très rare)
+		\DTLifeq{\i}{\bizut}{\item \hyperlink{\nom\prenom}{\nom~\prenom}~(\DTLifeq{\esc}{}{\nonesc}{\hyperlink{\esc}{\esc}})}{\DTLifeq{\i}{\bizutbis}{\item \hyperlink{\nom\prenom}{\nom~\prenom}~(\DTLifeq{\esc}{}{\nonesc}{\hyperlink{\esc}{\esc}})}{}}
+	\end{itemize}
+	}% fin de DTLforeach
+
+\section*{ECS2}
+\DTLforeach*{ecs}{\nom=NOM,\prenom=Prenom,\carre=ECS21,\cube=ECS22,\esc=ESC,\nonesc=NonESC}{%
+	\begin{itemize}
+% gestion des redoublants de 2nde année
+		\DTLifeq{\i}{\carre}{\item \hyperlink{\nom\prenom}{\nom~\prenom}~(\DTLifeq{\esc}{}{\nonesc}{\hyperlink{\esc}{\esc}})}{\DTLifeq{\i}{\cube}{\item \hyperlink{\nom\prenom}{\nom~\prenom}~(\DTLifeq{\esc}{}{\nonesc}{\hyperlink{\esc}{\esc}})}{}}
+	\end{itemize}
+}% fin de DLTforeach
+\clearpage
+} % fin de multido
+\cleardoublepage
+
+%-----------------------------------------------------------------------------------------------
+
+\addcontentsline{toc}{chapter}{Fiches individuelles}
+\part*{Fiches individuelles}
+\cleardoublepage
+
+% inutile de refaire un tri de la base de données
+% on charge l'intégralité des données
+\DTLforeach*{ecs}{\nom=NOM,\prenom=Prenom,\date=Date,\fixe=Fixe,\mobile=Mobile,\adressedebut=Adr,\adressefin=Adrbis,\cp=CP,\ville=Ville,\pays=Pays,\mailperso=Mailperso,\mailpro=Mailpro,\bizut=ECS11,\bizutbis=ECS12,\carre=ECS21,\cube=ECS22,\integre=Integration,\lyceebizut=lycee11,\lyceebizutbis=lycee12,\lyceecarre=lycee21,\lyceecube=lycee22,\esc=ESC,\nonesc=NonESC,\secteur=Secteur1,\societe=Societe1,\lieu=Lieu1,\secteurbis=Secteur2,\societebis=Societe2,\lieubis=Lieu2,\secteurter=Secteur3,\societeter=Societe3,\lieuter=Lieu3}{%
+\chapter*{\hypertarget{\nom\prenom}{\nom \\ \prenom}} % on crée un chapitre par étudiant
+\addcontentsline{toc}{section}{\nom~\prenom} 
+Date de naissance : \date
+
+\vspace*{0.3em}
+\hline
+\vspace*{0.3em}
+
+\textit{Contact :}
+\begin{itemize}
+\item Adresse \\ \adressedebut \\ \DTLifeq{\adressefin}{}{}{\adressefin \\} \cp~\ville \\ \pays
+\item Téléphone \\ fixe : \fixe \\ mobile : \mobile
+\item Mail \\ personnel : \mailperso \\ professionnel : \mailpro
+\end{itemize}
+
+\vspace*{0.3em}
+\hline
+\vspace*{0.3em}
+
+\textit{Passage au lycée Touchard :}
+\begin{itemize}
+% concernant la classe d'ECS1
+% soit on l'a faite au lycée et on note l'année
+% soit on l'a faite ailleurs et on note seulement le lycée 
+\item ECS1 : \DTLifeq{\lyceebizut}{}{\bizut \DTLifeq{\bizutbis}{}{}{~et \bizutbis}}{(\lyceebizut)}
+% concernant la classe d'ECS2 en carré
+% soit on n'est pas passé en ECS2 et on ne fait rien
+% soit on l'a faite ailleurs et on note seulement le lycée
+% soit on l'a faite au lycée
+\DTLifeq{\carre}{}{%
+\DTLifeq{\lyceecarre}{}{}{\item ECS2 : (\lyceecarre)}}{%
+\item ECS2 : \carre} % fin DTLifeq sur \carre
+% concernant la classe d'ECS2 en cube
+% soit on n'est pas passé en ECS2 et on ne fait rien
+% soit on l'a faite ailleurs et on note seulement le lycée
+% soit on l'a faite au lycée
+\DTLifeq{\cube}{}{%
+\DTLifeq{\lyceecube}{}{}{\item ECS2 (cube) : (\lyceecube)}}{%
+\item ECS2 (cube) : \cube} % fin DTLifeq sur \cube
+\item Intégration : \DTLifeq{\esc}{}{- (\nonesc)}{\hyperlink{\esc}{\esc}, \integre \DTLifeq{\nonesc}{}{}{~(après \nonesc)}}
+\end{itemize}
+
+\vspace*{0.3em}
+\hline
+\vspace*{0.3em}
+
+\textit{Parcours professionnel :}
+\begin{itemize}
+\DTLifeq{\secteur}{}{(pas d'information)}{%
+\item \secteur, \societe, \lieu%
+\DTLifeq{\secteurbis}{}{}{%
+\item \secteurbis, \societebis, \lieubis%
+\DTLifeq{\secteurter}{}{}{%
+\item \secteurter, \societeter, \lieuter
+} % fin de DTLifeq ter
+} % fin de DTLifeq bis
+} % fin de DTLifeq
+\end{itemize}
+} %fin de DTLforeach
+\cleardoublepage
+
+%-----------------------------------------------------------------------------------------------
+
+\addcontentsline{toc}{chapter}{Intégration par ESC}
+\part*{Intégration par ESC}
+\cleardoublepage
+
+% tri par ESC puis par année d'intégration
+\DTLsort*{ESC,Integration,NOM,Prenom}{ecs}
+
+% initialisation de \lastESC avec rien puisque des élèves n'ont pas (encore) intégré
+\newcounter{colonne}
+\setcounter{colonne}{\dtlcolumnindex{ecs}{ESC}}
+\DTLgetvalue{\lastESC}{ecs}{1}{\thecolonne}
+
+% on compte le nombre d'étudiant n'ayant pas intégré une ESC
+\DTLforeach*[\DTLiseq{\integre}{}]{ecs}{\nom=NOM,\prenom=Prenom,\esc=ESC,\integre=Integration}{}
+\DTLsavelastrowcount{\decalage}
+
+% on passe en revue les étudiants ayant intégré une ESC
+\DTLforeach*[\not \DTLiseq{\integre}{}]{ecs}{\nom=NOM,\prenom=Prenom,\esc=ESC,\integre=Integration}{%
+
+\DTLifeq{\esc}{\lastESC}{}{% si l'ESC est la même que la précédente alors on ne fait rien de particulier sinon ...
+\chapter*{\hypertarget{\esc}{\esc}} % on crée un nouveau chapitre au nom de cette ESC
+\addcontentsline{toc}{section}{\esc}
+\DTLadd{\ligne}{\DTLcurrentindex}{\decalage}
+\DTLgetvalue{\lastESC}{ecs}{\ligne}{\thecolonne} % et \lastESC prend la valeur de l'ESC précédente
+} % fin de DTLifeq sur \esc=\lastESC
+
+$\bullet$~\hyperlink{\nom\prenom}{\nom~\prenom}~(\integre) % intégration donc affichage dans la liste courante
+
+} % fin de DTLforeach
+
+%-----------------------------------------------------------------------------------------------
+
+\end{document}

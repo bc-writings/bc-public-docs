@@ -1,0 +1,37 @@
+% Source : http://tex.stackexchange.com/questions/32285/referencing-to-above-or-below
+
+\documentclass{article}
+	\makeatletter
+		\newcount\here@undef
+		\newcommand{\here}[1]{%
+			\@ifundefined{here@#1@undef}{}{\advance\here@undef by -1}%
+			\@namedef{here@#1}{}%
+		}
+		\newcommand{\where}[1]{%
+			\@ifundefined{here@#1}{%
+				below%
+				\@ifundefined{here@#1@undef}{%
+					\@namedef{here@#1@undef}{}%
+					\advance\here@undef by 1
+				}{}%
+			}{%
+				above%
+			}%
+		}
+		\AtEndDocument{%
+			\ifnum\here@undef>0
+				\GenericWarning{}{There were undefined above/below labels}%
+			\fi%
+		}
+	\makeatother
+
+
+\begin{document}
+
+As mentioned \where{test}, $2+2=4$.
+
+We state that $2+2=4$.\here{test}
+
+As mentioned \where{test}, $2+2=4$.
+
+\end{document}

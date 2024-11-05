@@ -1,0 +1,25 @@
+% Source : http://forum.mathematex.net/latex-f6/supprimer-tout-espace-vertical-avant-et-apres-t7842-20.html#p121983
+
+\documentclass{article}
+	\usepackage{amsmath}
+
+	\AtBeginDocument{\setlength{\abovedisplayskip}{5pt}\setlength{\belowdisplayskip}{5pt}}
+
+	\makeatletter
+		\def\highlighting@hack{\[\[}% pour la coloration syntaxique
+		\def\collect@until@bracket#1\]{\def\@the@body@{#1}\]}
+		\DeclareRobustCommand{\[}{\collect@until@bracket}
+		\DeclareRobustCommand{\]}{\begin{align*}\@the@body@\end{align*}}
+	\makeatother
+
+
+\begin{document}
+
+Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+\[
+	A & = B \\
+	  & = C
+\]
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla.
+
+\end{document}

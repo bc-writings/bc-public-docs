@@ -1,0 +1,31 @@
+\documentclass{article}
+	\usepackage{listings}
+	\usepackage{xcolor}
+
+
+\begin{document}
+
+\lstset{escapechar=\⠶}  % On peut utiliser n'importe quel carcatère UTF-8 sans souci, ce qui est très utile.
+
+\begin{lstlisting}
+# Programme calculant ⠶ $\sum_{i=1}^{5} i^3$ ⠶
+for i in range(5):
+	sum += i**3
+print sum
+
+print('Fin de la boucle...')
+\end{lstlisting}
+
+
+\lstset{escapechar={}} % On n'a plus de caractère d'échappement.
+
+\begin{lstlisting}
+# Programme calculant ⠶ $\sum_{i=1}^{5} i^3$ ⠶
+for i in range(5):
+	sum += i**3
+print sum
+
+print('Fin de la boucle...')
+\end{lstlisting}
+
+\end{document}

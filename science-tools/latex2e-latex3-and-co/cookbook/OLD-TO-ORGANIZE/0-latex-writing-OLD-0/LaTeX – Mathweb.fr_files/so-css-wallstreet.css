@@ -1,0 +1,116 @@
+h1,
+h2 {
+  color: #000000;
+  font-size: 16pt;
+  font-weight: bold;
+}
+
+a {
+  color: yellow;
+}
+
+.blog-post-title > .blog-post-title-wrapper > h1 {
+  color: #ffac40;
+  font-weight: 400;
+  font-variant: normal;
+  font-size: 33px;
+}
+
+.blog-post-title > .blog-post-title-wrapper > h2 {
+  color: #66cc6e;
+  font-size: 22pt;
+  font-weight: 400;
+}
+
+div.wpforms-container-full .wpforms-form .wpforms-field-label {
+  color: #ffffff;
+}
+
+div.wpforms-container-full .wpforms-form .wpforms-field-sublabel {
+  color: #e0983a;
+}
+
+.sidebar-widget-title h2 {
+  color: #fff700;
+}
+
+#menulatex {
+  color: #000000;
+  font-size: 14px;
+  font-weight: 500;
+  font-variant: normal;
+  background-color: #ffffff;
+  border-left-width: 0px;
+  border-style: outset;
+  border-color: #ffffff;
+  width: 179px;
+  display: run-in;
+}
+
+.blog-post-title > .blog-post-title-wrapper > h3 {
+  color: #cfcf1d;
+  font-size: 24px;
+}
+
+.blog-post-title-wrapper {
+  color: #ffffff;
+}
+
+.um-field-label,
+.um-form,
+.blog-post-title,
+.col-md-8 {
+  color: #ffffff;
+}
+
+.footer_section {
+  background-color: #0e3e59;
+}
+
+.navbar.navbar-wrapper.navbar-inverse.navbar-static-top {
+  background-color: #0e3e59;
+}
+
+.home-blog-info {
+  background-color: #1e6f9e;
+}
+
+.blog-post-title {
+  background-color: #1e6f9e;
+}
+
+.blog-author {
+  background-color: #1e6f9e;
+}
+
+.sidebar-section {
+  background-color: #1e6f9e;
+}
+
+.comment-form-section {
+  background-color: #1e6f9e;
+}
+
+.page-title-col h1 {
+  color: #ffffff;
+  text-transform: none;
+  font-style: italic;
+}
+
+.label {
+  color: #fadada;
+}
+
+.happyforms-part-wrap {
+  background-color: #1e6f9e;
+}
+
+.w3eden .table > tbody > tr > td {
+  color: #e6a10e;
+  font-weight: bold;
+  background-color: #ffffff;
+}
+
+.w3eden .table > tbody > tr > th {
+  background-color: #ffffff;
+}

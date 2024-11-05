@@ -1,0 +1,41 @@
+@import url(base.css);
+
+body {
+  padding:        1.5em;
+  padding-left:   0.5em;
+  font-size:     14pt;
+  color:           black;
+  letter-spacing: 0em;
+  background:    white;
+  min-width:      43em;
+  max-width: 200em;
+}
+div#contents { margin-bottom: 5em; max-width: 38em; }
+.actions, .more { display: none; }
+#edito h3, .box h3 { background-color: transparent; color: black; }
+#edito h3 a:link, #edito h3 a:hover, #edito h3 a:visited, #edito h3 a:active
+  { color: black; }
+div.abstract       { margin-left: 0em; font-size: 100%; }
+h1 { margin-left: 1em; }
+/* Agenda */
+.agenda dl
+  { overflow: visible; overflow-x: visible; overflow-y: visible; }
+
+/* BibTeX */
+.bibtex .liens { display: none; }
+
+/* Menu */
+#LSV {
+  position: absolute;
+  padding:     0.2em;
+  background-color: #006699;
+  color: white;
+  width:       7em;
+  overflow: hidden;
+  height:    100%;
+  left:       -8em;
+  top:         0px;
+  padding-top: 0px;
+}
+#LSV #logos { position: relative; left: -1em; width: 7em; }
+div.extras { display: box; position: absolute; bottom: 1em; }

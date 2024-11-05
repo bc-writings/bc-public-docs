@@ -1,0 +1,104 @@
+% Source : http://tex.stackexchange.com/questions/35798/customized-table-of-contents
+
+\documentclass{scrbook}
+	\usepackage[utf8]{inputenc}
+	\usepackage{lipsum}
+
+	\makeatletter
+% Define if, if you are not using a KOMA-Script class
+		\providecommand*{\addchap}[1]{
+			\chapter*{#1}\markboth{#1}{}%
+		}
+
+% Optional arg = author
+% Mandatory arg = title
+		\newenvironment{authorsection}[2][]{
+			\cleardoublepage
+			\addtocontents{toc}{\protect\startauthorsection{#1}{#2}{\thepage}}%
+			\addchap{#2}% Don't use a number
+			\vspace{-0.5cm} From #1 \vspace{0.5cm} \par%
+		}{%
+			\addtocontents{toc}{\protect\finishauthorsection{\thepage}}%
+		}
+
+% Add something like a part but only
+% start a new (odd) page and set up
+% a toc-entry without page number.
+		\newcommand*{\addtocpart}[1]{
+			\cleardoublepage
+			\addtocontents{toc}{\protect\tocpart{#1}}%
+		}
+
+% Only chapters at the table of contents
+		\setcounter{tocdepth}{0}
+% No chapter, section etc. numbers
+		\setcounter{secnumdepth}{-1}
+
+% ToC commands
+%
+%    * Needed to store author until end
+		\newcommand*{\aname}{}
+%    * Needed to store title until end
+		\newcommand*{\stitle}{}
+%    * Needed to store page until end
+		\newcommand*{\fpage}{}
+%    * #1 = author, #2 = title, #3 = page
+		\newcommand{\startauthorsection}[3]{
+			\def\aname{#1}%
+			\def\stitle{#2}%
+			\def\fpage{#3}%
+			\begingroup
+				\let\l@chapter\@gobbletwo% Deactivate chapter entries
+		}
+		\renewcommand*{\l@chapter}{%
+			\addvspace{\baselineskip}%
+			\@dottedtocline{0}{0pt}{1.5em}% Use chapter entries with dots
+		}%
+% #1 = page
+		\newcommand*{\finishauthorsection}[1]{
+			\endgroup        % Reactivate normal chapter entries
+			\l@chapter{      % Make a chapter entry
+				\normalfont  % but with normal font
+				\ifx\aname\@empty\unskip\else\mbox{\itshape\aname}\\\fi % Show the author if there's any
+				\stitle                                                 % show the title
+			}{\fpage--#1}                                               % and the page range
+		}
+
+		\newcommand*{\tocpart}[1]{%
+			\addvspace{2\baselineskip}
+			\setlength{\parindent}{0pt}
+			\textbf{#1}\par
+			\smallskip
+		}
+
+% Need more space for page numbers at toc:
+		\renewcommand*{\@pnumwidth}{3em}
+		\renewcommand*{\@tocrmarg}{4em}
+	\makeatother
+
+
+\begin{document}
+
+\tableofcontents
+
+\addtocpart{Comic}
+
+\begin{authorsection}[Mister Bean]{Strange humor}
+	\lipsum
+\end{authorsection}
+
+\addtocpart{Action}
+
+\begin{authorsection}[James Bond]{The art of spying}
+	\lipsum
+\end{authorsection}
+
+\begin{authorsection}[Luke Sky Walker]{The jedi\\spirit}
+	\lipsum
+
+	\section{First arguments}
+
+	\lipsum
+\end{authorsection}
+
+\end{document}

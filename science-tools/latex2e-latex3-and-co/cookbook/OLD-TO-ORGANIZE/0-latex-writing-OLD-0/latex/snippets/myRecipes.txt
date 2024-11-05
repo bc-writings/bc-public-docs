@@ -1,0 +1,110 @@
+﻿thisfile::
+	gene::
+		aut=Christophe, BAL, projetmbc@club.fr
+		out=html | pdf
+
+	abrev::
+		windows = Windows
+		mac = Mac Intosh
+		ubuntu = Ubuntu
+
+		acrobat=cf::``Acrobat Reader ; http://www.adobe.com/fr/products/reader/``
+		css=cf::``CSS ; http://fr.wikipedia.org/wiki/Feuilles_de_style_en_cascade``
+
+		pyba=cf::``pyba ; http://christophe_bal.club.fr``
+		html=cf::``HTML ; http://fr.wikipedia.org/wiki/Html``
+		latex=cf::``LaTeX ; http://fr.wikipedia.org/wiki/LaTeX``
+		rest=cf::``reStructuredText ; http://en.wikipedia.org/wiki/ReStructuredText``
+		sympy=cf:``SymPy ; http://code.google.com/p/sympy/``
+
+		apriori=a priori
+		mef(s)=mise en forme | mises en forme
+		intro=Introduction
+		ccl=Conclusion
+		cad=c'est à dire
+		ie=i.e.
+		resp=respectivement
+		doc=documentation
+		etou=et''/''ou
+
+		cont_biblio = /contents/biblio
+		cont_document = /contents/document
+		cont_general = /contents/general
+		cont_math = /contents/math
+		cont_programing = /contents/programing
+		cont_special = /contents/special
+		cont_pedago = /contents/pedagogy
+
+/* TODO
+	Bibliothèque et bibliographie
+		¨cont_biblio/biblio.txt
+
+	Travailler avec des scripts Python
+
+	templates latext et html pour une ¨mef perso Prendre un langage BASIQUE
+	Posibilité d'indique ccs = cheminVersCSS, preambleLatex = cheminVersPréambulLatex
+
+	Hacker : exemple concret pour sphinx via rest ou exemple via le module ¨pyba : CreaListEleve (liste papier + fichier OOCalc crére auto)
+
+
+	/annexes.txt
+		liste des couleurs avec le rendu
+	/index.txt : là c'est le boulot de pyba...
+*/
+
+
+***********
+Généralités
+***********
+
+insert::
+    ¨cont_general/introduction.txt
+    ¨cont_general/installation.txt
+
+
+*******************
+Taper des documents
+*******************
+
+insert::
+    ¨cont_document/simple.txt
+
+
+*************
+Mathématiques
+*************
+
+insert::
+	¨cont_math/writing.txt
+	¨cont_math/drawing.txt
+	¨cont_math/calculating.txt
+//TODO:	¨cont_math/programing.txt
+
+
+/* TODO
+************************
+Programmes et algorithmes
+*************************
+
+insert::
+//TODO:	¨cont_programing/listing.txt
+//TODO:	¨cont_programing/algorithmic.txt
+*/
+
+
+******************************
+Des outils pour l'enseignement
+******************************
+
+insert::
+    ¨cont_pedago/text_book.txt
+
+
+********************
+Questions techniques
+********************
+
+insert::
+    ¨cont_special/externalCall.txt
+    ¨cont_special/technicalStuffs.txt
+    ¨cont_special/specifications.txt

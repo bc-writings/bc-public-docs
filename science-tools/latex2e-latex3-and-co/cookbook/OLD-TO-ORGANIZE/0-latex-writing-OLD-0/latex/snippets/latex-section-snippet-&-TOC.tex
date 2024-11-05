@@ -1,0 +1,39 @@
+% Source: https://tex.stackexchange.com/a/635578/6880
+
+\documentclass{scrartcl}
+
+\usepackage{tcolorbox}
+\tcbuselibrary{listingsutf8,documentation}
+\newcommand{\lcmd}[1]{\texttt{\textbackslash{#1}}} 
+
+\newcounter{oldsection}% added <<<<<<<<<<<<
+
+\begin{document}
+    \tableofcontents
+    %%
+    \section{Introduction}
+    \section{The Problem}
+    \subsection{Example 1: listing on}
+    
+    \addtocontents{toc}{\setcounter{tocdepth}{-1}} % suppress all entries to ToC<<<
+    \setcounter{oldsection}{\thesection} % save section number
+    \addtocounter{section}{-\thesection} % start numbering with 1
+
+    \begin{tcblisting}{title= Example 1}
+\section{Main Section} 
+
+An Example you to use the section commands.
+
+    \subsection{Sub Section} 
+        \subsubsection{SubSub Section} 
+
+\section{Conclusions}
+    \subsection{Another Sub Section} 
+    \end{tcblisting}
+
+    \addtocontents{toc}{\setcounter{tocdepth}{3}} % restore <<<<
+    \setcounter{section}{\theoldsection} % % restore <<<<...
+    
+    \section{Another Section}  
+    \subsection{Last subsection} 
+\end{document}

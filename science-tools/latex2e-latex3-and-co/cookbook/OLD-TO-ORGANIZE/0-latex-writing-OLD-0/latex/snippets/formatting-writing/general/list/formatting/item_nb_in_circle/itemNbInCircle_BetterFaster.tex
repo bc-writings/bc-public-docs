@@ -1,0 +1,81 @@
+% Sources :
+%	1) http://tex.stackexchange.com/questions/7032/good-way-to-make-pgftextcircled-numbers
+%	2) http://tex.stackexchange.com/questions/33738/customize-diameter-of-a-circle-around-numbers/33744#33744
+%	3) http://tex.stackexchange.com/questions/33748/is-it-possible-to-know-and-use-the-number-of-items-of-one-list/33757#33757
+
+\documentclass{article}
+	\usepackage[utf8x]{inputenc}
+	\usepackage{enumitem}
+	\usepackage{tikz}
+
+	\makeatletter
+		\newcount\item@cnt
+		\newcommand*\circle@arg[1]{%
+			\tikzpicture[baseline=(a.base)]%
+				\node[draw,circle,outer sep=0pt,inner sep=0.5pt](a){\hbox to\max@wd{\hss#1\hss}};
+			\endtikzpicture%
+		}
+
+		\long\def\get@body#1\end{%
+			\expandafter\def\expandafter\collected@body\expandafter{\collected@body#1}\find@end%
+		}
+
+		\newcommand\find@end[1]{%
+			\def\temp@name{#1}%
+			\ifx\temp@name\name@env
+				\count@item
+				\setbox\z@\hbox{\item@number}\edef\max@wd{\the\wd\z@}%
+				\begin{enumerate}[label=\protect\circle@arg{\arabic*}]
+					\collected@body
+				\end{enumerate}
+			\else
+				\expandafter\def\expandafter\collected@body\expandafter{\collected@body\end{#1}}%
+				\expandafter\get@body
+			\fi%
+		}
+
+		\newenvironment{enumcircle}
+			{\expandafter\endgroup\expandafter\def\expandafter\name@env\expandafter{\@currenvir}%
+			\let\collected@body\@empty\get@body}
+			\relax
+
+			\long\def\count@item@i#1\item{\expandafter\ifx\@car#1\@nil\count@item\else\advance\item@cnt\@ne\expandafter\item\fi}
+
+			\long\def\count@item{%
+				\begingroup
+					\let\item\count@item@i
+					\collected@body\item\count@item\item
+				\expandafter\endgroup
+				\expandafter\def\expandafter\item@number\expandafter{\number\item@cnt}}
+	\makeatother
+
+
+\begin{document}
+
+\begin{enumcircle}
+	\item Item n°1
+	\item Item n°2
+	\item Item n°3
+	\item Item n°4
+	\item Item n°5
+	\item Item n°6
+	\item Item n°7
+	\item Item n°8
+\end{enumcircle}
+
+\begin{enumcircle}
+	\item Item n°1
+	\item Item n°2
+	\item Item n°3
+	\item Item n°4
+	\item Item n°5
+	\item Item n°6
+	\item Item n°7
+	\item Item n°8
+	\item Item n°9
+	\item Item n°10
+	\item Item n°11
+	\item Item n°12
+\end{enumcircle}
+
+\end{document}

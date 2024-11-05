@@ -1,0 +1,36 @@
+% Source : http://tex.stackexchange.com/questions/36192/how-to-number-a-set-of-equations-separately-from-another-set
+
+\documentclass{report}
+	\usepackage{amsmath}
+
+
+\begin{document}
+
+\begin{subequations}
+	Equation
+	\begin{equation} \label{eq:foo}
+		0+0=0
+	\end{equation}
+
+	Result
+	\begin{equation} \label{re:foo}
+		1*1=1
+	\end{equation}
+\end{subequations}
+
+\begin{subequations}
+	Equation
+	\begin{equation} \label{eq:bar}
+		0+1=1
+	\end{equation}
+
+	Result
+	\begin{equation} \label{re:bar}
+		1*2=2
+	\end{equation}
+\end{subequations}
+
+Equation \ref{eq:foo} and Equation \ref{eq:bar}.
+Result \ref{re:foo} and Result \ref{re:bar}.
+
+\end{document}

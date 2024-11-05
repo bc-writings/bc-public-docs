@@ -1,0 +1,31 @@
+% Source : http://tex.stackexchange.com/questions/36894/underline-omitting-the-descenders
+
+\setcounter{errorcontextlines}{999}
+\documentclass{article}
+	\usepackage[T1]{fontenc}
+	\usepackage[latin1]{inputenc}
+	\usepackage{soul}
+
+	\makeatletter
+		\DeclareRobustCommand*\myul{%
+			\def\SOUL@everyspace{\underline{\space}\kern\z@}
+			\def\SOUL@everytoken{%
+				\setbox0=\hbox{\the\SOUL@token}%
+				\ifdim\dp0>\z@
+					\the\SOUL@token
+				\else
+					\underline{\the\SOUL@token}%
+				\fi%
+			}
+			\SOUL@%
+		}
+	\makeatother
+
+
+\begin{document}
+
+\myul{jumping quickly}
+
+\myul{asdsad sadsads adsad}
+
+\end{document}

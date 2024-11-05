@@ -1,0 +1,35 @@
+% Source : http://forum.mathematex.net/latex-f6/tabulation-utilisee-par-listings-t13889.html#p134457
+
+\documentclass{article}
+	\newcommand*\showdim[1][0.66667em]{%
+		\leavevmode\vrule width0.2pt height 1ex depth 0pt
+		\vrule width#1 height0.4pt depth 0pt
+		\vrule width0.2pt height 1ex depth 0pt%
+	}
+
+	\newif\ifreponse
+	\reponsefalse
+	\newcommand*\reponse{\csname @\ifreponse firstofone\else reponse\fi\endcsname}
+	\expandafter\newcommand\expandafter*\csname @reponse\endcsname[1]{%
+		{\ifmmode\setbox0\hbox{$#1$}\else\setbox0\hbox{#1}\fi
+		\expandafter}\expandafter\showdim\expandafter[\the\wd0]%
+	}
+
+
+\begin{document}
+
+\reponsefalse
+Factoriser : $x^2+2x+1=\reponse{(x+1)^2}$
+
+\reponsetrue
+Factoriser : $x^2+2x+1=\reponse{(x+1)^2}$
+
+\bigbreak
+
+\reponsefalse
+Tikz ou pstricks : \reponse{pstricks, bien s\^ur !}
+
+\reponsetrue
+Tikz ou pstricks : \reponse{pstricks, bien s\^ur !}
+
+\end{document}

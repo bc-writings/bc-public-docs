@@ -1,0 +1,29 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{dot2texi}
+\begin{document}    
+\begin{tikzpicture}[auto]
+\tikzstyle{n} = [draw,shape=rectangle,minimum size=2em,inner sep=2pt,align=center, font=\sffamily]
+    \begin{dot2tex}[dot,tikz,codeonly,styleonly, options= -s ]
+        digraph G  {
+
+        overlap = false;
+        node [style="n"];
+        root
+        top1
+        top2
+        subgraph cluster_top3 {
+            top3 ;  
+            color=invis;
+
+            top3 -> {311 312} -> 32 -> {331 332 333} -> 34 -> 35 -> 36;
+        }
+        subgraph cluster_top4 {
+            color=invis;
+            top4 -> 41 -> {421 422} -> 43 -> 44 -> 45;              
+        }
+        root -> {top1 top2 top3 top4};
+        }   
+    \end{dot2tex}
+\end{tikzpicture}
+\end{document}

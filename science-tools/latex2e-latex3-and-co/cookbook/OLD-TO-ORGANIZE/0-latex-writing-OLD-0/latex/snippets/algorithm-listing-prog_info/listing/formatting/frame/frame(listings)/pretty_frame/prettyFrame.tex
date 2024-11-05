@@ -1,0 +1,74 @@
+% Source : http://forum.mathematex.net/latex-f6/un-probleme-avec-verbatim-dans-une-commande-t11259.html#p109544
+
+\documentclass{article}
+	\usepackage[latin1]{inputenc}
+	\usepackage[frenchb]{babel}
+	\usepackage{lmodern}
+	\usepackage[T1]{fontenc}
+	\usepackage{textcomp}
+
+	\usepackage{tikz}
+	\usetikzlibrary{calc}
+	\usepackage{verbatim}
+	\usepackage{listings}
+
+	\lstset{%
+		language=[LaTeX]TeX,
+		upquote=true,
+		columns=flexible,
+		keepspaces=true,
+		basicstyle=\ttfamily\color{black},
+		commentstyle=\color{gray},
+		texcsstyle=*\color{blue},
+		keywordstyle=\color{blue},
+	}
+
+	\makeatletter
+		\newwrite{\temp@listing@out}
+		\newenvironment{code}[1][]{%
+			\lstset{#1}%
+			\immediate\openout\temp@listing@out \jobname-temp.tex
+			\bgroup\@bsphack
+			\let\do\@makeother\dospecials
+			\catcode`\^^M\active
+			\def\verbatim@processline{%
+				\immediate\write\temp@listing@out{\the\verbatim@line}%
+			}%
+			\verbatim@start%
+		}{%
+			\@esphack\egroup
+			\immediate\closeout \temp@listing@out
+			\begin{tikzpicture}
+				\node [fill=gray!10,rectangle,inner xsep=10pt,inner ysep=10pt] (box)
+				{\begin{minipage}{\dimexpr\textwidth-21.66pt\relax}
+						\lstinputlisting{\jobname-temp.tex}
+					\end{minipage}
+				};
+				\node[text=white,fill=gray,rectangle, shading=ball, ball color=gray, above right] (title) at ($(box.north west)+(-0.03,0)$){\textbf{CODE}};
+				\draw[color=gray!50!black,very thick] (box.north west)--(box.south west)--(box.south east);
+			\end{tikzpicture}
+		}
+	\makeatother
+
+
+\begin{document}
+
+\begin{code}
+truc much $1=1$%
+&=#% \relax
+\end{code}
+
+\begin{code}
+\catcode`\^=13
+\symbol{"23}\symbol{'20}
+\end{code}
+
+\begin{code}[language=Pascal]
+program HelloWorld(output);
+begin
+writeln ('Hello World');
+readln;
+end.
+\end{code}
+
+\end{document}

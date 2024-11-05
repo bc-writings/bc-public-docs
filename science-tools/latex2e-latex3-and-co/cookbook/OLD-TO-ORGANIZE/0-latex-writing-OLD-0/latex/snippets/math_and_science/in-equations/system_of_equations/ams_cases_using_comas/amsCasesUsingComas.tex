@@ -1,0 +1,30 @@
+% Source : ''un bon petit'' sur le forum mathematex.
+
+\documentclass{article}
+	\usepackage{amsmath, systeme}
+	\newcommand\simpleSysteme[2][,]{%
+		\begingroup\noexpandarg
+			\ensuremath{%
+				\begin{cases}
+					\StrSubstitute{#2}{#1}\\
+				\end{cases}%
+			}%
+		\endgroup%
+	}
+
+
+\begin{document}
+
+\simpleSysteme{
+	3x+4y-z=1,
+	2x-y=6,
+	x=-1
+}
+
+\simpleSysteme[:]{
+	3x+4y-z=1 :
+	2x-y=6 :
+	x=-1
+}
+
+\end{document}

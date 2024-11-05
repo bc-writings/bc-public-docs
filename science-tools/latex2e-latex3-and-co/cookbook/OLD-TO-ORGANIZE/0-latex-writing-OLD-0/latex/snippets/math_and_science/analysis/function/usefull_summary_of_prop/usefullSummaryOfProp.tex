@@ -1,0 +1,38 @@
+% Source : http://forum.mathematex.net/latex-f6/presentation-cubique-t13564.html#p130879
+
+\documentclass{article}
+    \usepackage[frenchb]{babel}
+    \usepackage[latin1]{inputenc}
+    \usepackage{tabularx}
+    \usepackage{tikz}
+
+\begin{document}
+    \begin{tikzpicture}
+    \begin{scope}[yslant=.5]
+    \draw (-2.5,-.5) rectangle (2.5,5);
+    \draw[->] (-2.5,0) -- (2.5,0);
+    \draw[->] (0,-.5) -- (0,5);
+    \draw[red,thick] plot[domain=-2:2] (\x,{\x*\x});
+    \end{scope}
+    \begin{scope}[xshift=-5cm,yslant=-.5]
+    \draw (-2.5,-.5) rectangle (2.5,5);
+    \node[above right,minimum height=5.5cm,yslant=-.5,inner xsep=5mm] at (-2.5,-.5) {
+    \begin{tabularx}{4cm}{*2{|>{\centering\arraybackslash}X}|}
+    \hline $x$ & $f(x)$ \\
+    \hline $-2$ & $4$\\
+    \hline $-1$ & $1$\\
+    \hline $0$ & $0$\\
+    \hline $1$ & $1$\\
+    \hline $2$ & $4$\\
+    \hline
+    \end{tabularx}
+    };
+    \end{scope}
+    \draw[yslant=.5] (-7.5,10) -- (-2.5,10) -- (2.5,5);
+    \node[rotate=28,below right] at (-6.5,6.5) {
+    \begin{minipage}{5cm}
+    Blablabla
+    \end{minipage}
+    };
+    \end{tikzpicture}
+\end{document}

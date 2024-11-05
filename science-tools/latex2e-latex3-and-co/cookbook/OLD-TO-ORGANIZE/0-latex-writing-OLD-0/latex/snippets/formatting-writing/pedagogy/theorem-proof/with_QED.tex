@@ -1,0 +1,33 @@
+% Source; http://tex.stackexchange.com/a/328519
+
+\documentclass[a4paper,11pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\usepackage{amsthm}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{question}{Question}
+
+\newenvironment{solution}{\renewcommand{\proofname}{Solution}\begin{proof}}{\end{proof}}
+
+
+\begin{document}
+
+\begin{question}
+Some question here
+\end{question}
+
+\begin{solution}
+Here goes the solution to the question
+\end{solution}
+
+\begin{theorem}
+Some theorem or formula to derive here
+\end{theorem}
+
+\begin{proof}
+Here goes the proof to the question
+\end{proof}
+
+\end{document}

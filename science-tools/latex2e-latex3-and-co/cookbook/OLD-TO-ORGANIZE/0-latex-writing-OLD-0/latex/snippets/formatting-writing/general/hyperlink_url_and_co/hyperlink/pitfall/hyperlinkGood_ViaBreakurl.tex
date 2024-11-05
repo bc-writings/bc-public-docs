@@ -1,0 +1,29 @@
+% Source : http://tex.stackexchange.com/questions/28835/option-to-break-urls-with-carriage-return-symbol
+
+\documentclass[10pt,a4paper]{article}
+	\usepackage[utf8x]{inputenc}
+	\usepackage[hyphens]{url}
+	\usepackage{hyperref}
+
+
+\begin{document}
+
+\section*{Test de breakurl...}
+
+On utilise url...
+
+\begin{enumerate}
+	\item La mise en forme à l'aide de lettrines encadrées utilise la solution très technique qui se trouve ici : \url{http://forum.mathematex.net/latex-f6/lettrine-encadree-t11998.html}
+
+	\item Le code \LaTeX{} du tableau des lettres grecques provient de là : \url{http://forum.mathematex.net/latex-f6/lettrine-encadree-t11998-20.html}
+\end{enumerate}
+
+Il reste des problèmes...
+
+\begin{enumerate}
+	\item La mise en forme à l'aide de lettrines encadrées utilise une solution technique qui se trouve ici : \url{http://forum.mathematex.net/latex-f6/lettrine-encadree-t11998.html}.
+
+	\item Le code \LaTeX{} du tableau des lettres grecques provient de ce message : \url{http://forum.mathematex.net/latex-f6/lettrine-encadree-t11998-20.html}.
+\end{enumerate}
+
+\end{document}

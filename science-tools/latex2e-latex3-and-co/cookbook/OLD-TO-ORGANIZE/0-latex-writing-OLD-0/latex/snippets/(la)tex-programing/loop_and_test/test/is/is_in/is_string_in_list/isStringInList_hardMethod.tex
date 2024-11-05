@@ -1,0 +1,32 @@
+% Source : Christian Tellechea, the author of the package xstring.
+
+\documentclass{article}
+	\makeatletter
+		\newcommand\strInList[2]{%
+			\def\test@text{#1}%
+			\strInList@i#2,\@nil}
+
+			\def\strInList@i#1,#2\@nil{%
+				\def\current@val{#1}%
+				\ifx\current@val\test@text
+					\let\next\@firstoftwo
+				\else
+					\ifx\@empty#2\@empty
+						\let\next\@secondoftwo
+					\else
+						\def\next{\strInList@i#2\@nil}%
+					\fi
+				\fi
+			\next
+		}
+	\makeatother
+
+\begin{document}
+
+\verb+\strInList{ab}{abcd,ab,eee}+ : \strInList{ab}{abcd,ab,eee}{Oui}{Non}
+
+\verb+\strInList{ab}{abcd,c,eee}+ : \strInList{ab}{abcd,c,eee}{Oui}{Non}
+
+\verb+\strInList{xxy}{abcd,c,eee,xxy}+ : \strInList{xxxy}{abcd,c,eee,xxy}{Oui}{\PackageError{lyxam}{rrr}}
+
+\end{document}

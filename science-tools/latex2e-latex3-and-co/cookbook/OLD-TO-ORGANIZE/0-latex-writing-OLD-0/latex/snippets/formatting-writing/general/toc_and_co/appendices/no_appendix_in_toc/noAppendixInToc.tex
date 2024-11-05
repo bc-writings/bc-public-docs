@@ -1,0 +1,34 @@
+% Source : http://forum.mathematex.net/latex-f6/enlever-annexes-de-la-tdm-et-creer-une-table-des-annexes-t11240.html#p109445
+
+\documentclass{scrbook}
+	\usepackage{fancyhdr}
+	\usepackage{minitoc}
+	\usepackage{hyperref}
+
+	\dominitoc
+
+
+\begin{document}
+
+\tableofcontents
+\setcounter{tocdepth}{1}% peut-être nécessaire avec minitoc
+
+\chapter{Titre de chapitre}
+
+\minitoc
+
+\section{Titre de section}
+
+\backmatter
+\addtocontents{toc}{\setcounter{tocdepth}{0}}
+\begin{appendix}
+	\chapter{Annexes}
+
+	\minitoc
+
+	\section{Titre de section}
+	\section{Titre de section}
+	\section{Titre de section}
+\end{appendix}
+
+\end{document}

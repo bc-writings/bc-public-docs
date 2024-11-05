@@ -1,0 +1,17 @@
+% Source : http://tex.stackexchange.com/questions/45712/faster-way-of-writing-mathbf
+
+\documentclass{article}
+	\def\*#1{\mathbf{#1}}
+
+
+\begin{document}
+
+\def\ab{ab}
+
+$v \neq \*v$,
+$w \neq \*w$,
+$\ab  \neq \*\ab$,
+$cd \neq \*{cd}$,
+$\Gamma \neq \*\Gamma$.
+
+\end{document}

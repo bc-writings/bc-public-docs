@@ -1,0 +1,60 @@
+% Sources :
+%	1) http://tex.stackexchange.com/questions/36432/tiks-draw-in-left-margin-putting-old-calendar-style-date-in-margin
+%	2) http://tex.stackexchange.com/questions/36554/positioning-marginnote-and-section/36556#36556
+%	3) http://tex.stackexchange.com/questions/36716/rule-before-one-new-section
+
+\documentclass[12pt]{article}
+	\usepackage{titlesec}
+	\usepackage{marginnote}
+	\usepackage{tikz}
+
+	\reversemarginpar % To put the margin pars on the left
+	\renewcommand*{\marginfont}{\sffamily\normalsize}
+
+	\usetikzlibrary{calc}
+	\usetikzlibrary{backgrounds}
+
+	\definecolor{colorDateGene}{RGB}{230,120,120}
+	\definecolor{colorDateToday}{RGB}{230,230,230}
+
+	\newcommand*{\Date}[4]{%
+		\begin{tikzpicture}[
+			show background rectangle,
+			inner frame sep=0pt,
+			text width=1cm,
+			align=center
+		]
+			\node [fill=colorDateGene]  at (0,0)                                (dayofweek)  {\footnotesize{#1}};
+			\node [fill=colorDateToday] at ($(dayofweek)  +(0,-\baselineskip)$) (dayofmonth) {#2};
+			\node [fill=colorDateToday] at ($(dayofmonth) +(0,-\baselineskip)$) (month)      {#3};
+			\node [fill=colorDateGene]  at ($(month)      +(0,-\baselineskip)$) (dayofmonth) {\footnotesize{#4}};
+		\end{tikzpicture}
+	}
+
+	\usepackage{lipsum}
+
+
+\begin{document}
+
+\addcontentsline{toc}{section}{Mon. 28 Nov.}
+\section*{One day \marginnote{\Date{Mon}{28}{NOV}{2011}}}
+
+\noindent\lipsum[1]
+
+\addcontentsline{toc}{section}{Wed. 30 Nov.}
+\section*{One day \marginnote{\Date{Wed}{30}{NOV}{2011}}}
+
+\noindent\lipsum[1]
+
+\addcontentsline{toc}{section}{Fri. 2nd Dec.}
+\section*{One day \marginnote{\Date{Fri}{2nd}{DEC}{2011}}}
+
+\noindent\lipsum[1]
+
+\newpage
+\addcontentsline{toc}{section}{Mon. 5 Dec.}
+\section*{One day \marginnote{\Date{Fri}{5}{DEC}{2011}}}
+
+\noindent\lipsum[1]
+
+\end{document}

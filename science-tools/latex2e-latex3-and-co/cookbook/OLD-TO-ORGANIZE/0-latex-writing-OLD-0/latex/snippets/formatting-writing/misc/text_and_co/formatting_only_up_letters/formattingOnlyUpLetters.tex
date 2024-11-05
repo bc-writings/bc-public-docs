@@ -1,0 +1,24 @@
+% Source : http://tex.stackexchange.com/questions/44363/applying-an-operation-only-to-capitals
+
+\documentclass{article}
+	\makeatletter
+		\def\uP#1{%
+			\@tfor\next:=#1\do{%
+				\ifnum \expandafter
+					\the\expandafter\lccode
+					\expandafter`\next=\expandafter
+					\number\expandafter`\next
+					\next
+				\else
+					\textbf{\next-}%
+				\fi%
+			}%
+		}
+	\makeatother
+
+
+\begin{document}
+
+AcRonYm : \uP{AcRonYm}
+
+\end{document}

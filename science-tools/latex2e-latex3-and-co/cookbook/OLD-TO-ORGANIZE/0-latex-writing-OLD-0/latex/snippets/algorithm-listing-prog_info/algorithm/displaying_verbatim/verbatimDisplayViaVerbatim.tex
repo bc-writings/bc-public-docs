@@ -1,0 +1,21 @@
+% Source : http://tex.stackexchange.com/questions/33033/how-can-i-show-a-macro-as-text
+
+\documentclass{article}
+	\usepackage{verbatim}
+
+	\newenvironment{xverbatim}{\verbatim}{\endverbatim}
+
+
+\begin{document}
+
+\begin{verbatim}
+\documentclass{article}
+\end{verbatim}
+
+\begin{xverbatim}
+\begin{verbatim}
+\documentclass{article}
+\end{verbatim}
+\end{xverbatim}
+
+\end{document}

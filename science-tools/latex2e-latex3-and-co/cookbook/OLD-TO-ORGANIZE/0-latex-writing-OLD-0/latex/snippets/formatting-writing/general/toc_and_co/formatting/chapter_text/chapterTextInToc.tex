@@ -1,0 +1,54 @@
+% Source : http://tex.stackexchange.com/questions/39153/table-of-contents-with-chapter
+
+\documentclass{book}
+	\usepackage{lipsum}
+	\usepackage{titletoc}
+	\titlecontents*{chapter}% <section-type>
+		[0pt]% <left>
+		{}% <above-code>
+		{\bfseries\chaptername\ \thecontentslabel\quad}% <numbered-entry-format>
+		{}% <numberless-entry-format>
+		{\bfseries\hfill\contentspage}% <filler-page-format>
+
+
+\begin{document}
+
+\tableofcontents
+
+\chapter{Introduction}
+\lipsum[1]
+
+\section{First section}
+\lipsum[2-3]
+
+\section{Second section}
+\lipsum[4-5]
+
+\section{Last section}
+\lipsum[6-7]
+
+\chapter{Second chapter}
+\lipsum[1]
+
+\section{First section}
+\lipsum[2-3]
+
+\section{Second section}
+\lipsum[4-5]
+
+\section{Last section}
+\lipsum[6-7]
+
+\chapter{Last chapter}
+\lipsum[1]
+
+\section{First section}
+\lipsum[2-3]
+
+\section{Second section}
+\lipsum[4-5]
+
+\section{Last section}
+\lipsum[6-7]
+
+\end{document}

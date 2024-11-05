@@ -1,0 +1,58 @@
+% Source : http://tex.stackexchange.com/questions/32402/how-to-prevent-page-breaks-in-lists-exam-class
+
+\documentclass{exam}
+	\makeatletter
+		\renewenvironment{checkboxes}{%
+			\par
+			\begin{minipage}{\textwidth}
+			\list{\checkbox@char}{%
+				\settowidth{\leftmargin}{W.\hskip\labelsep\hskip 2.5em}%
+				\def\choice{%
+					\if@correctchoice
+						\endgroup
+					\fi
+					\item
+					\do@choice@pageinfo
+				} % choice
+				\def\CorrectChoice{%
+					\if@correctchoice
+						\endgroup
+					\fi
+					\ifprintanswers
+% We can't say \choice here, because that would
+% insert an \endgroup:
+						\begingroup \@correctchoicetrue
+						\CorrectChoice@Emphasis
+						\item[\checked@char]
+					\else
+						\item
+					\fi
+					\do@choice@pageinfo
+				} % CorrectChoice
+				\let\correctchoice\CorrectChoice
+				\labelwidth\leftmargin\advance\labelwidth-\labelsep
+				\topsep=0pt
+				\partopsep=0pt
+				\checkboxeshook
+			}%
+		}{%
+			\if@correctchoice \endgroup \fi \endlist
+			\end{minipage}%
+		}
+	\makeatother
+
+
+\begin{document}
+
+\noindent Example of question.
+\\
+Choose a solution:
+
+\begin{checkboxes}
+	\choice A
+	\choice B
+	\choice C
+	\CorrectChoice D
+\end{checkboxes}
+
+\end{document}

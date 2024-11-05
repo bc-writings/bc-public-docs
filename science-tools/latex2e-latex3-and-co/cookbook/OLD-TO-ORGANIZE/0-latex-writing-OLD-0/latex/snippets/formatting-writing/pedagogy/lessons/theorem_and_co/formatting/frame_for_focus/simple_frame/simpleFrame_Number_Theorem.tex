@@ -1,0 +1,61 @@
+% Source : http://forum.mathematex.net/latex-f6/belle-mise-en-page-de-theoreme-t7618.html
+
+\documentclass{article}
+	\usepackage[a4paper,margin=2.5cm]{geometry}
+	\usepackage[latin1]{inputenc}
+	\usepackage{calc,color}
+	\usepackage{fancybox,amsmath}
+
+	\newcounter{numero}[section]
+	\newcommand{\comptthm}{\thesection.\arabic{numero}}
+
+	\newlength\poscadre
+	\newsavebox\titreBoite
+	\newcommand\Encadre[3][]{%
+		\stepcounter{numero}%
+		\sbox\titreBoite{\colorbox{white}{{\large\textbf{\vphantom{lp}#2~\comptthm\ifx&#1&\else\ #1\fi}}}}%
+		\settowidth\poscadre{\usebox\titreBoite}%
+		\vspace*{2ex}%
+		\noindent
+		\boxput*(-0.9,1){\makebox[\poscadre][l]{\textwidth-2\fboxsep}\usebox\titreBoite}%
+		{\fboxsep6pt%
+		\shadowbox{\parbox{\textwidth-2\fboxsep-2\fboxrule-\shadowsize}{\vspace{1.5ex}\textsl{#3}}}}%
+	}
+
+
+\begin{document}
+
+\section{Première partie}
+
+\Encadre{Définition fondamentale}{Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla.}
+\bigskip
+
+\Encadre{Théorème}{Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla.}
+
+
+\section{Deuxième partie}
+
+\Encadre[-- admise]{Propriété}{Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla.}
+
+
+\section{Troisieme partie}
+
+\Encadre{Théorème}{Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla.}
+
+\end{document}

@@ -1,0 +1,50 @@
+% Source : http://tex.stackexchange.com/questions/1023/vertically-asymmetric-size-variation-for-parentheses
+
+\documentclass{article}
+	\newlength{\parenheight}
+	\newlength{\parendepth}
+	\newlength{\parendrop}
+
+	\newcommand{\paren}[4]{%
+		\settoheight{\parenheight}{\(#4 #2\)}%
+		\settodepth{\parendepth}{\(#4 #2\)}
+		\addtolength{\parendepth}{.5ex}
+		\addtolength{\parenheight}{-.5ex}
+		\addtolength{\parenheight}{\parendepth}
+		\addtolength{\parendepth}{-.5\parenheight}
+		\setlength{\parendrop}{-.5\parenheight}
+		\addtolength{\parendrop}{.5ex}
+		\raisebox{-\parendepth}{\(#4
+		\left#1%
+		\rule[\parendrop]{0pt}{\parenheight}%
+		\right.\)}
+		#2
+		\raisebox{-\parendepth}{\(#4
+		\left.%
+		\rule[\parendrop]{0pt}{\parenheight}%
+		\right#3\)}
+	}
+
+	\def\myleft#1#2\myright#3{%
+		\mathchoice{%
+		\paren{#1}{#2}{#3}{\displaystyle}%
+		}{%
+		\paren{#1}{#2}{#3}{\textstyle}%
+		}{%
+		\paren{#1}{#2}{#3}{\scriptstyle}%
+		}{%
+		\paren{#1}{#2}{#3}{\scriptscriptstyle}%
+		}%
+	}
+
+\begin{document}
+
+\(
+	\myleft(\prod_{{s = 0 \atop s \ne 3}} X_s\myright)^2 \left(A\right) \left(x\right)
+\)
+
+\[
+	\myleft(\prod_{{s = 0 \atop s \ne 3}} X_s\myright)^2 \left(A\right) \left(x\right)
+\]
+
+\end{document}

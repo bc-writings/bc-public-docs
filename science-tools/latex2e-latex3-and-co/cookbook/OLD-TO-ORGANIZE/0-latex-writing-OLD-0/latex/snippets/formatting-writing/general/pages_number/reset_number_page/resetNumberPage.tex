@@ -1,0 +1,25 @@
+\documentclass{book}
+	\usepackage[utf8]{inputenc}
+	\usepackage[T1]{fontenc}
+	\usepackage[frenchb]{babel}
+	\usepackage{lipsum}
+
+
+\begin{document}
+
+\chapter{DS}
+
+\lipsum[1-15]
+
+Je fais référence à la dernière page du corrigé : \pageref{labelCorrige}
+\label{labelDS}
+
+
+\chapter{Corrigé}\setcounter{page}{1}
+
+\lipsum[1-30]
+
+Je fais référence à la dernière page du DS : \pageref{labelDS}
+\label{labelCorrige}
+
+\end{document}

@@ -1,0 +1,18 @@
+% Source : http://tex.stackexchange.com/questions/6238/get-the-title-instead-of-number-of-a-referenced-chapter
+
+\documentclass{article}
+	%\usepackage{nameref}% Only if hyperref isn't loaded
+	\usepackage{hyperref}
+
+
+\begin{document}
+
+\section{First section}\label{test}
+
+Some text.
+
+\section{Secund section}
+
+Some text. Also see section ''\nameref{test}''.
+
+\end{document}

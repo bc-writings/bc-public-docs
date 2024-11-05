@@ -1,0 +1,32 @@
+% Source : http://tex.stackexchange.com/questions/32918/how-can-i-decrease-spaces-between-equations
+
+\documentclass[12pt,a4paper]{mwrep}
+	\usepackage{setspace}\onehalfspacing
+	\AtBeginDocument{%
+		\addtolength\abovedisplayskip{-0.5\baselineskip}%
+		\addtolength\belowdisplayskip{-0.5\baselineskip}%
+%		\addtolength\abovedisplayshortskip{-0.5\baselineskip}%
+%		\addtolength\belowdisplayshortskip{-0.5\baselineskip}%
+	}
+
+
+\begin{document}
+
+\chapter{Test}
+
+Text text text text text text text text text text
+\begin{equation}
+	1 + 2 + 3 = 6
+\end{equation}
+Text text text text text text text text text text
+\begin{equation}
+	1 + 2 + 3 = 6
+\end{equation}
+\begin{equation}
+	1 + 2 + 3 = 6
+\end{equation}
+some nmore text
+\par
+some more text
+
+\end{document}
