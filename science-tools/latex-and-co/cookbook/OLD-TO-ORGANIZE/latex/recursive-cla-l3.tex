@@ -6,28 +6,33 @@
 
 \begin{document}
     
-    \ExplSyntaxOn
-    
-    \seq_set_from_clist:Nn \l__ta_seq {1,2,3}
-    \seq_set_from_clist:Nn \l__tb_seq {a,b,c}
-    \seq_set_from_clist:Nn \l__tc_seq {x,y} 
-    \tl_set:Nn \l_tempa_tl { \begin{align*} }
-    \tl_put_right:Nx \l_tempa_tl
-      {
-        A&=\seq_use:Nn \l__ta_seq {+}\\
-        B&=\seq_use:Nn \l__tb_seq {+}\\
-        C&=\seq_use:Nn \l__tc_seq {+}\\
-      }
-    \seq_set_eq:NN \l__ta_seq \l__tb_seq
-    \seq_set_eq:NN \l__tb_seq \l__tc_seq
-    \tl_put_right:Nx \l_tempa_tl
-    {
-        A&=\seq_use:Nn \l__ta_seq {+}\\
-        B&=\seq_use:Nn \l__tb_seq {+}\\
-        C&=\seq_use:Nn \l__tc_seq {+}\\
-      }
-    \tl_put_right:Nn \l_tempa_tl { \end{align*} }
-    
-        \l_tempa_tl
+\ExplSyntaxOn
+
+\seq_set_from_clist:Nn \l__ta_seq {1,2,3}
+\seq_set_from_clist:Nn \l__tb_seq {a,b,c}
+\seq_set_from_clist:Nn \l__tc_seq {x,y} 
+
+\tl_set:Nn \l_tempa_tl { \begin{align*} }
+
+\tl_put_right:Nx \l_tempa_tl
+  {
+    A&=\seq_use:Nn \l__ta_seq {+}\\
+    B&=\seq_use:Nn \l__tb_seq {+}\\
+    C&=\seq_use:Nn \l__tc_seq {+}\\
+  }
+
+\seq_set_eq:NN \l__ta_seq \l__tb_seq
+\seq_set_eq:NN \l__tb_seq \l__tc_seq
+
+\tl_put_right:Nx \l_tempa_tl
+{
+    A&=\seq_use:Nn \l__ta_seq {+}\\
+    B&=\seq_use:Nn \l__tb_seq {+}\\
+    C&=\seq_use:Nn \l__tc_seq {+}\\
+  }
+
+\tl_put_right:Nn \l_tempa_tl { \end{align*} }
+
+    \l_tempa_tl
     
 \end{document}

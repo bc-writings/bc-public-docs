@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>From \newcommand to \NewDocumentCommand</title>
+  
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="From%20_newcommand%20to%20_NewDocumentCommand_fichiers/screen.css">
+  <link type="application/atom+xml" rel="alternate" href="https://www.texdev.net/feed.xml" title="Some TeX Developments">
+</head>
+<body class="container" data-new-gr-c-s-check-loaded="8.878.0" data-gr-ext-installed="">
+  <header>
+  <h1 class="project-name"><a href="https://www.texdev.net/">Some TeX Developments</a></h1>
+      <nav>
+        <label for="show-menu" class="show-menu">Show Menu</label>
+        <input type="checkbox" id="show-menu">
+        <ul>
+          <li>
+            <a href="https://www.texdev.net/">Home</a></li>
+          <li>
+            <a href="https://www.texdev.net/about/">About</a></li>
+          <li>
+            <a href="https://www.texdev.net/archive/">Archive</a></li>
+          <li>
+            <a href="https://www.texdev.net/contact/">Contact</a></li>
+          <li>
+            <a href="https://www.texdev.net/packages/">Packages</a></li>
+        </ul>
+      </nav></header>
+  <div class="wrap">
+  <h1>From \newcommand to \NewDocumentCommand</h1>
+
+<p>Following on from my <a href="https://www.texdev.net/2010/05/22/promoting-xparse/">last post</a>, I thought it might be useful to give some simple example of how the <a href="https://ctan.org/pkg/xparse"><code class="language-plaintext highlighter-rouge">xparse</code></a> package works and why it’s useful. I want to do this to show end users of LaTeX how it can replace <code class="language-plaintext highlighter-rouge">\newcommand</code>, so the example will not involve anything too complex, code-wise.</p>
+
+<p>First, why would you want to use <code class="language-plaintext highlighter-rouge">xparse</code>’s <code class="language-plaintext highlighter-rouge">\NewDocumentCommand</code> in place of <code class="language-plaintext highlighter-rouge">\newcommand</code>? First, <code class="language-plaintext highlighter-rouge">\NewDocumentCommand</code> can make macros that take a mixture of arguments that <code class="language-plaintext highlighter-rouge">\newcommand</code> cannot. With <code class="language-plaintext highlighter-rouge">\newcommand</code>,
+ you can make a macro that takes a number of mandatory arguments, or 
+ones where the first argument is option and in square brackets, but that
+ is it. Anything else then needs the use of TeX programming or internal 
+LaTeX macros: not really helpful for end users. The second thing is that
+ <code class="language-plaintext highlighter-rouge">\newcommand</code> macros are not ‘robust’. This shows up where you need to <code class="language-plaintext highlighter-rouge">\protect</code> things, which can be very confusing. Macros created with <code class="language-plaintext highlighter-rouge">\NewDocumentCommand</code> are robust, and this means that they work more reliably.</p>
+
+<p>I’m going to illustrate moving from <code class="language-plaintext highlighter-rouge">\newcommand</code> to <code class="language-plaintext highlighter-rouge">\NewDocumentCommand</code> with a series of simple examples. For all of them, you need to load the <code class="language-plaintext highlighter-rouge">xparse</code> package:</p>
+
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\usepackage</span><span class="p">{</span>xparse<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="macros-with-no-arguments">Macros with no arguments</h2>
+
+<p>The simplest type of macro is one with no arguments at all. This isn’t going to show off <code class="language-plaintext highlighter-rouge">xparse</code> very much but is a starting point. The traditional method to do this is</p>
+
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\newcommand\NoArgs</span><span class="p">{</span>Text to insert<span class="p">}</span>
+</code></pre></div></div>
+
+<p>which becomes</p>
+
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\NewDocumentCommand\NoArgs</span><span class="p">{}{</span>Text to insert<span class="p">}</span>
+</code></pre></div></div>
+
+<p>That does not look too bad, I hope. Notice that I’ve got an empty argument in the <code class="language-plaintext highlighter-rouge">xparse</code> case: this is where the arguments are listed, and with <code class="language-plaintext highlighter-rouge">\NewDocumentCommand</code> there always has to be a list of arguments, even if it is empty. That’s a contrast with the <code class="language-plaintext highlighter-rouge">\newcommand</code> approach, where we only need to mention arguments when there are any.</p>
+
+<h2 id="one-or-more-mandatory-arguments">One or more mandatory arguments</h2>
+
+<p>The most common type of argument for a macro is a mandatory one. With <code class="language-plaintext highlighter-rouge">\newcommand</code>, we’d give a number of arguments to use:</p>
+
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\newcommand\OneArg</span><span class="na">[1]</span><span class="p">{</span>Text using #1<span class="p">}</span>
+<span class="k">\newcommand\TwoArgs</span><span class="na">[2]</span><span class="p">{</span>Text using #1 and #2<span class="p">}</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">NewDocumentCommand</code>
+ is a bit different. Since it can work with different types of argument,
+ each one is give separately as a letter. A mandatory argument is ‘<code class="language-plaintext highlighter-rouge">m</code>’, so we’d need</p>
+
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\NewDocumentCommand\OneArg</span><span class="p">{</span>m<span class="p">}{</span>Text using #1<span class="p">}</span>
+<span class="k">\NewDocumentCommand\TwoArgs</span><span class="p">{</span>mm<span class="p">}{</span>Text using #1 and #2<span class="p">}</span>
+</code></pre></div></div>
+
+<p>This is still pretty similar to <code class="language-plaintext highlighter-rouge">\newcommand</code>: the useful stuff starts when life gets a little more complicated.</p>
+
+<h2 id="one-of-more-optional-square-brackets-arguments">One of more optional (square brackets) arguments</h2>
+
+<p>To really get something clever out of <code class="language-plaintext highlighter-rouge">xparse</code>,
+ the arguments need to be a little more varied than I’ve show so far. 
+Let’s look at optional arguments, which LaTeX puts in square brackets. 
+If I want the first argument to be optional, then LaTeX can help me</p>
+
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\newcomand\OneOptOfTwo</span><span class="na">[2][]</span><span class="p">{</span>Text with #2 and perhaps #1<span class="p">}</span>
+<span class="k">\newcomand\OneOptOfThree</span><span class="na">[3][]</span><span class="p">{</span>Text with #2, #3 and perhaps #1<span class="p">}</span>
+</code></pre></div></div>
+
+<p>If I want anything else, I’m on my own (so no more <code class="language-plaintext highlighter-rouge">\newcommand</code> examples!). First, let’s do the two example using <code class="language-plaintext highlighter-rouge">xparse</code>. An optional argument in square brackets, which works like a <code class="language-plaintext highlighter-rouge">\newcommand</code> one, is ‘<code class="language-plaintext highlighter-rouge">O</code>’ followed by <code class="language-plaintext highlighter-rouge">{}</code>:</p>
+
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\NewDocumentCommand\OneOptOfTwo</span><span class="p">{</span>O<span class="p">{}</span>m<span class="p">}</span><span class="c">%</span>
+  <span class="p">{</span>Text with #2 and perhaps #1<span class="p">}</span>
+<span class="k">\NewDocumentCommand\OneOptOfTwo</span><span class="p">{</span>O<span class="p">{}</span>mm<span class="p">}</span><span class="c">%</span>
+<span class="p">{</span>Text with #2, #3 and perhaps #1<span class="p">}</span>
+</code></pre></div></div>
+
+<p>How about two optional arguments? It’s pretty obvious:</p>
+
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\NewDocumentCommand\TwoOptOfThree</span><span class="p">{</span>O<span class="p">{}</span>O<span class="p">{}</span>m<span class="p">}</span><span class="c">%</span>
+  <span class="p">{</span>Text with #3 and perhaps #1 and #2<span class="p">}</span>
+</code></pre></div></div>
+
+<p>What if we want something as a default value for the optional argument? With <code class="language-plaintext highlighter-rouge">\newcommand</code>, that would be</p>
+
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\newcommand\OneOptWithDefault</span><span class="na">[2][default]</span><span class="c">%</span>
+  <span class="p">{</span>Text using #1 (could be the default) and #2<span class="p">}</span>
+</code></pre></div></div>
+
+<p>which would become</p>
+
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\NewDocumentCommand\OneOptWithDefault</span><span class="p">{</span>O<span class="p">{</span>default<span class="p">}</span>m<span class="p">}</span><span class="c">%</span>
+  <span class="p">{</span>Text using #1 (could be the default) and #2<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The same idea applies to each optional argument: whatever is in the braces after the <code class="language-plaintext highlighter-rouge">O</code> is the default value.</p>
+
+<h2 id="more-complex-optional-arguments">More complex optional arguments</h2>
+
+<p>You might be wondering why we need the ‘<code class="language-plaintext highlighter-rouge">{}</code>c after ‘<code class="language-plaintext highlighter-rouge">O</code>’ when there is no default value: why not just ‘<code class="language-plaintext highlighter-rouge">o</code>’? Well, there is ‘<code class="language-plaintext highlighter-rouge">o</code>’ as well. Unlike <code class="language-plaintext highlighter-rouge">\newcommand</code>, <code class="language-plaintext highlighter-rouge">\NewDocumentCommand</code>
+ can tell the difference between an option argument that is not given 
+and one that is empty. To do that, it provides a test to see if the 
+argument is empty:</p>
+
+<!--  -->
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\NewDocumentCommand\OneOptOfTwoWithTest</span><span class="p">{</span>om<span class="p">}{</span><span class="c">%</span>
+  <span class="k">\IfNoValueTF</span><span class="p">{</span>#1<span class="p">}</span>
+    <span class="p">{</span>Do stuff with #2 only<span class="p">}</span>
+    <span class="p">{</span>Do stuff with #1 and #2<span class="p">}</span><span class="c">%</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<!--  -->
+
+<p>Don’t worry if you forget to do the test: the special marker that is used here will simply print ‘-NoValue-‘ as a reminder!</p>
+
+<h2 id="two-types-of-optional-argument">Two types of optional argument</h2>
+
+<p>Sometimes you might want two different optional arguments, and be 
+able to tell which is which. This can be done by using something other 
+than square brackets, often using angle brackets (‘&lt;’ and ‘&gt;’). We
+ can do that using the letter ‘<code class="language-plaintext highlighter-rouge">d</code>’ (or ‘<code class="language-plaintext highlighter-rouge">D</code>’ if we give a default).</p>
+
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\NewDocumentCommand\TwoTypesOfOpt</span><span class="p">{</span>D&lt;&gt;<span class="p">{}</span>O<span class="p">{}</span>m<span class="p">}</span><span class="c">%</span>
+  <span class="p">{</span>Text using #1, #2 and #3<span class="p">}</span>
+</code></pre></div></div>
+
+<p>What input syntax does this make? Let’s look at some examples</p>
+
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\TwoTypesOfOpt</span><span class="p">{</span>text<span class="p">}</span>             <span class="c">% One mandatory</span>
+<span class="k">\TwoTypesOfOpt</span><span class="na">[text]</span><span class="p">{</span>text<span class="p">}</span>       <span class="c">% A normal optional</span>
+<span class="k">\TwoTypesOfOpt</span>&lt;text&gt;<span class="p">{</span>text<span class="p">}</span>       <span class="c">% A special optional</span>
+<span class="k">\TwoTypesOfOpt</span>&lt;text&gt;[text]<span class="p">{</span>text<span class="p">}</span> <span class="c">% Both optionals</span>
+</code></pre></div></div>
+
+<p>How did that work? The first two characters after the ‘<code class="language-plaintext highlighter-rouge">D</code>’ are used to find the optional argument, so in this case ‘<code class="language-plaintext highlighter-rouge">&lt;</code>’ and ‘<code class="language-plaintext highlighter-rouge">&gt;</code>’.</p>
+
+<h2 id="finding-stars-or-other-special-markers">Finding stars or other special markers</h2>
+
+<p>Another common idea in LaTeX is to use a star to indicate some special version of a macro. Creating those with <code class="language-plaintext highlighter-rouge">\newcommand</code> is difficult, but it is easy with <code class="language-plaintext highlighter-rouge">\NewDocumentCommand</code></p>
+
+<!--  -->
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\NewDocumentCommand\StarThenArg</span><span class="p">{</span>sm<span class="p">}{</span><span class="c">%</span>
+  <span class="k">\IfBooleanTF</span>#1
+    <span class="p">{</span>Use #2 with a star<span class="p">}</span>
+    <span class="p">{</span>Use #2 without a star<span class="p">}</span><span class="c">%</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<!--  -->
+
+<p>Here, ‘<code class="language-plaintext highlighter-rouge">s</code>’ represents a star argument. You’ll see that it ends up as <code class="language-plaintext highlighter-rouge">#1</code>, while the mandatory argument is <code class="language-plaintext highlighter-rouge">#2</code>. You’ll also see that there needs to be a test to see if there is a star (<code class="language-plaintext highlighter-rouge">\IfBooleanTF</code>). This doesn’t mention stars as the test can be used for other things.</p>
+
+<h2 id="summing-up">Summing up</h2>
+
+<p>There is more to <code class="language-plaintext highlighter-rouge">xparse</code>
+ than I’ve mentioned here, but I hope that this is a useful flavour of 
+what it can be used for. To get more flexibility there is a bit more to 
+think about compared to <code class="language-plaintext highlighter-rouge">\newcommand</code>, but the overall consistency is hopefully worth it.</p>
+
+  </div>
+  <footer>
+<p>(c) 2008–2021 Joseph Wright</p>
+</footer>
+<!-- This webdesign by Joseph Wright is licensed under a Creative Commons Attribution 4.0 International License - http://creativecommons.org/licenses/by/4.0/. Based on a work at https://github.com/latex3/latex3.github.io by Jonas Jacek http://jonas.me/. -->
+
+
+</body></html>

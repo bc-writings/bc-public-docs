@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>LeetCode 344: Reverse String (LaTeX) | Alan Xiang’s Blog</title>
+<meta name="generator" content="Jekyll v4.2.0">
+<meta property="og:title" content="LeetCode 344: Reverse String (LaTeX)">
+<meta name="author" content="Ziyue &quot;Alan&quot; Xiang">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="Write a function that reverses a string. The input string is given as an array of characters char[]`.">
+<meta property="og:description" content="Write a function that reverses a string. The input string is given as an array of characters char[]`.">
+<link rel="canonical" href="https://www.alanshawn.com/leetcode/2020/06/05/leetcode-344-latex.html">
+<meta property="og:url" content="https://www.alanshawn.com/leetcode/2020/06/05/leetcode-344-latex.html">
+<meta property="og:site_name" content="Alan Xiang’s Blog">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2020-06-05T00:00:00-04:00">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="LeetCode 344: Reverse String (LaTeX)">
+<script type="text/javascript" async="" src="LeetCode%20344%20Reverse%20String%20(LaTeX)%20|%20Alan%20Xiang%E2%80%99s%20Blog_fichiers/analytics.js"></script><script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.alanshawn.com/leetcode/2020/06/05/leetcode-344-latex.html"},"datePublished":"2020-06-05T00:00:00-04:00","author":{"@type":"Person","name":"Ziyue &quot;Alan&quot; Xiang"},"description":"Write a function that reverses a string. The input string is given as an array of characters char[]`.","@type":"BlogPosting","url":"https://www.alanshawn.com/leetcode/2020/06/05/leetcode-344-latex.html","headline":"LeetCode 344: Reverse String (LaTeX)","dateModified":"2020-06-05T00:00:00-04:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  <!-- webtikz<link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+    <script src="http://tikzjax.com/v1/tikzjax.js"></script>-->
+
+    <link rel="stylesheet" href="LeetCode%20344%20Reverse%20String%20(LaTeX)%20|%20Alan%20Xiang%E2%80%99s%20Blog_fichiers/poole.css">
+    <link rel="stylesheet" href="LeetCode%20344%20Reverse%20String%20(LaTeX)%20|%20Alan%20Xiang%E2%80%99s%20Blog_fichiers/hyde.css">
+    <link rel="stylesheet" href="LeetCode%20344%20Reverse%20String%20(LaTeX)%20|%20Alan%20Xiang%E2%80%99s%20Blog_fichiers/styles.css">
+    <link rel="stylesheet" href="LeetCode%20344%20Reverse%20String%20(LaTeX)%20|%20Alan%20Xiang%E2%80%99s%20Blog_fichiers/colorful.css">
+    <link rel="stylesheet" href="LeetCode%20344%20Reverse%20String%20(LaTeX)%20|%20Alan%20Xiang%E2%80%99s%20Blog_fichiers/colorbox.css">
+    <link rel="stylesheet" href="LeetCode%20344%20Reverse%20String%20(LaTeX)%20|%20Alan%20Xiang%E2%80%99s%20Blog_fichiers/button.css">
+
+    <link rel="icon" type="image/jpeg" href="https://www.alanshawn.com/site_logo.jpg">
+
+    <script src="LeetCode%20344%20Reverse%20String%20(LaTeX)%20|%20Alan%20Xiang%E2%80%99s%20Blog_fichiers/jquery-3.js"></script>
+    <script src="LeetCode%20344%20Reverse%20String%20(LaTeX)%20|%20Alan%20Xiang%E2%80%99s%20Blog_fichiers/jquery-migrate-3.js"></script>
+
+    
+
+  <script src="LeetCode%20344%20Reverse%20String%20(LaTeX)%20|%20Alan%20Xiang%E2%80%99s%20Blog_fichiers/MathJax.js" async=""></script>
+
+  <script type="text/x-mathjax-config;executed=true">
+    MathJax.Hub.Config({
+      messageStyle: "none",
+      jax: ["input/TeX", "output/HTML-CSS"],
+      extensions: [
+        "tex2jax.js",
+        "MathMenu.js",
+        "MathZoom.js",
+        "AssistiveMML.js",
+        "a11y/accessibility-menu.js"
+      ],
+      TeX: {
+        extensions: [
+          "AMSmath.js",
+          "AMSsymbols.js",
+          "noErrors.js",
+          "noUndefined.js"
+        ],
+        equationNumbers: { autoNumber: "AMS" },
+        Macros: {
+          bm: ["{\\boldsymbol #1}",1],
+        }
+      },
+      "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        scale: 80
+      }
+    });
+  </script>
+
+  <script src="LeetCode%20344%20Reverse%20String%20(LaTeX)%20|%20Alan%20Xiang%E2%80%99s%20Blog_fichiers/katex.js"></script>
+  <link rel="stylesheet" href="LeetCode%20344%20Reverse%20String%20(LaTeX)%20|%20Alan%20Xiang%E2%80%99s%20Blog_fichiers/pseudocode.css">
+  <script src="LeetCode%20344%20Reverse%20String%20(LaTeX)%20|%20Alan%20Xiang%E2%80%99s%20Blog_fichiers/pseudocode.js"></script>
+
+  
+
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async="" src="LeetCode%20344%20Reverse%20String%20(LaTeX)%20|%20Alan%20Xiang%E2%80%99s%20Blog_fichiers/js"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-161191068-1');
+  </script>
+  
+
+  <script src="LeetCode%20344%20Reverse%20String%20(LaTeX)%20|%20Alan%20Xiang%E2%80%99s%20Blog_fichiers/myscript.js"></script>
+
+<link type="application/atom+xml" rel="alternate" href="https://www.alanshawn.com/atom.xml" title="Alan Xiang's Blog">
+
+
+<style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">.MathJax_Display {text-align: center; margin: 1em 0em; position: relative; display: block!important; text-indent: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; width: 100%}
+.MathJax .merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MathJax .MJX-monospace {font-family: monospace}
+.MathJax .MJX-sans-serif {font-family: sans-serif}
+#MathJax_Tooltip {background-color: InfoBackground; color: InfoText; border: 1px solid black; box-shadow: 2px 2px 5px #AAAAAA; -webkit-box-shadow: 2px 2px 5px #AAAAAA; -moz-box-shadow: 2px 2px 5px #AAAAAA; -khtml-box-shadow: 2px 2px 5px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true'); padding: 3px 4px; z-index: 401; position: absolute; left: 0; top: 0; width: auto; height: auto; display: none}
+.MathJax {display: inline; font-style: normal; font-weight: normal; line-height: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0; min-height: 0; border: 0; padding: 0; margin: 0}
+.MathJax:focus, body :focus .MathJax {display: inline-table}
+.MathJax.MathJax_FullWidth {text-align: center; display: table-cell!important; width: 10000em!important}
+.MathJax img, .MathJax nobr, .MathJax a {border: 0; padding: 0; margin: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+img.MathJax_strut {border: 0!important; padding: 0!important; margin: 0!important; vertical-align: 0!important}
+.MathJax span {display: inline; position: static; border: 0; padding: 0; margin: 0; vertical-align: 0; line-height: normal; text-decoration: none; box-sizing: content-box}
+.MathJax nobr {white-space: nowrap!important}
+.MathJax img {display: inline!important; float: none!important}
+.MathJax * {transition: none; -webkit-transition: none; -moz-transition: none; -ms-transition: none; -o-transition: none}
+.MathJax_Processing {visibility: hidden; position: fixed; width: 0; height: 0; overflow: hidden}
+.MathJax_Processed {display: none!important}
+.MathJax_test {font-style: normal; font-weight: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow: hidden; height: 1px}
+.MathJax_test.mjx-test-display {display: table!important}
+.MathJax_test.mjx-test-inline {display: inline!important; margin-right: -1px}
+.MathJax_test.mjx-test-default {display: block!important; clear: both}
+.MathJax_ex_box {display: inline-block!important; position: absolute; overflow: hidden; min-height: 0; max-height: none; padding: 0; border: 0; margin: 0; width: 1px; height: 60ex}
+.MathJax_em_box {display: inline-block!important; position: absolute; overflow: hidden; min-height: 0; max-height: none; padding: 0; border: 0; margin: 0; width: 1px; height: 60em}
+.mjx-test-inline .MathJax_left_box {display: inline-block; width: 0; float: left}
+.mjx-test-inline .MathJax_right_box {display: inline-block; width: 0; float: right}
+.mjx-test-display .MathJax_right_box {display: table-cell!important; width: 10000em!important; min-width: 0; max-width: none; padding: 0; border: 0; margin: 0}
+.MathJax .MathJax_HitBox {cursor: text; background: white; opacity: 0; filter: alpha(opacity=0)}
+.MathJax .MathJax_HitBox * {filter: none; opacity: 1; background: transparent}
+#MathJax_Tooltip * {filter: none; opacity: 1; background: transparent}
+@font-face {font-family: MathJax_Blank; src: url('about:blank')}
+.MathJax .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+
+
+  <body data-new-gr-c-s-check-loaded="8.872.0" data-gr-ext-installed=""><div style="visibility: hidden; overflow: hidden; position: absolute; top: 0px; height: 1px; width: auto; padding: 0px; border: 0px none; margin: 0px; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal;"><div id="MathJax_Hidden"></div></div><div id="MathJax_Message" style="display: none;"></div>
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky sidebar-base-font">
+
+    <div style="color: white; font-size: 80%">
+      “Any fool can know. The point is to understand.”
+      <div style="text-align: right;">― Albert Einstein</div>
+    </div>
+
+    <div class="sidebar-about">
+      <h2>
+        <a href="https://www.alanshawn.com/">
+          Alan Xiang's Blog
+        </a>
+      </h2>
+      <p class="lead">Enjoy your transient life.</p>
+    </div>
+
+    <nav class="sidebar-nav sidebar-nav-font">
+
+      
+      
+        
+          
+            <a class="sidebar-nav-item" href="https://www.alanshawn.com/about/">About Me</a>
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="https://www.alanshawn.com/post_directory/">Post Directory</a>
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+      <a class="sidebar-nav-item" href="https://www.alanshawn.com/media/2021/cv_2021.pdf">CV</a>
+        <a class="sidebar-nav-item" href="https://www.alanshawn.com/latex-service">LaTeX Service</a>
+
+      <div class="sidebar-collections">
+          <div style="text-align: center; color: #bbbbbb;">-Collections-</div>
+          <a class="curated-button" id="btn1" href="https://www.alanshawn.com/sci_py_series">Scientific Python</a>
+          <a class="curated-button" id="btn3" href="https://www.alanshawn.com/pyopengl_series">PyCG</a>
+          <a class="curated-button" id="btn4" href="https://www.alanshawn.com/learn_julia">Learn Julia</a>
+          <a class="curated-button" id="btn5" href="https://www.alanshawn.com/jupyter_notebooks">Jupyter Notebooks</a>
+          <a class="curated-button" id="btn5" href="https://www.alanshawn.com/advanced-typesetting">Adv-Typeset</a>
+          <a class="curated-button" id="btn6" href="https://www.alanshawn.com/random-life-hacks">Life Hacks</a>
+          <a class="curated-button" id="btn2" href="https://www.alanshawn.com/su_lecture_notes">Lecture Notes @ SU</a>
+          <a class="curated-button" id="btn7" href="https://www.alanshawn.com/latex3-tutorial">LaTeX3 Tutorial</a>
+
+          
+
+
+      </div>
+
+    </nav>
+
+    <div class="footer-note-text">
+      Viewing on larger screens is advised.<br>
+      <b>RESPECT ORIGINAL WORKS!</b> When citing contents of this website, please explicitly demonstrate the source.<br>
+      在引用本网站内容时请显式地展示内容的来源。其他用户的评论并不代表作者的观点。
+    </div>
+
+    <div class="footer-copyright">
+      <a href="https://www.alanshawn.com/tech/2019/12/10/editing-cheat-sheet.html">Editing cheat sheet</a><br>
+      Generated by Jekyll on May  2, 2021.<br>
+      © 2018-2021 Ziyue Xiang, all rights reserved.<br>
+      CONTACT: ZIYUE.ALAN.XIANG at GMAIL dot COM
+    </div>
+
+  </div>
+</div>
+
+
+    <div class="content container">
+      <button onclick="topFunction()" id="top-button" title="Go to top">TOP</button>
+      <div class="post">
+  <h1 class="post-title">LeetCode 344: Reverse String (LaTeX)</h1>
+  <span class="post-date">05 Jun 2020</span>
+  <div id="table-of-contents">
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h2"><a href="#example">Example</a></li>
+<li class="toc-entry toc-h2"><a href="#notes">Notes</a></li>
+<li class="toc-entry toc-h2"><a href="#solution">Solution</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#output">Output</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#tips-for-latex-programming">Tips for LaTeX programming</a></li>
+<li class="toc-entry toc-h2"><a href="#updates">Updates</a></li>
+<li class="toc-entry toc-h2"><a href="#more-updates-07032020">More Updates (07/03/2020)</a></li>
+</ul>
+  </div>
+  <p>Write a function that reverses a string. The input string is given as an array of characters <code class="language-plaintext highlighter-rouge">char[]</code>`.</p>
+
+<!--more-->
+
+<h2 id="example">Example</h2>
+
+<p><strong>Example 1:</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: ["h","e","l","l","o"]
+Output: ["o","l","l","e","h"]
+</code></pre></div></div>
+
+<p><strong>Example 2:</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: ["H","a","n","n","a","h"]
+Output: ["h","a","n","n","a","H"]
+</code></pre></div></div>
+
+<h2 id="notes">Notes</h2>
+
+<ul>
+  <li>The original question requires in-place modification with $O(1)$ memory. Since LaTeX does not have
+proper support for ordered lists, this requirement is discarded.</li>
+</ul>
+
+<h2 id="solution">Solution</h2>
+
+<div class="highlight"><pre><span></span><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="na">[T1]</span><span class="nb">{</span>fontenc<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>expl3<span class="nb">}</span>
+
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<span class="k">\ExplSyntaxOn</span>
+
+<span class="k">\cs_set</span><span class="nn">:Npn</span> <span class="k">\reverse_string</span><span class="nn">:n</span> #1 <span class="nb">{</span>
+    <span class="c">% convert token list to string</span>
+    <span class="k">\str_set</span><span class="nn">:Nn</span> <span class="nv">\l_tmpa_str</span> <span class="nb">{</span>#1<span class="nb">}</span>
+    <span class="c">% use a sequence to save the string</span>
+    <span class="k">\seq_gclear</span><span class="nn">:N</span> <span class="nv">\g_tmpa_seq</span>
+    <span class="c">% store each character in \l_tmpa_str in \l_tmpa_seq</span>
+    <span class="c">% use \exp_args:NV to expand the first argument</span>
+    <span class="k">\exp_args</span><span class="nn">:NV</span> <span class="k">\str_map_variable</span><span class="nn">:nNn</span> <span class="nb">{</span> <span class="nv">\l_tmpa_str</span> <span class="nb">}</span> <span class="nb">{</span> <span class="nv">\l_tmpb_str</span> <span class="nb">}</span>
+        <span class="nb">{</span> <span class="k">\seq_gput_right</span><span class="nn">:NV</span> <span class="nv">\g_tmpa_seq</span> <span class="nv">\l_tmpb_str</span> <span class="nb">}</span>
+    <span class="c">% pop each element in \l_tmpa_str from right side</span>
+    <span class="k">\bool_do_while</span><span class="nn">:nn</span> <span class="nb">{</span>
+        <span class="c">% reverse the value of \seq_if_empty_p:N</span>
+        <span class="k">\bool_if</span><span class="nn">:nTF</span> <span class="nb">{</span><span class="k">\seq_if_empty_p</span><span class="nn">:N</span> <span class="nv">\g_tmpa_seq</span><span class="nb">}</span> <span class="nb">{</span><span class="nv">\c_false_bool</span><span class="nb">}</span> <span class="nb">{</span><span class="nv">\c_true_bool</span><span class="nb">}</span>
+    <span class="nb">}</span>
+        <span class="nb">{</span>   
+            <span class="k">\seq_gpop_right</span><span class="nn">:NN</span> <span class="nv">\g_tmpa_seq</span> <span class="nv">\l_tmpa_tl</span>
+            <span class="c">% generate output</span>
+            <span class="k">\tl_use</span><span class="nn">:N</span> <span class="nv">\l_tmpa_tl</span>
+        <span class="nb">}</span>
+<span class="nb">}</span>
+
+<span class="k">\newcommand</span><span class="nb">{</span><span class="k">\reversestring</span><span class="nb">}</span>[1]<span class="nb">{</span><span class="k">\reverse_string</span><span class="nn">:n</span> <span class="nb">{</span>#1<span class="nb">}}</span>
+
+<span class="k">\ExplSyntaxOff</span>
+
+<span class="k">\reversestring</span><span class="nb">{</span>abcde12345<span class="nb">}</span>
+
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</pre></div>
+
+<h3 id="output">Output</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>54321edcba
+</code></pre></div></div>
+
+<ul>
+  <li>There really isn’t much choice when it comes to reversing a string
+ in LaTeX, because LaTeX does not provide a way to read something “from 
+behind”. In this solution, I decide to construct a stack with <code class="language-plaintext highlighter-rouge">l3seq</code> to reverse the order of characters. Another way of doing so may be using an integer loop with <code class="language-plaintext highlighter-rouge">\str_item:nn</code>. But this macro seems to work by discarding characters before the desired index, so the performance may be bad.</li>
+  <li>The performance of this code isn’t great either. I tried to 
+reverse 10,000 characters, and it takes around 10 seconds to finish. I 
+think it is because the implementation of <code class="language-plaintext highlighter-rouge">l3seq</code> isn’t very efficient either.</li>
+  <li><strong>I guess the lesson learned is that don’t reverse long strings in LaTeX. Do it somewhere else!</strong></li>
+</ul>
+
+<h2 id="tips-for-latex-programming">Tips for LaTeX programming</h2>
+
+<ul>
+  <li>Due to the expansion mechanism of LaTeX, it is very inconvenient for a macro to return value(s).</li>
+  <li>Therefore, if the intended return value is to be put into text, simply <code class="language-plaintext highlighter-rouge">use</code> the result so that it is inserted into the output stream.</li>
+  <li>If the intended return value is to be used by another macro, store this value into a global variable and use the value.</li>
+</ul>
+
+<h2 id="updates">Updates</h2>
+
+<p>LaTeX3 has already provided a command to reverse tokens (<code class="language-plaintext highlighter-rouge">\tl_reverse:n</code>), which allows us to write a simpler program like so. However, after
+some experiments, I find out that this is <strong>no faster</strong> than my own version. This may imply that the internal implementation of this function
+is similar.</p>
+
+<div class="highlight"><pre><span></span><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="na">[T1]</span><span class="nb">{</span>fontenc<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>expl3<span class="nb">}</span>
+
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<span class="k">\ExplSyntaxOn</span>
+
+<span class="k">\cs_set</span><span class="nn">:Npn</span> <span class="k">\reverse_string</span><span class="nn">:n</span> #1 <span class="nb">{</span>
+    <span class="k">\tl_reverse</span><span class="nn">:n</span> <span class="nb">{</span>#1<span class="nb">}</span>
+<span class="nb">}</span>
+
+<span class="k">\newcommand</span><span class="nb">{</span><span class="k">\reversestring</span><span class="nb">}</span>[1]<span class="nb">{</span><span class="k">\reverse_string</span><span class="nn">:n</span> <span class="nb">{</span>#1<span class="nb">}}</span>
+
+<span class="k">\ExplSyntaxOff</span>
+
+<span class="k">\reversestring</span><span class="nb">{</span>abcde12345<span class="nb">}</span>
+
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</pre></div>
+
+<h2 id="more-updates-07032020">More Updates (07/03/2020)</h2>
+
+<p>It is possible to use <code class="language-plaintext highlighter-rouge">l3intarray</code> package to facilitate string reversal. The following code is capable of reversing 10,000 characters in no time.
+However, the drawbacks of this method include:</p>
+
+<ol>
+  <li>Big memory consumption: each character is probably saved as 4-byte integer.</li>
+  <li>There is a certain limit on the size of <code class="language-plaintext highlighter-rouge">l3intarray</code>. According to the documentation, the length of array can only be around <span class="MathJax_Preview" style=""></span><span class="MathJax" id="MathJax-Element-1-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mn&gt;4&lt;/mn&gt;&lt;mo&gt;&amp;#x00D7;&lt;/mo&gt;&lt;msup&gt;&lt;mn&gt;10&lt;/mn&gt;&lt;mn&gt;6&lt;/mn&gt;&lt;/msup&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-1" style="width: 2.841em; display: inline-block;"><span style="display: inline-block; position: relative; width: 3.08em; height: 0px; font-size: 92%;"><span style="position: absolute; clip: rect(1.529em, 1003.08em, 2.803em, -1000em); top: -2.597em; left: 0em;"><span class="mrow" id="MathJax-Span-2"><span class="mn" id="MathJax-Span-3" style="font-family: STIXGeneral;">4</span><span class="mo" id="MathJax-Span-4" style="font-family: STIXGeneral; padding-left: 0.25em;">×</span><span class="msubsup" id="MathJax-Span-5" style="padding-left: 0.25em;"><span style="display: inline-block; position: relative; width: 1.429em; height: 0px;"><span style="position: absolute; clip: rect(3.128em, 1000.98em, 4.181em, -1000em); top: -3.986em; left: 0em;"><span class="mn" id="MathJax-Span-6" style="font-family: STIXGeneral;">10</span><span style="display: inline-block; width: 0px; height: 3.986em;"></span></span><span style="position: absolute; top: -4.388em; left: 1em;"><span class="mn" id="MathJax-Span-7" style="font-size: 70.7%; font-family: STIXGeneral;">6</span><span style="display: inline-block; width: 0px; height: 3.986em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.597em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.079em; border-left: 0px solid; width: 0px; height: 0.95em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>4</mn><mo>×</mo><msup><mn>10</mn><mn>6</mn></msup></math></span></span><script type="math/tex" id="MathJax-Element-1">4 \times 10^6</script>. On LuaTeX, the length can be longer. (But who needs this solution if there is Lua support anyways.)</li>
+</ol>
+
+<div class="highlight"><pre><span></span><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="na">[a4paper]</span><span class="nb">{</span>geometry<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="na">[T1]</span><span class="nb">{</span>fontenc<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>mathptmx<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>amsmath, amssymb<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>tasks<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>datetime2<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>expl3<span class="nb">}</span>
+
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+
+
+<span class="k">\ExplSyntaxOn</span>
+
+<span class="k">\int_new</span><span class="nn">:N</span> <span class="nv">\l_ind_int</span>
+
+<span class="k">\cs_new</span><span class="nn">:Npn</span> <span class="k">\to_ascii</span><span class="nn">:n</span> #1 <span class="nb">{</span>
+    <span class="k">\int_eval</span><span class="nn">:n</span> <span class="nb">{</span>`#1<span class="nb">}</span>
+<span class="nb">}</span>
+
+
+<span class="k">\cs_generate_variant</span><span class="nn">:Nn</span> <span class="k">\intarray_gset</span><span class="nn">:Nnn</span> <span class="nb">{</span>Nnx<span class="nb">}</span>
+
+
+<span class="k">\cs_new</span><span class="nn">:Npn</span> <span class="k">\fill_intarr</span><span class="nn">:n</span> #1 <span class="nb">{</span>
+    <span class="k">\intarray_gset</span><span class="nn">:Nnx</span> <span class="nv">\g_tmpa_intarr</span> <span class="nb">{</span><span class="nv">\l_ind_int</span><span class="nb">}</span> <span class="nb">{</span><span class="k">\to_ascii</span><span class="nn">:n</span> <span class="nb">{</span>#1<span class="nb">}}</span>
+    <span class="k">\int_incr</span><span class="nn">:N</span> <span class="nv">\l_ind_int</span>
+<span class="nb">}</span>
+
+
+<span class="k">\cs_new</span><span class="nn">:Npn</span> <span class="k">\reverse_str</span><span class="nn">:n</span> #1 <span class="nb">{</span>
+    <span class="k">\str_set</span><span class="nn">:Nn</span> <span class="nv">\l_tmpa_str</span> <span class="nb">{</span>#1<span class="nb">}</span>
+    
+    <span class="k">\cs_if_exist</span><span class="nn">:NT</span> <span class="nv">\g_tmpa_intarr</span> <span class="nb">{</span>
+        <span class="k">\cs_gset_eq</span><span class="nn">:NN</span> <span class="nv">\g_tmpa_intarr</span> <span class="k">\undefined</span>
+    <span class="nb">}</span>
+
+    <span class="k">\intarray_new</span><span class="nn">:Nn</span> <span class="nv">\g_tmpa_intarr</span> <span class="nb">{</span><span class="k">\str_count</span><span class="nn">:N</span> <span class="nv">\l_tmpa_str</span><span class="nb">}</span>
+    
+    <span class="k">\int_set</span><span class="nn">:Nn</span> <span class="nv">\l_ind_int</span> <span class="nb">{</span>1<span class="nb">}</span>
+    <span class="k">\str_map_function</span><span class="nn">:NN</span> <span class="nv">\l_tmpa_str</span> <span class="k">\fill_intarr</span><span class="nn">:n</span>
+    
+    <span class="k">\int_set</span><span class="nn">:Nn</span> <span class="nv">\l_tmpa_int</span> <span class="nb">{</span><span class="k">\str_count</span><span class="nn">:N</span> <span class="nv">\l_tmpa_str</span><span class="nb">}</span>
+    <span class="k">\int_do_while</span><span class="nn">:nNnn</span> <span class="nb">{</span><span class="nv">\l_tmpa_int</span><span class="nb">}</span> &gt; <span class="nb">{</span>0<span class="nb">}</span> <span class="nb">{</span>
+        <span class="k">\int_set</span><span class="nn">:Nn</span> <span class="nv">\l_tmpb_int</span> <span class="nb">{</span><span class="k">\intarray_item</span><span class="nn">:Nn</span> <span class="nv">\g_tmpa_intarr</span> <span class="nb">{</span><span class="nv">\l_tmpa_int</span><span class="nb">}}</span>
+        <span class="k">\exp_args</span><span class="nn">:Nx</span> <span class="k">\tl_to_str</span><span class="nn">:n</span> <span class="nb">{</span><span class="k">\char_generate</span><span class="nn">:nn</span> <span class="nb">{</span><span class="nv">\l_tmpb_int</span><span class="nb">}{</span>12<span class="nb">}}</span>
+        <span class="k">\int_decr</span><span class="nn">:N</span> <span class="nv">\l_tmpa_int</span>
+    <span class="nb">}</span>
+<span class="nb">}</span>
+
+<span class="k">\newcommand</span><span class="nb">{</span><span class="k">\reversestr</span><span class="nb">}</span>[1]<span class="nb">{</span>
+    <span class="k">\reverse_str</span><span class="nn">:n</span> <span class="nb">{</span>#1<span class="nb">}</span>
+<span class="nb">}</span>
+
+
+<span class="k">\ExplSyntaxOff</span>
+
+
+<span class="k">\par\DTMNow</span>
+
+
+
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span> 
+</pre></div>
+
+
+</div>
+
+
+
+
+
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="https://www.alanshawn.com/tech/2021/03/27/matplotlib-latex-style.html">
+            matplotlib: High Quality Vector Graphics for LaTeX Paper
+            <small>27 Mar 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="https://www.alanshawn.com/tech/pavilion/2021/01/01/new-year.html">
+            Celebrating 2021
+            <small>01 Jan 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="https://www.alanshawn.com/tech/2020/12/14/luatex-node-inspect.html">
+            Reveal Thyself! Visualizing LuaTeX Node Structure
+            <small>14 Dec 2020</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+    <script>
+      $(document).on('ready', adjustLinkPreviewHeight);
+      $(window).on('resize', adjustLinkPreviewHeight);
+    </script>
+    
+    </div>
+
+  
+
+<div style="position: absolute; width: 0px; height: 0px; overflow: hidden; padding: 0px; border: 0px none; margin: 0px;"><div id="MathJax_Font_Test" style="position: absolute; visibility: hidden; top: 0px; left: 0px; width: auto; min-width: 0px; max-width: none; padding: 0px; border: 0px none; margin: 0px; white-space: nowrap; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; font-size: 40px; font-weight: normal; font-style: normal; font-size-adjust: none; font-family: STIXSizeOneSym, sans-serif;"></div></div></body></html>

@@ -1,0 +1,319 @@
+Delivered-To: projetmbc@gmail.com
+Received: by 2002:ac0:e145:0:0:0:0:0 with SMTP id r5csp1231051imn;
+        Fri, 16 Jul 2021 06:21:15 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJxbkovwkXYGuZ1FzeOidc3ay0X0OgxUq0cR7IjjLnE3lT70CLNCwxOkx8GpW/MCBzlccMHu
+X-Received: by 2002:a63:e14c:: with SMTP id h12mr1364271pgk.431.1626441674817;
+        Fri, 16 Jul 2021 06:21:14 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1626441674; cv=none;
+        d=google.com; s=arc-20160816;
+        b=TbZcvoQMkkDPewfWMUPZnxOkLcEtAouP0pdxmpjWISfC584WjjfmrhZvfYh34MLO3u
+         U3AjNUC8IkRNwdJ7FHJAURY6upDtZ0zOpucP+n9oQXUbwysL+5xF6PNL5CT0ejPrVjVZ
+         5ExVpmSSmp+O/dT9zk+d8CoUWv/NdP07U/LIHe4COq+gYmUof0NRrN4i2w0bhVL5Iq2g
+         plswSqSYm1yEn3EJOln610zHyRihU20uYAzkXqgEiiagO3q/5cSfgK9YLZowADSCQGxc
+         kpVxNU+butNzk1FvTBn1YCg3cMKhBN3FeEDeWwPmlcu0pLWqucn7Pgetf3rSLl2r/3xy
+         2e2g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-language:thread-index:mime-version:message-id:date:subject
+         :to:from;
+        bh=GXfJPL1zHeunQdFZhF38MobPgh2gMtrvo8iEHUMj+ZY=;
+        b=bnIG1Qmn5lf1mQxm5KFK6dzvrJssKxwt/029xUgksPjMsyeYqaBy+pdohudf3Ryz8c
+         M0M1ezqVSMcJXoGfVBjOKu381dv3TbcZYgt2eE/OWnkPe+GFWBJZenHh+tzxUAMsE3rp
+         0vEwMWc+Z9VJq210xqsG5lzJqkyYR90Z6+gS6/QsaJJWDcgmu8u3GZoYMXP9H6tfvGjn
+         U8HIPIGauB9m3vzmOdbRVEckExwTcxlK/hfHJHEYZEmSvyDiF6AzG0gW0huu5z3w8oI9
+         rooT4ZV5HpGevJ9uhs76TqPn9RQMSNhzvsmH/H/7YpSPZZXwfK0q7Q35XowJCPwBs9aT
+         FJtg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       spf=neutral (google.com: 80.12.242.131 is neither permitted nor denied by best guess record for domain of fpantigny@wanadoo.fr) smtp.mailfrom=fpantigny@wanadoo.fr
+Return-Path: <fpantigny@wanadoo.fr>
+Received: from smtp.smtpout.orange.fr (smtp09.smtpout.orange.fr. [80.12.242.131])
+        by mx.google.com with ESMTPS id u7si593620pga.571.2021.07.16.06.21.12
+        for <projetmbc@gmail.com>
+        (version=TLS1 cipher=AES128-SHA bits=128/128);
+        Fri, 16 Jul 2021 06:21:14 -0700 (PDT)
+Received-SPF: neutral (google.com: 80.12.242.131 is neither permitted nor denied by best guess record for domain of fpantigny@wanadoo.fr) client-ip=80.12.242.131;
+Authentication-Results: mx.google.com;
+       spf=neutral (google.com: 80.12.242.131 is neither permitted nor denied by best guess record for domain of fpantigny@wanadoo.fr) smtp.mailfrom=fpantigny@wanadoo.fr
+Received: from IBER6 ([185.189.23.59])
+	by mwinf5d44 with ME
+	id VpM62500L1GVs7M03pM7wK; Fri, 16 Jul 2021 15:21:07 +0200
+X-ME-Helo: IBER6
+X-ME-Auth: ZnBhbnRpZ255QHdhbmFkb28uZnI=
+X-ME-Date: Fri, 16 Jul 2021 15:21:07 +0200
+X-ME-IP: 185.189.23.59
+From: <fpantigny@wanadoo.fr>
+To: "'Christophe BAL'" <projetmbc@gmail.com>
+Subject: Concernant une question sur MathemaTeX
+Date: Fri, 16 Jul 2021 15:21:05 +0200
+Message-ID: <000001d77a45$6f87ecb0$4e97c610$@wanadoo.fr>
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+	boundary="----=_NextPart_000_0001_01D77A56.331306A0"
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: Add6QL+9jOFSO3AGRp+W+NxP9VMjfA==
+Content-Language: fr
+
+This is a multipart message in MIME format.
+
+------=_NextPart_000_0001_01D77A56.331306A0
+Content-Type: text/plain;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+Bonjour,
+
+=20
+
+J=92ai vu une question que vous avez pos=E9e sur Mathematex : =AB Une =
+fonction
+r=E9cursive ne faisant pas fi des \fi =BB.
+
+=20
+
+Christian Tellechea y a bien r=E9pondu.
+
+=20
+
+Je voulais apporter un petit compl=E9ment, mais comme ce n=92est pas une =
+r=E9ponse
+=E0 la question, je pr=E9f=E8re envoyer un mail.
+
+=20
+
+=20
+
+Une technique habituelle pour programmer la boucle sans engorgement de =
+la
+pile des appels est la suivante : =20
+
+=20
+
+\documentclass{article}
+
+=20
+
+\def\silentloop#1{% effectue #1 boucles
+
+        \ifnum #1 >0
+
+             \edef\next{\noexpand\silentloop{\number\numexpr#1-1}}
+
+        \else=20
+
+             \def\next{\relax}
+
+        \fi
+
+        \next}
+
+=20
+
+\begin{document}
+
+=20
+
+\silentloop{5000}
+
+=20
+
+\end{document}
+
+=20
+
+=E9videmment, comme, il y a des affectations dans \next, c=92est moins =
+rapide
+que la solution de Christian Tellechea.
+
+=20
+
+Avec LaTeX3, de toutes mani=E8res, il n=92y a pas de probl=E8me, car les
+conditionnelles de LaTeX3 sont plus proches des langages de =
+programmation
+habituels.
+
+=20
+
+\documentclass{article}
+
+       =20
+
+\begin{document}
+
+=20
+
+\ExplSyntaxOn
+
+=20
+
+\cs_new_protected:Npn \silentloop:n #1=20
+
+  {
+
+    \int_compare:nNnT { #1 } > 0=20
+
+      { \silentloop:x { \int_eval:n { #1 - 1 } } }
+
+  }
+
+\cs_generate_variant:Nn \silentloop:n { x }
+
+=20
+
+\silentloop:n { 5000 }
+
+=20
+
+\ExplSyntaxOff
+
+=20
+
+\end{document}
+
+=20
+
+Voil=E0, c=92est tout ce que je voulais dire...
+
+=20
+
+Fran=E7ois Pantigny
+
+=20
+
+
+------=_NextPart_000_0001_01D77A56.331306A0
+Content-Type: text/html;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" =
+xmlns:o=3D"urn:schemas-microsoft-com:office:office" =
+xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:m=3D"http://schemas.microsoft.com/office/2004/12/omml" =
+xmlns=3D"http://www.w3.org/TR/REC-html40"><head><meta =
+http-equiv=3DContent-Type content=3D"text/html; =
+charset=3Diso-8859-1"><meta name=3DGenerator content=3D"Microsoft Word =
+15 (filtered medium)"><style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-fareast-language:EN-US;}
+span.EmailStyle17
+	{mso-style-type:personal-compose;
+	font-family:"Calibri",sans-serif;
+	color:windowtext;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-family:"Calibri",sans-serif;
+	mso-fareast-language:EN-US;}
+@page WordSection1
+	{size:612.0pt 792.0pt;
+	margin:70.85pt 70.85pt 70.85pt 70.85pt;}
+div.WordSection1
+	{page:WordSection1;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]--></head><body lang=3DFR =
+link=3D"#0563C1" vlink=3D"#954F72" style=3D'word-wrap:break-word'><div =
+class=3DWordSection1><p class=3DMsoNormal>Bonjour,<o:p></o:p></p><p =
+class=3DMsoNormal><o:p>&nbsp;</o:p></p><p class=3DMsoNormal>J&#8217;ai =
+vu une question que vous avez pos=E9e sur Mathematex&nbsp;: =AB&nbsp;Une =
+fonction r=E9cursive ne faisant pas fi des =
+\fi&nbsp;=BB.<o:p></o:p></p><p class=3DMsoNormal><o:p>&nbsp;</o:p></p><p =
+class=3DMsoNormal>Christian Tellechea y a bien =
+r=E9pondu.<o:p></o:p></p><p class=3DMsoNormal><o:p>&nbsp;</o:p></p><p =
+class=3DMsoNormal>Je voulais apporter un petit compl=E9ment, mais comme =
+ce n&#8217;est pas une r=E9ponse =E0 la question, je pr=E9f=E8re envoyer =
+un mail.<o:p></o:p></p><p class=3DMsoNormal><o:p>&nbsp;</o:p></p><p =
+class=3DMsoNormal><o:p>&nbsp;</o:p></p><p class=3DMsoNormal>Une =
+technique habituelle pour programmer la boucle sans engorgement de la =
+pile des appels est la suivante&nbsp;: =A0<o:p></o:p></p><p =
+class=3DMsoNormal><o:p>&nbsp;</o:p></p><p class=3DMsoNormal><span =
+style=3D'font-family:"Courier =
+New"'>\documentclass{article}<o:p></o:p></span></p><p =
+class=3DMsoNormal><span style=3D'font-family:"Courier =
+New"'><o:p>&nbsp;</o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-family:"Courier New"'>\def\silentloop#1{% effectue #1 =
+boucles<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-family:"Courier New"'>=A0=A0=A0=A0=A0=A0=A0 \ifnum #1 =
+&gt;0<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-family:"Courier New"'>=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 =
+\edef\next{\noexpand\silentloop{\number\numexpr#1-1}}<o:p></o:p></span></=
+p><p class=3DMsoNormal><span style=3D'font-family:"Courier =
+New"'>=A0=A0=A0=A0=A0=A0=A0 \else <o:p></o:p></span></p><p =
+class=3DMsoNormal><span style=3D'font-family:"Courier =
+New"'>=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0\def\next{\relax}<o:p></o:p>=
+</span></p><p class=3DMsoNormal><span style=3D'font-family:"Courier =
+New"'>=A0=A0=A0=A0=A0=A0=A0 \fi<o:p></o:p></span></p><p =
+class=3DMsoNormal><span style=3D'font-family:"Courier =
+New"'>=A0=A0=A0=A0=A0=A0=A0 \next}<o:p></o:p></span></p><p =
+class=3DMsoNormal><span style=3D'font-family:"Courier =
+New"'><o:p>&nbsp;</o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-family:"Courier =
+New"'>\begin{document}<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-family:"Courier New"'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><span style=3D'font-family:"Courier =
+New"'>\silentloop{5000}<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-family:"Courier New"'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><span style=3D'font-family:"Courier =
+New"'>\end{document}<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-family:"Courier New"'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><span =
+style=3D'text-transform:uppercase'>=E9</span>videmment, comme, il y a =
+des affectations dans <span style=3D'font-family:"Courier =
+New"'>\next</span>, c&#8217;est moins rapide que la solution de =
+Christian Tellechea.<o:p></o:p></p><p =
+class=3DMsoNormal><o:p>&nbsp;</o:p></p><p class=3DMsoNormal>Avec LaTeX3, =
+de toutes mani=E8res, il n&#8217;y a pas de probl=E8me, car les =
+conditionnelles de LaTeX3 sont plus proches des langages de =
+programmation habituels.<o:p></o:p></p><p =
+class=3DMsoNormal><o:p>&nbsp;</o:p></p><p class=3DMsoNormal><span =
+style=3D'font-family:"Courier =
+New"'>\documentclass{article}<o:p></o:p></span></p><p =
+class=3DMsoNormal><span style=3D'font-family:"Courier =
+New"'>=A0=A0=A0=A0=A0=A0=A0 <o:p></o:p></span></p><p =
+class=3DMsoNormal><span style=3D'font-family:"Courier =
+New"'>\begin{document}<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-family:"Courier New"'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><span style=3D'font-family:"Courier =
+New"'>\ExplSyntaxOn<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-family:"Courier New"'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><span style=3D'font-family:"Courier =
+New"'>\cs_new_protected:Npn \silentloop:n #1 <o:p></o:p></span></p><p =
+class=3DMsoNormal><span style=3D'font-family:"Courier =
+New"'>=A0=A0{<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-family:"Courier New"'>=A0=A0=A0 \int_compare:nNnT { #1 } =
+&gt; 0 <o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-family:"Courier New"'>=A0=A0=A0=A0=A0=A0{ \silentloop:x { =
+\int_eval:n { #1 - 1 } } }<o:p></o:p></span></p><p =
+class=3DMsoNormal><span style=3D'font-family:"Courier New"'>=A0 =
+}<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-family:"Courier New"'>\cs_generate_variant:Nn =
+\silentloop:n { x }<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-family:"Courier New"'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><span style=3D'font-family:"Courier =
+New"'>\silentloop:n { 5000 }<o:p></o:p></span></p><p =
+class=3DMsoNormal><span style=3D'font-family:"Courier =
+New"'><o:p>&nbsp;</o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-family:"Courier =
+New"'>\ExplSyntaxOff<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-family:"Courier New"'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><span style=3D'font-family:"Courier =
+New"'>\end{document}<o:p></o:p></span></p><p =
+class=3DMsoNormal><o:p>&nbsp;</o:p></p><p class=3DMsoNormal>Voil=E0, =
+c&#8217;est tout ce que je voulais dire...<o:p></o:p></p><p =
+class=3DMsoNormal><o:p>&nbsp;</o:p></p><p class=3DMsoNormal>Fran=E7ois =
+Pantigny<o:p></o:p></p><p =
+class=3DMsoNormal><o:p>&nbsp;</o:p></p></div></body></html>
+------=_NextPart_000_0001_01D77A56.331306A0--
+

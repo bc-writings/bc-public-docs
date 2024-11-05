@@ -1,5 +1,6 @@
 % Source: 
 
+
 \documentclass{article}
 
 \usepackage{tikz}
@@ -8,20 +9,49 @@
 \begin{document}
 
 \[
-\tikzmarknode{a1}{\frac{4}{2}}+\tikzmarknode{a2}{\frac{6}{3}}=
-\frac{\tikzmarknode{b1}{(3\times 4)}+\tikzmarknode{b2}{(2\times 6)}}{\tikzmarknode{b3}{2\times 3}}=\tikzmarknode{c1}{\frac{12+12}{6}}=\tikzmarknode{c2}{\frac{24}{6}}=\tikzmarknode{d1}{4}
+      \tikzmarknode{a1}{\frac{4}{2}} + \tikzmarknode{a2}{\frac{6}{3}} 
+    =
+    \frac{\tikzmarknode{b1}{(3\times 4)} + \tikzmarknode{b2}{(2\times 6)}}{\tikzmarknode{b3}{2\times 3}}
+    =
+    \tikzmarknode{c1}{\frac{12+12}{6}} 
+    =
+    \tikzmarknode{c2}{\frac{24}{6}} 
+    =
+    \tikzmarknode{d1}{4}
 \]
 
 \begin{tikzpicture}[remember picture, overlay, font=\sffamily]
-\draw[red, thick, ->, shorten <=1em, , shorten >=1em](a2.south east)--node[below, pos=.45, scale=.4]{1}(a1.north west);
-\node[draw=red, thick, ellipse, fit=(b1), inner ysep=0, inner xsep=-1mm](ell){};
-\draw[thick, red] (ell)--++(0,.5)node[above, red, scale=.4]{This is important!};
-\draw[red, thick] (b2.south west)--node[above=2mm, red, scale=.5]{\bfseries WRONG!}(b2.north east);
-\draw[green!70!black, thick] (b3.east)--node[below]{$\uparrow$}node[below=5mm, align=left, green!70!black, scale=.5]{This multiplication is not\\necessary Try to simplify.}(b3.west) ([yshift=2pt]b3.east)--([yshift=2pt]b3.west);
-\node[draw=blue, thick, fit=(c1), inner xsep=1pt](box){};
-\draw[blue, thick, ->, shorten >=3pt] (box) to[out=90, in=90] (c2.north);
-\node[draw=yellow!70!orange, thick, circle, fit=(d1), inner sep=1pt](cir){};
-\node[draw=yellow!70!orange, thick, text=yellow!70!orange, single arrow, shape border rotate=180, anchor=west, scale=.4, single arrow tip angle=40, minimum height=30mm] at (cir.east){\quad RESULT};
+    % Flèche rouge de a2 vers a1
+    \draw[red, thick, ->, shorten <=1em, shorten >=1em]
+        (a2.south east) -- node[below, pos=.45, scale=.4]{1} (a1.north west);
+
+    % Encadrement rouge autour de b1 avec annotation
+    \node[draw=red, thick, ellipse, fit=(b1), inner ysep=0, inner xsep=-1mm] (ell) {};
+    \draw[thick, red] 
+        (ell) -- ++(0, .5) node[above, red, scale=.4]{This is important!};
+
+    % Diagonale rouge b2
+    \draw[red, thick] 
+        (b2.south west) -- node[above=2mm, red, scale=.5]{\bfseries WRONG!} (b2.north east);
+
+    % Ligne verte avec annotation de simplification sur b3
+    \draw[green!70!black, thick] 
+        (b3.east) -- node[below]{$\uparrow$} 
+        node[below=5mm, align=left, green!70!black, scale=.5]
+            {This multiplication is not\\necessary. Try to simplify.}
+        (b3.west) ([yshift=2pt]b3.east) -- ([yshift=2pt]b3.west);
+
+    % Encadrement bleu de c1 et flèche vers c2
+    \node[draw=blue, thick, fit=(c1), inner xsep=1pt] (box) {};
+    \draw[blue, thick, ->, shorten >=3pt] (box) to[out=90, in=90] (c2.north);
+
+    % Cercle jaune autour de d1 avec flèche "RESULT"
+    \node[draw=yellow!70!orange, thick, circle, fit=(d1), inner sep=1pt] (cir) {};
+    \node[draw=yellow!70!orange, thick, text=yellow!70!orange, single arrow, shape border rotate=180, anchor=west, scale=.4, single arrow tip angle=40, minimum height=30mm]
+        at (cir.east) {\quad RESULT};
 \end{tikzpicture}
 
 \end{document}
+
+
+

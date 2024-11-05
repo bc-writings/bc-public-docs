@@ -1,0 +1,86 @@
+\documentclass{article}
+\def\fairecent#1{%
+	#1#1#1#1#1#1#1#1#1#1%
+	#1#1#1#1#1#1#1#1#1#1%
+	#1#1#1#1#1#1#1#1#1#1%
+	#1#1#1#1#1#1#1#1#1#1%
+	#1#1#1#1#1#1#1#1#1#1%
+	#1#1#1#1#1#1#1#1#1#1%
+	#1#1#1#1#1#1#1#1#1#1%
+	#1#1#1#1#1#1#1#1#1#1%
+	#1#1#1#1#1#1#1#1#1#1%
+	#1#1#1#1#1#1#1#1#1#1%
+}
+\def\fairemillion#1{%
+	\expandafter\expandafter\expandafter\fairecent\expandafter\expandafter\expandafter
+		{\expandafter\fairecent\expandafter{\fairecent{#1}}}%
+}
+\def\mytestA#1{% #1 = nombre décimal
+	\ifnum0\ifdim#1pt > 7pt 1\fi \ifdim#1pt < 12pt 1\fi = 11
+		\expandafter\bonne
+	\else
+		\expandafter\mauvaise
+	\fi{\num{#1}}%
+}
+
+\ExplSyntaxOn
+
+\NewDocumentCommand\mytestB{ m }{
+    \itoine_test:n { #1 }
+}
+
+\cs_new:Nn \itoine_test:n {
+	\fp_set:Nn \l_tmpa_fp { \fp_eval:n { #1 } }
+    
+    \fp_compare:nTF { 7 < \l_tmpa_fp < 12 }{
+    	\bonne{ #1 }
+    } {
+    	\mauvaise{ #1 }
+    }    
+}
+
+\NewDocumentCommand\mytestC{ m }{
+    \itoine_test_C:n { #1 }
+}
+
+\cs_new:Nn \itoine_test_C:n {
+	\fp_set:Nn \l_tmpa_fp { \fp_eval:n { #1 } }
+    
+    \fp_compare:nNnTF {7} < \l_tmpa_fp {
+        \fp_compare:nNnTF \l_tmpa_fp < {12} {
+    		\bonne{ #1 }
+   		} {
+    		\mauvaise{ #1 }
+		}
+    } {
+    	\mauvaise{ #1 }
+    }    
+}
+
+\ExplSyntaxOff
+
+\def\bonne#1{}\def\mauvaise#1{}
+
+\begin{document}
+
+\pdfresettimer
+\fairemillion{\mytestA{9,7}}
+\verb|\mytestA| : \the\pdfelapsedtime
+
+
+\medbreak
+
+
+\pdfresettimer
+\verb|\mytestB| : \fairemillion{\mytestB{9.7}}
+\the\pdfelapsedtime
+
+
+\medbreak
+
+
+\pdfresettimer
+\verb|\mytestC| : \fairemillion{\mytestC{9.7}}
+\the\pdfelapsedtime
+
+\end{document}

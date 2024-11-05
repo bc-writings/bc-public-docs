@@ -1,0 +1,48 @@
+% Question from https://tex.stackexchange.com/questions/685884/using-tex-to-typeset-a-cryptogram
+
+\documentclass[12pt]{article}
+
+\ExplSyntaxOn
+
+\NewDocumentCommand\SetNewCode { m } {
+    #1
+}
+
+\NewDocumentCommand\cryptogram { sm } {
+    \IfBooleanTF{#1}{
+    	SOL:
+	}{
+		NO SOL:
+	}
+    #2
+}
+
+\ExplSyntaxOff
+
+\begin{document}
+
+\SetNewCode{
+	A : R,   
+	B : I,
+	F : C,
+	G : K,
+	H : D,
+	I : E,
+	P : A,
+	T : M,
+	U : N,
+	V : O,
+	Z : P
+}
+
+
+To find.
+
+\cryptogram{TGIAB FZU TGPHVGHPB}
+
+
+The solution.
+
+\cryptogram*{TGIAB FZU TGPHVGHPB}
+
+\end{document}

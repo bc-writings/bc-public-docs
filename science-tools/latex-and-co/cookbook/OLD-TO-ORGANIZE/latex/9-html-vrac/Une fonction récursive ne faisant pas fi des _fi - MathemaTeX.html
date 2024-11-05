@@ -1,0 +1,1542 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="fr"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Une fonction récursive ne faisant pas fi des \fi - MathemaTeX</title>
+
+  <link rel="alternate" type="application/atom+xml" title="Flux - MathemaTeX" href="https://www.mathematex.fr/feed">    <link rel="alternate" type="application/atom+xml" title="Flux - Tous les forums" href="https://www.mathematex.fr/feed/forums">  <link rel="alternate" type="application/atom+xml" title="Flux - Nouveaux sujets" href="https://www.mathematex.fr/feed/topics">    <link rel="alternate" type="application/atom+xml" title="Flux - Forum - Langage TeX/LaTeX et outils associés" href="https://www.mathematex.fr/feed/forum/6">  <link rel="alternate" type="application/atom+xml" title="Flux - Sujet - Une fonction récursive ne faisant pas fi des \fi" href="https://www.mathematex.fr/feed/topic/17833">
+  <link rel="canonical" href="https://www.mathematex.fr/viewtopic.php?t=17833">
+
+<!--
+  phpBB style name: prosilver
+  Based on style:   prosilver (this is the default phpBB3 style)
+  Original author:  Tom Beddard ( http://www.subBlue.com/ )
+  Modified by:
+-->
+
+<!--
+  https://realfavicongenerator.net
+-->
+
+<link rel="apple-touch-icon" sizes="180x180" href="https://www.mathematex.fr/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.mathematex.fr/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://www.mathematex.fr/favicon-16x16.png">
+<link rel="manifest" href="https://www.mathematex.fr/site.webmanifest">
+<link rel="mask-icon" href="https://www.mathematex.fr/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+<!--
+  prosilver assets (https://www.phpbb.com/styles/create/)
+-->
+
+<link href="Une%20fonction%20re%CC%81cursive%20ne%20faisant%20pas%20fi%20des%20_fi%20-%20MathemaTeX_fichiers/stylesheet_002.css" rel="stylesheet">
+<link href="Une%20fonction%20re%CC%81cursive%20ne%20faisant%20pas%20fi%20des%20_fi%20-%20MathemaTeX_fichiers/stylesheet.css" rel="stylesheet">
+
+<!--
+  Google Adsense
+-->
+
+<script src="Une%20fonction%20re%CC%81cursive%20ne%20faisant%20pas%20fi%20des%20_fi%20-%20MathemaTeX_fichiers/osd.js"></script><script type="text/javascript" async="" src="Une%20fonction%20re%CC%81cursive%20ne%20faisant%20pas%20fi%20des%20_fi%20-%20MathemaTeX_fichiers/analytics.js"></script><script src="Une%20fonction%20re%CC%81cursive%20ne%20faisant%20pas%20fi%20des%20_fi%20-%20MathemaTeX_fichiers/cookie.js"></script><script type="text/javascript" async="" src="Une%20fonction%20re%CC%81cursive%20ne%20faisant%20pas%20fi%20des%20_fi%20-%20MathemaTeX_fichiers/js_002"></script><script src="Une%20fonction%20re%CC%81cursive%20ne%20faisant%20pas%20fi%20des%20_fi%20-%20MathemaTeX_fichiers/show_ads_impl_with_ama_fy2019.js" id="google_shimpl"></script><script type="text/javascript" async="" src="Une%20fonction%20re%CC%81cursive%20ne%20faisant%20pas%20fi%20des%20_fi%20-%20MathemaTeX_fichiers/cse.js"></script><script data-ad-client="ca-pub-9031508024694163" async="" src="Une%20fonction%20re%CC%81cursive%20ne%20faisant%20pas%20fi%20des%20_fi%20-%20MathemaTeX_fichiers/adsbygoogle.js" data-checked-head="true"></script>
+
+
+<link href="Une%20fonction%20re%CC%81cursive%20ne%20faisant%20pas%20fi%20des%20_fi%20-%20MathemaTeX_fichiers/stylesheet_003.css" rel="stylesheet">
+<link href="Une%20fonction%20re%CC%81cursive%20ne%20faisant%20pas%20fi%20des%20_fi%20-%20MathemaTeX_fichiers/font-awesome.css" rel="stylesheet">
+<!--
+<link href="./styles/promatex/theme/fr/stylesheet.css?assets_version=86" rel="stylesheet">
+-->
+
+
+
+  <link href="Une%20fonction%20re%CC%81cursive%20ne%20faisant%20pas%20fi%20des%20_fi%20-%20MathemaTeX_fichiers/cookieconsent.css" rel="stylesheet">
+
+<!--[if lte IE 9]>
+  <link href="./styles/promatex/theme/tweaks.css?assets_version=86" rel="stylesheet">
+<![endif]-->
+
+<meta name="google-site-verification" content="">
+
+<link href="Une%20fonction%20re%CC%81cursive%20ne%20faisant%20pas%20fi%20des%20_fi%20-%20MathemaTeX_fichiers/googlesearch.css" rel="stylesheet" media="screen">
+<link href="Une%20fonction%20re%CC%81cursive%20ne%20faisant%20pas%20fi%20des%20_fi%20-%20MathemaTeX_fichiers/renderer.css" rel="stylesheet" media="screen">
+<link href="Une%20fonction%20re%CC%81cursive%20ne%20faisant%20pas%20fi%20des%20_fi%20-%20MathemaTeX_fichiers/pages_common.css" rel="stylesheet" media="screen">
+<link href="Une%20fonction%20re%CC%81cursive%20ne%20faisant%20pas%20fi%20des%20_fi%20-%20MathemaTeX_fichiers/phpbbads.css" rel="stylesheet" media="screen">
+
+
+
+          <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async="" src="Une%20fonction%20re%CC%81cursive%20ne%20faisant%20pas%20fi%20des%20_fi%20-%20MathemaTeX_fichiers/js"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-165885542-1', {'user_id': '3746',});
+    </script>
+
+<style type="text/css">.CtxtMenu_InfoClose {  top:.2em; right:.2em;}
+.CtxtMenu_InfoContent {  overflow:auto; text-align:left; font-size:80%;  padding:.4em .6em; border:1px inset; margin:1em 0px;  max-height:20em; max-width:30em; background-color:#EEEEEE;  white-space:normal;}
+.CtxtMenu_Info.CtxtMenu_MousePost {outline:none;}
+.CtxtMenu_Info {  position:fixed; left:50%; width:auto; text-align:center;  border:3px outset; padding:1em 2em; background-color:#DDDDDD;  color:black;  cursor:default; font-family:message-box; font-size:120%;  font-style:normal; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 15px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius:15px;               /* Safari and Chrome */  -moz-border-radius:15px;                  /* Firefox */  -khtml-border-radius:15px;                /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */  filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color="gray", Positive="true"); /* IE */}
+</style><style type="text/css">.CtxtMenu_MenuClose {  position:absolute;  cursor:pointer;  display:inline-block;  border:2px solid #AAA;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  font-family: "Courier New", Courier;  font-size:24px;  color:#F0F0F0}
+.CtxtMenu_MenuClose span {  display:block; background-color:#AAA; border:1.5px solid;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  line-height:0;  padding:8px 0 6px     /* may need to be browser-specific */}
+.CtxtMenu_MenuClose:hover {  color:white!important;  border:2px solid #CCC!important}
+.CtxtMenu_MenuClose:hover span {  background-color:#CCC!important}
+.CtxtMenu_MenuClose:hover:focus {  outline:none}
+</style><style type="text/css">.CtxtMenu_Menu {  position:absolute;  background-color:white;  color:black;  width:auto; padding:5px 0px;  border:1px solid #CCCCCC; margin:0; cursor:default;  font: menu; text-align:left; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 5px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius: 5px;             /* Safari and Chrome */  -moz-border-radius: 5px;                /* Firefox */  -khtml-border-radius: 5px;              /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */}
+.CtxtMenu_MenuItem {  padding: 1px 2em;  background:transparent;}
+.CtxtMenu_MenuArrow {  position:absolute; right:.5em; padding-top:.25em; color:#666666;  font-family: null; font-size: .75em}
+.CtxtMenu_MenuActive .CtxtMenu_MenuArrow {color:white}
+.CtxtMenu_MenuArrow.CtxtMenu_RTL {left:.5em; right:auto}
+.CtxtMenu_MenuCheck {  position:absolute; left:.7em;  font-family: null}
+.CtxtMenu_MenuCheck.CtxtMenu_RTL { right:.7em; left:auto }
+.CtxtMenu_MenuRadioCheck {  position:absolute; left: .7em;}
+.CtxtMenu_MenuRadioCheck.CtxtMenu_RTL {  right: .7em; left:auto}
+.CtxtMenu_MenuInputBox {  padding-left: 1em; right:.5em; color:#666666;  font-family: null;}
+.CtxtMenu_MenuInputBox.CtxtMenu_RTL {  left: .1em;}
+.CtxtMenu_MenuComboBox {  left:.1em; padding-bottom:.5em;}
+.CtxtMenu_MenuSlider {  left: .1em;}
+.CtxtMenu_SliderValue {  position:absolute; right:.1em; padding-top:.25em; color:#333333;  font-size: .75em}
+.CtxtMenu_SliderBar {  outline: none; background: #d3d3d3}
+.CtxtMenu_MenuLabel {  padding: 1px 2em 3px 1.33em;  font-style:italic}
+.CtxtMenu_MenuRule {  border-top: 1px solid #DDDDDD;  margin: 4px 3px;}
+.CtxtMenu_MenuDisabled {  color:GrayText}
+.CtxtMenu_MenuActive {  background-color: #606872;  color: white;}
+.CtxtMenu_MenuDisabled:focus {  background-color: #E8E8E8}
+.CtxtMenu_MenuLabel:focus {  background-color: #E8E8E8}
+.CtxtMenu_ContextMenu:focus {  outline:none}
+.CtxtMenu_ContextMenu .CtxtMenu_MenuItem:focus {  outline:none}
+.CtxtMenu_SelectionMenu {  position:relative; float:left;  border-bottom: none; -webkit-box-shadow:none; -webkit-border-radius:0px; }
+.CtxtMenu_SelectionItem {  padding-right: 1em;}
+.CtxtMenu_Selection {  right: 40%; width:50%; }
+.CtxtMenu_SelectionBox {  padding: 0em; max-height:20em; max-width: none;  background-color:#FFFFFF;}
+.CtxtMenu_SelectionDivider {  clear: both; border-top: 2px solid #000000;}
+.CtxtMenu_Menu .CtxtMenu_MenuClose {  top:-10px; left:-10px}
+</style><style id="MJX-CHTML-styles">
+mjx-container[jax="CHTML"] {
+  line-height: 0;
+}
+
+mjx-container [space="1"] {
+  margin-left: .111em;
+}
+
+mjx-container [space="2"] {
+  margin-left: .167em;
+}
+
+mjx-container [space="3"] {
+  margin-left: .222em;
+}
+
+mjx-container [space="4"] {
+  margin-left: .278em;
+}
+
+mjx-container [space="5"] {
+  margin-left: .333em;
+}
+
+mjx-container [rspace="1"] {
+  margin-right: .111em;
+}
+
+mjx-container [rspace="2"] {
+  margin-right: .167em;
+}
+
+mjx-container [rspace="3"] {
+  margin-right: .222em;
+}
+
+mjx-container [rspace="4"] {
+  margin-right: .278em;
+}
+
+mjx-container [rspace="5"] {
+  margin-right: .333em;
+}
+
+mjx-container [size="s"] {
+  font-size: 70.7%;
+}
+
+mjx-container [size="ss"] {
+  font-size: 50%;
+}
+
+mjx-container [size="Tn"] {
+  font-size: 60%;
+}
+
+mjx-container [size="sm"] {
+  font-size: 85%;
+}
+
+mjx-container [size="lg"] {
+  font-size: 120%;
+}
+
+mjx-container [size="Lg"] {
+  font-size: 144%;
+}
+
+mjx-container [size="LG"] {
+  font-size: 173%;
+}
+
+mjx-container [size="hg"] {
+  font-size: 207%;
+}
+
+mjx-container [size="HG"] {
+  font-size: 249%;
+}
+
+mjx-container [width="full"] {
+  width: 100%;
+}
+
+mjx-box {
+  display: inline-block;
+}
+
+mjx-block {
+  display: block;
+}
+
+mjx-itable {
+  display: inline-table;
+}
+
+mjx-row {
+  display: table-row;
+}
+
+mjx-row > * {
+  display: table-cell;
+}
+
+mjx-mtext {
+  display: inline-block;
+}
+
+mjx-mstyle {
+  display: inline-block;
+}
+
+mjx-merror {
+  display: inline-block;
+  color: red;
+  background-color: yellow;
+}
+
+mjx-mphantom {
+  visibility: hidden;
+}
+
+_::-webkit-full-page-media, _:future, :root mjx-container {
+  will-change: opacity;
+}
+
+mjx-assistive-mml {
+  position: absolute !important;
+  top: 0px;
+  left: 0px;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 1px 0px 0px 0px !important;
+  border: 0px !important;
+  display: block !important;
+  width: auto !important;
+  overflow: hidden !important;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+mjx-assistive-mml[display="block"] {
+  width: 100% !important;
+}
+
+mjx-math {
+  display: inline-block;
+  text-align: left;
+  line-height: 0;
+  text-indent: 0;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 100%;
+  font-size-adjust: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  word-spacing: normal;
+  white-space: nowrap;
+  direction: ltr;
+  padding: 1px 0;
+}
+
+mjx-container[jax="CHTML"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="CHTML"][display="true"][width="full"] {
+  display: flex;
+}
+
+mjx-container[jax="CHTML"][display="true"] mjx-math {
+  padding: 0;
+}
+
+mjx-container[jax="CHTML"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="CHTML"][justify="right"] {
+  text-align: right;
+}
+
+mjx-mi {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-c {
+  display: inline-block;
+}
+
+mjx-utext {
+  display: inline-block;
+  padding: .75em 0 .2em 0;
+}
+
+mjx-mspace {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-mpadded {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-rbox {
+  display: inline-block;
+  position: relative;
+}
+
+mjx-TeXAtom {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-mn {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-c::before {
+  display: block;
+  width: 0;
+}
+
+.MJX-TEX {
+  font-family: MJXZERO, MJXTEX;
+}
+
+.TEX-B {
+  font-family: MJXZERO, MJXTEX-B;
+}
+
+.TEX-I {
+  font-family: MJXZERO, MJXTEX-I;
+}
+
+.TEX-MI {
+  font-family: MJXZERO, MJXTEX-MI;
+}
+
+.TEX-BI {
+  font-family: MJXZERO, MJXTEX-BI;
+}
+
+.TEX-S1 {
+  font-family: MJXZERO, MJXTEX-S1;
+}
+
+.TEX-S2 {
+  font-family: MJXZERO, MJXTEX-S2;
+}
+
+.TEX-S3 {
+  font-family: MJXZERO, MJXTEX-S3;
+}
+
+.TEX-S4 {
+  font-family: MJXZERO, MJXTEX-S4;
+}
+
+.TEX-A {
+  font-family: MJXZERO, MJXTEX-A;
+}
+
+.TEX-C {
+  font-family: MJXZERO, MJXTEX-C;
+}
+
+.TEX-CB {
+  font-family: MJXZERO, MJXTEX-CB;
+}
+
+.TEX-FR {
+  font-family: MJXZERO, MJXTEX-FR;
+}
+
+.TEX-FRB {
+  font-family: MJXZERO, MJXTEX-FRB;
+}
+
+.TEX-SS {
+  font-family: MJXZERO, MJXTEX-SS;
+}
+
+.TEX-SSB {
+  font-family: MJXZERO, MJXTEX-SSB;
+}
+
+.TEX-SSI {
+  font-family: MJXZERO, MJXTEX-SSI;
+}
+
+.TEX-SC {
+  font-family: MJXZERO, MJXTEX-SC;
+}
+
+.TEX-T {
+  font-family: MJXZERO, MJXTEX-T;
+}
+
+.TEX-V {
+  font-family: MJXZERO, MJXTEX-V;
+}
+
+.TEX-VB {
+  font-family: MJXZERO, MJXTEX-VB;
+}
+
+mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
+  font-family: MJXZERO, MJXTEX-S1, MJXTEX-S4, MJXTEX, MJXTEX-A ! important;
+}
+
+@font-face /* 0 */ {
+  font-family: MJXZERO;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Zero.woff") format("woff");
+}
+
+@font-face /* 1 */ {
+  font-family: MJXTEX;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Regular.woff") format("woff");
+}
+
+@font-face /* 2 */ {
+  font-family: MJXTEX-B;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Bold.woff") format("woff");
+}
+
+@font-face /* 3 */ {
+  font-family: MJXTEX-I;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Math-Italic.woff") format("woff");
+}
+
+@font-face /* 4 */ {
+  font-family: MJXTEX-MI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Italic.woff") format("woff");
+}
+
+@font-face /* 5 */ {
+  font-family: MJXTEX-BI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Math-BoldItalic.woff") format("woff");
+}
+
+@font-face /* 6 */ {
+  font-family: MJXTEX-S1;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size1-Regular.woff") format("woff");
+}
+
+@font-face /* 7 */ {
+  font-family: MJXTEX-S2;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size2-Regular.woff") format("woff");
+}
+
+@font-face /* 8 */ {
+  font-family: MJXTEX-S3;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size3-Regular.woff") format("woff");
+}
+
+@font-face /* 9 */ {
+  font-family: MJXTEX-S4;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size4-Regular.woff") format("woff");
+}
+
+@font-face /* 10 */ {
+  font-family: MJXTEX-A;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_AMS-Regular.woff") format("woff");
+}
+
+@font-face /* 11 */ {
+  font-family: MJXTEX-C;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Regular.woff") format("woff");
+}
+
+@font-face /* 12 */ {
+  font-family: MJXTEX-CB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Bold.woff") format("woff");
+}
+
+@font-face /* 13 */ {
+  font-family: MJXTEX-FR;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Fraktur-Regular.woff") format("woff");
+}
+
+@font-face /* 14 */ {
+  font-family: MJXTEX-FRB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Fraktur-Bold.woff") format("woff");
+}
+
+@font-face /* 15 */ {
+  font-family: MJXTEX-SS;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Regular.woff") format("woff");
+}
+
+@font-face /* 16 */ {
+  font-family: MJXTEX-SSB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Bold.woff") format("woff");
+}
+
+@font-face /* 17 */ {
+  font-family: MJXTEX-SSI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Italic.woff") format("woff");
+}
+
+@font-face /* 18 */ {
+  font-family: MJXTEX-SC;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Script-Regular.woff") format("woff");
+}
+
+@font-face /* 19 */ {
+  font-family: MJXTEX-T;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Typewriter-Regular.woff") format("woff");
+}
+
+@font-face /* 20 */ {
+  font-family: MJXTEX-V;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Vector-Regular.woff") format("woff");
+}
+
+@font-face /* 21 */ {
+  font-family: MJXTEX-VB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Vector-Bold.woff") format("woff");
+}
+
+mjx-c.mjx-c1D447.TEX-I::before {
+  padding: 0.677em 0.704em 0 0;
+  content: "T";
+}
+
+mjx-c.mjx-c1D438.TEX-I::before {
+  padding: 0.68em 0.764em 0 0;
+  content: "E";
+}
+
+mjx-c.mjx-c1D44B.TEX-I::before {
+  padding: 0.683em 0.852em 0 0;
+  content: "X";
+}
+
+mjx-c.mjx-c1D43F.TEX-I::before {
+  padding: 0.683em 0.681em 0 0;
+  content: "L";
+}
+
+mjx-c.mjx-c1D434.TEX-I::before {
+  padding: 0.716em 0.75em 0 0;
+  content: "A";
+}
+
+mjx-c.mjx-c33::before {
+  padding: 0.665em 0.5em 0.022em 0;
+  content: "3";
+}
+</style><script src="Une%20fonction%20re%CC%81cursive%20ne%20faisant%20pas%20fi%20des%20_fi%20-%20MathemaTeX_fichiers/cse_element__fr.js" type="text/javascript"></script><link type="text/css" rel="stylesheet" href="Une%20fonction%20re%CC%81cursive%20ne%20faisant%20pas%20fi%20des%20_fi%20-%20MathemaTeX_fichiers/defaultfr.css"><link type="text/css" rel="stylesheet" href="Une%20fonction%20re%CC%81cursive%20ne%20faisant%20pas%20fi%20des%20_fi%20-%20MathemaTeX_fichiers/shiny.css"><meta http-equiv="origin-trial" content="A+b/H0b8RPXNaJgaNFpO0YOFuGK6myDQXlwnJB3SwzvNMfcndat4DZYMrP4ClJIzYWo3/yP2S+8FTZ/lpqbPAAEAAABueyJvcmlnaW4iOiJodHRwczovL2ltYXNkay5nb29nbGVhcGlzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MjYyMjA3OTksImlzVGhpcmRQYXJ0eSI6dHJ1ZX0="><meta http-equiv="origin-trial" content="A9ZgbRtm4pU3oZiuNzOsKcC8ppFSZdcjP2qYcdQrFKVzkmiWH1kdYY1Mi9x7G8+PS8HV9Ha9Cz0gaMdKsiVZIgMAAAB7eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MjYyMjA3OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AxL6oBxcpn5rQDPKSAs+d0oxNyJYq2/4esBUh3Yx5z8QfcLu+AU8iFCXYRcr/CEEfDnkxxLTsvXPJFQBxHfvkgMAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MjYyMjA3OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A9KPtG5kl3oLTk21xqynDPGQ5t18bSOpwt0w6kGa6dEWbuwjpffmdUpR3W+faZDubGT+KIk2do0BX2ca16x8qAcAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MjYyMjA3OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AookgM0K6zABiuRTZwpn+R95G2CKmUH/2+zf2kS/QpMlVZ6HTI6QekeLkrJyxeIi62p2ejcQTF464pkdlx0Nwg0AAABmeyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGUuY29tOjQ0MyIsImZlYXR1cmUiOiJUcnVzdFRva2VucyIsImV4cGlyeSI6MTYzNDA4MzE5OSwiaXNTdWJkb21haW4iOnRydWV9"><meta http-equiv="origin-trial" content="A3HucHUo1oW9s+9kIKz8mLkbcmdaj5lxt3eiIMp1Nh49dkkBlg1Fhg4Fd/r0vL69mRRA36YutI9P/lJUfL8csQoAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjI2MjIwNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A0OysezhLoCRYomumeYlubLurZTCmsjTb087OvtCy95jNM65cfEsbajrJnhaGwiTxhz38ZZbm+UhUwQuXfVPTg0AAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjI2MjIwNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="AxoOxdZQmIoA1WeAPDixRAeWDdgs7ZtVFfH2y19ziTgD1iaHE5ZGz2UdSjubkWvob9C5PrjUfkWi4ZSLgWk3Xg8AAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjI2MjIwNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A7+rMYR5onPnACrz+niKSeFdH3xw1IyHo2AZSHmxrofRk9w4HcQPMYcpBUKu6OQ6zsdxf4m/vqa6tG6Na4OLpAQAAAB4eyJvcmlnaW4iOiJodHRwczovL2ltYXNkay5nb29nbGVhcGlzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjI2MjIwNzk5LCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AwfG8hAcHnPa/kJ1Co0EvG/K0F9l1s2JZGiDLt2mhC3QI5Fh4qmsmSwrWObZFbRC9ieDaSLU6lHRxhGUF/i9sgoAAACBeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiSW50ZXJlc3RDb2hvcnRBUEkiLCJleHBpcnkiOjE2MjYyMjA3OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AwQ7dCmHkvR6FuOFxAuNnktYSQrGbL4dF+eBkrwNLALc69Wr//PnO1yzns3pjUoCaYbKHtVcnng2hU+8OUm0PAYAAACHeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiSW50ZXJlc3RDb2hvcnRBUEkiLCJleHBpcnkiOjE2MjYyMjA3OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AysVDPGQTLD/Scn78x4mLwB1tMfje5jwUpAAzGRpWsr1NzoN7MTFhT3ClmImi2svDZA7V6nWGIV8YTPsSRTe0wYAAACHeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiSW50ZXJlc3RDb2hvcnRBUEkiLCJleHBpcnkiOjE2MjYyMjA3OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><style type="text/css">.gsc-control-cse{font-family:arial, sans-serif}.gsc-control-cse .gsc-table-result{font-family:arial, sans-serif}.gsc-refinementsGradient{background:linear-gradient(to left,rgba(238,238,238,1),rgba(238,238,238,0))}.gsc-control-cse{border-color:#F5F5F5;background-color:#F5F5F5}input.gsc-input,.gsc-input-box,.gsc-input-box-hover,.gsc-input-box-focus{border-color:#B6BEC5}.gsc-search-button-v2,.gsc-search-button-v2:hover,.gsc-search-button-v2:focus{border-color:#B6BEC5;background-color:#D0D1D4;background-image:none;filter:none}.gsc-search-button-v2 svg{fill:#FFFFFF}.gsc-tabHeader.gsc-tabhActive,.gsc-refinementHeader.gsc-refinementhActive{color:#000000;border-color:#000000;background-color:#999999}.gsc-tabHeader.gsc-tabhInactive,.gsc-refinementHeader.gsc-refinementhInactive{color:#000000;border-color:#000000;background-color:#EEEEEE}.gsc-webResult.gsc-result,.gsc-results .gsc-imageResult{border-color:#E7E7E7;background-color:#F5F5F5}.gsc-webResult.gsc-result:hover{border-color:#D2D6DC;background-color:#EDEDED}.gs-webResult.gs-result a.gs-title:link,.gs-webResult.gs-result a.gs-title:link b,.gs-imageResult a.gs-title:link,.gs-imageResult a.gs-title:link b{color:#0568CD}.gs-webResult.gs-result a.gs-title:visited,.gs-webResult.gs-result a.gs-title:visited b,.gs-imageResult a.gs-title:visited,.gs-imageResult a.gs-title:visited b{color:#0568CD}.gs-webResult.gs-result a.gs-title:hover,.gs-webResult.gs-result a.gs-title:hover b,.gs-imageResult a.gs-title:hover,.gs-imageResult a.gs-title:hover b{color:#0568CD}.gs-webResult.gs-result a.gs-title:active,.gs-webResult.gs-result a.gs-title:active b,.gs-imageResult a.gs-title:active,.gs-imageResult a.gs-title:active b{color:#0568CD}.gsc-cursor-page{color:#0568CD}a.gsc-trailing-more-results:link{color:#0568CD}.gs-webResult:not(.gs-no-results-result):not(.gs-error-result) .gs-snippet,.gs-fileFormatType{color:#5F6A73}.gs-webResult div.gs-visibleUrl{color:#5F6A73}.gs-webResult div.gs-visibleUrl-short{color:#5F6A73}.gsc-cursor-box{border-color:#E7E7E7}.gsc-results .gsc-cursor-box .gsc-cursor-page{border-color:#000000;background-color:#EEEEEE;color:#000000}.gsc-results .gsc-cursor-box .gsc-cursor-current-page{border-color:#000000;background-color:#999999;color:#000000}.gsc-webResult.gsc-result.gsc-promotion{border-color:#D2D6DC;background-color:#D0D1D4}.gsc-completion-title{color:#0568CD}.gsc-completion-snippet{color:#5F6A73}.gs-promotion a.gs-title:link,.gs-promotion a.gs-title:link *,.gs-promotion .gs-snippet a:link{color:#0066CC}.gs-promotion a.gs-title:visited,.gs-promotion a.gs-title:visited *,.gs-promotion .gs-snippet a:visited{color:#0066CC}.gs-promotion a.gs-title:hover,.gs-promotion a.gs-title:hover *,.gs-promotion .gs-snippet a:hover{color:#0066CC}.gs-promotion a.gs-title:active,.gs-promotion a.gs-title:active *,.gs-promotion .gs-snippet a:active{color:#0066CC}.gs-promotion .gs-snippet,.gs-promotion .gs-title .gs-promotion-title-right,.gs-promotion .gs-title .gs-promotion-title-right *{color:#333333}.gs-promotion .gs-visibleUrl,.gs-promotion .gs-visibleUrl-short{color:#5F6A73}.gcsc-find-more-on-google{color:#0568CD}.gcsc-find-more-on-google-magnifier{fill:#0568CD}</style><link rel="preload" href="Une%20fonction%20re%CC%81cursive%20ne%20faisant%20pas%20fi%20des%20_fi%20-%20MathemaTeX_fichiers/integrator_002.js" as="script"><script type="text/javascript" src="Une%20fonction%20re%CC%81cursive%20ne%20faisant%20pas%20fi%20des%20_fi%20-%20MathemaTeX_fichiers/integrator_002.js"></script><link rel="preload" href="Une%20fonction%20re%CC%81cursive%20ne%20faisant%20pas%20fi%20des%20_fi%20-%20MathemaTeX_fichiers/integrator.js" as="script"><script type="text/javascript" src="Une%20fonction%20re%CC%81cursive%20ne%20faisant%20pas%20fi%20des%20_fi%20-%20MathemaTeX_fichiers/integrator.js"></script><style></style></head>
+<body id="phpbb" class="notouch section-viewtopic ltr hasjs" data-new-gr-c-s-check-loaded="8.878.0" data-gr-ext-installed=""><div role="dialog" aria-live="polite" aria-label="cookieconsent" aria-describedby="cookieconsent:desc" class="cc-window cc-banner cc-type-info cc-theme-classic cc-bottom cc-color-override--1687565279 cc-invisible" style="display: none;"><!--googleoff: all--><span id="cookieconsent:desc" class="cc-message">En
+ poursuivant votre navigation sur ce site, vous acceptez l’utilisation
+de cookies vous permettant de bénéficier d’une expérience de navigation
+optimale. <a aria-label="learn more about cookies" role="button" tabindex="0" class="cc-link" href="https://www.mathematex.fr/ucp.php?mode=privacy" rel="noopener noreferrer nofollow" target="_blank">En savoir plus…</a></span><div class="cc-compliance"><a aria-label="dismiss cookie message" role="button" tabindex="0" class="cc-btn cc-dismiss">J’accepte</a></div><!--googleon: all--></div>
+
+
+<div id="wrap" class="wrap">
+  <a id="top" class="top-anchor" accesskey="t"></a>
+  <div id="page-header">
+    <div class="headerbar" role="banner">
+          <div class="inner">
+
+      <div id="site-description" class="site-description">
+    <a id="logo" class="logo" href="https://www.mathematex.fr/index.php" title="Accueil du forum">
+          <span class="site_logo"></span>
+        </a>
+        <h1>MathemaTeX</h1>
+        <p>Forum francophone relatif aux mathématiques avec support MathJax, LaTeX et Asymptote.</p>
+        <p class="skiplink"><a href="#start_here">Accéder au contenu</a></p>
+      </div>
+
+                  <div id="search-box" class="search-box search-header" role="search">
+        <form action="./search.php" method="get" id="search">
+        <fieldset>
+          <input name="keywords" id="keywords" type="search" maxlength="128" title="Rechercher par mots-clés" class="inputbox search tiny" size="20" placeholder="Rechercher…">
+          <button class="button button-search" type="submit" title="Rechercher">
+            <i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">Rechercher</span>
+          </button>
+          <a href="https://www.mathematex.fr/search.php" class="button button-search-end" title="Recherche avancée">
+            <i class="icon fa-cog fa-fw" aria-hidden="true"></i><span class="sr-only">Recherche avancée</span>
+          </a>
+
+        </fieldset>
+        </form>
+      </div>
+
+      </div>
+          </div>
+        <div class="navbar" role="navigation">
+  <div class="inner">
+
+  <ul id="nav-main" class="nav-main linklist" role="menubar">
+
+    <li id="quick-links" class="quick-links dropdown-container responsive-menu" data-skip-responsive="true">
+      <a href="#" class="dropdown-trigger dropdown-toggle">
+        <i class="icon fa-bars fa-fw" aria-hidden="true"></i><span>Raccourcis</span>
+      </a>
+      <div class="dropdown">
+        <div class="pointer"><div class="pointer-inner"></div></div>
+        <ul class="dropdown-contents" role="menu">
+
+                      <li class="separator"></li>
+                          <li>
+                <a href="https://www.mathematex.fr/search.php?search_id=egosearch" role="menuitem">
+                  <i class="icon fa-file-o fa-fw icon-gray" aria-hidden="true"></i><span>Vos messages</span>
+                </a>
+              </li>
+                                      <li>
+                <a href="https://www.mathematex.fr/search.php?search_id=newposts" role="menuitem">
+                  <i class="icon fa-file-o fa-fw icon-red" aria-hidden="true"></i><span>Nouveaux messages</span>
+                </a>
+              </li>
+                                      <li>
+                <a href="https://www.mathematex.fr/search.php?search_id=unreadposts" role="menuitem">
+                  <i class="icon fa-file-o fa-fw icon-red" aria-hidden="true"></i><span>Messages non lus</span>
+                </a>
+              </li>
+                          <li>
+                <a href="https://www.mathematex.fr/search.php?search_id=unanswered" role="menuitem">
+                  <i class="icon fa-file-o fa-fw icon-gray" aria-hidden="true"></i><span>Sujets sans réponse</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.mathematex.fr/search.php?search_id=active_topics" role="menuitem">
+                  <i class="icon fa-file-o fa-fw icon-blue" aria-hidden="true"></i><span>Sujets actifs</span>
+                </a>
+              </li>
+              <li class="separator"></li>
+              <li>
+                <a href="https://www.mathematex.fr/search.php" role="menuitem">
+                  <i class="icon fa-search fa-fw" aria-hidden="true"></i><span>Rechercher</span>
+                </a>
+              </li>
+
+                      <li class="separator"></li>
+                          <li>
+                <a href="https://www.mathematex.fr/memberlist.php" role="menuitem">
+                  <i class="icon fa-group fa-fw" aria-hidden="true"></i><span>Membres</span>
+                </a>
+              </li>
+                                      <li>
+                <a href="https://www.mathematex.fr/memberlist.php?mode=team" role="menuitem">
+                  <i class="icon fa-shield fa-fw" aria-hidden="true"></i><span>L’équipe</span>
+                </a>
+              </li>
+                                <li class="separator"></li>
+
+                <li>
+      <a href="https://www.mathematex.fr/guide-mathjax" role="menuitem">
+        <i class="icon fa-superscript fa-fw" aria-hidden="true"></i><span>Guide MathJax</span>
+      </a>
+    </li>
+          </ul>
+      </div>
+    </li>
+
+        <li data-last-responsive="true">
+      <a href="https://www.mathematex.fr/help/faq" rel="help" title="Foire aux questions" role="menuitem">
+        <i class="icon fa-question-circle fa-fw" aria-hidden="true"></i><span>FAQ</span>
+      </a>
+    </li>
+
+          <li id="username_logged_in" class="rightside " data-skip-responsive="true">
+            <div class="header-profile dropdown-container">
+        <a href="https://www.mathematex.fr/ucp.php" class="header-avatar dropdown-trigger dropdown-toggle"> <span class="username">projetmbc</span></a>
+        <div class="dropdown">
+          <div class="pointer"><div class="pointer-inner"></div></div>
+          <ul class="dropdown-contents" role="menu">
+
+
+            <li>
+              <a href="https://www.mathematex.fr/ucp.php" title="Panneau de contrôle de l’utilisateur" role="menuitem">
+                <i class="icon fa-sliders fa-fw" aria-hidden="true"></i><span>Panneau de contrôle de l’utilisateur</span>
+              </a>
+            </li>
+                          <li>
+                <a href="https://www.mathematex.fr/memberlist.php?mode=viewprofile&amp;u=3746" title="Profil" role="menuitem">
+                  <i class="icon fa-user fa-fw" aria-hidden="true"></i><span>Profil</span>
+                </a>
+              </li>
+
+
+            <li class="separator"></li>
+            <li>
+              <a href="https://www.mathematex.fr/ucp.php?mode=logout&amp;sid=62cfcce6290f7c5676e3bfa87e183d06" title="Déconnexion" accesskey="x" role="menuitem">
+                <i class="icon fa-power-off fa-fw" aria-hidden="true"></i><span>Déconnexion</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+          </li>
+          <li class="rightside" data-skip-responsive="true">
+        <a href="https://www.mathematex.fr/ucp.php?i=pm&amp;folder=inbox" role="menuitem">
+          <i class="icon fa-inbox fa-fw" aria-hidden="true"></i><span>Messages privés </span><strong class="badge hidden">0</strong>
+        </a>
+      </li>
+              <li class="dropdown-container dropdown-right rightside" data-skip-responsive="true">
+        <a href="https://www.mathematex.fr/ucp.php?i=ucp_notifications" id="notification_list_button" class="dropdown-trigger dropdown-toggle">
+          <i class="icon fa-bell fa-fw" aria-hidden="true"></i><span>Notifications </span><strong class="badge hidden">0</strong>
+        </a>
+        <div id="notification_list" class="dropdown dropdown-extended notification_list">
+  <div class="pointer"><div class="pointer-inner"></div></div>
+  <div class="dropdown-contents">
+    <div class="header">
+      Notifications
+      <span class="header_settings">
+        <a href="https://www.mathematex.fr/ucp.php?i=ucp_notifications&amp;mode=notification_options">Paramètres</a>
+              </span>
+    </div>
+
+    <ul>
+                    <li class="">
+                      <a class="notification-block" href="https://www.mathematex.fr/viewtopic.php?p=161891#p161891">
+                      <img src="Une%20fonction%20re%CC%81cursive%20ne%20faisant%20pas%20fi%20des%20_fi%20-%20MathemaTeX_fichiers/no_avatar.gif" alt="">            <div class="notification_text">
+              <p class="notification-title"><strong>Citation</strong> par <span class="username">un bon petit</span> dans&nbsp;:</p>
+              <p class="notification-reference">«&nbsp;Une fonction récursive ne faisant pas fi des \fi&nbsp;»</p>                                          <p class="notification-time">mercredi 14 juillet 2021, 14:16</p>
+            </div>
+          </a>                  </li>
+              <li class="">
+                      <a class="notification-block" href="https://www.mathematex.fr/viewtopic.php?p=161872#p161872">
+                      <img src="Une%20fonction%20re%CC%81cursive%20ne%20faisant%20pas%20fi%20des%20_fi%20-%20MathemaTeX_fichiers/no_avatar.gif" alt="">            <div class="notification_text">
+              <p class="notification-title"><strong>Citation</strong> par <span style="color: #AA0000;" class="username-coloured">MB</span> dans&nbsp;:</p>
+              <p class="notification-reference">«&nbsp;Constructions de l'ensemble des entiers naturels&nbsp;»</p>                                          <p class="notification-time">lundi 05 juillet 2021, 16:32</p>
+            </div>
+          </a>                  </li>
+          </ul>
+
+    <div class="footer">
+      <a href="https://www.mathematex.fr/ucp.php?i=ucp_notifications"><span>Tout consulter</span></a>
+    </div>
+  </div>
+</div>
+      </li>
+            </ul>
+
+  <ul id="nav-breadcrumbs" class="nav-breadcrumbs linklist navlinks" role="menubar">
+
+
+    <li class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList" style="max-width: 931px;">
+
+
+              <span class="crumb" itemtype="https://schema.org/ListItem" itemprop="itemListElement" itemscope=""><a itemprop="item" href="https://www.mathematex.fr/index.php" accesskey="h" data-navbar-reference="index" title="Accueil du forum"><i class="icon fa-home fa-fw"></i><span itemprop="name">Accueil du forum</span></a><meta itemprop="position" content="1"></span>
+
+
+                <span class="crumb" itemtype="https://schema.org/ListItem" itemprop="itemListElement" itemscope="" data-forum-id="25"><a itemprop="item" href="https://www.mathematex.fr/viewforum.php?f=25" title="Forums des environnements TeX/LaTeX"><span itemprop="name">Forums des environnements TeX/LaTeX</span></a><meta itemprop="position" content="2"></span>
+
+                <span class="crumb" itemtype="https://schema.org/ListItem" itemprop="itemListElement" itemscope="" data-forum-id="6"><a itemprop="item" href="https://www.mathematex.fr/viewforum.php?f=6" title="Langage TeX/LaTeX et outils associés"><span itemprop="name">Langage TeX/LaTeX et outils associés</span></a><meta itemprop="position" content="3"></span>
+
+          </li>
+
+
+          <li class="rightside responsive-search">
+        <a href="https://www.mathematex.fr/search.php" title="Accéder aux paramètres avancés de la recherche" role="menuitem">
+          <i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">Rechercher</span>
+        </a>
+      </li>
+      </ul>
+
+  </div>
+</div>
+  </div>
+
+
+  <a id="start_here" class="anchor"></a>
+  <div id="page-body" class="page-body" role="main">
+
+
+<h2 class="topic-title"><a href="https://www.mathematex.fr/viewtopic.php?f=6&amp;t=17833">Une fonction récursive ne faisant pas fi des \fi</a></h2>
+<!-- NOTE: remove the style="display: none" when you want to have the forum description on the topic body -->
+<div style="display: none !important;">Tout ce qui concerne le langage TeX/LaTeX et ses variantes. <em class="text-italics">Ce langage est utilisable sur le forum via les balises <a href="https://www.mathematex.fr/viewtopic.php?t=17351" class="postlink">tex</a>.</em><br>
+<strong class="text-strong">[participation réservée aux membres inscrits]</strong><br></div>
+
+  <div class="rules">
+    <div class="inner">
+
+          <strong>Règles du forum</strong><br>
+      Merci de <strong class="text-strong">soigner la rédaction</strong> de vos messages et de consulter <a href="https://www.mathematex.fr/viewtopic.php?p=109966" class="postlink">ce</a> sujet avant de poster. Pensez également à utiliser la fonction <a href="https://www.mathematex.fr/search.php" class="postlink">recherche</a> du forum.
+
+    </div>
+  </div>
+
+<div class="action-bar bar-top">
+
+      <a href="https://www.mathematex.fr/posting.php?mode=reply&amp;f=6&amp;t=17833" class="button" title="Répondre">
+              <span>Répondre</span> <i class="icon fa-reply fa-fw" aria-hidden="true"></i>
+          </a>
+
+      <div class="dropdown-container dropdown-button-control topic-tools">
+    <span title="Outils du sujet" class="button button-secondary dropdown-trigger dropdown-select dropdown-toggle">
+      <i class="icon fa-wrench fa-fw" aria-hidden="true"></i>
+      <span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+    </span>
+    <div class="dropdown">
+      <div class="pointer"><div class="pointer-inner"></div></div>
+      <ul class="dropdown-contents">
+                          <li>
+            <a href="https://www.mathematex.fr/viewtopic.php?uid=3746&amp;f=6&amp;t=17833&amp;unwatch=topic&amp;start=0&amp;hash=9ee2d6b8" class="watch-topic-link" title="Se désabonner du sujet" data-ajax="toggle_link" data-toggle-class="icon fa-check-square-o fa-fw" data-toggle-text="S’abonner au sujet" data-toggle-url="./viewtopic.php?uid=3746&amp;f=6&amp;t=17833&amp;watch=topic&amp;start=0&amp;hash=9ee2d6b8" data-update-all=".watch-topic-link">
+              <i class="icon fa-square-o fa-fw" aria-hidden="true"></i><span>Se désabonner du sujet</span>
+            </a>
+          </li>
+                          <li>
+            <a href="https://www.mathematex.fr/viewtopic.php?f=6&amp;t=17833&amp;bookmark=1&amp;hash=9ee2d6b8" class="bookmark-link" title="Ajouter ce sujet aux favoris" data-ajax="alt_text" data-alt-text="Supprimer ce sujet de vos favoris" data-update-all=".bookmark-link">
+              <i class="icon fa-bookmark-o fa-fw" aria-hidden="true"></i><span>Ajouter ce sujet aux favoris</span>
+            </a>
+          </li>
+                                <li>
+          <a href="https://www.mathematex.fr/memberlist.php?mode=email&amp;t=17833" title="Envoyer le sujet par courriel">
+            <i class="icon fa-envelope-o fa-fw" aria-hidden="true"></i><span>Envoyer le sujet par courriel</span>
+          </a>
+        </li>
+                        <li>
+          <a href="https://www.mathematex.fr/viewtopic.php?f=6&amp;t=17833&amp;view=print" title="Aperçu avant impression" accesskey="p">
+            <i class="icon fa-print fa-fw" aria-hidden="true"></i><span>Aperçu avant impression</span>
+          </a>
+        </li>
+                      </ul>
+    </div>
+  </div>
+
+      <div class="search-box" role="search">
+      <form method="get" id="topic-search" action="./search.php">
+      <fieldset>
+        <input class="inputbox search tiny" type="search" name="keywords" id="search_keywords" size="20" placeholder="Rechercher…">
+        <button class="button button-search" type="submit" title="Rechercher">
+          <i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">Rechercher</span>
+        </button>
+        <a href="https://www.mathematex.fr/search.php" class="button button-search-end" title="Recherche avancée">
+          <i class="icon fa-cog fa-fw" aria-hidden="true"></i><span class="sr-only">Recherche avancée</span>
+        </a>
+        <input type="hidden" name="t" value="17833">
+<input type="hidden" name="sf" value="msgonly">
+
+      </fieldset>
+      </form>
+    </div>
+
+      <div class="pagination">
+      3 messages
+              • Page <strong>1</strong> sur <strong>1</strong>
+          </div>
+    </div>
+
+
+
+
+      <div id="p161890" class="post has-profile bg2 online">
+    <div class="inner">
+
+    <dl class="postprofile" id="profile161890">
+      <dt class="has-profile-rank no-avatar">
+        <div class="avatar-container">
+                                      </div>
+                <a href="https://www.mathematex.fr/memberlist.php?mode=viewprofile&amp;u=3746" class="username">projetmbc</a>              </dt>
+
+            <dd class="profile-rank">Utilisateur chevronné<br><img src="Une%20fonction%20re%CC%81cursive%20ne%20faisant%20pas%20fi%20des%20_fi%20-%20MathemaTeX_fichiers/ranks_n07.png" alt="Utilisateur chevronné" title="Utilisateur chevronné"></dd>
+    <dd class="profile-posts"><strong>Messages&nbsp;:</strong> <a href="https://www.mathematex.fr/search.php?author_id=3746&amp;sr=posts">1953</a></dd>    <dd class="profile-joined"><strong>Inscription&nbsp;:</strong> samedi 29 décembre 2007, 00:58</dd>
+
+
+              <dd class="profile-contact">
+        <strong>Contact&nbsp;:</strong>
+        <div class="dropdown-container dropdown-left">
+          <a href="#" class="dropdown-trigger dropdown-toggle" title="Contacter projetmbc">
+            <i class="icon fa-commenting-o fa-fw icon-lg" aria-hidden="true"></i><span class="sr-only">Contacter projetmbc</span>
+          </a>
+          <div class="dropdown">
+            <div class="pointer"><div class="pointer-inner"></div></div>
+            <div class="dropdown-contents contact-icons">
+                                                                                <div>
+                                  <a href="https://www.mathematex.fr/ucp.php?i=pm&amp;mode=compose&amp;action=quotepost&amp;p=161890" title="Envoyer un message privé">
+                    <span class="contact-icon pm-icon">Envoyer un message privé</span>                  </a>
+                                                                                                <a href="https://www.mathematex.fr/memberlist.php?mode=email&amp;u=3746" title="Envoyer un courriel" class="last-cell">
+                    <span class="contact-icon email-icon">Envoyer un courriel</span>                  </a>
+                                  </div>
+                                          </div>
+          </div>
+        </div>
+      </dd>
+
+    </dl>
+
+    <div class="postbody">
+            <div id="post_content161890">
+
+          <h3 class="first">
+            <a href="https://www.mathematex.fr/viewtopic.php?p=161890#p161890">Une fonction récursive ne faisant pas fi des \fi</a>
+    </h3>
+
+                          <ul class="post-buttons">
+                                <li>
+              <a href="https://www.mathematex.fr/posting.php?mode=edit&amp;f=6&amp;p=161890" title="Modifier le message" class="button button-icon-only">
+                <i class="icon fa-pencil fa-fw" aria-hidden="true"></i><span class="sr-only">Modifier</span>
+              </a>
+            </li>
+                                          <li>
+              <a href="https://www.mathematex.fr/post/161890/report" title="Rapporter le message" class="button button-icon-only">
+                <i class="icon fa-exclamation fa-fw" aria-hidden="true"></i><span class="sr-only">Rapporter</span>
+              </a>
+            </li>
+                                                    <li>
+              <a href="https://www.mathematex.fr/posting.php?mode=quote&amp;f=6&amp;p=161890" title="Répondre en citant le message" class="button button-icon-only">
+                <i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Citer</span>
+              </a>
+            </li>
+                            <li class="responsive-menu hidden dropdown-container"><a href="javascript:void(0);" class="js-responsive-menu-link responsive-menu-link dropdown-toggle"><i class="icon fa-bars fa-fw" aria-hidden="true"></i></a><div class="dropdown"><div class="pointer"><div class="pointer-inner"></div></div><ul class="dropdown-contents"></ul></div></li></ul>
+
+            <p class="author">
+                  <a class="unread" href="https://www.mathematex.fr/viewtopic.php?p=161890#p161890" title="Message">
+            <i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Message</span>
+          </a>
+                <span class="responsive-hide">par <strong><a href="https://www.mathematex.fr/memberlist.php?mode=viewprofile&amp;u=3746" class="username">projetmbc</a></strong> » </span><time datetime="2021-07-14T11:48:26+00:00">mercredi 14 juillet 2021, 12:48</time>
+      </p>
+
+
+
+      <div class="content">Bonjour.<br>
+<br>
+Ne comprenant rien ou presque à <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 120.1%; position: relative;" tabindex="0" ctxtmenu_counter="0"><mjx-math style="width: 2.065em;" class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D447 TEX-I"></mjx-c></mjx-mi><mjx-mspace style="margin-right: -0.14em;"></mjx-mspace><mjx-mpadded><mjx-block style="margin: -0.216em 0px 0.215em; position: relative;"><mjx-rbox style="left: 0px; top: 0.215em;"><mjx-texatom texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D438 TEX-I"></mjx-c></mjx-mi></mjx-texatom></mjx-rbox></mjx-block></mjx-mpadded><mjx-mspace style="margin-right: -0.115em;"></mjx-mspace><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44B TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>T</mi><mspace width="-.14em"></mspace><mpadded height="-.5ex" depth="+.5ex" voffset="-.5ex"><mrow data-mjx-texclass="ORD"><mi>E</mi></mrow></mpadded><mspace width="-.115em"></mspace><mi>X</mi></math></mjx-assistive-mml></mjx-container>, je suis entrain de me mettre sérieusement à <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 120.1%; position: relative;" tabindex="0" ctxtmenu_counter="1"><mjx-math style="width: 3.281em;" class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43F TEX-I"></mjx-c></mjx-mi><mjx-mspace style="margin-right: -0.325em;"></mjx-mspace><mjx-mpadded><mjx-block style="margin: 0.21em 0px 0px; position: relative;"><mjx-rbox style="left: 0px; top: -0.21em;"><mjx-texatom texclass="ORD"><mjx-mstyle size="s"><mjx-texatom texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-texatom></mjx-mstyle></mjx-texatom></mjx-rbox></mjx-block></mjx-mpadded><mjx-mspace style="margin-right: -0.17em;"></mjx-mspace><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D447 TEX-I"></mjx-c></mjx-mi><mjx-mspace style="margin-right: -0.14em;"></mjx-mspace><mjx-mpadded><mjx-block style="margin: -0.216em 0px 0.215em; position: relative;"><mjx-rbox style="left: 0px; top: 0.215em;"><mjx-texatom texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D438 TEX-I"></mjx-c></mjx-mi></mjx-texatom></mjx-rbox></mjx-block></mjx-mpadded><mjx-mspace style="margin-right: -0.115em;"></mjx-mspace><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44B TEX-I"></mjx-c></mjx-mi><mjx-texatom texclass="ORD"></mjx-texatom><mjx-mn class="mjx-n"><mjx-c class="mjx-c33"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>L</mi><mspace width="-.325em"></mspace><mpadded height="+.21em" depth="-.21em" voffset="+.21em"><mrow data-mjx-texclass="ORD"><mstyle scriptlevel="1" displaystyle="false"><mrow data-mjx-texclass="ORD"><mi>A</mi></mrow></mstyle></mrow></mpadded><mspace width="-.17em"></mspace><mi>T</mi><mspace width="-.14em"></mspace><mpadded height="-.5ex" depth="+.5ex" voffset="-.5ex"><mrow data-mjx-texclass="ORD"><mi>E</mi></mrow></mpadded><mspace width="-.115em"></mspace><mi>X</mi><mrow data-mjx-texclass="ORD"></mrow><mn>3</mn></math></mjx-assistive-mml></mjx-container>
+ qui correspond mieux à mon cerveau de codeur du dimanche. J'en profite
+pour rédiger des exemples d'introduction de bas niveau, le mien, à <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 120.1%; position: relative;" tabindex="0" ctxtmenu_counter="2"><mjx-math style="width: 3.281em;" class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43F TEX-I"></mjx-c></mjx-mi><mjx-mspace style="margin-right: -0.325em;"></mjx-mspace><mjx-mpadded><mjx-block style="margin: 0.21em 0px 0px; position: relative;"><mjx-rbox style="left: 0px; top: -0.21em;"><mjx-texatom texclass="ORD"><mjx-mstyle size="s"><mjx-texatom texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-texatom></mjx-mstyle></mjx-texatom></mjx-rbox></mjx-block></mjx-mpadded><mjx-mspace style="margin-right: -0.17em;"></mjx-mspace><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D447 TEX-I"></mjx-c></mjx-mi><mjx-mspace style="margin-right: -0.14em;"></mjx-mspace><mjx-mpadded><mjx-block style="margin: -0.216em 0px 0.215em; position: relative;"><mjx-rbox style="left: 0px; top: 0.215em;"><mjx-texatom texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D438 TEX-I"></mjx-c></mjx-mi></mjx-texatom></mjx-rbox></mjx-block></mjx-mpadded><mjx-mspace style="margin-right: -0.115em;"></mjx-mspace><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44B TEX-I"></mjx-c></mjx-mi><mjx-texatom texclass="ORD"></mjx-texatom><mjx-mn class="mjx-n"><mjx-c class="mjx-c33"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>L</mi><mspace width="-.325em"></mspace><mpadded height="+.21em" depth="-.21em" voffset="+.21em"><mrow data-mjx-texclass="ORD"><mstyle scriptlevel="1" displaystyle="false"><mrow data-mjx-texclass="ORD"><mi>A</mi></mrow></mstyle></mrow></mpadded><mspace width="-.17em"></mspace><mi>T</mi><mspace width="-.14em"></mspace><mpadded height="-.5ex" depth="+.5ex" voffset="-.5ex"><mrow data-mjx-texclass="ORD"><mi>E</mi></mrow></mpadded><mspace width="-.115em"></mspace><mi>X</mi><mrow data-mjx-texclass="ORD"></mrow><mn>3</mn></math></mjx-assistive-mml></mjx-container> en vue de proposer ensuite un document d'introduction à ce langage.<br>
+<br>
+<strong class="text-strong">MA RECHERCHE.</strong> <br>
+<br>
+Je sais qu'il existe des macros récursives <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 120.1%; position: relative;" tabindex="0" ctxtmenu_counter="3"><mjx-math style="width: 2.065em;" class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D447 TEX-I"></mjx-c></mjx-mi><mjx-mspace style="margin-right: -0.14em;"></mjx-mspace><mjx-mpadded><mjx-block style="margin: -0.216em 0px 0.215em; position: relative;"><mjx-rbox style="left: 0px; top: 0.215em;"><mjx-texatom texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D438 TEX-I"></mjx-c></mjx-mi></mjx-texatom></mjx-rbox></mjx-block></mjx-mpadded><mjx-mspace style="margin-right: -0.115em;"></mjx-mspace><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44B TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>T</mi><mspace width="-.14em"></mspace><mpadded height="-.5ex" depth="+.5ex" voffset="-.5ex"><mrow data-mjx-texclass="ORD"><mi>E</mi></mrow></mpadded><mspace width="-.115em"></mspace><mi>X</mi></math></mjx-assistive-mml></mjx-container> pour lesquelles il faut gérer l'expansion des <strong class="text-strong">\fi</strong>. Quelqu'un de compétent pourrait-il me donner un exemple le plus basique possible d'une telle macro récursive ?</div>
+
+
+
+
+
+            </div>
+
+    </div>
+
+        <div class="back2top">
+            <a href="#top" class="top" title="Haut">
+        <i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+        <span class="sr-only">Haut</span>
+      </a>
+          </div>
+
+    </div>
+  </div>
+
+
+      <div id="p161891" class="post has-profile bg1">
+    <div class="inner">
+
+    <dl class="postprofile" id="profile161891">
+      <dt class="has-profile-rank no-avatar">
+        <div class="avatar-container">
+                                      </div>
+                <a href="https://www.mathematex.fr/memberlist.php?mode=viewprofile&amp;u=5764" class="username">un bon petit</a>              </dt>
+
+            <dd class="profile-rank">Utilisateur éprouvé<br><img src="Une%20fonction%20re%CC%81cursive%20ne%20faisant%20pas%20fi%20des%20_fi%20-%20MathemaTeX_fichiers/ranks_n06.png" alt="Utilisateur éprouvé" title="Utilisateur éprouvé"></dd>
+    <dd class="profile-posts"><strong>Messages&nbsp;:</strong> <a href="https://www.mathematex.fr/search.php?author_id=5764&amp;sr=posts">899</a></dd>    <dd class="profile-joined"><strong>Inscription&nbsp;:</strong> vendredi 12 juin 2009, 21:35</dd>
+
+                                <dd class="profile-custom-field profile-phpbb_location"><strong>Localisation&nbsp;:</strong> Chambéry</dd>
+
+              <dd class="profile-contact">
+        <strong>Contact&nbsp;:</strong>
+        <div class="dropdown-container dropdown-left">
+          <a href="#" class="dropdown-trigger dropdown-toggle" title="Contacter un bon petit">
+            <i class="icon fa-commenting-o fa-fw icon-lg" aria-hidden="true"></i><span class="sr-only">Contacter un bon petit</span>
+          </a>
+          <div class="dropdown">
+            <div class="pointer"><div class="pointer-inner"></div></div>
+            <div class="dropdown-contents contact-icons">
+                                                                                <div>
+                                  <a href="https://www.mathematex.fr/ucp.php?i=pm&amp;mode=compose&amp;action=quotepost&amp;p=161891" title="Envoyer un message privé">
+                    <span class="contact-icon pm-icon">Envoyer un message privé</span>                  </a>
+                                                                                                <a href="https://www.mathematex.fr/memberlist.php?mode=email&amp;u=5764" title="Envoyer un courriel">
+                    <span class="contact-icon email-icon">Envoyer un courriel</span>                  </a>
+                                                                                                <a href="https://framagit.org/unbonpetit" title="Site internet" class="last-cell">
+                    <span class="contact-icon phpbb_website-icon">Site internet</span>                  </a>
+                                  </div>
+                                          </div>
+          </div>
+        </div>
+      </dd>
+
+    </dl>
+
+    <div class="postbody">
+            <div id="post_content161891">
+
+          <h3>
+            <a href="https://www.mathematex.fr/viewtopic.php?p=161891#p161891">Re: Une fonction récursive ne faisant pas fi des \fi</a>
+    </h3>
+
+                          <ul class="post-buttons">
+                                                    <li>
+              <a href="https://www.mathematex.fr/post/161891/report" title="Rapporter le message" class="button button-icon-only">
+                <i class="icon fa-exclamation fa-fw" aria-hidden="true"></i><span class="sr-only">Rapporter</span>
+              </a>
+            </li>
+                                                    <li>
+              <a href="https://www.mathematex.fr/posting.php?mode=quote&amp;f=6&amp;p=161891" title="Répondre en citant le message" class="button button-icon-only">
+                <i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Citer</span>
+              </a>
+            </li>
+                            <li class="responsive-menu hidden dropdown-container"><a href="javascript:void(0);" class="js-responsive-menu-link responsive-menu-link dropdown-toggle"><i class="icon fa-bars fa-fw" aria-hidden="true"></i></a><div class="dropdown"><div class="pointer"><div class="pointer-inner"></div></div><ul class="dropdown-contents"></ul></div></li></ul>
+
+            <p class="author">
+                  <a class="unread" href="https://www.mathematex.fr/viewtopic.php?p=161891#p161891" title="Message">
+            <i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Message</span>
+          </a>
+                <span class="responsive-hide">par <strong><a href="https://www.mathematex.fr/memberlist.php?mode=viewprofile&amp;u=5764" class="username">un bon petit</a></strong> » </span><time datetime="2021-07-14T13:16:28+00:00">mercredi 14 juillet 2021, 14:16</time>
+      </p>
+
+
+
+      <div class="content"><blockquote cite="./viewtopic.php?p=161890#p161890"><div><cite><a href="https://www.mathematex.fr/memberlist.php?mode=viewprofile&amp;u=3746">projetmbc</a> a écrit&nbsp;: <a href="https://www.mathematex.fr/viewtopic.php?p=161890#p161890" data-post-id="161890" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><span class="responsive-hide">mercredi 14 juillet 2021, 12:48</span></cite>
+Ne comprenant rien ou presque à <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 120%; position: relative;" tabindex="0" ctxtmenu_counter="4"><mjx-math style="width: 2.065em;" class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D447 TEX-I"></mjx-c></mjx-mi><mjx-mspace style="margin-right: -0.14em;"></mjx-mspace><mjx-mpadded><mjx-block style="margin: -0.216em 0px 0.215em; position: relative;"><mjx-rbox style="left: 0px; top: 0.215em;"><mjx-texatom texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D438 TEX-I"></mjx-c></mjx-mi></mjx-texatom></mjx-rbox></mjx-block></mjx-mpadded><mjx-mspace style="margin-right: -0.115em;"></mjx-mspace><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44B TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>T</mi><mspace width="-.14em"></mspace><mpadded height="-.5ex" depth="+.5ex" voffset="-.5ex"><mrow data-mjx-texclass="ORD"><mi>E</mi></mrow></mpadded><mspace width="-.115em"></mspace><mi>X</mi></math></mjx-assistive-mml></mjx-container>, je suis entrain de me mettre sérieusement à <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 120%; position: relative;" tabindex="0" ctxtmenu_counter="5"><mjx-math style="width: 3.281em;" class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43F TEX-I"></mjx-c></mjx-mi><mjx-mspace style="margin-right: -0.325em;"></mjx-mspace><mjx-mpadded><mjx-block style="margin: 0.21em 0px 0px; position: relative;"><mjx-rbox style="left: 0px; top: -0.21em;"><mjx-texatom texclass="ORD"><mjx-mstyle size="s"><mjx-texatom texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-texatom></mjx-mstyle></mjx-texatom></mjx-rbox></mjx-block></mjx-mpadded><mjx-mspace style="margin-right: -0.17em;"></mjx-mspace><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D447 TEX-I"></mjx-c></mjx-mi><mjx-mspace style="margin-right: -0.14em;"></mjx-mspace><mjx-mpadded><mjx-block style="margin: -0.216em 0px 0.215em; position: relative;"><mjx-rbox style="left: 0px; top: 0.215em;"><mjx-texatom texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D438 TEX-I"></mjx-c></mjx-mi></mjx-texatom></mjx-rbox></mjx-block></mjx-mpadded><mjx-mspace style="margin-right: -0.115em;"></mjx-mspace><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44B TEX-I"></mjx-c></mjx-mi><mjx-texatom texclass="ORD"></mjx-texatom><mjx-mn class="mjx-n"><mjx-c class="mjx-c33"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>L</mi><mspace width="-.325em"></mspace><mpadded height="+.21em" depth="-.21em" voffset="+.21em"><mrow data-mjx-texclass="ORD"><mstyle scriptlevel="1" displaystyle="false"><mrow data-mjx-texclass="ORD"><mi>A</mi></mrow></mstyle></mrow></mpadded><mspace width="-.17em"></mspace><mi>T</mi><mspace width="-.14em"></mspace><mpadded height="-.5ex" depth="+.5ex" voffset="-.5ex"><mrow data-mjx-texclass="ORD"><mi>E</mi></mrow></mpadded><mspace width="-.115em"></mspace><mi>X</mi><mrow data-mjx-texclass="ORD"></mrow><mn>3</mn></math></mjx-assistive-mml></mjx-container> qui correspond mieux à mon cerveau de codeur du dimanche</div></blockquote>
+Oui, c'est malheureusement le chemin que suivent trop de gens. Penser
+qu'on peut efficacement programmer en LaTeX3 sans comprendre les
+mécanismes de TeX est une totale illusion.<br>
+Illusion consciencieusement entretenue et assumée par les auteurs de
+LateX3, ainsi que de toute la clique qui en fait la
+promotion/prosélytisme sur stackexchange.<br>
+
+<blockquote class="uncited"><div>Je sais qu'il existe des macros récursives <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" style="font-size: 120%; position: relative;" tabindex="0" ctxtmenu_counter="6"><mjx-math style="width: 2.065em;" class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D447 TEX-I"></mjx-c></mjx-mi><mjx-mspace style="margin-right: -0.14em;"></mjx-mspace><mjx-mpadded><mjx-block style="margin: -0.216em 0px 0.215em; position: relative;"><mjx-rbox style="left: 0px; top: 0.215em;"><mjx-texatom texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D438 TEX-I"></mjx-c></mjx-mi></mjx-texatom></mjx-rbox></mjx-block></mjx-mpadded><mjx-mspace style="margin-right: -0.115em;"></mjx-mspace><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44B TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>T</mi><mspace width="-.14em"></mspace><mpadded height="-.5ex" depth="+.5ex" voffset="-.5ex"><mrow data-mjx-texclass="ORD"><mi>E</mi></mrow></mpadded><mspace width="-.115em"></mspace><mi>X</mi></math></mjx-assistive-mml></mjx-container> pour lesquelles il faut gérer l'expansion des <strong class="text-strong">\fi</strong>. Quelqu'un de compétent pourrait-il me donner un exemple le plus basique possible d'une telle macro récursive ?
+</div></blockquote>
+Une macro récursive en TeX (ou en LaTeX2 ou LaTeX3, car le langage sous-jacent est toujours TeX  <img class="smilies" src="Une%20fonction%20re%CC%81cursive%20ne%20faisant%20pas%20fi%20des%20_fi%20-%20MathemaTeX_fichiers/icon_mrgreen.gif" alt=":mrgreen:" title="Mr. Green" width="15" height="17"> ) implique toujours de se poser la question : <strong class="text-strong">que reste-t-il sur la pile d'entrée à chaque récursivité ?</strong><br>
+<br>
+Ceci dit, c'est de l'<span style="text-decoration:underline">algorithmique générale</span> et cette question n'est absolument pas spécifique à TeX, LaTeX2 ou LaTeX3.<br>
+<br>
+Bref, si la répons est « rien », la récursivité est terminale (et c'est
+le bien), sinon (c'est le mal absolu) car on court toujours le risque de
+ saturer la pile d'entrée du compilateur (ici, de TeX) en cas d'appels
+récursifs très nombreux et/ou de beaucoup de tokens laissés sur la pile
+d'entrée. D'une façon générale le nombre maximal de tokens laissés sur
+la pile d'entrée est égal à n*k où n est le nombre maximal d'itérations
+et k, qui est possiblement variable, est le nombre de tokens laissés à
+chaque itération sur la pile d'entrée. Pour que la compilation se fasse
+sans saturer la pile d'entrée, il faut que n*k&lt;=N où N est la taille
+disponible sur la pile d'entrée lors du 1er appel à la macro récursive.<br>
+<br>
+Pour que la récursivité soit terminale, il faut construire sa macro pour
+ que l'appel récursif soit le dernier token du code de la macro
+récursive et pour ce faire, il faut parfois faire disparaitre des
+tokens. Les \else ou \fi sont souvent ceux-là car ils font partie du
+test effectué à chaque fois pour savoir s'il faut sortir ou non de la
+récursivité. Il me semble que pas mal d'exemples de récursivités
+terminales/non terminales sont donnés dans le bouquin «Apprendre à
+programmer en TeX»...<br>
+<br>
+Voici une récursivité non terminale, où TeX plante si le nombre d'itérations est supérieur à 4995 :
+<div class="codebox" style=""><p>Code&nbsp;: <a href="#" onclick="selectCode(this); return false;">Tout sélectionner</a></p><pre><code>\documentclass{article}
+\def\silentloop#1{% effectue #1 boucles
+  \ifnum#1&gt;0
+    \expandafter\silentloop\expandafter{\number\numexpr#1-1}% récursivité NON terminale, il reste 1 token (\fi) à chaque appel
+  \fi}
+\begin{document}
+\silentloop{4990}% OK avec 4990 mais ECHEC avec 5000 -&gt; pile d'entrée saturée
+\end{document}</code></pre></div>
+
+Et le même avec une récursivité terminale
+<div class="codebox" style=""><p>Code&nbsp;: <a href="#" onclick="selectCode(this); return false;">Tout sélectionner</a></p><pre><code>\documentclass{article}
+\def\silentloop#1{% effectue #1 boucles
+  \ifnum#1&gt;0
+    \expandafter\silentloop\expandafter{\number\numexpr#1-1\expandafter}% récursivité terminale, il reste rien à chaque appel
+  \fi}
+\begin{document}
+\silentloop{6000}% OK, quel que soit le nombre d'itérations
+\end{document}</code></pre></div></div>
+
+
+
+
+
+            </div>
+
+    </div>
+
+        <div class="back2top">
+            <a href="#top" class="top" title="Haut">
+        <i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+        <span class="sr-only">Haut</span>
+      </a>
+          </div>
+
+    </div>
+  </div>
+
+
+            <div id="p161892" class="post has-profile bg2 online">
+    <div class="inner">
+
+    <dl class="postprofile" id="profile161892">
+      <dt class="has-profile-rank no-avatar">
+        <div class="avatar-container">
+                                      </div>
+                <a href="https://www.mathematex.fr/memberlist.php?mode=viewprofile&amp;u=3746" class="username">projetmbc</a>              </dt>
+
+            <dd class="profile-rank">Utilisateur chevronné<br><img src="Une%20fonction%20re%CC%81cursive%20ne%20faisant%20pas%20fi%20des%20_fi%20-%20MathemaTeX_fichiers/ranks_n07.png" alt="Utilisateur chevronné" title="Utilisateur chevronné"></dd>
+    <dd class="profile-posts"><strong>Messages&nbsp;:</strong> <a href="https://www.mathematex.fr/search.php?author_id=3746&amp;sr=posts">1953</a></dd>    <dd class="profile-joined"><strong>Inscription&nbsp;:</strong> samedi 29 décembre 2007, 00:58</dd>
+
+
+              <dd class="profile-contact">
+        <strong>Contact&nbsp;:</strong>
+        <div class="dropdown-container dropdown-left">
+          <a href="#" class="dropdown-trigger dropdown-toggle" title="Contacter projetmbc">
+            <i class="icon fa-commenting-o fa-fw icon-lg" aria-hidden="true"></i><span class="sr-only">Contacter projetmbc</span>
+          </a>
+          <div class="dropdown">
+            <div class="pointer"><div class="pointer-inner"></div></div>
+            <div class="dropdown-contents contact-icons">
+                                                                                <div>
+                                  <a href="https://www.mathematex.fr/ucp.php?i=pm&amp;mode=compose&amp;action=quotepost&amp;p=161892" title="Envoyer un message privé">
+                    <span class="contact-icon pm-icon">Envoyer un message privé</span>                  </a>
+                                                                                                <a href="https://www.mathematex.fr/memberlist.php?mode=email&amp;u=3746" title="Envoyer un courriel" class="last-cell">
+                    <span class="contact-icon email-icon">Envoyer un courriel</span>                  </a>
+                                  </div>
+                                          </div>
+          </div>
+        </div>
+      </dd>
+
+    </dl>
+
+    <div class="postbody">
+            <div id="post_content161892">
+
+          <h3>
+            <a href="https://www.mathematex.fr/viewtopic.php?p=161892#p161892">Re: Une fonction récursive ne faisant pas fi des \fi</a>
+    </h3>
+
+                          <ul class="post-buttons">
+                                <li>
+              <a href="https://www.mathematex.fr/posting.php?mode=edit&amp;f=6&amp;p=161892" title="Modifier le message" class="button button-icon-only">
+                <i class="icon fa-pencil fa-fw" aria-hidden="true"></i><span class="sr-only">Modifier</span>
+              </a>
+            </li>
+                                <li>
+              <a href="https://www.mathematex.fr/posting.php?mode=delete&amp;f=6&amp;p=161892" title="Supprimer le message" class="button button-icon-only">
+                <i class="icon fa-times fa-fw" aria-hidden="true"></i><span class="sr-only">Supprimer</span>
+              </a>
+            </li>
+                                <li>
+              <a href="https://www.mathematex.fr/post/161892/report" title="Rapporter le message" class="button button-icon-only">
+                <i class="icon fa-exclamation fa-fw" aria-hidden="true"></i><span class="sr-only">Rapporter</span>
+              </a>
+            </li>
+                                                    <li>
+              <a href="https://www.mathematex.fr/posting.php?mode=quote&amp;f=6&amp;p=161892" title="Répondre en citant le message" class="button button-icon-only">
+                <i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Citer</span>
+              </a>
+            </li>
+                            <li class="responsive-menu hidden dropdown-container"><a href="javascript:void(0);" class="js-responsive-menu-link responsive-menu-link dropdown-toggle"><i class="icon fa-bars fa-fw" aria-hidden="true"></i></a><div class="dropdown"><div class="pointer"><div class="pointer-inner"></div></div><ul class="dropdown-contents"></ul></div></li></ul>
+
+            <p class="author">
+                  <a class="unread" href="https://www.mathematex.fr/viewtopic.php?p=161892#p161892" title="Message">
+            <i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Message</span>
+          </a>
+                <span class="responsive-hide">par <strong><a href="https://www.mathematex.fr/memberlist.php?mode=viewprofile&amp;u=3746" class="username">projetmbc</a></strong> » </span><time datetime="2021-07-14T16:26:08+00:00">mercredi 14 juillet 2021, 17:26</time>
+      </p>
+
+
+
+      <div class="content">Mon post n'avait pas pour but de lancer un débat sur TeX ou pas TeX, Stack ou pas Stack, pain au chocolat ou chocolatine.  <img class="smilies" src="Une%20fonction%20re%CC%81cursive%20ne%20faisant%20pas%20fi%20des%20_fi%20-%20MathemaTeX_fichiers/icon_lol.gif" alt=":lol:" title="Laughing" width="15" height="17"> Franchement peu m'importe (au passage, j'ai prévu de lire le Knuth donc...).<br>
+<br>
+De toute façon, j'ai fait mon choix pour toutes les macros un peu
+techniques et pour le moment cela me convient totalement. J'obtiens du
+code facile à coder, à analyser et donc à maintenir. Et pour ce qui est
+basique là on reste sur du classique car LaTeX3 devient inutilement
+verbeux.<br>
+<br>
+Je vais regarder ce qu'il en est des exemples proposés. Si cela ne répond pas à ma recherche je préciserais.<br>
+<br>
+Un grand merci pour ces propositions.</div>
+
+
+
+
+
+            </div>
+
+    </div>
+
+        <div class="back2top">
+            <a href="#top" class="top" title="Haut">
+        <i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+        <span class="sr-only">Haut</span>
+      </a>
+          </div>
+
+    </div>
+  </div>
+
+
+
+
+  <div class="action-bar bar-bottom">
+
+      <a href="https://www.mathematex.fr/posting.php?mode=reply&amp;f=6&amp;t=17833" class="button" title="Répondre">
+              <span>Répondre</span> <i class="icon fa-reply fa-fw" aria-hidden="true"></i>
+          </a>
+
+    <div class="dropdown-container dropdown-button-control topic-tools">
+    <span title="Outils du sujet" class="button button-secondary dropdown-trigger dropdown-select dropdown-toggle">
+      <i class="icon fa-wrench fa-fw" aria-hidden="true"></i>
+      <span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+    </span>
+    <div class="dropdown">
+      <div class="pointer"><div class="pointer-inner"></div></div>
+      <ul class="dropdown-contents">
+                          <li>
+            <a href="https://www.mathematex.fr/viewtopic.php?uid=3746&amp;f=6&amp;t=17833&amp;unwatch=topic&amp;start=0&amp;hash=9ee2d6b8" class="watch-topic-link" title="Se désabonner du sujet" data-ajax="toggle_link" data-toggle-class="icon fa-check-square-o fa-fw" data-toggle-text="S’abonner au sujet" data-toggle-url="./viewtopic.php?uid=3746&amp;f=6&amp;t=17833&amp;watch=topic&amp;start=0&amp;hash=9ee2d6b8" data-update-all=".watch-topic-link">
+              <i class="icon fa-square-o fa-fw" aria-hidden="true"></i><span>Se désabonner du sujet</span>
+            </a>
+          </li>
+                          <li>
+            <a href="https://www.mathematex.fr/viewtopic.php?f=6&amp;t=17833&amp;bookmark=1&amp;hash=9ee2d6b8" class="bookmark-link" title="Ajouter ce sujet aux favoris" data-ajax="alt_text" data-alt-text="Supprimer ce sujet de vos favoris" data-update-all=".bookmark-link">
+              <i class="icon fa-bookmark-o fa-fw" aria-hidden="true"></i><span>Ajouter ce sujet aux favoris</span>
+            </a>
+          </li>
+                                <li>
+          <a href="https://www.mathematex.fr/memberlist.php?mode=email&amp;t=17833" title="Envoyer le sujet par courriel">
+            <i class="icon fa-envelope-o fa-fw" aria-hidden="true"></i><span>Envoyer le sujet par courriel</span>
+          </a>
+        </li>
+                        <li>
+          <a href="https://www.mathematex.fr/viewtopic.php?f=6&amp;t=17833&amp;view=print" title="Aperçu avant impression" accesskey="p">
+            <i class="icon fa-print fa-fw" aria-hidden="true"></i><span>Aperçu avant impression</span>
+          </a>
+        </li>
+                      </ul>
+    </div>
+  </div>
+
+      <form method="post" action="./viewtopic.php?f=6&amp;t=17833">
+    <div class="dropdown-container dropdown-container-left dropdown-button-control sort-tools">
+  <span title="Options d’affichage et de tri" class="button button-secondary dropdown-trigger dropdown-select dropdown-toggle">
+    <i class="icon fa-sort-amount-asc fa-fw" aria-hidden="true"></i>
+    <span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+  </span>
+  <div class="dropdown hidden">
+    <div class="pointer"><div class="pointer-inner"></div></div>
+    <div class="dropdown-contents">
+      <fieldset class="display-options">
+              <label>Afficher&nbsp;: <select name="st" id="st"><option value="0" selected="selected">Tous les messages</option><option value="1">1 jour</option><option value="7">7 jours</option><option value="14">2 semaines</option><option value="30">1 mois</option><option value="90">3 mois</option><option value="180">6 mois</option><option value="365">1 an</option></select></label>
+                <label>Trier par&nbsp;: <select name="sk" id="sk"><option value="a">Auteur</option><option value="t" selected="selected">Date du message</option><option value="s">Sujet</option></select></label>
+        <label>Ordre&nbsp;: <select name="sd" id="sd"><option value="a" selected="selected">Croissant</option><option value="d">Décroissant</option></select></label>
+                <hr class="dashed">
+        <input type="submit" class="button2" name="sort" value="Aller">
+            </fieldset>
+    </div>
+  </div>
+</div>
+    </form>
+
+
+
+      <div class="pagination">
+      3 messages
+              • Page <strong>1</strong> sur <strong>1</strong>
+          </div>
+  </div>
+
+<div class="forumbg">
+
+  <div class="inner">
+    <ul class="topiclist">
+      <li class="header">
+        <dl class="row-item">
+          <dt><div class="list-inner">Sujets similaires</div></dt>
+          <dd class="posts">Réponses</dd>
+          <dd class="views">Vues</dd>
+          <dd class="lastpost"><span>Dernier message</span></dd>
+        </dl>
+      </li>
+    </ul>
+    <ul class="topiclist topics">
+
+                <li class="row bg1">
+        <dl class="row-item topic_read">
+          <dt title="Aucun message non lu n’a été publié dans ce sujet.">
+                        <div class="list-inner">
+                                          <a href="https://www.mathematex.fr/viewtopic.php?f=18&amp;t=17739" class="topictitle">[BTS] Etude de fonction</a>
+                                          <br>
+
+                              <div class="responsive-show" style="display: none;">
+                  Dernier message par <a href="https://www.mathematex.fr/memberlist.php?mode=viewprofile&amp;u=3" style="color: #AA0000;" class="username-coloured">MB</a> « <a href="https://www.mathematex.fr/viewtopic.php?f=18&amp;t=17739&amp;p=161315#p161315" title="Aller au dernier message"><time datetime="2021-04-06T13:04:29+00:00">mardi 06 avril 2021, 14:04</time></a>
+                  <br>Publié dans <a href="https://www.mathematex.fr/viewforum.php?f=18">Exercices et problèmes : Supérieur</a>
+                </div>
+                <span class="responsive-show left-box" style="display: none;">Réponses&nbsp;: <strong>1</strong></span>
+              <div class="responsive-hide left-box">
+                                                                par <a href="https://www.mathematex.fr/memberlist.php?mode=viewprofile&amp;u=17592" class="username">JulesG5</a> » <time datetime="2021-04-01T12:42:23+00:00">jeudi 01 avril 2021, 13:42</time> » dans <a href="https://www.mathematex.fr/viewforum.php?f=18">Exercices et problèmes : Supérieur</a>
+                              </div>
+
+
+                          </div>
+          </dt>
+          <dd class="posts">1 <dfn>Réponses</dfn></dd>
+          <dd class="views">149 <dfn>Vues</dfn></dd>
+          <dd class="lastpost">
+            <span><dfn>Dernier message </dfn>par <a href="https://www.mathematex.fr/memberlist.php?mode=viewprofile&amp;u=3" style="color: #AA0000;" class="username-coloured">MB</a>                              <a href="https://www.mathematex.fr/viewtopic.php?f=18&amp;t=17739&amp;p=161315#p161315" title="Aller au dernier message">
+                  <i class="icon fa-external-link-square fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only"></span>
+                </a>
+                            <br><time datetime="2021-04-06T13:04:29+00:00">mardi 06 avril 2021, 14:04</time>
+            </span>
+          </dd>
+        </dl>
+      </li>
+              </ul>
+
+  </div>
+</div>
+
+<div class="action-bar actions-jump">
+    <p class="jumpbox-return">
+    <a href="https://www.mathematex.fr/viewforum.php?f=6" class="left-box arrow-left" accesskey="r">
+      <i class="icon fa-angle-left fa-fw icon-black" aria-hidden="true"></i><span>Revenir à «&nbsp;Langage TeX/LaTeX et outils associés&nbsp;»</span>
+    </a>
+  </p>
+
+    <div class="jumpbox dropdown-container dropdown-container-right dropdown-up dropdown-left dropdown-button-control" id="jumpbox">
+      <span title="Aller" class="button button-secondary dropdown-trigger dropdown-select dropdown-toggle">
+        <span>Aller</span>
+        <span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+      </span>
+    <div class="dropdown">
+      <div class="pointer"><div class="pointer-inner"></div></div>
+      <ul class="dropdown-contents">
+                                        <li><a href="https://www.mathematex.fr/viewforum.php?f=23" class="jumpbox-cat-link"> <span> Forums des utilisateurs</span></a></li>
+                                <li><a href="https://www.mathematex.fr/viewforum.php?f=11" class="jumpbox-sub-link"><span class="spacer"></span> <span>↳ &nbsp; A propos de MathemaTeX</span></a></li>
+                                <li><a href="https://www.mathematex.fr/viewforum.php?f=8" class="jumpbox-sub-link"><span class="spacer"></span> <span>↳ &nbsp; Tribune des enseignants</span></a></li>
+                                <li><a href="https://www.mathematex.fr/viewforum.php?f=4" class="jumpbox-sub-link"><span class="spacer"></span> <span>↳ &nbsp; Tribune libre</span></a></li>
+                                <li><a href="https://www.mathematex.fr/viewforum.php?f=43" class="jumpbox-cat-link"> <span> Forums des mathématiques</span></a></li>
+                                <li><a href="https://www.mathematex.fr/viewforum.php?f=5" class="jumpbox-sub-link"><span class="spacer"></span> <span>↳ &nbsp; Tribune des mathématiques</span></a></li>
+                                <li><a href="https://www.mathematex.fr/viewforum.php?f=7" class="jumpbox-sub-link"><span class="spacer"></span> <span>↳ &nbsp; Outils numériques pour les mathématiques</span></a></li>
+                                <li><a href="https://www.mathematex.fr/viewforum.php?f=24" class="jumpbox-cat-link"> <span> Forums d'aide scolaire mathématique</span></a></li>
+                                <li><a href="https://www.mathematex.fr/viewforum.php?f=18" class="jumpbox-sub-link"><span class="spacer"></span> <span>↳ &nbsp; Exercices et problèmes : Supérieur</span></a></li>
+                                <li><a href="https://www.mathematex.fr/viewforum.php?f=19" class="jumpbox-sub-link"><span class="spacer"></span> <span>↳ &nbsp; Exercices et problèmes : Primaire et secondaire</span></a></li>
+                                <li><a href="https://www.mathematex.fr/viewforum.php?f=25" class="jumpbox-cat-link"> <span> Forums des environnements TeX/LaTeX</span></a></li>
+                                <li><a href="https://www.mathematex.fr/viewforum.php?f=34" class="jumpbox-sub-link"><span class="spacer"></span> <span>↳ &nbsp; Langage Asymptote et outils associés</span></a></li>
+                                <li><a href="https://www.mathematex.fr/viewforum.php?f=6" class="jumpbox-sub-link"><span class="spacer"></span> <span>↳ &nbsp; Langage TeX/LaTeX et outils associés</span></a></li>
+                      </ul>
+    </div>
+  </div>
+
+  </div>
+
+
+  <div class="stat-block online-list">
+    <h3><a href="https://www.mathematex.fr/viewonline.php">Qui est en ligne&nbsp;?</a></h3>
+    <p>Utilisateurs parcourant ce forum&nbsp;: <a href="https://www.mathematex.fr/memberlist.php?mode=viewprofile&amp;u=3746" class="username">projetmbc</a>, <span style="color: #9E8DA7;" class="username-coloured">Semrush</span> et 1 invité</p>
+  </div>
+
+      </div>
+
+
+<div id="page-footer" class="page-footer" role="contentinfo">
+  <div class="navbar" role="navigation">
+  <div class="inner">
+
+  <ul id="nav-footer" class="nav-footer linklist" role="menubar">
+    <li class="breadcrumbs">
+                  <span class="crumb"><a href="https://www.mathematex.fr/index.php" data-navbar-reference="index" title="Accueil du forum"><i class="icon fa-home fa-fw" aria-hidden="true"></i><span>Accueil du forum</span></a></span>          </li>
+
+        <li class="responsive-menu hidden rightside dropdown-container"><a href="javascript:void(0);" class="js-responsive-menu-link responsive-menu-link dropdown-toggle"><i class="icon fa-bars fa-fw" aria-hidden="true"></i></a><div class="dropdown"><div class="pointer"><div class="pointer-inner"></div></div><ul class="dropdown-contents"></ul></div></li><li class="rightside">Fuseau horaire sur <span title="UTC+1">UTC+01:00</span></li>
+              <li class="rightside">
+        <a href="https://www.mathematex.fr/ucp.php?mode=delete_cookies" data-ajax="true" data-refresh="true" role="menuitem">
+          <i class="icon fa-trash fa-fw" aria-hidden="true"></i><span>Supprimer les cookies</span>
+        </a>
+      </li>
+              <li class="rightside" data-last-responsive="true">
+          <a href="https://www.mathematex.fr/memberlist.php" title="La liste complète des membres du forum" role="menuitem">
+            <i class="icon fa-group fa-fw" aria-hidden="true"></i><span>Membres</span>
+          </a>
+        </li>
+                        <li class="rightside" data-last-responsive="true">
+        <a href="https://www.mathematex.fr/memberlist.php?mode=team" role="menuitem">
+          <i class="icon fa-shield fa-fw" aria-hidden="true"></i><span>L’équipe</span>
+        </a>
+      </li>
+              </ul>
+
+  </div>
+</div>
+
+  <div class="copyright">
+        <p class="footer-row">
+      <span class="footer-copyright">Développé par <a href="https://www.phpbb.com/">phpBB</a>® Forum Software © phpBB Limited</span>
+    </p>
+        <p class="footer-row">
+      <span class="footer-copyright"><a href="https://www.phpbb.com/customise/db/translation/french/">Traduction française officielle</a> © <a href="https://www.qiaeru.com/">Qiaeru</a></span>
+    </p>
+            <p class="footer-row" role="menu">
+      <a class="footer-link" href="https://www.mathematex.fr/ucp.php?mode=privacy" title="Confidentialité" role="menuitem">
+        <span class="footer-link-text">Confidentialité</span>
+      </a>
+      |
+      <a class="footer-link" href="https://www.mathematex.fr/ucp.php?mode=terms" title="Conditions" role="menuitem">
+        <span class="footer-link-text">Conditions</span>
+      </a>
+    </p>
+          </div>
+
+  <div id="darkenwrapper" class="darkenwrapper" data-ajax-error-title="Erreur AJAX" data-ajax-error-text="Une erreur est survenue lors du traitement de votre requête." data-ajax-error-text-abort="La requête a été interrompue par l’utilisateur." data-ajax-error-text-timeout="Votre requête a expiré prématurément. Veuillez réessayer." data-ajax-error-text-parsererror="Une erreur est survenue lors du traitement de votre requête et le serveur a renvoyé une réponse invalide.">
+    <div id="darken" class="darken">&nbsp;</div>
+  </div>
+
+  <div id="phpbb_alert" class="phpbb_alert" data-l-err="Erreur" data-l-timeout-processing-req="Le délai a été dépassé.">
+    <a href="#" class="alert_close">
+      <i class="icon fa-times-circle fa-fw" aria-hidden="true"></i>
+    </a>
+    <h3 class="alert_title">&nbsp;</h3><p class="alert_text"></p>
+  </div>
+  <div id="phpbb_confirm" class="phpbb_alert">
+    <a href="#" class="alert_close">
+      <i class="icon fa-times-circle fa-fw" aria-hidden="true"></i>
+    </a>
+    <div class="alert_text"></div>
+  </div>
+</div>
+
+</div>
+
+<div>
+  <a id="bottom" class="anchor" accesskey="z"></a>
+  </div>
+
+<script src="Une%20fonction%20re%CC%81cursive%20ne%20faisant%20pas%20fi%20des%20_fi%20-%20MathemaTeX_fichiers/jquery-3.js"></script>
+<script src="Une%20fonction%20re%CC%81cursive%20ne%20faisant%20pas%20fi%20des%20_fi%20-%20MathemaTeX_fichiers/core.js"></script>
+
+  <script src="Une%20fonction%20re%CC%81cursive%20ne%20faisant%20pas%20fi%20des%20_fi%20-%20MathemaTeX_fichiers/cookieconsent.js"></script>
+  <script>
+    if (typeof window.cookieconsent === "object") {
+      window.addEventListener("load", function(){
+        window.cookieconsent.initialise({
+          "palette": {
+            "popup": {
+              "background": "#0F538A"
+            },
+            "button": {
+              "background": "#E5E5E5"
+            }
+          },
+          "theme": "classic",
+          "content": {
+            "message": "En\u0020poursuivant\u0020votre\u0020navigation\u0020sur\u0020ce\u0020site,\u0020vous\u0020acceptez\u0020l\u2019utilisation\u0020de\u0020cookies\u0020vous\u0020permettant\u0020de\u0020b\u00E9n\u00E9ficier\u0020d\u2019une\u0020exp\u00E9rience\u0020de\u0020navigation\u0020optimale.",
+            "dismiss": "J\u2019accepte",
+            "link": "En\u0020savoir\u0020plus\u2026",
+            "href": "./ucp.php?mode=privacy"
+          }
+        });
+      });
+    }
+  </script>
+
+<script>
+  (function() {
+    var cx = 'partner\u002Dpub\u002D9031508024694163\u003A1348051054';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+      '//cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<script>
+MathJax = {
+    tex: {
+        inlineMath: [["$","$"]],
+        displayMath: [["$$","$$"]],
+        processEscapes: true,
+        processEnvironments: false,
+        processRefs: false,
+        macros: {
+            N: "{\\mathbb N}",
+            Z: "{\\mathbb Z}",
+            Q: "{\\mathbb Q}",
+            R: "{\\mathbb R}",
+            C: "{\\mathbb C}",
+            K: "{\\mathbb K}",
+            vect: "\\overrightarrow",
+            vv: "\\overrightarrow",
+            ds: "\\displaystyle",
+            mb: "\\mathbb",
+            mc: "\\mathcal",
+            pgcd: "\\mathop{\\rm pgcd}\\nolimits",
+            llbracket: "\\left[\\!\\left[",
+            rrbracket: "\\right]\\!\\right]"
+        }
+    }
+};
+</script>
+<script async="" src="Une%20fonction%20re%CC%81cursive%20ne%20faisant%20pas%20fi%20des%20_fi%20-%20MathemaTeX_fichiers/tex-mml-chtml.js" id="MathJax-script"></script>
+
+<script>
+(function($) {  // Avoid conflicts with other libraries
+
+'use strict';
+
+  phpbb.addAjaxCallback('reporttosfs', function(data) {
+    if (data.postid !== "undefined") {
+      $('#sfs' + data.postid).hide();
+      phpbb.closeDarkenWrapper(5000);
+    }
+  });
+
+})(jQuery);
+</script>
+<script src="Une%20fonction%20re%CC%81cursive%20ne%20faisant%20pas%20fi%20des%20_fi%20-%20MathemaTeX_fichiers/forum_fn.js"></script>
+<script src="Une%20fonction%20re%CC%81cursive%20ne%20faisant%20pas%20fi%20des%20_fi%20-%20MathemaTeX_fichiers/ajax.js"></script>
+
+
+
+
+
+
+
+<ins class="adsbygoogle adsbygoogle-noablate" style="display: none !important;" data-adsbygoogle-status="done" data-ad-status="unfilled"><ins id="aswift_0_expand" style="display:inline-table;border:none;height:0px;margin:0;padding:0;position:relative;visibility:visible;width:0px;background-color:transparent;" tabindex="0" title="Advertisement" aria-label="Advertisement"><ins id="aswift_0_anchor" style="display:block;border:none;height:0px;margin:0;padding:0;position:relative;visibility:visible;width:0px;background-color:transparent;"><iframe id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" src="Une%20fonction%20re%CC%81cursive%20ne%20faisant%20pas%20fi%20des%20_fi%20-%20MathemaTeX_fichiers/ads.html" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" data-google-container-id="a!1" data-load-complete="true" frameborder="0"></iframe></ins></ins></ins><iframe id="google_osd_static_frame_3414795462169" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;"></iframe><iframe src="Une%20fonction%20re%CC%81cursive%20ne%20faisant%20pas%20fi%20des%20_fi%20-%20MathemaTeX_fichiers/aframe.html" style="display: none;" width="0" height="0"></iframe></body><iframe id="google_esf" name="google_esf" src="Une%20fonction%20re%CC%81cursive%20ne%20faisant%20pas%20fi%20des%20_fi%20-%20MathemaTeX_fichiers/zrt_lookup.html" style="display: none;"></iframe></html>
