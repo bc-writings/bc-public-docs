@@ -5,12 +5,21 @@
 \usepackage{tikz}
 \usetikzlibrary{tikzmark} % Marquer un emplacement du rendu final.
 
+%%%
+% Des réglages côté utilisateur.
+%%%
 \newlength{\unitht}
 \setlength{\unitht}{.8ex}
 
 \newcommand{\nubpre}{usecase-A}
 \newcommand{\nubdepth}{0}
 
+%%%
+% Notre macro interne.
+%
+% Arg. #1 : l'étiquette pour différencier la décoration.
+% Arg. #2 : un contenu à décorer.
+%%%
 \newcommand{\nub}[2]{%
   \tikzmark{a\nubpre#1} % Marquage du début du contenu.
     #2                  % Le contenu.

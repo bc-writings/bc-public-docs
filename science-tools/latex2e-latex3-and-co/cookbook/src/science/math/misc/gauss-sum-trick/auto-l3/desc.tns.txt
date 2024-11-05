@@ -1,24 +1,9 @@
 this::
-    date = 2024-11-04   ???
+    date = 2024-11-05
 
 
 ==============================
 Une version aux petits oignons
 ==============================
 
-YYY
-
-\nub{1, 2, 3, 4, 5}
-
-au lieu de
-
-\nub{1 + \nub{2 + \nub{3} + 4} + 5}
-
-de plus on a aussi le résultat via \nub*{1, 2, 3, 4, 5}
-
-
-\def\what{1,2,3,4,...,15,16,17,18}
-
-\foreach \k in \what {
-  [\k]
-}
+Finissons en proposant une macro permettant de juste taper ''\nub{1, 2, 3, 4}'' ou ''\nub{1, 2,..., 100}'', et qui de plus peut calculer le résultat de la somme décorée. Pour arriver à nos fins, nous avons utiliser le \lang \l3, mais aussi la boucle ''\foreach'' de ''pgf''.

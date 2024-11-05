@@ -2,9 +2,10 @@
 
 \usepackage{forest}
 
+%\usetikzlibrary{calc}
 \begin{document}
 
-\begin{minipage}{7.35cm}
+\begin{minipage}{9.25cm}
 
 Sans réglage.
 
@@ -58,7 +59,8 @@ En changeant quelques réglages.
 for tree={
   circle,        % Noeud entouré d'un cercle virtuel pour le moment.
   inner sep=2pt, % Distance entre le cercle et le contenu du noeud.
-   draw           % On dessine vraiment les cercles.
+  draw,          % On dessine vraiment les cercles.
+  minimum width={width("XXX") - 4pt},
 }
 [1
   [a
@@ -73,7 +75,7 @@ for tree={
 \end{forest}
 %
 \begin{forest}
-for tree={circle, inner sep=2pt, draw}
+for tree={circle, inner sep=2pt, draw, minimum width={width("XXX") - 4pt}}
 [1
   [a
     [I]
@@ -84,7 +86,7 @@ for tree={circle, inner sep=2pt, draw}
 \end{forest}
 %
 \begin{forest}
-for tree={circle, inner sep=2pt, draw}
+for tree={circle, inner sep=2pt, draw, minimum width={width("XXX") - 4pt}}
 [1
   [a
     [I]
@@ -94,7 +96,7 @@ for tree={circle, inner sep=2pt, draw}
 \end{forest}
 %
 \begin{forest}
-for tree={circle, inner sep=2pt, draw}
+for tree={circle, inner sep=2pt, draw, minimum width={width("XXX") - 4pt}}
 [1
   [a
     [I]

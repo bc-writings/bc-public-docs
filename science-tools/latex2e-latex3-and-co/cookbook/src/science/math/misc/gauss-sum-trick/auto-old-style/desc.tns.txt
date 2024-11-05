@@ -12,7 +12,7 @@ Nous proposons ici une version permettant une saisie ne nécessitant aucun régl
 
     1) Nous créons une \nelle macro publique ''\nub'' qui va se charger de faire les bons appels de ''\internal@nub'' pour nous en s'appuyant sur les idées suivantes.
 
-        i) Il faut compter le nombre d'appels imbriqués de ''\nub'', ou profondeur des appels, que nous allons noter `pa` dans la suite. Imaginons que nous utilisions ''\nub{1 + \nub{2 + \nub{3 + 4} + 5} + 6}'', alors il faut effectuer les calculs suivants.
+        i) Il faut compter le nombre d'appels imbriqués de ''\nub''. On parle de profondeur des appels, et nous allons la noter `pa` dans la suite. Imaginons que nous utilisions ''\nub{1 + \nub{2 + \nub{3 + 4} + 5} + 6}'', alors il faut effectuer les calculs suivants.
 
             * Initialement, `pa = 0`.
 
@@ -28,11 +28,11 @@ Nous proposons ici une version permettant une saisie ne nécessitant aucun régl
 
             * ''... + 6}'' donne `pa = pa - 1 = 0`.
 
-        i) La valeur maximale du nombre d'appels imbriqués de ''\nub'' augmentée de `1` donne le décalage vertical maximal.
+        i) La valeur maximale de la profondeur des appels augmentée de `1` donne le décalage vertical maximal.
 
         i) Via le nombre d'appels imbriqués, il est direct de donner le décalage vertical relatif à une macro ''\nub'' utilisée.
 
-        i) Via le fichier path::''aux'', le décalage vertical maximal peut être "mémorisé" pour la prochaine compilation.
+        i) Via le fichier path::''aux'' créé et utilisé par la compilation \tex, le décalage vertical maximal peut être "mémorisé" pour la prochaine compilation qui produira la \deco attendue.
 
 
 warning::

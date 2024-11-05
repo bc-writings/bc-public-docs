@@ -2,6 +2,177 @@
 %     + https://tex.stackexchange.com/a/655445/6880
 %     + https://tex.stackexchange.com/a/730033/6880
 
+\usepackage{tikz}
+\usetikzlibrary{tikzmark}
+
+%%%
+% Un unique réglage côté utilisateur.
+%%%
+\newlength{\nubunitht}
+\setlength{\nubunitht}{.8ex}
+
+
 \ExplSyntaxOn
 
+%%%
+% Arg. #1 : cet argument correspond à l'usage ou non de la version étoilée.
+% Arg. #2 : le contenu à décorer.
+%%%
+\NewDocumentCommand{ \nub }{ s m }{
+  \IfBooleanTF { #1 }{
+    \cookbook_nub_val:n {#2}
+  }{
+    \cookbook_nub_deco:n {#2}
+  }
+}
+
+%%%
+% Calcul de la somme en utilisant la syntaxe ''\foreach'' de ''pgf''.
+%%%
+\int_new:N \g_cookbook_nub_val_int
+
+\cs_set:Npn \cookbook_nub_val:n #1 {
+  \def\seq@of@ints{#1}
+
+  \int_gset:Nn \g_cookbook_nub_val_int { 0 }
+
+  \foreach \k in \seq@of@ints {
+    \int_gset:Nn
+      \g_cookbook_nub_val_int
+      {\k + \int_use:N \g_cookbook_nub_val_int}
+  }
+
+  \int_use:N \g_cookbook_nub_val_int
+}
+
+%%%
+% Fabrication des décorations.
+%%%
+\int_new:N  \g_cookbook_nub_terms_label_id_int
+\int_set:Nn \g_cookbook_nub_terms_label_id_int {0}
+
+\int_new:N  \l_cookbook_nub_terms_last_label_id_int
+
+\clist_new:N \l_cookbook_nub_terms_clist
+\seq_new:N   \l_cookbook_nub_terms_seq
+
+\int_new:N \l_cookbook_nub_terms_size_int
+\int_new:N \l_cookbook_nub_mid_term_pos_int
+\int_new:N \l_cookbook_nub_this_pos_int
+
+
+\cs_set:Npn \cookbook_nub_deco:n #1 {
+  \clist_set:Nn
+    \l_cookbook_nub_terms_clist
+    {#1}
+
+  \seq_set_from_clist:NN
+    \l_cookbook_nub_terms_seq
+    \l_cookbook_nub_terms_clist
+
+  \int_set:Nn
+    \l_cookbook_nub_terms_size_int
+    { \seq_count:N \l_cookbook_nub_terms_seq }
+
+  \int_set:Nn
+    \l_cookbook_nub_mid_term_pos_int
+    { \int_eval:n {1 + \int_use:N \l_cookbook_nub_terms_size_int} / 2 }
+
+  \int_set:Nn
+    \l_cookbook_nub_this_pos_int
+    { 0 }
+
+  \seq_map_inline:Nn
+    \l_cookbook_nub_terms_seq
+    {
+      \int_incr:N \l_cookbook_nub_this_pos_int
+
+      \int_compare:nNnTF
+          {\int_use:N \l_cookbook_nub_this_pos_int}
+        < {\int_use:N \l_cookbook_nub_mid_term_pos_int}
+% Une nouvelle décoration commence ici.
+      {
+        \int_gincr:N \g_cookbook_nub_terms_label_id_int
+
+        \nub@add@mark
+          { start }
+          { \int_use:N \g_cookbook_nub_terms_label_id_int }
+
+        ##1 +
+
+        \int_set:Nn
+          \l_cookbook_nub_terms_last_label_id_int
+          { 1 + \int_use:N \g_cookbook_nub_terms_label_id_int}
+% Un autre terme dans une décoration éventuellement à fermer
+% (penser au cas de trois termes isolés au milieu).
+      }{
+        \int_compare:nNnTF
+            {\int_use:N \l_cookbook_nub_this_pos_int}
+          = {\int_use:N \l_cookbook_nub_mid_term_pos_int}
+        {}{
+          +
+        }
+
+        ##1
+
+% La fin du décoration ?
+        \bool_if:nT {
+          \int_if_even_p:n { \int_use:N \l_cookbook_nub_terms_size_int }
+          ||
+          \int_compare_p:n {
+               \int_use:N \l_cookbook_nub_this_pos_int
+            != \int_use:N \l_cookbook_nub_mid_term_pos_int
+          }
+        }{
+          \int_decr:N \l_cookbook_nub_terms_last_label_id_int
+
+          \nub@add@mark
+            { end }
+            { \int_use:N \l_cookbook_nub_terms_last_label_id_int }
+
+          \nub@add@deco
+            { \int_use:N \l_cookbook_nub_terms_last_label_id_int }
+            {
+              \int_eval:n {
+                  1
+                + \int_use:N \g_cookbook_nub_terms_label_id_int
+                - \int_use:N \l_cookbook_nub_terms_last_label_id_int
+              }
+            }
+        }%
+      }
+    }
+}
+
 \ExplSyntaxOff
+
+%%%
+% Avec TikZ, nous devons être prudent, car les espaces sont importants !
+%%%
+
+%%%
+% Arg. #1 : une première sous-étiquette égale à "start" ou "end".
+% Arg. #2 : une seconde sous-étiquette correspondant à un identifiant
+%           entier unique.
+%%%
+\NewDocumentCommand{\nub@add@mark}{mm}{%
+  \tikzmark{nub@#1@#2}%
+}
+
+%%%
+% Arg. #1 : l'identifiant entier unique propre à une décoration.
+% Arg. #2 : la distance d'éloignement vertical pour le tracé.
+%%%
+\NewDocumentCommand{\nub@add@deco}{mm}{
+  \llap{%
+    \begin{tikzpicture}[
+      remember picture,
+      baseline = (current bounding box.north)
+    ]
+      \draw (pic cs:nub@start@#1)
+              --++ (0, (- #2 * \nubunitht)
+              -|
+            (pic cs:nub@end@#1);
+    \end{tikzpicture}%
+  }
+}
