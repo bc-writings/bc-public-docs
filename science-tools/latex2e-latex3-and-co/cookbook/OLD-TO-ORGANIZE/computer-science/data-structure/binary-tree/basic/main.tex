@@ -7,7 +7,8 @@
 
 \begin{minipage}{9.25cm}
 
-Sans réglage.
+\paragraph{Sans réglage.}
+\leavevmode
 
 \begin{forest}
 [1
@@ -51,23 +52,24 @@ Sans réglage.
 ]
 \end{forest}
 
-\medskip
-
-En changeant quelques réglages.
+\paragraph{En changeant quelques réglages.}
+\leavevmode
 
 \begin{forest}
 for tree={
   circle,        % Noeud entouré d'un cercle virtuel pour le moment.
   inner sep=2pt, % Distance entre le cercle et le contenu du noeud.
   draw,          % On dessine vraiment les cercles.
-  minimum width={width("XXX") - 4pt},
+  minimum width={width("XXX") - 1pt},
+  align=center,              % Alignement du texte au centre du noeud.
+  anchor=center,             % Ancrage des nœuds au centre.
 }
 [1
-  [a
+  [a, tier=1 
     [I]
     [II]
   ]
-  [b
+  [b, tier=1 
     [III]
     [IV]
   ]
@@ -105,6 +107,7 @@ for tree={circle, inner sep=2pt, draw, minimum width={width("XXX") - 4pt}}
   [b]
 ]
 \end{forest}
+
 \end{minipage}
 
 \end{document}

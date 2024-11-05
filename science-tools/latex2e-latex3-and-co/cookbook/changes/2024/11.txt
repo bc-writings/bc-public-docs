@@ -2,15 +2,11 @@
 
 
 ==
-??
+05
 ==
 
 [[:update:]]
 Voici les amémiorations apportées.
-
-    1)
-    ??
-    path::''science/computer/data-structure/binary-tree/basic'' : utilisation de noeuds de contenus non uniformes pour montrer la nécessité d'imposer les écartements des branches, ainsi que la dimension commune des cercles.
 
     1) path::''science/math/misc/gauss-sum-trick'' : une amélioration de la méthode "tout à la main" a permis d'ajouter deux versions "automatisées".
 
@@ -23,11 +19,9 @@ Voici les amémiorations apportées.
 ==
 
 [[:new:]]
-Voici les contenus ajoutés.
+Voici le contenu ajouté.
 
     1) path::''science/computer/automata/basic'' : automates sans effort.
-
-    1) path::''science/computer/data-structure/binary-tree/basic'' : arbres binaires équilibrés ou non.
 
 
 // ---------- //
