@@ -1,0 +1,9 @@
+this::
+    date = 2024-11-06
+
+
+============================================
+Définir une macro \latex depuis un code \lua
+============================================
+
+Il me smeble que le titre se suffit à lui-même...

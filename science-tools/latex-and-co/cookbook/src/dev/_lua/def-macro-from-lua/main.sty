@@ -1,0 +1,12 @@
+%%%
+% Tout le travail est fait par la fonction ''divmod2tex'' codée
+% en Lua dans le fichier ''main.lua''.
+%%%
+
+% Import du fichier ''main.lua''.
+\directlua{dofile('main.lua')}
+
+% La macro ''\divmodtex'' appelle la fonction Lua ''divmod2tex''.
+\NewDocumentCommand{\divmodtex}{mm}{
+  \directlua{divmod2tex(#1 ,#2)}
+}

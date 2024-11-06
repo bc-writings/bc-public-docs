@@ -2,6 +2,17 @@
 
 
 ==
+06
+==
+
+[[:new:]]
+path::''dev/lua/def-macro-from-lua'' : définition d'une macro \latex depuis un code \lua. So cute!
+
+
+// ---------- //
+
+
+==
 05
 ==
 

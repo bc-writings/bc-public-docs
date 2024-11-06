@@ -54,8 +54,12 @@ do
         echo "-- NEW TEX FILE --"
         echo "$f"
         echo ""
-        SOURCE_DATE_EPOCH=0 FORCE_SOURCE_DATE=1 latexmk -quiet -pdf -pdflatex="pdflatex --interaction=nonstopmode --halt-on-error --shell-escape  %O %S" "$TARGET/$f" || nocompile "$TARGET/$f"
+
+        # compilemode="pdflatex --interaction=nonstopmode --halt-on-error --shell-escape %O %S"
+        compilemode="lualatex --interaction=nonstopmode --halt-on-error --shell-escape %O %S"
+
+        SOURCE_DATE_EPOCH=0 FORCE_SOURCE_DATE=1 latexmk -quiet -pdf -pdflatex="$compilemode" "$TARGET/$f" || nocompile "$TARGET/$f"
 
         # latexmk -c "$TARGET/$f"
     fi
-done # for f in */*.tex;
+done # for f in $(find . -name '*.tex')
