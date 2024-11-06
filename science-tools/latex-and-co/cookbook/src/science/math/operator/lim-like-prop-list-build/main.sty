@@ -1,0 +1,27 @@
+% Source.
+%     + https://tex.stackexchange.com/a/685321/6880
+
+\usepackage{amsmath} % Pour la macro ''\DeclareMathOperator''.
+
+\ExplSyntaxOn
+
+%%%
+% Définition efficace via des associations "clé-valeur", une clé donnant
+% le nom de la macro construite, et une valeur étant le matériel utilisé
+% pour imprimer l'opérateur.
+%%%
+\prop_new:N              \g_cookbook_ope_prop
+\prop_set_from_keyval:Nn \g_cookbook_ope_prop {
+  xtr      = xtr,
+  exterior = \Lambda,
+}
+
+%%%
+% On parcuort nos associations pour appliquer à chaque "clé-valeur" la
+% macro ''\DeclareMathOperator'' qui fait tout le travail.
+%%%
+\prop_map_inline:Nn \g_cookbook_ope_prop {
+  \exp_args:NNc \DeclareMathOperator*{ #1 }{ #2 }
+}
+
+\ExplSyntaxOff

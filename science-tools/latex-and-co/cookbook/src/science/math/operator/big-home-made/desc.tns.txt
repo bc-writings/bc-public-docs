@@ -10,4 +10,4 @@ Nous expliquons ici comment définir un opérateur de grande taille à la `\sum`
 
 
 caution::
-    La méthode proposée demande à être améliorée car le placement du symbole est trop au-dessus de la ligne de base.
+    La méthode proposée demande à être améliorée, car le placement du symbole est trop au-dessus de la ligne de base.
