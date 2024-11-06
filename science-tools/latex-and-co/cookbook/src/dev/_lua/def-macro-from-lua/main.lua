@@ -1,5 +1,5 @@
 -----
--- Calcul lua à la main d'une division eucidienne.
+-- Calcul Lua à la main d'une division eucidienne.
 -----
 
 function divmod(a, b)
@@ -7,20 +7,20 @@ function divmod(a, b)
     local r = a
 
     while not (r < b) do
-        q = q+1
-        r = r-b
+        q = q + 1
+        r = r - b
     end
 
-    return q,r
+    return q, r
 end
 
 -----
--- Utilisation de lualtex : définitions de macros.
+-- Utilisation de lualatex : définitions de macros.
 -----
 
 function divmod2tex(a, b)
     q, r = divmod(a, b)
 
     token.set_macro("luaQuot", q)
-    token.set_macro("luaRem", r)
+    token.set_macro("luaRem" , r)
 end
