@@ -12,6 +12,8 @@ Voici les contenus ajoutés.
 
     1) path::''dev/lua/verb-arg-for-lua'' : utilisation du caractère ''%'' dans l'\arg d'une \cmd, puis dans un calcul \lua.
 
+    1) path::''science/_math/algebra/combinations-&-co'' : calcul de combinaisons et d'arrangements.
+
 
 // ---------- //
 
