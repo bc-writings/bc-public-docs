@@ -6,7 +6,11 @@
 ==
 
 [[:new:]]
-path::''dev/lua/def-macro-from-lua'' : définition d'une macro \latex depuis un code \lua. So cute!
+Voici les contenus ajoutés.
+
+    1) path::''dev/lua/def-macro-from-lua'' : définition d'une macro \latex depuis un code \lua. So cute!
+
+    1) path::''dev/lua/verb-arg-for-lua'' : utilisation du caractère ''%'' dans l'\arg d'une \cmd, puis dans un calcul \lua.
 
 
 // ---------- //

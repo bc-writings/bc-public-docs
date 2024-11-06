@@ -1,0 +1,23 @@
+% Source.
+%     + https://tex.stackexchange.com/a/669633/6880
+
+%%%
+% Le travail est partagé entre LaTeX à qui l'on demande de manger
+% un argument entre deux accolades de façon "verbatim", et la fonction
+% ''calc'' présente dans le fichier ''main.lua''.
+%%%
+
+% Importation du fichier ''main.lua''.
+\directlua{dofile('main.lua')}
+
+%%%
+% La spécification ''v'' dans ''\NewDocumentCommand'' demande de lire
+% l'argument entre deux accolades de façon "verbatim".
+%%%
+\NewDocumentCommand{\calc}{v}{
+%%%
+% Une chaîne "verbatim" côté LaTeX correspond à une chaîne littéral côté
+% Lua. Il faut donc encadrer ''#1'' par des doubles crochets.
+%%%
+  \directlua{calc([[#1]])}
+}

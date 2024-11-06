@@ -1,5 +1,5 @@
 -----
--- Calcul Lua à la main d'une division eucidienne.
+-- Division eucidienne.
 -----
 
 function divmod(a, b)
@@ -15,7 +15,7 @@ function divmod(a, b)
 end
 
 -----
--- Utilisation de lualatex : définitions de macros.
+-- Définitions de macros via lualatex.
 -----
 
 function divmod2tex(a, b)

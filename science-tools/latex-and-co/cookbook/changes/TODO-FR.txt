@@ -5,12 +5,6 @@ Doc "latex2z-latex3" - TODO
 
 > ---------------------------- <
 
-l3 version de gauss sum!!!
-
-commenter mieux le code de automation-old-style
-
-> ---------------------------- <
-
 binary tree : besoin d'avoir des cercles identiques même si contenu différents
 
 
