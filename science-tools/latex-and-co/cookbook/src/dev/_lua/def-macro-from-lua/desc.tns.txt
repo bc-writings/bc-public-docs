@@ -6,4 +6,4 @@ this::
 Définir une macro \latex depuis un code \lua
 ============================================
 
-Le titre se suffit à lui-même...
+// Le titre suffit. Pas besoin d'en dire plus !
