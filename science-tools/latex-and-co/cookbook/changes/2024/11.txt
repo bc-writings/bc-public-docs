@@ -6,9 +6,7 @@
 ==
 
 [[:update:]]
-Voici les amémiorations apportées.
-
-    1) path::''science/math/misc/gauss-sum-trick'' : une amélioration de la méthode "tout à la main" a permis d'ajouter deux versions "automatisées".
+path::''science/math/misc/gauss-sum-trick'' : une amélioration de la méthode "tout à la main" a permis d'ajouter deux versions "automatisées".
 
 
 // ---------- //
@@ -19,9 +17,7 @@ Voici les amémiorations apportées.
 ==
 
 [[:new:]]
-Voici le contenu ajouté.
-
-    1) path::''science/computer/automata/basic'' : automates sans effort.
+path::''science/computer/automata/basic'' : automates sans effort.
 
 
 // ---------- //
@@ -36,8 +32,8 @@ Voici les contenus ajoutés.
 
     1) path::''dev/class/options/unprocessed-to-another-class'' : traitement certains options pour une \cls donnée, puis ensuite renvoi de \ttes les options restantes à une autre.
 
-    1) path::''dev/parsing/regex/letter-occu-coding'' : extraction de données dans un \arg du type ''a3d7n9d8d4n5'' pour agir lorsque ''a'' est associé à ''3'', ''d'' à ''7'', \etc. Les lettres sont reliées à des macros, mais les \nbres peuvent être quelconques.
+    1) path::''dev/parsing/regex/letter-digit-coding'' : extraction de données dans un \arg du type ''a3d7n9d8d4n5'' pour agir lorsque ''a'' est associé à ''3'', ''d'' à ''7'', \etc. Les lettres sont reliées à des macros, mais les \nbres peuvent être quelconques.
 
-    1) path::''science/math/operator/special-big'' : un opérateur maison à la somme ou produit discret défini via un caractère donné.
+    1) path::''science/math/operator/home-made-big'' : un opérateur maison à la somme ou produit discret défini via un caractère donné.
 
     1) path::''science/math/misc/gauss-sum-trick'' : décoration d'une somme d'entiers en progression arithmétique pour visualiser l'astuce dite de Gauss.

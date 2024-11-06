@@ -15,10 +15,20 @@
 \end{itemize}
 
 
-\begin{tikzpicture}[scale=0.8,cnp/.style={rectangle,draw,fill=gray!20,minimum size=2em}]
-\foreach \n in {0,...,8} {
+\begin{tikzpicture}[
+  scale = 0.8,
+  cnp/.style = {
+    rectangle,
+    draw,
+    fill = gray!20,
+    minimum size = 2em
+  }
+]
+  \foreach \n in {0,...,12} {
     \foreach \p in {0,...,\n} {
-        \draw (\p,6-\n) node[cnp] {\cnp{\n}{\p}};}}
+      \draw (\p,6-\n) node[cnp] {\cnp{\n}{\p}};
+    }
+  }
 \end{tikzpicture}
 
 \end{document}
