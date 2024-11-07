@@ -16,7 +16,7 @@ Voici les contenus ajoutés.
 
 
 [[:update:]]
-path::''science/math/combinatorics/combinations-&-co'' : version triangulaire du triangle de Pascal.
+path::''science/math/combinatorics/combinations-&-co'' : version isocèle du triangle de Pascal.
 
 
 // ---------- //
@@ -33,7 +33,7 @@ Voici les contenus ajoutés.
 
     1) path::''dev/lua/verb-arg-for-lua'' : utilisation du caractère ''%'' dans l'\arg d'une \cmd, puis dans un calcul \lua.
 
-    1) path::''science/math/combinatorics/combinations-&-co'' : calcul de combinaisons et d'arrangements.
+    1) path::''science/math/combinatorics/combinations-&-co'' : calcul de combinaisons et d'arrangements avec en bonus le triangle de Pascal dans sa version rectangle.
 
     1) path::''science/math/operator/lim-like-build-via-prop-list'' : construction en série d'opérateurs de type ''\lim''.
 
