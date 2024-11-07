@@ -1,0 +1,26 @@
+\documentclass[border = 3pt]{standalone}
+
+\usepackage{main}
+
+\usepackage{tikz}
+
+\begin{document}
+
+\def\nmax{10}
+
+\begin{tikzpicture}[
+  scale = 0.8,
+  cnp/.style = {
+    rectangle, draw,
+    minimum size = 2em,
+    fill         = gray!20,
+  }
+]
+  \foreach \n in {0,...,\nmax} {
+    \foreach \p in {0,...,\n} {
+      \draw (\p, 6 - \n) node[cnp] { \Cnp{\n}{\p} };
+    }
+  }
+\end{tikzpicture}
+
+\end{document}

@@ -8,9 +8,15 @@
 [[:new:]]
 Voici les contenus ajoutés.
 
+    1) path::''science/math/combinatorics/combinations-&-sierpinsky'' : une version "discrète" du triangle de Sierpinsky via le triangle de Pascal.
+
     1) path::''science/math/symbol-rel-&-ope/relation/superimpose'' : \def d'une \rel \math obtenu en superposant deux symboles existants.
 
     1) path::''science/math/symbol-rel-\&-ope/symbol/superimpose'' : \def d'un symbole \math obtenu en superposant deux symboles existants.
+
+
+[[:update:]]
+path::''science/math/combinatorics/combinations-&-co'' : version triangulaire du triangle de Pascal.
 
 
 // ---------- //
@@ -27,7 +33,7 @@ Voici les contenus ajoutés.
 
     1) path::''dev/lua/verb-arg-for-lua'' : utilisation du caractère ''%'' dans l'\arg d'une \cmd, puis dans un calcul \lua.
 
-    1) path::''science/math/algebra/combinations-&-co'' : calcul de combinaisons et d'arrangements.
+    1) path::''science/math/combinatorics/combinations-&-co'' : calcul de combinaisons et d'arrangements.
 
     1) path::''science/math/operator/lim-like-build-via-prop-list'' : construction en série d'opérateurs de type ''\lim''.
 
