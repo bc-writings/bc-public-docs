@@ -20,31 +20,34 @@
 }
 
 
+\tikzset{
+  cnp/.style n args={1}{
+    draw,
+    rectangle,
+    minimum size = 2.3em,
+    color        = #1!70!black,
+    fill         = #1!70!black, % Juste du design visuel.
+  }
+}
+
+
 %%%
 % prototype::
 %     #1 : le nombre de lignes souhaitées.
 %%%
-\NewDocumentCommand{\discretsierpinsky}{m}{%
-  \begin{tikzpicture}[
-    scale = 0.8,
-    cnp/.style = {
-      draw,
-      rectangle,
-      minimum size = 2.3em,
-      fill         = ##1!70!black, % Juste du design visuel.
-    }
-  ]
-    \foreach \n in {0,...,#1} {
+\NewDocumentCommand{\discretsierpinsky}{O{black}R<>{black}m}{%
+  \begin{tikzpicture}[scale = 0.8]
+    \foreach \n in {0,...,#3} {
       \pgfmathsetmacro\pshift{0.5 * \n}
 
       \foreach \p in {0,...,\n} {
         \ifthenelse{\binCnp{\n}{\p} = 1}{
-          \colorlet{backcol}{orange}
+          \colorlet{col}{#1}
         }{
-          \colorlet{backcol}{ForestGreen}
+          \colorlet{col}{#2}
         }
 
-        \draw (\p - \pshift, 6 - \n) node[cnp = backcol] {};
+        \draw (\p - \pshift, 6 - \n) node[cnp = col] {};
       }
     }
   \end{tikzpicture}
