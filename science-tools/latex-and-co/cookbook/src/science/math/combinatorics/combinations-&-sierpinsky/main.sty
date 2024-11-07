@@ -35,7 +35,7 @@
 % prototype::
 %     #1 : le nombre de lignes souhaitées.
 %%%
-\NewDocumentCommand{\discretsierpinsky}{O{black}R<>{black}m}{%
+\NewDocumentCommand{\discretsierpinsky}{O{red}D<>{blue}m}{%
   \begin{tikzpicture}[scale = 0.8]
     \foreach \n in {0,...,#3} {
       \pgfmathsetmacro\pshift{0.5 * \n}
