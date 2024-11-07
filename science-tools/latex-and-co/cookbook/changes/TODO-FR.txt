@@ -5,6 +5,11 @@ Doc "latex2z-latex3" - TODO
 
 > ---------------------------- <
 
+usage tnsdoc car au final on va automatiser la publication!
+
+
+> ---------------------------- <
+
 binary tree : besoin d'avoir des cercles identiques même si contenu différents
 
 

@@ -1,0 +1,31 @@
+% Source.
+%     + https://tex.stackexchange.com/a/663551/6880
+%     + https://tex.stackexchange.com/a/194385/6880
+
+%%%
+% Arg. #1 : le style mathématique géré par la macro ''\mathpalette''.
+% Arg. #2 : les deux symboles à superposer forunis sous la forme
+%           ''{symbole_1}{symbole2}''.
+%
+% Expliquons rapidement les primitives \tex utilisées.
+%     + ''\ooalign'' superpose différentes lignes en les centrant.
+%     + ''\cr'' termine une ligne pour en commencer une nouvelle.
+%     + ''\hss'' équivaut à ''\hskip 0cm plus 1fil minus 1fil''.
+%       Ceci est utilisé ici pour centrer le cercle moyen
+%     + ''\@firstoftwo'' renvoie le premier d'un argument fait de
+%       deux tokens qui pour nous correspond à l'emploi de
+%       ''{symbole_1}{symbole2}''.
+%     + ''\@secondoftwo'' est similaire à ''\@firstoftwo'', mais
+%       en renvoyant le second token.
+%%%
+\NewDocumentCommand{\@superimpose@}{mm}{%
+  {\ooalign{$#1\hss\@firstoftwo#2$\hss\cr$#1\@secondoftwo#2$}}%
+}
+
+% Un cercle moyen et un symbole de multiplication superposés.
+\newcommand{\mysymb}{%
+  \bgroup% Pour autoriser l'usage de ''B^\mysymb''
+         % comme raccourci de ''B^{\mysymb}''.
+    \mathpalette\@superimpose@{{\circ}{\times}}%
+  \egroup%
+}

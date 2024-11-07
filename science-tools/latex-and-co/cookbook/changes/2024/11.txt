@@ -2,6 +2,21 @@
 
 
 ==
+07
+==
+
+[[:new:]]
+Voici les contenus ajoutés.
+
+    1) path::''science/math/symbol-rel-&-ope/relation/superimpose'' : \def d'une \rel \math obtenu en superposant deux symboles existants.
+
+    1) path::''science/math/symbol-rel-\&-ope/symbol/superimpose'' : \def d'un symbole \math obtenu en superposant deux symboles existants.
+
+
+// ---------- //
+
+
+==
 06
 ==
 
@@ -14,7 +29,7 @@ Voici les contenus ajoutés.
 
     1) path::''science/math/algebra/combinations-&-co'' : calcul de combinaisons et d'arrangements.
 
-    1) path::''science/math/operator/lim-like-prop-list-build'' : construction en série d'opérateurs de type ''\lim''.
+    1) path::''science/math/operator/lim-like-build-via-prop-list'' : construction en série d'opérateurs de type ''\lim''.
 
 
 // ---------- //
@@ -53,6 +68,6 @@ Voici les contenus ajoutés.
 
     1) path::''dev/parsing/regex/letter-digit-coding'' : extraction de données dans un \arg du type ''a3d7n9d8d4n5'' pour agir lorsque ''a'' est associé à ''3'', ''d'' à ''7'', \etc. Les lettres sont reliées à des macros, mais les \nbres peuvent être quelconques.
 
-    1) path::''science/math/operator/big-home-made'' : un opérateur maison à la somme ou produit discret défini via un caractère donné.
+    1) path::''science/math/symbol-rel-&-ope/operator/big-home-made'' : un opérateur maison à la somme ou produit discret défini via un caractère donné.
 
     1) path::''science/math/misc/gauss-sum-trick'' : décoration d'une somme d'entiers en progression arithmétique pour visualiser l'astuce dite de Gauss.

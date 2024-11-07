@@ -1,0 +1,23 @@
+% Source: https://tex.stackexchange.com/a/621737/6880
+
+\documentclass{article}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathmorphing}
+\newcommand*{\rightsquigarrowrev}{%
+    \mathrel{\raisebox{.5mm}{%
+        \begin{tikzpicture}
+            \draw[-<, line cap=round, decorate, decoration={
+                zigzag,
+                segment length=3.7,
+                amplitude=.8,
+                post length=2pt
+            }] (0,0) -- (.3,0);
+        \end{tikzpicture}%
+    }}%
+}
+\begin{document}
+\(A \rightsquigarrow B\)
+
+\(A \rightsquigarrowrev B\)
+\end{document}
