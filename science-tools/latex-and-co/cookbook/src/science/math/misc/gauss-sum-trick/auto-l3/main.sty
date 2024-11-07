@@ -15,8 +15,9 @@
 \ExplSyntaxOn
 
 %%%
-% Arg. #1 : cet argument correspond à l'usage ou non de la version étoilée.
-% Arg. #2 : le contenu à décorer.
+% prototype::
+%     #1 : cet argument correspond à l'usage ou non de la version étoilée.
+%     #2 : le contenu à décorer.
 %%%
 \NewDocumentCommand{ \nub }{ s m }{
   \IfBooleanTF { #1 }{
@@ -151,8 +152,9 @@
 %%%
 
 %%%
-% Arg. #1 : une première sous-étiquette égale à "start" ou "end".
-% Arg. #2 : une seconde sous-étiquette correspondant à un identifiant
+% prototype::
+%     #1 : une première sous-étiquette égale à "start" ou "end".
+%     #2 : une seconde sous-étiquette correspondant à un identifiant
 %           entier unique.
 %%%
 \NewDocumentCommand{\nub@add@mark}{mm}{%
@@ -160,8 +162,9 @@
 }
 
 %%%
-% Arg. #1 : l'identifiant entier unique propre à une décoration.
-% Arg. #2 : la distance d'éloignement vertical pour le tracé.
+% prototype::
+%     #1 : l'identifiant entier unique propre à une décoration.
+%     #2 : la distance d'éloignement vertical pour le tracé.
 %%%
 \NewDocumentCommand{\nub@add@deco}{mm}{
   \llap{%

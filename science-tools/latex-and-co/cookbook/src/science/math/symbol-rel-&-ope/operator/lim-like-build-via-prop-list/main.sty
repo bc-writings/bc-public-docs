@@ -17,8 +17,8 @@
 }
 
 %%%
-% On parcuort nos associations pour appliquer à chaque "clé-valeur" la
-% macro ''\DeclareMathOperator'' qui fait tout le travail.
+% On parcourt nos associations pour appliquer à chaque "clé-valeur" la
+% macro ''\DeclareMathOperator*'' qui fait tout le travail.
 %%%
 \prop_map_inline:Nn \g_cookbook_ope_prop {
   \exp_args:NNc \DeclareMathOperator* { #1 }{ #2 }

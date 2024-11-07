@@ -26,6 +26,6 @@ end
 -- Impression d'une valeur flottante sans partie décimale.
 -----
 
-function writefloat2int(z)
-    tex.sprint(string.format("%.0f", z))
+function writefloat2int(x)
+    tex.sprint(string.format("%.0f", x))
 end

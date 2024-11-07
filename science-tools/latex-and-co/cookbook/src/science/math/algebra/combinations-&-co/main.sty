@@ -10,16 +10,18 @@
 \directlua{dofile('main.lua')}
 
 %%%
-% Arg. #1 : le "naturel" n du nombre d'arrangements de p parmi n.
-% Arg. #2 : le "naturel" p du nombre d'arrangements de p parmi n.
+% prototype::
+%     #1 : le "naturel" n du nombre d'arrangements de p parmi n.
+%     #2 : le "naturel" p du nombre d'arrangements de p parmi n.
 %%%
 \NewDocumentCommand{\Anp}{mm}{%
   \directlua{writefloat2int(Anp(#1, #2))}%
 }
 
 %%%
-% Arg. #1 : le "naturel" n du nombre de combinaisons de p parmi n.
-% Arg. #2 : le "naturel" p du nombre de combinaisons de p parmi n.
+% prototype::
+%     #1 : le "naturel" n du nombre de combinaisons de p parmi n.
+%     #2 : le "naturel" p du nombre de combinaisons de p parmi n.
 %%%
 \NewDocumentCommand{\Cnp}{mm}{%
   \directlua{writefloat2int(Cnp(#1, #2))}%

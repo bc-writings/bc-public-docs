@@ -2,8 +2,6 @@
 # -- CONSTANTS -- #
 # --------------- #
 
-CHANGELOGNEXT="changelog/next.tex"
-
 THISDIR=$(dirname "$0")
 WORKINGDIR=$(pwd)
 

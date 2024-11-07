@@ -14,12 +14,11 @@
 \setlength{\nubunitht}{.8ex}
 
 %%%
-% Notre macro interne.
-%
-% Arg. #1 : l'étiquette pour une série de décorations.
-% Arg. #2 : le décalage vertical maximal.
-% Arg. #3 : un décalage vertical relatif.
-% Arg. #4 : le contenu à décorer.
+% prototype::
+%      #1 : l'étiquette pour une série de décorations.
+%      #2 : le décalage vertical maximal.
+%      #3 : un décalage vertical relatif.
+%      #4 : le contenu à décorer.
 %%%
 \NewDocumentCommand{\internal@nub}{mmmm}{%
   \tikzmark{nubstart#1#3}%
@@ -56,7 +55,8 @@
 \setcounter{nub@depth@draw}{0}
 
 %%%
-% Arg. #1 : le contenu à décorer.
+% prototype::
+%     #1 : le contenu à décorer.
 %%%
 \NewDocumentCommand{\nub}{m}{%
 % Nouvelle somme à la Gauss.
