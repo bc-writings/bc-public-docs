@@ -1,6 +1,6 @@
 -----
 -- Mémorisation des calculs déjà effectués via un tableau
--- associatif de tableaux associatifs.
+-- associatif associant des clés à des tableaux associatifs.
 -----
 
 MEMO_BIN_CNP = {}
@@ -14,8 +14,8 @@ function binCnp(n, p)
         return 1
     end
 
--- Si ''n'' n'est pas une clé de ''MEMO_BIN_CNP'', alors
--- ''MEMO_BIN_CNP[n]'' vaut ''nil''.
+-- Si ''n'' n'est pas une clé du tableau ''MEMO_BIN_CNP'',
+-- alors ''MEMO_BIN_CNP[n]'' vaut ''nil''.
     if MEMO_BIN_CNP[n] ~= nil and MEMO_BIN_CNP[n][p] ~= nil then
         return MEMO_BIN_CNP[n][p]
     end

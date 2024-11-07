@@ -1,6 +1,6 @@
 \usepackage{ifthen}           % Pour des tests SI-SINON-SI puissants.
 \usepackage{tikz}
-\usepackage[svgnames]{xcolor} % Pour la couleur ForestGreen.
+\usepackage[svgnames]{xcolor} % Pour la couleur ''ForestGreen''.
 
 %%%
 % Le travail de calcul modulo `2` est fait par la fonction ''binCnp''
@@ -25,15 +25,19 @@
     draw,
     rectangle,
     minimum size = 2.3em,
-    color        = #1!70!black,
-    fill         = #1!70!black, % Juste du design visuel.
+    color        = #1!70!black, % Juste du design visuel avec 70% de
+    fill         = #1!70!black, % la couleur ''#1'' et 30% de noir.
   }
 }
 
 
 %%%
 % prototype::
-%     #1 : le nombre de lignes souhaitées.
+%     #1 : option entre crochets pour la couleur des impairs.
+%          La valeur par défaut est ''red''.
+%     #2 : option entre chevrons pour la couleur des pairs.
+%          La valeur par défaut est ''blue''.
+%     #3 : le nombre de lignes souhaitées.
 %%%
 \NewDocumentCommand{\discretsierpinsky}{O{red}D<>{blue}m}{%
   \begin{tikzpicture}[scale = 0.8]
