@@ -1,12 +1,8 @@
 % Source: 
 
-\documentclass{scrlttr2}
+\documentclass{standalone}
 
 \usepackage[ngerman]{babel}
-
-\usepackage[scaled]{sourcesanspro}
-\renewcommand\familydefault{\sfdefault}
-
 \usepackage{siunitx}
 
 \sisetup{
@@ -22,7 +18,7 @@
     round-mode=places,
     group-separator={.},
     output-decimal-marker={,}
-  ]{#1}\,€%
+  ]{#1}\,euros%
 }
 
 \begin{document}
@@ -33,4 +29,4 @@
     
 \qty{12345.6789}{m}
 
-\end{document}https://tex.stackexchange.com/a/682148/6880
+\end{document}

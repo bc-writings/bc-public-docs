@@ -26,10 +26,7 @@
   \tikzmark{nubend#1#3}%
   \pgfmathsetmacro\nubvoffset{#3 - #2}%
   \llap{%
-    \begin{tikzpicture}[
-        remember picture,
-        baseline = (current bounding box.north)
-    ]
+    \begin{tikzpicture}[baseline = (current bounding box.north)]
       \draw (pic cs:nubstart#1#3)
               --++ (0,\nubvoffset*\nubunitht)
               -|

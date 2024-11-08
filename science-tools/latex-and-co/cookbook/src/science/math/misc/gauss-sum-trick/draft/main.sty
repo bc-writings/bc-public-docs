@@ -28,10 +28,7 @@
   %
   \llap{ % Cette macro crée un contenu dans une boîte de largeur
          % nulle du point de vue de LaTeX.
-    \begin{tikzpicture}[
-        remember picture,
-        baseline = (current bounding box.north)
-    ]
+    \begin{tikzpicture}[baseline = (current bounding box.north)]
       \draw (pic cs:a\nubpre#1)            % Trait vertical à partir
               --++ (0,\nubvoffset*\unitht) % de la marque du début.
               -|                           % Une ligne en forme de "L"

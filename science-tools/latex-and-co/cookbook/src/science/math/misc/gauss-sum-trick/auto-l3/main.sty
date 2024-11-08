@@ -168,10 +168,7 @@
 %%%
 \NewDocumentCommand{\nub@add@deco}{mm}{
   \llap{%
-    \begin{tikzpicture}[
-      remember picture,
-      baseline = (current bounding box.north)
-    ]
+    \begin{tikzpicture}[baseline = (current bounding box.north)]
       \draw (pic cs:nub@start@#1)
               --++ (0, (- #2 * \nubunitht)
               -|
