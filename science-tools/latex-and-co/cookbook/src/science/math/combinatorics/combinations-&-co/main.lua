@@ -1,7 +1,6 @@
 -----
 -- Combinaison.
 -----
-
 function Cnp(n, p)
     if (p == 0 or p == n) then
         return 1
@@ -13,7 +12,6 @@ end
 -----
 -- Arrangement.
 -----
-
 function Anp(n, p)
     if p == 0 then
         return 1
@@ -25,7 +23,6 @@ end
 -----
 -- Impression d'une valeur flottante sans partie décimale.
 -----
-
 function writefloat2int(x)
     tex.sprint(string.format("%.0f", x))
 end

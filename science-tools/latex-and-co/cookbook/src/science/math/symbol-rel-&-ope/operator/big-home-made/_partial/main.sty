@@ -1,0 +1,21 @@
+%%%
+% refs::
+%     + http://tex.stackexchange.com/questions/5042/define-strange-operators
+%%%
+
+%%%
+% Le \pack ''relsize'' fournit la bien nommée macro ''\mathlarger''.
+%%
+\usepackage{relsize}
+
+%%%
+% Les macros suivantes doivent à être affinées en terme de positionnement
+% vertical.
+%%
+\newcommand{\bigstar}{%
+  \mathop{\Huge\mathlarger{\mathlarger{*}}}%
+}
+
+\newcommand{\bigcompo}{%
+  \mathop{\Huge\mathlarger{\mathlarger{\circ}}}%
+}

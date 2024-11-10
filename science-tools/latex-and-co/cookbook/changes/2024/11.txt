@@ -2,10 +2,42 @@
 
 
 ==
+11 ???
+==
+
+
+--------
+:update:
+--------
+
+[[:content:]]     ???
+Les codes des recettes sont documentées précisément.
+
+
+// ---------- //
+
+
+==
+10
+==
+
+
+[[:doc:]]
+Le fichier \readme a été amélioré pour faire \ref à \latex au sens large.
+
+
+// ---------- //
+
+
+==
 07
 ==
 
-[[:new:]]
+-----
+:new:
+-----
+
+[[:content:]]
 Voici les contenus ajoutés.
 
     1) path::''science/math/combinatorics/combinations-&-sierpinsky'' : une version "discrète" du triangle de Sierpinsky via le triangle de Pascal.
@@ -15,7 +47,11 @@ Voici les contenus ajoutés.
     1) path::''science/math/symbol-rel-\&-ope/symbol/superimpose'' : \def d'un symbole \math obtenu en superposant deux symboles existants.
 
 
-[[:update:]]
+--------
+:update:
+--------
+
+[[:content:]]
 path::''science/math/combinatorics/combinations-&-co'' : version isocèle du triangle de Pascal.
 
 
@@ -26,7 +62,11 @@ path::''science/math/combinatorics/combinations-&-co'' : version isocèle du tri
 06
 ==
 
-[[:new:]]
+-----
+:new:
+-----
+
+[[:content:]]
 Voici les contenus ajoutés.
 
     1) path::''dev/lua/def-macro-from-lua'' : définition d'une macro \latex depuis un code \lua. So cute!
@@ -45,7 +85,11 @@ Voici les contenus ajoutés.
 05
 ==
 
-[[:update:]]
+--------
+:update:
+--------
+
+[[:content:]]
 path::''science/math/misc/gauss-sum-trick'' : une amélioration de la méthode "tout à la main" a permis d'ajouter deux versions "automatisées".
 
 
@@ -56,7 +100,11 @@ path::''science/math/misc/gauss-sum-trick'' : une amélioration de la méthode "
 02
 ==
 
-[[:new:]]
+-----
+:new:
+-----
+
+[[:content:]]
 path::''science/computer/automata/basic'' : automates sans effort.
 
 
@@ -67,7 +115,11 @@ path::''science/computer/automata/basic'' : automates sans effort.
 01
 ==
 
-[[:new:]]
+-----
+:new:
+-----
+
+[[:content:]]
 Voici les contenus ajoutés.
 
     1) path::''dev/class/options/unprocessed-to-another-class'' : traitement certains options pour une \cls donnée, puis ensuite renvoi de \ttes les options restantes à une autre.

@@ -2,11 +2,16 @@
 % Le travail est fait par les fonctions ''Anp'', ''Cnp'' et aussi
 % ''writefloat2int'' présentes dans le fichier ''main.lua''.
 %
-% Les macros ''\Anp'' et ''\Cnp'' utilisent la fonction ''writefloat2int''
-% pour imprimer des valeurs flottantes sans partie décimale.
+% note::
+%     Pour imprimer des valeurs flottantes renvoyés par \lua sans
+%     partie décimale, les macros ''\Anp'' et ''\Cnp''ont besoin
+%     de la fonction ''writefloat2int''.
 %%%
 
-% Importation du fichier ''main.lua''.
+%%%
+% Importation du fichier ''main.lua'' contenant les deux fonctions
+% ''Anp'' et ''Cnp'', ainsi que la fonction ''writefloat2int''.
+%%%
 \directlua{dofile('main.lua')}
 
 %%%

@@ -1,7 +1,6 @@
 -----
 -- Division eucidienne.
 -----
-
 function divmod(a, b)
     local q = 0
     local r = a
@@ -17,7 +16,6 @@ end
 -----
 -- Définitions de macros via \lualatex.
 -----
-
 function divmod2tex(a, b)
     q, r = divmod(a, b)
 

@@ -26,7 +26,7 @@
 %     + ''\@secondoftwo'' est similaire à ''\@firstoftwo'', mais
 %       en renvoyant le second token.
 %%%
-\NewDocumentCommand{\@superimpose@}{mm}{%
+\NewDocumentCommand{\@superimpose@}{m m}{%
   {\ooalign{$#1\hss\@firstoftwo#2$\hss\cr$#1\@secondoftwo#2$}}%
 }
 

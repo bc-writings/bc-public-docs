@@ -4,22 +4,24 @@
 %%%
 
 %%%
-% Le travail est partagé entre LaTeX à qui l'on demande de manger
-% un argument entre deux accolades de façon "verbatim", et la fonction
+% Le travail est partagé entre \latex à qui l'on demande de manger
+% un \arg entre deux accolades de façon "verbatim", et la fonction
 % ''calc'' présente dans le fichier ''main.lua''.
 %%%
 
-% Importation du fichier ''main.lua''.
+%%%
+% Importation du fichier ''main.lua'' contenant la fonction ''calc''.
+%%%
 \directlua{dofile('main.lua')}
 
 %%%
-% La spécification ''v'' dans ''\NewDocumentCommand'' demande de lire
-% l'argument entre deux accolades de façon "verbatim".
+% La \spec ''v'' dans ''\NewDocumentCommand'' demande de lire l'\arg
+% entre deux accolades de façon "verbatim".
+%
+% caution::
+%     Une chaîne "verbatim" côté \latex correspond à une chaîne littéral
+%     côté \lua, donc il faut encadrer ''#1'' par des doubles crochets.
 %%%
 \NewDocumentCommand{\calc}{v}{
-%%%
-% Une chaîne "verbatim" côté LaTeX correspond à une chaîne littéral côté
-% Lua. Il faut donc encadrer ''#1'' par des doubles crochets.
-%%%
   \directlua{calc([[#1]])}
 }

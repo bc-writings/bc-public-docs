@@ -25,7 +25,7 @@
 %     #1 : le "naturel" n pour le nombre de combinaisons de p parmi n.
 %     #2 : le "naturel" p pour le nombre de combinaisons de p parmi n.
 %%%
-\NewDocumentCommand{\binCnp}{mm}{%
+\NewDocumentCommand{\binCnp}{m m}{%
   \directlua{tex.sprint(binCnp(#1, #2))}%
 }
 
@@ -49,7 +49,7 @@
 %     #2 : option entre chevrons pour la couleur des pairs.
 %     #3 : le nombre de lignes souhaitées.
 %%%
-\NewDocumentCommand{\discretsierpinsky}{O{red}D<>{blue}m}{%
+\NewDocumentCommand{\discretsierpinsky}{ O{red} D<>{blue} m }{%
   \begin{tikzpicture}[scale = 0.8]
     \foreach \n in {0,...,#3} {
       \pgfmathsetmacro\pshift{0.5 * \n}
