@@ -15,7 +15,7 @@ function divmod(a, b)
 end
 
 -----
--- Définitions de macros via lualatex.
+-- Définitions de macros via \lualatex.
 -----
 
 function divmod2tex(a, b)

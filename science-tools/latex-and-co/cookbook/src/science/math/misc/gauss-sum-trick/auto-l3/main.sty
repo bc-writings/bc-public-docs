@@ -127,7 +127,8 @@
 
         ##1
 
-% La fin d'un crochet ?
+% La fin d'un crochet ? On doit tenir compte du cas de trois termes
+% isolés au milieu
         \bool_if:nT {
           \int_if_even_p:n { \int_use:N \l_cookbook_nub_terms_size_int }
           ||

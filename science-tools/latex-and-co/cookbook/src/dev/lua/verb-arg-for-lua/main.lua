@@ -13,7 +13,7 @@ function mod(a, b)
  end
 
  -----
- -- Calcul du modulo indiqué via ''a % b'' côté LaTeX.
+ -- Calcul du modulo indiqué via ''a % b'' côté \latex.
  -----
 
  function calc(expr)
@@ -24,6 +24,6 @@ function mod(a, b)
           tonumber(vars[2])
      )
 
--- Il faut TeX-imprimer le résultat, et non le renvoyer.
+-- Il faut \tex-imprimer le résultat, et non le renvoyer.
      tex.print(m)
 end

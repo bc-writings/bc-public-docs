@@ -1,32 +1,44 @@
-\usepackage{ifthen}           % Pour des tests SI-SINON-SI puissants.
+%%%
+% Le \pack ''ifthen'' nous permet de facilement faire des tests du type
+% ''SI-SINON-SI'' via une syntaxe naturelle (au moins pour un codeur).
+%%%
+\usepackage{ifthen}
+
+%%%
+% ???
+%%%
 \usepackage{tikz}
-\usepackage[svgnames]{xcolor} % Pour la couleur ''ForestGreen''.
+
+%%%
+% ???   Pour la couleur ''ForestGreen''
+%%%
+\usepackage[svgnames]{xcolor} % .
 
 %%%
 % Le travail de calcul modulo `2` est fait par la fonction ''binCnp''
 % présente dans le fichier ''main.lua''.
 %%%
-
-% Importation du fichier ''main.lua''.
 \directlua{dofile('main.lua')}
 
 %%%
 % prototype::
-%     #1 : le "naturel" n du nombre de combinaisons de p parmi n.
-%     #2 : le "naturel" p du nombre de combinaisons de p parmi n.
+%     #1 : le "naturel" n pour le nombre de combinaisons de p parmi n.
+%     #2 : le "naturel" p pour le nombre de combinaisons de p parmi n.
 %%%
 \NewDocumentCommand{\binCnp}{mm}{%
   \directlua{tex.sprint(binCnp(#1, #2))}%
 }
 
-
+%%%
+% ???
+%%%
 \tikzset{
   cnp/.style n args={1}{
     draw,
     rectangle,
     minimum size = 2.3em,
-    color        = #1!70!black, % Juste du design visuel avec 70% de
-    fill         = #1!70!black, % la couleur ''#1'' et 30% de noir.
+    color        = #1!70!black, % Juste du design visuel subjectif avec
+    fill         = #1!70!black, % 70% de la couleur ''#1'' et 30% de noir.
   }
 }
 
