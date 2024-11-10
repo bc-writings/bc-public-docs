@@ -1,13 +1,17 @@
 this::
-    date = 2024-11-01
+    date = 2024-11-10
 
 
-=========================================================
-Définir un opérateur maison à la somme ou produit discret
-=========================================================
-
-Nous expliquons ici comment définir un opérateur de grande taille à la `\sum` ou `\prod` à partir d'un simple caractère.
+abrev::
+    desc = desc.tns.txt
 
 
-caution::
-    La méthode proposée demande à être améliorée, car le placement du symbole est trop au-dessus de la ligne de base.
+====================================================
+Définir un opérateur maison de type "somme discrète"
+====================================================
+
+Nous souhaitons définir un opérateur de grande taille de type `\sum` ou `\prod` en remplaçant le symbole `\Sigma` ou `\Pigma` par un caractère de notre choix.
+
+
+content::
+    ./draft/\desc

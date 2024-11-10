@@ -1,5 +1,5 @@
-`LaTeX2e` et `LaTeX3` - Quelques recettes
-=========================================
+`LaTeX2e`, `LaTeX3` et compagnie - Quelques recettes
+====================================================
 
 Ce projet présente différentes recettes `LaTeX2e` en utilisant si besoin le langage de programmation `LaTeX3`.
 

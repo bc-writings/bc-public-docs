@@ -1,7 +1,14 @@
-% Source.
+%%%
+% refs::
 %     + https://tex.stackexchange.com/a/655445/6880
 %     + https://tex.stackexchange.com/a/730033/6880
+%%%
 
+%%%
+% La décoration de la somme se fait via \tikz et la bibliothèque,
+% cette dernière permettant de marquer des points précis du \pdf
+% utile aux tracé de la décoration.
+%%%
 \usepackage{tikz}
 \usetikzlibrary{tikzmark}
 
@@ -29,15 +36,18 @@
 
 %%%
 % Calcul de la somme en utilisant la syntaxe ''\foreach'' de ''pgf''.
+%
+% warning::
+%     L'emploi de la boucle ''\foreach'' du package '' simplifie le travail,
+%     mais ceci impose de travailler avec une variable à portée globale, ce
+%     qui n'est pas logique ici.
 %%%
 \int_new:N \g_cookbook_nub_val_int
 
 \cs_set:Npn \cookbook_nub_val:n #1 {
-  \def\seq@of@ints{#1}
-
   \int_gset:Nn \g_cookbook_nub_val_int { 0 }
 
-  \foreach \k in \seq@of@ints {
+  \foreach \k in {#1} {
     \int_gset:Nn
       \g_cookbook_nub_val_int
       {\k + \int_use:N \g_cookbook_nub_val_int}
@@ -47,12 +57,12 @@
 }
 
 %%%
-% Fabrication des décorations.
+% Décoration d'une somme à la Gauss.
 %%%
-\int_new:N  \g_cookbook_nub_terms_label_id_int
-\int_set:Nn \g_cookbook_nub_terms_label_id_int {0}
+\int_new:N  \g_cookbook_nub_label_id_int
+\int_set:Nn \g_cookbook_nub_label_id_int {0}
 
-\int_new:N  \l_cookbook_nub_terms_last_label_id_int
+\int_new:N  \l_cookbook_nub_last_label_id_int
 
 \clist_new:N \l_cookbook_nub_terms_clist
 \seq_new:N   \l_cookbook_nub_terms_seq
@@ -91,21 +101,22 @@
       \int_compare:nNnTF
           {\int_use:N \l_cookbook_nub_this_pos_int}
         < {\int_use:N \l_cookbook_nub_mid_term_pos_int}
-% Une nouvelle décoration commence ici.
+% Un crochet commence ici, car nous n'avons pas dépassé la position
+% "milieu" des termes à traiter.
       {
-        \int_gincr:N \g_cookbook_nub_terms_label_id_int
+        \int_gincr:N \g_cookbook_nub_label_id_int
 
         \nub@add@mark
           { start }
-          { \int_use:N \g_cookbook_nub_terms_label_id_int }
+          { \int_use:N \g_cookbook_nub_label_id_int }
 
         ##1 +
 
         \int_set:Nn
-          \l_cookbook_nub_terms_last_label_id_int
-          { 1 + \int_use:N \g_cookbook_nub_terms_label_id_int}
-% Un autre terme dans une décoration éventuellement à fermer
-% (penser au cas de trois termes isolés au milieu).
+          \l_cookbook_nub_last_label_id_int
+          { 1 + \int_use:N \g_cookbook_nub_label_id_int}
+% Un autre terme dans un crochet en cours avec éventuellement une fin
+% de décoration à faire (penser au cas de trois termes isolés au milieu).
       }{
         \int_compare:nNnTF
             {\int_use:N \l_cookbook_nub_this_pos_int}
@@ -116,7 +127,7 @@
 
         ##1
 
-% La fin du décoration ?
+% La fin d'un crochet ?
         \bool_if:nT {
           \int_if_even_p:n { \int_use:N \l_cookbook_nub_terms_size_int }
           ||
@@ -125,19 +136,21 @@
             != \int_use:N \l_cookbook_nub_mid_term_pos_int
           }
         }{
-          \int_decr:N \l_cookbook_nub_terms_last_label_id_int
+          \int_decr:N \l_cookbook_nub_last_label_id_int
 
+% Marquage de la fin du crochet en cours.
           \nub@add@mark
             { end }
-            { \int_use:N \l_cookbook_nub_terms_last_label_id_int }
+            { \int_use:N \l_cookbook_nub_last_label_id_int }
 
+% Tracé immédiat du crochet en cours.
           \nub@add@deco
-            { \int_use:N \l_cookbook_nub_terms_last_label_id_int }
+            { \int_use:N \l_cookbook_nub_last_label_id_int }
             {
               \int_eval:n {
                   1
-                + \int_use:N \g_cookbook_nub_terms_label_id_int
-                - \int_use:N \l_cookbook_nub_terms_last_label_id_int
+                + \int_use:N \g_cookbook_nub_label_id_int
+                - \int_use:N \l_cookbook_nub_last_label_id_int
               }
             }
         }%
@@ -148,7 +161,10 @@
 \ExplSyntaxOff
 
 %%%
-% Avec TikZ, nous devons être prudent, car les espaces sont importants !
+% warning::
+%     Avec \tikz, nous devons faire attention à la gestion des espaces.
+%     Ceci justifie de définir ci-après deux macros en dehors des règles
+%     de syntaxe de \l3.
 %%%
 
 %%%

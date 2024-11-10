@@ -1,5 +1,5 @@
 this::
-    date = 2024-11-05
+    date = 2024-11-10
 
 
 ==============================
@@ -7,3 +7,7 @@ Une version aux petits oignons
 ==============================
 
 Finissons en proposant une macro permettant de juste taper ''\nub{1, 2, 3, 4}'' ou ''\nub{1, 2,..., 100}'', et qui de plus peut calculer le résultat de la somme décorée. Pour arriver à nos fins, nous avons utiliser le \lang \l3, mais aussi la boucle ''\foreach'' de ''pgf''.
+
+
+caution::
+    La solution proposée ici ne permet pas d'imbriquer des appels à la macro ''\nub''. Ce n'est pas grave, car cela n'a aucune utilité.

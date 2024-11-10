@@ -1,9 +1,16 @@
-% Source.
+%%%
+% refs::
 %     + https://tex.stackexchange.com/a/655445/6880
 %     + https://tex.stackexchange.com/a/730033/6880
+%%%
 
+%%%
+% La décoration de la somme se fait via \tikz et la bibliothèque,
+% cette dernière permettant de marquer des points précis du \pdf
+% utile aux tracé de la décoration.
+%%%
 \usepackage{tikz}
-\usetikzlibrary{tikzmark} % Marquer un emplacement du rendu final.
+\usetikzlibrary{tikzmark}
 
 %%%
 % Des réglages côté utilisateur.
@@ -23,9 +30,9 @@
   \tikzmark{a\nubpre#1} % Marquage du début du contenu.
     #2                  % Le contenu.
   \tikzmark{b\nubpre#1} % Marquage de la fin du contenu.
-  %
+  % Calcul du décalage vertical pour le tracé du crochet.
   \pgfmathsetmacro\nubvoffset{#1 - \nubdepth}%
-  %
+  % Le tracé commence ici.
   \llap{ % Cette macro crée un contenu dans une boîte de largeur
          % nulle du point de vue de LaTeX.
     \begin{tikzpicture}[baseline = (current bounding box.north)]
