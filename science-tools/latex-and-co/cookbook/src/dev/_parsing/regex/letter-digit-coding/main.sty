@@ -5,42 +5,73 @@
 
 \ExplSyntaxOn
 
+%%%
+% Tout le travail est fait par la fonction ''\cookbook_adn_parsing:n''
+% via le langage \l3.
+%%%
+\NewDocumentCommand{ \parseanduse }{ m }{
+  \cookbook_adn_parsing:n { #1 }
+}
+
 \tl_new:N \l__cookbook_parseanduse_tl
 
-\NewDocumentCommand{ \parseanduse }{ m }{
-  \tl_set:Nn \l__cookbook_parseanduse_tl { #1 }
+\cs_new_protected:Nn \cookbook_adn_parsing:n {
+  \tl_set:Nn
+    \l__cookbook_parseanduse_tl
+    { #1 }
 
+% ''\c'' est à \l3 ce qu'est ''\csname ... \endcsname'' à \latex.
   \regex_replace_all:nnN
     { (a|d|n) }
     { \c{cookbook_macro_\1:n} }
     \l__cookbook_parseanduse_tl
 
+% On utilise deux commandes techniques des \regexs_fr du langage \l3.
+%     + ''\cB'' indique que le prochain caractère sera de catégorie
+%     "début de groupe".
+%     + ''\cE'' indique que le prochain caractère sera de catégorie
+%     "fin de groupe".
   \regex_replace_all:nnN
     { ([[:digit:]]+) }
     { \cB\{\1\cE\} }
     \l__cookbook_parseanduse_tl
 
   \tl_use:N \l__cookbook_parseanduse_tl
- }
+}
 
+%%%
+% La macro ''\macroA'' associée à la lettre ''a'' passe la main à la
+% fonction ''\cookbook_macro_a:n'' qui est elle-même appelée en interne
+% par la macro ''\parseanduse''.
+%%%
 \NewDocumentCommand{ \macroA }{m}{
   \cookbook_macro_a:n { #1 }
-}
-
-\NewDocumentCommand{ \macroD }{ m }{
-  \cookbook_macro_d:n { #1 }
-}
-
-\NewDocumentCommand{ \macroN }{ m }{
-  \cookbook_macro_n:n { #1 }
 }
 
 \cs_new_protected:Nn \cookbook_macro_a:n {
   [ ~ A ~ = ~ #1 ~ ] \newline
 }
 
+%%%
+% La macro ''\macroD'' associée à la lettre ''d'' passe la main à la
+% fonction ''\cookbook_macro_d:n'' qui est elle-même appelée en interne
+% par la macro ''\parseanduse''.
+%%%
+\NewDocumentCommand{ \macroD }{ m }{
+  \cookbook_macro_d:n { #1 }
+}
+
 \cs_new_protected:Nn \cookbook_macro_d:n {
   ( ~ D ~ vaut ~ #1 ~ ) \newline
+}
+
+%%%
+% La macro ''\macroN'' associée à la lettre ''n'' passe la main à la
+% fonction ''\cookbook_macro_n:n'' qui est elle-même appelée en interne
+% par la macro ''\parseanduse''.
+%%%
+\NewDocumentCommand{ \macroN }{ m }{
+  \cookbook_macro_n:n { #1 }
 }
 
 \cs_new_protected:Nn \cookbook_macro_n:n {

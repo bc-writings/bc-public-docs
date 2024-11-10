@@ -5,14 +5,9 @@
 \usepackage{ifthen}
 
 %%%
-% ???
+% \tikz permet de facilement tracer un triangle de Pascal "binaire".
 %%%
 \usepackage{tikz}
-
-%%%
-% ???   Pour la couleur ''ForestGreen''
-%%%
-\usepackage[svgnames]{xcolor} % .
 
 %%%
 % Le travail de calcul modulo `2` est fait par la fonction ''binCnp''
@@ -30,7 +25,7 @@
 }
 
 %%%
-% ???
+% Nous créons un style \tikz paramétré par une \coul.
 %%%
 \tikzset{
   cnp/.style n args={1}{
@@ -45,8 +40,8 @@
 
 %%%
 % prototype::
-%     #1 : option entre crochets pour la couleur des impairs.
-%     #2 : option entre chevrons pour la couleur des pairs.
+%     #1 : option pour la couleur des impairs.
+%     #2 : option pour la couleur des pairs.
 %     #3 : le nombre de lignes souhaitées.
 %%%
 \NewDocumentCommand{\discretsierpinsky}{ O{red} D<>{blue} m }{%

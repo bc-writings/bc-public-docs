@@ -16,8 +16,7 @@ function binCnp(n, p)
 
 -- Si ''n'' n'est pas une clé du tableau ''MEMO_BIN_CNP'', alors
 -- ''MEMO_BIN_CNP[n]'' vaut ''nil''. Ceci permet de comprendre que
--- le test suivant valide une sitution où a été mémorisé "`p` parmi
--- `n`".
+-- le test repère le cas où "`p` parmi `n`" a été mémorisé.
     if MEMO_BIN_CNP[n] ~= nil and MEMO_BIN_CNP[n][p] ~= nil then
         return MEMO_BIN_CNP[n][p]
     end
