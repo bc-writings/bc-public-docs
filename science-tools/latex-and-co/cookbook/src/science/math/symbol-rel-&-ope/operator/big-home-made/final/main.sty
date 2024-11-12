@@ -1,44 +1,29 @@
 %%%
 % refs::
-%     + http://tex.stackexchange.com/questions/5042/define-strange-operators
+%     + https://tex.stackexchange.com/a/730684/6880
 %%%
 
-%%%
-% Le \pack ''relsize'' fournit la bien nommée macro ''\mathlarger''.
-%%
-\usepackage{relsize}
+\usepackage{amsmath}
+
+\usepackage{graphicx}
 
 %%%
-% Pour faciliter les réglages fins, nous utilisons des macros cachées
-% à l'utilisateur non averti.
+% ????
 %%%
-\newcommand{\@big@star@symb@}{\Huge\mathlarger{\mathlarger{*}}}
-
-\newlength{\@big@star@vshift@}
-\setlength{\@big@star@vshift@}{3pt}
-
-%%%
-% La macro ''\raisebox'' décale verticalement un contenu de type texte,
-% ceci nous obligeant au passage à ajouter des ''$''.
-%%%
-\newcommand{\bigstar}{%
-  \mathop{%
-    \raisebox{-\@big@star@vshift@}%
-             {$\@big@star@symb@$}%
+\DeclareRobustCommand\bigop[2][1]{%
+  \mathop{\vphantom{\sum}\mathpalette\bigop@{{#1}{#2}}}\slimits@
+}
+\newcommand{\bigop@}[2]{\bigop@@#1#2}
+\newcommand{\bigop@@}[3]{%
+  \vcenter{%
+    \sbox\z@{$#1\sum$}%
+    \hbox{\resizebox{\ifx#1\displaystyle#2\fi\dimexpr\ht\z@+\dp\z@}{!}{$\m@th#3$}}%
   }%
 }
 
-%%%
-% Notre méthodologie est facilement reproductible.
-%%%
-\newcommand{\@big@compo@symb@}{\Huge\mathlarger{\mathlarger{\circ}}}
+\newcommand{\lcirc}{\mathpalette\lcirc@\relax}
+\newcommand{\lcirc@}[2]{\raisebox{-0.1\height}[0.9\height][0pt]{$\m@th#1\circ$}}
 
-\newlength{\@big@compo@vshift@}
-\setlength{\@big@compo@vshift@}{4pt}
 
-\newcommand{\bigcompo}{%
-  \mathop{%
-    \raisebox{-\@big@compo@vshift@}%
-             {$\@big@compo@symb@$}%
-  }%
-}
+\newcommand{\bigast}{\DOTSB\bigop{*}}
+\newcommand{\bigcompo}{\DOTSB\bigop[1.1]{\lcirc}}
