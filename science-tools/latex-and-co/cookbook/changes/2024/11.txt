@@ -2,7 +2,7 @@
 
 
 ==
-11
+12
 ==
 
 
@@ -11,7 +11,7 @@
 --------
 
 [[:content:]]
-Les codes des recettes sont documentées précisément.
+Les codes de toutes les recettes sont documentées précisément, et ils le seront tous à l'avenir.
 
 
 // ---------- //

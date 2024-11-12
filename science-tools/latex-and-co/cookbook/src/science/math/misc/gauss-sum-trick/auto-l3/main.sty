@@ -39,8 +39,10 @@
 %
 % warning::
 %     L'emploi de la boucle ''\foreach'' du package '' simplifie le travail,
-%     mais ceci impose de travailler avec une variable à portée globale, ce
-%     qui n'est pas logique ici.
+%     mais ceci impose de travailler avec une variable de portée globale
+%     (techniquement, les boucles ''\foreach'' travaillent dans un groupe).
+%     Bien que cela ne soit pas logique d'utiliser une variable globale
+%     ''\g_cookbook_nub_val_int'', nous n'avons pas le choix ici.
 %%%
 \int_new:N \g_cookbook_nub_val_int
 
