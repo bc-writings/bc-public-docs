@@ -2,16 +2,30 @@
 
 
 ==
-12
+13 ????????
 ==
-
 
 --------
 :update:
 --------
 
 [[:content:]]
-Les codes de toutes les recettes sont documentées précisément, et ils le seront tous à l'avenir.
+path::''science/math/symbol-rel-&-ope/operator/big-home-made'' : une \2nde recette propose un rendu correct sans espacement et placement disgracieux.
+
+
+// ---------- //
+
+
+==
+12
+==
+
+--------
+:update:
+--------
+
+[[:content:]]
+Les codes de toutes les recettes sont documentées précisément, et ils le seront toujours à l'avenir.
 
 
 // ---------- //
@@ -21,6 +35,9 @@ Les codes de toutes les recettes sont documentées précisément, et ils le sero
 10
 ==
 
+--------
+:update:
+--------
 
 [[:doc:]]
 Le fichier \readme a été amélioré pour faire \ref à \latex au sens large.

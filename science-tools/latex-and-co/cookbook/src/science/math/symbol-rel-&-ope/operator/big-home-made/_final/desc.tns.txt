@@ -1,9 +1,0 @@
-this::
-    date = 2024-11-10
-
-
-============================
-Une \1ere version imparfaite
-============================
-
-Voici une méthode simple à comprendre, mais qui malheureusement place le symbole un peu trop au-dessus de la ligne d'écriture.

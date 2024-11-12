@@ -1,0 +1,44 @@
+%%%
+% refs::
+%     + http://tex.stackexchange.com/questions/5042/define-strange-operators
+%%%
+
+%%%
+% Le \pack ''relsize'' fournit la bien nommée macro ''\mathlarger''.
+%%
+\usepackage{relsize}
+
+%%%
+% Pour faciliter les réglages fins, nous utilisons des macros cachées
+% à l'utilisateur non averti.
+%%%
+\newcommand{\@big@star@symb@}{\Huge\mathlarger{\mathlarger{*}}}
+
+\newlength{\@big@star@vshift@}
+\setlength{\@big@star@vshift@}{3pt}
+
+%%%
+% La macro ''\raisebox'' décale verticalement un contenu de type texte,
+% ceci nous obligeant au passage à ajouter des ''$''.
+%%%
+\newcommand{\bigstar}{%
+  \mathop{%
+    \raisebox{-\@big@star@vshift@}%
+             {$\@big@star@symb@$}%
+  }%
+}
+
+%%%
+% Notre méthodologie est facilement reproductible.
+%%%
+\newcommand{\@big@compo@symb@}{\Huge\mathlarger{\mathlarger{\circ}}}
+
+\newlength{\@big@compo@vshift@}
+\setlength{\@big@compo@vshift@}{4pt}
+
+\newcommand{\bigcompo}{%
+  \mathop{%
+    \raisebox{-\@big@compo@vshift@}%
+             {$\@big@compo@symb@$}%
+  }%
+}

@@ -1,0 +1,17 @@
+this::
+    date = 2024-11-12
+
+
+============================================
+Une meilleure solution qui reste améliorable
+============================================
+
+Dans cette recette, les espacement et placements disgracieux ont disparu, même si cela reste du réglage au doigt mouillé.
+
+
+caution::
+    Nous laissons volontairement de côté les cas d'utilisation dans des exposants et des indices, des situations qui peuvent vite demander plus de travail pour gérer finement les réglages des espacements via par exemple la macro ''\mathchoice''.
+
+
+note::
+    Via \l3, il est aisé de modifier le code proposé ici pour créer beaucoup de "gros \opes", mais ceci est une autre histoire que nous ne conterons pas ici.

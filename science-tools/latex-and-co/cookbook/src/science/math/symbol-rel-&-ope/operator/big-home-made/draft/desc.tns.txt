@@ -1,9 +1,9 @@
 this::
-    date = 2024-11-??
+    date = 2024-11-12
 
 
-============================
-???
-============================
+==============================================
+Une première version, mais avec un gros défaut
+==============================================
 
-???
+Voici une méthode simple à comprendre, mais qui malheureusement place le symbole un peu trop au-dessus de la ligne d'écriture.
