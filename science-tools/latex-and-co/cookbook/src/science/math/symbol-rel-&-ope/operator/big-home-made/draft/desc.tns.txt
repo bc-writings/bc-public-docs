@@ -1,9 +1,27 @@
 this::
-    date = 2024-11-12
+    date = 2024-11-13
 
 
 ==============================================
 Une première version, mais avec un gros défaut
 ==============================================
 
-Voici une méthode simple à comprendre, mais qui malheureusement place le symbole un peu trop au-dessus de la ligne d'écriture.
+Voici une méthode simple à comprendre, mais qui malheureusement place le symbole un peu trop au-dessus de la ligne d'écriture. De plus, l'emploi de ''\Huge'' en mode \math est illégal bien que permettant ici d'avoir un rendu acceptable : ceci apparaît dans le fichier ext::"log" comme le remarque la très pratique command cmd::''texlogsieve''.
+
+term::
+    > texlogsieve main.log
+    ----------------
+    From file DUMMY:
+    pg 1: (./main.tex
+    pg 1: (./main.sty
+    pg 1: )
+    pg 1: LaTeX Font Warning: Command \Huge invalid in math mode on input line 8.
+    pg 1: Package relsize Warning: Font size 29.85591pt is too large.
+        (relsize)                Using 24.88pt instead on input line 8.
+    pg 1: LaTeX Font Warning: Command \Huge invalid in math mode on input line 10.
+    pg 1: Package relsize Warning: Font size 29.85591pt is too large.
+        (relsize)                Using 24.88pt instead on input line 10.
+    pg 1: LaTeX Font Warning: Command \Huge invalid in math mode on input line 12.
+    pg 1: Package relsize Warning: Font size 29.85591pt is too large.
+        (relsize)                Using 24.88pt instead on input line 12.
+    [...]

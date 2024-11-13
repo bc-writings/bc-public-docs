@@ -10,7 +10,7 @@
 %%%
 % ????
 %%%
-\DeclareRobustCommand\bigop[2][1]{%
+\NewDocumentCommand{\bigop}{ O{} m }{%
   \mathop{%
     \vphantom{\sum}%
     \mathpalette\bigop@{{#1}{#2}}%
@@ -18,9 +18,9 @@
   \slimits@
 }
 
-\newcommand{\bigop@}[2]{\bigop@@#1#2}
+\NewDocumentCommand{\bigop@}{ m m }{\bigop@@#1#2}
 
-\newcommand{\bigop@@}[3]{%
+\NewDocumentCommand{\bigop@@}{ m m m }{%
   \vcenter{%
     \sbox\z@{$#1\sum$}%
     \hbox{%
@@ -39,7 +39,7 @@
   \mathpalette\lcirc@\relax%
 }
 
-\newcommand{\lcirc@}[2]{%
+\NewDocumentCommand{\lcirc@}{ m m }{%
   \raisebox{-0.1\height}%
            [0.9\height]%
            [0pt]%

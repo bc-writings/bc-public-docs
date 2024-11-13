@@ -6,11 +6,11 @@ this::
 Une solution "professionnelle"
 ==============================
 
-Dans cette recette assez technique, les espacements et placements disgracieux ont disparu. Le code est directement proposé dans cf::''cette réponse ; https://tex.stackexchange.com/a/730684/6880''.
+Dans cette recette assez technique, les espacements et placements disgracieux ont disparu. Le code est directement proposé dans cf::''cette réponse ; https://tex.stackexchange.com/a/730684/6880'' en ligne.
 
 
 note::
-    Pour comprendre le code, il suffit de faire appel à la commande term::''latexdef'' pour obtenir les \defs des macros \tex-niques employées.
+    Pour comprendre le code, il suffit de faire appel à la commande term::''latexdef'' pour obtenir les \defs des macros \tex-niques employées, puis de laisser marcher la boîte à neurones.
 
 
 note::
