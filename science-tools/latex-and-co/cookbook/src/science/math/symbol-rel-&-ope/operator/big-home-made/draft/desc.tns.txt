@@ -6,7 +6,7 @@ this::
 Une première version, mais avec un gros défaut
 ==============================================
 
-Voici une méthode simple à comprendre, mais qui malheureusement place le symbole un peu trop au-dessus de la ligne d'écriture. De plus, l'emploi de ''\Huge'' en mode \math est illégal bien que permettant ici d'avoir un rendu acceptable : ceci apparaît dans le fichier ext::"log" comme le remarque la très pratique command cmd::''texlogsieve''.
+Voici une méthode simple à comprendre, mais qui malheureusement place le symbole un peu trop au-dessus de la ligne d'écriture. De plus, l'emploi de ''\Huge'' en mode \math est illégal bien que permettant ici d'avoir un rendu acceptable : ceci apparaît dans le fichier ext::"log" comme nous l'indique clairement la très pratique commande term::''texlogsieve''.
 
 term::
     > texlogsieve main.log

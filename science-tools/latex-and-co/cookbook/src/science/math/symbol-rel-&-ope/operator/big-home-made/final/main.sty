@@ -3,14 +3,38 @@
 %     + https://tex.stackexchange.com/a/730684/6880
 %%%
 
+%%%
+% XXX
+%
+% \mathchoice{<material for display style>}
+% {<material for text style>}
+% {<material for script style>}
+% {<material for scriptscript style>}
+
+% latex.ltx, line 481:
+% \def\m@th{\mathsurround\z@}
+
+% OK, it's just an abbreviation for \mathsurround\z@ which in turn is an abbreviation for
+
+% \mathsurround=0pt
+
+% Now, what's \mathsurround? The syntax says it's a parameter, which has a length as value. It contains the amount of blank space that's inserted at either side of an inline math formula.
+%%%
 \usepackage{amsmath}
 
+%%%
+% XXX
+
+% \resizebox{⟨h-length ⟩}{⟨v-length ⟩}{⟨text ⟩}
+% Scale text so that the width is h-length. If ! is used as either length argument, the other argument is used to determine a scale factor that is used in both directions.
+%%%
 \usepackage{graphicx}
 
 %%%
 % ????
 %%%
-\NewDocumentCommand{\bigop}{ O{} m }{%
+\NewDocumentCommand{\bigop}{ O{1} m }{%
+  \DOTSB%
   \mathop{%
     \vphantom{\sum}%
     \mathpalette\bigop@{{#1}{#2}}%
@@ -19,6 +43,10 @@
 }
 
 \NewDocumentCommand{\bigop@}{ m m }{\bigop@@#1#2}
+
+% #1 : the style from \mathpalette
+% #2 : the optional different magnification to use in display style
+% #3 : the material to be typese
 
 \NewDocumentCommand{\bigop@@}{ m m m }{%
   \vcenter{%
@@ -35,10 +63,22 @@
   }%
 }
 
+%%%
+% ????
+%%%
 \newcommand{\lcirc}{%
   \mathpalette\lcirc@\relax%
 }
 
+% \raisebox{distance}[hauteur][profondeur]{texte}
+
+% La commande \raisebox élève ou abaisse du texte.
+
+% L’exemple suivant fabrique une commande pour noter la restriction d’une fonction en abaissant le symbole barre verticale.
+
+% Le premier argument obligatoire spécifie la longueur dont le texte doit être élevé. C’est une longueur rigide (voir Lengths). Si elle est négative alors texte est abaissé. Le texte lui-même est traité en mode LR, aussi il ne doit pas contenir de saut de ligne (voir Modes).
+
+% Les arguments optionnels hauteur et profondeur sont des dimensions. S’ils sont spécifiés, ils l’emportent sur les hauteur et profondeur naturelles de la boîte que LaTeX obtient en composant texte.
 \NewDocumentCommand{\lcirc@}{ m m }{%
   \raisebox{-0.1\height}%
            [0.9\height]%
@@ -47,5 +87,10 @@
 }
 
 
-\newcommand{\bigast}  {\DOTSB\bigop{*}}
-\newcommand{\bigcompo}{\DOTSB\bigop[1.1]{\lcirc}}
+%%%
+% ????
+%%%
+% \newcommand{\bigast}  {\DOTSB\bigop{*}}
+% \newcommand{\bigcompo}{\DOTSB\bigop[1.1]{\lcirc}}
+\newcommand{\bigast}  {\bigop{*}}
+\newcommand{\bigcompo}{\bigop[1.1]{\lcirc}}
