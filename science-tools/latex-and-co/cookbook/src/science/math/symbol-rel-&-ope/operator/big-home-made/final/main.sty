@@ -11,19 +11,41 @@
 % ????
 %%%
 \DeclareRobustCommand\bigop[2][1]{%
-  \mathop{\vphantom{\sum}\mathpalette\bigop@{{#1}{#2}}}\slimits@
+  \mathop{%
+    \vphantom{\sum}%
+    \mathpalette\bigop@{{#1}{#2}}%
+  }%
+  \slimits@
 }
+
 \newcommand{\bigop@}[2]{\bigop@@#1#2}
+
 \newcommand{\bigop@@}[3]{%
   \vcenter{%
     \sbox\z@{$#1\sum$}%
-    \hbox{\resizebox{\ifx#1\displaystyle#2\fi\dimexpr\ht\z@+\dp\z@}{!}{$\m@th#3$}}%
+    \hbox{%
+      \resizebox{%
+        \ifx#1\displaystyle#2\fi%
+        \dimexpr\ht\z@+\dp\z@%
+      }{%
+        !%
+      }{%
+        $\m@th#3$%
+      }}%
   }%
 }
 
-\newcommand{\lcirc}{\mathpalette\lcirc@\relax}
-\newcommand{\lcirc@}[2]{\raisebox{-0.1\height}[0.9\height][0pt]{$\m@th#1\circ$}}
+\newcommand{\lcirc}{%
+  \mathpalette\lcirc@\relax%
+}
+
+\newcommand{\lcirc@}[2]{%
+  \raisebox{-0.1\height}%
+           [0.9\height]%
+           [0pt]%
+           {$\m@th#1\circ$}%
+}
 
 
-\newcommand{\bigast}{\DOTSB\bigop{*}}
+\newcommand{\bigast}  {\DOTSB\bigop{*}}
 \newcommand{\bigcompo}{\DOTSB\bigop[1.1]{\lcirc}}

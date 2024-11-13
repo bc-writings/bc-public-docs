@@ -2,11 +2,15 @@ this::
     date = 2024-11-13
 
 
-============================================
-Une meilleure solution qui reste améliorable
-============================================
+==============================
+Une solution "professionnelle"
+==============================
 
-Dans cette recette, les espacements et placements disgracieux ont disparu. Par contre, cela demande plus de travail !
+Dans cette recette assez technique, les espacements et placements disgracieux ont disparu. Le code est directement proposé dans cf::''cette réponse ; https://tex.stackexchange.com/a/730684/6880''.
+
+
+note::
+    Pour comprendre le code, il suffit de faire appel à la commande term::''latexdef'' pour obtenir les \defs des macros \tex-niques employées.
 
 
 note::
