@@ -19,7 +19,7 @@
 %     #1 : le "naturel" n du nombre d'arrangements de p parmi n.
 %     #2 : le "naturel" p du nombre d'arrangements de p parmi n.
 %%%
-\NewDocumentCommand{\Anp}{mm}{%
+\NewDocumentCommand{ \Anp }{ m m }{%
   \directlua{writefloat2int(Anp(#1, #2))}%
 }
 
@@ -28,6 +28,6 @@
 %     #1 : le "naturel" n du nombre de combinaisons de p parmi n.
 %     #2 : le "naturel" p du nombre de combinaisons de p parmi n.
 %%%
-\NewDocumentCommand{\Cnp}{mm}{%
+\NewDocumentCommand{ \Cnp }{ m m }{%
   \directlua{writefloat2int(Cnp(#1, #2))}%
 }

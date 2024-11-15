@@ -26,12 +26,12 @@
 %     + ''\@secondoftwo'' est similaire à ''\@firstoftwo'', mais
 %       en renvoyant le second token.
 %%%
-\NewDocumentCommand{\@superimpose@}{m m}{%
+\NewDocumentCommand{ \@superimpose@ }{ m m }{%
   {\ooalign{$#1\hss\@firstoftwo#2$\hss\cr$#1\@secondoftwo#2$}}%
 }
 
 %%%
-% Fabrication d'un nouveau symbole obtenu en superposant cercle
+% Fabrication d'un nouveau symbole obtenu en superposant un cercle
 % moyen et un symbole de multiplication.
 %%%
 \newcommand{\mysymb}{%

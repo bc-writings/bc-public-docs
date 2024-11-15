@@ -1,12 +1,12 @@
 this::
-    date = 2024-11-13
+    date = 2024-11-15
 
 
 ==============================
 Une solution "professionnelle"
 ==============================
 
-Dans cette recette assez technique, les espacements et placements disgracieux ont disparu. Le code est directement proposé dans cf::''cette réponse en ligne ; https://tex.stackexchange.com/a/730684/6880''.
+Dans cette recette assez technique, les espacements superflus et les placements disgracieux ont disparu. Le code est directement proposé dans cf::''cette réponse en ligne ; https://tex.stackexchange.com/a/730684/6880''.
 
 
 note::

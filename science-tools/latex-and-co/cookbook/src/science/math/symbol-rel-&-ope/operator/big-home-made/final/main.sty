@@ -4,37 +4,38 @@
 %%%
 
 %%%
-% XXX
+% Le package ''amsmath'' nous fournit la macro ''\mathpalette'' qui
+% attend deux \args ; elle est définie comme suit.
 %
-% \mathchoice{<material for display style>}
-% {<material for text style>}
-% {<material for script style>}
-% {<material for scriptscript style>}
-
-% latex.ltx, line 481:
-% \def\m@th{\mathsurround\z@}
-
-% OK, it's just an abbreviation for \mathsurround\z@ which in turn is an abbreviation for
-
-% \mathsurround=0pt
-
-% Now, what's \mathsurround? The syntax says it's a parameter, which has a length as value. It contains the amount of blank space that's inserted at either side of an inline math formula.
+% latex::
+%     \mathchoice{#1\displaystyle {#2}}     %
+%                {#1\textstyle {#2}}        %
+%                {#1\scriptstyle {#2}}      % Exposant ou indice.
+%                {#1\scriptscriptstyle {#2}}% "Surexposant" et "surindice".
 %%%
 \usepackage{amsmath}
 
 %%%
-% XXX
-
-% \resizebox{⟨h-length ⟩}{⟨v-length ⟩}{⟨text ⟩}
-% Scale text so that the width is h-length. If ! is used as either length argument, the other argument is used to determine a scale factor that is used in both directions.
+% Le package ''graphicx'' nous fournit la macro ''\resizebox'' qui
+% attend trois \args pour redimensionner du matériel de type texte.
 %%%
 \usepackage{graphicx}
 
 %%%
-% ????
+% prototype::
+%     #1 : un \coef de mise à l'échelle
+%     #2 : le matériel correspondant au "gros" opérateur
+%
+% Nous devons passer via une macro cachée ''\bigop@'' car ''\mathpalette''
+% attend une macro à deux \args : le style \math en cours, et le matériel
+% \math.
+%
+% caution::
+%     Bien remarquer l'usage de ''{#1}{#2}'' dont nous allons reparler
+%     juste après.
 %%%
-\NewDocumentCommand{\bigop}{ O{1} m }{%
-  \DOTSB%
+\NewDocumentCommand{ \bigop }{ O{1} m }{%
+  \DOTSB% Cette macro est un alias de \relax.
   \mathop{%
     \vphantom{\sum}%
     \mathpalette\bigop@{{#1}{#2}}%
@@ -42,21 +43,45 @@
   \slimits@
 }
 
-\NewDocumentCommand{\bigop@}{ m m }{\bigop@@#1#2}
+%%%
+% prototype::
+%     #1 : le style \math fourni par ''\mathpalette''
+%     #2 : un contenu du type ''{<bigop-#1>}{<bigop-#2>}'' où ''<bigop-#1>''
+%          et ''<bigop-#2>'' sont les deux \args fournis à la macro publique
+%          ''\bigop''.
+%
+% note::
+%     Comme la macro ''\bigop@@'', définie un peu plus bas, attend trois
+%     \args, elle repérera ''{<style>}{<bigop-#1>}{<bigop-#2>}''.
+%%%
+\NewDocumentCommand{ \bigop@ }{ m m }{\bigop@@#1#2}
 
-% #1 : the style from \mathpalette
-% #2 : the optional different magnification to use in display style
-% #3 : the material to be typese
-
-\NewDocumentCommand{\bigop@@}{ m m m }{%
+%%%
+% prototype::
+%     #1 : le style \math fourni par ''\mathpalette''
+%     #2 : un \coef de mise à l'échelle
+%     #3 : le matériel correspondant au "gros" opérateur
+%
+% Expliquons les parties \tex-niques du code qui suit.
+%
+%     * ''\sbox\z@{$#1\sum$}'' crée une boîte nommée ''\z@'' : \tex nous
+%     fournira sa hauteur et sa profondeur via ''\ht\z@'' et ''\dp\z@''.
+%
+%     * Dans le fichier path::''latex.ltx'', on trouve le code \tex
+%     ''\def\m@th{\mathsurround\z@}'' qui signifie ''\mathsurround=0pt''.
+%     Ceci indique de n'ajouter aucun espacement autour du matréiel
+%     \math (tester, par exemple, ''A$\mathsurround=10pt c+y$B'').
+%%%
+\NewDocumentCommand{ \bigop@@ }{ m m m }{%
   \vcenter{%
     \sbox\z@{$#1\sum$}%
     \hbox{%
-      \resizebox{%
+      \resizebox{% Largeur souhaitée.
         \ifx#1\displaystyle#2\fi%
         \dimexpr\ht\z@+\dp\z@%
       }{%
-        !%
+        !% Pour respecter les rapports des \dims lors de la mise
+         % à l'échelle.
       }{%
         $\m@th#3$%
       }}%
@@ -64,33 +89,39 @@
 }
 
 %%%
-% ????
+% On souhaite redéfinir un symbole "cercle moyen" sans espacements inutiles,
+% et qui s'adapte au style \math en cours. Pour ce faire, on s'appuie sur
+% ''\mathpalette''. Ceci demande de coder une marco cachée ''\lcirc@'' qui
+% doit manger deux \args (voir avant pourquoi). Comme ici, on veut juste
+% récupérer le style \math en cours, ''\mathpalette\lcirc@'' est suivie de
+% ''\relax'' qui sera mangé par ''\mathpalette'', puis non utilisé par
+% ''\lcirc@''.
 %%%
 \newcommand{\lcirc}{%
   \mathpalette\lcirc@\relax%
 }
 
-% \raisebox{distance}[hauteur][profondeur]{texte}
-
-% La commande \raisebox élève ou abaisse du texte.
-
-% L’exemple suivant fabrique une commande pour noter la restriction d’une fonction en abaissant le symbole barre verticale.
-
-% Le premier argument obligatoire spécifie la longueur dont le texte doit être élevé. C’est une longueur rigide (voir Lengths). Si elle est négative alors texte est abaissé. Le texte lui-même est traité en mode LR, aussi il ne doit pas contenir de saut de ligne (voir Modes).
-
-% Les arguments optionnels hauteur et profondeur sont des dimensions. S’ils sont spécifiés, ils l’emportent sur les hauteur et profondeur naturelles de la boîte que LaTeX obtient en composant texte.
-\NewDocumentCommand{\lcirc@}{ m m }{%
-  \raisebox{-0.1\height}%
-           [0.9\height]%
-           [0pt]%
+%%%
+% prototype::
+%     #1 : le style \math fourni par ''\mathpalette''
+%     #2 : un \arg fantôme non utilisé, mais imposé par ''\mathpalette''
+%
+% note::
+%     Dans le code suivant, la macro ''\height'' fait \ref à la hauteur
+%     du contenu ''$\m@th#1\circ$'' avant tout traitement effectué par
+%     ''\raisebox''.
+%%%
+\NewDocumentCommand{ \lcirc@ }{ m m }{%
+  \raisebox{-0.1\height}   % Le déplacement vertical souhaité.
+           [0.9\height]    % La hauteur que devra utiliser \latex.
+           [0pt]           % La \prof que devra utiliser \latex.
            {$\m@th#1\circ$}%
 }
 
 
 %%%
-% ????
+% Il ne nous reste plus qu'à communiquer avec notre marco "orchestre"
+% ''\bigop'' en usant de bons \args.
 %%%
-% \newcommand{\bigast}  {\DOTSB\bigop{*}}
-% \newcommand{\bigcompo}{\DOTSB\bigop[1.1]{\lcirc}}
 \newcommand{\bigast}  {\bigop{*}}
 \newcommand{\bigcompo}{\bigop[1.1]{\lcirc}}

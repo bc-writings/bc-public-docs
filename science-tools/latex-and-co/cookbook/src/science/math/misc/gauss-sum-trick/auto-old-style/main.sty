@@ -34,7 +34,7 @@
 % note::
 %     On adapte la macro éponyme de la première recette proposée.
 %%%
-\NewDocumentCommand{\internal@nub}{m m m m}{%
+\NewDocumentCommand{ \internal@nub }{ m m m m }{%
   \tikzmark{nubstart#1#3}%
     #4%
   \tikzmark{nubend#1#3}%
@@ -76,7 +76,7 @@
 % prototype::
 %     #1 : le contenu à décorer.
 %%%
-\NewDocumentCommand{\nub}{m}{%
+\NewDocumentCommand{ \nub }{ m }{%
 % Cas d'une toute nouvelle somme à la Gauss.
   \ifthenelse{\arabic{nub@depth@calls} = 0}{
     \renewcommand{\nub@label}{nub@label@\alph{nub@label@cnter}}

@@ -2,7 +2,7 @@
 
 
 ==
-??
+16
 ==
 
 --------
@@ -10,7 +10,7 @@
 --------
 
 [[:content:]]
-path::''science/math/symbol-rel-&-ope/operator/big-home-made'' : une \2nde recette propose un rendu correct sans espacement et placement disgracieux.
+path::''science/math/symbol-rel-&-ope/operator/big-home-made'' : une \2nde recette un peu \tex-nique propose un rendu correct sans espacement superflu, ni placement disgracieux.
 
 
 // ---------- //

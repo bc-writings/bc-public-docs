@@ -35,17 +35,21 @@
 }
 
 %%%
-% Calcul de la somme en utilisant la syntaxe ''\foreach'' de ''pgf''.
-%
 % warning::
-%     L'emploi de la boucle ''\foreach'' du package '' simplifie le travail,
-%     mais ceci impose de travailler avec une variable de portée globale
-%     (techniquement, les boucles ''\foreach'' travaillent dans un groupe).
-%     Bien que cela ne soit pas logique d'utiliser une variable globale
-%     ''\g_cookbook_nub_val_int'', nous n'avons pas le choix ici.
+%     L'emploi d'une boucle ''\foreach'' du package ''pgf''  dans la
+%     fonction ''\cookbook_nub_val:n'' simplifie le travail, mais ceci
+%     impose de travailler avec une variable de portée globale
+%     (techniquement, les boucles ''\foreach'' travaillent dans un
+%     groupe). Bien que cela ne soit pas logique d'utiliser une variable
+%     globale ''\g_cookbook_nub_val_int'', nous n'avons pas le choix ici.
 %%%
 \int_new:N \g_cookbook_nub_val_int
 
+%%%
+% prototype::
+%     #1 : le contenu à calculer, celui-ci étant indiqué en respectant
+%          la syntaxe ''\foreach'' de ''pgf''.
+%%%
 \cs_set:Npn \cookbook_nub_val:n #1 {
   \int_gset:Nn \g_cookbook_nub_val_int { 0 }
 
@@ -59,7 +63,7 @@
 }
 
 %%%
-% Décoration d'une somme à la Gauss.
+% Variables utilisées pour décorer une somme à la Gauss.
 %%%
 \int_new:N  \g_cookbook_nub_label_id_int
 \int_set:Nn \g_cookbook_nub_label_id_int {0}
@@ -70,10 +74,14 @@
 \seq_new:N   \l_cookbook_nub_terms_seq
 
 \int_new:N \l_cookbook_nub_terms_size_int
+
 \int_new:N \l_cookbook_nub_mid_term_pos_int
 \int_new:N \l_cookbook_nub_this_pos_int
 
-
+%%%%%%
+% prototype::
+%     #1 : le contenu à décorer.
+%%%
 \cs_set:Npn \cookbook_nub_deco:n #1 {
   \clist_set:Nn
     \l_cookbook_nub_terms_clist
@@ -176,7 +184,7 @@
 %     #2 : une seconde sous-étiquette correspondant à un identifiant
 %          entier unique.
 %%%
-\NewDocumentCommand{\nub@add@mark}{mm}{%
+\NewDocumentCommand{ \nub@add@mark }{ m m }{%
   \tikzmark{nub@#1@#2}%
 }
 
@@ -185,7 +193,7 @@
 %     #1 : l'identifiant entier unique propre à une décoration.
 %     #2 : la distance d'éloignement vertical pour le tracé.
 %%%
-\NewDocumentCommand{\nub@add@deco}{mm}{
+\NewDocumentCommand{ \nub@add@deco }{ m m }{
   \llap{%
     \begin{tikzpicture}[baseline = (current bounding box.north)]
       \draw (pic cs:nub@start@#1)

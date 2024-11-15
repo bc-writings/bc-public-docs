@@ -26,7 +26,7 @@
 %     #1 : l'étiquette pour différencier la décoration.
 %     #2 : un contenu à décorer.
 %%%
-\NewDocumentCommand{\nub}{m m}{%
+\NewDocumentCommand{ \nub }{ m m }{%
   \tikzmark{a\nubpre#1} % Marquage du début du contenu.
     #2                  % Le contenu.
   \tikzmark{b\nubpre#1} % Marquage de la fin du contenu.
