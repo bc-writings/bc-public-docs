@@ -94,8 +94,7 @@
 % ''\mathpalette''. Ceci demande de coder une marco cachée ''\lcirc@'' qui
 % doit manger deux \args (voir avant pourquoi). Comme ici, on veut juste
 % récupérer le style \math en cours, ''\mathpalette\lcirc@'' est suivie de
-% ''\relax'' qui sera mangé par ''\mathpalette'', puis non utilisé par
-% ''\lcirc@''.
+% ''\relax'' qui sera mangé par ''\lcirc@''.
 %%%
 \newcommand{\lcirc}{%
   \mathpalette\lcirc@\relax%
