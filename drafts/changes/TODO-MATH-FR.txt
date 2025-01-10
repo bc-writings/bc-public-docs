@@ -1,6 +1,10 @@
-====
-MATH
-====
+=============
+drafts (math) - TODO
+=============
+
+CONIQUE
+    ---> produit via sécenate et axe des ordonnées
+
 
 POLYNOME
     ---> classification courbe degré <= 3 mais à partir de 4 c'est la merde !

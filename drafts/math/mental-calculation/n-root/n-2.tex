@@ -1,0 +1,132 @@
+\begin{fact}
+	Étant donné connue la valeur de $n^2$ où $n \in \ZintervalC{0}{99}$\,, il est humainement assez facile de retrouver $n$\,.
+\end{fact}
+
+
+\begin{proof}
+    Commençons par les carrés des petits naturels, c'est-à-dire ceux dans $\ZintervalC{0}{9}$\,.
+    
+    \begin{center}
+        \begin{tblr}{
+          colspec = {*{11}{c}},
+          cells   = {mode=math},
+          hlines,
+          vlines,
+        }
+        	n 
+    	    	& 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
+        	n^2    
+        		& 0 & 1 & 4 & 9 & 16 & 25 & 36 & 49 & 64 & 81 \\
+        \end{tblr}
+    \end{center}
+    
+    Il semble évident que la connaissance du tableau précédent soit un passage obligé. Intéressons-nous maintenant aux chiffres des unités des carrés précédents.
+    
+    \begin{center}
+        \begin{tblr}{
+          colspec = {*{11}{c}},
+          cells   = {mode=math},
+          hlines,
+          vlines,
+        }
+        	n 
+    	    	& 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
+        	\text{Dernier chiffre de $n^2$}    
+        		& 0 & 1 & 4 & 9 & 6 & 5 & 6 & 9 & 4 & 1 \\
+        \end{tblr}
+    \end{center}
+    
+   	En oubliant la colonne évidente de zéros, nous constatons une \og symétrie \fg\ relativement à la colonne des $5$\,.
+
+    \medskip
+    
+    Continuons notre analyse pour $n \in \ZintervalC{10}{99}$ en notant $d$ le chiffre des unités de $n$\,, et $u$ celui des unités, de sorte que $n = 10 d + u$\,.
+    Comme le cas $u=0$ se résume par le tableau évident ci-dessous, nous allons finir la preuve avec $d \neq 0$ et $u \neq 0$\,.
+    
+    \begin{center}
+        \begin{tblr}{
+          colspec = {*{11}{c}},
+          cells   = {mode=math},
+          hlines,
+          vlines,
+        }
+        	n 
+    	    	& 0 & 10 & 20 & 30 & 40 & 50 & 60 & 70 & 80 & 90 \\
+        	n^2    
+        		& 0 & 100 & 400 & 900 & 1600 & 2500 & 3600 & 4900 & 6400 & 8100 \\
+        \end{tblr}
+    \end{center}
+    
+    
+    Nous avons les calculs suivants de niveau seconde.
+    
+    \medskip
+    
+    \begin{stepcalc}[style = sar]
+    	n^2
+	\explnext{}
+    	(10 d + u)^2
+	\explnext*{$(a+b)^2 = a^2 + 2 a b + b^2$}{}
+    	100 d^2 + 20 d u + u^2
+    \end{stepcalc}
+    
+    \medskip
+    
+    Comme $u \in \ZintervalC{1}{9}$\,, nous savons que 
+    $u   \geq 1$ et
+    $u^2 \geq 1$\,.
+    Nous avons des minorations similaires pour $d$\,.
+    Ceci nous donne les implications logiques suivantes.
+    
+    \medskip
+
+    \begin{stepcalc}[style = ar*, ope = {\implies[donc]}]
+    	d \in \ZintervalC{1}{9}
+		\,\,\text{ et }\,\,
+    	u \in \ZintervalC{1}{9}
+	\explnext{}
+    	d^2 \geq 1
+		\,\,\text{ et }\,\,
+    	d u \geq 1
+	\explnext{}
+    	100 d^2 \geq 100
+		\,\,\text{ et }\,\,
+    	20 d u \geq 20
+    \end{stepcalc}
+    
+    \bigskip
+
+    Le chiffre des unités de $n^2 = 100 d^2 + 20 d u + u^2$ est donc celui de $u^2$\,.
+    
+    \medskip
+
+    Passons à $d$ le chiffre des dizaines. 
+    Considérerons par exemple $78^2 = 6084$\,. Le précédent tableau nous donne l'encadrement $4900< 6084 < 6400$\,, c'est-à-dire $70^2 < 6084 < 80^2$\,.
+    Par stricte croissance de la fonction carré, nous constatons que le nombre de centaines nous permet de trouver la valeur de $d$ sans aucune ambiguïté.
+    
+    \medskip
+
+    Donc, si nous savons juste que $n^2 = 6084$ avec $n \in \ZintervalC{0}{99}$\,, nous pouvons affirmer que $n = 7\kern1pt\bullet$\,, puis, en nous aidant du premier tableau de cette preuve, comme $4$ est le chiffre des unités de $6084$\,, nous devinons que $n = 72$ ou $n = 78$\,. Il nous reste à faire le bon choix. L'idée est simple: il suffit de calculer $75^2$\,, ce qui est facile à faire via l'astuce suivante que nous admettrons.
+    
+    \begin{itemize}
+    	\item On calcule $7 \times 8 = 56$ où $8 = 7 + 1$\,.
+	
+		\item $75^2$ s'obtient en collant $25$ à la suite de $56$\,, d'où $75^2=5625$\,.
+    \end{itemize}
+    
+    Finalement comme $72^2 < 75^2 < 6084$\,, le seul cas possible est de choisir $n = 78$ pour obtenir $n^2 = 6084$\,.
+    
+    \medskip
+
+    Vérifions que nous avons compris en devinant la valeur de $n \in \ZintervalC{0}{99}$ telle que $n^2 = 8649$\,.
+    
+    \begin{itemize}
+		\item Le nombre de centaines de $8649$ est $86$ qui est compris entre $81 = 9^2$ et $100 = 10^2$\,, d'où $n = 9\kern1pt\bullet$\,.
+		
+    	\item $8649$ se finit par $9$ donc nous devons choisir entre $n = 93$ et $n=97$\,.
+		
+    	\item $95^2 = 9025$ via $9 \times 10 = 90$\,.
+		
+    	\item Comme $8649 < 95^2$\,, forcément $n = 93$\,.
+    \end{itemize}
+\end{proof}

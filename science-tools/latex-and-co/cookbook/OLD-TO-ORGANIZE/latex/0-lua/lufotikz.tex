@@ -1,0 +1,51 @@
+% Source: https://tex.stackexchange.com/questions/731051/how-to-use-the-table-methods-in-lua
+
+\documentclass{article}
+
+\usepackage{tkz-euclide, tkz-elements}
+
+\directlua{
+\directlua{
+function list (f,min,max,nb)
+   local tbl = {}
+   local sta = "(" .. min .. "," .. f(min) .. ")"
+   table.insert(tbl, sta )
+   for k = 1, nb do
+   local x = min + (max - min) / nb * k
+   local y = f(x)
+   local stx = " " .. "(" .. x .. "," .. y .. ")"
+   table.insert(tbl, stx )
+   end
+  return table.concat(tbl)
+end
+}
+
+}
+
+\NewDocumentCommand{ \plotcoords }{ m m m m }{%
+  \directlua{%
+    local userfonc = load(
+      "return function(x) return "
+        .."(" .. "#1" .. ")" .. 
+      "end",
+      nil, "t", math
+    )()
+
+    tex.print(list(userfonc, #2, #3, #4))
+  }
+}
+
+
+\begin{document}
+
+\begin{tikzpicture}
+  \tkzInit[xmin=-5, xmax=5, ymin=0, ymax=2]
+  
+  \tkzGrid 
+  \tkzDrawX[right=3pt,label={$x$}]
+  \tkzDrawY[above=3pt,label={$f(x)$}]
+
+  \draw[cyan,thick] plot coordinates {\plotcoords{(1-exp(-x^2))/(exp(-x^2)+1)}{-5}{5}{100}};
+\end{tikzpicture}
+
+\end{document}

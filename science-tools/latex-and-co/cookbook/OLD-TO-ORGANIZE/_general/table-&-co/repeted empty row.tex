@@ -1,0 +1,47 @@
+% Source: https://tex.stackexchange.com/a/731665/6880
+
+\documentclass{scrartcl} 
+\usepackage{polyglossia} 
+\setdefaultlanguage{german} 
+\usepackage{fontspec} 
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+\usepackage{tabularray} 
+\usepackage{scrlayer-scrpage} % Paket für Kopf- und Fußzeilen 
+
+\usepackage{amssymb}
+
+
+%\ohead{\includegraphics[scale=0.05]{c:/Schule/logo_rot_3.jpg}}
+\ifoot{08.02.2024}
+
+\newcommand{\createTable}[1]{%
+  \repeatrow{#1}{ & & & \\ }%
+  \begin{tblr}[
+    expand=\repeatedrow
+  ]{
+    colspec = {|Q[5,l]|Q[3,c]|Q[2,c]|Q[2,c]|}, % Gleichmäßige Verteilung der Spalten
+    row{1} = {font=\bfseries, c}, % Formatierung der ersten Zeile
+    hlines, % Horizontale Linien
+    vlines, % Vertikale Linien
+    width=\textwidth % Breite der Tabelle auf Textbreite setzen
+  }
+  Kurs / Klasse & Raum & Anzahl & Vollständig? (abhaken) \\
+  Beispiel: Physik Q3 & Starck & P1 & 17 & \checkmark \\
+  \repeatedrow
+  \end{tblr}%
+}
+
+\ExplSyntaxOn
+\NewDocumentCommand{\repeatrow}{mm}
+ {
+  \tl_set:Ne \repeatedrow { \prg_replicate:nn {#1} {#2} }
+ }
+\ExplSyntaxOff
+
+\begin{document}
+
+\section{Schulhof Altbau}
+
+\createTable{5}     
+
+\end{document}

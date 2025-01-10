@@ -25,10 +25,10 @@
 \usepackage{tcolorbox}
 
 \usepackage{pgffor}
-      
+
 \usepackage{tnsmath}
 
-    
+
 \newtheorem{fact}{Fait}%[section]
 
 \newtheorem{definition}{Définition}%[section]
@@ -44,7 +44,7 @@
 
 \newcommand\centerit[1]{%%
 	\smallskip
-	
+
 	\begin{center}
 		#1
 	\end{center}
@@ -66,7 +66,7 @@
 % Source pour le \@tfor :
 % 	* https://tex.stackexchange.com/a/253205/6880
 \makeatletter
-% Nothing special for the cell...	
+% Nothing special for the cell...
 	\newcommand\elasticbox[1]{%
 		\fcolorbox{black}{white}{\normalfont #1}%
 	}
@@ -92,7 +92,7 @@
 	\newcommand\elasticboxhas[1]{%
 		\fcolorbox{black}{black!10}{\normalfont #1}%
 	}
-	
+
 	\newcommand\fixedboxhas[1]{%
 		\fixedboxcolored{black}{black!10}{\normalfont #1}%
 	}
@@ -102,7 +102,7 @@
 	\newcommand\emptycell{\fixedbox{\@empty@content}}
 	\newcommand\white{\fixedbox{\bfseries B}}
 	\newcommand\black{\fixedbox{\bfseries N}}
-	
+
 	\newcommand\@ellipsis@{\,\,\vphantom{N}$\cdots$\,\,}
 	\newcommand\myellipsis{\elasticbox{\@ellipsis@}}
 
@@ -180,14 +180,14 @@
 			\fi%  B
 		}%
 	}
-	
+
 
 	\newcommand\autobox[1]{%
       \foreach \i in {1, ..., #1} {%
         \fixedbox{\i}%
       }
 	}
-	
+
 
 	\newcommand\gamelineplus{\@ifstar{\@gamelineplus@star@}{\@gamelineplus@no@star@}}
 
@@ -198,20 +198,20 @@
 
 	\newcommand\@gamelineplus@star@[2]{
 		\@gamelineplus@no@star@{#1}{#2}
-		
+
 		\StrLen{#1}[\@length@]
-		\noindent  
+		\noindent
 		\autobox{\@length@}
 	}
 
 	\newcommand\listbox[1]{%
 		\@tfor\next:=#1\do{\fixedbox{\next}}%
 	}
-	
-	
+
+
 	\newcommand\iterconfig[1]{
 		\foreach \k/\p in {#1}{
-			\subsection{Configuration \texttt{\k N\kern.15em{\tiny\textbullet}\kern.15em\p B}}   
+			\subsection{Configuration \texttt{\k N\kern.15em{\tiny\textbullet}\kern.15em\p B}}
 		 	\input{black-and-white-leapfrog/\k N\p B}
 		}
 	}
@@ -233,7 +233,7 @@
 	\end{fact}
 }
 
- 
+
 \begin{document}
 
 \title{BROUILLON - Un saute-mouton bicolore pour gloutons}
@@ -245,8 +245,8 @@
 \begin{center}
 	\itshape
 	Document, avec son source \LaTeX, disponible sur la page
-	
-	\url{https://github.com/bc-writing/drafts}.
+
+	\url{https://github.com/bc-writings/bc-public-docs/tree/main/drafts}.
 \end{center}
 
 
@@ -259,13 +259,13 @@
 		\fontsize{1.35em}{1em}\selectfont
 		\textbf{Mentions \og légales \fg}
 	}
-			
+
 	\vspace{0.45em}
 	\doclicenseThis
 	\hrule
 \end{center}
 
-	
+
 \bigskip
 \setcounter{tocdepth}{2}
 \tableofcontents

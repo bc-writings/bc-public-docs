@@ -1,6 +1,8 @@
-====
-ALGO
-====
+=============
+drafts (algo) - TODO
+=============
+
+???
 
 turing
     ---> finir le saute mouton !

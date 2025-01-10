@@ -1,0 +1,132 @@
+\documentclass[12pt]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[top=1.95cm, bottom=1.95cm, left=2.35cm, right=2.35cm]{geometry}
+
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{tcolorbox}
+\usepackage{float}
+\usepackage{cleveref}
+\usepackage{multicol}
+\usepackage{fancyvrb}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{numprint}
+\usepackage{tabularray}
+\usepackage[french]{babel}
+\frenchsetup{StandardItemLabels=true}
+\usepackage{csquotes}
+
+\usepackage[
+    type={CC},
+    modifier={by-nc-sa},
+	version={4.0},
+]{doclicense}
+
+\newcommand\floor[1]{\left\lfloor #1 \right\rfloor}
+
+\usepackage{tnsmath}
+
+\newcommand\redit[1]{\colorbox{red!20!white}{\textcolor{red}{#1\vphantom{,}}}}
+\newcommand\greenit[1]{\colorbox{green!20!white}{\textcolor{green!50!black}{#1\vphantom{,}}}}
+\newcommand\orit[1]{\colorbox{orange!10!white}{\textcolor{orange!85!black}{#1\vphantom{,}}}}
+\newcommand\yellit[1]{\colorbox{yellow!20!white}{\textcolor{gray}{#1\vphantom{,}}}}
+
+
+\newtheorem{fact}{Fait}[section]
+\newtheorem{example}{Exemple}[section]
+\newtheorem{remark}{Remarque}[section]
+\newtheorem*{proof*}{Preuve}
+
+\npthousandsep{.}
+\setlength\parindent{0pt}
+
+\floatstyle{boxed}
+\restylefloat{figure}
+
+
+\DeclareMathOperator{\taille}{\text{\normalfont\texttt{taille}}}
+
+\newcommand{\logicneg}{\text{\normalfont non \!}}
+
+\newcommand\sqseq[2]{\fbox{$#1$}_{\,\,#2}}
+
+
+\DefineVerbatimEnvironment{rawcode}%
+	{Verbatim}%
+	{tabsize=4,%
+	 frame=lines, framerule=0.3mm, framesep=2.5mm}
+
+
+\newcommand\contentdir{\jobname}
+\newcommand\ourset{\setproba{N}}
+%\NewDocumentCommand\primefield{ O{p} }{\setalge{F}_{#1}}
+\NewDocumentCommand\padicval{ O{p} m }{v_{#1}(#2)}
+\newcommand\strictdivides{\divides\kern.5pt\divides}
+\newcommand\dinf{\inf_d}
+\newcommand\dsup{\sup_d}
+
+%\RenewDocumentEnvironment{proof}{}{}{}
+
+\begin{document}
+
+\title{BROUILLON - À la recherche de racines n-ièmes}
+\author{Christophe BAL}
+\date{10 Jan. 2025}
+
+\maketitle
+
+\begin{center}
+	\itshape
+	Document, avec son source \LaTeX, disponible sur la page
+
+	\url{https://github.com/bc-writings/bc-public-docs/tree/main/drafts}.
+\end{center}
+
+
+\bigskip
+
+
+\begin{center}
+	\hrule\vspace{.3em}
+	{
+		\fontsize{1.35em}{1em}\selectfont
+		\textbf{Mentions \og légales \fg}
+	}
+
+	\vspace{0.45em}
+	\doclicenseThis
+	\hrule
+\end{center}
+
+
+\setcounter{tocdepth}{2}
+\tableofcontents
+
+
+\newpage
+\section{Racine carré d'un petit naturel}
+
+\input{\contentdir/n-2}
+
+
+\section{Racine cubique d'un petit naturel}
+
+\input{\contentdir/n-3}
+
+
+\bigskip
+%\newpage
+
+\hrule
+
+\section{AFFAIRE À SUIVRE...}
+
+\bigskip
+
+\hrule
+
+\end{document}

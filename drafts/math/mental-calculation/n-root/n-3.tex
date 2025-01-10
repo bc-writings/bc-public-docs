@@ -1,0 +1,132 @@
+\begin{fact}
+	Étant donné connue la valeur de $n^3$ où $n \in \ZintervalC{0}{99}$\,, il est humainement très facile de retrouver $n$\,.
+\end{fact}
+
+
+\begin{proof}
+    Commençons par les cubes des petits naturels, c'est-à-dire ceux dans $\ZintervalC{0}{9}$\,.
+    
+    \begin{center}
+        \begin{tblr}{
+          colspec = {*{11}{c}},
+          cells   = {mode=math},
+          hlines,
+          vlines,
+        }
+        	n 
+    	    	& 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
+        	n^3    
+        		& 0 & 1 & 8 & 27 & 64 & 125 & 216 & 343 & 512 & 729 \\
+        \end{tblr}
+    \end{center}
+    
+    Il semble évident que la connaissance du tableau précédent soit un passage obligé. Intéressons-nous maintenant aux chiffres des unités des cubes précédents.
+    
+    \begin{center}
+        \begin{tblr}{
+          colspec = {*{11}{c}},
+          cells   = {mode=math},
+          hlines,
+          vlines,
+        }
+        	n 
+    	    	& 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
+        	\text{Dernier chiffre de $n^3$}    
+        		& 0 & 1 & 8 & 7 & 4 & 5 & 6 & 3 & 2 & 9 \\
+        \end{tblr}
+    \end{center}
+    
+   	Nous constatons quelque chose de fort sympathique : le chiffre des unités de $n^3$ est celui de $n$\,, exception faite pour les deux associations suivantes 
+    $2 \longleftrightarrow 8$
+    et
+    $3 \longleftrightarrow 7$\,.
+    Il n'y a aucune répétition dans la deuxième ligne du tableau!
+    
+    \medskip
+    
+    Nous voilà prêt à analyser le cas restant de $n \in \ZintervalC{10}{99}$ en notant $d$ le chiffre des unités de $n$\,, et $u$ celui des unités, de sorte que $n = 10 d + u$\,.
+    Comme le cas $u=0$ se résume par le tableau évident ci-dessous, nous allons finir la preuve avec $d \neq 0$ et $u \neq 0$\,.
+    
+    \begin{center}
+        \begin{tblr}{
+          colspec = {*{11}{c}},
+          cells   = {mode=math},
+          hlines,
+          vlines,
+        }
+        	n 
+    	    	& 0 & 10 & 20 & 30 & 40 & 50 & 60 & 70 & 80 & 90 \\
+        	n^3    
+        		& 0 & 1000 & 8000 & \num{27000} & \num{64000} & \num{125000} & \num{216000} & \num{343000} & \num{512000} & \num{729000} \\
+        \end{tblr}
+    \end{center}
+    
+    
+    Nous avons les calculs suivants rédigés pour un niveau seconde.
+    
+    \medskip
+
+    \begin{stepcalc}[style = sar]
+    	n^3
+	\explnext{}
+    	(10 d + u)^3
+	\explnext*{$P^3 = P \times P \times P = P \times P^2$}{}
+    	(10 d + u) \, (10 d + u)^2
+	\explnext*{$(a+b)^2 = a^2 + 2 a b + b^2$}{}
+    	(\kern2pt\orit{$10 d$}\greenit{\kern-4pt${}+u\vphantom{d}$}\kern2pt) \, (100 d^2 + 20 d u + u^2)
+	\explnext{}
+    	\orit{$1000 d^3 + 200 d^2 u + 10 d u^2$}
+		+
+		\greenit{$100 d^2 u + 20 d u^2 + u^3$}
+	\explnext{}
+    	1000 d^3 + 300 d^2 u + 30 d u^2 + u^3
+    \end{stepcalc}
+    
+    \medskip
+    
+    Comme $u \in \ZintervalC{1}{9}$\,, nous savons que 
+    $u   \geq 1$\,,
+    $u^2 \geq 1$ et
+    $u^3 \geq 1$\,.
+    Nous avons des minorations similaires pour $d$\,.
+    Ceci nous donne les implications logiques suivantes.
+    
+    \medskip
+
+    \begin{stepcalc}[style = ar*, ope = {\implies[donc]}]
+    	d \in \ZintervalC{1}{9}
+		\,\,\text{ et }\,\,
+    	u \in \ZintervalC{1}{9}
+	\explnext{}
+    	d^3 \geq 1
+		\,\,\text{ , }\,\,
+    	d^2 u \geq 1
+		\,\,\text{ et }\,\,
+    	d u^2 \geq 1
+	\explnext{}
+    	1000 d^3 \geq 1000
+		\,\,\text{ , }\,\,
+    	300 d^2 u \geq 300
+		\,\,\text{ et }\,\,
+    	30 d u^2 \geq 30
+    \end{stepcalc}
+    
+    \bigskip
+
+    Le chiffre des unités de $n^3 = 1000 d^3 + 300 d^2 u + 30 d u^2 + u^3$ est donc celui de $u^3$\,, un chiffre facile à retrouver grâce au deuxième tableau au début de cette preuve.
+    
+    \medskip
+
+    Il reste à trouver $d$ le chiffre des dizaines. Ceci est bien plus simple. Pour comprendre l'astuce, nous allons considérer $78^3 = \num{474552}$\,. Le précédent tableau nous donne l'encadrement $\num{343000}< \num{474552} < \num{512000}$\,, c'est-à-dire $70^3 < \num{474552} < 80^3$\,.
+    Par stricte croissance de la fonction cube, nous constatons que le nombre de cent-milliers nous permet de trouver la valeur de $d$ sans aucune ambiguïté.
+    
+    \medskip
+
+    Vérifions que nous avons compris en devinant la valeur de $n \in \ZintervalC{0}{99}$ telle que $n^3 = \num{300763}$\,.
+    
+    \begin{itemize}
+    	\item \num{300763} se finit par $3$ donc, via $3 \longleftrightarrow 7$\,, nous savons que $n = \bullet\kern1pt7$\,.
+	
+		\item Le nombre de cent-milliers de \num{300763} est $300$ qui est compris entre $216 = 6^3$ et $343 = 7^3$\,, d'où $n = 67$\,.
+    \end{itemize}
+\end{proof}

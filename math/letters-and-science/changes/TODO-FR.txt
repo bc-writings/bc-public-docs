@@ -1,11 +1,15 @@
-==========================
+===================
 LETTERS AND SCIENCE - TODO
-==========================
+===================
 
 
 > ---------------- <
 
-Par contre, la compilation n'est plus propre : un problème avec l'utilisation de  `xstring`. Non résolu pour le moment !
+reprendres les macros via un sty dédier et le codage l3, plus besoin de xstring a prioiri
+
++
+
+isolé les textes dans fichier dédie : prépare une version tns puis web plus facile à utiliser
 
 
 > ---------------- <

@@ -26,10 +26,10 @@
 \usepackage{xcolor}
 \usepackage{tcolorbox}
 \usepackage{pgffor}
-      
+
 \usepackage{tnsmath}
 \usepackage{circledsteps}
-    
+
 \newtheorem{fact}{Fait}%[section]
 
 
@@ -50,7 +50,7 @@
 
 \newcommand\centerit[1]{%%
 	\smallskip
-	
+
 	\begin{center}
 		#1
 	\end{center}
@@ -68,21 +68,21 @@
 
 	\newcommand\@equality@star@[1]{
 		\smallskip
-	
+
 		$=$ {} \qquad  $\leftarrow$ #1
-	
+
 		\smallskip
 	}
 
 	\newcommand\@equality@no@star@{
 		\smallskip
-	
+
 		$=$
 
 		\smallskip
 	}
 
-% Nothing special for the cell...	
+% Nothing special for the cell...
 	\newcommand\elasticbox[1]{%
 		\fcolorbox{black}{white}{\normalfont #1}%
 	}
@@ -108,7 +108,7 @@
 	\newcommand\elasticboxhas[1]{%
 		\fcolorbox{black}{black!10}{\normalfont #1}%
 	}
-	
+
 	\newcommand\fixedboxhas[1]{%
 		\fixedboxcolored{black}{black!10}{\normalfont #1}%
 	}
@@ -126,7 +126,7 @@
 	\newcommand\emptycell{\fixedbox{\@empty@content}}
 	\newcommand\one{\fixedbox{\bfseries 1}}
 	\newcommand\zero{\fixedbox{\bfseries 0}}
-	
+
 	\newcommand\@ellipsis@{\,\,\vphantom{?}$\cdots$\,\,}
 	\newcommand\myellipsis{\elasticbox{\@ellipsis@}}
 
@@ -135,7 +135,7 @@
 	\newcommand\onewill{\fixedboxwill{\bfseries 1}}
 	\newcommand\zerowill{\fixedboxwill{\bfseries 0}}
 	\newcommand\myellipsiswill{\elasticboxwill{\@ellipsis@}}
-	
+
 % ... has moved
 	\newcommand\emptycellhas{\fixedboxhas{\@empty@content}}
 	\newcommand\onehas{\fixedboxhas{\bfseries 1}}
@@ -206,14 +206,14 @@
 			\fi%  o
 		}%
 	}
-	
+
 
 	\newcommand\autobox[1]{%
       \foreach \i in {1, ..., #1} {%
         \fixedbox{\i}%
       }
 	}
-	
+
 
 	\newcommand\binaryplus{\@ifstar{\@binaryplus@star@}{\@binaryplus@no@star@}}
 
@@ -224,9 +224,9 @@
 
 	\newcommand\@binaryplus@star@[2]{
 		\@binaryplus@no@star@{#1}{#2}
-		
+
 		\StrLen{#1}[\@length@]
-		\noindent  
+		\noindent
 		\autobox{\@length@}
 	}
 
@@ -236,7 +236,7 @@
 \makeatother
 
 
- 
+
 \begin{document}
 
 \title{BROUILLON - CANDIDAT - Quels décalages entre les entiers signés et les non signés ?}
@@ -248,8 +248,8 @@
 \begin{center}
 	\itshape
 	Document, avec son source \LaTeX, disponible sur la page
-	
-	\url{https://github.com/bc-writing/drafts}.
+
+	\url{https://github.com/bc-writings/bc-public-docs/tree/main/drafts}.
 \end{center}
 
 
@@ -262,13 +262,13 @@
 		\fontsize{1.35em}{1em}\selectfont
 		\textbf{Mentions \og légales \fg}
 	}
-			
+
 	\vspace{0.45em}
 	\doclicenseThis
 	\hrule
 \end{center}
 
-	
+
 \bigskip
 \setcounter{tocdepth}{2}
 \tableofcontents
