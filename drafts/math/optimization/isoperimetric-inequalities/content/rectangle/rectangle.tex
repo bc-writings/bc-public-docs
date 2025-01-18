@@ -1,4 +1,4 @@
-\begin{fact}
+\begin{fact} \label{iso-rect}
 	Considérons tous les rectangles de périmètre fixé $p$. Parmi tous ces rectangles, celui d'aire maximale est le carré de côté $c = \num{.25} p$.
 \end{fact}
 
@@ -6,7 +6,7 @@
 \begin{proof}
 	Une preuve courante est d'exprimer l'aire du rectangle comme un polynôme du 2\ieme\ degré en $L$ par exemple.%
 	\footnote{
-		L'aire est donnée par $L \ell = L (\num{.5} p - L)$ qui est maximale en $L = \num{.25} p$ (moyenne des racines), d'où $\ell = \num{.25} p = L$.
+		L'aire est donnée par $L \ell = L (\num{.5} p - L)$ qui est maximale en $L_M = \num{.25} p$ (moyenne des racines), d'où $\ell_M = \num{.25} p = L_M$.
 	}
 	On peut en fait faire plus simplement grâce au dessin suivant où les rectangles $1$, $2$ et $3$ sont isométriques au rectangle vert étudié de dimension $L \times \ell$.
 
@@ -29,5 +29,5 @@
 
 
 \begin{remark}
-	Au passage, nous avons pour $(L ; \ell) \in \big( \RRsp \big)^2$, $4 L \ell \leq (L + \ell)^2$, c'est-à-dire $2 L \ell \leq L^2 + \ell^2$, d'où $\sqrt{L \ell} \leq \sqrt{\dfrac12 (L^2 + \ell^2)}$, soit la comparaison des moyennes géométriques et quadratiques. Ceci donne une 3\ieme\ preuve en s'appuyant sur cette comparaison.
+	Au passage, nous avons pour $(L ; \ell) \in \big( \RRsp \big)^2$, $4 L \ell \leq (L + \ell)^2$, c'est-à-dire $2 L \ell \leq L^2 + \ell^2$, d'où $\sqrt{L \ell} \leq \sqrt{\dfrac12 (L^2 + \ell^2)}$, soit la comparaison des moyennes géométriques et quadratiques d'ordre $2$.
 \end{remark}

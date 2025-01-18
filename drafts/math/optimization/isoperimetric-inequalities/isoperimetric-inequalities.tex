@@ -34,6 +34,9 @@
 
 \newtheorem{remark}{Remarque}[section]
 
+\NewDocumentCommand{\area}{m}{\mathrm{Aire}(#1)}
+\NewDocumentCommand{\perim}{m}{\mathrm{Perim}(#1)}
+
 \setlength\parindent{0pt}
 
 
@@ -72,12 +75,27 @@
 \input{content/rectangle/rectangle}
 
 
-%% ------------- %
-%
-%
-%\section{Le cas du triangle}
-%
-%\input{content/triangle/triangle}
+% ------------- %
 
+
+\section{Le cas du parallélogramme}
+
+\input{content/parallelogram/parallelogram}
+
+
+% ------------- %
+
+
+\section{Le cas du triangle}
+
+\input{content/triangle/triangle}
+
+
+% ------------- %
+
+
+%\section{Le cas du quadrilatère}
+%
+%\input{content/quadrilateral/quadrilateral}
 
 \end{document}
