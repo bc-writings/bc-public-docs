@@ -4,7 +4,7 @@
 
 
 \begin{proof}
-	Une première idée, calculatoire, est de passer via la classique formule de Héron $Aire = \sqrt{s(s - a)(s - b)(s - c)}$ où $s = \num{.5} p$ désigne le demi-périmètre, et les variables $a$, $b$ et $c$ les mesures des côtés du triangle,%
+	Une première idée, calculatoire, est de passer via la classique formule de Héron $Aire = \sqrt{s(s - a)(s - b)(s - c)}$ où $s = \num{.5} p$ désigne le demi-périmètre, et les variables $a$, $b$ et $c$ les mesures des côtés du triangle.%
 	\footnote{
 		L'aire étant positive ou nulle, nous devons chercher les maxima de $f(a;b;c) = Aire^2 = s(s - a)(s - b)(s - c)$, c'est-à-dire de $f(a;b;c) = \frac{1}{16} (a + b + c)(b + c - a)(a + c - b)(a + b - c)$, sous la contrainte $2s = a + b + c$ où $s > 0$ est constant.
 		Notant $g(a;b;c) = a + b + c - 2 s$, la contrainte s'écrit $g(a;b;c) = 0$.
@@ -22,7 +22,7 @@
 		En résumé, l'existence d'un maximum implique que ce maximum corresponde au cas du triangle équilatéral.
 		Il reste à démontrer qu'un tel maximum existe pour pouvoir conclure: ceci est facile à justifier en considérant l'ensemble compact $\intervalC{0}{s}^3$ de $\RR^3$. 
 	}
-	mais il se trouve que l'on peut raisonner plus géométriquement comme suit.
+	Nous allons raisonner plus géométriquement.
 	%
 	Partant d'un triangle $ABC$ quelconque de périmètre $p$, le fait \ref{iso-tri} nous donne successivement les triangles $ACD$, $ADE$ et $AEF$ isocèles en $D$, $E$ et $F$ respectivement, ayant tous pour périmètre $p$, et ceci avec des aires de plus en plus grandes.  
 	Le dessin suivant amène à conjecturer qu'en poursuivant le procédé pour avoir ensuite un triangle $AFG$ isocèle en $G$...\,, nous aboutirons \og \emph{à la limite} \fg\ à un triangle équilatéral.
@@ -32,18 +32,55 @@
 	\end{center} 
 
 	
-	Le passage d'un triangle quelconque $ABC$ au triangle $ACD$ isocèle en $D$ nous amène à nous concentrer sur ce que donne notre procédé d'agrandissement d'aire à périmètre fixé lorsque l'on passe de $ADC$ à $ADE$ en partant d'un triangle isocèle. Représentons juste cette étape, avec $ADC$ non équilatéral, pour y voir plus clair.
-
+	Le passage d'un triangle quelconque $ABC$ au triangle $ACD$ isocèle en $D$ nous amène à nous concentrer sur ce que donne notre procédé d'agrandissement d'aire à périmètre fixé pour des triangles isocèles. 
+	Dans la suite, nous allons nous appuyer sur le schéma suivant.
+	
 	\begin{center}
 		\includegraphics[scale=.4]{content/triangle-gene/triangle-proof.png}
 	\end{center} 
 	
 	
-	Notons que si $ADC$ est équilatéral, notre construction s'arrête.
-	Nous supposons donc le contraire dans la suite.
+	Voici ce que nous pouvons affirmer.
+	%
+	\begin{enumerate}
+		\item Considérons $ACD$ isocèle en $D$ tel que $AC > AD$.
+		%
+		Comme $AC + AD + DC = p$, nous avons $AC > \frac13p > AD$.
+		Dès lors, on doit avoir ensuite  $AD < \frac13p < AE$, car $AD + DE + AE = p$ et $AD = AE$.
 
 
-		\item Notre construction nous donne forcément si $ADC$ n'est pas équilatéral.
+		\item Considérons $ADE$ isocèle en $E$ tel que $AD < AE$ en oubliant le point précédent.
+		%
+		Comme $AD + DE + AE = p$, nous avons $AD < \frac13p < AE$.
+		Dès lors, on doit avoir ensuite  $AE > \frac13p > AF$, car $AE + AF + EF = p$ et $AF = EF$.
+
+
+		\item Les deux points précédents démontrent que notre procédé n'arrivera jamais en un nombre fini d'étapes à un triangle équilatéral si l'on part d'un triangle isocèle non équilatéral.%
+		\footnote{
+			Et plus généralement si le procédé ne commence pas avec une base de longueur $\frac13 p$.
+		}
+
+
+		\item Nous devons quantifier les écarts à la mesure idéale \og \emph{limite} \fg\ $\frac13 p$.
+		%
+		
+		XXXXX
+
+
+		\item XXXX
+
+
+		\item XXXX
+
+
+		\item XXXX
+
+
+		\item XXXX
+
+
+		\item XXXX
+	\end{enumerate}
 
 
 \end{proof}
