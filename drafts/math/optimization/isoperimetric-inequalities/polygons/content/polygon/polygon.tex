@@ -26,30 +26,42 @@ La technique ne change pas: nous allons restreindre la recherche à des polygone
 	Ici, il ne faut pas être expéditif en indiquant que la preuve du fait \ref{quadri} se généralise sans aucun souci.
 	En effet, avec $n > 4$, nous pouvons avoir plusieurs points de non-convexité, et les éliminer comme nous l'avons fait pour le quadrilatère n'est pas immédiat:
 	dans la figure suivante, l'élimination des deux points de non convexité $G$ et $E$ de l'heptagone $ABCDEFG$ nous amène à un nouvel heptagone $ABCDE^{\,\prime}FG^{\,\prime}$ ayant lui aussi deux points de non-convexité $F$ et $D$!
-	Donc, rien n'empêche, a priori, d'avoir une suite de constructions n'aboutissant jamais à un heptagone convexe de même périmètre que celui de $ABCDEFG$, et d'aire strictement supérieure à celle de $ABCDEFG$.
+	Donc, rien n'empêche, a priori, d'avoir une suite de constructions n'aboutissant jamais à un heptagone convexe%
+	\footnote{
+		L'auteur est convaincu que le procédé aboutira en un nombre fini d'étapes à un polygone convexe, mais il ne l'a pas démontré pour le moment.
+	}
+	de même périmètre que celui de $ABCDEFG$, et d'aire strictement supérieure à celle de $ABCDEFG$.
 
 	\begin{center}
 		\includegraphics[scale=.4]{content/polygon/polygon-non-convex-trap.png}
 	\end{center}
 	
 
-	La solution est \og \emph{simple} \fg\ : il faut être moins exigeant. 
-	En effet, pour un $n$-gone non convexe $\setproba{P}$, de périmètre fixé $p$, nous allons considérer son enveloppe convexe $\setproba{P}^{\,\prime}$ qui est le plus petit polygone convexe contenant $\setproba{P}$ (pas de panique, on en reparle plus rigoureusement juste après). 
-	Par exemple, dans la figure suivante, l'enveloppe convexe de l'ennéagone $ABCDEFGHI$ est le pentagone $ABDEG$ 
-	qui vérifie
-	$\perim{ABDEG} < \perim{ABCDEFGHI}$, ainsi que
-	$\area{ABDEG} > \area{ABCDEFGHI}$.
-	Une homothétie de rapport
-	$r = \frac{\perim{ABCDEFGHI}}{\perim{ABDEG}}$
-	nous donne finalement un pentagone convexe de périmètre $\perim{ABCDEFGHI}$, et d'aire strictement supérieure à $\area{ABCDEFGHI}$.
-	Voilà! Il ne reste plus qu'à démontrer cela proprement, et ceci pour le cas général.
+	Pire, on peut perdre des côtés lors de la construction comme dans l'exemple suivant où $C$, $D$ et $E^{\,\prime}$ sont alignés.
+
+	\begin{center}
+		\includegraphics[scale=.4]{content/polygon/polygon-non-convex-bad.png}
+	\end{center}
+
+
+	Laissons de côté cette construction pour nous concentrer sur la classique enveloppe convexe%
+	\footnote{
+		C'est le plus petit polygone convexe \og \emph{contenant} \fg\ le $n$-gone considéré, où \og \emph{petit} \fg\ est relatif à l'inclusion.
+	}
+	du $n$-gone de départ dont les dimensions sont maitrisées par les sommets du $n$-gone.
+	Par exemple, l'ennéagone $ABCDEFGHI$ non convexe ci-dessous admet le pentagone $ABDEG$ pour enveloppe convexe: le périmètre diminue et l'aire augmente, ce qui est utile, mais malheureusement le nombre de côtés change.
 	
 	\begin{center}
-		\includegraphics[scale=.4]{content/polygon/polygon-non-convex.png}
+		\includegraphics[scale=.4]{content/polygon/polygon-convex-hull.png}
 	\end{center}
+
+	Une idée simple, que nous allons formaliser rigoureusement juste après, consiste à ajouter les sommets manquants suffisamment prêts des côtés de l'enveloppe convexe afin de ne pas trop augmenter le périmètre afin qu'il ne dépasse pas celui du $n$-gone non convexe initial. Le dessin suivant illustre cette idée.	
 	
-	
-	Voici un moyen simple de construire l'envelope convexe d'un $n$-gone qui nous donnera aussi au passage ce que l'on souhaite sur les périmètres et les aires.
+	\begin{center}
+		\includegraphics[scale=.4]{content/polygon/polygon-convex-hull-distortion.png}
+	\end{center}
+
+	XXX
 	%
 	\begin{itemize}
 		\item XXX
