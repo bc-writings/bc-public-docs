@@ -3,20 +3,12 @@
 \end{fact}
 
 
-\begin{proof}
-	Soit un triangle $ABC$ non équilatéral, de sorte que $ABC$ n'est pas isocèle en $A$.
-	Selon le fait \ref{tri-one-side-fixed}, il existe un triangle isocèle de base $[BC]$, de même périmètre et d'aire strictement plus grande.
-	Ceci nous prouve qu'un triangle non équilatéral ne peut pas être solution du problème, et par conséquent seul le triangle équilatéral maximise l'aire à périmètre fixé. Que c'est efficace!
-\end{proof}
-
-
-% ----------------------- %
-
-
-\begin{remark}
-	Voici un fait rigolo. Une application itérative du fait \ref{tri-one-side-fixed} donne à la limite le triangle équilatéral d'aire maximale, et ceci avec une vitesse de convergence exponentielle.
-	%
-	En effet, partons d'un triangle $ABC$ quelconque de périmètre $p$, le fait \ref{tri-one-side-fixed} nous donne successivement les triangles $ACD$, $ADE$ et $AEF$ isocèles en $D$, $E$ et $F$ respectivement, ayant tous pour périmètre $p$, et ceci avec des aires de plus en plus grandes.  
+\begin{proof}	
+	L'idée est la suivante: nous allons démontrer qu'une application itérative du fait \ref{tri-one-side-fixed} donne à la limite le triangle équilatéral d'aire maximale, et ceci avec une vitesse de convergence exponentielle.%
+	\footnote{
+		Ceci ne va nécessiter que l'emploi de propriétés simples de l'ensemble des réels.
+	}
+	Partons donc d'un triangle $ABC$ quelconque, mais de périmètre $p$, le fait \ref{tri-one-side-fixed} nous donne successivement les triangles $ACD$, $ADE$ et $AEF$ isocèles en $D$, $E$ et $F$ respectivement, ayant tous pour périmètre $p$, et ceci avec des aires de plus en plus grandes.  
 	Le dessin suivant amène à conjecturer qu'en poursuivant le procédé pour avoir ensuite un triangle $AFG$ isocèle en $G$...\,, nous aboutirons \og \emph{à la limite} \fg\ à un triangle équilatéral.
 
 	\begin{center}
@@ -66,6 +58,35 @@
 		\noindent
 		Nous avons donc une convergence exponentielle des longueurs des côtés vers $p^{\,\prime} = \frac13 p$. Et tout ceci via de la géométrie et de l'analyse élémentaires!
 	\end{enumerate}
+\end{proof}
+
+
+% ----------------------- %
+
+
+\begin{remark}
+	La preuve élémentaire classique commence par noter que si $ABC$ n'est pas équilatéral, en particulier il n'est pas isocèle en $A$, donc, selon le fait \ref{tri-one-side-fixed}, il existe un triangle isocèle de base $[BC]$, de même périmètre et d'aire strictement plus grande.
+	Ceci nous prouve qu'un triangle maximisant l'aire à périmètre fixé ne peut être qu'équilatéral. 
+	Cette condition nécessaire est-elle suffisante? Ce sera vrai si nous savons qu'au moins un triangle maximisant l'aire à périmètre fixé existe, puisque, dans ce cas, un tel triangle ne pourra être qu'équilatéral.%
+	\footnote{
+		Sans cette existence, il se pourrait, par exemple, que le triangle équilatéral soit à part, et que les autres aient des aires augmentant indéfiniment de leur côté, sans mauvais jeu de mots, en dépassant celle du triangle équilatéral qui serait une sorte de maximum local isolé.
+	}
+	Nous voilà obligé de faire appel aux techniques d'analyse.
+	%
+	\begin{itemize}
+		\item On munit le plan d'un repère orthonormé $\pvaxes{O | i | j}$. 
+
+		\item Les triangles $ABC$ tels que $\perim{ABC} = p$ sont représentés en posant $A\coord{0 | 0}$, $B\coord{AB | 0}$ et $C\coord{x_C | y_C}$ avec $y_C \geq 0$. Un triangle peut donc avoir trois représentations, mais peu importe.
+		De plus, on accepte les triangles dégénérés pour lesquels nous avons $y_C = 0$ dans notre représentation.
+		Nous notons alors $\setproba{T} \subset \RR^3$ l'ensemble des triplets $\coord{x_B | x_C | y_C}$ ainsi obtenus.
+
+		\item Il est facile de justifier que $\setproba{T}$ est fermé dans $\RR^3$.
+		De plus, $\setproba{T}$ est borné car $x_B$, $x_C$ et $y_C$ le sont.
+		En résumé, $\setproba{T}$ est un compact de $\RR^3$.
+
+		\item La fonction $s: \coord{x_B | x_C | y_C} \in \setproba{T} \mapsto \num{.5} x_B y_C \in \RRp$ est la fonction aire des triangles représentés.
+		Par continuité et compacité, on sait que $s$ admet un maximum sur $\setproba{T}$. Mission accomplie!
+	\end{itemize}
 \end{remark}
 
 

@@ -1,4 +1,4 @@
-La technique ne change pas: nous allons restreindre la recherche à des polygones de plus en plus particuliers. Cette dernière section nous poussera à un peu plus de technicité.
+La technique est similaire au cas du triangle: nous allons obtenir une condition nécessaire, puis nous verrons que cette condition suffit via des arguments d'analyse. Cette dernière section nécessite plus de technicité.
 
 
 % ----------------------- %
@@ -81,25 +81,8 @@ La technique ne change pas: nous allons restreindre la recherche à des polygone
 % ----------------------- %
 
 
-\begin{remark}
-	Convexe important car sinon on pourrait imagine avoir suite structement croissante sans maximum !
-	\begin{itemize}
-		\item XXX
-
-		\item XXX
-
-		\item XXX
-
-		\item XXX
-	\end{itemize}
-\end{remark}
-
-
-% ----------------------- %
-
-
 \begin{fact} \label{iso-poly}
-	Si un $n$-gone convexe $\setproba{P}$ n'est pas un $n$-isogone, alors on peut construire un $n$-isogone convexe $\setproba{P}^{\,\prime}$ tel que 
+	Si un $n$-gone convexe $\setproba{P}$ n'est pas un $n$-isogone, alors on peut construire un $n$-gone $\setproba{P}^{\,\prime}$ tel que 
 	$\perim{\setproba{P}^{\,\prime}} = \perim{\setproba{P}}$ 
 	et 
 	$\area{\setproba{P}^{\,\prime}} > \area{\setproba{P}}$.
@@ -107,6 +90,9 @@ La technique ne change pas: nous allons restreindre la recherche à des polygone
 
 
 \begin{proof}
+	pas be soin d'isoccèle, on se place entre prolongement côté précédente et coté du traingle non isocèle et c'est réglé car périmtre dimnuer à aire constante !
+	
+	
 	Considérons un $n$-gone convexe $\setproba{P}$, de périmètre $p$, qui n'est pas un $n$-isogone. 
 	$\setproba{P}$ admet donc un triplet de sommets consécutifs $A$, $B$ et $C$ tels que $AB \neq AC$ (dans le cas contraire, on obtient de proche en proche un $n$-isogone).
 	La construction vue dans la preuve du fait \ref{tri-one-side-fixed} permet de conclure sans effort ou presque.
@@ -131,61 +117,10 @@ La technique ne change pas: nous allons restreindre la recherche à des polygone
 % ----------------------- %
 
 
-\begin{remark}
-	ce qui suit pas bon car n-on pourrait petre enfermer dans stricte coroissante sansn maxium!
-	
-	Si un $n$-gone convexe $\setproba{P}$, de périmètre $p$, n'est pas un $n$-isogone, alors on peut construire un $n$-gone convexe $\setproba{P}^{\,\prime}$ tel que $\perim{\setproba{P}^{\,\prime}} = p$ et $\area{\setproba{P}^{\,\prime}} > \area{\setproba{P}}$.
-	%
-	\begin{itemize}
-		\item XXX
-
-		\item XXX
-
-		\item XXX
-
-		\item XXX
-	\end{itemize}
-\end{remark}
-
-
-% ----------------------- %
-
-
-\begin{defi}
-	Le  \og \emph{degré de régularité} \fg\ d'un $n$-gone $\setproba{P}$ est son nombre maximal d'angles de même mesure. 
-	Il sera noté $\degreg{\setproba{P}}$.
-\end{defi}
-
-
 \begin{fact} \label{almost-reg-poly}
-	Si un $n$-isogone convexe $\setproba{P}$ vérifie $\degreg{\setproba{P}} < n$, alors on peut construire un $n$-isogone convexe $\setproba{P}^{\,\prime}$ tel que 
+	Si un $n$-isogone convexe $\setproba{P}$ possède deux angles de mesures différentes,
+	alors il existe un $n$-gone $\setproba{P}^{\,\prime}$ tel que 
 	$\degreg{\setproba{P}^{\,\prime}} > \degreg{\setproba{P}}$,
-	$\perim{\setproba{P}^{\,\prime}} = \perim{\setproba{P}}$ 
-	et 
-	$\area{\setproba{P}^{\,\prime}} > \area{\setproba{P}}$..
-\end{fact}
-
-
-\begin{proof}
-		XXX
-	%
-	\begin{itemize}
-		\item XXX
-
-		\item XXX
-
-		\item XXX
-
-		\item XXX
-	\end{itemize}
-\end{proof}
-
-
-% ----------------------- %
-
-
-\begin{fact} \label{reg-poly}
-	Si un $n$-isogone convexe $\setproba{P}$ n'est pas régulier, alors on peut construire un $n$-gone régulier $\setproba{P}^{\,\prime}$ tel que
 	$\perim{\setproba{P}^{\,\prime}} = \perim{\setproba{P}}$ 
 	et 
 	$\area{\setproba{P}^{\,\prime}} > \area{\setproba{P}}$.
@@ -193,9 +128,7 @@ La technique ne change pas: nous allons restreindre la recherche à des polygone
 
 
 \begin{proof}
-	fait \ref{almost-reg-poly} donne de moins en moins d'nagles différentes impliquent arrivé à -$n$-gone régulier
-	
-	XXX
+	wikipédia ok ? tjrs le pb du côté qui disparait !
 	%
 	\begin{itemize}
 		\item XXX
@@ -219,8 +152,14 @@ La technique ne change pas: nous allons restreindre la recherche à des polygone
 
 
 \begin{proof}
+	on a cond necess vai les faits
+	
+	CS ca un max existe comme pour les triangles
+	!!
+	
+	
 	readc fausse
 	refaire le chemind es restrictions !!!
 	
-	Tout a déjà été dit, car d'après les faits précédents, un $n$-gone $\setproba{P}$ non régulier ne peut pas maximiser son aire à périmètre fixé, et par conséquent seul le $n$-gone régulier maximise l'aire à périmètre fixé. Chapeau bas, géométrie...
+	Tout a déjà été dit, car d'après les faits précédents, un $n$-gone $\setproba{P}$ non régulier ne peut pas maximiser son aire à périmètre fixé, et par conséquent seul le $n$-gone régulier maximise l'aire à périmètre fixé. Chapeau bas à vous, Géométrie et Analyse réunies...
 \end{proof}
