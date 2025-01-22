@@ -17,8 +17,8 @@ La technique ne change pas: nous allons restreindre la recherche à des polygone
 % ----------------------- %
 
 
-\begin{fact}\label{conv-poly}
-	Si un $n$-gone $\setproba{P}$, de périmètre fixé $p$, n'est pas convexe, alors on peut construire à partir de $\setproba{P}$ un $n$-gone convexe $\setproba{P}^{\,\prime}$ tel que $\perim{\setproba{P}^{\,\prime}} = p$ et $\area{\setproba{P}^{\,\prime}} > \area{\setproba{P}}$.
+\begin{fact} \label{conv-poly}
+	Si un $n$-gone $\setproba{P}$, de périmètre $p$, n'est pas convexe, alors on peut construire à partir de $\setproba{P}$ un $n$-gone convexe $\setproba{P}^{\,\prime}$ tel que $\perim{\setproba{P}^{\,\prime}} = p$ et $\area{\setproba{P}^{\,\prime}} > \area{\setproba{P}}$.
 \end{fact}
 
 
@@ -48,20 +48,20 @@ La technique ne change pas: nous allons restreindre la recherche à des polygone
 	\footnote{
 		C'est le plus petit polygone convexe \og \emph{contenant} \fg\ le $n$-gone considéré, où \og \emph{petit} \fg\ est relatif à l'inclusion.
 	}
-	du $n$-gone de départ dont les dimensions sont maitrisées par les sommets du $n$-gone.
+	du $n$-gone de départ.
 	Par exemple, l'ennéagone $ABCDEFGHI$ non convexe ci-dessous admet le pentagone $ABDEG$ pour enveloppe convexe: le périmètre diminue et l'aire augmente, ce qui est utile, mais malheureusement le nombre de côtés change.
 	
 	\begin{center}
 		\includegraphics[scale=.4]{content/polygon/polygon-convex-hull.png}
 	\end{center}
 
-	Une idée simple, que nous allons formaliser rigoureusement juste après, consiste à ajouter les sommets manquants suffisamment prêts des côtés de l'enveloppe convexe afin de ne pas trop augmenter le périmètre afin qu'il ne dépasse pas celui du $n$-gone non convexe initial. Le dessin suivant illustre cette idée.	
+	Une idée simple, que nous allons formaliser rigoureusement juste après, consiste à ajouter les sommets manquants suffisamment prêts des côtés de l'enveloppe convexe afin de ne pas trop augmenter le périmètre pour le laisser inférieur, ou égal, à celui du $n$-gone non convexe initial. Le dessin suivant illustre cette idée.	
 	
 	\begin{center}
 		\includegraphics[scale=.4]{content/polygon/polygon-convex-hull-distortion.png}
 	\end{center}
 
-	XXX
+	Considérons donc un $n$-gone non convexe $\setproba{P}$, de périmètre $p$.
 	%
 	\begin{itemize}
 		\item XXX
@@ -78,14 +78,68 @@ La technique ne change pas: nous allons restreindre la recherche à des polygone
 % ----------------------- %
 
 
-\begin{fact}\label{iso-poly}
-	Si un $n$-gone convexe $\setproba{P}$, de périmètre fixé $p$, n'est pas un $n$-isogone, alors on peut construire à partir de $\setproba{P}$ un $n$-isogone convexe $\setproba{P}^{\,\prime}$ tel que $\perim{\setproba{P}^{\,\prime}} = p$ et $\area{\setproba{P}^{\,\prime}} > \area{\setproba{P}}$.
+\begin{remark}
+	Convexe important car sinon on pourrait imagine avoir suite structement croissante sans maximum !
+	\begin{itemize}
+		\item XXX
+
+		\item XXX
+
+		\item XXX
+
+		\item XXX
+	\end{itemize}
+\end{remark}
+
+
+% ----------------------- %
+
+
+\begin{fact} \label{iso-poly}
+	Si un $n$-gone convexe $\setproba{P}$, de périmètre $p$, n'est pas un $n$-isogone, alors on peut construire à partir de $\setproba{P}$ un $n$-isogone convexe $\setproba{P}^{\,\prime}$ tel que $\perim{\setproba{P}^{\,\prime}} = p$ et $\area{\setproba{P}^{\,\prime}} > \area{\setproba{P}}$.
 \end{fact}
 
 
 \begin{proof}
+	Considérons un $n$-gone convexe $\setproba{P}$, de périmètre $p$, qui n'est pas un $n$-isogone. 
+	$\setproba{P}$ admet donc un triplet de sommets consécutifs $A$, $B$ et $C$ tels que $AB \neq AC$ (dans le cas contraire, on obtient de proche en proche un $n$-isogone).
+	La construction vue dans la preuve du fait \ref{tri-one-side-fixed} permet de conclure sans effort ou presque.
+	En effet,
 	XXX
+	si un sommet mangé, on fait de nouveau mini perturb pas supérieur à la pert de péimètre pour passer à iscoèle avant dilatation axiale
+	
+	non convexité pas gpenante car géré par le fait \ref{conv-poly}
+	%
+	\begin{itemize}
+		\item XXX
+
+		\item XXX
+
+		\item XXX
+
+		\item XXX
+	\end{itemize}
 \end{proof}
+
+
+% ----------------------- %
+
+
+\begin{remark}
+	ce qui suit pas bon car n-on pourrait petre enfermer dans stricte coroissante sansn maxium!
+	
+	Si un $n$-gone convexe $\setproba{P}$, de périmètre $p$, n'est pas un $n$-isogone, alors on peut construire à partir de $\setproba{P}$ un $n$-gone convexe $\setproba{P}^{\,\prime}$ tel que $\perim{\setproba{P}^{\,\prime}} = p$ et $\area{\setproba{P}^{\,\prime}} > \area{\setproba{P}}$.
+	%
+	\begin{itemize}
+		\item XXX
+
+		\item XXX
+
+		\item XXX
+
+		\item XXX
+	\end{itemize}
+\end{remark}
 
 
 % ----------------------- %
@@ -93,13 +147,26 @@ La technique ne change pas: nous allons restreindre la recherche à des polygone
 
 Les faits \ref{conv-poly} et \ref{iso-poly} précédents permettent de se restreindre au cas des $n$-isogones convexes. Ceci nous amène au beau résultat suivant.
 
-\begin{fact}\label{reg-poly}
-	Si un $n$-isogone convexe $\setproba{P}$ de périmètre fixé $p$ possède au moins deux angles de mesures différentes, alors on peut construire à partir de $\setproba{P}$ un $n$-gone régulier $\setproba{P}^{\,\prime}$ tel que $\perim{\setproba{P}^{\,\prime}} = p$ et $\area{\setproba{P}^{\,\prime}} > \area{\setproba{P}}$.
+\begin{fact} \label{reg-poly}
+	juste idée de diminuer le no:bre d'angles différents en fait !!!
+	
+	
+	Si un $n$-isogone convexe $\setproba{P}$, de périmètre $p$, possède au moins deux angles de mesures différentes, alors on peut construire à partir de $\setproba{P}$ un $n$-gone régulier $\setproba{P}^{\,\prime}$ tel que $\perim{\setproba{P}^{\,\prime}} = p$ et $\area{\setproba{P}^{\,\prime}} > \area{\setproba{P}}$.
 \end{fact}
 
 
 \begin{proof}
-	XXX
+		XXX
+	%
+	\begin{itemize}
+		\item XXX
+
+		\item XXX
+
+		\item XXX
+
+		\item XXX
+	\end{itemize}
 \end{proof}
 
 
@@ -113,5 +180,7 @@ Les faits \ref{conv-poly} et \ref{iso-poly} précédents permettent de se restre
 
 
 \begin{proof}
-	Tout a déjà été dit, car d'après les faits ci-dessus, un $n$-gone $\setproba{P}$ non régulier ne peut pas maximiser son aire à périmètre fixé, et par conséquent seul le $n$-gone régulier maximise l'aire à périmètre fixé. Chapeau bas, géométrie...
+	on adapate en indiquant que de moins d'nagles différentes impliquent arrivé à -$n$-gone régulier
+	
+	Tout a déjà été dit, car d'après les faits précédents, un $n$-gone $\setproba{P}$ non régulier ne peut pas maximiser son aire à périmètre fixé, et par conséquent seul le $n$-gone régulier maximise l'aire à périmètre fixé. Chapeau bas, géométrie...
 \end{proof}
