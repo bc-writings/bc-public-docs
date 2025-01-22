@@ -1,10 +1,10 @@
 \begin{fact}
-	Considérons tous les quadrilatères de périmètre fixé $p$. Parmi tous ces quadrilatères, celui d'aire maximale est le carré de côté $c = \num{.25} p$.
+	Considérons tous les quadrilatères de périmètre fixé $p$. Parmi tous ces quadrilatères, un seul est d'aire maximale, c'est le carré de côté $c = \num{.25} p$.
 \end{fact}
 
 
 \begin{proof}
-	La figure suivante montre que pour tout quadrilatère $ABCD$ non convexe en $B$, et de périmètre $p$, il existe un quadrilatère convexe $AB^{\,\prime}CD$ de périmètre $p$, et tel que $\area{AB^{\,\prime}CD} \geq \area{ABCD}$.
+	La figure suivante montre que pour tout quadrilatère $ABCD$ non convexe en $B$, et de périmètre $p$, il existe un quadrilatère convexe $AB^{\,\prime}CD$ de périmètre $p$, et tel que $\area{AB^{\,\prime}CD} > \area{ABCD}$.
 	Notre recherche doit donc continuer dans l'ensemble des quadrilatères convexes de périmètre $p$.
 
 	\begin{center}
@@ -12,20 +12,27 @@
 	\end{center}
 	
 	
-	Comme dans la preuve du fait \ref{iso-tri-one-side-fixed}, à partir d'un quadrilatère convexe $ABCD$ de périmètre $p$, nous obtenons un quadrilatère convexe $AB^{\,\prime}CD$ de périmètre $p$,%
+	Si un quadrilatère convexe $ABCD$ de périmètre $p$ est tel que $AB \neq BC$, le fait \ref{tri-one-side-fixed} nous donne un quadrilatère convexe $AB^{\,\prime}CD$ de périmètre $p$,%
 	\footnote{
 		Noter que
 		$\perim{AB^{\,\prime}CD} = \perim{AB^{\,\prime}C} + \perim{ACD} - 2 AC$.
 	}
-	et tel que $AB^{\,\prime} = B^{\,\prime}C$ et $\area{AB^{\,\prime}CD} \geq \area{ABCD}$ comme le montre la figure ci-après. 
+	et vérifiant aussi $AB^{\,\prime} = B^{\,\prime}C$ et $\area{AB^{\,\prime}CD} > \area{ABCD}$ comme le montre la figure ci-après.
+	On se ramène donc au cas d'un quadrilatère convexe $ABCD$ de périmètre $p$ avec en plus $AB = BC$.
 
 	\begin{center}
 		\includegraphics[scale=.4]{content/quadrilateral/quadrilateral-convex-gene.png}
 	\end{center}
 	
 	
-	La méthode précédente appliquée au sommet $D$ donne un cerf-volant $ABCD$ de périmètre $p$, et tel que $AB = BC$ et $AD = DC$, voir ci-dessous. 
-	Cette même méthode avec les sommets $A$ et $C$ fournit un losange $A^{\,\prime}BC^{\,\prime}D$ de périmètre $p$, et tel que $\area{A^{\,\prime}BC^{\,\prime}D} \geq \area{ABCD}$.
+	La méthode précédente appliquée au sommet $D$ d'un quadrilatère convexe $ABCD$ de périmètre $p$ tel que $AB = BC$ et $AD \neq DC$ permet en fait de se ramener au cas d'un cerf-volant $ABCD$ de périmètre $p$, avec $AB = BC$ et $AD = DC$, voir ci-dessous. 
+
+	\begin{center}
+		\includegraphics[scale=.4]{content/quadrilateral/quadrilateral-convex-one-paire.png}
+	\end{center}
+	
+	
+	En supposant que notre cerf-volant ne soit pas un losange, le fait \ref{tri-one-side-fixed} appliqué aux sommets $A$ et $C$ fournit un losange $A^{\,\prime}BC^{\,\prime}D$ de périmètre $p$, et tel que $\area{A^{\,\prime}BC^{\,\prime}D} > \area{ABCD}$.
 	%
 	En effet, nous avons
 	$p = 2(AB + AD)$
@@ -43,4 +50,3 @@
 	
 	Pour conclure, il suffit d'appliquer le fait \ref{iso-para}, puisque tout losange est un parallélogramme. Que la géométrie est belle!
 \end{proof}
-

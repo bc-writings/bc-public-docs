@@ -1,0 +1,68 @@
+La technique de démonstration purement géométrique reste la même que précédemment, à savoir restreindre la recherche à des polygones de plus en plus particuliers. Cette dernière section nous poussera à un peu plus de technicité.
+
+
+% ----------------------- %
+
+
+\begin{defi}
+	Un \og \emph{$n$-gone} \fg\ désigne un polygone à $n$ côtés avec $n \geq 3$.
+\end{defi}
+
+
+\begin{defi}
+	Un \og \emph{$n$-isogone} \fg\ désigne un $n$-polygone dont les $n$ côtés sont de mesure égale.
+\end{defi}
+
+
+% ----------------------- %
+
+
+\begin{fact}\label{conv-poly}
+	Si un $n$-gone $\setproba{P}$, de périmètre fixé $p$, n'est pas convexe, alors on peut construire à partir de $\setproba{P}$ un $n$-gone convexe $\setproba{P}^{\,\prime}$ tel que $\perim{\setproba{P}^{\,\prime}} = p$ et $\area{\setproba{P}^{\,\prime}} > \area{\setproba{P}}$.
+\end{fact}
+
+
+\begin{proof}
+	XXX
+\end{proof}
+
+
+% ----------------------- %
+
+
+\begin{fact}\label{iso-poly}
+	Si un $n$-gone convexe $\setproba{P}$, de périmètre fixé $p$, n'est pas un $n$-isogone, alors on peut construire à partir de $\setproba{P}$ un $n$-isogone convexe $\setproba{P}^{\,\prime}$ tel que $\perim{\setproba{P}^{\,\prime}} = p$ et $\area{\setproba{P}^{\,\prime}} > \area{\setproba{P}}$.
+\end{fact}
+
+
+\begin{proof}
+	XXX
+\end{proof}
+
+
+% ----------------------- %
+
+
+Les faits \ref{conv-poly} et \ref{iso-poly} précédents permettent de se restreindre au cas des $n$-isogones convexes. Ceci nous amène au résultat suivant.
+
+\begin{fact}\label{reg-poly}
+	Si un $n$-isogone convexe $\setproba{P}$ de périmètre fixé $p$ possède au moins deux angles de mesures différentes, alors on peut construire à partir de $\setproba{P}$ un $n$-gone régulier $\setproba{P}^{\,\prime}$ tel que $\perim{\setproba{P}^{\,\prime}} = p$ et $\area{\setproba{P}^{\,\prime}} > \area{\setproba{P}}$.
+\end{fact}
+
+
+\begin{proof}
+	XXX
+\end{proof}
+
+
+% ----------------------- %
+
+
+\begin{fact}
+	Considérons tous les $n$-gones de périmètre fixé $p$. Parmi tous ces $n$-gones, celui d'aire maximale est le $n$-gone régulier.
+\end{fact}
+
+
+\begin{proof}
+	Tout a déjà été dit, car d'après les faits ci-dessus, un $n$-gone $\setproba{P}$ non régulier ne peut pas maximiser son aire à périmètre fixé, et par conséquent seul le $n$-gone régulier maximise l'aire à périmètre fixé. Chapeau bas, géométrie...
+\end{proof}

@@ -1,14 +1,11 @@
 \begin{fact}\label{iso-tri}
-	Considérons tous les triangles de périmètre fixé $p$. Parmi tous ces triangles, celui d'aire maximale est le triangle équilatéral de côté $c = \dfrac13 p$.
+	Considérons tous les triangles de périmètre fixé $p$. Parmi tous ces triangles, un seul est d'aire maximale, c'est le triangle équilatéral de côté $c = \dfrac13 p$.
 \end{fact}
-
-
-% ----------------------- %
 
 
 \begin{proof}
 	Soit un triangle $ABC$ non équilatéral, de sorte que $ABC$ n'est pas isocèle en $A$.
-	Selon le fait \ref{iso-tri}, il existe un triangle isocèle de base $[BC]$, de même périmètre et d'aire strictement plus grande.
+	Selon le fait \ref{tri-one-side-fixed}, il existe un triangle isocèle de base $[BC]$, de même périmètre et d'aire strictement plus grande.
 	Ceci nous prouve qu'un triangle non équilatéral ne peut pas être solution du problème, et par conséquent seul le triangle équilatéral maximise l'aire à périmètre fixé. Que c'est efficace!
 \end{proof}
 
@@ -17,9 +14,9 @@
 
 
 \begin{remark}
-	Voici un fait rigolo. Une application itérative du fait \ref{iso-tri} donne à la limite le triangle équilatéral d'aire maximale, et ceci avec une vitesse de convergence exponentielle.
+	Voici un fait rigolo. Une application itérative du fait \ref{tri-one-side-fixed} donne à la limite le triangle équilatéral d'aire maximale, et ceci avec une vitesse de convergence exponentielle.
 	%
-	En effet, partons d'un triangle $ABC$ quelconque de périmètre $p$, le fait \ref{iso-tri} nous donne successivement les triangles $ACD$, $ADE$ et $AEF$ isocèles en $D$, $E$ et $F$ respectivement, ayant tous pour périmètre $p$, et ceci avec des aires de plus en plus grandes.  
+	En effet, partons d'un triangle $ABC$ quelconque de périmètre $p$, le fait \ref{tri-one-side-fixed} nous donne successivement les triangles $ACD$, $ADE$ et $AEF$ isocèles en $D$, $E$ et $F$ respectivement, ayant tous pour périmètre $p$, et ceci avec des aires de plus en plus grandes.  
 	Le dessin suivant amène à conjecturer qu'en poursuivant le procédé pour avoir ensuite un triangle $AFG$ isocèle en $G$...\,, nous aboutirons \og \emph{à la limite} \fg\ à un triangle équilatéral.
 
 	\begin{center}
@@ -63,7 +60,7 @@
 
 			\item Dans $ADE$, posant $AE = p^{\,\prime} + \epsilon^{\,\prime}$, nous avons $AD = p^{\,\prime} - 2 \epsilon^{\,\prime}$.
 
-			\item Donc $\epsilon^{\,\prime} = \dfrac12 \epsilon$.
+			\item Donc $\epsilon^{\,\prime} = \frac12 \epsilon$.
 		\end{itemize}
 		
 		\noindent
@@ -77,9 +74,9 @@
 
 \begin{remark}
 	La formule de Héron donne qu'un triangle de côtés $a$, $b$ et $c$, et de demi-périmètre $s = \num{.5} p$, possède une aire égale à $\sqrt{s(s - a)(s - b)(s - c)}$.
-	La comparaison des moyennes géométriques et arithmétiques d'ordre $3$ nous donne alors une solution algébrique efficace, puisque 
-	$\sqrt[3]{(s - a)(s - b)(s - c)} \leq \frac13 \big( (s - a) + (s - b) + (s - c) \big)$
-	nous donne alors
+	La comparaison des moyennes géométriques et arithmétiques d'ordre $3$ nous donne alors une solution algébrique efficace, puisque de
+	$\sqrt[3]{(s - a)(s - b)(s - c)} \leq \frac13 \big( (s - a) + (s - b) + (s - c) \big)$,
+	nous déduisons
 	$s(s - a)(s - b)(s - c) \leq \frac{1}{27} s^4$,
 	puis
 	$\sqrt{s(s - a)(s - b)(s - c)} \leq \frac{p^2}{12 \sqrt{3}}$
@@ -91,22 +88,31 @@
 
 
 \begin{remark} \label{constrained-extrema}
-	L'aire du triangle étudié étant de mesure positive ou nulle, nous cherchons à maximiser son carré
-	$f(a;b;c) = s(s - a)(s - b)(s - c)
-	          = \frac{1}{16} (a + b + c)(b + c - a)(a + c - b)(a + b - c)$,
+	L'aire d'un triangle étant positive ou nulle, nous pouvons chercher à maximiser son carré
+	$f(a;b;c) = s(s - a)(s - b)(s - c)$,
+%	          = \frac{1}{16} (a + b + c)(b + c - a)(a + c - b)(a + b - c)$,
 	sous la contrainte $2s = a + b + c$ où $s > 0$ est constant.
 	Notant $g(a;b;c) = a + b + c - 2 s$, la contrainte s'écrit $g(a;b;c) = 0$.
-	Selon la méthode des extrema liés, un éventuel extremum doit vérifier 
-	$\pder[i]{f}{a}{1} = \lambda \pder[i]{g}{a}{1}$,
-	$\pder[i]{f}{b}{1} = \lambda \pder[i]{g}{b}{1}$ et
-	$\pder[i]{f}{c}{1} = \lambda \pder[i]{g}{c}{1}$
-	avec $\lambda \in \RR$ une constante.
-	En particulier, nous obtenons
-	$- s(s - b)(s - c) = - s(s - a)(s - c) = - s(s - a)(s - b)$,
-	et par conséquent
-	$(s - b)(s - c) = (s - a)(s - c) = (s - a)(s - b)$.
-	Les cas $s = a$, $s = b$ et $s = c$ donnent $f(a;b;c) = 0$.
-	Quant au cas $\big[ s \neq a, s \neq b \text{ et } s \neq c \big]$, il n'est envisageable que si $a = b = c = \frac{p}{3}$ qui implique $f(a;b;c) = \frac{1}{16} p \big( \frac{p}{3} \big)^3 = \big( \frac{p^2}{12 \sqrt{3}} \big)^2 > 0$.
-	En résumé, l'existence d'un maximum implique que ce maximum corresponde au cas du triangle équilatéral.
-	Il reste à démontrer qu'un tel maximum existe pour pouvoir conclure: ceci est facile à justifier en considérant l'ensemble compact $\intervalC{0}{2s}^3$ de $\RR^3$.
+	%
+	\begin{itemize}
+		\item Si un extremum existe,
+    	$\exists \lambda \in \RR$ tel que
+    	$\pder[i]{f}{a}{1} = \lambda \pder[i]{g}{a}{1}$,
+    	$\pder[i]{f}{b}{1} = \lambda \pder[i]{g}{b}{1}$ et
+    	$\pder[i]{f}{c}{1} = \lambda \pder[i]{g}{c}{1}$
+		d'après la méthode des extrema liés.
+
+		\item Donc
+		$- s(s - b)(s - c) = - s(s - a)(s - c) = - s(s - a)(s - b)$,
+		et par conséquent
+		$(s - b)(s - c) = (s - a)(s - c) = (s - a)(s - b)$.
+
+		\item Les cas $s = a$, $s = b$ et $s = c$ donnent $f(a;b;c) = 0$.
+
+		\item Le cas $\big[ s \neq a, s \neq b \text{ et } s \neq c \big]$ n'est envisageable que si $a = b = c = \frac{p}{3}$, ceci impliquant $f(a;b;c) = \frac{1}{16} p \big( \frac{p}{3} \big)^3 = \big( \frac{p^2}{12 \sqrt{3}} \big)^2 > 0$.
+
+		\item En résumé, l'existence d'un maximum implique que ce maximum corresponde au cas du triangle équilatéral.
+
+		\item Il reste à démontrer qu'un tel maximum existe pour pouvoir conclure: ceci est facile à justifier en considérant l'ensemble compact $\intervalC{0}{2s}^3$ de $\RR^3$.
+	\end{itemize}
 \end{remark}
