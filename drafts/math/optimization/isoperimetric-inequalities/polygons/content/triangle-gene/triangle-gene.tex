@@ -77,7 +77,7 @@
 		\item On munit le plan d'un repère orthonormé $\pvaxes{O | i | j}$. 
 
 		\item Les triangles $ABC$ tels que $\perim{ABC} = p$ sont représentés en posant $A\coord{0 | 0}$, $B\coord{AB | 0}$ et $C\coord{x_C | y_C}$ avec $y_C \geq 0$. Un triangle peut donc avoir trois représentations, mais peu importe.
-		De plus, on accepte les triangles dégénérés pour lesquels nous avons $x_B = 0$, $y_C = 0$ dans notre représentation.
+		De plus, on accepte les triangles dégénérés pour lesquels nous avons $x_B = 0$ ou $y_C = 0$ dans notre représentation.
 		Nous notons alors $\setproba{T} \subset \RR^3$ l'ensemble des triplets $\coord{x_B | x_C | y_C}$ ainsi obtenus.
 
 		\item Il est facile de justifier que $\setproba{T}$ est fermé dans $\RR^3$.
@@ -85,7 +85,7 @@
 		En résumé, $\setproba{T}$ est un compact de $\RR^3$.
 
 		\item La fonction $s: \coord{x_B | x_C | y_C} \in \setproba{T} \mapsto \num{.5} x_B y_C \in \RRp$ est la fonction \og \emph{aire} \fg\ des triangles représentés.
-		Par continuité et compacité, on sait que $s$ admet un maximum sur $\setproba{T}$. Mission accomplie!
+		Par continuité et compacité, on sait que $s$ admet un maximum sur $\setproba{T}$, un tel maximum ne pouvant pas être atteint pour un triangle dégénéré. Mission accomplie!
 	\end{itemize}
 \end{remark}
 

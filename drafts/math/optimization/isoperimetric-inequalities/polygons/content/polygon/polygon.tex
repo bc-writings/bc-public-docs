@@ -5,7 +5,7 @@ La technique est similaire au cas du triangle: nous allons obtenir une condition
 
 
 \begin{defi}
-	Un \og \emph{\ngone} \fg\ désigne un polygone à $n$ côtés avec $n \geq 3$.
+	Un \og \emph{\ngone} \fg\ désigne un polygone à $n$ côtés de mesure non nulle, avec $n \geq 3$.
 \end{defi}
 
 
@@ -52,7 +52,7 @@ La technique est similaire au cas du triangle: nous allons obtenir une condition
 		C'est le plus petit polygone convexe \og \emph{contenant} \fg\ le \ngone\ considéré, où \og \emph{petit} \fg\ est relatif à l'inclusion.
 	}
 	du \ngone\ de départ.
-	Par exemple, l'ennéagone $ABCDEFGHI$ non convexe ci-dessous admet le pentagone $ABDEG$ pour enveloppe convexe: le périmètre diminue et l'aire augmente, strictement tous les deux, ce qui est utile, mais malheureusement le nombre de côtés change.
+	Par exemple, l'ennéagone $ABCDEFGHI$ non convexe ci-dessous admet le pentagone $ABDEG$ pour enveloppe convexe: le périmètre diminue et l'aire augmente, strictement tous les deux, ce qui est utile, mais malheureusement le nombre de côtés a diminué.
 	
 	\begin{center}
 		\includegraphics[scale=.4]{content/polygon/polygon-convex-hull.png}
@@ -88,7 +88,7 @@ La technique est similaire au cas du triangle: nous allons obtenir une condition
 
 
 \begin{fact} \label{iso-poly} 
-	Si un \ngone\ convexe $\setproba{P}$ n'est pas un \niso, alors on peut construire un \ngone\ $\setproba{P}^{\,\prime}$ tel que 
+	Si un \ngone\ convexe $\setproba{P}$ n'est pas un \niso, alors on peut construire un \ngone\ convexe $\setproba{P}^{\,\prime}$ tel que 
 	$\perim{\setproba{P}^{\,\prime}} = \perim{\setproba{P}}$ 
 	et 
 	$\area{\setproba{P}^{\,\prime}} > \area{\setproba{P}}$.
@@ -96,32 +96,32 @@ La technique est similaire au cas du triangle: nous allons obtenir une condition
 
 
 \begin{proof}
-	pas be soin d'isoccèle, on se place entre prolongement côté précédente et coté du traingle non isocèle et c'est réglé car périmtre dimnuer à aire constante !
-	
-	
-	Considérons un \ngone\ convexe $\setproba{P}$, de périmètre $p$, qui n'est pas un \niso\ . 
-	$\setproba{P}$ admet donc un triplet de sommets consécutifs $A$, $B$ et $C$ tels que $AB \neq AC$ (dans le cas contraire, on obtient de proche en proche un \niso).
-	La construction vue dans la preuve du fait \ref{tri-one-side-fixed} permet de conclure sans effort ou presque.
-	En effet,
-	XXX
-	si un sommet mangé, on fait de nouveau mini perturb pas supérieur à la pert de péimètre pour passer à iscoèle avant dilatation axiale
-	
-	non convexité pas gpenante car géré par le fait \ref{conv-poly}
-	%
-	\begin{itemize}
-		\item XXX
+	Considérons un \ngone\ convexe $\setproba{P}$ qui ne soit pas un \niso.
+	Dans ce cas, $\setproba{P}$ admet un triplet de sommets consécutifs $A$, $B$ et $C$ tels que $AB \neq BC$ (sinon, on obtiendrait de proche en proche un \niso).
+	La construction vue dans la preuve du fait \ref{tri-one-side-fixed} nous donne la solution: voir les deux dessins ci-après dans lesquels $(AC) \parallel (BB^{\,\prime})$. 
+	Pour le 2\ieme\ cas, il n'est pas possible d'utiliser le triangle $AB^{\,\prime}C$ isocèle en $B^{\,\prime}$ car $(B^{\,\prime}C)$ porte le côté de sommet $C$ juste après $[BC]$, mais ce problème se contourne en considérant un point $B^{\,\prime\prime}$ de $]BB^{\,\prime}[$.
+	%	
+	\begin{multicols}{2}
+		\centering
 
-		\item XXX
+		\includegraphics[scale=.4]{content/polygon/not-iso-OK.png}
 
-		\item XXX
-
-		\item XXX
-	\end{itemize}
+		\includegraphics[scale=.4]{content/polygon/not-iso-KO.png}
+	\end{multicols}
+	
+	Dans chaque cas, nous avons construit un \ngone\ convexe $\setproba{P}^{\,\prime\prime}$ tel que 
+	$\perim{\setproba{P}^{\,\prime\prime}} < \perim{\setproba{P}}$ 
+	et 
+	$\area{\setproba{P}^{\,\prime\prime}} = \area{\setproba{P}}$.
+	Un simple agrandissement donne un \ngone\ convexe $\setproba{P}^{\,\prime}$ vérifiant
+	$\perim{\setproba{P}^{\,\prime}} = \perim{\setproba{P}}$ 
+	et 
+	$\area{\setproba{P}^{\,\prime}} > \area{\setproba{P}}$.
 \end{proof}
 
 
 \begin{remark}
-	Le fait précédent ne permet pas de toujours se ramener au cas d'un \niso\ convexe. Il nous dit juste que si un \ngone\ convexe maximise son aire à périmètre fixé, alors il devra être un \niso. La nuance est importante à noter!
+	Le fait précédent ne permet pas de toujours se ramener au cas d'un \niso\ convexe. Il nous dit juste que si un \ngone\ convexe maximise son aire à périmètre fixé, alors il devra être un \niso. La nuance est importante, et nous pouvons en faire une similaire pour le fait suivant.
 \end{remark}
 
 
@@ -129,8 +129,6 @@ La technique est similaire au cas du triangle: nous allons obtenir une condition
 
 
 \begin{fact} \label{almost-reg-poly}
-	\ngone\ convexe  devrait suffire : tech de la petite perturbation
-	
 	Si un \niso\  convexe $\setproba{P}$ possède deux angles de mesures différentes,
 	alors il existe un \ngone\ $\setproba{P}^{\,\prime}$ tel que
 	$\perim{\setproba{P}^{\,\prime}} = \perim{\setproba{P}}$ 
