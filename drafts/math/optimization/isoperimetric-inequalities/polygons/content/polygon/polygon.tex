@@ -65,7 +65,19 @@ La technique est similaire au cas du triangle: nous allons obtenir une condition
 		\includegraphics[scale=.4]{content/polygon/polygon-convex-hull-distortion.png}
 	\end{center}
 
-	Considérons donc un \ngone\ non convexe $\setproba{P}$, de périmètre $p$.
+
+	Considérons donc un \ngone\ non convexe $\setproba{P}$. Son enveloppe convexe $\setproba{C}$ vérifie, par construction,
+	$\perim{\setproba{C}} < \perim{\setproba{P}}$ 
+	et 
+	$\area{\setproba{C}} > \area{\setproba{P}}$.
+	Notons $m$ le nombre de sommets en moins dans $\setproba{C}$ relativement à $\setproba{P}$.
+	
+
+	XXX
+	
+	facile ensuite car on peut tout faire sur un coté , faut juste rednre la constrcution explicite
+	
+	
 	%
 	\begin{itemize}
 		\item XXX
@@ -99,7 +111,7 @@ La technique est similaire au cas du triangle: nous allons obtenir une condition
 	Considérons un \ngone\ convexe $\setproba{P}$ qui ne soit pas un \niso.
 	Dans ce cas, $\setproba{P}$ admet un triplet de sommets consécutifs $A$, $B$ et $C$ tels que $AB \neq BC$ (sinon, on obtiendrait de proche en proche un \niso).
 	La construction vue dans la preuve du fait \ref{tri-one-side-fixed} nous donne la solution: voir les deux dessins ci-après dans lesquels $(AC) \parallel (BB^{\,\prime})$. 
-	Pour le 2\ieme\ cas, il n'est pas possible d'utiliser le triangle $AB^{\,\prime}C$ isocèle en $B^{\,\prime}$ car $(B^{\,\prime}C)$ porte le côté de sommet $C$ juste après $[BC]$, mais ce problème se contourne en considérant un point $B^{\,\prime\prime}$ de $]BB^{\,\prime}[$.
+	Pour le 2\ieme\ cas, il n'est pas possible d'utiliser le triangle $AB^{\,\prime}C$ isocèle en $B^{\,\prime}$ car $(B^{\,\prime}C)$ porte le côté de $\setproba{P}$ de sommet $C$ juste après $[BC]$, mais ce problème se contourne en considérant un point $B^{\,\prime\prime}$ de $]BB^{\,\prime}[$.
 	%	
 	\begin{multicols}{2}
 		\centering
@@ -121,7 +133,7 @@ La technique est similaire au cas du triangle: nous allons obtenir une condition
 
 
 \begin{remark}
-	Le fait précédent ne permet pas de toujours se ramener au cas d'un \niso\ convexe. Il nous dit juste que si un \ngone\ convexe maximise son aire à périmètre fixé, alors il devra être un \niso. La nuance est importante, et nous pouvons en faire une similaire pour le fait suivant.
+	Le fait précédent ne permet pas de toujours se ramener au cas d'un \niso\ convexe. Il nous dit juste que si un \ngone\ convexe maximise son aire à périmètre fixé, alors il devra être un \niso. La nuance est importante, et une similaire existe pour le fait suivant.
 \end{remark}
 
 
