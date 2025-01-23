@@ -1,0 +1,145 @@
+% Source: https://tex.stackexchange.com/a/719150/6880
+
+%%%%%%%%%%%%%%%%%%%%%%
+%%% Initialization %%%
+%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass{article}
+
+% \usepackage{amsmath} %% Optional
+
+%% Use unicode-math for LuaLaTeX and XeLaTeX (Optional)
+\ifdefined\pdftexversion\else
+    \usepackage{unicode-math}
+\fi
+
+
+%%%%%%%%%%%%%%%%%%%
+%%% Definitions %%%
+%%%%%%%%%%%%%%%%%%%
+
+\makeatletter
+
+%% Make [ math active
+\mathchardef\altsbsp@lbrak=\mathcode`\[
+\AtBeginDocument{\mathcode`\[="8000}
+
+%% Typeset the literal [brackets]
+\def\altsbsp@brackets{%
+    \altsbsp@lbrak% Open bracket
+    \altsbsp@contents% The enclosed contents
+    ]% Close bracket
+}
+
+%% Typeset the [bracketed] material with an upright font
+\def\altsbsp@text{%
+    \mathrm{%
+        \altsbsp@contents%
+    }%
+}
+
+%% Get the last node type to see if we should do {[bracketed]} or [upright].
+\newif \if@altsbsp@start@
+
+\def\altsbsp@gettype{%
+    \expandafter\def%
+    \expandafter\altsbsp@type%
+    \expandafter{\the\lastnodetype}%
+    %
+    \ifnum\altsbsp@type=15\relax%
+        \@altsbsp@start@true%
+    \else%
+        \@altsbsp@start@false%
+    \fi%
+}
+
+%% Check to see if a prime came before a superscript
+\def\altsbsp@check@prime#1#2{%
+    \if#1\egroup%
+        %% \pr@@@t places an \egroup before the closing ], so we need to move it
+        %% to the end. We also add a thin space here for better spacing.
+        \def\altsbsp@contents{\,#2}%
+        \def\altsbsp@after{\egroup}%
+    \else%
+        %% No prime, so just set the contents to the bracketed material.
+        \def\altsbsp@contents{#1#2}%
+        \def\altsbsp@after{}%
+    \fi%
+}
+
+%% Define the left bracket command
+{
+    %% Make [ temporarily active so that we can define its math active version.
+    \catcode`\[=\active
+    \global\def[#1#2]{%
+        %% Expand \the\lastnodetype before opening the group to see if we're the
+        %% first typeset material in this script.
+        \expandafter\expandafter\expandafter{\altsbsp@gettype%
+            %% Grab the argument and save it to \altsbsp@contents.
+            \altsbsp@check@prime{#1}{#2}%
+            \if@altsbsp@start@%
+                %% To see if we're in a script, we check the current math style.
+                \mathchoice%
+                    {\altsbsp@brackets}% Display style, so typeset the brackets.
+                    {\altsbsp@brackets}% Text style, ditto.
+                    {\altsbsp@text}%   % Script style, so typeset the text upright.
+                    {\altsbsp@text}%   % Scriptscript style, ditto.
+            \else%
+                %% We're not the first item, so just typeset the literal brackets.
+                \altsbsp@brackets%
+            \fi%
+            \altsbsp@after%
+        }%
+    }
+}
+\makeatother
+
+
+%%%%%%%%%%%%%%%%%%%%%
+%%% Demonstration %%%
+%%%%%%%%%%%%%%%%%%%%%
+
+\def\demo#1{& $\displaystyle#1$ & \texttt{\detokenize{#1}} \\}
+\def\longdemo#1{%
+    & \multicolumn{2}{l}{$\displaystyle#1$} \\
+    & \multicolumn{2}{l}{\texttt{\detokenize{#1}}} \\
+}
+\renewcommand\arraystretch{1.25}
+
+\pagestyle{empty}
+
+\begin{document}
+    \begin{tabular}{r l l}
+        Regular brackets        \demo{[xyz]                 }[1em]
+
+        Regular scripts         \demo{a^{abc}_{def}         }[1em]
+
+        Script brackets         \demo{a^[text]_{abc}        }
+                                \demo{a^{abc}_[text]        }[1em]
+
+        Primed brackets         \demo{a'''^[text]_{abc}     }
+                                \demo{a'^{abc}_[text]       }[1em]
+
+        %% Use {braces} to make the brackets literal
+        Regular script brackets \demo{a^{[abc]}_{def}      }
+                                \demo{a_{[def]}^{abc}      }[1em]
+
+        %% Lone closing brackets are fine, lone opening brackets need some extra
+        %% care.
+        Lone brackets           \demo{]\infty, 0]           }
+                                \demo{\left[0, \infty\right[}
+                                \demo{xyz \left[\right.     }[1em]
+
+        %% Nested brackets need to be protected with braces
+        Nested brackets         \demo{[a{[b']}]             }
+                                \demo{[a]^[x{[y]}]          }[1em]
+
+        %% Optional arguments are unaffected
+        Optional Arguments      \demo{\sqrt[x]{y_[z]^z}     }[1em]
+
+        %% Works with multiple occurrences of [brackets] in a single expression
+        Complex Expression \longdemo{
+            abc^x + [def]'_[text] + \int'^[text]_{[ghi]}
+        }
+    \end{tabular}
+\end{document}

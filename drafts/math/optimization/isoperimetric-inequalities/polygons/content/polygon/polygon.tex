@@ -5,12 +5,12 @@ La technique est similaire au cas du triangle: nous allons obtenir une condition
 
 
 \begin{defi}
-	Un \og \emph{$n$-gone} \fg\ désigne un polygone à $n$ côtés avec $n \geq 3$.
+	Un \og \emph{\ngone} \fg\ désigne un polygone à $n$ côtés avec $n \geq 3$.
 \end{defi}
 
 
 \begin{defi}
-	Un \og \emph{$n$-isogone} \fg\ désigne un $n$-gone dont tous les côtés sont de mesure égale.
+	Un \og \emph{\niso} \fg\ désigne un \ngone\ dont tous les côtés sont de mesure égale.
 \end{defi}
 
 
@@ -18,7 +18,7 @@ La technique est similaire au cas du triangle: nous allons obtenir une condition
 
 
 \begin{fact} \label{conv-poly}
-	Si un $n$-gone $\setproba{P}$ n'est pas convexe, alors on peut construire un $n$-gone convexe $\setproba{P}^{\,\prime}$ tel que 
+	Si un \ngone\ $\setproba{P}$ n'est pas convexe, alors on peut construire un \ngone\ convexe $\setproba{P}^{\,\prime}$ tel que 
 	$\perim{\setproba{P}^{\,\prime}} = \perim{\setproba{P}}$ 
 	et 
 	$\area{\setproba{P}^{\,\prime}} > \area{\setproba{P}}$.
@@ -40,31 +40,32 @@ La technique est similaire au cas du triangle: nous allons obtenir une condition
 	\end{center}
 	
 
-	Pire, on peut perdre des côtés lors de la construction comme dans l'exemple suivant où $C$, $D$ et $E^{\,\prime}$ sont alignés.
+	On peut aussi perdre des côtés lors de la construction comme dans l'exemple suivant où $C$, $D$ et $E^{\,\prime}$ sont alignés. Nous allons voir juste après que ce problème n'en est pas un.
 
 	\begin{center}
 		\includegraphics[scale=.4]{content/polygon/polygon-non-convex-bad.png}
 	\end{center}
 
 
-	Laissons de côté cette construction pour nous concentrer sur la classique enveloppe convexe%
+	Laissons de côté la construction précédente pour nous concentrer sur la classique enveloppe convexe%
 	\footnote{
-		C'est le plus petit polygone convexe \og \emph{contenant} \fg\ le $n$-gone considéré, où \og \emph{petit} \fg\ est relatif à l'inclusion.
+		C'est le plus petit polygone convexe \og \emph{contenant} \fg\ le \ngone\ considéré, où \og \emph{petit} \fg\ est relatif à l'inclusion.
 	}
-	du $n$-gone de départ.
-	Par exemple, l'ennéagone $ABCDEFGHI$ non convexe ci-dessous admet le pentagone $ABDEG$ pour enveloppe convexe: le périmètre diminue et l'aire augmente, ce qui est utile, mais malheureusement le nombre de côtés change.
+	du \ngone\ de départ.
+	Par exemple, l'ennéagone $ABCDEFGHI$ non convexe ci-dessous admet le pentagone $ABDEG$ pour enveloppe convexe: le périmètre diminue et l'aire augmente, strictement tous les deux, ce qui est utile, mais malheureusement le nombre de côtés change.
 	
 	\begin{center}
 		\includegraphics[scale=.4]{content/polygon/polygon-convex-hull.png}
 	\end{center}
 
-	Une idée simple, que nous allons formaliser rigoureusement juste après, consiste à ajouter les sommets manquants suffisamment prêts des côtés de l'enveloppe convexe afin de ne pas trop augmenter le périmètre pour le laisser inférieur, ou égal, à celui du $n$-gone non convexe initial. Le dessin suivant illustre cette idée.	
+	Une idée simple, que nous allons formaliser rigoureusement après, consiste à ajouter les sommets manquants suffisamment prêts des côtés de l'enveloppe convexe pour ne pas perdre la convexité, tout en gardant un périmètre inférieur strictement au périmètre initial, et une aire strictement plus grande que l'aire initiale. Si nous arrivons à faire ceci, alors une homothétie de rapport $r > 1$ nous ramènera au bon périmètre avec une aire strictement plus grande que l'aire initiale.
+	La figure suivante illustre cette idée.	
 	
 	\begin{center}
 		\includegraphics[scale=.4]{content/polygon/polygon-convex-hull-distortion.png}
 	\end{center}
 
-	Considérons donc un $n$-gone non convexe $\setproba{P}$, de périmètre $p$.
+	Considérons donc un \ngone\ non convexe $\setproba{P}$, de périmètre $p$.
 	%
 	\begin{itemize}
 		\item XXX
@@ -78,11 +79,16 @@ La technique est similaire au cas du triangle: nous allons obtenir une condition
 \end{proof}
 
 
+\begin{remark}
+	Le fait précédent permet de toujours se ramener au cas d'un \ngone\ convexe.
+\end{remark}
+
+
 % ----------------------- %
 
 
-\begin{fact} \label{iso-poly}
-	Si un $n$-gone convexe $\setproba{P}$ n'est pas un $n$-isogone, alors on peut construire un $n$-gone $\setproba{P}^{\,\prime}$ tel que 
+\begin{fact} \label{iso-poly} 
+	Si un \ngone\ convexe $\setproba{P}$ n'est pas un \niso, alors on peut construire un \ngone\ $\setproba{P}^{\,\prime}$ tel que 
 	$\perim{\setproba{P}^{\,\prime}} = \perim{\setproba{P}}$ 
 	et 
 	$\area{\setproba{P}^{\,\prime}} > \area{\setproba{P}}$.
@@ -93,8 +99,8 @@ La technique est similaire au cas du triangle: nous allons obtenir une condition
 	pas be soin d'isoccèle, on se place entre prolongement côté précédente et coté du traingle non isocèle et c'est réglé car périmtre dimnuer à aire constante !
 	
 	
-	Considérons un $n$-gone convexe $\setproba{P}$, de périmètre $p$, qui n'est pas un $n$-isogone. 
-	$\setproba{P}$ admet donc un triplet de sommets consécutifs $A$, $B$ et $C$ tels que $AB \neq AC$ (dans le cas contraire, on obtient de proche en proche un $n$-isogone).
+	Considérons un \ngone\ convexe $\setproba{P}$, de périmètre $p$, qui n'est pas un \niso\ . 
+	$\setproba{P}$ admet donc un triplet de sommets consécutifs $A$, $B$ et $C$ tels que $AB \neq AC$ (dans le cas contraire, on obtient de proche en proche un \niso).
 	La construction vue dans la preuve du fait \ref{tri-one-side-fixed} permet de conclure sans effort ou presque.
 	En effet,
 	XXX
@@ -114,13 +120,19 @@ La technique est similaire au cas du triangle: nous allons obtenir une condition
 \end{proof}
 
 
+\begin{remark}
+	Le fait précédent ne permet pas de toujours se ramener au cas d'un \niso\ convexe. Il nous dit juste que si un \ngone\ convexe maximise son aire à périmètre fixé, alors il devra être un \niso. La nuance est importante à noter!
+\end{remark}
+
+
 % ----------------------- %
 
 
 \begin{fact} \label{almost-reg-poly}
-	Si un $n$-isogone convexe $\setproba{P}$ possède deux angles de mesures différentes,
-	alors il existe un $n$-gone $\setproba{P}^{\,\prime}$ tel que 
-	$\degreg{\setproba{P}^{\,\prime}} > \degreg{\setproba{P}}$,
+	\ngone\ convexe  devrait suffire : tech de la petite perturbation
+	
+	Si un \niso\  convexe $\setproba{P}$ possède deux angles de mesures différentes,
+	alors il existe un \ngone\ $\setproba{P}^{\,\prime}$ tel que
 	$\perim{\setproba{P}^{\,\prime}} = \perim{\setproba{P}}$ 
 	et 
 	$\area{\setproba{P}^{\,\prime}} > \area{\setproba{P}}$.
@@ -147,19 +159,49 @@ La technique est similaire au cas du triangle: nous allons obtenir une condition
 
 \begin{fact}
 	Soit $n \in \NN_{\geq3}$ un naturel fixé.
-	Considérons tous les $n$-gones de périmètre fixé. Parmi tous ces $n$-gones, un seul est d'aire maximale, c'est le $n$-gone régulier.
+	Considérons tous les \ngones\  de périmètre fixé. Parmi tous ces \ngones, un seul est d'aire maximale, c'est le \ngone\ régulier.
 \end{fact}
 
 
 \begin{proof}
-	on a cond necess vai les faits
-	
-	CS ca un max existe comme pour les triangles
-	!!
-	
-	
-	readc fausse
-	refaire le chemind es restrictions !!!
-	
-	Tout a déjà été dit, car d'après les faits précédents, un $n$-gone $\setproba{P}$ non régulier ne peut pas maximiser son aire à périmètre fixé, et par conséquent seul le $n$-gone régulier maximise l'aire à périmètre fixé. Chapeau bas à vous, Géométrie et Analyse réunies...
+	Le fait \ref{conv-poly} permet de considérer le problème de maximisation d'aire à périmètre fixé uniquement avec des \ngones\ convexes.
+	Selon les faits \ref{iso-poly} et \ref{almost-reg-poly}, si parmi les \ngones\ convexes de périmètre fixé, il en existe un qui maximise l'aire, alors ce ne peut être que le \ngone\ régulier.
+	Pour voir que cette condition nécessaire est suffisante, comme dans le cas du triangle, voir la remarque \ref{tri-topo-comp}, nous convions le couple continuité/compacité comme suit.
+	%	
+	\begin{itemize}
+		\item On munit le plan d'un repère orthonormé $\pvaxes{O | i | j}$. 
+
+		\item 
+		XXX
+		
+		fermeture costaud, mais le côté birné !!!!
+		
+		pour fermeture, besoin d'accpeter les \kgones\ pour $k \in \ZintervalC{3}{n}$.
+		
+		Les \ngones\ convexes $A_1 A_2 \cdots A_n$ tels que $\perim{A_1 A_2 \cdots A_n} = p$ sont représentés en posant $A_1\coord{0 | 0}$, $A_2\coord{A_1 A_2 | 0}$, puis $A_k\coord{x_k | y_k}$ avec $y_k \geq 0$ pour $k \in \ZintervalC{3}{n}$. Un \ngone\ peut donc avoir $n$ représentations, mais peu importe.
+		De plus, on accepte les \ngones\ dégénérés pour lesquels nous avons $x_B = 0$, $y_C = 0$ dans notre représentation.
+		Nous notons alors $\setproba{G} \subset \RR^{2n}$ l'ensemble des triplets $\coord{x_B | x_C | y_C}$ ainsi obtenus.
+
+		\item XXX
+		
+		Justifier que $\setproba{G}$ est fermé dans $\RR^{2n}$.
+
+		\item $\setproba{G}$ est aussi borné, car les coordonnées des sommets des \ngones\ convexes considérés le sont.		
+		En résumé, $\setproba{G}$ est un compact de $\RR^{2n}$.
+
+		\item Notons $s: \setproba{G} \rightarrow \RRp$ la fonction \og \emph{aire} \fg\ des \ngones\ représentés. 
+		Cette fonction est continue en les coordonnées des sommets, car elle peut être calculée comme suit pour un \ngone\ convexe $A_1 A_2 \cdots A_n$ quelconque.
+		%
+		\begin{enumerate}
+			\item L'isobarycentre $G$ de $A_1 A_2 \cdots A_n$ possède des coordonnées affines en celles des points $A_1$, $A_2$, \dots\ , et $A_n$.
+
+			\item Par convexité, l'aire de $A_1 A_2 \cdots A_n$ est égale à la somme de celles des triangles $G A_k A_{k+1}$ pour $k \in \ZintervalC{1}{n-1}$, et du triangle $G A_n  A_1$.
+
+			\item Via le déterminant, il est immédiat de voir que les aires des triangles considérés sont des fonctions continues en les coordonnées des sommets.
+		\end{enumerate}
+		
+		
+		\item Finalement, par continuité et compacité, on sait que $s$ admet un maximum sur $\setproba{G}$. 
+		Chapeau bas à vous, Géométrie et Analyse réunies...
+	\end{itemize}	
 \end{proof}
