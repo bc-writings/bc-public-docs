@@ -66,28 +66,43 @@ La technique est similaire au cas du triangle: nous allons obtenir une condition
 	\end{center}
 
 
-	Considérons donc un \ngone\ non convexe $\setproba{P}$. Son enveloppe convexe $\setproba{C}$ vérifie, par construction,
+	Considérons donc un \ngone\ non convexe $\setproba{P}$, donc $\setproba{P}$ possède au moins $4$ sommets.
+	Son enveloppe convexe $\setproba{C}$ vérifie, par construction,
 	$\perim{\setproba{C}} < \perim{\setproba{P}}$ 
 	et 
 	$\area{\setproba{C}} > \area{\setproba{P}}$.
-	Notons $m$ le nombre de sommets en moins dans $\setproba{C}$ relativement à $\setproba{P}$.
-	
-
-	XXX
-	
-	facile ensuite car on peut tout faire sur un coté , faut juste rednre la constrcution explicite
-	
-	
+	Notons $m$ le nombre de sommets en moins dans $\setproba{C}$ relativement à $\setproba{P}$ et
+	$\delta = \perim{\setproba{P}} - \perim{\setproba{C}}$.
 	%
-	\begin{itemize}
-		\item XXX
+	\begin{enumerate}
+		\item Si $m = 0$, il n'y a rien à faire. 
 
-		\item XXX
+		\item \label{add-vertex-start}
+		Sinon, considérons $[AB]$ un côté quelconque de $\setproba{C}$.
+		Les droites portées par les côtés \og \emph{autour} \fg\ de $[AB]$ \og \emph{dessinent} \fg\ une région contenant toujours un triangle $ABC$ dont l'intérieur est à l'extérieur
+		\footnote{
+			C'est ce que l'on appelle de la \og \emph{low poetry} \fg\,.
+		}
+		de $\setproba{C}$ comme dans les deux cas ci-dessous.
+	%	
+		\begin{multicols}{2}
+			\centering
 
-		\item XXX
+			\includegraphics[scale=.4]{content/polygon/add-vertex-1.png}
 
-		\item XXX
-	\end{itemize}
+			\includegraphics[scale=.4]{content/polygon/add-vertex-2.png}
+		\end{multicols}
+
+		\item Clairement, le polygone $\setproba{C}^{\,\prime}$ obtenu à partir de $\setproba{C}$ en remplaçant le côté $[AB]$ par les côtés $[AC]$ et $[CB]$ est un convexe avec un sommet de plus que $\setproba{C}$.
+
+		\item \label{add-vertex-end}
+		Comme $HC$ peut être rendu aussi proche de $0$ que souhaité, il est aisé de voir que l'on peut choisir cette distance de sorte que $AC + BC < AB + \frac{\delta}{m}$, de sorte que le périmètre augmente de $\frac{\delta}{m}$.
+
+		\item En répétant $(m-1)$ fois les étapes \ref{add-vertex-start} à \ref{add-vertex-end} avec le nouveau \ngone\ convexe $\setproba{C}^{\,\prime}$, mais sans changer la valeur de $m$, nous avons un \ngone\ convexe $\setproba{P}^{\,\prime}$ tel que
+		$\area{\setproba{P}^{\,\prime}} > \area{\setproba{P}}$
+		et
+		$\perim{\setproba{P}^{\,\prime}} < \perim{\setproba{C}} + \delta = \perim{\setproba{P}}$.
+	\end{enumerate}
 \end{proof}
 
 
