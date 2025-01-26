@@ -5,7 +5,7 @@
 %
 %
 %\begin{defi}
-%	Un \og \emph{\ngone} \fg\ désigne un polygone à $n$ côtés de mesure non nulle, avec $n \geq 3$.
+%	Un \og \emph{\ngone} \fg\ désigne un polygone non croisé à $n$ côtés de mesure non nulle, avec $n \geq 3$.
 %\end{defi}
 %
 %
@@ -156,84 +156,104 @@
 %% ----------------------- %
 %
 %
-\begin{fact} \label{almost-reg-poly}
-	Si un \niso\ convexe $\setproba{P}$ possède deux angles de mesures différentes,
-	alors il existe un \ngone\ convexe $\setproba{P}^{\,\prime}$ tel que
-	$\perim{\setproba{P}^{\,\prime}} = \perim{\setproba{P}}$ 
-	et 
-	$\area{\setproba{P}^{\,\prime}} > \area{\setproba{P}}$.
-\end{fact}
-
-
-\begin{proof}
-	Par hypothèse, nous avons deux paires de côtés 
-	$\big( [AB] , [BC] \big)$ et 
-	$\big( [EF] , [FG] \big)$ tels que 
-	$\anglein{ABC} > \anglein{EFG}$.
-	Par convexité de $\setproba{P}$, nous avons juste à augmenter la somme des aires des triangles $ABC$ et $EFG$.
-	Nous allons le faire en modifiant les angles $\anglein{ABC}$ et $\anglein{EFG}$ tout en gardant $AB = BC = EF = FG$.
-	%	
-	\begin{multicols}{2}
-		\centering
-
-		\includegraphics[scale=.4]{content/polygon/2-eq-angles-1.png}
-
-		\includegraphics[scale=.4]{content/polygon/2-eq-angles-2.png}
-	\end{multicols}
-
-	Les deux exemples ci-dessus nous permettent de noter que si $\alpha = \anglein{ABC}$ diminue, et $\beta = \anglein{EFG}$ augmente, alors la somme des aires se rapprochent de $0$.
-	Par raison de symétrie, on devine que cette somme est maximisée quand $\anglein{ABC} = \anglein{EFG}$.
-	Nous allons établir un résultat plus faible, mais suffisant, en commençant par les calculs suivants où 
-	$\ell = AB$, 
-	$\mu = \frac{\alpha + \beta}{2}$ et 
-	$\delta = \mu - \beta > 0$ (rappelons que nous avons supposé $\alpha > \beta$). 
-	
-	\medskip	
-	\begin{stepcalc}[style=ar*]
-		\area{ABC} + \area{EFG}
-	\explnext*{Formule dite des sinus.}{}
-		\dfrac12 BA \cdot BC \cdot \sin \big( \anglein{ABC} \big)
-		+
-		\dfrac12 FE \cdot FG \cdot \sin \big( \anglein{EFG} \big)
-	\explnext{}
-		\dfrac12 \ell^2 ( \sin \alpha + \sin \beta )
-	\explnext*{Formules trigonométriques de Simpson.}{}
-		\dfrac12 \ell^2 \sin \big( \dfrac{\alpha + \beta}{2} \big) \cos \big( \dfrac{\alpha - \beta}{2} \big)
-	\explnext{}
-		\dfrac12 \ell^2 \sin \mu \cos \delta
-	\end{stepcalc}
-	
-	
-	\medskip
-	
-	Comme $(\delta ; \mu) \in \intervalO{0}{\pi}^2$,
-	nous avons $\sin \mu \cos \delta > \sin \mu$.
-	Remplaçons alors $\alpha$ et $\beta$ respectivement par $\alpha^{\,\prime}$ et $\beta^{\,\prime}$ de telle sorte que $\alpha^{\,\prime} = \beta^{\,\prime} = \frac{\alpha + \beta}{2}$.
-	Notons que 
-	$0 < \alpha^{\,\prime} < \alpha$ et 
-	$\beta < \beta^{\,\prime} < \pi$ 
-	(diminution de $\alpha$ et augmentation de $\beta$).
-	Deux situations se présentent à nous.
-	%
-	\begin{itemize}
-		\item Le \ngone\ obtenu ne perd aucun côté.
-		Comme la convexité est gardée, c'est gagné.
-
-
-		\item Le \ngone\ obtenu perd au moins un côté. La solution consiste à choisir
-		$\alpha^{\,\prime\prime} = \mu + \frac{\delta}{2}$ et $\beta^{\,\prime\prime} = \mu - \frac{\delta}{2}$
-		au lieu de
-		$\alpha^{\,\prime} = \mu + \delta$ et $\beta^{\,\prime} = \mu - \delta$, puisque 
-		$\cos \delta > \cos \big( \frac{\delta}{2} \big)$,
-		$\alpha^{\,\prime} < \alpha^{\,\prime\prime} < \alpha$ et 
-		$\beta < \beta^{\,\prime\prime} < \beta^{\,\prime}$.
-	\end{itemize}
-\end{proof}
-
-
-% ----------------------- %
-
-
+%\begin{fact} \label{almost-reg-poly}
+%	Si un \niso\ convexe $\setproba{P}$ possède deux angles de mesures différentes,
+%	alors il existe un \ngone\ convexe $\setproba{P}^{\,\prime}$ tel que
+%	$\perim{\setproba{P}^{\,\prime}} = \perim{\setproba{P}}$ 
+%	et 
+%	$\area{\setproba{P}^{\,\prime}} > \area{\setproba{P}}$.
+%\end{fact}
+%
+%
+%\begin{proof}
+%	Par hypothèse, nous avons deux paires de côtés 
+%	$\big( [AB] , [BC] \big)$ et 
+%	$\big( [EF] , [FG] \big)$ tels que 
+%	$\anglein{ABC} > \anglein{EFG}$.
+%	Par convexité de $\setproba{P}$, nous avons juste à augmenter la somme des aires des triangles $ABC$ et $EFG$.
+%	Nous allons le faire en modifiant les angles $\anglein{ABC}$ et $\anglein{EFG}$ tout en gardant $AB = BC = EF = FG$.
+%	%	
+%	\begin{multicols}{2}
+%		\centering
+%
+%		\includegraphics[scale=.4]{content/polygon/2-eq-angles-1.png}
+%
+%		\includegraphics[scale=.4]{content/polygon/2-eq-angles-2.png}
+%	\end{multicols}
+%
+%	Les deux exemples ci-dessus nous permettent de noter que si $\alpha = \anglein{ABC}$ diminue, et $\beta = \anglein{EFG}$ augmente, alors la somme des aires se rapprochent de $0$.
+%	Par raison de symétrie, si on fixe $\anglein{ABC} + \anglein{EFG}$, on devine que la somme des aires est maximisée quand $\anglein{ABC} = \anglein{EFG}$.
+%	Nous allons établir ceci de façon élémentaire en commençant par les calculs suivants où 
+%	$\ell = AB$, 
+%	$\mu = \frac{\alpha + \beta}{2}$ et 
+%	$\delta = \mu - \beta > 0$ (rappelons que nous avons supposé $\alpha > \beta$). 
+%	
+%	\medskip	
+%	\begin{stepcalc}[style=ar*]
+%		\area{ABC} + \area{EFG}
+%	\explnext*{Formule dite des sinus.}{}
+%		\dfrac12 BA \cdot BC \cdot \sin \big( \anglein{ABC} \big)
+%		+
+%		\dfrac12 FE \cdot FG \cdot \sin \big( \anglein{EFG} \big)
+%	\explnext{}
+%		\dfrac12 \ell^2 ( \sin \alpha + \sin \beta )
+%	\explnext*{Formules de Simpson.}{}
+%		\dfrac12 \ell^2 \sin \big( \dfrac{\alpha + \beta}{2} \big) \cos \big( \dfrac{\alpha - \beta}{2} \big)
+%	\explnext{}
+%		\dfrac12 \ell^2 \sin \mu \cos \delta
+%	\end{stepcalc}
+%	
+%	
+%	\medskip
+%	
+%	Comme $(\delta ; \mu) \in \intervalO{0}{\pi}^2$,
+%	nous avons $\sin \mu \cos \delta > \sin \mu$.
+%	Remplaçons alors $\alpha$ et $\beta$ respectivement par $\alpha^{\,\prime}$ et $\beta^{\,\prime}$ de telle sorte que $\alpha^{\,\prime} = \beta^{\,\prime} = \frac{\alpha + \beta}{2} = \mu$.
+%	Notons que 
+%	$0 < \beta < \mu < \alpha < \pi$ 
+%	(diminution de $\alpha$ et augmentation de $\beta$).
+%	Deux situations se présentent à nous.
+%	%
+%	\begin{itemize}
+%		\item Le \ngone\ obtenu ne perd aucun côté.
+%		Comme la convexité est gardée, c'est gagné.
+%
+%		\item Le \ngone\ obtenu perd au moins un côté. La solution consiste à choisir
+%		$\alpha^{\,\prime\prime} = \mu + \frac{\delta}{2}$ et $\beta^{\,\prime\prime} = \mu - \frac{\delta}{2}$
+%		au lieu de
+%		$\alpha^{\,\prime} = \beta^{\,\prime} = \mu$, puisque nous avons
+%		$\cos \delta < \cos \big( \frac{\delta}{2} \big)$ et
+%		$0 < \beta < \beta^{\,\prime\prime} < \mu < \alpha^{\,\prime\prime} < \alpha < \pi$.
+%	\end{itemize}
+%\end{proof}
+%
+%
+%% ----------------------- %
+%
+%
+%\begin{remark} 
+%	La méthode des extrema liés, rappelée dans la remarque \ref{constrained-extrema}, donne une autre justification de la conjecture faite dans la démonstration précédente. Voici comment faire.
+%	%
+%	\begin{itemize}
+%		\item Pour $(\alpha ; \beta) \in \intervalO{0}{\pi}^2$, on veut maximiser $f(\alpha ; \beta) =  \sin \alpha + \sin \beta$ sous la contrainte $g(\alpha ; \beta) = 0$ où $g(\alpha ; \beta) = \alpha + \beta - 2 \mu$.
+%		
+%		\item
+%    	$\exists \lambda \in \RR$ tel que
+%    	$\pder[i]{f}{\alpha}{1} = \lambda \pder[i]{g}{\alpha}{1}$ et
+%    	$\pder[i]{f}{\beta}{1} = \lambda \pder[i]{g}{\beta}{1}$
+%		d'après la méthode des extrema liés.
+%
+%		\item Donc
+%		$\cos \alpha = \cos \beta$,
+%		et par conséquent
+%		$\alpha = \beta = \mu$.
+%	\end{itemize}
+%\end{remark}
+%
+%
+%% ----------------------- %
+%
+%
 \begin{fact}
 	Soit $n \in \NN_{\geq3}$ un naturel fixé.
 	Considérons tous les \ngones\  de périmètre fixé. Parmi tous ces \ngones, un seul est d'aire maximale, c'est le \ngone\ régulier.
@@ -243,7 +263,7 @@
 \begin{proof}
 	Le fait \ref{conv-poly} permet de considérer le problème de maximisation d'aire à périmètre fixé uniquement avec des \ngones\ convexes.
 	Selon les faits \ref{iso-poly} et \ref{almost-reg-poly}, si parmi les \ngones\ convexes de périmètre fixé, il en existe un qui maximise l'aire, alors ce ne peut être que le \ngone\ régulier.
-	Pour voir que cette condition nécessaire est suffisante, comme dans le cas du triangle, voir la remarque \ref{tri-topo-comp}, nous convions le couple continuité/compacité comme suit.
+	Pour voir que cette condition nécessaire est suffisante, comme dans la remarque \ref{tri-topo-comp}, nous allons convier le couple continuité/compacité comme suit.
 	%	
 	\begin{itemize}
 		\item On munit le plan d'un repère orthonormé $\pvaxes{O | i | j}$. 
@@ -263,8 +283,14 @@
 		
 		Justifier que $\setproba{G}$ est fermé dans $\RR^{2n}$.
 
-		\item $\setproba{G}$ est aussi borné, car les coordonnées des sommets des \ngones\ convexes considérés le sont.		
-		En résumé, $\setproba{G}$ est un compact de $\RR^{2n}$.
+
+
+
+
+
+		\item De plus, $\setproba{G}$ est borné, car les coordonnées des sommets des \kgones\ considérés le sont.		
+		Finalement, $\setproba{G}$ est un compact de $\RR^{2n}$.
+
 
 		\item Notons $s: \setproba{G} \rightarrow \RRp$ la fonction \og \emph{aire} \fg\ des \ngones\ représentés. 
 		Cette fonction est continue en les coordonnées des sommets, car elle peut être calculée comme suit pour un \ngone\ convexe $A_1 A_2 \cdots A_n$ quelconque.
@@ -278,7 +304,6 @@
 		\end{enumerate}
 		
 		
-		\item Finalement, par continuité et compacité, on sait que $s$ admet un maximum sur $\setproba{G}$. 
-		Chapeau bas à vous, Géométrie et Analyse réunies...
+		\item Finalement, par continuité et compacité, on sait que $s$ admet un maximum sur $\setproba{G}$. That's all folks!
 	\end{itemize}	
 \end{proof}
