@@ -1,0 +1,94 @@
+Selon le fait \ref{nece-cond}, si parmi les \ngones\ de périmètre fixé, il en existe un qui maximise l'aire, alors ce ne peut être que le \ngone\ régulier. Nous allons établir que cette condition nécessaire est suffisante. Pour cela, nous avons juste besoin de savoir qu'il existe au moins un \ngone\ d'aire maximale.
+Comme dans la remarque \ref{tri-topo-comp}, nous allons convier le couple continuité/compacité, mais ici les choses se compliquent, car nous allons devoir accepter de travailler avec des polygones croisés, et par conséquent il nous faut un moyen de mesurer la surface de tels polygones (le vrai point délicat est ici).
+
+
+% ----------------------- %
+
+
+\begin{fact} \label{suff-cond}
+	Aire algébrique def + pro
+\end{fact}
+
+
+\begin{proof}
+\end{proof}
+
+
+% ----------------------- %
+
+
+\begin{fact} \label{suff-cond}
+	Soit $n \in \NN_{\geq3}$ un naturel fixé.
+	Considérons tous les \ngones\ de périmètre fixé. Parmi tous ces \ngones, il en existe au moins un d'aire maximale.
+\end{fact}
+
+
+\begin{proof}
+	Le fait \ref{conv-poly} permet de considérer le problème de maximisation d'aire à périmètre fixé uniquement avec des \ngones\ convexes.
+	Selon les faits \ref{iso-poly} et \ref{almost-reg-poly}, si parmi les \ngones\ convexes de périmètre fixé, il en existe un qui maximise l'aire, alors ce ne peut être que le \ngone\ régulier.
+	Pour voir que cette condition nécessaire est suffisante, c
+	%	
+	\begin{itemize}
+		\item On munit le plan d'un repère orthonormé $\pvaxes{O | i | j}$. 
+
+		\item 
+		XXX
+		
+		fermeture costaud, mais le côté birné !!!!
+		
+		pour fermeture, besoin d'accpeter les \kgones\ pour $k \in \ZintervalC{3}{n}$.
+		
+		Les \ngones\ convexes $A_1 A_2 \cdots A_n$ tels que $\perim{A_1 A_2 \cdots A_n} = p$ sont représentés en posant $A_1\coord{0 | 0}$, $A_2\coord{A_1 A_2 | 0}$, puis $A_k\coord{x_k | y_k}$ avec $y_k \geq 0$ pour $k \in \ZintervalC{3}{n}$. Un \ngone\ peut donc avoir $n$ représentations, mais peu importe.
+		De plus, on accepte les \ngones\ dégénérés pour lesquels nous avons $x_B = 0$, $y_C = 0$ dans notre représentation.
+		Nous notons alors $\setproba{G} \subset \RR^{2n}$ l'ensemble des triplets $\coord{x_B | x_C | y_C}$ ainsi obtenus.
+
+		\item XXX
+		
+		Justifier que $\setproba{G}$ est fermé dans $\RR^{2n}$.
+
+
+
+
+
+
+		\item De plus, $\setproba{G}$ est borné, car les coordonnées des sommets des \kgones\ considérés le sont.		
+		Finalement, $\setproba{G}$ est un compact de $\RR^{2n}$.
+
+
+		\item Notons $s: \setproba{G} \rightarrow \RRp$ la fonction \og \emph{aire} \fg\ des \ngones\ représentés. 
+		Cette fonction est continue en les coordonnées des sommets, car elle peut être calculée comme suit pour un \ngone\ convexe $A_1 A_2 \cdots A_n$ quelconque.
+		%
+		\begin{enumerate}
+			\item L'isobarycentre $G$ de $A_1 A_2 \cdots A_n$ possède des coordonnées affines en celles des points $A_1$, $A_2$, \dots\ , et $A_n$.
+
+			\item Par convexité, l'aire de $A_1 A_2 \cdots A_n$ est égale à la somme de celles des triangles $G A_k A_{k+1}$ pour $k \in \ZintervalC{1}{n-1}$, et du triangle $G A_n  A_1$.
+
+			\item Via le déterminant, il est immédiat de voir que les aires des triangles considérés sont des fonctions continues en les coordonnées des sommets.
+		\end{enumerate}
+		
+		
+		\item Finalement, par continuité et compacité, on sait que $s$ admet un maximum sur $\setproba{G}$, un tel maximum ne pouvant pas être atteint sur un \kgone\ dégénéré. That's all folks!
+	\end{itemize}	
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+% ----------------------- %
+
+
+\begin{fact}
+	Soit $n \in \NN_{\geq3}$ un naturel fixé.
+	Considérons tous les \ngones\  de périmètre fixé. Parmi tous ces \ngones, un seul est d'aire maximale, c'est le \ngone\ régulier.
+\end{fact}
+
+
+\begin{proof}
+    C'est une conséquence directe des faits \ref{nece-cond} et \ref{suff-cond}.
+\end{proof}
