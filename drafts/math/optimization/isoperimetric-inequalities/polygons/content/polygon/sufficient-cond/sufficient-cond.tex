@@ -1,5 +1,52 @@
 Selon le fait \ref{nece-cond}, si parmi les \ngones\ de périmètre fixé, il en existe un qui maximise l'aire, alors ce ne peut être que le \ngone\ régulier. Nous allons établir que cette condition nécessaire est suffisante. Pour cela, nous avons juste besoin de savoir qu'il existe au moins un \ngone\ d'aire maximale.
-Comme dans la remarque \ref{tri-topo-comp}, nous allons convier le couple continuité/compacité, mais ici les choses se compliquent, car nous allons devoir accepter de travailler avec des polygones croisés, et par conséquent il nous faut un moyen de mesurer la surface de tels polygones (le vrai point délicat est ici).
+Comme dans la remarque \ref{tri-topo-comp}, nous allons convier le couple continuité/compacité, mais ici les choses se compliquent, car nous allons devoir accepter de travailler avec des polygones croisés, et par conséquent il nous faut un moyen de mesurer la surface de tels polygones (le vrai point délicat est ici). 
+
+\medskip
+
+
+% ----------------------- %
+
+
+Pour commencer, expliquons comment \texttt{GeoGebra} obtient une aire de \num{6.5} pour le polygone croisé ci-après.
+
+
+\begin{center}
+	\includegraphics[scale=.4]{content/polygon/sufficient-cond/alg-surf-why.png}
+\end{center}
+
+
+\medskip
+
+L'idée consiste à fixer un point $\Omega$, puis à calculer les aires algébriques des triangles indiqués ci-dessous : les aires vertes sont comptées positivement, et les rouges négativement.
+
+ 
+%\newpage 
+ 
+ 
+\begin{multicols}{3}
+	\small\itshape
+
+	\foreach \i in {1,...,5} {
+		\smallskip
+		
+		\includegraphics[scale=.4]{content/polygon/sufficient-cond/alg-surf-why-step-\i.png}
+		
+		\begin{center}
+			Étape \i.
+		\end{center}
+	}
+
+	\smallskip
+	
+	$2 + 10 - 6 + \num{5.5} - 5 = \num{6.5}$
+	redonne bien la valeur fournie par \texttt{GeoGebra}.
+	Le fait suivant explique le bien fondé de cette méthode qui, a priori, pourrait dépendre du point $\Omega$.
+	Comme, pour les polygones convexes, on retombera sur son aire géométrique à un signe près, cette aire algébrique va nous être utile.
+	
+	\vfill\null
+\end{multicols}
+
+
 
 
 % ----------------------- %

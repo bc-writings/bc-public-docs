@@ -23,14 +23,14 @@ Le fait important que nous allons établir, le fait \ref{nece-cond}, impliquera 
 	}
 
 	\begin{center}
-		\includegraphics[scale=.4]{content/polygon/non-convex-trap.png}
+		\includegraphics[scale=.4]{content/polygon/necessary-cond/non-convex-trap.png}
 	\end{center}
 	
 
 	On peut aussi perdre des côtés lors de la construction comme dans l'exemple suivant où $C$, $D$ et $E^{\,\prime}$ sont alignés. Nous allons voir juste après que ce problème n'en est pas un.
 
 	\begin{center}
-		\includegraphics[scale=.4]{content/polygon/non-convex-bad.png}
+		\includegraphics[scale=.4]{content/polygon/necessary-cond/non-convex-bad.png}
 	\end{center}
 
 
@@ -42,14 +42,14 @@ Le fait important que nous allons établir, le fait \ref{nece-cond}, impliquera 
 	Par exemple, l'ennéagone $ABCDEFGHI$ non convexe ci-dessous admet le pentagone $ABDEG$ pour enveloppe convexe: le périmètre diminue et l'aire augmentent strictement, c'est très utile, mais il reste à avoir le bon nombre de côtés.
 	
 	\begin{center}
-		\includegraphics[scale=.4]{content/polygon/convex-hull.png}
+		\includegraphics[scale=.4]{content/polygon/necessary-cond/convex-hull.png}
 	\end{center}
 
 	Une idée simple, que nous allons formaliser rigoureusement après, consiste à ajouter les sommets manquants suffisamment prêts des côtés de l'enveloppe convexe pour ne pas perdre la convexité, tout en gardant un périmètre inférieur strictement au périmètre initial, et une aire strictement plus grande que l'aire initiale. Si nous arrivons à faire ceci, alors une homothétie de rapport $r > 1$ nous ramènera au bon périmètre avec une aire strictement plus grande que l'aire initiale.
 	La figure suivante illustre cette idée.	
 	
 	\begin{center}
-		\includegraphics[scale=.4]{content/polygon/convex-hull-distortion.png}
+		\includegraphics[scale=.4]{content/polygon/necessary-cond/convex-hull-distortion.png}
 	\end{center}
 
 
@@ -75,9 +75,9 @@ Le fait important que nous allons établir, le fait \ref{nece-cond}, impliquera 
 		\begin{multicols}{2}
 			\centering
 
-			\includegraphics[scale=.4]{content/polygon/add-vertex-1.png}
+			\includegraphics[scale=.4]{content/polygon/necessary-cond/add-vertex-1.png}
 
-			\includegraphics[scale=.4]{content/polygon/add-vertex-2.png}
+			\includegraphics[scale=.4]{content/polygon/necessary-cond/add-vertex-2.png}
 		\end{multicols}
 
 		\item Clairement, le polygone $\setproba{C}^{\,\prime}$ obtenu à partir de $\setproba{C}$ en remplaçant le côté $[AB]$ par les côtés $[AC]$ et $[CB]$ est un convexe avec un sommet de plus que $\setproba{C}$.
@@ -119,9 +119,9 @@ Le fait important que nous allons établir, le fait \ref{nece-cond}, impliquera 
 	\begin{multicols}{2}
 		\centering
 
-		\includegraphics[scale=.4]{content/polygon/not-iso-OK.png}
+		\includegraphics[scale=.4]{content/polygon/necessary-cond/not-iso-OK.png}
 
-		\includegraphics[scale=.4]{content/polygon/not-iso-KO.png}
+		\includegraphics[scale=.4]{content/polygon/necessary-cond/not-iso-KO.png}
 	\end{multicols}
 	
 	Dans chaque cas, nous avons construit un \ngone\ convexe $\setproba{P}^{\,\prime\prime}$ tel que 
@@ -163,9 +163,9 @@ Le fait important que nous allons établir, le fait \ref{nece-cond}, impliquera 
 	\begin{multicols}{2}
 		\centering
 
-		\includegraphics[scale=.4]{content/polygon/2-eq-angles-1.png}
+		\includegraphics[scale=.4]{content/polygon/necessary-cond/2-eq-angles-1.png}
 
-		\includegraphics[scale=.4]{content/polygon/2-eq-angles-2.png}
+		\includegraphics[scale=.4]{content/polygon/necessary-cond/2-eq-angles-2.png}
 	\end{multicols}
 
 	Les deux exemples ci-dessus nous permettent de noter que si $\alpha = \anglein{ABC}$ diminue, et $\beta = \anglein{EFG}$ augmente, alors la somme des aires se rapprochent de $0$.
