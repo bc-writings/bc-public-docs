@@ -1,6 +1,6 @@
 Selon le fait \ref{nece-cond}, si parmi les \ngones\ de périmètre fixé, il en existe un qui maximise l'aire, alors ce ne peut être que le \ngone\ régulier. Nous allons établir que cette condition nécessaire est suffisante. Pour cela, nous avons juste besoin de savoir qu'il existe au moins un \ngone\ d'aire maximale.
 Comme dans la remarque \ref{tri-topo-comp}, nous allons convier le couple continuité/compacité, mais ici les choses se compliquent, car nous allons devoir accepter de travailler avec des polygones croisés, et par conséquent il nous faut un moyen de mesurer la surface de tels polygones (le vrai point délicat est ici). 
-Pour arriver à nos fins, commençons par expliquer comment \texttt{GeoGebra} obtient une aire de \num{6.5} pour le polygone croisé ci-après.
+Pour arriver à nos fins, commençons par expliquer comment \geogebra\ obtient une aire de \num{6.5} pour le polygone croisé ci-après.
 
 
 \begin{center}
@@ -9,30 +9,32 @@ Pour arriver à nos fins, commençons par expliquer comment \texttt{GeoGebra} ob
 
 
 \medskip
-
-L'idée consiste à fixer un point $\Omega$, puis à calculer les aires algébriques des triangles indiqués ci-dessous via la notion de déterminant : les aires vertes sont positives, et les rouges négatives (les triangles considérés sont orientés en respectant l'ordre de parcours des sommets du polygone).
-
- 
 %\newpage 
  
- 
+
+L'idée consiste à fixer un point $\Omega$, puis à calculer, via la notion de déterminant, les aires algébriques des triangles indiqués ci-dessous : les aires vertes sont positives, et les rouges négatives (les triangles sont construits en respectant un ordre de parcours des sommets du polygone, et leur orientation est obtenue via le sens anti-horaire comme sens positif).%
+\footnote{
+	En considérant $EDCBA$ au lieu de $ABCDE$ dans la méthode indiquée, on obtiendrait $(\num{-6.5})$. Pour obtenir une mesure, il faudra prendre la valeur absolue de la somme des aires algébriques des triangles.
+}
+
 \begin{multicols}{3}
 	\small\itshape
-
-	\foreach \i in {1,...,5} {
-		\smallskip
+	
+	\begin{center}
+		\foreach \i in {1,...,5} {
+			\smallskip
 		
-		\includegraphics[scale=.4]{content/polygon/sufficient-cond/alg-surf-why-step-\i.png}
+			\includegraphics[scale=.4]{content/polygon/sufficient-cond/alg-surf-why-step-\i.png}
 		
-		\begin{center}
-			Étape \i.
-		\end{center}
-	}
-
+			\smallskip
+				Étape \i.
+		}
+	\end{center}
+	
 	\smallskip
 	
 	$2 + 10 - 6 + \num{5.5} - 5 = \num{6.5}$
-	redonne bien la valeur fournie par \texttt{GeoGebra}.
+	redonne bien la valeur fournie par \geogebra.
 	Le fait suivant explique le bien fondé de cette méthode qui, a priori, pourrait dépendre du point $\Omega$.
 	Comme, pour les polygones convexes, on retombera sur leur aire géométrique à un signe près, cette aire algébrique va nous être utile.
 	
@@ -40,13 +42,88 @@ L'idée consiste à fixer un point $\Omega$, puis à calculer les aires algébri
 \end{multicols}
 
 
+Cette notion d'aire algébrique est à manier avec prudence lorsqu'on la découvre. 
+Si c'est votre cas, que pensez-vous de l'aire algébrique du quadrilatère croisé $ABCD$ ci-dessous qui est un antiparallélogramme très particulier? Réponse en note de bas de page.%
+\footnote{
+	La réponse est $0$. Comme nous verrons que le choix de $\Omega$ est libre, il suffit de faire les calculs avec $\Omega$ l'intersection des segments $[AD]$ et $[BC]$.
+}
 
+\begin{center}
+	\includegraphics[scale=.4]{content/polygon/sufficient-cond/alg-surf-anti-para.png}
+\end{center}
 
+	
 % ----------------------- %
 
 
-\begin{fact} \label{suff-cond}
-	Aire algébrique def + pro
+\begin{fact}
+	Soit $\setproba{L} = A_1 A_2 \cdots A_n$ une \nline, et posons $A_{n+1} = A_n$.
+	La fonction qui à un point $\Omega$ du plan associe 
+	$\mu_{1 \to n}^\Omega (\setproba{L}) = \dsum_{i=1}^{n+1} \det \big( \vect{\Omega A_i} , \vect{\Omega A_{i+1}} \big)$ est indépendante du point $\Omega$.
+	Dans la suite, cette quantité indépendante de $\Omega$ sera notée $\mu_{1 \to n} (\setproba{L})$.
+\end{fact}
+
+
+\begin{proof}
+\end{proof}
+	
+	
+% ----------------------- %
+
+
+\begin{fact}
+	Soit $\setproba{L} = A_1 A_2 \cdots A_n$ une \nline, et posons $A_{i + kn} = A_i$ pour $(i;k) \in \ZintervalC{1}{n} \times \NN$ afin de pouvoir définir aisément $\mu_{j \to n+j-1} (\setproba{L})$ pour $j \in \NNs$.
+	Dès lors, pour $j \in \NNs$, nous avons
+	$\mu_{1 \to n} (\setproba{L}) = \mu_{j \to n+j-1} (\setproba{L})$.
+	Dans la suite, cette quantité commune sera notée $\mu_1^n (\setproba{L})$.
+\end{fact}
+
+
+\begin{proof}
+\end{proof}
+	
+	
+% ----------------------- %
+
+
+\begin{fact}
+	Soient 
+	$\setproba{L} = A_1 A_2 \cdots A_n$ une \nline, et 
+	$\setproba{L}^{\mathrm{op}} = A_n A_{n-1} \cdots A_1$ la \nline\ obtenue via un parcours inversé à partir de $A_n$, 
+	Posant $B_i = A_{n + 1 - i}$, nous avons $\setproba{L}^{\mathrm{op}} = B_1 B_2 \cdots B_n$ qui permet de considérer $\mu_1^n (\setproba{L}^{\mathrm{op}})$.
+	Dès lors, nous avons
+	$\mu_1^n (\setproba{L}) = {} - \mu_1^n (\setproba{L}^{\mathrm{op}})$.
+\end{fact}
+
+
+\begin{proof}
+\end{proof}
+	
+	
+% ----------------------- %
+
+
+\begin{fact}
+	Soit 
+	$\setproba{L} = A_1 A_2 \cdots A_n$ une \nline.
+	La quantité $\abs{\mu_1^n (\setproba{L})}$ ne dépend ni du sens de parcours de de $\setproba{L}$,%
+	\footnote{
+		Le lecteur pardonnera cet abus de langage.
+	}
+	ni du point de départ choisi.
+	Elle sera notée $\garea{\setproba{L}}$, et nommée \og \emph{aire généralisée} \fg\ de la \nline\ $\setproba{L}$.
+\end{fact}
+
+
+\begin{proof}
+\end{proof}
+	
+	
+% ----------------------- %
+
+
+\begin{fact}
+	Pour tout \ngone\ $\setproba{P}$, nous avons: $\garea{\setproba{P}} = \area{\setproba{P}}$.
 \end{fact}
 
 
