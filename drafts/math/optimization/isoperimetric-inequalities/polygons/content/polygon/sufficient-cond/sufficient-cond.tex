@@ -71,9 +71,9 @@ Si c'est votre cas, que pensez-vous de l'aire algébrique du quadrilatère crois
 % ----------------------- %
 
 
-\begin{fact}
-	Soit $\setproba{L} = A_1 A_2 \cdots A_n$ une \nline, et posons $A_{i + kn} = A_i$ pour $(i;k) \in \ZintervalC{1}{n} \times \NN$ afin de pouvoir définir aisément $\mu_{j \to n+j-1} (\setproba{L})$ pour $j \in \NNs$.
-	Dès lors, pour $j \in \NNs$, nous avons
+\begin{fact} \label{nline-shift-inva}
+	Soit $\setproba{L} = A_1 A_2 \cdots A_n$ une \nline, et posons $A_{i + kn} = A_i$ pour $(i;k) \in \ZintervalC{1}{n} \times \NN$ afin de pouvoir définir aisément $\mu_{j \to n+j-1} (\setproba{L})$ pour $j \in \ZintervalC{1}{n}$.
+	Dès lors, pour $j \in \ZintervalC{1}{n}$, nous avons
 	$\mu_{1 \to n} (\setproba{L}) = \mu_{j \to n+j-1} (\setproba{L})$.
 	Dans la suite, cette quantité commune sera notée $\mu_1^n (\setproba{L})$.
 \end{fact}
@@ -86,7 +86,7 @@ Si c'est votre cas, que pensez-vous de l'aire algébrique du quadrilatère crois
 % ----------------------- %
 
 
-\begin{fact}
+\begin{fact} \label{nline-rota-inva}
 	Soient 
 	$\setproba{L} = A_1 A_2 \cdots A_n$ une \nline, et 
 	$\setproba{L}^{\mathrm{op}} = A_n A_{n-1} \cdots A_1$ la \nline\ obtenue via un parcours inversé à partir de $A_n$, 
@@ -116,6 +116,7 @@ Si c'est votre cas, que pensez-vous de l'aire algébrique du quadrilatère crois
 
 
 \begin{proof}
+	C'est une synthèse des faits \ref{nline-shift-inva} et \ref{nline-rota-inva}.
 \end{proof}
 	
 	
