@@ -4,7 +4,7 @@ Pour arriver à nos fins, commençons par expliquer comment \geogebra\ obtient u
 
 
 \begin{center}
-	\includegraphics[scale=.4]{content/polygon/sufficient-cond/alg-surf-why.png}
+	\includegraphics[scale=.4]{content/polygon/sufficient-cond/g-area-why.png}
 \end{center}
 
 
@@ -12,7 +12,7 @@ Pour arriver à nos fins, commençons par expliquer comment \geogebra\ obtient u
 %\newpage 
  
 
-L'idée consiste à fixer un point $\Omega$, puis à calculer, via la notion de déterminant, les aires algébriques des triangles indiqués ci-dessous : les aires vertes sont positives, et les rouges négatives (les triangles sont construits en respectant un ordre de parcours des sommets du polygone, et leur orientation est obtenue via le sens anti-horaire comme sens positif).%
+La seule idée raisonnable consiste à fixer un point $\Omega$, puis à calculer, via la notion de déterminant, les aires algébriques des triangles indiqués ci-dessous : les aires vertes sont positives, et les rouges négatives (les triangles sont construits en respectant un ordre de parcours des sommets du polygone, et leur orientation est obtenue via le sens anti-horaire comme sens positif).%
 \footnote{
 	En considérant $EDCBA$ au lieu de $ABCDE$ dans la méthode indiquée, on obtiendrait $(\num{-6.5})$. Pour obtenir une mesure, il faudra prendre la valeur absolue de la somme des aires algébriques des triangles.
 }
@@ -24,7 +24,7 @@ L'idée consiste à fixer un point $\Omega$, puis à calculer, via la notion de 
 		\foreach \i in {1,...,5} {
 			\smallskip
 		
-			\includegraphics[scale=.4]{content/polygon/sufficient-cond/alg-surf-why-step-\i.png}
+			\includegraphics[scale=.4]{content/polygon/sufficient-cond/g-area-why-step-\i.png}
 		
 			\smallskip
 				Étape \i.
@@ -35,36 +35,95 @@ L'idée consiste à fixer un point $\Omega$, puis à calculer, via la notion de 
 	
 	$2 + 10 - 6 + \num{5.5} - 5 = \num{6.5}$
 	redonne bien la valeur fournie par \geogebra.
-	Le fait suivant explique le bien fondé de cette méthode qui, a priori, pourrait dépendre du point $\Omega$.
-	Comme, pour les polygones convexes, on retombera sur leur aire géométrique à un signe près, cette aire algébrique va nous être utile.
+	Le fait \ref{garea-pt-ct}, donné plus, justifiera le bien fondé de cette méthode qui, a priori, pourrait dépendre du point $\Omega$.
 	
 	\vfill\null
 \end{multicols}
 
 
-Cette notion d'aire algébrique est à manier avec prudence lorsqu'on la découvre. 
+La méthode proposée redonne bien l'aire du \ngone\ convexe dans le cas particulier suivant. Rassurant...
+
+\begin{multicols}{2}
+	\begin{center}
+		\includegraphics[scale=.4]{content/polygon/sufficient-cond/g-area-convex-1.png}
+
+		\includegraphics[scale=.4]{content/polygon/sufficient-cond/g-area-convex-2.png}
+	\end{center}
+\end{multicols}
+
+
+Avant de formaliser ce qui précède, il faut noter que la notion d'aire algébrique est à manier avec prudence lorsqu'on la découvre. 
 Si c'est votre cas, que pensez-vous de l'aire algébrique du quadrilatère croisé $ABCD$ ci-dessous qui est un antiparallélogramme très particulier? Réponse en note de bas de page.%
 \footnote{
 	La réponse est $0$. Comme nous verrons que le choix de $\Omega$ est libre, il suffit de faire les calculs avec $\Omega$ l'intersection des segments $[AD]$ et $[BC]$.
 }
 
 \begin{center}
-	\includegraphics[scale=.4]{content/polygon/sufficient-cond/alg-surf-anti-para.png}
+	\includegraphics[scale=.4]{content/polygon/sufficient-cond/g-area-anti-para.png}
 \end{center}
 
-	
+
 % ----------------------- %
 
 
-\begin{fact}
-	Soit $\setproba{L} = A_1 A_2 \cdots A_n$ une \nline, et posons $A_{n+1} = A_n$.
+\begin{defi} \label{garea-pt-ct}
+	Pour toute \nline\  $\setproba{L} = A_1 A_2 \cdots A_n$, on définit $\big( A^{\,\prime}_i \big)_{i \in \ZZ}$ comme étant $n$-périodique, et vérifiant $A^{\,\prime}_{i} = A_i$ sur $\ZintervalC{1}{n}$.
+\end{defi}
+
+
+% ----------------------- %
+
+
+\begin{fact} \label{garea-pt-ct}
+	Soit $\setproba{L} = A_1 A_2 \cdots A_n$ une \nline.
 	La fonction qui à un point $\Omega$ du plan associe 
-	$\mu_{1 \to n}^\Omega (\setproba{L}) = \dsum_{i=1}^{n+1} \det \big( \vect{\Omega A_i} , \vect{\Omega A_{i+1}} \big)$ est indépendante du point $\Omega$.
+	$\mu_{1 \to n}^\Omega (\setproba{L}) = \dsum_{i=1}^{n} \det \big( \vect{\Omega A^{\,\prime}_i} , \vect{\Omega A^{\,\prime}_{i+1}} \big)$ est indépendante du point $\Omega$.
 	Dans la suite, cette quantité indépendante de $\Omega$ sera notée $\mu_{1 \to n} (\setproba{L})$.
 \end{fact}
 
 
 \begin{proof}
+	Soit $M$ un autre point du plan.
+
+	\begin{stepcalc}[style=ar*]
+		\mu_{1 \to n}^\Omega (\setproba{L})
+	\explnext{}
+		\dsum_{i=1}^{n} \det \big( \vect{\Omega A^{\,\prime}_i} , \vect{\Omega A^{\,\prime}_{i+1}} \big)
+	\explnext{}
+		\dsum_{i=1}^{n} \det \big( \vect{\Omega M} + \vect{M A^{\,\prime}_i} , \vect{\Omega M} + \vect{M A^{\,\prime}_{i+1}} \big)
+	\explnext{}
+		\dsum_{i=1}^{n} \Big[
+			\det \big( \vect{\Omega M} , \vect{\Omega M} \big)
+			+
+			\det \big( \vect{\Omega M} , \vect{M A^{\,\prime}_{i+1}} \big)
+			+
+			\det \big( \vect{M A^{\,\prime}_i} , \vect{\Omega M} \big)
+			+
+			\det \big( \vect{M A^{\,\prime}_i} , \vect{M A^{\,\prime}_{i+1}} \big)
+		\Big]
+	\explnext{}
+		\dsum_{i=1}^{n} \det \big( \vect{\Omega M} , \vect{M A^{\,\prime}_{i+1}} \big)
+		+
+		\dsum_{i=1}^{n} \det \big( \vect{M A^{\,\prime}_i} , \vect{\Omega M} \big)
+		+
+		\mu_{1 \to n}^M (\setproba{L})
+	\explnext{}
+		\mu_{1 \to n}^M (\setproba{L})
+		+
+		\dsum_{i=2}^{n+1} \det \big( \vect{\Omega M} , \vect{M A^{\,\prime}_{i}} \big)
+		-
+		\dsum_{i=1}^{n} \det \big( \vect{\Omega M} , \vect{M A^{\,\prime}_i} \big)
+	\explnext*{La suite $A^{\,\prime}$ est $n$-périodique.}{}
+		\mu_{1 \to n}^M (\setproba{L})
+		+
+		\dsum_{i=1}^{n} \det \big( \vect{\Omega M} , \vect{M A^{\,\prime}_{i}} \big)
+		-
+		\dsum_{i=1}^{n} \det \big( \vect{\Omega M} , \vect{M A^{\,\prime}_i} \big)
+	\explnext{}
+		\mu_{1 \to n}^M (\setproba{L})
+	\end{stepcalc}
+	
+	\null\vspace{-3.5ex}
 \end{proof}
 	
 	
@@ -72,14 +131,15 @@ Si c'est votre cas, que pensez-vous de l'aire algébrique du quadrilatère crois
 
 
 \begin{fact} \label{nline-shift-inva}
-	Soit $\setproba{L} = A_1 A_2 \cdots A_n$ une \nline, et posons $A_{i + kn} = A_i$ pour $(i;k) \in \ZintervalC{1}{n} \times \NN$ afin de pouvoir définir aisément $\mu_{j \to n+j-1} (\setproba{L})$ pour $j \in \ZintervalC{1}{n}$.
-	Dès lors, pour $j \in \ZintervalC{1}{n}$, nous avons
+	Soit $\setproba{L} = A_1 A_2 \cdots A_n$ une \nline.
+	Pour $j \in \ZintervalC{1}{n}$, nous avons
 	$\mu_{1 \to n} (\setproba{L}) = \mu_{j \to n+j-1} (\setproba{L})$.
 	Dans la suite, cette quantité commune sera notée $\mu_1^n (\setproba{L})$.
 \end{fact}
 
 
 \begin{proof}
+	Il suffit de s'adonner à un petit jeu sur les indices de sommation.
 \end{proof}
 	
 	
@@ -92,11 +152,30 @@ Si c'est votre cas, que pensez-vous de l'aire algébrique du quadrilatère crois
 	$\setproba{L}^{\mathrm{op}} = A_n A_{n-1} \cdots A_1$ la \nline\ obtenue via un parcours inversé à partir de $A_n$, 
 	Posant $B_i = A_{n + 1 - i}$, nous avons $\setproba{L}^{\mathrm{op}} = B_1 B_2 \cdots B_n$ qui permet de considérer $\mu_1^n (\setproba{L}^{\mathrm{op}})$.
 	Dès lors, nous avons
-	$\mu_1^n (\setproba{L}) = {} - \mu_1^n (\setproba{L}^{\mathrm{op}})$.
+	$\mu_1^n (\setproba{L}^{\mathrm{op}}) = {} - \mu_1^n (\setproba{L})$.
 \end{fact}
 
 
 \begin{proof}
+	Soit $\Omega$ un point quelconque du plan.
+
+	\begin{stepcalc}[style=ar*]
+		\mu_1^n (\setproba{L}^{\mathrm{op}})
+	\explnext{}
+		\dsum_{i=1}^{n} \det \big( \vect{\Omega B^{\,\prime}_i} , \vect{\Omega B^{\,\prime}_{i+1}} \big)
+	\explnext{}
+		\dsum_{i=1}^{n} \det \big( \vect{\Omega A^{\,\prime}_{n + 1 - i}} , \vect{\Omega A^{\,\prime}_{n - i}} \big)
+	\explnext{}
+		\dsum_{j=0}^{n-1} \det \big( \vect{\Omega A^{\,\prime}_{j + 1}} , \vect{\Omega A^{\,\prime}_j} \big)
+	\explnext*{$A^{\,\prime}_0 = A^{\,\prime}_n$}{}
+		\dsum_{j=1}^{n} \det \big( \vect{\Omega A^{\,\prime}_{j + 1}} , \vect{\Omega A^{\,\prime}_j} \big)
+	\explnext{}
+		{} - \dsum_{j=1}^{n} \det \big( \vect{\Omega A^{\,\prime}_j} ,  \vect{\Omega A^{\,\prime}_{j + 1}} \big)
+	\explnext{}
+		{} - \mu_1^n (\setproba{L})
+	\end{stepcalc}
+	
+	\null\vspace{-3.5ex}
 \end{proof}
 	
 	
@@ -106,7 +185,7 @@ Si c'est votre cas, que pensez-vous de l'aire algébrique du quadrilatère crois
 \begin{fact}
 	Soit 
 	$\setproba{L} = A_1 A_2 \cdots A_n$ une \nline.
-	La quantité $\abs{\mu_1^n (\setproba{L})}$ ne dépend ni du sens de parcours de de $\setproba{L}$, ni du point de départ choisi.%
+	La quantité $\abs{\mu_1^n (\setproba{L})}$ ne dépend ni du sens de parcours de $\setproba{L}$, ni du point de départ choisi.%
 	\footnote{
 		Le lecteur pardonnera ces abus de langage.
 	}
