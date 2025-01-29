@@ -3,8 +3,8 @@
 \end{fact}
 
 
-\begin{proof}
-    Commençons par les cubes des petits naturels, c'est-à-dire ceux dans $\ZintervalC{0}{9}$\,.
+\begin{method}
+    Commençons par les cubes des naturels appartenant à $\ZintervalC{0}{9}$\,.
     
     \begin{center}
         \begin{tblr}{
@@ -44,7 +44,7 @@
     
     \medskip
     
-    Nous voilà prêt à analyser le cas restant de $n \in \ZintervalC{10}{99}$ en notant $d$ le chiffre des unités de $n$\,, et $u$ celui des unités, de sorte que $n = 10 d + u$\,.
+    Nous voilà prêt à analyser le cas restant de $n \in \ZintervalC{10}{99}$ en notant $d$ le chiffre des dizaines de $n$\,, et $u$ celui des unités, de sorte que $n = 10 d + u$\,.
     Comme le cas $u=0$ se résume par le tableau évident ci-dessous, nous allons finir la preuve avec $d \neq 0$ et $u \neq 0$\,.
     
     \begin{center}
@@ -117,7 +117,7 @@
     
     \medskip
 
-    Il reste à trouver $d$ le chiffre des dizaines. Ceci est bien plus simple. Pour comprendre l'astuce, nous allons considérer $78^3 = \num{474552}$\,. Le précédent tableau nous donne l'encadrement $\num{343000}< \num{474552} < \num{512000}$\,, c'est-à-dire $70^3 < \num{474552} < 80^3$\,.
+    Il reste à trouver $d$ le chiffre des dizaines. Ceci est bien plus simple que pour un carré. Pour comprendre l'astuce, nous allons considérer $78^3 = \num{474552}$\,. Le précédent tableau nous donne l'encadrement $\num{343000}< \num{474552} < \num{512000}$\,, c'est-à-dire $70^3 < \num{474552} < 80^3$\,.
     Par stricte croissance de la fonction cube, nous constatons que le nombre de cent-milliers nous permet de trouver la valeur de $d$ sans aucune ambiguïté.
     
     \medskip
@@ -129,4 +129,4 @@
 	
 		\item Le nombre de cent-milliers de \num{300763} est $300$ qui est compris entre $216 = 6^3$ et $343 = 7^3$\,, d'où $n = 67$\,.
     \end{itemize}
-\end{proof}
+\end{method}

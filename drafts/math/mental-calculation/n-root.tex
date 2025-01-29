@@ -41,6 +41,20 @@
 \newtheorem{remark}{Remarque}[section]
 \newtheorem*{proof*}{Preuve}
 
+% Définition d'un nouvel environnement "Méthode"
+\newtheoremstyle{method}  % Nom du style
+  {}                       % Espace avant
+  {}                       % Espace après
+  {}               % Style du texte
+  {}                       % Indentation du titre
+  {\itshape}              % Style du titre
+  {.}                      % Ponctuation après le titre
+  { }                      % Espace après le titre
+  {\thmname{#1}}           % Définition du nom
+
+\theoremstyle{method}
+\newtheorem*{method}{Méthode expliquée}
+
 \npthousandsep{.}
 \setlength\parindent{0pt}
 
@@ -75,7 +89,7 @@
 
 \title{BROUILLON - À la recherche de racines n-ièmes}
 \author{Christophe BAL}
-\date{10 Jan. 2025 -- 11 Jan. 2025}
+\date{10 Jan. 2025 -- 29 Jan. 2025}
 
 \maketitle
 
