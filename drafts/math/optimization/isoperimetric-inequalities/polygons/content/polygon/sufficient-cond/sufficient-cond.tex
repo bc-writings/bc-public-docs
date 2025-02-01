@@ -4,7 +4,7 @@ Pour arriver à nos fins, commençons par expliquer comment \geogebra\ obtient u
 
 
 \begin{center}
-	\includegraphics[scale=.4]{content/polygon/sufficient-cond/g-area-why.png}
+    \includegraphics[scale=.4]{content/polygon/sufficient-cond/why.png}
 \end{center}
 
 
@@ -12,54 +12,51 @@ Pour arriver à nos fins, commençons par expliquer comment \geogebra\ obtient u
 %\newpage 
  
 
-La seule idée raisonnable consiste à fixer un point $\Omega$, puis à calculer, via la notion de déterminant, les aires algébriques des triangles indiqués ci-dessous : les aires vertes sont positives, et les rouges négatives (les triangles sont construits en respectant un ordre de parcours des sommets du polygone, et leur orientation est obtenue via le sens anti-horaire comme sens positif).%
-\footnote{
-	En considérant $EDCBA$ au lieu de $ABCDE$ dans la méthode indiquée, on obtiendrait $(\num{-6.5})$. Pour obtenir une mesure, il faudra prendre la valeur absolue de la somme des aires algébriques des triangles.
-}
+La seule idée raisonnable consiste à fixer un point $\Omega$, puis à calculer, via la notion de déterminant, les aires algébriques ci-dessous : les aires vertes sont positives, et les rouges négatives.%
 
 \begin{multicols}{3}
-	\small\itshape
-	
-	\begin{center}
-		\foreach \i in {1,...,5} {
-			\smallskip
-		
-			\includegraphics[scale=.4]{content/polygon/sufficient-cond/g-area-why-step-\i.png}
-		
-			\smallskip
-				Étape \i.
-		}
-	\end{center}
-	
-	\smallskip
-	
-	$2 + 10 - 6 + \num{5.5} - 5 = \num{6.5}$
-	redonne bien la valeur fournie par \geogebra.
-	Le fait \ref{garea-pt-ct}, donné plus, justifiera le bien fondé de cette méthode qui, a priori, pourrait dépendre du point $\Omega$.
-	
-	\vfill\null
+    \small\itshape
+    
+    \begin{center}
+        \foreach \i in {1,...,5} {
+            \smallskip
+        
+            \includegraphics[scale=.4]{content/polygon/sufficient-cond/why-step-\i.png}
+        
+            \smallskip
+            Étape \i.
+        }
+    \end{center}
+    
+    \smallskip
+    
+    $2 + 10 - 6 + \num{5.5} - 5 = \num{6.5}$
+    redonne bien la valeur fournie par \geogebra.
+    Le fait \ref{garea-pt-ct}, donné plus bas, justifiera le bien fondé de cette méthode qui, a priori, pourrait dépendre du point $\Omega$.
+    
+    \vfill\null
 \end{multicols}
 
 
 La méthode proposée redonne bien l'aire du \ngone\ convexe dans le cas particulier suivant. Rassurant...
 
 \begin{multicols}{2}
-	\begin{center}
-		\includegraphics[scale=.4]{content/polygon/sufficient-cond/g-area-convex-1.png}
+    \begin{center}
+        \includegraphics[scale=.4]{content/polygon/sufficient-cond/convex-1.png}
 
-		\includegraphics[scale=.4]{content/polygon/sufficient-cond/g-area-convex-2.png}
-	\end{center}
+        \includegraphics[scale=.4]{content/polygon/sufficient-cond/convex-2.png}
+    \end{center}
 \end{multicols}
 
 
 Avant de formaliser ce qui précède, il faut noter que la notion d'aire algébrique est à manier avec prudence lorsqu'on la découvre. 
 Si c'est votre cas, que pensez-vous de l'aire algébrique du quadrilatère croisé $ABCD$ ci-dessous qui est un antiparallélogramme très particulier? Réponse en note de bas de page.%
 \footnote{
-	La réponse est $0$. Comme nous verrons que le choix de $\Omega$ est libre, il suffit de faire les calculs avec $\Omega$ l'intersection des segments $[AD]$ et $[BC]$.
+    La réponse est $0$. Comme nous verrons que le choix de $\Omega$ est libre, il suffit de faire les calculs avec $\Omega$ l'intersection des segments $[AD]$ et $[BC]$.
 }
 
 \begin{center}
-	\includegraphics[scale=.4]{content/polygon/sufficient-cond/g-area-anti-para.png}
+    \includegraphics[scale=.4]{content/polygon/sufficient-cond/anti-para.png}
 \end{center}
 
 
@@ -67,7 +64,7 @@ Si c'est votre cas, que pensez-vous de l'aire algébrique du quadrilatère crois
 
 
 \begin{defi} \label{garea-pt-ct}
-	Pour toute \nline\  $\setproba{L} = A_1 A_2 \cdots A_n$, on définit $\big( A^{\,\prime}_i \big)_{i \in \ZZ}$ comme étant $n$-périodique, et vérifiant $A^{\,\prime}_{i} = A_i$ sur $\ZintervalC{1}{n}$.
+    Pour toute \nline\  $\setproba{L} = A_1 A_2 \cdots A_n$, on définit $\big( A^{\,\prime}_i \big)_{i \in \ZZ}$ comme étant $n$-périodique, et vérifiant $A^{\,\prime}_{i} = A_i$ sur $\ZintervalC{1}{n}$.
 \end{defi}
 
 
@@ -75,138 +72,233 @@ Si c'est votre cas, que pensez-vous de l'aire algébrique du quadrilatère crois
 
 
 \begin{fact} \label{garea-pt-ct}
-	Soit $\setproba{L} = A_1 A_2 \cdots A_n$ une \nline.
-	La fonction qui à un point $\Omega$ du plan associe 
-	$\mu_{1 \to n}^\Omega (\setproba{L}) = \dsum_{i=1}^{n} \det \big( \vect{\Omega A^{\,\prime}_i} , \vect{\Omega A^{\,\prime}_{i+1}} \big)$ est indépendante du point $\Omega$.
-	Dans la suite, cette quantité indépendante de $\Omega$ sera notée $\mu_{1 \to n} (\setproba{L})$.
+    Soit $\setproba{L} = A_1 A_2 \cdots A_n$ une \nline.
+    La fonction qui à un point $\Omega$ du plan associe 
+    $\mu_{1 \to n}^\Omega (\setproba{L}) = \dsum_{i=1}^{n} \det \big( \vect{\Omega A^{\,\prime}_i} , \vect{\Omega A^{\,\prime}_{i+1}} \big)$ est indépendante du point $\Omega$.
+    Dans la suite, cette quantité indépendante de $\Omega$ sera notée $\mu_{1 \to n} (\setproba{L})$.
 \end{fact}
 
 
 \begin{proof}
-	Soit $M$ un autre point du plan.
+    Soit $M$ un autre point du plan.
 
-	\begin{stepcalc}[style=ar*]
-		\mu_{1 \to n}^\Omega (\setproba{L})
-	\explnext{}
-		\dsum_{i=1}^{n} \det \big( \vect{\Omega A^{\,\prime}_i} , \vect{\Omega A^{\,\prime}_{i+1}} \big)
-	\explnext{}
-		\dsum_{i=1}^{n} \det \big( \vect{\Omega M} + \vect{M A^{\,\prime}_i} , \vect{\Omega M} + \vect{M A^{\,\prime}_{i+1}} \big)
-	\explnext{}
-		\dsum_{i=1}^{n} \Big[
-			\det \big( \vect{\Omega M} , \vect{\Omega M} \big)
-			+
-			\det \big( \vect{\Omega M} , \vect{M A^{\,\prime}_{i+1}} \big)
-			+
-			\det \big( \vect{M A^{\,\prime}_i} , \vect{\Omega M} \big)
-			+
-			\det \big( \vect{M A^{\,\prime}_i} , \vect{M A^{\,\prime}_{i+1}} \big)
-		\Big]
-	\explnext{}
-		\dsum_{i=1}^{n} \det \big( \vect{\Omega M} , \vect{M A^{\,\prime}_{i+1}} \big)
-		+
-		\dsum_{i=1}^{n} \det \big( \vect{M A^{\,\prime}_i} , \vect{\Omega M} \big)
-		+
-		\mu_{1 \to n}^M (\setproba{L})
-	\explnext{}
-		\mu_{1 \to n}^M (\setproba{L})
-		+
-		\dsum_{i=2}^{n+1} \det \big( \vect{\Omega M} , \vect{M A^{\,\prime}_{i}} \big)
-		-
-		\dsum_{i=1}^{n} \det \big( \vect{\Omega M} , \vect{M A^{\,\prime}_i} \big)
-	\explnext*{$A^{\,\prime}_{n+1} = A^{\,\prime}_1$}{}
-		\mu_{1 \to n}^M (\setproba{L})
-		+
-		\dsum_{i=1}^{n} \det \big( \vect{\Omega M} , \vect{M A^{\,\prime}_{i}} \big)
-		-
-		\dsum_{i=1}^{n} \det \big( \vect{\Omega M} , \vect{M A^{\,\prime}_i} \big)
-	\explnext{}
-		\mu_{1 \to n}^M (\setproba{L})
-	\end{stepcalc}
-	
-	\null\vspace{-3.5ex}
+    \begin{stepcalc}[style=ar*]
+        \mu_{1 \to n}^\Omega (\setproba{L})
+    \explnext{}
+        \dsum_{i=1}^{n} \det \big( \vect{\Omega A^{\,\prime}_i} , \vect{\Omega A^{\,\prime}_{i+1}} \big)
+    \explnext{}
+        \dsum_{i=1}^{n} \det \big( \vect{\Omega M} + \vect{M A^{\,\prime}_i} , \vect{\Omega M} + \vect{M A^{\,\prime}_{i+1}} \big)
+    \explnext{}
+        \dsum_{i=1}^{n} \Big[
+            \det \big( \vect{\Omega M} , \vect{\Omega M} \big)
+            +
+            \det \big( \vect{\Omega M} , \vect{M A^{\,\prime}_{i+1}} \big)
+            +
+            \det \big( \vect{M A^{\,\prime}_i} , \vect{\Omega M} \big)
+            +
+            \det \big( \vect{M A^{\,\prime}_i} , \vect{M A^{\,\prime}_{i+1}} \big)
+        \Big]
+    \explnext{}
+        \dsum_{i=1}^{n} \det \big( \vect{\Omega M} , \vect{M A^{\,\prime}_{i+1}} \big)
+        +
+        \dsum_{i=1}^{n} \det \big( \vect{M A^{\,\prime}_i} , \vect{\Omega M} \big)
+        +
+        \mu_{1 \to n}^M (\setproba{L})
+    \explnext{}
+        \mu_{1 \to n}^M (\setproba{L})
+        +
+        \dsum_{i=2}^{n+1} \det \big( \vect{\Omega M} , \vect{M A^{\,\prime}_{i}} \big)
+        -
+        \dsum_{i=1}^{n} \det \big( \vect{\Omega M} , \vect{M A^{\,\prime}_i} \big)
+    \explnext{}
+        \mu_{1 \to n}^M (\setproba{L})
+        +
+        \det \big( \vect{\Omega M} , \vect{M A^{\,\prime}_{n+1}} \big)
+        -
+        \det \big( \vect{\Omega M} , \vect{M A^{\,\prime}_1} \big)
+    \explnext*{$A^{\,\prime}_{n+1} = A^{\,\prime}_1$}{}
+        \mu_{1 \to n}^M (\setproba{L})
+    \end{stepcalc}
+    
+    \null\vspace{-3.5ex}
 \end{proof}
-	
-	
+    
+    
 % ----------------------- %
 
 
 \begin{fact} \label{nline-shift-inva}
-	Soit $\setproba{L} = A_1 A_2 \cdots A_n$ une \nline.
-	Pour $j \in \ZintervalC{1}{n}$, nous avons
-	$\mu_{1 \to n} (\setproba{L}) = \mu_{j \to n+j-1} (\setproba{L})$.
-	Dans la suite, cette quantité commune sera notée $\mu_1^n (\setproba{L})$.
+    Soit $\setproba{L} = A_1 A_2 \cdots A_n$ une \nline.
+    Pour $j \in \ZintervalC{1}{n}$, nous avons
+    $\mu_{1 \to n} (\setproba{L}) = \mu_{j \to n+j-1} (\setproba{L})$.
+    Dans la suite, cette quantité commune sera notée $\mu_1^n (\setproba{L})$.
 \end{fact}
 
 
 \begin{proof}
-	Il suffit de s'adonner à un petit jeu sur les indices de sommation.
+    Il suffit de s'adonner à un petit jeu sur les indices de sommation.
 \end{proof}
-	
-	
+    
+    
 % ----------------------- %
 
 
 \begin{fact} \label{nline-rota-inva}
-	Soient 
-	$\setproba{L} = A_1 A_2 \cdots A_n$ une \nline, et 
-	$\setproba{L}^{\mathrm{op}} = A_n A_{n-1} \cdots A_1$ la \nline\ obtenue via un parcours inversé à partir de $A_n$, 
-	Posant $B_i = A_{n + 1 - i}$, nous avons $\setproba{L}^{\mathrm{op}} = B_1 B_2 \cdots B_n$ qui permet de considérer $\mu_1^n (\setproba{L}^{\mathrm{op}})$.
-	Dès lors, nous avons
-	$\mu_1^n (\setproba{L}^{\mathrm{op}}) = {} - \mu_1^n (\setproba{L})$.
+    Soient 
+    $\setproba{L} = A_1 A_2 \cdots A_n$ une \nline, et 
+    $\setproba{L}^{\mathrm{op}} = A_n A_{n-1} \cdots A_1$ la \nline\ obtenue via un parcours inversé à partir de $A_n$, 
+    Posant $B_i = A_{n + 1 - i}$, nous avons $\setproba{L}^{\mathrm{op}} = B_1 B_2 \cdots B_n$ qui permet de considérer $\mu_1^n (\setproba{L}^{\mathrm{op}})$.
+    Dès lors, nous avons
+    $\mu_1^n (\setproba{L}^{\mathrm{op}}) = {} - \mu_1^n (\setproba{L})$.
 \end{fact}
 
 
 \begin{proof}
-	Soit $\Omega$ un point quelconque du plan.
+    Soit $\Omega$ un point quelconque du plan.
 
-	\begin{stepcalc}[style=ar*]
-		\mu_1^n (\setproba{L}^{\mathrm{op}})
-	\explnext{}
-		\dsum_{i=1}^{n} \det \big( \vect{\Omega B^{\,\prime}_i} , \vect{\Omega B^{\,\prime}_{i+1}} \big)
-	\explnext{}
-		\dsum_{i=1}^{n} \det \big( \vect{\Omega A^{\,\prime}_{n + 1 - i}} , \vect{\Omega A^{\,\prime}_{n - i}} \big)
-	\explnext{}
-		\dsum_{j=0}^{n-1} \det \big( \vect{\Omega A^{\,\prime}_{j + 1}} , \vect{\Omega A^{\,\prime}_j} \big)
-	\explnext*{$A^{\,\prime}_0 = A^{\,\prime}_n$ et $A^{\,\prime}_1 = A^{\,\prime}_{n+1}$}{}
-		\dsum_{j=1}^{n} \det \big( \vect{\Omega A^{\,\prime}_{j + 1}} , \vect{\Omega A^{\,\prime}_j} \big)
-	\explnext{}
-		{} - \dsum_{j=1}^{n} \det \big( \vect{\Omega A^{\,\prime}_j} ,  \vect{\Omega A^{\,\prime}_{j + 1}} \big)
-	\explnext{}
-		{} - \mu_1^n (\setproba{L})
-	\end{stepcalc}
-	
-	\null\vspace{-3.5ex}
+    \begin{stepcalc}[style=ar*]
+        \mu_1^n (\setproba{L}^{\mathrm{op}})
+    \explnext{}
+        \dsum_{i=1}^{n} \det \big( \vect{\Omega B^{\,\prime}_i} , \vect{\Omega B^{\,\prime}_{i+1}} \big)
+    \explnext{}
+        \dsum_{i=1}^{n} \det \big( \vect{\Omega A^{\,\prime}_{n + 1 - i}} , \vect{\Omega A^{\,\prime}_{n - i}} \big)
+    \explnext{}
+        \dsum_{j=0}^{n-1} \det \big( \vect{\Omega A^{\,\prime}_{j + 1}} , \vect{\Omega A^{\,\prime}_j} \big)
+    \explnext*{$A^{\,\prime}_0 = A^{\,\prime}_n$ et $A^{\,\prime}_1 = A^{\,\prime}_{n+1}$}{}
+        \dsum_{j=1}^{n} \det \big( \vect{\Omega A^{\,\prime}_{j + 1}} , \vect{\Omega A^{\,\prime}_j} \big)
+    \explnext{}
+        {} - \dsum_{j=1}^{n} \det \big( \vect{\Omega A^{\,\prime}_j} ,  \vect{\Omega A^{\,\prime}_{j + 1}} \big)
+    \explnext{}
+        {} - \mu_1^n (\setproba{L})
+    \end{stepcalc}
+    
+    \null\vspace{-3.5ex}
 \end{proof}
-	
-	
+    
+    
 % ----------------------- %
 
 
 \begin{fact}
-	Soit 
-	$\setproba{L} = A_1 A_2 \cdots A_n$ une \nline.
-	La quantité $\abs{\mu_1^n (\setproba{L})}$ ne dépend ni du sens de parcours de $\setproba{L}$, ni du point de départ choisi.%
-	\footnote{
-		Le lecteur pardonnera ces abus de langage.
-	}
-	Elle sera notée $\garea{\setproba{L}}$, et nommée \og \emph{aire généralisée} \fg\ de la \nline\ $\setproba{L}$.
+    Soit 
+    $\setproba{L} = A_1 A_2 \cdots A_n$ une \nline.
+    La quantité $\abs{\mu_1^n (\setproba{L})}$ ne dépend ni du sens de parcours de $\setproba{L}$, ni du point de départ choisi.%
+    \footnote{
+        Le lecteur pardonnera ces abus de langage.
+    }
+    Elle sera notée $\garea{\setproba{L}}$, et nommée \og \emph{aire généralisée} \fg\ de la \nline\ $\setproba{L}$.
 \end{fact}
 
 
 \begin{proof}
-	C'est une synthèse des faits \ref{nline-shift-inva} et \ref{nline-rota-inva}.
+    C'est une synthèse des faits \ref{nline-shift-inva} et \ref{nline-rota-inva}.
 \end{proof}
-	
-	
+    
+    
 % ----------------------- %
 
 
 \begin{fact}
-	Pour tout \ngone\ $\setproba{P}$, nous avons: $\garea{\setproba{P}} = \area{\setproba{P}}$.
+    Pour tout \ngone\ $\setproba{P}$, nous avons: $\garea{\setproba{P}} = \area{\setproba{P}}$.
 \end{fact}
 
 
 \begin{proof}
+    Le théorème de triangulation affirme que tout \ngone\ est triangulable comme dans l'exemple très basique suivant qui laisse envisager une démonstration par récurrence en retirant l'un des triangles ayant deux côtés correspondant à deux côtés consécutifs du \ngone\ (pour peu qu'un tel triangle existe toujours).
+
+    
+    \begin{multicols}{3}
+        \small\itshape
+        \begin{center}
+            \includegraphics[scale=.4]{content/polygon/sufficient-cond/triangulation-1.png}
+        
+            \smallskip
+            Un \ngone\ nu.
+        \end{center}
+
+    
+        \begin{center}
+            \includegraphics[scale=.4]{content/polygon/sufficient-cond/triangulation-2.png}
+        
+            \smallskip
+            Le \ngone\ triangulé.
+        \end{center}
+
+    
+        \begin{center}
+            \includegraphics[scale=.4]{content/polygon/sufficient-cond/triangulation-3.png}
+        
+            \smallskip
+            Le \ngone\ allégé.
+        \end{center}
+    \end{multicols}
+    
+    
+    Le théorème de triangulation admet une forme forte donnant une décomposition contenant un triangle formé de deux côtés consécutifs du \ngone.%
+    \footnote{
+        En pratique, cette forme forte est peu utile, car elle aboutit à un algorithme de recherche trop lent.
+    }
+    Nous dirons qu'une telle décomposition est \og \emph{à l'écoute} \fg.
+    Ce très mauvais jeu de mots fait référence à la notion sérieuse \og \emph{d'oreille} \fg\ pour un \ngone: une oreille est un triangle inclus dans le \ngone, et formé de deux côtés consécutifs du \ngone.
+    L'exemple suivant donne un \ngone\ n'ayant que deux oreilles: ceci montre que l'existence d'une oreille ne va pas de soi.%
+    \footnote{
+        On démontre que tout \ngone\ admet au minimum deux oreilles.
+    }
+
+
+    \begin{multicols}{2}
+        \small\itshape
+    	\begin{center}
+        	\includegraphics[scale=.4]{content/polygon/sufficient-cond/mini-ear-1.png}
+        
+        	\smallskip
+       		Un \ngone\ simple.
+    	\end{center}
+	
+    	\begin{center}
+        	\includegraphics[scale=.4]{content/polygon/sufficient-cond/mini-ear-2.png}
+        
+        	\smallskip
+       		Juste deux oreilles possibles.
+    	\end{center}
+    \end{multicols}
+    
+    
+    
+    Soit $\setproba{P}$ un \ngone\ avec $n \geq 4$, et $\setproba{L} = A_1 A_2 \cdots A_n$ la \nline\ obtenue en parcourant la frontière de $\setproba{P}$ à partir d'un sommet $A_1$ tel que $A_1 A_2 A_n$ soit une oreille de $\setproba{P}$.
+    
+    
+    \begin{center}
+        \includegraphics[scale=.4]{content/polygon/sufficient-cond/triangulation-proof.png}
+    \end{center}
+    
+    
+    Nous voilà prêt à raisonner par récurrence sur $n \in \NN_{\geq3}$.
+    Le cas $n = 3$ ne posant aucune difficulté, nous allons juste considérer l'étape de récurrence en reprenant les notations précédentes.
+    Soit ensuite
+    $\setproba{P}^{\,\prime}$ le \ngone\ associé à la \nline\ $\setproba{L}^{\,\prime} = A_2 \cdots A_n$.
+    
+    \begin{itemize}
+    	\item $\area{\setproba{P}} = \area{A_1 A_2 A_n}  +  \area{\setproba{P}^{\,\prime}}$, 
+		car $A_1 A_2 A_n$ est une oreille de $\setproba{P}$.
+
+    	\item $\area{A_1 A_2 A_n} = \garea{A_1 A_2 A_n}$ et $\area{\setproba{P}^{\,\prime}} = \garea{\setproba{P}^{\,\prime}}$ 
+		par récurrence.
+
+    	\item Il n'est pas certain que $\garea{A_1 A_2 A_n} + \garea{\setproba{P}^{\,\prime}} = \garea{\setproba{P}}$,
+	du fait de l'utilisation de la valeur absolue dans $\abs{\mu_1^n (\setproba{L})}$.
+	Ce qui suit justifie que c'est bien le cas.
+		%
+		\begin{enumerate}
+			\item XXX
+
+			\item XXX
+
+			\item XXX
+		\end{enumerate}
+
+    	\item Les points précédents donnent bien $\area{\setproba{P}} = \garea{\setproba{P}}$, ce qui achève notre démonstration par récurrence.
+    \end{itemize}
 \end{proof}
 
 
@@ -214,57 +306,57 @@ Si c'est votre cas, que pensez-vous de l'aire algébrique du quadrilatère crois
 
 
 \begin{fact} \label{suff-cond}
-	Soit $n \in \NN_{\geq3}$ un naturel fixé.
-	Considérons tous les \ngones\ de périmètre fixé. Parmi tous ces \ngones, il en existe au moins un d'aire maximale.
+    Soit $n \in \NN_{\geq3}$ un naturel fixé.
+    Considérons tous les \ngones\ de périmètre fixé. Parmi tous ces \ngones, il en existe au moins un d'aire maximale.
 \end{fact}
 
 
 \begin{proof}
-	Le fait \ref{conv-poly} permet de considérer le problème de maximisation d'aire à périmètre fixé uniquement avec des \ngones\ convexes.
-	Selon les faits \ref{iso-poly} et \ref{almost-reg-poly}, si parmi les \ngones\ convexes de périmètre fixé, il en existe un qui maximise l'aire, alors ce ne peut être que le \ngone\ régulier.
-	Pour voir que cette condition nécessaire est suffisante, c
-	%	
-	\begin{itemize}
-		\item On munit le plan d'un repère orthonormé $\pvaxes{O | i | j}$. 
+    Le fait \ref{conv-poly} permet de considérer le problème de maximisation d'aire à périmètre fixé uniquement avec des \ngones\ convexes.
+    Selon les faits \ref{iso-poly} et \ref{almost-reg-poly}, si parmi les \ngones\ convexes de périmètre fixé, il en existe un qui maximise l'aire, alors ce ne peut être que le \ngone\ régulier.
+    Pour voir que cette condition nécessaire est suffisante, c
+    %    
+    \begin{itemize}
+        \item On munit le plan d'un repère orthonormé $\pvaxes{O | i | j}$. 
 
-		\item 
-		XXX
-		
-		fermeture costaud, mais le côté birné !!!!
-		
-		pour fermeture, besoin d'accpeter les \kgones\ pour $k \in \ZintervalC{3}{n}$.
-		
-		Les \ngones\ convexes $A_1 A_2 \cdots A_n$ tels que $\perim{A_1 A_2 \cdots A_n} = p$ sont représentés en posant $A_1\coord{0 | 0}$, $A_2\coord{A_1 A_2 | 0}$, puis $A_k\coord{x_k | y_k}$ avec $y_k \geq 0$ pour $k \in \ZintervalC{3}{n}$. Un \ngone\ peut donc avoir $n$ représentations, mais peu importe.
-		De plus, on accepte les \ngones\ dégénérés pour lesquels nous avons $x_B = 0$, $y_C = 0$ dans notre représentation.
-		Nous notons alors $\setproba{G} \subset \RR^{2n}$ l'ensemble des triplets $\coord{x_B | x_C | y_C}$ ainsi obtenus.
+        \item 
+        XXX
+        
+        fermeture costaud, mais le côté birné !!!!
+        
+        pour fermeture, besoin d'accpeter les \kgones\ pour $k \in \ZintervalC{3}{n}$.
+        
+        Les \ngones\ convexes $A_1 A_2 \cdots A_n$ tels que $\perim{A_1 A_2 \cdots A_n} = p$ sont représentés en posant $A_1\coord{0 | 0}$, $A_2\coord{A_1 A_2 | 0}$, puis $A_k\coord{x_k | y_k}$ avec $y_k \geq 0$ pour $k \in \ZintervalC{3}{n}$. Un \ngone\ peut donc avoir $n$ représentations, mais peu importe.
+        De plus, on accepte les \ngones\ dégénérés pour lesquels nous avons $x_B = 0$, $y_C = 0$ dans notre représentation.
+        Nous notons alors $\setproba{G} \subset \RR^{2n}$ l'ensemble des triplets $\coord{x_B | x_C | y_C}$ ainsi obtenus.
 
-		\item XXX
-		
-		Justifier que $\setproba{G}$ est fermé dans $\RR^{2n}$.
-
-
+        \item XXX
+        
+        Justifier que $\setproba{G}$ est fermé dans $\RR^{2n}$.
 
 
 
 
-		\item De plus, $\setproba{G}$ est borné, car les coordonnées des sommets des \kgones\ considérés le sont.		
-		Finalement, $\setproba{G}$ est un compact de $\RR^{2n}$.
 
 
-		\item Notons $s: \setproba{G} \rightarrow \RRp$ la fonction \og \emph{aire} \fg\ des \ngones\ représentés. 
-		Cette fonction est continue en les coordonnées des sommets, car elle peut être calculée comme suit pour un \ngone\ convexe $A_1 A_2 \cdots A_n$ quelconque.
-		%
-		\begin{enumerate}
-			\item L'isobarycentre $G$ de $A_1 A_2 \cdots A_n$ possède des coordonnées affines en celles des points $A_1$, $A_2$, \dots\ , et $A_n$.
+        \item De plus, $\setproba{G}$ est borné, car les coordonnées des sommets des \kgones\ considérés le sont.        
+        Finalement, $\setproba{G}$ est un compact de $\RR^{2n}$.
 
-			\item Par convexité, l'aire de $A_1 A_2 \cdots A_n$ est égale à la somme de celles des triangles $G A_k A_{k+1}$ pour $k \in \ZintervalC{1}{n-1}$, et du triangle $G A_n  A_1$.
 
-			\item Via le déterminant, il est immédiat de voir que les aires des triangles considérés sont des fonctions continues en les coordonnées des sommets.
-		\end{enumerate}
-		
-		
-		\item Finalement, par continuité et compacité, on sait que $s$ admet un maximum sur $\setproba{G}$, un tel maximum ne pouvant pas être atteint sur un \kgone\ dégénéré. That's all folks!
-	\end{itemize}	
+        \item Notons $s: \setproba{G} \rightarrow \RRp$ la fonction \og \emph{aire} \fg\ des \ngones\ représentés. 
+        Cette fonction est continue en les coordonnées des sommets, car elle peut être calculée comme suit pour un \ngone\ convexe $A_1 A_2 \cdots A_n$ quelconque.
+        %
+        \begin{enumerate}
+            \item L'isobarycentre $G$ de $A_1 A_2 \cdots A_n$ possède des coordonnées affines en celles des points $A_1$, $A_2$, \dots\ , et $A_n$.
+
+            \item Par convexité, l'aire de $A_1 A_2 \cdots A_n$ est égale à la somme de celles des triangles $G A_k A_{k+1}$ pour $k \in \ZintervalC{1}{n-1}$, et du triangle $G A_n  A_1$.
+
+            \item Via le déterminant, il est immédiat de voir que les aires des triangles considérés sont des fonctions continues en les coordonnées des sommets.
+        \end{enumerate}
+        
+        
+        \item Finalement, par continuité et compacité, on sait que $s$ admet un maximum sur $\setproba{G}$, un tel maximum ne pouvant pas être atteint sur un \kgone\ dégénéré. That's all folks!
+    \end{itemize}    
 \end{proof}
 
 
@@ -280,8 +372,8 @@ Si c'est votre cas, que pensez-vous de l'aire algébrique du quadrilatère crois
 
 
 \begin{fact}
-	Soit $n \in \NN_{\geq3}$ un naturel fixé.
-	Considérons tous les \ngones\  de périmètre fixé. Parmi tous ces \ngones, un seul est d'aire maximale, c'est le \ngone\ régulier.
+    Soit $n \in \NN_{\geq3}$ un naturel fixé.
+    Considérons tous les \ngones\  de périmètre fixé. Parmi tous ces \ngones, un seul est d'aire maximale, c'est le \ngone\ régulier.
 \end{fact}
 
 

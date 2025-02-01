@@ -2,6 +2,13 @@
 drafts (math) - TODO
 =============
 
+AIRE
+    ---> part d'aire du traingle non ambig
+    ---> aire quadrilatère comme cas d'étude : différentiangul ==> meême aire
+    ---> cas général non croisé via une traingu
+    ---> cas croisé (cf isopérimétrie polygone où tout est déjà tapé)
+
+
 CONIQUE
     ---> produit via sécenate et axe des ordonnées
 
