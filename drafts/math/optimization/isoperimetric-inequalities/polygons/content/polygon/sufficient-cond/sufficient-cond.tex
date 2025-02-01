@@ -79,8 +79,8 @@ Si c'est votre cas, que pensez-vous de l'aire algébrique du quadrilatère crois
 \begin{fact} \label{garea-pt-ct}
     Soit $\setproba{L} = A_1 A_2 \cdots A_n$ une \nline.
     La fonction qui à un point $\Omega$ du plan associe 
-    $\mu_{1 \to n}^\Omega (\setproba{L}) = \dsum_{i=1}^{n} \det \big( \vect{\Omega A^{\,\prime}_i} , \vect{\Omega A^{\,\prime}_{i+1}} \big)$ est indépendante du point $\Omega$.
-    Dans la suite, cette quantité indépendante de $\Omega$ sera notée $\mu_{1 \to n} (\setproba{L})$.
+    $\mu_1^n (\Omega ;\setproba{L}) = \dsum_{i=1}^{n} \det \big( \vect{\Omega A^{\,\prime}_i} , \vect{\Omega A^{\,\prime}_{i+1}} \big)$ est indépendante du point $\Omega$.
+    Dans la suite, cette quantité indépendante de $\Omega$ sera notée $\mu_1^n (\setproba{L})$.
 \end{fact}
 
 
@@ -88,7 +88,7 @@ Si c'est votre cas, que pensez-vous de l'aire algébrique du quadrilatère crois
     Soit $M$ un autre point du plan.
 
     \begin{stepcalc}[style=ar*]
-        \mu_{1 \to n}^\Omega (\setproba{L})
+        \mu_1^n (\Omega ;\setproba{L})
     \explnext{}
         \dsum_{i=1}^{n} \det \big( \vect{\Omega A^{\,\prime}_i} , \vect{\Omega A^{\,\prime}_{i+1}} \big)
     \explnext*{Cette bonne vieille relation de Chasles.}{}
@@ -108,21 +108,21 @@ Si c'est votre cas, que pensez-vous de l'aire algébrique du quadrilatère crois
         +
         \dsum_{i=1}^{n} \det \big( \vect{M A^{\,\prime}_i} , \vect{\Omega M} \big)
         +
-        \mu_{1 \to n}^M (\setproba{L})
+        \mu_1^n (M ; \setproba{L})
     \explnext{}
-        \mu_{1 \to n}^M (\setproba{L})
+        \mu_1^n (M ; \setproba{L})
         +
         \dsum_{i=2}^{n+1} \det \big( \vect{\Omega M} , \vect{M A^{\,\prime}_{i}} \big)
         -
         \dsum_{i=1}^{n} \det \big( \vect{\Omega M} , \vect{M A^{\,\prime}_i} \big)
     \explnext{}
-        \mu_{1 \to n}^M (\setproba{L})
+        \mu_1^n (M ; \setproba{L})
         +
         \det \big( \vect{\Omega M} , \vect{M A^{\,\prime}_{n+1}} \big)
         -
         \det \big( \vect{\Omega M} , \vect{M A^{\,\prime}_1} \big)
     \explnext*{$A^{\,\prime}_{n+1} = A^{\,\prime}_1$}{}
-        \mu_{1 \to n}^M (\setproba{L})
+        \mu_1^n (M ; \setproba{L})
     \end{stepcalc}
     
     \null\vspace{-3.5ex}
@@ -134,8 +134,10 @@ Si c'est votre cas, que pensez-vous de l'aire algébrique du quadrilatère crois
 
 \begin{fact} \label{nline-shift-inva}
     Soit $\setproba{L} = A_1 A_2 \cdots A_n$ une \nline.
-    Pour $j \in \ZintervalC{1}{n}$, nous avons
-    $\mu_{1 \to n} (\setproba{L}) = \mu_{j \to n+j-1} (\setproba{L})$.
+    Pour $k \in \ZintervalC{1}{n}$, 
+    la \nline\ $\setproba{L}_j = B_1 B_2 \cdots B_n$, où $B_i = A^{\,\prime}_{k+i-1}$,
+    vérifie
+    $\mu_1^n (\setproba{L}) = \mu_1^n (\setproba{L}_k)$.
     Dans la suite, cette quantité commune sera notée $\mu (\setproba{L})$.
 \end{fact}
 
@@ -149,11 +151,10 @@ Si c'est votre cas, que pensez-vous de l'aire algébrique du quadrilatère crois
 
 
 \begin{fact} \label{nline-rota-inva}
-    Soient 
-    $\setproba{L} = A_1 A_2 \cdots A_n$ une \nline, et 
-    $\setproba{L}^{\mathrm{op}} = A_n A_{n-1} \cdots A_1$ la \nline\ obtenue via un parcours inversé à partir de $A_n$, 
-    Posant $B_i = A_{n + 1 - i}$, nous obtenons $\setproba{L}^{\mathrm{op}} = B_1 B_2 \cdots B_n$ qui permet de considérer $\mu(\setproba{L}^{\mathrm{op}})$.
-    Dès lors, nous avons
+    Soit 
+    $\setproba{L} = A_1 A_2 \cdots A_n$ une \nline. 
+    La \nline\ $\setproba{L}^{\mathrm{op}} = B_1 B_2 \cdots B_n$, où $B_i =  A_{n + 1 - i}$,
+    vérifie
     $\mu(\setproba{L}^{\mathrm{op}}) = {} - \mu(\setproba{L})$.
 \end{fact}
 
@@ -205,7 +206,7 @@ Si c'est votre cas, que pensez-vous de l'aire algébrique du quadrilatère crois
 
 Pour notre démonstration finale, nous aurons besoin de savoir que $\garea{\setproba{P}} = \area{\setproba{P}}$ pour tout \ngone\ $\setproba{P}$.%
 \footnote{
-	Nous obtiendrons alors la généralisation de l'aire géométrique usuelle au cas des polygones croisés.
+	Nous obtenons ainsi la généralisation de l'aire géométrique usuelle au cas des polygones croisés.
 }
 Ceci est évident dans le cas convexe, car il suffit de choisir l'isobarycentre $G$ de $A_1$, $A_2$, ..., $A_n$ pour le calcul de $\garea{\setproba{P}}$: en effet, avec ce choix, tous les déterminants $\det \big( \vect{G A^{\,\prime}_i} , \vect{G A^{\,\prime}_{i+1}} \big)$ ont le même signe.
 Dans le cas non-convexe, les choses se compliquent, car nous ne maîtrisons plus les signes des déterminants. 
