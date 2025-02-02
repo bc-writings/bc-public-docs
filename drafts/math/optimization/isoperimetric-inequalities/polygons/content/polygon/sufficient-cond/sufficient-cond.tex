@@ -426,16 +426,49 @@ Dans le cas non-convexe, les choses se compliquent a priori, car nous ne maîtri
 
 
 \begin{fact} \label{no-cross-max}
-    Si une \nline\ $\setproba{L}$ non dégénérée n'est pas un \ngone, donc est un polygone croisé, alors on peut construire un \ngone\ $\setproba{P}$ tel que 
-	$\perim{\setproba{P}} = \perim{\setproba{L}}$ 
+    Si une \nline\ $\setproba{L}$ non dégénérée n'est pas un \ngone, donc est un polygone croisé, alors on peut construire une \nline\ non dégénérée $\setproba{L}^{\,\prime}$ telle que 
+	$\perim{\setproba{L}^{\,\prime}} = \perim{\setproba{L}}$ 
 	et 
-	$\garea{\setproba{P}} > \garea{\setproba{L}}$.
+	$\garea{\setproba{L}^{\,\prime}} > \garea{\setproba{L}}$.
 \end{fact}
 
 
 \begin{proof}
-	XXXX
+	XXX
+	
+	idée d'user de symétrie axiale avec point de calciul sur l'axe comme cela on modifie le signe d'un det,  pour savoir ou agir, on doi connaitre le signe initiale de $\mu(\setproba{L})$
+	
+	L'idée est simple. Considérons, par exemple, le polygone croisé $ABCDEFGHIJ$ s
+	
+	
+	(les nombres sont les aires calculées par \geogebra).
+	
+	YYY
+	
+    \begin{multicols}{3}
+    	\small\itshape
+	
+        \foreach \i/\t in {1/{Valeur initiale}, 2/{Coup perdant}, 3/{Coup gagnant}} {
+	        \begin{center}
+    	    	\includegraphics[scale=.35]{content/polygon/sufficient-cond/no-cross-max-\i.png}
+	
+				\smallskip
+				\t.
+        	\end{center}
+        }
+    \end{multicols}
+        
+    YYYY
 \end{proof}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -455,19 +488,16 @@ Dans le cas non-convexe, les choses se compliquent a priori, car nous ne maîtri
         \item On munit le plan d'un repère orthonormé direct $\pvaxes{O | i | j}$. 
 
 
-        \item On considère $\setproba{Z}$ l'ensemble des \nlines\ $\setproba{L} = A_1 A_2 \cdots A_n$ vérifiant les propriétés suivantes.%
+        \item On note $\setproba{Z}$ l'ensemble des \nlines\ $\setproba{L} = A_1 A_2 \cdots A_n$ telles que
+        $\perim{A_1 A_2 \cdots A_n} = p$
+        et
+        $A_1\coord{0 | 0}$.%
         \footnote{
         	Le mot \og \emph{Zeile} \fg\ est une traduction possible de \og \emph{ligne} \fg\ en allemand.
         }
-        %
-        \begin{enumerate}
-        	\item $\perim{A_1 A_2 \cdots A_n} = p$
-
-        	\item $A_1\coord{0 | 0}$
-        \end{enumerate}
 
 
-        \item Nous notons ensuite $\setproba{G} \subset \RR^{2n}$ l'ensemble des uplets $\big( x(A_1) ; y(A_1) ; \dots ; x(A_n) ; y(A_n) \big)$ correspondant aux coordonnées des sommets $A_i$ de \nlines\ appartenant à $\setproba{Z}$.
+        \item Considérons alors $\setproba{G} \subset \RR^{2n}$ l'ensemble des uplets $\big( x(A_1) ; y(A_1) ; \dots ; x(A_n) ; y(A_n) \big)$ correspondant aux coordonnées des sommets $A_i$ de \nlines\ appartenant à $\setproba{Z}$.
         
         
         \item $\setproba{G}$ est clairement fermé dans $\RR^{2n}$.
@@ -480,7 +510,7 @@ Dans le cas non-convexe, les choses se compliquent a priori, car nous ne maîtri
        
         
         \item Finalement, par continuité et compacité, on sait que $s$ admet un maximum sur $\setproba{G}$.
-        Or, un tel maximum ne peut être atteint en une \kline\ dégénérée, clairement, ni en un polygone croisé d'après le fait \ref{no-cross-max}, donc un tel maximum sera obtenu avec un \ngone. That's all folks!
+        Or, un tel maximum ne peut être atteint en une \nline\ dégénérée, clairement, ni en un polygone croisé d'après le fait \ref{no-cross-max}, donc un tel maximum sera obtenu en un \ngone. That's all folks!
     \end{itemize}    
 \end{proof}
 
