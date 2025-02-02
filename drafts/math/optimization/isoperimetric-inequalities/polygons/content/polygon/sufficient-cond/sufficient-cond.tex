@@ -299,10 +299,7 @@ Dans le cas non-convexe, les choses se compliquent a priori, car nous ne maîtri
 	
 	\begin{itemize}
 		\item \textbf{Cas de base.} 
-		Soit $ABC$ un triangle où les sommets $A$, $B$ et $C$ sont parcourus dans le sens trigonométrique.
-		
-		\noindent
-		Si l'on connait le lien entre déterminant et produit vectoriel, il n'y a rien à faire. Pour les autres, il existe une méthode élégamment brutale: par une rotation directe, qui ne change pas le signe du déterminant, ni le sens de parcours de $ABC$, on se ramène au cas où $A\coord{0|0}$, $B\coord{AB|0}$ et $C\coord{x_C | y_C}$, de sorte que $\mu(ABC) = \det \big( \vect{AB} , \vect{AC} \big) = AB \cdot y_C$ avec $y_C \geq 0$ par hypothèse.
+		Soit $ABC$ un triangle. Dire que les sommets $A$, $B$ et $C$ sont parcourus dans le sens trigonométrique, c'est savoir que $\mu(ABC) = \det \big( \vect{AB} , \vect{AC} \big) \geq 0$. C'est ainsi que l'on oriente un plan cartésien.
 
 
 		\item \textbf{Hérédité.} 
@@ -334,9 +331,9 @@ Dans le cas non-convexe, les choses se compliquent a priori, car nous ne maîtri
 		\begin{stepcalc}[style=ar*]
 			\mu(\setproba{L})
 		%
-		\explnext{}
-			\dsum_{j=1}^{n} \det \big( \vect{A_1 A^{\,\prime}_j} ,  \vect{A_1 A^{\,\prime}_{j + 1}} \big)
-		%
+%		\explnext{}
+%			\dsum_{j=1}^{n} \det \big( \vect{A_1 A^{\,\prime}_j} ,  \vect{A_1 A^{\,\prime}_{j + 1}} \big)
+%		%
 		\explnext{}
 			\dsum_{j=1}^{n-2} \det \big( \vect{A_1 A^{\,\prime}_j} ,  \vect{A_1 A^{\,\prime}_{j + 1}} \big)
 			+
@@ -388,7 +385,7 @@ Dans le cas non-convexe, les choses se compliquent a priori, car nous ne maîtri
     
     \begin{itemize}
 		\item \textbf{Cas de base.} 
-		C'est immédiat.
+		L'égalité est immédiate pour les triangles.
 	
 	
 		\item \textbf{Hérédité.}
