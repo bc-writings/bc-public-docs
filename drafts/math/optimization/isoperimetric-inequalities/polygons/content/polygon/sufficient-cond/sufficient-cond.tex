@@ -1,80 +1,92 @@
-Selon le fait \ref{nece-cond}, si parmi les \ngones\ de périmètre fixé, il en existe un qui maximise l'aire, alors ce ne peut être que le \ngone\ régulier. Nous allons établir que cette condition nécessaire est suffisante. Pour cela, nous avons juste besoin de savoir qu'il existe au moins un \ngone\ d'aire maximale.
-Comme dans la remarque \ref{tri-topo-comp}, nous allons convier le couple continuité/compacité, mais ici les choses se compliquent, car nous allons devoir accepter de travailler avec des polygones croisés, et par conséquent il nous faut un moyen de mesurer la surface de tels polygones (le vrai point délicat est ici). 
-Plaçons-nous d'un point de vue informatique: comme on sait calculer l'aire d'un triangle via le calcul d'un déterminant,%
-\footnote{
-	Il est connu que $\area{ABC} = \dfrac12 \abs{\det \big( \vect{AB} , \vect{AC} \big)}$.
-}
-il est naturel de chercher à calculer l'aire d'un \ngone\ en utilisant des triangles. Voici une méthode possible qui a priori pourrait dépendre du point $\Omega$ employé (le fait \ref{garea-pt-ct}, donné plus bas, justifiera le bien fondé de cette méthode).
-
-\begin{multicols}{2}
-	\small\itshape
-    \begin{center}
-        \includegraphics[scale=.4]{content/polygon/sufficient-cond/convex-1.png}
-        
-       	\smallskip
-	
-		$\num{14.5} = 4 \cdot 6 - \dfrac{2 \cdot 4 + 2 \cdot 1 + 3 \cdot 2 + 1 \cdot 3}{2}$
-    \end{center}
-
-	\columnbreak
-	
-    \begin{center}
-        \includegraphics[scale=.4]{content/polygon/sufficient-cond/convex-2.png}
-        
-       	\smallskip
-	
-		$\num{14.5} = 2 + 7 + 4 + \num{4.5} - 4 \vphantom{\dfrac22}$
-    \end{center}
-\end{multicols}
-
-
-Ce mode de calcul est celui employé par \geogebra\ qui donne une aire de \num{6.5} pour le polygone croisé de la bande dessinée ci-après qui détaille les calculs faits: les aires algébriques représentées en vert sont positives, et celles en rouge négatives.
-Nous obtenons un total de $( - \num{6.5})$, soit la valeur fournie par \geogebra\ au signe près.
-
-\newpage
-
-\begin{multicols}{3}
-    \small\itshape
-    
-    \begin{center}
-        \includegraphics[scale=.4]{content/polygon/sufficient-cond/why.png}
-    \end{center}
-    
-    \foreach \i in {3,1,4,2,5} {
-    	\begin{center}
-            \includegraphics[scale=.4]{content/polygon/sufficient-cond/why-step-\i.png}
-        \end{center}
-	}
-\end{multicols}
-
-
-Avant de formaliser ce qui précède, il faut noter que la notion d'aire algébrique est à manier avec prudence lorsqu'on la découvre. 
-Si c'est votre cas, que pensez-vous de l'aire algébrique du quadrilatère croisé $ABCD$ ci-dessous qui est un antiparallélogramme très particulier? Réponse en note de bas de page.%
-\footnote{
-    La réponse est $0$. Comme nous verrons que le choix de $\Omega$ est libre, il suffit de faire les calculs avec $\Omega$ l'intersection des segments $[AD]$ et $[BC]$.
-    On peut tout de même donner du sens à ceci. Voici comment. 
-    Plongeons-nous dans l'espace. 
-    Imaginons une toile rectangulaire rouge sur le dessus, et verte en dessous.
-    Tournons de \qty{180}{\degree} verticalement l'un des côtés du rectangle.
-    En supposant que la toile soit parfaitement tendue, nous obtenons, vue de dessus, un antiparallélogramme dont l'un des triangles est vert, et l'autre rouge.
-    De façon savante, les deux faces ont deux orientations différentes. Nous reparlerons de cette notion par la suite.  
-}
-
-\begin{center}
-    \includegraphics[scale=.4]{content/polygon/sufficient-cond/anti-para.png}
-\end{center}
-
-
-% ----------------------- %
-
-
-\begin{defi} \label{garea-pt-ct}
-    Pour toute \nline\  $\setproba{L} = A_1 A_2 \cdots A_n$, on définit $\big( A^{\,\prime}_i \big)_{i \in \ZZ}$ comme étant $n$-périodique, et vérifiant $A^{\,\prime}_{i} = A_i$ sur $\ZintervalC{1}{n}$.
-\end{defi}
-
-
-% ----------------------- %
-
+%Selon le fait \ref{nece-cond}, si parmi les \ngones\ de périmètre fixé, il en existe un qui maximise l'aire, alors ce ne peut être que le \ngone\ régulier. Nous allons établir que cette condition nécessaire est suffisante. Pour cela, nous avons juste besoin de savoir qu'il existe au moins un \ngone\ d'aire maximale.
+%Comme dans la remarque \ref{tri-topo-comp}, nous allons convier le couple continuité/compacité, mais ici les choses se compliquent, car nous allons devoir accepter de travailler avec des polygones croisés, et par conséquent il nous faut un moyen de mesurer la surface de tels polygones (le vrai point délicat est ici). 
+%Plaçons-nous d'un point de vue informatique: comme on sait calculer l'aire d'un triangle via le calcul d'un déterminant,%
+%\footnote{
+%	Il est connu que $\area{ABC} = \dfrac12 \abs{\det \big( \vect{AB} , \vect{AC} \big)}$.
+%}
+%il est naturel de chercher à calculer l'aire d'un \ngone\ en utilisant des triangles.
+%Voici une méthode possible où l'usage du déterminant pour calculer les aires des triangles à partir de coordonnées de vecteurs fait apparaître des signes moins. On obtient alors l'aire géométrique à un signe près. A priori, le résultat dépend du point $\Omega$ employé, mais le fait \ref{garea-pt-ct}, donné plus bas, montrera que ce n'est pas le cas.
+%
+%\begin{multicols}{2}
+%	\small\itshape
+%    \begin{center}
+%		Calcul direct à la main.
+%		
+%		\smallskip
+%		
+%        \includegraphics[scale=.4]{content/polygon/sufficient-cond/convex-1.png}
+%        
+%       	\smallskip
+%	
+%		$\num{14.5} = 4 \cdot 6 - \dfrac{2 \cdot 4 + 2 \cdot 1 + 3 \cdot 2 + 1 \cdot 3}{2}$
+%    \end{center}
+%
+%	\columnbreak
+%	
+%    \begin{center}
+%		Via le déterminant.
+%
+%		\smallskip
+%		
+%        \includegraphics[scale=.4]{content/polygon/sufficient-cond/convex-2.png}
+%        
+%       	\smallskip
+%	
+%		$- \num{14.5} = -2 - 7 - 4 - \num{4.5} + 3 \vphantom{\dfrac22}$
+%    \end{center}
+%\end{multicols}
+%
+%
+%Ce mode de calcul est celui employé par \geogebra\ qui donne une aire de \num{6.5} pour le polygone croisé de la bande dessinée ci-après qui détaille les calculs faits: les aires algébriques représentées en bleu sont positives, et celles en rouge négatives.
+%Nous obtenons un total de $( - \num{6.5})$, soit, de nouveau, la valeur fournie par \geogebra\ au signe près.
+%L'apparition du signe moins dans ce cas et le précédent vient en fait du sens horaire de parcours des polygones comme nous le montrera le fait \ref{route-direction}.
+%
+%%\newpage
+%
+%\begin{multicols}{3}
+%    \small\itshape
+%    
+%    \begin{center}
+%        \includegraphics[scale=.4]{content/polygon/sufficient-cond/why.png}
+%    \end{center}
+%    
+%    \foreach \i in {3,1,4,2,5} {
+%    	\begin{center}
+%            \includegraphics[scale=.4]{content/polygon/sufficient-cond/why-step-\i.png}
+%        \end{center}
+%	}
+%\end{multicols}
+%
+%
+%Avant de formaliser ce qui précède, il faut noter que la notion d'aire algébrique est à manier avec prudence lorsqu'on la découvre. 
+%Si c'est votre cas, que pensez-vous de l'aire algébrique du quadrilatère croisé $ABCD$ ci-dessous qui est un antiparallélogramme très particulier? Réponse en note de bas de page.%
+%\footnote{
+%    La réponse est $0$. Comme nous verrons que le choix de $\Omega$ est libre, il suffit de faire les calculs avec $\Omega$ l'intersection des segments $[AD]$ et $[BC]$.
+%    On peut tout de même donner du sens à ceci. Voici comment. 
+%    Plongeons-nous dans l'espace. 
+%    Imaginons une toile rectangulaire rouge sur le dessus, et verte en dessous.
+%    Tournons de \qty{180}{\degree} verticalement l'un des côtés du rectangle.
+%    En supposant que la toile soit parfaitement tendue, nous obtenons, vue de dessus, un antiparallélogramme dont l'un des triangles est vert, et l'autre rouge.
+%    De façon savante, les deux faces ont deux orientations différentes. Nous reparlerons de cette notion par la suite.  
+%}
+%
+%\begin{center}
+%    \includegraphics[scale=.4]{content/polygon/sufficient-cond/anti-para.png}
+%\end{center}
+%
+%
+%% ----------------------- %
+%
+%
+%\begin{defi} \label{garea-pt-ct}
+%    Pour toute \nline\  $\setproba{L} = A_1 A_2 \cdots A_n$, on définit $\big( A^{\,\prime}_i \big)_{i \in \ZZ}$ comme étant $n$-périodique, et vérifiant $A^{\,\prime}_{i} = A_i$ sur $\ZintervalC{1}{n}$.
+%\end{defi}
+%
+%
+%% ----------------------- %
+%
+%
+%\newpage
 
 \begin{fact} \label{garea-pt-ct}
     Soit $\setproba{L} = A_1 A_2 \cdots A_n$ une \nline.
@@ -197,7 +209,7 @@ Si c'est votre cas, que pensez-vous de l'aire algébrique du quadrilatère crois
 
 
 \begin{proof}
-    C'est une synthèse des faits \ref{nline-shift-inva} et \ref{nline-rota-inva}.
+    C'est une conséquence directe des faits \ref{nline-shift-inva} et \ref{nline-rota-inva}.
 \end{proof}
     
     
@@ -209,25 +221,21 @@ Pour notre démonstration finale, nous aurons besoin de savoir que $\garea{\setp
 	Nous obtenons ainsi la généralisation de l'aire géométrique usuelle au cas des polygones croisés.
 }
 Ceci est évident dans le cas convexe, car il suffit de choisir l'isobarycentre $G$ de $A_1$, $A_2$, ..., $A_n$ pour le calcul de $\garea{\setproba{P}}$: en effet, avec ce choix, tous les déterminants $\det \big( \vect{G A^{\,\prime}_i} , \vect{G A^{\,\prime}_{i+1}} \big)$ ont le même signe.
-Dans le cas non-convexe, les choses se compliquent, car nous ne maîtrisons plus les signes des déterminants. 
+Dans le cas non-convexe, les choses se compliquent a priori, car nous ne maîtrisons plus les signes des déterminants. Heureusement nous avons le résultat fort suivant qui est un pas important pour atteindre notre but.
 
 
-
-???
-La présence de la valeur absolue nous demande de connaître mieux le signe
-
-    
-    
-% ----------------------- %
-
-
-\begin{fact}
-    Pour tout \ngone\ $\setproba{P}$, nous avons: $\garea{\setproba{P}} = \area{\setproba{P}}$.
+\begin{fact} \label{route-direction}
+    Soit un \ngone\ $\setproba{P}$.
+    On suppose la \nline\ $\setproba{L} = A_1 A_2 \cdots A_n$ associée à $\setproba{P}$ telle que les points $A_1$, $A_2$, ..., $A_n$ soient parcourus dans le sens trigonométrique, ou anti-horaire. Une telle \nline\ sera dite \og \emph{positive} \fg.%
+    \footnote{
+    	Bien noté que cette notion ne peut exister lorsqu'on considère un polygone croisé. De façon cachée, nous utilisons le célèbre théorème de Jordan, dans sa forme polygonale. 
+    }
+    Sous cette hypothèse, nous avons $\mu(\setproba{L}) \geq 0$.
 \end{fact}
 
 
 \begin{proof}
-    Le théorème de triangulation affirme que tout \ngone\ est triangulable comme dans l'exemple très basique suivant qui laisse envisager une démonstration par récurrence en retirant l'un des triangles ayant deux côtés correspondant à deux côtés consécutifs du \ngone\ (pour peu qu'un tel triangle existe toujours).
+	Le théorème de triangulation affirme que tout \ngone\ est triangulable comme dans l'exemple très basique suivant qui laisse envisager une démonstration par récurrence en retirant l'un des triangles ayant deux côtés correspondant à deux côtés consécutifs du \ngone\ (pour peu qu'un tel triangle existe toujours).
 
     
     \begin{multicols}{3}
@@ -287,75 +295,129 @@ La présence de la valeur absolue nous demande de connaître mieux le signe
     \end{multicols}
     
     
-    
-    Soit $\setproba{P}$ un \ngone\ avec $n \geq 4$, et $\setproba{L} = A_1 A_2 \cdots A_n$ la \nline\ obtenue en parcourant la frontière de $\setproba{P}$ à partir d'un sommet $A_1$ tel que $A_1 A_{n-1} A_n$ soit une oreille de $\setproba{P}$.
-    
-    
-    \begin{center}
-        \includegraphics[scale=.4]{content/polygon/sufficient-cond/triangulation-proof.png}
-    \end{center}
-    
-    
-    Nous voilà prêt à raisonner par récurrence sur $n \in \NN_{\geq3}$.
-    Le cas $n = 3$ ne posant aucune difficulté, nous allons juste considérer l'étape de récurrence en reprenant les notations précédentes.
-    Soit ensuite
-    $\setproba{P}^{\,\prime}$ le \kgone\ associé à la \kline\ $\setproba{L}^{\,\prime} = A_2 \cdots A_n$ où $k = n-1$ vérifie $k \in \NN_{\geq3}$.
-    
-    \begin{itemize}
-    	\item $\area{\setproba{P}} = \area{A_1 A_{n-1} A_n}  +  \area{\setproba{P}^{\,\prime}}$, 
-		car $A_1 A_{n-1} A_n$ est une oreille de $\setproba{P}$.
+	Nous allons raisonner par récurrence sur $n \in \NN_{\geq3}$.
+	
+	\begin{itemize}
+		\item \textbf{Cas de base.} 
+		Soit $ABC$ un triangle où les sommets $A$, $B$ et $C$ sont parcourus dans le sens trigonométrique.
+		
+		\noindent
+		Si l'on connait le lien entre déterminant et produit vectoriel, il n'y a rien à faire. Pour les autres, il existe une méthode élégamment brutale: par une rotation directe, qui ne change pas le signe du déterminant, on se ramène au cas où $A\coord{0|0}$, $B\coord{AB|0}$ et $C\coord{x_C | y_C}$, de sorte que $\det \big( \vect{AB} , \vect{AC} \big) = AB \cdot y_C$.
 
 
-    	\item $\area{A_1 A_{n-1} A_n} = \garea{A_1 A_{n-1} A_n}$ et $\area{\setproba{P}^{\,\prime}} = \garea{\setproba{P}^{\,\prime}}$ 
-		par récurrence.
+		\item \textbf{Hérédité.} 
+		Soient un \ngone\ $\setproba{P}$, avec $n \in \NN_{>3}$, et $\setproba{L} = A_1 A_2 \cdots A_n$ une \nline\ positive qui lui est associée. On peut supposer que $A_{n-1} A_n A_1$ est une oreille du \ngone\ $\setproba{P}$.
 
 
-    	\item Il n'est pas certain que $\garea{A_1 A_{n-1} A_n} + \garea{\setproba{P}^{\,\prime}} = \garea{\setproba{P}}$,
-		du fait de l'utilisation de la valeur absolue pour définir une aire généralisée. Nous allons voir que c'est malgré tout le cas. 
-		Quitte à changer de sens parcours de la frontière de $\setproba{P}$, et à renommer les sommets, 
-		tout en utilisant $\Omega = A_n$ comme point de calcul,
-		nous pouvons supposer que 
-		$2 \garea{\setproba{P}^{\,\prime}}
-		= \dsum_{j=1}^{n-2} \det \big( \vect{A_n A_j} , \vect{A_n A_{j + 1}} \big) 
-		+ \det \big( \vect{A_n A_{n-1}} , \vect{A_n A_1} \big)$.
-		Nous effectuons alors les calculs suivants.
+	    \begin{multicols}{2}
+    	    \small\itshape
+    		\begin{center}
+        	\includegraphics[scale=.4]{content/polygon/sufficient-cond/triangulation-proof-OK.png}
+        
+	        	\smallskip
+    	   		$A_{n-1} A_n A_1$ est une oreille.
+    	\end{center}
+	
+	    	\begin{center}
+        	\includegraphics[scale=.4]{content/polygon/sufficient-cond/triangulation-proof-KO.png}
+        
+        		\smallskip
+    	   		$A_{n-1} A_n A_1$ n'est pas une oreille.
+    		\end{center}
+    	\end{multicols}
+		
+		
+		\noindent
+		Notons $\setproba{P}^{\,\prime}$ le \kgone\ associé à la \kline\ $\setproba{L}^{\,\prime} = A_1 \cdots A_{n-1}$ où $k = n-1$ vérifie $k \in \NN_{\geq3}$. Par hypothèse, $\setproba{L}^{\,\prime}$ est positive. Nous arrivons aux calculs élémentaires suivants en utilisant $\Omega = A_1$ comme point de calcul de $\mu(\setproba{L})$.
 
 		\leavevmode\kern-2em%
 		\begin{stepcalc}[style=ar*]
-			\pm 2 \garea{\setproba{P}}
-		\explnext{Nous ne connaissons pas encore \\ le signe de la somme des déterminants.}
-			\dsum_{j=1}^{n} \det \big( \vect{A_n A^{\,\prime}_j} ,  \vect{A_n A^{\,\prime}_{j + 1}} \big)
+			\mu(\setproba{L})
+		%
 		\explnext{}
-			\dsum_{j=1}^{n-2} \det \big( \vect{A_n A^{\,\prime}_j} , \vect{A_n A^{\,\prime}_{j + 1}} \big)
+			\dsum_{j=1}^{n} \det \big( \vect{A_1 A^{\,\prime}_j} ,  \vect{A_1 A^{\,\prime}_{j + 1}} \big)
+		%
+		\explnext{}
+			\dsum_{j=1}^{n-2} \det \big( \vect{A_1 A^{\,\prime}_j} ,  \vect{A_1 A^{\,\prime}_{j + 1}} \big)
 			+
-			\det \big( \vect{A_n A^{\,\prime}_{n-1}} ,  \vect{A_n A^{\,\prime}_n} \big)
+			\det \big( \vect{A_1 A^{\,\prime}_{n-1}} ,  \vect{A_1 A^{\,\prime}_n} \big)
 			+
-			\det \big( \vect{A_n A^{\,\prime}_n} ,  \vect{A_n A^{\,\prime}_{n+1}} \big)
+			\det \big( \vect{A_1 A^{\,\prime}_n} ,  \vect{A_1 A^{\,\prime}_{n+1}} \big)
+		%
 		\explnext*{$A_1 = A^{\,\prime}_{n+1}$ \\
 		           $A_i = A^{\,\prime}_i$ \\ pour $i \leq n$}%
 		          {}
-			2 \garea{\setproba{P}^{\,\prime}}
-			-
-			\det \big( \vect{A_n A_{n-1}} , \vect{A_n A_1} \big)
-		\explnext{}
-			2 \garea{\setproba{P}^{\,\prime}}
+			\dsum_{j=1}^{n-2} \det \big( \vect{A_1 A_j} ,  \vect{A_1 A_{j + 1}} \big)
 			+
-			\det \big( \vect{A_n A_1} , \vect{A_n A_{n-1}} \big)
+			\det \big( \vect{A_1 A_{n-1}} ,  \vect{A_1 A_n} \big)
+			+
+			\det \big( \vect{A_1 A_n} ,  \vect{A_1 A_1} \big)
+		%
+		\explnext{}
+			\dsum_{j=1}^{n-2} \det \big( \vect{A_1 A_j} ,  \vect{A_1 A_{j + 1}} \big)
+			+
+			\det \big( \vect{A_1 A_{n-1}} ,  \vect{A_1 A_n} \big)
+		%
+		\explnext*{$\det \big( \vect{A_1 A_{n-1}} ,  \vect{A_1 A_1} \big) = 0$}%
+		          {}
+			\mu(\setproba{L}^{\,\prime})
+			+
+			\mu(A_{n-1} A_n A_1)
 		\end{stepcalc}
-		
+
+
 		\noindent
-		Il faut donc justifier que nécessairement 
-		$2 \garea{A_1 A_{n-1} A_n} = \det \big( \vect{A_n A_1} , \vect{A_n A_{n-1}} \big)$,
-		car ceci donnera la positivité de la dernière somme qui sera donc égale à $2 \garea{\setproba{P}}$, puis nous aurons 
-		$2 \garea{\setproba{P}} = 2 \garea{\setproba{P}^{\,\prime}} + 2 \garea{A_1 A_{n-1} A_n}$ 
-		comme souhaité.
-		
-		
-		
-		XXXXX
+		Par hypothèse de récurrence, nous savons que
+		$\mu(\setproba{L}^{\,\prime}) \geq 0$, 
+		et comme $A_{n-1} A_n A_1$ est une oreille de $\setproba{P}$, la $3$-ligne $A_{n-1} A_n A_1$ est forcément positive, d'où $\mu(A_{n-1} A_n A_1) \geq 0$ d'après le cas de base.
+		Nous arrivons bien à $\mu(\setproba{L}) \geq 0$, ce qui permet de finir aisément la démonstration par récurrence.
+	\end{itemize}
+\end{proof}
+
+    
+% ----------------------- %
 
 
-    	\item Les points précédents donnent bien $\area{\setproba{P}} = \garea{\setproba{P}}$, ce qui achève notre démonstration par récurrence.
+\begin{fact} \label{ngone-garea-is-area}
+    Pour tout \ngone\ $\setproba{P}$, nous avons: $\garea{\setproba{P}} = \area{\setproba{P}}$.
+\end{fact}
+
+
+\begin{proof}
+    Faisons une preuve par récurrence.
+    
+    \begin{itemize}
+		\item \textbf{Cas de base.} 
+		C'est immédiat.
+	
+	
+		\item \textbf{Hérédité.}
+		Reprenons les notations de la démonstration du fait \ref{route-direction} : $\setproba{P}$ est un \ngone\ , avec $n \in \NN_{>3}$, $\setproba{L} = A_1 A_2 \cdots A_n$ une \nline\ positive qui lui est associée, $A_{n-1} A_n A_1$ une oreille du \ngone\ $\setproba{P}$, $\setproba{P}^{\,\prime}$ le \kgone\ associé à la \kline\ $\setproba{L}^{\,\prime} = A_1 \cdots A_{n-1}$ où $k = n-1$ vérifie $k \in \NN_{\geq3}$, avec $\setproba{L}^{\,\prime}$ positive. Nous arrivons aux calculs élémentaires suivants.
+
+		\leavevmode\kern-2em%
+		\begin{stepcalc}[style=ar*]
+			\area{\setproba{P}}
+		%
+		\explnext*{$A_{n-1} A_n A_1$ est une oreille de $\setproba{P}$.}%
+		          {}
+		    \area{\setproba{P}^{\,\prime}} + \area{A_{n-1} A_n A_1}
+		%
+		\explnext*{Hypothèse de récurrence et cas de base.}%
+		          {}
+		    \garea{\setproba{P}^{\,\prime}} + \garea{A_{n-1} A_n A_1}
+		%
+		\explnext*{Voir le fait \ref{route-direction}.}%
+		          {}
+		    \frac12 \big( \mu(\setproba{L}^{\,\prime}) + \mu(A_{n-1} A_n A_1) \big)
+		%
+		\explnext*{Comme dans la preuve du fait \ref{route-direction}.}%
+		          {}
+		    \frac12 \mu(\setproba{L})
+		%
+		\explnext*{Voir le fait \ref{route-direction}.}%
+		          {}
+		    \garea{\setproba{P}}
+		\end{stepcalc}
     \end{itemize}
 \end{proof}
 
@@ -387,7 +449,7 @@ La présence de la valeur absolue nous demande de connaître mieux le signe
 
 
 \begin{proof}
-	Ce qui suit nous donne plus généralement l'existence d'un \ngone, au moins, maximisant l'aire généralisée parmi toutes les \nlines\ de périmètre fixé $p$.
+	Ce qui suit nous donne plus généralement l'existence d'un \ngone, au moins, maximisant l'aire généralisée parmi toutes les \nlines\ de périmètre fixé $p$. Ce résultat plus fort convient d'après le fait \ref{ngone-garea-is-area}.
     %    
     \begin{itemize}
         \item On munit le plan d'un repère orthonormé direct $\pvaxes{O | i | j}$. 
