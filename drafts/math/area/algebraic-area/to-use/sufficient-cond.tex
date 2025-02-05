@@ -80,7 +80,7 @@
 %
 %
 %\begin{defi} \label{garea-pt-ct}
-%    Pour toute \nline\ $\setproba{L} = A_1 A_2 \cdots A_n$, on définit $\big( A^{\,\prime}_i \big)_{i \in \ZZ}$ comme étant $n$-périodique, et vérifiant $A^{\,\prime}_{i} = A_i$ sur $\ZintervalC{1}{n}$.
+%    Pour toute \nline\  $\setproba{L} = A_1 A_2 \cdots A_n$, on définit $\big( A^{\,\prime}_i \big)_{i \in \ZZ}$ comme étant $n$-périodique, et vérifiant $A^{\,\prime}_{i} = A_i$ sur $\ZintervalC{1}{n}$.
 %\end{defi}
 %
 %
@@ -421,37 +421,60 @@
 %
 %
 %% ----------------------- %
+
+
+Avant d'avancer, nous devons mieux comprendre le calcul de $\garea{\setproba{L}}$ pour une \nline\ $\setproba{L}$ correspondant à un polygone croisé. Pour cela commençons par expliquer le coloriage standard de la surface d'un polygone croisé, ou non, comme dans les images annotées ci-dessous qui ont été produites via \geogebra.
+	
+		
+\begin{multicols}{2}
+    \small\itshape
+    
+    \begin{center}
+        \includegraphics[scale=.35]{content/polygon/sufficient-cond/inside-outside-ngone.png}
+        
+        \smallskip
+		Cas non croisé.
+    \end{center}
+	
+    \begin{center}
+        \includegraphics[scale=.35]{content/polygon/sufficient-cond/inside-outside-not-ngone.png}
+	
+        \smallskip
+		Cas croisé.
+    \end{center}
+\end{multicols}
+
+
+Le coloriage se fait la règle dite de parité. Pour savoir si un point $M$ est à l'intérieur du \ngone, on procède comme suit.
 %
-%
-%Avant d'avancer, nous devons mieux comprendre le calcul de $\garea{\setproba{L}}$ pour une \nline\ $\setproba{L}$ correspondant à un polygone croisé.
-%Considérons le figure suivante produite via \geogebra, ce dernier donnant les valeurs indiquées sur l'image où l'on constate que $\num{9.4} - \num{2.41} + \num{4.84} = \num{11.83}$.
-%
-%
-%\begin{center}
-%    \includegraphics[scale=.35]{content/polygon/sufficient-cond/garea-trick.png}
-%\end{center}
-%	
-%	
-%Pour calculer l'aire généralisée d'un polygone croisé associé à la \nline\ $\setproba{L}$, il suffit de procéder comme suit (cette méthode est utile pour un humain).
-%%
-%\begin{itemize}
-%    \item On part d'un point, puis on parcourt la \nline\ dans un sens donné jusqu'à la première intersection croisée. Dans notre exemple, on va de $A$ à $R$.
-%
-%    \item De cette intersection, on change de direction pour choisir celle allant vers notre point de départ. Dans notre exemple, nous obtenons la \nline\ $ABCDR$.
-%
-%    \item Le reste des points non parcourus fournit une autre \nline\ qui est $REFGHJ$ dans notre cas. Formellement, nous avons scindé $ABCDEFGHJ$ en $ABCDR$ et $REFGHJ$.
-%    
-%    \item On répète ce processus sur les sous \nlines\ obtenues dans que l'on ne tombe pas sur un \ngone. Pour notre exemple, nous avons juste trois \ngones\ $ABCDR$, $RESJ$ et $SFGH$. Les \ngones\ obtenus sont ordonnées de façon naturelle pour respecter l'ordre de la \nline\ initiale.
-%    
-%    \item Le calcul de l'aire généralisée se fait en ajoutant les aires des \ngones\ de rang impair, puis en retirant celles des \ngones\ de rang pair. En appliquant la valeur absolue au résultat obtenu, nous obtenons l'aire généralisée du polygone croisé initial. Dans notre exemple, nous devons calculer $\area{ABCDR} - \area{RESJ} + \area{SFGH}$.
-%\end{itemize}
-%
-%Pourquoi cela fonctionne-t-il ? Il suffit de revenir à la définition de $\mu(\setproba{L})$ pour constater qu'une règle de type Chasles existe, et de plus qu'en utilisant un point d'intersection de deux arêtes pour un calcul effectif de $\mu(\setproba{L})$, nous avons un changement de sens de parcours au niveau de ce point d'intersection, ceci justifiant les changements de signe de notre recette, qui n'en est plus une.
-%Pour bien comprendre cette approche plus combinatoire que géométrique, voici une  bande dessinée qui donne
-%% .28 + 2.22 - 5.36 - 3.16 - 4.28
-%$\num{3.16} + \num{5.36} + \num{4.28} - \num{.28} - \num{2.22} = \num{10.3}$ à la fin.
-%
-%\newpage
+\begin{itemize}
+	\item On  choisit une direction que l'on oriente. Pour nous, c'est vers la droite horizontalement.
+
+	\item On part de $M$ dans le sens choisi, et on compte le nombre total $r$ d'arêtes rencontrées. Pour un sommet rencontré, on compte donc deux arêtes en plus. Pour un arête de même direction que celle retenue, on compte quatre arêtes en plus (deux pour chaque sommet).
+
+	\item $M$ est à l'intérieur du \ngone, si, et seulement si, $r$ est impair.%
+	\footnote{
+		Ce point est délicat à justifier proprement. En fait, il permet de démontrer le faussement simple théorème de Jordan pour les polygones.
+	}
+\end{itemize}
+
+
+
+HHH
+
+
+\begin{center}
+    \includegraphics[scale=.35]{content/polygon/sufficient-cond/garea-trick.png}
+
+    \smallskip
+    $\num{9.4} - \num{2.41} + \num{4.84} = \num{11.83}$
+\end{center}
+	
+	
+HHH
+
+
+\newpage
 
 \begin{multicols}{3}
 	\foreach \n in {1,4,2,5,3,6} {
@@ -462,11 +485,32 @@
 \end{multicols}
 
 
+% .28 + 2.22 - 5.36 - 3.16 - 4.28
+Nous obtenons bien $\abs{\num{.28} + \num{2.22} - \num{5.36} - \num{3.16} - \num{4.28}} = \num{10.3}$.
+
+
+
+
+
+
+\begin{center}
+    \includegraphics[scale=.4]{content/polygon/sufficient-cond/garea-danger.png}
+\end{center}
+
+
+
+
+
+
+
+
+
+
 % ----------------------- %
 
 
 \begin{fact} \label{no-cross-max}
-    Si une \nline\ $\setproba{L}$ non dégénérée n'est pas un \ngone, donc est un polygone croisé, alors il existe une \nline\ $\setproba{L}^{\,\prime}$ telle que 
+    Si une \nline\ $\setproba{L}$ non dégénérée n'est pas un \ngone, donc est un polygone croisé, alors on peut construire une \nline\ $\setproba{L}^{\,\prime}$ telle que 
 	$\perim{\setproba{L}^{\,\prime}} = \perim{\setproba{L}}$ 
 	et 
 	$\garea{\setproba{L}^{\,\prime}} > \garea{\setproba{L}}$.
@@ -474,34 +518,44 @@
 
 
 \begin{proof}
-	Nous allons utiliser une approche purement algébrique.
-	%
-	\begin{itemize}
-	    \item Augmentons $\setproba{L} = A_1 A_2 \cdots A_n$ des $k$ points d'intersection des arêtes non contigües en respectant le parcours des sommets $A_i$ comme dans les explications données un peu plus haut.
-	    Nous obtenons
-	     $\setproba{L}_{+}
-	    = A_1 \cdots A_{i_1} I_1 
-	      A_{i_1 + 1} \cdots A_{i_2} I_2
-	      A_{i_2 + 1}
-	  	  \cdots 
-		  A_{i_k} I_k A_{i_k + 1} \cdots A_{i_n}$.
-	    
-	    \item Comme expliqué précédemment, nous avons $R$ et $S$ deux points d'intersection d'arêtes non contigües de $\setproba{L}$, tels que  
-	    $\setproba{L}_1 = A_1 A_2 \cdots A_n$ et 
-	    $\setproba{L}_2 = A_1 A_2 \cdots A_n$.
-
-	    \item XXX
-
-	    \item XXX
-
-	    \item XXX
-
-	    \item XXX
-
-	    \item XXX
-
-	    \item XXX
-	\end{itemize}
+	XXXX
+	
+	
+	
+	
+	
+	
+	\newpage
+	
+	FAUX
+	
+	L'idée est simple: comme nous savons que les triangles $A^{\,\prime}_i A^{\,\prime}_{i+1} A^{\,\prime}_{i+2}$ ne sont pas tous orientés de la même façon, il suffit de remplacer l'un de ces triangles par son symétrique relativement à la droite $( A^{\,\prime}_i A^{\,\prime}_{i+2} )$ pour diminuer ou augmenter $\mu(\setproba{L})$ suivant le signe initial de $\mu(\setproba{L})$.
+	Les figures suivantes illustrent cette idée que nous formalisons juste après
+	(les nombres indiquées sont les aires calculées par \geogebra).
+	
+%    \begin{multicols}{3}
+%    	\small\itshape
+%	
+%        \foreach \i/\t in {1/{Valeur initiale}, 2/{Coup perdant}, 3/{Coup gagnant}} {
+%	        \begin{center}
+%    	    	\includegraphics[scale=.35]{content/polygon/sufficient-cond/no-cross-max-\i.png}
+%	
+%				\smallskip
+%				\t.
+%        	\end{center}
+%        }
+%    \end{multicols}
+    
+        
+    Supposons pour commencer que $\mu(\setproba{L}) \leq 0$. Dans ce cas, considérons $A^{\,\prime}_i A^{\,\prime}_{i+1} A^{\,\prime}_{i+2}$ orienté positivement, autrement tel que
+    $\delta = \det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}} , \vect{A^{\,\prime}_i A^{\,\prime}_{i+2}} \big) > 0$.
+    En calculant $\mu(\setproba{L})$ via $\Omega = A^{\,\prime}_i$, la somme des déterminants de la définition contient $\delta$.
+    En remplaçant $A^{\,\prime}_i A^{\,\prime}_{i+1} A^{\,\prime}_{i+2}$ par son symétrique relativement à la droite $( A^{\,\prime}_i A^{\,\prime}_{i+2} )$, nous obtenons une nouvelle \nline\ $\setproba{L}^{\,\prime}$ telle que le calcul de $\mu(\setproba{L}^{\,\prime})$ se fait en remplaçant $\delta$ par $(- \delta)$ dans la définition de $\mu(\setproba{L})$.
+    Nous avons alors $\mu(\setproba{L}^{\,\prime}) < \mu(\setproba{L}) \leq 0$, et donc
+   	$\garea{\setproba{L}^{\,\prime}} > \garea{\setproba{L}}$ en appliquant la valeur absolue.
+    Comme $\perim{\setproba{L}^{\,\prime}} = \perim{\setproba{L}}$, clairement, le contrat est rempli dès que $\mu(\setproba{L}) \leq 0$.
+    
+    Si $\mu(\setproba{L}) > 0$, la démarche est similaire, mais via un triangle orienté négativement.
 \end{proof}
 
 
