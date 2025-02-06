@@ -443,15 +443,26 @@
 %    
 %    \item On répète ce processus sur les sous \nlines\ obtenues dans que l'on ne tombe pas sur un \ngone. Pour notre exemple, nous avons juste trois \ngones\ $ABCDR$, $RESJ$ et $SFGH$. Les \ngones\ obtenus sont ordonnées de façon naturelle pour respecter l'ordre de la \nline\ initiale.
 %    
-%    \item Le calcul de l'aire généralisée se fait en ajoutant les aires des \ngones\ de rang impair, puis en retirant celles des \ngones\ de rang pair. En appliquant la valeur absolue au résultat obtenu, nous obtenons l'aire généralisée du polygone croisé initial. Dans notre exemple, nous devons calculer $\area{ABCDR} - \area{RESJ} + \area{SFGH}$.
+%    \item Le calcul de l'aire généralisée se fait en ajoutant les aires des \ngones\ de rang impair, puis en retirant celles des \ngones\ de rang pair. En appliquant la valeur absolue au résultat obtenu, nous obtenons l'aire généralisée du polygone croisé initial. Dans notre exemple, nous devons calculer $\abs{ \area{ABCDR} - \area{RESJ} + \area{SFGH} }$.
 %\end{itemize}
 %
-%Pourquoi cela fonctionne-t-il ? Il suffit de revenir à la définition de $\mu(\setproba{L})$ pour constater qu'une règle de type Chasles existe, et de plus qu'en utilisant un point d'intersection de deux arêtes pour un calcul effectif de $\mu(\setproba{L})$, nous avons un changement de sens de parcours au niveau de ce point d'intersection, ceci justifiant les changements de signe de notre recette, qui n'en est plus une.
-%Pour bien comprendre cette approche plus combinatoire que géométrique, voici une  bande dessinée qui donne
+%Pourquoi cela fonctionne-t-il ? Il suffit de revenir à la définition de $\mu(\setproba{L})$ pour constater qu'une règle de type Chasles existe, et de plus qu'en utilisant un point d'intersection de deux arêtes pour un calcul effectif de $\mu(\setproba{L})$, nous avons un changement de sens de parcours au niveau de ce point d'intersection, ceci justifiant les changements de signe de notre recette, qui n'en est plus une.%
+%\footnote{
+%	Notant $\setproba{L} = A_1 A_2 \cdots A_n$, on crée la \nline\ $\setproba{L}_{+}$ en ajoutant les $k$ points d'intersection $(I_j)_{1 \leq j \leq k}$ des arêtes non contigües en respectant le parcours des sommets $(A_i)_{1 \leq i \leq n}$.
+%	Nous pouvons alors écrire
+%	 $\setproba{L}_{+}
+%	= A_1 \cdots A_{i_1} I_1 
+%	  A_{i_1 + 1} \cdots A_{i_2} I_2
+%	  A_{i_2 + 1}
+%	  \cdots 
+%	  A_{i_k} I_k A_{i_k + 1} \cdots A_{i_n}$.
+%	Cette écriture permet de facilement valider les affirmations faites avec un certain abus d'autorité de la part de l'auteur de ce document.
+%}
+%Pour mieux comprendre cette approche plus combinatoire que géométrique, voici une  bande dessinée qui donne
 %% .28 + 2.22 - 5.36 - 3.16 - 4.28
 %$\num{3.16} + \num{5.36} + \num{4.28} - \num{.28} - \num{2.22} = \num{10.3}$ à la fin.
-%
-%\newpage
+
+\newpage
 
 \begin{multicols}{3}
 	\foreach \n in {1,4,2,5,3,6} {
@@ -474,34 +485,7 @@
 
 
 \begin{proof}
-	Nous allons utiliser une approche purement algébrique.
-	%
-	\begin{itemize}
-	    \item Augmentons $\setproba{L} = A_1 A_2 \cdots A_n$ des $k$ points d'intersection des arêtes non contigües en respectant le parcours des sommets $A_i$ comme dans les explications données un peu plus haut.
-	    Nous obtenons
-	     $\setproba{L}_{+}
-	    = A_1 \cdots A_{i_1} I_1 
-	      A_{i_1 + 1} \cdots A_{i_2} I_2
-	      A_{i_2 + 1}
-	  	  \cdots 
-		  A_{i_k} I_k A_{i_k + 1} \cdots A_{i_n}$.
-	    
-	    \item Comme expliqué précédemment, nous avons $R$ et $S$ deux points d'intersection d'arêtes non contigües de $\setproba{L}$, tels que  
-	    $\setproba{L}_1 = A_1 A_2 \cdots A_n$ et 
-	    $\setproba{L}_2 = A_1 A_2 \cdots A_n$.
-
-	    \item XXX
-
-	    \item XXX
-
-	    \item XXX
-
-	    \item XXX
-
-	    \item XXX
-
-	    \item XXX
-	\end{itemize}
+	????
 \end{proof}
 
 
