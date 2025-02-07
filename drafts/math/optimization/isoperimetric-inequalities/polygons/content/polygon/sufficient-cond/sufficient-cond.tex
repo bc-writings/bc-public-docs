@@ -1,5 +1,5 @@
-Selon le fait \ref{nece-cond}, si parmi les \ngones\ de périmètre fixé, il en existe un qui maximise l'aire, alors ce ne peut être que le \ngone\ régulier. Nous allons établir que cette condition nécessaire est suffisante. Pour cela, nous avons juste besoin de savoir qu'il existe au moins un \ngone\ d'aire maximale.
-Comme dans la remarque \ref{tri-topo-comp}, nous allons convier le couple continuité/compacité, mais ici les choses se compliquent, car nous allons devoir accepter de travailler avec des polygones croisés, et par conséquent il nous faut un moyen de mesurer la surface de tels polygones (le vrai point délicat est ici). 
+Nous allons établir que la condition nécessaire donnée par le fait \ref{nece-cond} est aussi une condition suffisante. Pour cela, nous avons juste besoin de savoir qu'il existe au moins un \ngone\ d'aire maximale.
+Comme dans la remarque \ref{tri-topo-comp}, nous allons convier le couple continuité/compacité, mais ici les choses se compliquent, car nous allons devoir accepter de travailler avec des polygones croisés, et par conséquent il nous faut un moyen de mesurer la surface de tels polygones (le vrai point délicat est ici).
 Plaçons-nous d'un point de vue informatique: comme on sait calculer l'aire algébrique d'un triangle grâce au déterminant,%
 \footnote{
 	On sait que  $\area{ABC} = \frac12 \abs{ \det \big( \vect{AB} , \vect{AC} \big) }$.
@@ -12,27 +12,27 @@ Voici une méthode possible où l'usage du déterminant pour calculer les aires 
 	\small\itshape
     \begin{center}
 		Calcul direct à la main.
-		
+
 		\smallskip
-		
+
         \includegraphics[scale=.4]{content/polygon/sufficient-cond/convex-1.png}
-        
+
        	\smallskip
-	
+
 		$\num{14.5} = 4 \cdot 6 - \dfrac{2 \cdot 4 + 2 \cdot 1 + 3 \cdot 2 + 1 \cdot 3}{2}$
     \end{center}
 
 	\columnbreak
-	
+
     \begin{center}
 		Via le déterminant.
 
 		\smallskip
-		
+
         \includegraphics[scale=.4]{content/polygon/sufficient-cond/convex-2.png}
-        
+
        	\smallskip
-	
+
 		$- \num{14.5} = -2 - 7 - 4 - \num{4.5} + 3 \vphantom{\dfrac22}$
     \end{center}
 \end{multicols}
@@ -46,11 +46,11 @@ L'apparition du signe moins dans ce cas et le précédent vient en fait du sens 
 
 \begin{multicols}{3}
     \small\itshape
-    
+
     \begin{center}
         \includegraphics[scale=.4]{content/polygon/sufficient-cond/why.png}
     \end{center}
-    
+
     \foreach \i in {3,1,4,2,5} {
     	\begin{center}
             \includegraphics[scale=.4]{content/polygon/sufficient-cond/why-step-\i.png}
@@ -59,16 +59,16 @@ L'apparition du signe moins dans ce cas et le précédent vient en fait du sens 
 \end{multicols}
 
 
-Avant de formaliser ce qui précède, il faut noter que la notion d'aire algébrique est à manier avec prudence lorsqu'on la découvre. 
+Avant de formaliser ce qui précède, il faut noter que la notion d'aire algébrique est à manier avec prudence lorsqu'on la découvre.
 Si c'est votre cas, que pensez-vous de l'aire algébrique du quadrilatère croisé $ABCD$ ci-dessous qui est un antiparallélogramme très particulier? Réponse en note de bas de page.%
 \footnote{
     La réponse est $0$. Comme nous verrons que le choix de $\Omega$ est libre, il suffit de faire les calculs avec $\Omega$ l'intersection des segments $[AD]$ et $[BC]$.
-    On peut donner du sens à ceci. Voici comment. 
-    Plongeons-nous dans l'espace. 
+    On peut donner du sens à ceci. Voici comment.
+    Plongeons-nous dans l'espace.
     Imaginons une toile rectangulaire rouge sur le dessus, et verte en dessous.
     Tournons de \qty{180}{\degree} verticalement l'un des côtés du rectangle.
     En supposant que la toile soit parfaitement tendue, nous obtenons, vue de dessus, un antiparallélogramme dont l'un des triangles est vert, et l'autre rouge.
-    De façon savante, les deux faces ont deux orientations différentes. Nous reparlerons de cette notion par la suite.  
+    De façon savante, les deux faces ont deux orientations différentes. Nous reparlerons de cette notion par la suite.
 }
 
 \begin{center}
@@ -80,7 +80,7 @@ Si c'est votre cas, que pensez-vous de l'aire algébrique du quadrilatère crois
 
 
 \begin{defi} \label{garea-pt-ct}
-    Pour toute \nline\ $\setproba{L} = A_1 A_2 \cdots A_n$, on définit $\big( A^{\,\prime}_i \big)_{i \in \ZZ}$ comme étant $n$-périodique, et vérifiant $A^{\,\prime}_{i} = A_i$ sur $\ZintervalC{1}{n}$.
+    Pour tout \ncycle\ $\setproba{L} = A_1 A_2 \cdots A_n$, on définit $\big( A^{\,\prime}_i \big)_{i \in \ZZ}$ comme étant $n$-périodique, et vérifiant $A^{\,\prime}_{i} = A_i$ sur $\ZintervalC{1}{n}$.
 \end{defi}
 
 
@@ -90,8 +90,8 @@ Si c'est votre cas, que pensez-vous de l'aire algébrique du quadrilatère crois
 \newpage
 
 \begin{fact} \label{garea-pt-ct}
-    Soit $\setproba{L} = A_1 A_2 \cdots A_n$ une \nline.
-    La fonction qui à un point $\Omega$ du plan associe 
+    Soit $\setproba{L} = A_1 A_2 \cdots A_n$ un \ncycle.
+    La fonction qui à un point $\Omega$ du plan associe
     $\mu_1^n (\Omega ;\setproba{L}) = \dsum_{i=1}^{n} \det \big( \vect{\Omega A^{\,\prime}_i} , \vect{\Omega A^{\,\prime}_{i+1}} \big)$ est indépendante du point $\Omega$.
     Dans la suite, cette quantité indépendante de $\Omega$ sera notée $\mu_1^n (\setproba{L})$.
 \end{fact}
@@ -137,18 +137,18 @@ Si c'est votre cas, que pensez-vous de l'aire algébrique du quadrilatère crois
     \explnext*{$A^{\,\prime}_{n+1} = A^{\,\prime}_1$}{}
         \mu_1^n (M ; \setproba{L})
     \end{stepcalc}
-    
+
     \null\vspace{-3.5ex}
 \end{proof}
-    
-    
+
+
 % ----------------------- %
 
 
 \begin{fact} \label{nline-shift-inva}
-    Soit $\setproba{L} = A_1 A_2 \cdots A_n$ une \nline.
-    Pour $k \in \ZintervalC{1}{n}$, 
-    la \nline\ $\setproba{L}_j = B_1 B_2 \cdots B_n$, où $B_i = A^{\,\prime}_{k+i-1}$,
+    Soit $\setproba{L} = A_1 A_2 \cdots A_n$ un \ncycle.
+    Pour $k \in \ZintervalC{1}{n}$,
+    le \ncycle\ $\setproba{L}_j = B_1 B_2 \cdots B_n$, où $B_i = A^{\,\prime}_{i+k-1}$,
     vérifie
     $\mu_1^n (\setproba{L}) = \mu_1^n (\setproba{L}_k)$.
     Dans la suite, cette quantité commune sera notée $\mu (\setproba{L})$.
@@ -158,15 +158,15 @@ Si c'est votre cas, que pensez-vous de l'aire algébrique du quadrilatère crois
 \begin{proof}
     Il suffit de s'adonner à un petit jeu sur les indices de sommation.
 \end{proof}
-    
-    
+
+
 % ----------------------- %
 
 
 \begin{fact} \label{nline-rota-inva}
-    Soit 
-    $\setproba{L} = A_1 A_2 \cdots A_n$ une \nline. 
-    La \nline\ $\setproba{L}^{\mathrm{op}} = B_1 B_2 \cdots B_n$, où $B_i =  A_{n + 1 - i}$,
+    Soit
+    $\setproba{L} = A_1 A_2 \cdots A_n$ un \ncycle.
+    le \ncycle\ $\setproba{L}^{\mathrm{op}} = B_1 B_2 \cdots B_n$, où $B_i =  A_{n + 1 - i}$,
     vérifie
     $\mu(\setproba{L}^{\mathrm{op}}) = {} - \mu(\setproba{L})$.
 \end{fact}
@@ -190,30 +190,30 @@ Si c'est votre cas, que pensez-vous de l'aire algébrique du quadrilatère crois
     \explnext{}
         {} - \mu(\setproba{L})
     \end{stepcalc}
-    
+
     \null\vspace{-3.5ex}
 \end{proof}
-    
-    
+
+
 % ----------------------- %
 
 
 \begin{fact}
-    Soit 
-    $\setproba{L} = A_1 A_2 \cdots A_n$ une \nline.
+    Soit
+    $\setproba{L} = A_1 A_2 \cdots A_n$ un \ncycle.
     La quantité $\frac12 \abs{\mu(\setproba{L})}$ ne dépend ni du sens de parcours de $\setproba{L}$, ni du point de départ choisi.%
     \footnote{
         Le lecteur pardonnera les abus de langage utilisés.
     }
-    Elle sera notée $\garea{\setproba{L}}$, et nommée \og \emph{aire généralisée} \fg\ de la \nline\ $\setproba{L}$.
+    Elle sera notée $\garea{\setproba{L}}$, et nommée \og \emph{aire généralisée} \fg\ du \ncycle\ $\setproba{L}$.
 \end{fact}
 
 
 \begin{proof}
     C'est une conséquence directe des faits \ref{nline-shift-inva} et \ref{nline-rota-inva}.
 \end{proof}
-    
-    
+
+
 % ----------------------- %
 
 
@@ -227,9 +227,9 @@ Dans le cas non-convexe, les choses se compliquent a priori, car nous ne maîtri
 
 \begin{fact} \label{route-direction}
     Soit un \ngone\ $\setproba{P}$.
-    On suppose la \nline\ $\setproba{L} = A_1 A_2 \cdots A_n$ associée à $\setproba{P}$ telle que les points $A_1$, $A_2$, ..., $A_n$ soient parcourus dans le sens trigonométrique, ou anti-horaire. Une telle \nline\ sera dite \og \emph{positive} \fg.%
+    On suppose le \ncycle\ $\setproba{L} = A_1 A_2 \cdots A_n$ associée à $\setproba{P}$ telle que les points $A_1$, $A_2$, ..., $A_n$ soient parcourus dans le sens trigonométrique, ou anti-horaire. Un tel \ncycle\ sera dit \og \emph{positif} \fg.%
     \footnote{
-    	Bien noté que cette notion ne peut exister lorsqu'on considère un polygone croisé. De façon cachée, nous utilisons le célèbre théorème de Jordan, dans sa forme polygonale. 
+    	Bien noté que cette notion ne peut exister lorsqu'on considère un polygone croisé. De façon cachée, nous utilisons le célèbre théorème de Jordan, dans sa forme polygonale.
     }
     Sous cette hypothèse, nous avons $\mu(\setproba{L}) \geq 0$.
 \end{fact}
@@ -238,34 +238,34 @@ Dans le cas non-convexe, les choses se compliquent a priori, car nous ne maîtri
 \begin{proof}
 	Le théorème de triangulation affirme que tout \ngone\ est triangulable comme dans l'exemple très basique suivant qui laisse envisager une démonstration par récurrence en retirant l'un des triangles ayant deux côtés correspondant à deux côtés consécutifs du \ngone\ (pour peu qu'un tel triangle existe toujours).
 
-    
+
     \begin{multicols}{3}
         \small\itshape
         \begin{center}
             \includegraphics[scale=.4]{content/polygon/sufficient-cond/triangulation-1.png}
-        
+
             \smallskip
             Un \ngone\ nu.
         \end{center}
 
-    
+
         \begin{center}
             \includegraphics[scale=.4]{content/polygon/sufficient-cond/triangulation-2.png}
-        
+
             \smallskip
             Le \ngone\ triangulé.
         \end{center}
 
-    
+
         \begin{center}
             \includegraphics[scale=.4]{content/polygon/sufficient-cond/triangulation-3.png}
-        
+
             \smallskip
             Le \ngone\ allégé.
         \end{center}
     \end{multicols}
-    
-    
+
+
     Le théorème de triangulation admet une forme forte donnant une décomposition contenant un triangle formé de deux côtés consécutifs du \ngone.%
     \footnote{
         En pratique, cette forme forte est peu utile, car elle aboutit à un algorithme de recherche trop lent.
@@ -282,51 +282,51 @@ Dans le cas non-convexe, les choses se compliquent a priori, car nous ne maîtri
         \small\itshape
     	\begin{center}
         	\includegraphics[scale=.4]{content/polygon/sufficient-cond/mini-ear-1.png}
-        
+
         	\smallskip
        		Un \ngone\ basique.
     	\end{center}
-	
+
     	\begin{center}
         	\includegraphics[scale=.4]{content/polygon/sufficient-cond/mini-ear-2.png}
-        
+
         	\smallskip
        		Juste deux oreilles disponibles.
     	\end{center}
     \end{multicols}
-    
-    
-	Nous allons raisonner par récurrence sur $n \in \NN_{\geq3}$.
-	
+
+
+	Raisonnons donc par récurrence sur $n \in \NN_{\geq3}$.
+
 	\begin{itemize}
-		\item \textbf{Cas de base.} 
+		\item \textbf{Cas de base.}
 		Soit $ABC$ un triangle. Dire que les sommets $A$, $B$ et $C$ sont parcourus dans le sens trigonométrique, c'est savoir que $\mu(ABC) = \det \big( \vect{AB} , \vect{AC} \big) > 0$.
 
 
-		\item \textbf{Hérédité.} 
-		Soient un \ngone\ $\setproba{P}$, avec $n \in \NN_{>3}$, et $\setproba{L} = A_1 A_2 \cdots A_n$ une \nline\ positive qui lui est associée. On peut supposer que $A_{n-1} A_n A_1$ est une oreille du \ngone\ $\setproba{P}$.
+		\item \textbf{Hérédité.}
+		Soient un \ngone\ $\setproba{P}$, avec $n \in \NN_{>3}$, et $\setproba{L} = A_1 A_2 \cdots A_n$ un \ncycle\ positif qui lui est associée. On peut supposer que $A_{n-1} A_n A_1$ est une oreille du \ngone\ $\setproba{P}$.
 
 
 	    \begin{multicols}{2}
     	    \small\itshape
     		\begin{center}
         	\includegraphics[scale=.4]{content/polygon/sufficient-cond/triangulation-proof-OK.png}
-        
+
 	        	\smallskip
     	   		$A_{n-1} A_n A_1$ est une oreille.
     	\end{center}
-	
+
 	    	\begin{center}
         	\includegraphics[scale=.4]{content/polygon/sufficient-cond/triangulation-proof-KO.png}
-        
+
         		\smallskip
     	   		$A_{n-1} A_n A_1$ n'est pas une oreille.
     		\end{center}
     	\end{multicols}
-		
-		
+
+
 		\noindent
-		Notons $\setproba{P}^{\,\prime}$ le \kgone\ associé à la \kline\ $\setproba{L}^{\,\prime} = A_1 \cdots A_{n-1}$ où $k = n-1$ vérifie $k \in \NN_{\geq3}$. Par hypothèse, $\setproba{L}^{\,\prime}$ est positive. Nous arrivons aux calculs élémentaires suivants en utilisant $\Omega = A_1$ comme point de calcul de $\mu(\setproba{L})$.
+		Notons $\setproba{P}^{\,\prime}$ le \kgone\ associé au \kcycle\ $\setproba{L}^{\,\prime} = A_1 \cdots A_{n-1}$ où $k = n-1$ vérifie $k \in \NN_{\geq3}$. Par hypothèse, $\setproba{L}^{\,\prime}$ est positive. Nous arrivons aux calculs élémentaires suivants en utilisant $\Omega = A_1$ comme point de calcul de $\mu(\setproba{L})$.
 
 		\leavevmode\kern-2em%
 		\begin{stepcalc}[style=ar*]
@@ -356,8 +356,7 @@ Dans le cas non-convexe, les choses se compliquent a priori, car nous ne maîtri
 			+
 			\det \big( \vect{A_1 A_{n-1}} ,  \vect{A_1 A_n} \big)
 		%
-		\explnext*{$\det \big( \vect{A_1 A_{n-1}} ,  \vect{A_1 A_1} \big) = 0$}%
-		          {}
+		\explnext{}
 			\mu(\setproba{L}^{\,\prime})
 			+
 			\mu(A_{n-1} A_n A_1)
@@ -366,13 +365,13 @@ Dans le cas non-convexe, les choses se compliquent a priori, car nous ne maîtri
 
 		\noindent
 		Par hypothèse de récurrence, nous savons que
-		$\mu(\setproba{L}^{\,\prime}) \geq 0$, 
+		$\mu(\setproba{L}^{\,\prime}) \geq 0$,
 		et comme $A_{n-1} A_n A_1$ est une oreille de $\setproba{P}$, la $3$-ligne $A_{n-1} A_n A_1$ est forcément positive, d'où $\mu(A_{n-1} A_n A_1) \geq 0$ d'après le cas de base.
 		Nous arrivons bien à $\mu(\setproba{L}) \geq 0$, ce qui permet de finir aisément la démonstration par récurrence.
 	\end{itemize}
 \end{proof}
 
-    
+
 % ----------------------- %
 
 
@@ -382,15 +381,15 @@ Dans le cas non-convexe, les choses se compliquent a priori, car nous ne maîtri
 
 
 \begin{proof}
-    Nous donnons juste les deux clés pour une preuve par récurrence.
-    
+    Les deux points suivants permettent de faire une preuve par récurrence.
+
     \begin{itemize}
-		\item \textbf{Cas de base.} 
+		\item \textbf{Cas de base.}
 		L'égalité est immédiate pour les triangles (c'est ce qui a motivé la définition de l'aire généralisée).
-	
-	
+
+
 		\item \textbf{Hérédité.}
-		Reprenons les notations de la démonstration du fait \ref{route-direction} : $\setproba{P}$ est un \ngone\ , avec $n \in \NN_{>3}$, $\setproba{L} = A_1 A_2 \cdots A_n$ une \nline\ positive qui lui est associée, $A_{n-1} A_n A_1$ une oreille du \ngone\ $\setproba{P}$, $\setproba{P}^{\,\prime}$ le \kgone\ associé à la \kline\ $\setproba{L}^{\,\prime} = A_1 \cdots A_{n-1}$ où $k = n-1$ vérifie $k \in \NN_{\geq3}$, avec $\setproba{L}^{\,\prime}$ positive. Nous arrivons aux calculs élémentaires suivants.
+		Reprenons les notations de la démonstration du fait \ref{route-direction} : $\setproba{P}$ est un \ngone\ , avec $n \in \NN_{>3}$, $\setproba{L} = A_1 A_2 \cdots A_n$ un \ncycle\ positif qui lui est associée, $A_{n-1} A_n A_1$ une oreille du \ngone\ $\setproba{P}$, $\setproba{P}^{\,\prime}$ le \kgone\ associé au \kcycle\ $\setproba{L}^{\,\prime} = A_1 \cdots A_{n-1}$ où $k = n-1$ vérifie $k \in \NN_{\geq3}$, avec $\setproba{L}^{\,\prime}$ positive. Nous arrivons aux calculs élémentaires suivants.
 
 		\leavevmode\kern-2em%
 		\begin{stepcalc}[style=ar*]
@@ -425,31 +424,34 @@ Dans le cas non-convexe, les choses se compliquent a priori, car nous ne maîtri
 
 %\newpage
 
-Avant d'avancer, nous devons mieux comprendre le calcul de $\garea{\setproba{L}}$ pour une \nline\ $\setproba{L}$ correspondant à un polygone croisé.
+Avant d'avancer, nous devons mieux comprendre le calcul de $\garea{\setproba{L}}$ pour un \ncycle\ $\setproba{L}$ correspondant à un polygone croisé.
 Considérons le figure suivante produite via \geogebra, ce dernier donnant les valeurs indiquées sur l'image où l'on constate que $\num{9.4} - \num{2.41} + \num{4.84} = \num{11.83}$.
 
 
 \begin{center}
     \includegraphics[scale=.35]{content/polygon/sufficient-cond/garea-trick.png}
 \end{center}
-	
-	
-Pour calculer l'aire généralisée d'un polygone croisé associé à la \nline\ $\setproba{L}$, il suffit de procéder comme suit (cette méthode est utile pour un humain).
+
+
+Pour calculer l'aire généralisée d'un polygone croisé associé au \ncycle\ $\setproba{L}$, il suffit de procéder comme suit (cette méthode est utile pour un humain).
 %
 \begin{itemize}
-    \item On part d'un point, puis on parcourt la \nline\ dans un sens donné jusqu'à la première intersection croisée. Dans notre exemple, on va de $A$ à $R$.
+    \item On part d'un point, puis on parcourt le \ncycle\ dans un sens donné jusqu'à la première intersection croisée. Dans notre exemple, on va de $A$ à $R$.
 
-    \item De cette intersection, on change de direction pour choisir celle allant vers notre point de départ. Dans notre exemple, nous obtenons la \nline\ $ABCDR$.
+    \item De cette intersection, on change de direction pour choisir celle allant vers notre point de départ. Dans notre exemple, nous obtenons le \kcycle\ $ABCDR$.
 
-    \item Le reste des points non parcourus fournit une autre \nline\ qui est $REFGHI$ dans notre cas. Formellement, nous avons scindé $ABCDEFGHI$ en $ABCDR$ et $REFGHI$.
-    
-    \item On répète ce processus sur les sous \nlines\ obtenues dans que l'on ne tombe pas sur un \ngone. Pour notre exemple, nous avons juste trois \ngones\ $ABCDR$, $RESI$ et $SFGH$. Les \ngones\ obtenus sont ordonnées de façon naturelle pour respecter l'ordre de la \nline\ initiale.
-    
-    \item Le calcul de l'aire généralisée se fait en ajoutant les aires des \ngones\ de rang impair, puis en retirant celles des \ngones\ de rang pair. En appliquant la valeur absolue au résultat obtenu, nous obtenons l'aire généralisée du polygone croisé initial. Dans notre exemple, nous devons calculer $\abs{ \area{ABCDR} - \area{RESI} + \area{SFGH} }$.
+    \item Le reste des points non parcourus fournit un autre \kcycle\ qui est $REFGHI$ dans notre cas. Formellement, nous avons scindé $ABCDEFGHI$ en $ABCDR$ et $REFGHI$.
+
+    \item On répète ce processus avec les sous \kcycles\ obtenus jusqu'à n'avoir que des \kgones. Pour notre exemple, nous avons trois \kgones\ $ABCDR$, $RESI$ et $SFGH$.
+
+    \item Les \kgones\ obtenus sont ordonnés en respectant l'ordre du \ncycle\ initial.
+
+    \item Le calcul de l'aire généralisée se fait en ajoutant les aires des \kgones\ de rang impair, puis en retirant celles des \kgones\ de rang pair. En appliquant la valeur absolue au résultat obtenu, nous obtenons l'aire généralisée du polygone croisé initial. Dans notre exemple, nous devons calculer $\abs{ \area{ABCDR} - \area{RESI} + \area{SFGH} }$.
 \end{itemize}
 
-Pourquoi cela fonctionne-t-il ? Il suffit de revenir à la définition de $\mu(\setproba{L})$ pour constater qu'une règle de type Chasles existe, et de plus qu'en utilisant un point d'intersection de deux arêtes pour un calcul effectif de $\mu(\setproba{L})$, nous avons un changement de sens de parcours au niveau de ce point d'intersection, ceci justifiant les changements de signe de notre recette, qui n'en est plus une.
-Pour mieux comprendre cette approche plus combinatoire que géométrique, les images suivantes donnent bien $\num{12.26} - \num{1.96} = \num{10.3}$ comme expliqué.
+Pourquoi cela fonctionne-t-il ? 
+Il suffit de revenir à la définition de $\mu(\setproba{L})$ pour constater qu'une règle de type Chasles existe, et de plus qu'en utilisant un point d'intersection de deux arêtes pour un calcul effectif de $\mu(\setproba{L})$, nous avons un changement de sens de parcours du point de vue de ce point d'intersection, ceci justifiant les changements de signe de notre recette, qui n'en est plus une.
+Pour le cas suivant, notre approche, plus combinatoire que géométrique, donne $\num{12.26} - \num{1.96} = \num{10.3}$ comme attendu.
 
 \newpage
 
@@ -466,16 +468,16 @@ Pour mieux comprendre cette approche plus combinatoire que géométrique, les im
 
 
 \begin{fact} \label{no-cross-max}
-    Si une \nline\ $\setproba{L}$ non dégénérée n'est pas un \ngone, donc est un polygone croisé, alors il existe un \ngone\ convexe $\setproba{P}$ tel que 
-	$\perim{\setproba{P}} = \perim{\setproba{L}}$ 
-	et 
+    Si un \ncycle\ $\setproba{L}$ non dégénéré n'est pas un \ngone, donc est un polygone croisé, alors il existe un \ngone\ convexe $\setproba{P}$ tel que
+	$\perim{\setproba{P}} = \perim{\setproba{L}}$
+	et
 	$\garea{\setproba{P}} > \garea{\setproba{L}}$.
 \end{fact}
 
 
 \begin{proof}
 	Notons $\setproba{C}$ l'enveloppe convexe de $\setproba{L}$. La méthode de calcul de $\garea{\setproba{L}}$ exposée ci-dessus donne sans ambiguïté que $\garea{\setproba{C}} > \garea{\setproba{L}}$. De plus, il est clair que $\perim{\setproba{C}} < \perim{\setproba{L}}$.
-	Par contre, nous savons juste que $\setproba{C}$ est un \kgone\ avec $k < n$. Ceci est un faux problème comme nous l'avons vu dans la preuve du fait \ref{conv-poly}, ce qui nous permet de conclure. 
+	Par contre, nous savons juste que $\setproba{C}$ est un \kgone\ avec $k < n$. Ceci est un faux problème comme nous l'avons vu dans la preuve du fait \ref{conv-poly}, ce qui nous permet de conclure.
 \end{proof}
 
 
@@ -489,49 +491,29 @@ Pour mieux comprendre cette approche plus combinatoire que géométrique, les im
 
 
 \begin{proof}
-	Ce qui suit nous donne plus généralement l'existence d'un \ngone, au moins, maximisant l'aire généralisée parmi toutes les \nlines\ de périmètre fixé $p$. Ce résultat plus fort convient d'après le fait \ref{ngone-garea-is-area}.
-    %    
+	Ce qui suit nous donne plus généralement l'existence d'un \ngone, au moins, maximisant l'aire généralisée parmi tous les \ncycles\ de périmètre fixé $p$. Ce résultat plus fort convient d'après le fait \ref{ngone-garea-is-area}.
+    %
     \begin{itemize}
-        \item On munit le plan d'un repère orthonormé direct $\pvaxes{O | i | j}$. 
-
-
-        \item On note $\setproba{Z}$ l'ensemble des \nlines\ $\setproba{L} = A_1 A_2 \cdots A_n$ telles que
+        \item Munissant le plan d'un repère orthonormé direct $\pvaxes{O | i | j}$, on note $\setproba{Z}$ l'ensemble des \ncycles\ $\setproba{L} = A_1 A_2 \cdots A_n$ tels que
         $\perim{A_1 A_2 \cdots A_n} = p$
         et
-        $A_1\coord{0 | 0}$.%
+        $A_1\coord{0 | 0}$,%
         \footnote{
         	Le mot \og \emph{Zeile} \fg\ est une traduction possible de \og \emph{ligne} \fg\ en allemand.
         }
+        puis $\setproba{G} \subset \RR^{2n}$ l'ensemble des uplets de coordonnées $\big( x(A_1) ; y(A_1) ; \dots ; x(A_n) ; y(A_n) \big)$ pour $A_1 A_2 \cdots A_n \in \setproba{Z}$.
 
 
-        \item Considérons alors $\setproba{G} \subset \RR^{2n}$ l'ensemble des uplets $\big( x(A_1) ; y(A_1) ; \dots ; x(A_n) ; y(A_n) \big)$ correspondant aux coordonnées des sommets $A_i$ de \nlines\ appartenant à $\setproba{Z}$.
-        
-        
         \item $\setproba{G}$ est clairement fermé dans $\RR^{2n}$.
-        De plus, il est borné, car les coordonnées des sommets des \nlines\ considérées le sont.        
+        De plus, il est borné, car les coordonnées des sommets des \ncycles\ considérés le sont.
         En résumé, $\setproba{G}$ est un compact de $\RR^{2n}$.
 
 
-        \item Nous définissons la fonction $s: \setproba{G} \rightarrow \RRp$ qui à un uplet de $\setproba{G}$ associe l'aire généralisée de la \nline\ qu'il représente. 
+        \item Nous définissons la fonction $s: \setproba{G} \rightarrow \RRp$ qui à un uplet de $\setproba{G}$ associe l'aire généralisée du \ncycle\ qu'il représente.
         Cette fonction est continue comme valeur absolue d'une fonction polynomiale en les coordonnées.
-       
-        
+
+
         \item Finalement, par continuité et compacité, on sait que $s$ admet un maximum sur $\setproba{G}$.
-        Or, un tel maximum ne peut être atteint en une \nline\ dégénérée, clairement, ni en un polygone croisé d'après le fait \ref{no-cross-max}, donc un tel maximum sera obtenu en un \ngone. That's all folks!
-    \end{itemize}    
-\end{proof}
-
-
-% ----------------------- %
-
-
-\begin{fact}
-    Soit $n \in \NN_{\geq3}$ un naturel fixé.
-    Considérons tous les \ngones\  de périmètre fixé. Parmi tous ces \ngones, un seul est d'aire maximale, c'est le \ngone\ régulier.
-\end{fact}
-
-
-\begin{proof}
-    Ceci découle directement des faits \ref{nece-cond} et \ref{suff-cond}.
-    Ici s'achève notre joli voyage.
+        Or, un tel maximum ne peut pas être atteint en un \ncycle\ dégénéré, clairement, ni en un polygone croisé d'après le fait \ref{no-cross-max}, donc un tel maximum sera obtenu en un \ngone. That's all folks!
+    \end{itemize}
 \end{proof}

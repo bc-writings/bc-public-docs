@@ -6,18 +6,26 @@ Ce qui va suivre nécessite un peu plus de technicité; pour ce faire, nous util
 
 
 \begin{defi}
-	Pour $n \geq 3$, nous appellerons \og \emph{\nline} \fg\ tout ligne brisée fermée à $n$ sommets et $n$ côtés.
-\end{defi}
-
-
-\begin{defi}
-	Nous appellerons \og \emph{\ngone} \fg\ toute \nline\ qui n'admet aucun triplet de sommets alignés, et aucun couple de côtés se croisant.
-\end{defi}
-
-
-\begin{defi}
-	Un \og \emph{\niso} \fg\ désigne un \ngone\ dont tous les côtés sont de mesure égale.%
+	Pour $n \geq 3$, un \og \emph{\ncycle} \fg\ désigne une ligne brisée fermée à $n$ sommets et $n$ côtés.%
 	\footnote{
-		Il existe des \nisos\ convexes qui ne sont pas des polygones réguliers. Par exemple, penser à la frontière d'une maison formée d'un carré surmonté d'un triangle équilatéral de mêmes dimensions.
+		Les cas pathologiques sont acceptés.
+	}
+\end{defi}
+
+
+\begin{defi}
+	Un \og \emph{\ngone} \fg\ est un \ncycle\ n'admettant aucun couple de sommets confondus, ni aucun couple de côtés sécants.
+\end{defi}
+
+
+\begin{defi}
+	Un \ngone\ est dit \og \emph{équilatéral} \fg\ si tous ses côtés sont de même mesure.
+\end{defi}
+
+
+\begin{defi}
+	Un \ngone\ est dit \og \emph{régulier} \fg\ s'il est équilatéral, et si de plus tous ses angles aux sommets sont de même mesure.%
+	\footnote{
+		Il existe des \nequis\ convexes qui ne sont pas des polygones réguliers. Par exemple, penser à la frontière d'une maison formée d'un carré surmonté d'un triangle équilatéral de mêmes dimensions.
 	}
 \end{defi}

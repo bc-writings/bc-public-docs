@@ -40,11 +40,11 @@
 \NewDocumentCommand{\garea}{m}{\mathrm{AireGene}(#1)}
 
 
-\newcommand{\nline}{$n$-ligne}
-\newcommand{\nlines}{$n$-lignes}
+\newcommand{\ncycle}{$n$-cycle}
+\newcommand{\ncycles}{$n$-cycles}
 
-\newcommand{\kline}{$k$-ligne}
-\newcommand{\klines}{$k$-lignes}
+\newcommand{\kcycle}{$k$-cycle}
+\newcommand{\kcycles}{$k$-cycles}
 
 
 \newcommand{\ngone}{$n$-gone}
@@ -53,8 +53,8 @@
 \newcommand{\kgone}{$k$-gone}
 \newcommand{\kgones}{$k$-gones}
 
-\newcommand{\niso}{$n$-isogone}
-\newcommand{\nisos}{$n$-isogones}
+\newcommand{\nequi}{\ngone\ équilatéral}
+\newcommand{\nequis}{\ngones\ équilatéraux}
 
 
 \newcommand{\geogebra}{{\normalfont\texttt{GeoGebra}}}
@@ -67,7 +67,7 @@
 
 \title{BROUILLON - Inégalités isopérimétriques restreintes aux polygones}
 \author{Christophe BAL}
-\date{18 Jan. 2025 -- 6 Fev. 2025}
+\date{18 Jan. 2025 -- 7 Fev. 2025}
 \maketitle
 
 
@@ -94,53 +94,53 @@
 
 \newpage
 
-Ce document, qui se veut de niveau élémentaire,%
-\footnote{
-	Ceci nous amènera à admettre certains théorèmes faussement simples.
-}
-s'intéresse au classique problème de l'isopérimétrie plane, c'est-à-dire la recherche d'une surface plane maximisant son aire pour un périmètre fixé.
-Nous allons juste considérer le cas des polygones, tout en nous limitant à des preuves les plus géométriques possible.
-
-
-\begin{tcolorbox}
-	\itshape\small
-	Pour ne pas alourdir le texte, on raisonnera parfois modulo des isométries: on pourra parler \og \emph{du carré de côté $c$} \fg\kern-2pt, \og \emph{du triangle équilatéral de côté $c$} \fg\kern-2pt...
-\end{tcolorbox}
-
-
-% ------------- %
-
-
-\section{Triangles}
-
-\subsection{Avec un côté fixé}
-\input{content/triangle-one-side-fixed/triangle-one-side-fixed}
-
-
-\subsection{Le cas général}
-\input{content/triangle-gene/triangle-gene}
-
-
-% ------------- %
-
-
-\section{Quadriltères}
-
-\subsection{Les rectangles}
-\input{content/rectangle/rectangle}
-
-
-\subsection{Les parallélogrammes}
-\input{content/parallelogram/parallelogram}
-
-
-\subsection{Le cas général}
-\input{content/quadrilateral/quadrilateral}
-
-
-% ------------- %   
-
-
+%Ce document, qui se veut de niveau élémentaire,%
+%\footnote{
+%	Ceci nous amènera à admettre certains théorèmes faussement simples.
+%}
+%s'intéresse au classique problème de l'isopérimétrie plane, c'est-à-dire la recherche d'une surface plane maximisant son aire pour un périmètre fixé.
+%Nous allons juste considérer le cas des polygones, tout en nous limitant à des preuves les plus géométriques possible.
+%
+%
+%\begin{tcolorbox}
+%	\itshape\small
+%	Pour ne pas alourdir le texte, on raisonnera parfois modulo des isométries: on pourra parler \og \emph{du carré de côté $c$} \fg\kern-2pt, \og \emph{du triangle équilatéral de côté $c$} \fg\kern-2pt...
+%\end{tcolorbox}
+%
+%
+%% ------------- %
+%
+%
+%\section{Triangles}
+%
+%\subsection{Avec un côté fixé}
+%\input{content/triangle-one-side-fixed/triangle-one-side-fixed}
+%
+%
+%\subsection{Le cas général}
+%\input{content/triangle-gene/triangle-gene}
+%
+%
+%% ------------- %
+%
+%
+%\section{Quadriltères}
+%
+%\subsection{Les rectangles}
+%\input{content/rectangle/rectangle}
+%
+%
+%\subsection{Les parallélogrammes}
+%\input{content/parallelogram/parallelogram}
+%
+%
+%\subsection{Le cas général}
+%\input{content/quadrilateral/quadrilateral}
+%
+%
+%% ------------- %   
+%
+%
 \section{Les polygones}
 
 \subsection{Où allons-nous?}
@@ -152,7 +152,10 @@ Nous allons juste considérer le cas des polygones, tout en nous limitant à des
 
 
 \subsection{Condition suffisante}
-\input{content/polygon/sufficient-cond/sufficient-cond
-}
+\input{content/polygon/sufficient-cond/sufficient-cond}
+
+
+\subsection{Théorème d'isopérimétrie polygonal}
+\input{content/polygon/isoperim}
 
 \end{document}

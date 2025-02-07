@@ -5,9 +5,9 @@ Le fait important que nous allons établir, le fait \ref{nece-cond}, impliquera 
 
 
 \begin{fact} \label{conv-poly}
-	Si un \ngone\ $\setproba{P}$ n'est pas convexe, alors on peut construire un \ngone\ convexe $\setproba{P}^{\,\prime}$ tel que 
-	$\perim{\setproba{P}^{\,\prime}} = \perim{\setproba{P}}$ 
-	et 
+	Si un \ngone\ $\setproba{P}$ n'est pas convexe, alors on peut construire un \ngone\ convexe $\setproba{P}^{\,\prime}$ tel que
+	$\perim{\setproba{P}^{\,\prime}} = \perim{\setproba{P}}$
+	et
 	$\area{\setproba{P}^{\,\prime}} > \area{\setproba{P}}$.
 \end{fact}
 
@@ -25,7 +25,7 @@ Le fait important que nous allons établir, le fait \ref{nece-cond}, impliquera 
 	\begin{center}
 		\includegraphics[scale=.4]{content/polygon/necessary-cond/non-convex-trap.png}
 	\end{center}
-	
+
 
 	On peut aussi perdre des côtés lors de la construction comme dans l'exemple suivant où $C$, $D$ et $E^{\,\prime}$ sont alignés. Nous allons voir juste après que ce problème n'en est pas un.
 
@@ -40,38 +40,37 @@ Le fait important que nous allons établir, le fait \ref{nece-cond}, impliquera 
 	}
 	du \ngone\ de départ.
 	Par exemple, l'ennéagone $ABCDEFGHI$ non convexe ci-dessous admet le pentagone $ABDEG$ pour enveloppe convexe: le périmètre diminue et l'aire augmentent strictement, c'est très utile, mais il reste à avoir le bon nombre de côtés.
-	
+
 	\begin{center}
 		\includegraphics[scale=.4]{content/polygon/necessary-cond/convex-hull.png}
 	\end{center}
 
 	Une idée simple, que nous allons formaliser rigoureusement après, consiste à ajouter les sommets manquants suffisamment prêts des côtés de l'enveloppe convexe pour ne pas perdre la convexité, tout en gardant un périmètre inférieur strictement au périmètre initial, et une aire strictement plus grande que l'aire initiale. Si nous arrivons à faire ceci, alors une homothétie de rapport $r > 1$ nous ramènera au bon périmètre avec une aire strictement plus grande que l'aire initiale.
-	La figure suivante illustre cette idée.	
-	
+	La figure suivante illustre cette idée.
+
 	\begin{center}
 		\includegraphics[scale=.4]{content/polygon/necessary-cond/convex-hull-distortion.png}
 	\end{center}
 
 
-	Considérons donc un \ngone\ non convexe $\setproba{P}$, donc $\setproba{P}$ possède au moins $4$ sommets.
+	Considérons donc un \ngone\ non convexe $\setproba{P}$.
 	Son enveloppe convexe $\setproba{C}$ vérifie, par construction,
-	$\perim{\setproba{C}} < \perim{\setproba{P}}$ 
-	et 
+	$\perim{\setproba{C}} < \perim{\setproba{P}}$
+	et
 	$\area{\setproba{C}} > \area{\setproba{P}}$.
-	Notons $m$ le nombre de sommets en moins dans $\setproba{C}$ relativement à $\setproba{P}$ et
-	$\delta = \perim{\setproba{P}} - \perim{\setproba{C}}$.
+	Notons $m$ le nombre de sommets en moins dans $\setproba{C}$ relativement à $\setproba{P}$.
+	Si $m = 0$, il n'y a rien à faire.
+	Sinon, posons $\delta = \frac{\perim{\setproba{P}} - \perim{\setproba{C}}}{m}$.
 	%
 	\begin{enumerate}
 		\item \label{add-vertex-start}
-		Si $m = 0$, il n'y a rien à faire. 
-
-		\item Sinon, considérons $[AB]$ un côté quelconque de $\setproba{C}$.
+		Considérons $[AB]$ un côté quelconque de $\setproba{C}$.
 		Les droites portées par les côtés \og \emph{autour} \fg\ de $[AB]$ \og \emph{dessinent} \fg\ une région contenant toujours un triangle $ABC$ dont l'intérieur est à l'extérieur
 		\footnote{
 			C'est ce que l'on appelle de la \og \emph{low poetry} \fg\,.
 		}
 		de $\setproba{C}$ comme dans les deux cas ci-dessous.
-	%	
+	%
 		\begin{multicols}{2}
 			\centering
 
@@ -83,13 +82,13 @@ Le fait important que nous allons établir, le fait \ref{nece-cond}, impliquera 
 		\item Clairement, le polygone $\setproba{C}^{\,\prime}$ obtenu à partir de $\setproba{C}$ en remplaçant le côté $[AB]$ par les côtés $[AC]$ et $[CB]$ est un convexe avec un sommet de plus que $\setproba{C}$.
 
 		\item \label{add-vertex-end}
-		Comme $HC$ peut être rendu aussi proche de $0$ que souhaité, il est aisé de voir que l'on peut choisir cette distance de sorte que $AC + BC < AB + \frac{\delta}{m}$.
-		Dès lors, le périmètre de $\setproba{C}^{\,\prime}$ augmente de $\frac{\delta}{m}$ relativement à $\setproba{C}$.
+		Comme $HC$ peut être rendu aussi proche de $0$ que souhaité, il est aisé de voir que l'on peut choisir cette distance de sorte que $AC + BC < AB + \delta$.
+		Dès lors, le périmètre de $\setproba{C}^{\,\prime}$ augmente inférieurement à $\delta$ relativement à $\setproba{C}$.
 
-		\item En répétant $(m-1)$ fois les étapes \ref{add-vertex-start} à \ref{add-vertex-end} avec les nouveaux \ngones\ convexes $\setproba{C}^{\,\prime}$ sans changer la valeur de $m$, nous obtenons un \ngone\ convexe $\setproba{P}^{\,\prime}$ tel que
+		\item En répétant $(m-1)$ fois les étapes \ref{add-vertex-start} à \ref{add-vertex-end}, nous obtenons un \ngone\ convexe $\setproba{P}^{\,\prime}$ tel que
 		$\area{\setproba{P}^{\,\prime}} > \area{\setproba{P}}$
 		et
-		$\perim{\setproba{P}^{\,\prime}} < \perim{\setproba{C}} + \delta = \perim{\setproba{P}}$.
+		$\perim{\setproba{P}^{\,\prime}} < \perim{\setproba{C}} + m \delta = \perim{\setproba{P}}$.
 	\end{enumerate}
 \end{proof}
 
@@ -102,20 +101,20 @@ Le fait important que nous allons établir, le fait \ref{nece-cond}, impliquera 
 % ----------------------- %
 
 
-\begin{fact} \label{iso-poly} 
-	Si un \ngone\ convexe $\setproba{P}$ n'est pas un \niso, alors on peut construire un \ngone\ convexe $\setproba{P}^{\,\prime}$ tel que 
-	$\perim{\setproba{P}^{\,\prime}} = \perim{\setproba{P}}$ 
-	et 
+\begin{fact} \label{iso-poly}
+	Si un \ngone\ convexe $\setproba{P}$ n'est pas un \nequi, alors on peut construire un \ngone\ convexe $\setproba{P}^{\,\prime}$ tel que
+	$\perim{\setproba{P}^{\,\prime}} = \perim{\setproba{P}}$
+	et
 	$\area{\setproba{P}^{\,\prime}} > \area{\setproba{P}}$.
 \end{fact}
 
 
 \begin{proof}
-	Considérons un \ngone\ convexe $\setproba{P}$ qui ne soit pas un \niso.
-	Dans ce cas, $\setproba{P}$ admet un triplet de sommets consécutifs $A$, $B$ et $C$ tels que $AB \neq BC$ (sinon, on obtiendrait de proche en proche un \niso).
-	La construction vue dans la preuve du fait \ref{tri-one-side-fixed} nous donne la solution: voir les deux dessins ci-après dans lesquels $(AC) \parallel (BB^{\,\prime})$. 
+	Considérons un \ngone\ convexe $\setproba{P}$ qui ne soit pas un \nequi.
+	Dans ce cas, $\setproba{P}$ admet un triplet de sommets consécutifs $A$, $B$ et $C$ tels que $AB \neq BC$ (sinon, on obtiendrait de proche en proche un \nequi).
+	La construction vue dans la preuve du fait \ref{tri-one-side-fixed} nous donne la solution: voir les deux dessins ci-après dans lesquels $(AC) \parallel (BB^{\,\prime})$.
 	Pour le 2\ieme\ cas, il n'est pas possible d'utiliser le triangle $AB^{\,\prime}C$ isocèle en $B^{\,\prime}$ car $(B^{\,\prime}C)$ porte le côté de $\setproba{P}$ de sommet $C$ juste après $[BC]$, mais ce problème se contourne en considérant un point $B^{\,\prime\prime}$ de $]BB^{\,\prime}[$.
-	%	
+	%
 	\begin{multicols}{2}
 		\centering
 
@@ -123,20 +122,20 @@ Le fait important que nous allons établir, le fait \ref{nece-cond}, impliquera 
 
 		\includegraphics[scale=.4]{content/polygon/necessary-cond/not-iso-KO.png}
 	\end{multicols}
-	
-	Dans chaque cas, nous avons construit un \ngone\ convexe $\setproba{P}^{\,\prime\prime}$ tel que 
-	$\perim{\setproba{P}^{\,\prime\prime}} < \perim{\setproba{P}}$ 
-	et 
+
+	Dans chaque cas, nous avons construit un \ngone\ convexe $\setproba{P}^{\,\prime\prime}$ tel que
+	$\perim{\setproba{P}^{\,\prime\prime}} < \perim{\setproba{P}}$
+	et
 	$\area{\setproba{P}^{\,\prime\prime}} = \area{\setproba{P}}$.
 	Un simple agrandissement donne un \ngone\ convexe $\setproba{P}^{\,\prime}$ vérifiant
-	$\perim{\setproba{P}^{\,\prime}} = \perim{\setproba{P}}$ 
-	et 
+	$\perim{\setproba{P}^{\,\prime}} = \perim{\setproba{P}}$
+	et
 	$\area{\setproba{P}^{\,\prime}} > \area{\setproba{P}}$.
 \end{proof}
 
 
 \begin{remark}
-	Le fait précédent ne permet pas de toujours se ramener au cas d'un \niso\ convexe. Il nous dit juste que si un \ngone\ convexe maximise son aire à périmètre fixé, alors il devra être un \niso. La nuance est importante, et une similaire existe pour le fait suivant.
+	Le fait précédent ne permet pas de toujours se ramener au cas d'un \nequi\ convexe. Il nous dit juste que si un \ngone\ convexe maximise son aire à périmètre fixé, alors il devra être un \nequi. La nuance est importante, et une similaire existe pour le fait suivant.
 \end{remark}
 
 
@@ -144,22 +143,22 @@ Le fait important que nous allons établir, le fait \ref{nece-cond}, impliquera 
 
 
 \begin{fact} \label{almost-reg-poly}
-	Si un \niso\ convexe $\setproba{P}$ possède deux angles de mesures différentes,
+	Si un \nequi\ convexe $\setproba{P}$ possède deux angles de mesures différentes,
 	alors il existe un \ngone\ convexe $\setproba{P}^{\,\prime}$ tel que
-	$\perim{\setproba{P}^{\,\prime}} = \perim{\setproba{P}}$ 
-	et 
+	$\perim{\setproba{P}^{\,\prime}} = \perim{\setproba{P}}$
+	et
 	$\area{\setproba{P}^{\,\prime}} > \area{\setproba{P}}$.
 \end{fact}
 
 
 \begin{proof}
-	Par hypothèse, nous avons deux paires de côtés 
-	$\big( [AB] , [BC] \big)$ et 
-	$\big( [EF] , [FG] \big)$ tels que 
+	Par hypothèse, nous avons deux paires de côtés
+	$\big( [AB] , [BC] \big)$ et
+	$\big( [EF] , [FG] \big)$ tels que
 	$\anglein{ABC} > \anglein{EFG}$.
 	Par convexité de $\setproba{P}$, nous avons juste à augmenter la somme des aires des triangles $ABC$ et $EFG$.
 	Nous allons le faire en modifiant les angles $\anglein{ABC}$ et $\anglein{EFG}$ tout en gardant $AB = BC = EF = FG$.
-	%	
+	%
 	\begin{multicols}{2}
 		\centering
 
@@ -170,12 +169,12 @@ Le fait important que nous allons établir, le fait \ref{nece-cond}, impliquera 
 
 	Les deux exemples ci-dessus nous permettent de noter que si $\alpha = \anglein{ABC}$ diminue, et $\beta = \anglein{EFG}$ augmente, alors la somme des aires se rapprochent de $0$.
 	Par raison de symétrie, si on fixe $\anglein{ABC} + \anglein{EFG}$, on devine que la somme des aires est maximisée quand $\anglein{ABC} = \anglein{EFG}$.
-	Nous allons établir ceci de façon élémentaire en commençant par les calculs suivants où 
-	$\ell = AB$, 
-	$\mu = \frac{\alpha + \beta}{2}$ et 
-	$\delta = \mu - \beta > 0$ (rappelons que nous avons supposé $\alpha > \beta$). 
-	
-	\medskip	
+	Nous allons établir ceci de façon élémentaire en commençant par les calculs suivants où
+	$\ell = AB$,
+	$\mu = \frac{\alpha + \beta}{2}$ et
+	$\delta = \mu - \beta > 0$ (rappelons que nous avons supposé $\alpha > \beta$).
+
+	\medskip
 	\begin{stepcalc}[style=ar*]
 		\area{ABC} + \area{EFG}
 	\explnext*{Formule dite des sinus.}{}
@@ -189,15 +188,15 @@ Le fait important que nous allons établir, le fait \ref{nece-cond}, impliquera 
 	\explnext{}
 		\dfrac12 \ell^2 \sin \mu \cos \delta
 	\end{stepcalc}
-	
-	
+
+
 	\medskip
-	
+
 	Comme $(\delta ; \mu) \in \intervalO{0}{\pi}^2$,
 	nous avons $\sin \mu \cos \delta > \sin \mu$.
 	Remplaçons alors $\alpha$ et $\beta$ respectivement par $\alpha^{\,\prime}$ et $\beta^{\,\prime}$ de telle sorte que $\alpha^{\,\prime} = \beta^{\,\prime} = \frac{\alpha + \beta}{2} = \mu$.
-	Notons que 
-	$0 < \beta < \mu < \alpha < \pi$ 
+	Notons que
+	$0 < \beta < \mu < \alpha < \pi$
 	(diminution de $\alpha$ et augmentation de $\beta$).
 	Deux situations se présentent à nous.
 	%
@@ -218,12 +217,12 @@ Le fait important que nous allons établir, le fait \ref{nece-cond}, impliquera 
 % ----------------------- %
 
 
-\begin{remark} 
+\begin{remark}
 	La méthode des extrema liés, rappelée dans la remarque \ref{constrained-extrema}, donne une autre justification de la conjecture faite dans la démonstration précédente. Voici comment faire.
 	%
 	\begin{itemize}
 		\item Pour $(\alpha ; \beta) \in \intervalO{0}{\pi}^2$, on veut maximiser $f(\alpha ; \beta) =  \sin \alpha + \sin \beta$ sous la contrainte $g(\alpha ; \beta) = 0$ où $g(\alpha ; \beta) = \alpha + \beta - 2 \mu$.
-		
+
 		\item
     	$\exists \lambda \in \RR$ tel que
     	$\pder[i]{f}{\alpha}{1} = \lambda \pder[i]{g}{\alpha}{1}$ et
@@ -244,8 +243,8 @@ Le fait important que nous allons établir, le fait \ref{nece-cond}, impliquera 
 \begin{fact} \label{nece-cond}
 	Si un \ngone\ $\setproba{P}$ n'est pas régulier,
 	alors il existe un \ngone\ convexe $\setproba{P}^{\,\prime}$ tel que
-	$\perim{\setproba{P}^{\,\prime}} = \perim{\setproba{P}}$ 
-	et 
+	$\perim{\setproba{P}^{\,\prime}} = \perim{\setproba{P}}$
+	et
 	$\area{\setproba{P}^{\,\prime}} > \area{\setproba{P}}$.
 \end{fact}
 
