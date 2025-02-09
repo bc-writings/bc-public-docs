@@ -27,7 +27,10 @@
 %	\end{center}
 %
 %
-%	On peut aussi perdre des côtés lors de la construction comme dans l'exemple suivant où $C$, $D$ et $E^{\,\prime}$ sont alignés. Nous allons voir juste après que ce problème n'en est pas un.
+%	On peut aussi perdre des côtés lors de la construction comme dans l'exemple suivant où $C$, $D$ et $E^{\,\prime}$ sont alignés.%
+%	\footnote{
+%		Ce problème n'en est pas un. Une petite adaptation des arguments à venir permet de vérifier cela.
+%	}
 %
 %	\begin{center}
 %		\includegraphics[scale=.4]{content/polygon/necessary-cond/non-convex-bad.png}
@@ -134,16 +137,18 @@
 %\end{proof}
 %
 %
-%\begin{remark}
-%	Le fait précédent ne permet pas de se ramener toujours au cas d'un \nequi\ convexe. Il nous dit juste que si un \ngone\ convexe maximise son aire à périmètre fixé, alors il devra être un \nequi. La nuance est importante, et une similaire existe pour le fait suivant.
-%\end{remark}
-%
-%
-%% ----------------------- %
-%
-%
+\newpage  % TEMPO
+
+\begin{remark}
+	Le fait précédent ne permet pas de se ramener toujours au cas d'un \nequi\ convexe. Il nous dit juste que si un \ngone\ convexe maximise son aire à périmètre fixé, alors il devra être un \nequi. La nuance est importante, et une similaire existe pour le fait suivant.
+\end{remark}
+
+
+% ----------------------- %
+
+
 \begin{fact} \label{almost-reg-poly}
-	Si un \nequi\ convexe $\setproba{P}$ possède deux angles de mesures différentes,
+	Si un \nequi\ convexe $\setproba{P}$ n'est pas un \niso,
 	alors il existe un \ngone\ convexe $\setproba{P}^{\,\prime}$ tel que
 	$\perim{\setproba{P}^{\,\prime}} = \perim{\setproba{P}}$
 	et
@@ -152,6 +157,13 @@
 
 
 \begin{proof}
+	SCHÉMA AVEC CÔTÉ CONTIGUS CAR AU FINAL PAS SI SIMPLE PUISUQ'UN COTÉ PEUT ETRE MANGÉ
+	c'est toujours omis !
+	
+	PARLER DE Zenodore ais trop long et peu éclaiant avec aussi le problème du côté mangé !!!
+	
+	la preuve geo est trop longue, donc ici on accepte l'analyse !
+	
 	Par hypothèse, nous avons deux paires de côtés
 	$\big( [AB] , [BC] \big)$ et
 	$\big( [EF] , [FG] \big)$ tels que
@@ -259,6 +271,12 @@
 %\end{remark}
 
 
+
+
+
+
+
+
 % ----------------------- %
 
 
@@ -273,5 +291,5 @@
 
 \begin{proof}
 	Le fait \ref{conv-poly} permet de considérer le problème de maximisation d'aire à périmètre fixé juste pour des \ngones\ convexes.
-	Selon les faits \ref{iso-poly} et \ref{almost-reg-poly}, si parmi les \ngones\ convexes de périmètre fixé, il en existe un d'aire maximale, alors ce ne peut être que le \ngone\ régulier.
+	Selon les faits \ref{iso-poly} et \ref{almost-reg-poly}, si, parmi les \ngones\ convexes de périmètre fixé, il en existe un d'aire maximale, alors ce ne peut être que le \ngone\ régulier.
 \end{proof}

@@ -1,5 +1,5 @@
-Nous allons commencer par obtenir une condition nécessaire, puis nous verrons que cette condition suffit via des arguments d'analyse.
-Ce qui va suivre nécessite un peu plus de technicité; pour ce faire, nous utiliserons le vocabulaire suivant.
+Nous allons commencer par obtenir une condition nécessaire, puis ensuite nous verrons que cette condition suffit.
+Ceci va nécessiter plus de technicité.
 
 
 % ----------------------- %
@@ -14,7 +14,7 @@ Ce qui va suivre nécessite un peu plus de technicité; pour ce faire, nous util
 
 
 \begin{defi}
-	Un \og \emph{\ngone} \fg\ est un \ncycle\ n'admettant aucun couple de sommets confondus, ni aucun couple de côtés sécants.
+	Un \og \emph{\ngone} \fg\ est un \ncycle\ n'admettant aucun couple de sommets confondus, ni aucun couple de côtés non contigüs sécants.
 \end{defi}
 
 
@@ -24,8 +24,13 @@ Ce qui va suivre nécessite un peu plus de technicité; pour ce faire, nous util
 
 
 \begin{defi}
-	Un \ngone\ est dit \og \emph{régulier} \fg\ s'il est équilatéral, et si de plus tous ses angles aux sommets sont de même mesure.%
+	Un \og \emph{\niso} \fg\ est un \ngone\ dont tous les angles au sommet sont de même mesure.
+\end{defi}
+
+
+\begin{defi}
+	Un \ngone\ est dit \og \emph{régulier} \fg\ si c'est un \niso\ équilatéral.%
 	\footnote{
-		Il existe des \nequis\ convexes qui ne sont pas des polygones réguliers. Par exemple, penser à la frontière d'une maison formée d'un carré surmonté d'un triangle équilatéral de mêmes dimensions.
+		Une losange non carré est un \nequi\ convexe non régulier, et un rectangle non carré est un \niso\ convexe non régulier.
 	}
 \end{defi}
