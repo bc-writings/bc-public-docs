@@ -57,35 +57,6 @@
 % ----------------------- %
 
 
-\begin{remark} \label{tri-topo-comp}
-	La preuve élémentaire classique commence par noter que si $ABC$ n'est pas équilatéral, en particulier il n'est pas isocèle en $A$, donc, selon le fait \ref{tri-one-side-fixed}, il existe un triangle isocèle de base $[BC]$, de même périmètre et d'aire strictement plus grande.
-	Ceci nous prouve qu'un triangle maximisant l'aire à périmètre fixé ne peut être qu'équilatéral. 
-	Cette condition nécessaire est-elle suffisante? Ce sera vrai si nous savons qu'au moins un triangle maximisant l'aire à périmètre fixé existe, puisque, dans ce cas, un tel triangle ne pourra être qu'équilatéral.%
-	\footnote{
-		Sans cette existence, il se pourrait, par exemple, que le triangle équilatéral soit à part, et que les autres aient des aires augmentant indéfiniment de leur côté, sans mauvais jeu de mots, en dépassant celle du triangle équilatéral qui serait une sorte de maximum local isolé.
-	}
-	Nous voilà obligé de faire appel aux techniques d'analyse.
-	%
-	\begin{itemize}
-		\item On munit le plan d'un repère orthonormé $\pvaxes{O | i | j}$. 
-
-		\item Les triangles $ABC$ tels que $\perim{ABC} = p$ sont représentés en posant $A\coord{0 | 0}$, $B\coord{AB | 0}$ et $C\coord{x_C | y_C}$ avec $y_C \geq 0$. Un triangle peut donc avoir trois représentations, mais peu importe.
-		De plus, on accepte les triangles dégénérés pour lesquels nous avons $x_B = 0$ ou $y_C = 0$ dans notre représentation.
-		Nous notons alors $\setproba{T} \subset \RR^3$ l'ensemble des triplets $\coord{x_B | x_C | y_C}$ ainsi obtenus.
-
-		\item Il est facile de justifier que $\setproba{T}$ est séquentiellement fermé, donc fermé, dans $\RR^3$.
-		De plus, $\setproba{T}$ est borné car $x_B$, $x_C$ et $y_C$ le sont.
-		En résumé, $\setproba{T}$ est un compact de $\RR^3$.
-
-		\item La fonction $s: \coord{x_B | x_C | y_C} \in \setproba{T} \mapsto \num{.5} x_B y_C \in \RRp$ est la fonction \og \emph{aire} \fg\ des triangles représentés.
-		Par continuité et compacité, on sait que $s$ admet un maximum sur $\setproba{T}$, un tel maximum ne pouvant pas être atteint pour un triangle dégénéré. Mission accomplie!
-	\end{itemize}
-\end{remark}
-
-
-% ----------------------- %
-
-
 \begin{remark}
 	La formule de Héron donne qu'un triangle de côtés $a$, $b$ et $c$, et de demi-périmètre $s = \num{.5} p$, possède une aire égale à $\sqrt{s(s - a)(s - b)(s - c)}$.
 	La comparaison des moyennes géométriques et arithmétiques d'ordre $3$ nous donne alors une solution algébrique efficace, puisque de
@@ -95,6 +66,38 @@
 	puis
 	$\sqrt{s(s - a)(s - b)(s - c)} \leq \frac{p^2}{12 \sqrt{3}}$
 	où $\frac{p^2}{12 \sqrt{3}}$ est l'aire du triangle équilatéral de périmètre $p$.
+\end{remark}
+
+
+% ----------------------- %
+
+
+\begin{remark} \label{tri-topo-comp}
+	Voici une preuve élémentaire s'appuyant pleinement sur l'analyse, mais sans faire appel au théorème des extrema liés (nous généraliserons cette idée au cas des polygones à $n$ côtés).
+	%
+	\begin{itemize}
+		\item On munit le plan d'un repère orthonormé $\pvaxes{O | i | j}$. 
+
+		\item Les triangles $ABC$ tels que $\perim{ABC} = p$ sont représentés en posant $A\coord{0 | 0}$, $B\coord{AB | 0}$ et $C\coord{x_C | y_C}$ avec $y_C \geq 0$. Un triangle peut donc avoir trois représentations, mais peu importe.
+		De plus, on accepte les triangles dégénérés pour lesquels nous avons $x_B = 0$ ou $y_C = 0$ dans notre représentation.
+		Nous notons alors $\setproba{T} \subset \RR^3$ l'ensemble des triplets $\coord{x_B | x_C | y_C}$ ainsi obtenus.
+
+		\item Il est facile de justifier que $\setproba{T}$ est séquentiellement fermé dans $\RR^3$.
+		De plus, $\setproba{T}$ est borné car $x_B$, $x_C$ et $y_C$ le sont.
+		En résumé, $\setproba{T}$ est un compact de $\RR^3$.
+
+		\item La fonction $\alpha: \coord{x_B | x_C | y_C} \in \setproba{T} \mapsto \num{.5} x_B y_C \in \RRp$ est la fonction \og \emph{aire} \fg\ des triangles représentés.
+		Par continuité et compacité, on sait que $\alpha$ admet un maximum sur $\setproba{T}$. 
+		Notons $ABC$ un triangle maximisant $\alpha$.
+
+		\item $ABC$ n'est clairement pas dégénéré. Est-il équilatéral pour autant? Selon le fait \ref{tri-one-side-fixed}, $ABC$ doit être isocèle en $C$. 
+		Posant $c = AC = BC \neq 0$ et $s = \frac{p}{2}$, nous avons $x_B = 2 s - 2 c \neq 0$, et $y_C = \sqrt{c^2 - (s - c)^2}$, puis $\area{ABC}^2 = (s - c)^2 (c^2 - (s - c)^2 ) = s (s - c)^2 (s - 2 c)$.%
+		\footnote{
+			Nous venons de démontrer la formule de Héron dans le cas particulier d'un triangle isocèle.
+		}
+		Or, le maximum de la fonction $\beta : c \mapsto s (s - c)^2 (s - 2 c)$ est forcément atteint en $c$ annulant $\sder{\beta}{1}(c) = - 2 s (s - c) (s - 2 c) - 2 s (s - c)^2 = 2 s (c - s) (2s - 3c)$, soit pour $c = \frac{2s}{3} = \frac{p}{3}$, car $c = s$ est exclus.
+		Ceci prouve que $ABC$ est nécessairement équilatéral.
+	\end{itemize}
 \end{remark}
 
 
@@ -127,6 +130,6 @@
 
 		\item En résumé, l'existence d'un maximum implique que ce maximum corresponde au cas du triangle équilatéral.
 
-		\item Il reste à démontrer qu'un tel maximum existe pour pouvoir conclure: ceci est facile à justifier en considérant l'ensemble compact $\intervalC{0}{2s}^3$ de $\RR^3$.
+		\item Il reste à démontrer qu'un tel maximum existe pour pouvoir conclure: ceci est facile à justifier en considérant l'ensemble compact $\intervalC{0}{2s}^3$ de $\RR^3$, et la continuité de $f$.
 	\end{itemize}
 \end{remark}
