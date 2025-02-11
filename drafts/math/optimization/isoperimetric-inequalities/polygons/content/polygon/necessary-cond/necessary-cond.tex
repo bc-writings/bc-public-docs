@@ -104,43 +104,41 @@
 %% ----------------------- %
 %
 %
-%\begin{fact} \label{iso-poly}
-%	Si un \ngone\ convexe $\setproba{P}$ n'est pas un \nequi, alors on peut construire un \ngone\ convexe $\setproba{P}^{\,\prime}$ tel que
-%	$\perim{\setproba{P}^{\,\prime}} = \perim{\setproba{P}}$
-%	et
-%	$\area{\setproba{P}^{\,\prime}} > \area{\setproba{P}}$.
-%\end{fact}
-%
-%
-%\begin{proof}
-%	Considérons un \ngone\ convexe $\setproba{P}$ qui ne soit pas un \nequi.
-%	Dans ce cas, $\setproba{P}$ admet un triplet de sommets consécutifs $A$, $B$ et $C$ tels que $AB \neq BC$ (sinon, on obtiendrait de proche en proche un \nequi).
-%	La construction vue dans la preuve du fait \ref{tri-one-side-fixed} nous donne la solution: voir les deux dessins ci-après dans lesquels $(AC) \parallel (BB^{\,\prime})$.
-%	Pour le 2\ieme\ cas, il n'est pas possible d'utiliser le triangle $AB^{\,\prime}C$ isocèle en $B^{\,\prime}$ car $(B^{\,\prime}C)$ porte le côté de $\setproba{P}$ de sommet $C$ juste après $[BC]$, mais ce problème se contourne en considérant un point $B^{\,\prime\prime}$ de $]BB^{\,\prime}[$.
-%	%
-%	\begin{multicols}{2}
-%		\centering
-%
-%		\includegraphics[scale=.4]{content/polygon/necessary-cond/not-iso-OK.png}
-%
-%		\includegraphics[scale=.4]{content/polygon/necessary-cond/not-iso-KO.png}
-%	\end{multicols}
-%
-%	Dans chaque cas, nous avons construit un \ngone\ convexe $\setproba{P}^{\,\prime\prime}$ tel que
-%	$\perim{\setproba{P}^{\,\prime\prime}} < \perim{\setproba{P}}$
-%	et
-%	$\area{\setproba{P}^{\,\prime\prime}} = \area{\setproba{P}}$.
-%	Un simple agrandissement donne un \ngone\ convexe $\setproba{P}^{\,\prime}$ vérifiant
-%	$\perim{\setproba{P}^{\,\prime}} = \perim{\setproba{P}}$
-%	et
-%	$\area{\setproba{P}^{\,\prime}} > \area{\setproba{P}}$.
-%\end{proof}
-%
-%
-\newpage  % TEMPO
+\begin{fact} \label{iso-poly}
+	Si un \ngone\ convexe $\setproba{P}$ n'est pas un \nequi, alors on peut construire un \ngone\ convexe $\setproba{P}^{\,\prime}$ tel que
+	$\perim{\setproba{P}^{\,\prime}} = \perim{\setproba{P}}$
+	et
+	$\area{\setproba{P}^{\,\prime}} > \area{\setproba{P}}$.
+\end{fact}
+
+
+\begin{proof}
+	Considérons un \ngone\ convexe $\setproba{P}$ qui ne soit pas un \nequi.
+	Dans ce cas, $\setproba{P}$ admet un triplet de sommets consécutifs $A$, $B$ et $C$ tels que $AB \neq BC$ (sinon, on obtiendrait de proche en proche un \nequi).
+	La construction vue dans la preuve du fait \ref{tri-one-side-fixed} nous donne la solution: voir les deux dessins ci-après dans lesquels $(AC) \parallel (BB^{\,\prime})$.
+	Pour le 2\ieme\ cas, il n'est pas possible d'utiliser le triangle $AB^{\,\prime}C$ isocèle en $B^{\,\prime}$ car $(B^{\,\prime}C)$ porte le côté de $\setproba{P}$ de sommet $C$ juste après $[BC]$, mais ce problème se contourne en considérant un point $B^{\,\prime\prime}$ du segment ouvert $]BB^{\,\prime}[$ (si besoin, se reporter au 2\ieme\ dessin de la preuve du fait \ref{tri-one-side-fixed}).
+	%
+	\begin{multicols}{2}
+		\centering
+
+		\includegraphics[scale=.4]{content/polygon/necessary-cond/not-iso-OK.png}
+
+		\includegraphics[scale=.4]{content/polygon/necessary-cond/not-iso-KO.png}
+	\end{multicols}
+
+	Dans chaque cas, nous avons construit un \ngone\ convexe $\setproba{P}^{\,\prime\prime}$ tel que
+	$\perim{\setproba{P}^{\,\prime\prime}} < \perim{\setproba{P}}$
+	et
+	$\area{\setproba{P}^{\,\prime\prime}} = \area{\setproba{P}}$.
+	Un simple agrandissement donne un \ngone\ convexe $\setproba{P}^{\,\prime}$ vérifiant
+	$\perim{\setproba{P}^{\,\prime}} = \perim{\setproba{P}}$
+	et
+	$\area{\setproba{P}^{\,\prime}} > \area{\setproba{P}}$.
+\end{proof}
+
 
 \begin{remark}
-	Le fait précédent ne permet pas de se ramener toujours au cas d'un \nequi\ convexe. Il nous dit juste que si un \ngone\ convexe maximise son aire à périmètre fixé, alors il devra être un \nequi. La nuance est importante, et une similaire existe pour le fait suivant.
+	Le fait précédent ne permet pas de se ramener toujours au cas d'un \nequi\ convexe. Il nous dit juste que si un \ngone\ convexe maximise son aire à périmètre fixé, alors il devra être a minima un \nequi. La nuance est importante, et une similaire existe pour la conclusion du fait suivant.
 \end{remark}
 
 
@@ -166,7 +164,7 @@
 	
 	Par hypothèse, nous avons deux paires de côtés
 	$\big( [AB] , [BC] \big)$ et
-	$\big( [EF] , [FG] \big)$ tels que
+	$\big( [EF] , [FG] \big)$ telles que
 	$\anglein{BAC} < \anglein{FEG}$ comme ci-dessous.
 	%
 	\begin{center}
