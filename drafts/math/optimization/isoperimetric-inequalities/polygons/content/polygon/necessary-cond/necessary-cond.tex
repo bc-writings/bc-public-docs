@@ -1,4 +1,10 @@
-%Nous allons établir le fait \ref{nece-cond} affirmant qu'un \ngone\ maximisant son aire à périmètre fixé doit être régulier.
+%Nous allons établir le fait \ref{nece-cond} affirmant qu'un \ngone\ maximisant son aire à périmètre fixé doit être, a minima, régulier.
+%
+%
+%\begin{tcolorbox}
+%	\itshape\small
+%	Les cas $n = 3$ et $n = 4$ étant résolus, voir les faits \ref{iso-tri} et \ref{quadri}, dans toutes les preuves de cette section, nous supposerons $n \geq 5 $.
+%\end{tcolorbox}
 %
 %
 %% ----------------------- %
@@ -14,7 +20,7 @@
 %
 %\begin{proof}
 %	Ici, il ne faut pas être expéditif en indiquant que la preuve du fait \ref{quadri} se généralise sans aucun souci.
-%	En effet, avec $n > 4$, nous pouvons avoir plusieurs points de non-convexité, et les éliminer comme nous l'avons fait pour le quadrilatère n'est pas immédiat:
+%	En effet, comme $n \geq 5$, nous pouvons avoir plusieurs points de non-convexité, et les éliminer comme nous l'avons fait pour le quadrilatère n'est pas immédiat:
 %	dans la figure suivante, l'élimination des deux points de non convexité $G$ et $E$ de l'heptagone $ABCDEFG$ nous amène à un nouvel heptagone $ABCDE^{\,\prime}FG^{\,\prime}$ ayant lui aussi deux points de non-convexité $F$ et $D$!
 %	Donc, rien n'empêche, a priori, d'avoir une suite de constructions n'aboutissant jamais à un heptagone convexe
 %	de même périmètre que celui de $ABCDEFG$, et d'aire strictement supérieure à celle de $ABCDEFG$.%
@@ -155,7 +161,6 @@
 
 
 \begin{proof}
-	Les cas $n = 3$ et $n = 4$ ayant été traités précédemment, nous allons supposer que $n \geq 5$.
 	Par hypothèse, nous avons deux paires de côtés
 	$\big( [AB] , [BC] \big)$ et
 	$\big( [DE] , [EF] \big)$ telles que
@@ -240,54 +245,48 @@
 %\begin{remark}
 %	Une démonstration géométrique courante du fait précédent, que l'on retrouve souvent reproduite, s'appuie sur un résultat attribué à Zénodore sur la maximisation de l'aire totale de deux triangles isocèles de bases fixées, et de périmètre total constant:
 %	ce résultat affirme que les deux triangles doivent avoir des angles en leur sommet principal de même mesure.
-%	Malheureusement, cette preuve échoue lors de la disparition d'un sommet en choisissant les deux triangles isocèles optimaux pour construire un nouveau \ngone\ \og plus gros \fg\,, sauf à affiner la recherche comme nous l'avons fait ci-dessus, si tant est que cela soit faisable.
-%	Notons aussi que la preuve du résultat de Zénodore est un peu fastidieuse, sans être ingrate.
+%	Malheureusement, cette preuve échoue lors de la disparition d'un sommet en choisissant les deux triangles isocèles optimaux pour construire un nouveau \ngone\ \og plus gros \fg\,, sauf à affiner la recherche comme nous l'avons avec notre approche analytique.
+%	Indiquons, au passage, que la preuve du résultat de Zénodore est un peu fastidieuse, sans être ingrate.
 %\end{remark}
 	
 
 %% ----------------------- %
 
 
-%\begin{remark}
-%	La méthode des extrema liés, rappelée dans la remarque \ref{constrained-extrema}, donne une autre justification. Voici comment faire.
-%	%
-%	\begin{itemize}
-%		\item $\area{ABC} + \area{EFG} = \frac14 ( d_1^2 \tan \alpha + d_2^2 \tan \beta )$
-%
-%		\item
-%		\begin{stepcalc}[style=sar]
-%			4 \ell
-%		\explnext{}
-%			AB + BC + EF + FG
-%		\explnext{}
-%			2 ( AB + EF )
-%		\explnext{}
-%			\frac{d_1}{\cos \alpha} + \frac{d_2}{\cos \beta}
-%		\end{stepcalc}
-%
-%		\item Pour $(\alpha ; \beta) \in \intervalO{0}{\frac{\pi}{2}}^2$, on cherche donc à maximiser $f(\alpha ; \beta) =  d_1^2 \tan \alpha + d_2^2 \tan \beta$ sous la contrainte $g(\alpha ; \beta) = 0$ où $g(\alpha ; \beta) = 4 \ell - \frac{d_1}{\cos \alpha} - \frac{d_2}{\cos \beta}$.
-%
-%		\item On doit avoir $\lambda \in \RR$ tel que
-%    	$\pder[i]{f}{\alpha}{1} = \lambda \pder[i]{g}{\alpha}{1}$ et
-%    	$\pder[i]{f}{\beta}{1} = \lambda \pder[i]{g}{\beta}{1}$
-%		(méthode des extrema liés).
-%
-%		\item Donc
-%    	$\frac{d_1^2}{\cos^2 \alpha} = \lambda \frac{d_1 \sin \alpha}{\cos^2 \alpha}$,
-%		c'est-à-dire
-%		$\lambda \sin \alpha = d_1$.
-%		De même,
-%		$\lambda \sin \beta = d_2$.
-%	
-%		\item ????
-%	\end{itemize}
-%\end{remark}
-%
-%
-%
-%
-%
-%
+%%\begin{remark}
+%%	La méthode des extrema liés, rappelée dans la remarque \ref{constrained-extrema}, donne une autre justification. Voici comment faire.
+%%	%
+%%	\begin{itemize}
+%%		\item $\area{ABC} + \area{EFG} = \frac14 ( d_1^2 \tan \alpha + d_2^2 \tan \beta )$
+%%
+%%		\item
+%%		\begin{stepcalc}[style=sar]
+%%			4 \ell
+%%		\explnext{}
+%%			AB + BC + EF + FG
+%%		\explnext{}
+%%			2 ( AB + EF )
+%%		\explnext{}
+%%			\frac{d_1}{\cos \alpha} + \frac{d_2}{\cos \beta}
+%%		\end{stepcalc}
+%%
+%%		\item Pour $(\alpha ; \beta) \in \intervalO{0}{\frac{\pi}{2}}^2$, on cherche donc à maximiser $f(\alpha ; \beta) =  d_1^2 \tan \alpha + d_2^2 \tan \beta$ sous la contrainte $g(\alpha ; \beta) = 0$ où $g(\alpha ; \beta) = 4 \ell - \frac{d_1}{\cos \alpha} - \frac{d_2}{\cos \beta}$.
+%%
+%%		\item On doit avoir $\lambda \in \RR$ tel que
+%%    	$\pder[i]{f}{\alpha}{1} = \lambda \pder[i]{g}{\alpha}{1}$ et
+%%    	$\pder[i]{f}{\beta}{1} = \lambda \pder[i]{g}{\beta}{1}$
+%%		(méthode des extrema liés).
+%%
+%%		\item Donc
+%%    	$\frac{d_1^2}{\cos^2 \alpha} = \lambda \frac{d_1 \sin \alpha}{\cos^2 \alpha}$,
+%%		c'est-à-dire
+%%		$\lambda \sin \alpha = d_1$.
+%%		De même,
+%%		$\lambda \sin \beta = d_2$.
+%%	
+%%		\item ????
+%%	\end{itemize}
+%%\end{remark}
 %
 %
 %% ----------------------- %

@@ -1,0 +1,102 @@
+\leavevmode
+
+\smallskip
+
+Nous donnons ici des preuves courtes du fait \ref{iso-tri}, mais sans notion géométrique intuitive. Efficacité vs beauté, l'auteur a choisi son camp depuis longtemps !
+
+
+% ----------------------- %
+
+
+\begin{proof}[\altproof{1}]
+	Selon \textbf{la formule de Héron},
+	$\sqrt{s(s - a)(s - b)(s - c)}$
+	est l'aire d'un triangle de côtés $a$, $b$, $c$ et de demi-périmètre $s = \num{.5} p$.
+	La comparaison des moyennes géométriques et arithmétiques%
+	\footnote{
+		La formule de Héron reste un argument géométrique, mais quid de la comparaison des moyennes géométrique et arithmétique d'ordre $3$, généralement justifiée via la concavité de la fonction logarithme.
+		À l'ordre $2$,
+%		Aux ordres $2$ et $3$,
+		l'inégalité s'obtient aisément par un argument géométrique: voir la remarque \ref{ineq-geo-quad-arith}.
+	}
+	donne
+	$\sqrt[3]{(s - a)(s - b)(s - c)} \leq \frac13 \big( (s - a) + (s - b) + (s - c) \big)$,
+	puis
+	$s(s - a)(s - b)(s - c) \leq \frac{1}{27} s^4$,
+	et enfin
+	$\sqrt{s(s - a)(s - b)(s - c)} \leq \frac{p^2}{12 \sqrt{3}}$
+	où $\frac{p^2}{12 \sqrt{3}}$ est l'aire du triangle équilatéral de périmètre $p$.
+\end{proof}
+
+
+% ----------------------- %
+
+
+\begin{proof}[\altproof{2}] \label{tri-topo-comp}
+	Utilisons \textbf{l'analyse sans le théorème des extrema liés.}% (nous généraliserons cette idée au cas des polygones à $n$ côtés).
+	%
+	\begin{itemize}
+		\item On munit le plan d'un repère orthonormé $\pvaxes{O | i | j}$. 
+
+		\item Les triangles $ABC$ tels que $\perim{ABC} = p$ sont représentés en posant $A\coord{0 | 0}$, $B\coord{AB | 0}$ et $C\coord{x_C | y_C}$ avec $y_C \geq 0$. Un triangle peut donc avoir trois représentations, mais peu importe.
+		De plus, on accepte les triangles dégénérés pour lesquels nous avons $x_B = 0$ ou $y_C = 0$ dans notre représentation.
+		Nous notons alors $\setproba{T} \subset \RR^3$ l'ensemble des triplets $\coord{x_B | x_C | y_C}$ ainsi obtenus.
+
+		\item Il est facile de justifier que $\setproba{T}$ est séquentiellement fermé dans $\RR^3$.
+		De plus, $\setproba{T}$ est borné car $x_B$, $x_C$ et $y_C$ le sont.
+		En résumé, $\setproba{T}$ est un compact de $\RR^3$.
+
+		\item La fonction $\alpha: \coord{x_B | x_C | y_C} \in \setproba{T} \mapsto \num{.5} x_B y_C \in \RRp$ est la fonction \og \emph{aire} \fg\ des triangles représentés.
+		Par continuité et compacité, on sait que $\alpha$ admet un maximum sur $\setproba{T}$. 
+		Notons $ABC$ un triangle maximisant $\alpha$.
+
+		\item $ABC$ n'est clairement pas dégénéré. Est-il équilatéral pour autant? Selon le fait \ref{tri-one-side-fixed}, $ABC$ doit être isocèle en $C$. 
+		Posant $c = AC = BC \neq 0$ et $s = \frac{p}{2}$, nous avons 
+		$x_B = 2 s - 2 c \neq 0$, et 
+		$y_C = \sqrt{c^2 - (s - c)^2}$, puis 
+		$\area{ABC}^2 = (s - c)^2 (c^2 - (s - c)^2 ) = s (s - c)^2 (s - 2 c)$.%
+		\footnote{
+			Nous venons de démontrer la formule de Héron dans le cas particulier d'un triangle isocèle.
+		}
+		Or, le maximum de la fonction 
+		$\beta : c \mapsto s (s - c)^2 (s - 2 c)$ est forcément atteint en $c$ annulant 
+		$\sder{\beta}{1}(c) = - 2 s (s - c) (s - 2 c) - 2 s (s - c)^2 = 2 s (c - s) (2s - 3c)$, 
+		soit pour $c = \frac{2s}{3} = \frac{p}{3}$, car $c = s$ est exclu.
+		Ceci prouve que $ABC$ est nécessairement équilatéral.
+	\end{itemize}
+\end{proof}
+
+
+% ----------------------- %
+
+
+\begin{proof}[\altproof{3}] \label{constrained-extrema}
+	Nous allons faire appel à \textbf{la méthode des extrema liés et la formule de Héron}.
+	Pour cela, notons que l'aire d'un triangle étant positive ou nulle, nous pouvons chercher à maximiser son carré
+	$f(a;b;c) = s(s - a)(s - b)(s - c)$
+%	          = \frac{1}{16} (a + b + c)(b + c - a)(a + c - b)(a + b - c)$,
+	sous la contrainte $2s = a + b + c$ où $s = \num{.5} p > 0$ est constant.
+	Notant $g(a;b;c) = a + b + c - 2 s$, la contrainte s'écrit $g(a;b;c) = 0$.
+	%
+	\begin{itemize}
+		\item Si un extremum existe,
+    	$\exists \lambda \in \RR$ tel que
+    	$\pder[i]{f}{a}{1} = \lambda \pder[i]{g}{a}{1}$,
+    	$\pder[i]{f}{b}{1} = \lambda \pder[i]{g}{b}{1}$ et
+    	$\pder[i]{f}{c}{1} = \lambda \pder[i]{g}{c}{1}$
+		d'après la méthode des extrema liés.
+
+		\item Donc
+		$- s(s - b)(s - c) = - s(s - a)(s - c) = - s(s - a)(s - b)$,
+		et par conséquent
+		$(s - b)(s - c) = (s - a)(s - c) = (s - a)(s - b)$.
+
+		\item Les cas $s = a$, $s = b$ et $s = c$ donnent $f(a;b;c) = 0$.
+
+		\item Le cas $\big[ s \neq a, s \neq b \text{ et } s \neq c \big]$ n'est envisageable que si $a = b = c = \frac{p}{3}$, ceci impliquant $f(a;b;c) = \frac{1}{16} p \big( \frac{p}{3} \big)^3 = \big( \frac{p^2}{12 \sqrt{3}} \big)^2 > 0$.
+
+		\item En résumé, l'existence d'un maximum implique que ce maximum corresponde au cas du triangle équilatéral.
+
+		\item Il reste à démontrer qu'un tel maximum existe pour pouvoir conclure: ceci est facile à justifier en considérant l'ensemble compact $\intervalC{0}{2s}^3$ de $\RR^3$, et la continuité de $f$.
+	\end{itemize}
+\end{proof}

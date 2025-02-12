@@ -13,7 +13,7 @@
 	Le raisonnement tient alors aux constations suivantes accessibles à un collégien.
 	%
 	\begin{enumerate}
-		\item Le grand carré a une aire supérieure ou égale à $4 L \ell$, et même strictement si le rectangle initial n'est pas un carré.
+		\item Le grand carré a une aire $(L + \ell)^2$ supérieure ou égale à $4 L \ell$, et ceci strictement si le rectangle initial n'est pas un carré.
 
 		\item Le grand carré a un périmètre égal à $4 (L + \ell)$.
 
@@ -30,7 +30,7 @@
 
 
 \begin{remark}
-	Une preuve courante est d'exprimer l'aire du rectangle comme un polynôme du 2\ieme\ degré en $L$ par exemple.
+	Une preuve courante consiste à exprimer l'aire du rectangle comme polynôme du 2\ieme\ degré en $L$ par exemple.
 	On obtient $L \ell = L (\num{.5} p - L)$ qui est maximale en $L_M = \num{.25} p$ (moyenne des racines), d'où $\ell_M = \num{.25} p = L_M$.
 \end{remark}
 
@@ -38,6 +38,46 @@
 % ----------------------- %
 
 
-\begin{remark}
-	Au passage, nous avons pour $(L ; \ell) \in \big( \RRsp \big)^2$, $4 L \ell \leq (L + \ell)^2$, c'est-à-dire $2 L \ell \leq L^2 + \ell^2$, d'où $\sqrt{L \ell} \leq \sqrt{\frac12 (L^2 + \ell^2)}$, soit la comparaison des moyennes géométriques et quadratiques d'ordre $2$.
+\begin{remark} \label{ineq-geo-quad-arith}
+	Nous avons établi que
+	$4 L \ell \leq (L + \ell)^2$
+	pour $(L ; \ell) \in \big( \RRsp \big)^2$.
+	Ceci permet de comparer les moyennes arithmétique $\frac12 (L + \ell)$, géométrique $\sqrt{L \ell}$ et quadratique $\sqrt{\frac12 (L^2 + \ell^2)}$.
+	%
+	\begin{itemize}
+		\item L'application de la racine carrée donne
+		$2 \sqrt{L \ell} \leq L + \ell$, puis 
+		$\sqrt{L \ell} \leq \frac12 (L + \ell)$.
+		
+		\item Un simple développement fournit $2 L \ell \leq L^2 + \ell^2$, puis
+    	$\sqrt{L \ell} \leq \sqrt{\frac12 (L^2 + \ell^2)}$.
+		
+		\item On peut faire mieux en notant que $2 L \ell \leq L^2 + \ell^2$ donne
+		$L^2 + \ell^2 + 2 L \ell \leq 2 (L^2 + \ell^2)$, puis
+		$\frac14 (L + \ell)^2 \leq \frac12 (L^2 + \ell^2)$, et enfin 
+		$\frac12 (L + \ell) \leq \sqrt{\frac12 (L^2 + \ell^2)}$.
+	\end{itemize}
+	
+	En résumé,
+	$\sqrt{L \ell} \leq \frac12 (L + \ell) \leq \sqrt{\frac12 (L^2 + \ell^2)}$
+	pour $(L ; \ell) \in \big( \RRsp \big)^2$.
+	%
+	Ces inégalités se généralisent à l'ordre $n$ grâce à l'algèbre, ou l'analyse.
+	%
+	Pour clore cette remarque, notons que 
+	$\sqrt[3]{L \ell h} \leq \frac13 (L + \ell + h)$ s'obtient via les figures suivantes qui donnent
+	$(L + \ell + h)^3 \geq 27 L \ell h$ où $27 = 3^3$, les pavés étant tous de dimension $L \times \ell \times h$.
+
+	\begin{center}
+		\small\itshape
+		\includegraphics[scale=.25]{content/rectangle/pave-2-cube-1.png}
+		
+		\smallskip
+		La brique de base.
+		
+		\includegraphics[scale=.25]{content/rectangle/pave-2-cube-2.png}
+		
+		\smallskip
+		Un 1\ier\ niveau à empiler $3$ fois.
+	\end{center}
 \end{remark}

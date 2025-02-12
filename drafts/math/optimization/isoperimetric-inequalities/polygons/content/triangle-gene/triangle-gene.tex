@@ -16,29 +16,25 @@
 	\end{center} 
 
 	
-	Le passage d'un triangle quelconque $ABC$ au triangle $ACD$ isocèle en $D$ nous amène à nous concentrer sur ce que donne notre procédé d'agrandissement d'aire à périmètre fixé pour des triangles isocèles.
+	Le passage d'un triangle quelconque $ABC$ au triangle $ACD$ isocèle en $D$ nous amène à nous concentrer sur ce que donne notre procédé d'agrandissement d'aire à périmètre fixé pour des triangles isocèles. Reprenons l'exemple précédent où $AC > AD$ (le dessin ci-dessous ne garde que les triangles isocèles construits).
+
+	\begin{center}
+		\includegraphics[scale=.4]{content/triangle-gene/proof-focus.png}
+	\end{center} 
+	
+
 	Voici ce que nous pouvons affirmer.
 	%
 	\begin{enumerate}
-		\item Considérons $ACD$ isocèle en $D$ tel que $AC > AD$.
-		%
-		Comme $AC + AD + DC = p$, nous avons $AC > \frac13p > AD$.
-		Dès lors, on doit avoir ensuite  $AD < \frac13p < AE$, car $AD + DE + AE = p$ et $AD = AE$.
+		\item Comme $AC + 2 AD = p$ et $AC > AD$, nous avons $AC > \frac13 p > AD$.
+		À l'étape suivante, comme $AD + 2 AE = p$, nous obtenons $AD < \frac13 p < AE$.
 
 
-		\item Considérons $ADE$ isocèle en $E$ tel que $AD < AE$ en oubliant le point précédent.
-		%
-		Comme $AD + DE + AE = p$, nous avons $AD < \frac13p < AE$.
-		Dès lors, on doit avoir ensuite  $AE > \frac13p > AF$, car $AE + AF + EF = p$ et $AF = EF$.
-
-
-		\item Les points précédents démontrent que notre procédé n'arrivera jamais en un nombre fini d'étapes à un triangle équilatéral si l'on part d'un triangle isocèle non équilatéral.%
-		\footnote{
-			Et plus généralement si le procédé ne commence pas avec une base de longueur $\frac13 p$.
-		}
-
-
-		\item Nous devons quantifier les écarts à la mesure \og \emph{limite} \fg\ $p^{\,\prime} = \frac13 p$. 
+		\item Pour $AEF$ isocèle en $F$, comme $AE + 2AF = p$, nous arrivons à  $AE > \frac13 p > AF$.
+		
+		
+		\item \label{tri-equi-conv}
+		Tentons de quantifier les écarts à la mesure pivot $p^{\,\prime} = \frac13 p$. 
 		%
 		\begin{itemize}
 			\item Dans $ADC$, posant $AD = p^{\,\prime} - \epsilon$, nous avons $AC = p^{\,\prime} + 2 \epsilon$.
@@ -47,89 +43,20 @@
 
 			\item Donc $\epsilon^{\,\prime} = \frac12 \epsilon$.
 		\end{itemize}
-		
-		\noindent
-		Nous avons donc une convergence exponentielle des longueurs des côtés vers $p^{\,\prime} = \frac13 p$. Et tout ceci via de la géométrie et de l'analyse élémentaires!
 	\end{enumerate}
+
+
+	\smallskip
+	
+	Voici les enseignements de ce qui précède en partant d'un triangle $ABC$ non équilatéral.
+	%
+	\begin{itemize}
+		\item Si $AC = \frac13p$, dès la 1\iere\ itération, nous avons un triangle équilatéral d'aire plus grande.
+		
+		
+		\item Si $AC \neq \frac13p$, notre procédé n'arrivera jamais en un nombre fini d'étapes à un triangle équilatéral.
+		Dans ce cas, le point \ref{tri-equi-conv} ci-dessus nous donne une convergence exponentielle des longueurs des côtés vers $p^{\,\prime} = \frac13 p$, tout en ayant des aires des plus en plus grandes.
+	\end{itemize}
+	
+	Dans tous les cas, l'aire d'un triangle non équilatéral de périmètre $p$ est strictement majorée par celle du triangle équilatéral de périmètre $p$. Et tout ceci a été obtenu via de la géométrie et de l'analyse élémentaires!
 \end{proof}
-
-
-% ----------------------- %
-
-
-\begin{remark}
-	La formule de Héron donne qu'un triangle de côtés $a$, $b$ et $c$, et de demi-périmètre $s = \num{.5} p$, possède une aire égale à $\sqrt{s(s - a)(s - b)(s - c)}$.
-	La comparaison des moyennes géométriques et arithmétiques d'ordre $3$ nous donne alors une solution algébrique efficace, puisque de
-	$\sqrt[3]{(s - a)(s - b)(s - c)} \leq \frac13 \big( (s - a) + (s - b) + (s - c) \big)$,
-	nous déduisons
-	$s(s - a)(s - b)(s - c) \leq \frac{1}{27} s^4$,
-	puis
-	$\sqrt{s(s - a)(s - b)(s - c)} \leq \frac{p^2}{12 \sqrt{3}}$
-	où $\frac{p^2}{12 \sqrt{3}}$ est l'aire du triangle équilatéral de périmètre $p$.
-\end{remark}
-
-
-% ----------------------- %
-
-
-\begin{remark} \label{tri-topo-comp}
-	Voici une preuve élémentaire s'appuyant pleinement sur l'analyse, mais sans faire appel au théorème des extrema liés (nous généraliserons cette idée au cas des polygones à $n$ côtés).
-	%
-	\begin{itemize}
-		\item On munit le plan d'un repère orthonormé $\pvaxes{O | i | j}$. 
-
-		\item Les triangles $ABC$ tels que $\perim{ABC} = p$ sont représentés en posant $A\coord{0 | 0}$, $B\coord{AB | 0}$ et $C\coord{x_C | y_C}$ avec $y_C \geq 0$. Un triangle peut donc avoir trois représentations, mais peu importe.
-		De plus, on accepte les triangles dégénérés pour lesquels nous avons $x_B = 0$ ou $y_C = 0$ dans notre représentation.
-		Nous notons alors $\setproba{T} \subset \RR^3$ l'ensemble des triplets $\coord{x_B | x_C | y_C}$ ainsi obtenus.
-
-		\item Il est facile de justifier que $\setproba{T}$ est séquentiellement fermé dans $\RR^3$.
-		De plus, $\setproba{T}$ est borné car $x_B$, $x_C$ et $y_C$ le sont.
-		En résumé, $\setproba{T}$ est un compact de $\RR^3$.
-
-		\item La fonction $\alpha: \coord{x_B | x_C | y_C} \in \setproba{T} \mapsto \num{.5} x_B y_C \in \RRp$ est la fonction \og \emph{aire} \fg\ des triangles représentés.
-		Par continuité et compacité, on sait que $\alpha$ admet un maximum sur $\setproba{T}$. 
-		Notons $ABC$ un triangle maximisant $\alpha$.
-
-		\item $ABC$ n'est clairement pas dégénéré. Est-il équilatéral pour autant? Selon le fait \ref{tri-one-side-fixed}, $ABC$ doit être isocèle en $C$. 
-		Posant $c = AC = BC \neq 0$ et $s = \frac{p}{2}$, nous avons $x_B = 2 s - 2 c \neq 0$, et $y_C = \sqrt{c^2 - (s - c)^2}$, puis $\area{ABC}^2 = (s - c)^2 (c^2 - (s - c)^2 ) = s (s - c)^2 (s - 2 c)$.%
-		\footnote{
-			Nous venons de démontrer la formule de Héron dans le cas particulier d'un triangle isocèle.
-		}
-		Or, le maximum de la fonction $\beta : c \mapsto s (s - c)^2 (s - 2 c)$ est forcément atteint en $c$ annulant $\sder{\beta}{1}(c) = - 2 s (s - c) (s - 2 c) - 2 s (s - c)^2 = 2 s (c - s) (2s - 3c)$, soit pour $c = \frac{2s}{3} = \frac{p}{3}$, car $c = s$ est exclus.
-		Ceci prouve que $ABC$ est nécessairement équilatéral.
-	\end{itemize}
-\end{remark}
-
-
-% ----------------------- %
-
-
-\begin{remark} \label{constrained-extrema}
-	L'aire d'un triangle étant positive ou nulle, nous pouvons chercher à maximiser son carré
-	$f(a;b;c) = s(s - a)(s - b)(s - c)$,
-%	          = \frac{1}{16} (a + b + c)(b + c - a)(a + c - b)(a + b - c)$,
-	sous la contrainte $2s = a + b + c$ où $s > 0$ est constant.
-	Notant $g(a;b;c) = a + b + c - 2 s$, la contrainte s'écrit $g(a;b;c) = 0$.
-	%
-	\begin{itemize}
-		\item Si un extremum existe,
-    	$\exists \lambda \in \RR$ tel que
-    	$\pder[i]{f}{a}{1} = \lambda \pder[i]{g}{a}{1}$,
-    	$\pder[i]{f}{b}{1} = \lambda \pder[i]{g}{b}{1}$ et
-    	$\pder[i]{f}{c}{1} = \lambda \pder[i]{g}{c}{1}$
-		d'après la méthode des extrema liés.
-
-		\item Donc
-		$- s(s - b)(s - c) = - s(s - a)(s - c) = - s(s - a)(s - b)$,
-		et par conséquent
-		$(s - b)(s - c) = (s - a)(s - c) = (s - a)(s - b)$.
-
-		\item Les cas $s = a$, $s = b$ et $s = c$ donnent $f(a;b;c) = 0$.
-
-		\item Le cas $\big[ s \neq a, s \neq b \text{ et } s \neq c \big]$ n'est envisageable que si $a = b = c = \frac{p}{3}$, ceci impliquant $f(a;b;c) = \frac{1}{16} p \big( \frac{p}{3} \big)^3 = \big( \frac{p^2}{12 \sqrt{3}} \big)^2 > 0$.
-
-		\item En résumé, l'existence d'un maximum implique que ce maximum corresponde au cas du triangle équilatéral.
-
-		\item Il reste à démontrer qu'un tel maximum existe pour pouvoir conclure: ceci est facile à justifier en considérant l'ensemble compact $\intervalC{0}{2s}^3$ de $\RR^3$, et la continuité de $f$.
-	\end{itemize}
-\end{remark}

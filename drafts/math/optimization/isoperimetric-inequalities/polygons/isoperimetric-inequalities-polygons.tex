@@ -65,6 +65,8 @@
 
 \newcommand{\geogebra}{{\normalfont\texttt{GeoGebra}}}
 
+\NewDocumentCommand{\altproof}{m}{Démonstration alternative #1}
+
 
 \setlength\parindent{0pt}
 
@@ -73,7 +75,7 @@
 
 \title{BROUILLON - Inégalités isopérimétriques restreintes aux polygones}
 \author{Christophe BAL}
-\date{18 Jan. 2025 -- 11 Fev. 2025}
+\date{18 Jan. 2025 -- 12 Fev. 2025}
 \maketitle
 
 
@@ -100,41 +102,45 @@
 
 \newpage
 
-%Ce document, de niveau élémentaire,%
-%\footnote{
-%    Cela nous conduira à admettre certains théorèmes qui, bien que paraissant simples, mériteraient une justification plus approfondie.
-%}
-%s'intéresse au classique problème de l'isopérimétrie plane, c'est-à-dire à la recherche d'une surface plane maximisant son aire pour un périmètre donné.
-%Nous nous limiterons ici au cas des polygones, en privilégiant des démonstrations les plus géométriques que possible.%
-%\footnote{
-%    Une approche bien plus synthétique repose sur les nombres complexes.
-%}
-%
-%
-%\begin{tcolorbox}
-%    \itshape\small
-%    Afin d'alléger le texte, nous raisonnerons parfois modulo les isométries. Ainsi, nous parlerons directement du \og carré de côté \( c \) \fg, du \og triangle équilatéral de côté \( c \) \fg, etc.
-%\end{tcolorbox}
-%
-%
-%% ------------- %
-%
-%
-%\section{Pourquoi un  nouveau document sur l'isopérimétrie?}
-%\input{content/why}
-%
-%
-%% ------------- %
-%
-%
-%\section{Triangles}
-%
-%\subsection{Avec un côté fixé}
-%\input{content/triangle-one-side-fixed/triangle-one-side-fixed}
-%
-%
-%\subsection{Le cas général}
-%\input{content/triangle-gene/triangle-gene}
+Ce document, de niveau élémentaire,%
+\footnote{
+    Cela nous conduira à admettre certains théorèmes qui, bien que paraissant simples, méritent une justification approfondie.
+}
+s'intéresse au classique problème de l'isopérimétrie plane, c'est-à-dire à la recherche d'une surface plane maximisant son aire pour un périmètre donné.
+Nous nous limiterons ici au cas des polygones, en privilégiant des démonstrations les plus géométriques que possible, et en ne faisant appel à l'analyse qu'en cas de nécessité.%
+\footnote{
+    L'usage des nombres complexes fournit une approche très synthétique.
+}
+
+
+\begin{tcolorbox}
+    \itshape\small
+    Afin d'alléger le texte, nous raisonnerons parfois modulo des isométries. Ainsi, nous parlerons directement du \og carré de côté \( c \) \fg, du \og triangle équilatéral de côté \( c \) \fg, etc.
+\end{tcolorbox}
+
+
+% ------------- %
+
+
+\section{Pourquoi un  nouveau document sur l'isopérimétrie?}
+\input{content/why}
+
+
+% ------------- %
+
+
+\section{Triangles}
+
+\subsection{Avec un côté fixé}
+\input{content/triangle-one-side-fixed/triangle-one-side-fixed}
+
+
+\subsection{Le cas général}
+\input{content/triangle-gene/triangle-gene}
+
+
+\subsection{Des preuves courtes non géométriques}
+\input{content/triangle-ana-short/triangle-ana-short}
 %
 %
 %% ------------- %
@@ -143,7 +149,7 @@
 %\section{Quadriltères}
 %
 %\subsection{Les rectangles}
-%\input{content/rectangle/rectangle}
+\input{content/rectangle/rectangle}
 %
 %
 %\subsection{Les parallélogrammes}
@@ -152,19 +158,24 @@
 %
 %\subsection{Le cas général}
 %\input{content/quadrilateral/quadrilateral}
-%
-%
+
+
+
+
+
+
+
 %% ------------- %   
-%
-%
+
+
 %\section{Les polygones}
-%
+
 %\subsection{Où allons-nous?}
 %\input{content/polygon/plan}
 %
 %
 %\subsection{Condition nécessaire}   
-\input{content/polygon/necessary-cond/necessary-cond}
+%\input{content/polygon/necessary-cond/necessary-cond}
 %
 %
 %\subsection{Condition suffisante}
