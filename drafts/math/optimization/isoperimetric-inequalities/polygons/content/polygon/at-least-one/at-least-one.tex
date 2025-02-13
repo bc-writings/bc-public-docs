@@ -424,7 +424,7 @@ Dans le cas non-convexe, les choses se compliquent a priori, car nous ne maîtri
 %\newpage
 
 Avant d'avancer, nous devons mieux comprendre le calcul de $\garea{\setproba{L}}$ pour un \ncycle\ $\setproba{L}$ correspondant à un polygone croisé.
-Considérons le figure suivante produite via \geogebra, ce dernier donnant les valeurs indiquées sur l'image où l'on constate que $\num{9.4} - \num{2.41} + \num{4.84} = \num{11.83}$.
+Considérons le figure suivante produite via \geogebra, ce dernier donnant les valeurs indiquées sur l'image où l'on constate que $\num{6.88} - \num{2.63} + \num{4.95} = \num{9.2}$.
 
 
 \begin{center}
@@ -475,10 +475,11 @@ Pour le cas suivant, notre approche, plus combinatoire que géométrique, donne 
 
 
 \begin{proof}
-	Notons $\setproba{C}$ l'enveloppe convexe de $\setproba{L}$. La méthode de calcul de $\garea{\setproba{L}}$ exposée ci-dessus donne sans ambiguïté que $\garea{\setproba{C}} > \garea{\setproba{L}}$. De plus, il est clair que $\perim{\setproba{C}} < \perim{\setproba{L}}$.
-	Par contre, nous savons juste que $\setproba{C}$ est un \kgone\ avec $k < n$, mais nous allons voir que ceci est un faux problème
+	Notons $\setproba{C}$ l'enveloppe convexe de $\setproba{L}$. La méthode de calcul de $\garea{\setproba{L}}$ exposée ci-dessus donne sans ambiguïté que $\garea{\setproba{C}} > \garea{\setproba{L}}$. De plus, il est clair que $\perim{\setproba{C}} < \perim{\setproba{L}}$, mais nous savons juste que $\setproba{C}$ est un \kgone\ avec $k < n$. 
 	%
-	Une idée simple, que nous allons formaliser rigoureusement après, consiste à ajouter les sommets manquants suffisamment prêts des côtés de l'enveloppe convexe pour ne pas perdre la convexité, tout en gardant un périmètre inférieur strictement au périmètre initial, et une aire strictement plus grande que l'aire initiale. Si nous arrivons à faire ceci, alors une homothétie de rapport $r > 1$ nous ramènera au bon périmètre avec une aire strictement plus grande que l'aire initiale.
+	Comment gérer ce problème?
+	%
+	Une idée simple, formalisée après, consiste à ajouter des sommets suffisamment prêts des côtés de $\setproba{C}$ pour garder la convexité, un périmètre strictement inférieur à $\perim{\setproba{L}}$, et une aire généralisée strictement plus grande que $\garea{\setproba{L}}$. Si cela est faisable, un agrandissement de rapport $r > 1$ ramènera au périmètre $\perim{\setproba{L}}$ avec une aire strictement plus grande que $\garea{\setproba{L}}$.
 	La figure suivante illustre cette idée.
 
 	\begin{center}
