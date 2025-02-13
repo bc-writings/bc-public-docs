@@ -16,14 +16,8 @@
 	\end{center} 
 
 	
-	Le passage d'un triangle quelconque $ABC$ au triangle $ACD$ isocèle en $D$ nous amène à nous concentrer sur ce que donne notre procédé d'agrandissement d'aire à périmètre fixé pour des triangles isocèles. Reprenons l'exemple précédent où $AC > AD$ (le dessin ci-dessous ne garde que les triangles isocèles construits).
-
-	\begin{center}
-		\includegraphics[scale=.4]{content/triangle-gene/proof-focus.png}
-	\end{center} 
-	
-
-	Voici ce que nous pouvons affirmer.
+	Le passage d'un triangle quelconque $ABC$ au triangle $ACD$ isocèle en $D$ nous amène à nous concentrer sur ce que donne notre procédé d'agrandissement d'aire à périmètre fixé pour des triangles isocèles. 
+	Voici ce que nous pouvons affirmer en supposant $AC > AD$, comme dans notre exemple (nous allons voir que cette hypothèse est sans conséquence).
 	%
 	\begin{enumerate}
 		\item Comme $AC + 2 AD = p$ et $AC > AD$, nous avons $AC > \frac13 p > AD$.
@@ -37,16 +31,19 @@
 		Tentons de quantifier les écarts à la mesure pivot $p^{\,\prime} = \frac13 p$. 
 		%
 		\begin{itemize}
-			\item Dans $ACD$, posant $AD = p^{\,\prime} - \epsilon$, nous avons $AC = p^{\,\prime} + 2 \epsilon$.
+			\item Dans $ACD$, posant $AD = p^{\,\prime} - \epsilon_1$, nous avons $AC = p^{\,\prime} + 2 \epsilon_1$.
 
-			\item Dans $ADE$, posant $AE = p^{\,\prime} + \epsilon^{\,\prime}$, nous avons $AD = p^{\,\prime} - 2 \epsilon^{\,\prime}$.
+			\item Dans $ADE$, posant $AE = p^{\,\prime} + \epsilon_2$, nous avons $AD = p^{\,\prime} - 2 \epsilon_2$.
 
-			\item Dans $AEF$, posant $AF = p^{\,\prime} - \epsilon^{\,\prime\prime}$, nous avons $AE = p^{\,\prime} + 2 \epsilon^{\,\prime\prime}$.
+			\item Dans $AEF$, posant $AF = p^{\,\prime} - \epsilon_3$, nous avons $AE = p^{\,\prime} + 2 \epsilon_3$.
+
+			\item Dans $AFG$, posant $AG = p^{\,\prime} + \epsilon_4$, nous avons $AF = p^{\,\prime} - 2 \epsilon_4$.
 
 			\item Donc
-			$\epsilon^{\,\prime} = \frac12 \epsilon$
+			$\epsilon_2 = \frac12 \epsilon_1$,
+			$\epsilon_3 = \frac12 \epsilon_2$
 			et
-			$\epsilon^{\,\prime\prime} = \frac12 \epsilon^{\,\prime}$.
+			$\epsilon_4 = \frac12 \epsilon_3$.
 		\end{itemize}
 	\end{enumerate}
 
