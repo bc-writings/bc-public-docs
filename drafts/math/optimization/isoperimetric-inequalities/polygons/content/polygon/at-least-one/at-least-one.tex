@@ -1,5 +1,5 @@
 Il est connu que tout triangle $ABC$ possède une aire donnée par $\frac12 \abs{ \det \big( \vect{AB} , \vect{AC} \big) }$ où $\frac12 \det \big( \vect{AB} , \vect{AC} \big)$ est l'aire algébrique de $ABC$.
-Il devient naturel de définir l'aire algébrique d'un \ngone\ via celles de triangles comme dans l'exemple suivant utilisant les triangles $\Omega AB$, $\Omega BC$, $\Omega BC$, $\Omega CD$, $\Omega DE$ et $\Omega EA$. A priori, le résultat pourrait dépendre du point $\Omega$ employé, mais le fait \ref{garea-pt-ct}, donné plus bas, montrera que ce n'est pas le cas.
+Il devient naturel de définir l'aire algébrique d'un \ngone\ via celles de triangles comme dans l'exemple suivant utilisant les triangles $\Omega AB$, $\Omega BC$, $\Omega CD$, $\Omega DE$ et $\Omega EA$. A priori, le résultat pourrait dépendre du point $\Omega$ employé, mais le fait \ref{garea-pt-ct}, donné plus bas, montrera que ce n'est pas le cas.
 
 \begin{multicols}{2}
 	\small\itshape
@@ -476,7 +476,48 @@ Pour le cas suivant, notre approche, plus combinatoire que géométrique, donne 
 
 \begin{proof}
 	Notons $\setproba{C}$ l'enveloppe convexe de $\setproba{L}$. La méthode de calcul de $\garea{\setproba{L}}$ exposée ci-dessus donne sans ambiguïté que $\garea{\setproba{C}} > \garea{\setproba{L}}$. De plus, il est clair que $\perim{\setproba{C}} < \perim{\setproba{L}}$.
-	Par contre, nous savons juste que $\setproba{C}$ est un \kgone\ avec $k < n$. Ceci est un faux problème comme nous l'avons vu dans la preuve du fait \ref{conv-poly}, ce qui nous permet de conclure.
+	Par contre, nous savons juste que $\setproba{C}$ est un \kgone\ avec $k < n$, mais nous allons voir que ceci est un faux problème
+	%
+	Une idée simple, que nous allons formaliser rigoureusement après, consiste à ajouter les sommets manquants suffisamment prêts des côtés de l'enveloppe convexe pour ne pas perdre la convexité, tout en gardant un périmètre inférieur strictement au périmètre initial, et une aire strictement plus grande que l'aire initiale. Si nous arrivons à faire ceci, alors une homothétie de rapport $r > 1$ nous ramènera au bon périmètre avec une aire strictement plus grande que l'aire initiale.
+	La figure suivante illustre cette idée.
+
+	\begin{center}
+		\includegraphics[scale=.4]{content/polygon/at-least-one/convex-hull-distortion.png}
+	\end{center}
+
+
+	Notons $s$ le nombre de sommets dans $\setproba{C}$, nous notons $m = n - s$ le nombre de sommets manquants.
+	Si $m = 0$, il n'y a rien à faire.
+	Sinon, posons $\delta = \frac{\perim{\setproba{L}} - \perim{\setproba{C}}}{m}$.
+	%
+	\begin{enumerate}
+		\item \label{add-vertex-start}
+		Considérons $[AB]$ un côté quelconque de $\setproba{C}$.
+		Les droites portées par les côtés \og \emph{autour} \fg\ de $[AB]$ \og \emph{dessinent} \fg\ une région contenant toujours un triangle $ABC$ dont l'intérieur est à l'extérieur
+		\footnote{
+			C'est ce que l'on appelle de la \og \emph{low poetry} \fg\,.
+		}
+		de $\setproba{C}$ comme dans les deux cas ci-dessous.
+	%
+		\begin{multicols}{2}
+			\centering
+
+			\includegraphics[scale=.4]{content/polygon/at-least-one/add-vertex-1.png}
+
+			\includegraphics[scale=.4]{content/polygon/at-least-one/add-vertex-2.png}
+		\end{multicols}
+
+		\item Clairement, le polygone $\setproba{C}_+$ obtenu à partir de $\setproba{C}$ en remplaçant le côté $[AB]$ par les côtés $[AC]$ et $[CB]$ est un convexe avec un sommet de plus que $\setproba{C}$.
+
+		\item \label{add-vertex-end}
+		Comme $HC$ peut être rendu aussi proche de $0$ que souhaité, il est aisé de voir que l'on peut choisir cette distance de sorte que $AC + BC < AB + \delta$.
+		Dès lors, le périmètre de $\setproba{C}_+$ augmente inférieurement strictement à $\delta$ relativement à $\setproba{C}$.
+
+		\item En répétant $(m-1)$ fois les étapes \ref{add-vertex-start} à \ref{add-vertex-end}, nous obtenons un \ngone\ convexe $\setproba{C}^{\,\prime}$ tel que
+		$\area{\setproba{C}^{\,\prime}} > \area{\setproba{L}}$
+		et
+		$\perim{\setproba{C}^{\,\prime}} < \perim{\setproba{C}} + m \delta = \perim{\setproba{L}}$.
+	\end{enumerate}
 \end{proof}
 
 
@@ -485,13 +526,13 @@ Pour le cas suivant, notre approche, plus combinatoire que géométrique, donne 
 
 \begin{fact} \label{suff-cond}
     Soit $n \in \NN_{\geq3}$ un naturel fixé.
-    Considérons tous les \ngones\ de périmètre fixé. Parmi tous ces \ngones, il en existe au moins un d'aire maximale.
+    Parmi tous les \ncycles\ de périmètre fixé, il en existe au moins un d'aire généralisée maximale, un tel \ncycle\ devant être forcément un \ngone.
 \end{fact}
 
 
 \begin{proof}
-	Ce qui suit nous donne plus généralement l'existence d'un \ngone, au moins, maximisant l'aire généralisée parmi tous les \ncycles\ de périmètre fixé $p$. Ce résultat plus fort convient d'après le fait \ref{ngone-garea-is-area}.
-    %
+	Notons $p$ le périmètre fixé..
+	%
     \begin{itemize}
         \item Munissant le plan d'un repère orthonormé direct $\pvaxes{O | i | j}$, on note $\setproba{Z}$ l'ensemble des \ncycles\ $\setproba{L} = A_1 A_2 \cdots A_n$ tels que
         $\perim{A_1 A_2 \cdots A_n} = p$
@@ -508,11 +549,11 @@ Pour le cas suivant, notre approche, plus combinatoire que géométrique, donne 
         En résumé, $\setproba{G}$ est un compact de $\RR^{2n}$.
 
 
-        \item Nous définissons la fonction $s: \setproba{G} \rightarrow \RRp$ qui à un uplet de $\setproba{G}$ associe l'aire généralisée du \ncycle\ qu'il représente.
+        \item Nous définissons la fonction $\alpha: \setproba{G} \rightarrow \RRp$ qui à un uplet de $\setproba{G}$ associe l'aire généralisée du \ncycle\ qu'il représente.
         Cette fonction est continue comme valeur absolue d'une fonction polynomiale en les coordonnées.
 
 
-        \item Finalement, par continuité et compacité, on sait que $s$ admet un maximum sur $\setproba{G}$.
+        \item Finalement, par continuité et compacité, on sait que $\alpha$ admet un maximum sur $\setproba{G}$.
         Or, un tel maximum ne peut pas être atteint en un \ncycle\ dégénéré, clairement, ni en un polygone croisé d'après le fait \ref{no-cross-max}, donc un tel maximum sera obtenu en un \ngone. That's all folks!
     \end{itemize}
 \end{proof}
