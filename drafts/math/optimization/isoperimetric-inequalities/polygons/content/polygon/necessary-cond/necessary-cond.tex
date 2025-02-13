@@ -194,114 +194,114 @@ Nous allons établir le fait \ref{nece-cond} affirmant qu'un \ngone\ maximisant 
 	\end{itemize}
 
 
-%	FAUX 
-%	Les deux exemples ci-dessus nous permettent de noter que si $\alpha = \anglein{ABC}$ diminue, et $\beta = \anglein{EFG}$ augmente, alors la somme des aires se rapprochent de $0$.
-%	Par raison de symétrie, si on fixe $\anglein{ABC} + \anglein{EFG}$, on devine que la somme des aires est maximisée quand $\anglein{ABC} = \anglein{EFG}$.
-%	Nous allons établir ceci de façon élémentaire en commençant par les calculs suivants où
-%	$\ell = AB$,
-%	$\mu = \frac{\alpha + \beta}{2}$ et
-%	$\delta = \mu - \beta > 0$ (rappelons que nous avons supposé $\alpha > \beta$).
-%
-%	\medskip
-%	\begin{stepcalc}[style=ar*]
-%		\area{ABC} + \area{EFG}
-%	\explnext*{Formule dite des sinus.}{}
-%		\dfrac12 BA \cdot BC \cdot \sin \big( \anglein{ABC} \big)
-%		+
-%		\dfrac12 FE \cdot FG \cdot \sin \big( \anglein{EFG} \big)
-%	\explnext{}
-%		\dfrac12 \ell^2 ( \sin \alpha + \sin \beta )
-%	\explnext*{Formules de Simpson.}{}
-%		\dfrac12 \ell^2 \sin \big( \dfrac{\alpha + \beta}{2} \big) \cos \big( \dfrac{\alpha - \beta}{2} \big)
-%	\explnext{}
-%		\dfrac12 \ell^2 \sin \mu \cos \delta
-%	\end{stepcalc}
-%
-%
-%	\medskip
-%
-%	Comme $(\delta ; \mu) \in \intervalO{0}{\pi}^2$,
-%	nous avons $\sin \mu \cos \delta > \sin \mu$.
-%	Remplaçons alors $\alpha$ et $\beta$ respectivement par $\alpha^{\,\prime}$ et $\beta^{\,\prime}$ de telle sorte que $\alpha^{\,\prime} = \beta^{\,\prime} = \frac{\alpha + \beta}{2} = \mu$.
-%	Notons que
-%	$0 < \beta < \mu < \alpha < \pi$
-%	(diminution de $\alpha$ et augmentation de $\beta$).
-%	Deux situations se présentent à nous.
-%	%
-%	\begin{itemize}
-%		\item Le \ngone\ obtenu ne perd aucun côté.
-%		Comme la convexité est gardée, c'est gagné.
-%
-%		\item Le \ngone\ obtenu perd au moins un côté. La solution consiste à choisir
-%		$\alpha^{\,\prime\prime} = \mu + \frac{\delta}{2}$ et $\beta^{\,\prime\prime} = \mu - \frac{\delta}{2}$
-%		au lieu de
-%		$\alpha^{\,\prime} = \beta^{\,\prime} = \mu$, puisque nous avons
-%		$\cos \delta < \cos \big( \frac{\delta}{2} \big)$ et
-%		$0 < \beta < \beta^{\,\prime\prime} < \mu < \alpha^{\,\prime\prime} < \alpha < \pi$.
-%	\end{itemize}
+	FAUX 
+	Les deux exemples ci-dessus nous permettent de noter que si $\alpha = \anglein{ABC}$ diminue, et $\beta = \anglein{EFG}$ augmente, alors la somme des aires se rapprochent de $0$.
+	Par raison de symétrie, si on fixe $\anglein{ABC} + \anglein{EFG}$, on devine que la somme des aires est maximisée quand $\anglein{ABC} = \anglein{EFG}$.
+	Nous allons établir ceci de façon élémentaire en commençant par les calculs suivants où
+	$\ell = AB$,
+	$\mu = \frac{\alpha + \beta}{2}$ et
+	$\delta = \mu - \beta > 0$ (rappelons que nous avons supposé $\alpha > \beta$).
+
+	\medskip
+	\begin{stepcalc}[style=ar*]
+		\area{ABC} + \area{EFG}
+	\explnext*{Formule dite des sinus.}{}
+		\dfrac12 BA \cdot BC \cdot \sin \big( \anglein{ABC} \big)
+		+
+		\dfrac12 FE \cdot FG \cdot \sin \big( \anglein{EFG} \big)
+	\explnext{}
+		\dfrac12 \ell^2 ( \sin \alpha + \sin \beta )
+	\explnext*{Formules de Simpson.}{}
+		\dfrac12 \ell^2 \sin \big( \dfrac{\alpha + \beta}{2} \big) \cos \big( \dfrac{\alpha - \beta}{2} \big)
+	\explnext{}
+		\dfrac12 \ell^2 \sin \mu \cos \delta
+	\end{stepcalc}
+
+
+	\medskip
+
+	Comme $(\delta ; \mu) \in \intervalO{0}{\pi}^2$,
+	nous avons $\sin \mu \cos \delta > \sin \mu$.
+	Remplaçons alors $\alpha$ et $\beta$ respectivement par $\alpha^{\,\prime}$ et $\beta^{\,\prime}$ de telle sorte que $\alpha^{\,\prime} = \beta^{\,\prime} = \frac{\alpha + \beta}{2} = \mu$.
+	Notons que
+	$0 < \beta < \mu < \alpha < \pi$
+	(diminution de $\alpha$ et augmentation de $\beta$).
+	Deux situations se présentent à nous.
+	%
+	\begin{itemize}
+		\item Le \ngone\ obtenu ne perd aucun côté.
+		Comme la convexité est gardée, c'est gagné.
+
+		\item Le \ngone\ obtenu perd au moins un côté. La solution consiste à choisir
+		$\alpha^{\,\prime\prime} = \mu + \frac{\delta}{2}$ et $\beta^{\,\prime\prime} = \mu - \frac{\delta}{2}$
+		au lieu de
+		$\alpha^{\,\prime} = \beta^{\,\prime} = \mu$, puisque nous avons
+		$\cos \delta < \cos \big( \frac{\delta}{2} \big)$ et
+		$0 < \beta < \beta^{\,\prime\prime} < \mu < \alpha^{\,\prime\prime} < \alpha < \pi$.
+	\end{itemize}
 \end{proof}
 
 
-%\begin{remark}
-%	Une démonstration géométrique courante du fait précédent, que l'on retrouve souvent reproduite, s'appuie sur un résultat attribué à Zénodore sur la maximisation de l'aire totale de deux triangles isocèles de bases fixées, et de périmètre total constant:
-%	ce résultat affirme que les deux triangles doivent avoir des angles en leur sommet principal de même mesure.
-%	Malheureusement, cette preuve échoue lors de la disparition d'un sommet en choisissant les deux triangles isocèles optimaux pour construire un nouveau \ngone\ \og plus gros \fg\,, sauf à affiner la recherche comme nous l'avons avec notre approche analytique.
-%	Indiquons, au passage, que la preuve du résultat de Zénodore est un peu fastidieuse, sans être ingrate.
-%\end{remark}
+\begin{remark}
+	Une démonstration géométrique courante du fait précédent, que l'on retrouve souvent reproduite, s'appuie sur un résultat attribué à Zénodore sur la maximisation de l'aire totale de deux triangles isocèles de bases fixées, et de périmètre total constant:
+	ce résultat affirme que les deux triangles doivent avoir des angles en leur sommet principal de même mesure.
+	Malheureusement, cette preuve échoue lors de la disparition d'un sommet en choisissant les deux triangles isocèles optimaux pour construire un nouveau \ngone\ \og plus gros \fg\,, sauf à affiner la recherche comme nous l'avons avec notre approche analytique.
+	Indiquons, au passage, que la preuve du résultat de Zénodore est un peu fastidieuse, sans être ingrate.
+\end{remark}
 	
 
-%% ----------------------- %
+% ----------------------- %
 
 
-%%\begin{remark}
-%%	La méthode des extrema liés, rappelée dans la remarque \ref{constrained-extrema}, donne une autre justification. Voici comment faire.
-%%	%
-%%	\begin{itemize}
-%%		\item $\area{ABC} + \area{EFG} = \frac14 ( d_1^2 \tan \alpha + d_2^2 \tan \beta )$
-%%
-%%		\item
-%%		\begin{stepcalc}[style=sar]
-%%			4 \ell
-%%		\explnext{}
-%%			AB + BC + EF + FG
-%%		\explnext{}
-%%			2 ( AB + EF )
-%%		\explnext{}
-%%			\frac{d_1}{\cos \alpha} + \frac{d_2}{\cos \beta}
-%%		\end{stepcalc}
-%%
-%%		\item Pour $(\alpha ; \beta) \in \intervalO{0}{\frac{\pi}{2}}^2$, on cherche donc à maximiser $f(\alpha ; \beta) =  d_1^2 \tan \alpha + d_2^2 \tan \beta$ sous la contrainte $g(\alpha ; \beta) = 0$ où $g(\alpha ; \beta) = 4 \ell - \frac{d_1}{\cos \alpha} - \frac{d_2}{\cos \beta}$.
-%%
-%%		\item On doit avoir $\lambda \in \RR$ tel que
-%%    	$\pder[i]{f}{\alpha}{1} = \lambda \pder[i]{g}{\alpha}{1}$ et
-%%    	$\pder[i]{f}{\beta}{1} = \lambda \pder[i]{g}{\beta}{1}$
-%%		(méthode des extrema liés).
-%%
-%%		\item Donc
-%%    	$\frac{d_1^2}{\cos^2 \alpha} = \lambda \frac{d_1 \sin \alpha}{\cos^2 \alpha}$,
-%%		c'est-à-dire
-%%		$\lambda \sin \alpha = d_1$.
-%%		De même,
-%%		$\lambda \sin \beta = d_2$.
-%%	
-%%		\item ????
-%%	\end{itemize}
-%%\end{remark}
-%
-%
-%% ----------------------- %
-%
-%
-%\begin{fact} \label{nece-cond}
-%	Si un \ngone\ $\setproba{P}$ n'est pas régulier,
-%	alors il existe un \ngone\ convexe $\setproba{P}^{\,\prime}$ tel que
-%	$\perim{\setproba{P}^{\,\prime}} = \perim{\setproba{P}}$
-%	et
-%	$\area{\setproba{P}^{\,\prime}} > \area{\setproba{P}}$.
-%\end{fact}
-%
-%
-%\begin{proof}
-%	Le fait \ref{conv-poly} permet de considérer le problème de maximisation d'aire à périmètre fixé juste pour des \ngones\ convexes.
-%	Selon les faits \ref{iso-poly} et \ref{almost-reg-poly}, si, parmi les \ngones\ convexes de périmètre fixé, il en existe un d'aire maximale, alors il devra être, a minima, régulier.
-%\end{proof}
+\begin{remark}
+	La méthode des extrema liés, rappelée dans la remarque \ref{constrained-extrema}, donne une autre justification. Voici comment faire.
+	%
+	\begin{itemize}
+		\item $\area{ABC} + \area{EFG} = \frac14 ( d_1^2 \tan \alpha + d_2^2 \tan \beta )$
+
+		\item
+		\begin{stepcalc}[style=sar]
+			4 \ell
+		\explnext{}
+			AB + BC + EF + FG
+		\explnext{}
+			2 ( AB + EF )
+		\explnext{}
+			\frac{d_1}{\cos \alpha} + \frac{d_2}{\cos \beta}
+		\end{stepcalc}
+
+		\item Pour $(\alpha ; \beta) \in \intervalO{0}{\frac{\pi}{2}}^2$, on cherche donc à maximiser $f(\alpha ; \beta) =  d_1^2 \tan \alpha + d_2^2 \tan \beta$ sous la contrainte $g(\alpha ; \beta) = 0$ où $g(\alpha ; \beta) = 4 \ell - \frac{d_1}{\cos \alpha} - \frac{d_2}{\cos \beta}$.
+
+		\item On doit avoir $\lambda \in \RR$ tel que
+    	$\pder[i]{f}{\alpha}{1} = \lambda \pder[i]{g}{\alpha}{1}$ et
+    	$\pder[i]{f}{\beta}{1} = \lambda \pder[i]{g}{\beta}{1}$
+		(méthode des extrema liés).
+
+		\item Donc
+    	$\frac{d_1^2}{\cos^2 \alpha} = \lambda \frac{d_1 \sin \alpha}{\cos^2 \alpha}$,
+		c'est-à-dire
+		$\lambda \sin \alpha = d_1$.
+		De même,
+		$\lambda \sin \beta = d_2$.
+	
+		\item ????
+	\end{itemize}
+\end{remark}
+
+
+% ----------------------- %
+
+
+\begin{fact} \label{nece-cond}
+	Si un \ngone\ $\setproba{P}$ n'est pas régulier,
+	alors il existe un \ngone\ convexe $\setproba{P}^{\,\prime}$ tel que
+	$\perim{\setproba{P}^{\,\prime}} = \perim{\setproba{P}}$
+	et
+	$\area{\setproba{P}^{\,\prime}} > \area{\setproba{P}}$.
+\end{fact}
+
+
+\begin{proof}
+	Le fait \ref{conv-poly} permet de considérer le problème de maximisation d'aire à périmètre fixé juste pour des \ngones\ convexes.
+	Selon les faits \ref{iso-poly} et \ref{almost-reg-poly}, si, parmi les \ngones\ convexes de périmètre fixé, il en existe un d'aire maximale, alors il devra être, a minima, régulier.
+\end{proof}
