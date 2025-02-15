@@ -413,243 +413,243 @@
 %% ----------------------- %
 %
 %
-\newpage%TEMP
-
-
-Avant d'avancer, nous devons mieux comprendre le calcul de $\garea{\setproba{L}}$ pour un \ncycle\ $\setproba{L}$ correspondant à un polygone croisé.
-Considérons le figure suivante produite via \geogebra, ce dernier donnant les valeurs indiquées sur l'image où $\num{6.88} - \num{2.63} + \num{4.95} = \num{9.2}$.
-
-
-\begin{center}
-    \includegraphics[scale=.35]{content/polygon/at-least-one/garea-trick.png}
-\end{center}
-
-
-Pour calculer l'aire généralisée d'un polygone croisé associé au \ncycle\ $\setproba{L}$, il suffit de procéder comme suit (cette méthode est utile pour un humain).
+%%\newpage%TEMP
 %
-\begin{itemize}
-    \item On part du 1\iere\ sommet de $\setproba{L}$, puis on parcourt $\setproba{L}$ dans un sens donné jusqu'à la première intersection de deux arêtes non contigües. Dans notre exemple, on va de $A$ à $R$.
-
-
-    \item De cette intersection, on part en changeant de direction pour choisir celle allant vers notre point de départ. Dans notre exemple, nous obtenons le \xcycle{5} $RABCD$.
-
-
-    \item Le reste des points non parcourus, en respectant le sens de parcourt initial, fournit un autre \kcycle\ qui est $REFGHI$ dans notre cas. Formellement, nous avons scindé $ABCDEFGHI$ en $RABCD$ et $REFGHI$.
-
-
-    \item On répète ce processus tant qu'il reste des intersections d'arêtes non contigües, autrement dit, tant que nous n'obtenons que des \kgones.
-    Pour notre exemple, il reste $REFGHI$ qui se scinde en $SIRE$ et $SFGH$.
-
-
-    \item Les deux cas précédents peuvent s'écrire comme suit où l'opération \og \emph{point} \fg\ sera définie proprement plus tard (ici on peut la voir comme une forme de concaténation pointée).
-
-    \smallskip
-    \noindent\kern-1.75ex
-    \begin{stepcalc}[style=ar*]
-    	ABCDEFGHI
-	\explnext*{Insertion de l'intersection $R$.}{}
-		ABCDR \cdot REFGHI
-	\explnext*{Insertion de l'intersection $S$.}{}
-		ABCDR \cdot RESI \cdot SFGH
-    \end{stepcalc}
-
-    \smallskip
-    \noindent
-    En permutant les sommets sans changer le sens de parcours, nous retrouvons la décomposition précédente $RABCD$, $SIRE$ et $SFGH$.
-
-
-    \item Ce qui précède motive les calculs suivants où $\mu(\Omega ; \setproba{L})$ indique que $\Omega$ est le point de calcul de $\mu(\setproba{L})$. Ne pas hésiter à s'aider du dessin ici.
-
-    \smallskip
-    
-    \noindent\kern-1.75ex
-    \begin{stepcalc}[style=ar*]
-    	\mu(ABCDEFGHI)
-	\explnext*{$R$ entre dans la danse.}{}
-    	\mu(R ; ABCDEFGHI)
-	\explnext*{$D$, $R$ et $E$ alignés, ainsi que $A$, $R$ et $I$.}{}
-    	\mu(R ; ABCDR) + \mu(R ; REFGHI)
-	\explnext*{$S$ est utile, lui aussi.}{}
-    	\mu(ABCDR) + \mu(S ; REFGHI)
-	\explnext*{$E$, $S$ et $F$ alignés, ainsi que $I$, $S$ et $H$.}{}
-    	\mu(ABCDR) + \mu(S ; RESI) + \mu(S ; SFGH)
-	\explnext{}
-    	\mu(ABCDR) + \mu(RESI) + \mu(SFGH)
-    \end{stepcalc}
-    
-    \smallskip
-    \noindent
-    Finalement,
-    $\mu(ABCDEFGHI) = \area{ABCDR} - \area{RESI} + \area{SFGH}$
-    selon les faits \ref{route-direction} et \ref{ngone-garea-is-area}.
-    Ceci justifie $\num{6.88} - \num{2.63} + \num{4.95} = \num{9.2}$ indiqué plus haut.
-
-
-    \item Il est important de noter dans les calculs précédents que pour chaque intersection utilisée pour \og \emph{éclater} \fg\ les calculs intermédiaires de $\mu(\setproba{L})$, nous avons un changement de sens de parcours du point de vue de ce point d'intersection, ceci faisant apparaître des changements de signes des aires algébriques des \ngones\ finaux.
-\end{itemize}
-
-Pour fixer mieux le mécanisme de calcul, plus combinatoire que géométrique, nous proposons l'exemple ci-après qui aboutit à $\num{12.26} - \num{1.96} = \num{10.3}$ comme attendu.%
-\footnote{
-	Les valeurs numériques ont été fournies par \geogebra.
-}
-
-%\newpage
-
-\begin{multicols}{2}
-	\foreach \n in {1,3,2,4} {
-		\begin{center}
-    		\includegraphics[scale=.35]{content/polygon/at-least-one/garea-trick-bis-\n.png}
-		\end{center}
-	}
-\end{multicols}
-
-
-% ----------------------- %
-
-
-Pour une preuve formelle de ce qui précède, nous aurons besoin d'un peu de vocabulaire.
-
-
-\begin{defi}
-    Soient
-    $\setproba{L} = A_1 A_2 \cdots A_n$ 
-    et
-    $\setproba{L}^{\,\prime} = B_1 B_2 \cdots B_k$ 
-    deux cycles.
-    %
-    Leur \og \emph{unification} \fg\ est le \xcycle{(n+k)} $\setproba{L} \cdot \setproba{L}^{\,\prime} = A_1 A_2 \cdots A_n B_1 B_2 \cdots B_k$.
-    Clairement, $\setproba{L} \cdot \setproba{L}^{\,\prime} = \setproba{L}^{\,\prime} \cdot \setproba{L}$.
-\end{defi}
-
-
-Cette notion d'unification n'est pas toujours pertinente comme le montre l'exemple suivant, mais nous en aurons juste besoin pour un cas très particulier correspondant aux intersections d'arêtes non contigües d'un \ncycle.
-
-
-\begin{multicols}{2}
-    \small\itshape
-    \begin{center}
-        \includegraphics[scale=.4]{content/polygon/at-least-one/unification-1.png}
-
-        \smallskip
-        Deux cycles libres.
-    \end{center}
-
-
-    \begin{center}
-        \includegraphics[scale=.4]{content/polygon/at-least-one/unification-2.png}
-
-        \smallskip
-        Deux cycles unifiés.
-    \end{center}
-\end{multicols}
-
-
-% ----------------------- %
-
-
-\begin{defi}
-    Deux cycles
-    $\setproba{L} = A_1 A_2 \cdots A_n$ 
-    et
-    $\setproba{L}^{\,\prime} = B_1 B_2 \cdots B_k$ 
-    sont \og \emph{mariables} \fg\ lorsque
-    $B_1 \in [B_k A_2]$,
-    $A_1 \in [A_n B_2]$
-    et
-    $A_1 = B_1$.
-\end{defi}
-
-
-L'exemple suivant montre que l'unification de deux cycles mariables est paisible.%
-\footnote{
-	L'histoire ne dit pas s'il en va de même pour les hommes.
-}
-
-\begin{multicols}{2}
-    \small\itshape
-    \begin{center}
-        \includegraphics[scale=.4]{content/polygon/at-least-one/wedding-1.png}
-
-        \smallskip
-        Deux cycles mariables.
-    \end{center}
-
-
-    \begin{center}
-        \includegraphics[scale=.4]{content/polygon/at-least-one/wedding-2.png}
-
-        \smallskip
-        Deux cycles dans le rang.
-    \end{center}
-\end{multicols}
-    
-    
-% ----------------------- %
-
-
-\begin{fact} \label{nline-pseudo-chasles}
-    Si les cycles
-    $\setproba{L} = A_1 A_2 \cdots A_n$
-    et
-    $\setproba{L}^{\,\prime} = B_1 B_2 \cdots B_k$
-    vérifient $A_1 = B_1$, alors nous avons
-    $ \mu( \setproba{L} \cdot \setproba{L}^{\,\prime} )
-    = \mu( \setproba{L} ) + \mu( \setproba{L}^{\,\prime} )$.
-\end{fact}
-
-
-\begin{proof}
-	Ci-dessous, $\mu(\Omega ; \setproba{L})$ indique que $\Omega$ est le point de calcul de $\mu(\setproba{L})$.
-
-    \smallskip
-    
-    \noindent\kern-1.75ex
-    \begin{stepcalc}[style=ar*]
-    	\mu( \setproba{L} \cdot \setproba{L}^{\,\prime} )
-	\explnext{}
-    	\mu(A_1 ; \setproba{L} \cdot \setproba{L}^{\,\prime})
-	\explnext{}
-    	\dsum_{j=1}^{n-1}
-			\det \big( \vect{A_1 A_j} , \vect{A_1 A_{j + 1}} \big)
-    	+
-	    	\det \big( \vect{A_1 A_n} , \vect{A_1 B_1} \big)
-    	+
-	    \dsum_{j=1}^{k-1}
-			\det \big( \vect{A_1 B_j} , \vect{A_1 B_{j + 1}} \big)
-    	+
-	    	\det \big( \vect{A_1 B_k} , \vect{A_1 A_1} \big)
-	\explnext{}
-    	\dsum_{j=1}^{n-1}
-			\det \big( \vect{A_1 A_j} , \vect{A_1 A_{j + 1}} \big)
-    	+
-	    \dsum_{j=1}^{k-1}
-			\det \big( \vect{A_1 B_j} , \vect{A_1 B_{j + 1}} \big)
-	\explnext*{$A_1 = B_1$
-	        \\ $A^{\,\prime}_{n+1} = A_1$
-	        \\ $B^{\,\prime}_{k+1} = B_1$}{}
-    	\dsum_{j=1}^{n}
-			\det \big( \vect{A_1 A^{\,\prime}_j} , \vect{A_1 A^{\,\prime}_{j + 1}} \big)
-    	+
-	    \dsum_{j=1}^{k}
-			\det \big( \vect{B_1 B^{\,\prime}_j} , \vect{B_1 B^{\,\prime}_{j + 1}} \big)
-	\explnext{}
-    	\mu(A_1 ; \setproba{L}) + \mu(B_1 ; \setproba{L}^{\,\prime})
-	\explnext{}
-    	\mu(\setproba{L}) + \mu(\setproba{L}^{\,\prime})
-    \end{stepcalc}
-
-    \null\vspace{-3.5ex}
-\end{proof}
-
-
-% ----------------------- %
-
+%
+%Avant d'avancer, nous devons mieux comprendre le calcul de $\garea{\setproba{L}}$ pour un \ncycle\ $\setproba{L}$ correspondant à un polygone croisé.
+%Considérons la figure suivante produite via \geogebra, ce dernier donnant les valeurs indiquées sur l'image où $\num{6.88} - \num{2.63} + \num{4.95} = \num{9.2}$.
+%
+%
+%\begin{center}
+%    \includegraphics[scale=.35]{content/polygon/at-least-one/garea-trick.png}
+%\end{center}
+%
+%
+%Pour calculer l'aire généralisée d'un polygone croisé associé au \ncycle\ $\setproba{L}$, il suffit de procéder comme suit (cette méthode est utile pour un humain).
+%%
+%\begin{itemize}
+%    \item On part du 1\iere\ sommet de $\setproba{L}$, puis on parcourt $\setproba{L}$ dans un sens donné jusqu'à la première intersection de deux arêtes non contigües. Dans notre exemple, on va de $A$ à $R$.
+%
+%
+%    \item De cette intersection, on part en changeant de direction pour choisir celle allant vers notre point de départ. Dans notre exemple, nous obtenons le \xcycle{5} $RABCD$.
+%
+%
+%    \item Le reste des points non parcourus, en respectant le sens de parcourt initial, fournit un autre \kcycle\ qui est $REFGHI$ dans notre cas. Formellement, nous avons scindé $ABCDEFGHI$ en $RABCD$ et $REFGHI$.
+%
+%
+%    \item On répète ce processus tant qu'il reste des intersections d'arêtes non contigües, autrement dit, tant que nous n'obtenons que des \kgones.
+%    Pour notre exemple, il reste $REFGHI$ qui se scinde en $SIRE$ et $SFGH$.
+%
+%
+%    \item Les deux cas précédents peuvent s'écrire comme suit où l'opération \og \emph{point} \fg\ sera définie proprement plus tard (ici on peut la voir comme une forme de concaténation pointée).
+%
+%    \smallskip
+%    \noindent\kern-1.75ex
+%    \begin{stepcalc}[style=ar*]
+%    	ABCDEFGHI
+%	\explnext*{Insertion de l'intersection $R$.}{}
+%		ABCDR \cdot REFGHI
+%	\explnext*{Insertion de l'intersection $S$.}{}
+%		ABCDR \cdot RESI \cdot SFGH
+%    \end{stepcalc}
+%
+%    \smallskip
+%    \noindent
+%    En permutant les sommets sans changer le sens de parcours, nous retrouvons la décomposition précédente $RABCD$, $SIRE$ et $SFGH$.
+%
+%
+%    \item Ce qui précède motive les calculs suivants où $\mu(\Omega ; \setproba{L})$ indique que $\Omega$ est le point de calcul de $\mu(\setproba{L})$. Ne pas hésiter à s'aider du dessin ici.
+%
+%    \smallskip
+%    
+%    \noindent\kern-1.75ex
+%    \begin{stepcalc}[style=ar*]
+%    	\mu(ABCDEFGHI)
+%	\explnext*{$R$ entre dans la danse.}{}
+%    	\mu(R ; ABCDEFGHI)
+%	\explnext*{$D$, $R$ et $E$ alignés, ainsi que $A$, $R$ et $I$.}{}
+%    	\mu(R ; ABCDR) + \mu(R ; REFGHI)
+%	\explnext*{$S$ est utile, lui aussi.}{}
+%    	\mu(ABCDR) + \mu(S ; REFGHI)
+%	\explnext*{$E$, $S$ et $F$ alignés, ainsi que $I$, $S$ et $H$.}{}
+%    	\mu(ABCDR) + \mu(S ; RESI) + \mu(S ; SFGH)
+%	\explnext{}
+%    	\mu(ABCDR) + \mu(RESI) + \mu(SFGH)
+%    \end{stepcalc}
+%    
+%    \smallskip
+%    \noindent
+%    Finalement,
+%    $\mu(ABCDEFGHI) = \area{ABCDR} - \area{RESI} + \area{SFGH}$
+%    selon les faits \ref{route-direction} et \ref{ngone-garea-is-area}.
+%    Ceci justifie $\num{6.88} - \num{2.63} + \num{4.95} = \num{9.2}$ indiqué plus haut.
+%
+%
+%    \item Il est important de noter dans les calculs précédents que pour chaque intersection utilisée pour \og \emph{éclater} \fg\ les calculs intermédiaires de $\mu(\setproba{L})$, nous avons un changement de sens de parcours du point de vue de ce point d'intersection, ceci faisant apparaître des changements de signes des aires algébriques des \ngones\ finaux.
+%\end{itemize}
+%
+%Pour fixer mieux le mécanisme de calcul, plus combinatoire que géométrique, nous proposons l'exemple ci-après qui aboutit à $\num{12.26} - \num{1.96} = \num{10.3}$ comme attendu.%
+%\footnote{
+%	Les valeurs numériques ont été fournies par \geogebra.
+%}
+%
+%%\newpage
+%
+%\begin{multicols}{2}
+%	\foreach \n in {1,3,2,4} {
+%		\begin{center}
+%    		\includegraphics[scale=.35]{content/polygon/at-least-one/garea-trick-bis-\n.png}
+%		\end{center}
+%	}
+%\end{multicols}
+%
+%
+%% ----------------------- %
+%
+%
+%Pour une preuve formelle de ce qui précède, nous aurons besoin d'un peu de vocabulaire.
+%
+%
+%\begin{defi}
+%    Soient
+%    $\setproba{L} = A_1 A_2 \cdots A_n$ 
+%    et
+%    $\setproba{L}^{\,\prime} = B_1 B_2 \cdots B_k$ 
+%    deux cycles.
+%    %
+%    Leur \og \emph{unification} \fg\ est le \xcycle{(n+k)} $\setproba{L} \cdot \setproba{L}^{\,\prime} = A_1 A_2 \cdots A_n B_1 B_2 \cdots B_k$.
+%    Clairement, $\setproba{L} \cdot \setproba{L}^{\,\prime} = \setproba{L}^{\,\prime} \cdot \setproba{L}$.
+%\end{defi}
+%
+%
+%Cette notion d'unification n'est pas toujours pertinente comme le montre l'exemple suivant, mais nous n'unifierons que dans le cadre très particulier des intersections d'arêtes non contigües d'un \ncycle.
+%
+%
+%\begin{multicols}{2}
+%    \small\itshape
+%    \begin{center}
+%        \includegraphics[scale=.4]{content/polygon/at-least-one/unification-1.png}
+%
+%        \smallskip
+%        Deux cycles libres.
+%    \end{center}
+%
+%
+%    \begin{center}
+%        \includegraphics[scale=.4]{content/polygon/at-least-one/unification-2.png}
+%
+%        \smallskip
+%        Deux cycles unifiés.
+%    \end{center}
+%\end{multicols}
+%
+%
+%% ----------------------- %
+%
+%
+%\begin{defi}
+%    Deux cycles
+%    $\setproba{L} = A_1 A_2 \cdots A_n$ 
+%    et
+%    $\setproba{L}^{\,\prime} = B_1 B_2 \cdots B_k$ 
+%    sont \og \emph{mariables} \fg\ lorsque
+%    $B_1 \in [B_k A_2]$,
+%    $A_1 \in [A_n B_2]$
+%    et
+%    $A_1 = B_1$.
+%\end{defi}
+%
+%
+%L'exemple suivant montre que l'unification de deux cycles mariables est paisible.%
+%\footnote{
+%	L'histoire ne dit pas s'il en va de même pour les hommes.
+%}
+%
+%\begin{multicols}{2}
+%    \small\itshape
+%    \begin{center}
+%        \includegraphics[scale=.4]{content/polygon/at-least-one/wedding-1.png}
+%
+%        \smallskip
+%        Deux cycles mariables.
+%    \end{center}
+%
+%
+%    \begin{center}
+%        \includegraphics[scale=.4]{content/polygon/at-least-one/wedding-2.png}
+%
+%        \smallskip
+%        Deux cycles dans le rang.
+%    \end{center}
+%\end{multicols}
+%    
+%    
+%% ----------------------- %
+%
+%
+%\begin{fact} \label{nline-pseudo-chasles}
+%    Si les cycles
+%    $\setproba{L} = A_1 A_2 \cdots A_n$
+%    et
+%    $\setproba{L}^{\,\prime} = B_1 B_2 \cdots B_k$
+%    vérifient $A_1 = B_1$, alors nous avons
+%    $ \mu( \setproba{L} \cdot \setproba{L}^{\,\prime} )
+%    = \mu( \setproba{L} ) + \mu( \setproba{L}^{\,\prime} )$.
+%\end{fact}
+%
+%
+%\begin{proof}
+%	Ci-dessous, $\mu(\Omega ; \setproba{L})$ indique que $\Omega$ est le point de calcul de $\mu(\setproba{L})$.
+%
+%    \smallskip
+%    
+%    \noindent\kern-1.75ex
+%    \begin{stepcalc}[style=ar*]
+%    	\mu( \setproba{L} \cdot \setproba{L}^{\,\prime} )
+%	\explnext{}
+%    	\mu(A_1 ; \setproba{L} \cdot \setproba{L}^{\,\prime})
+%	\explnext{}
+%    	\dsum_{j=1}^{n-1}
+%			\det \big( \vect{A_1 A_j} , \vect{A_1 A_{j + 1}} \big)
+%    	+
+%	    	\det \big( \vect{A_1 A_n} , \vect{A_1 B_1} \big)
+%    	+
+%	    \dsum_{j=1}^{k-1}
+%			\det \big( \vect{A_1 B_j} , \vect{A_1 B_{j + 1}} \big)
+%    	+
+%	    	\det \big( \vect{A_1 B_k} , \vect{A_1 A_1} \big)
+%	\explnext{}
+%    	\dsum_{j=1}^{n-1}
+%			\det \big( \vect{A_1 A_j} , \vect{A_1 A_{j + 1}} \big)
+%    	+
+%	    \dsum_{j=1}^{k-1}
+%			\det \big( \vect{A_1 B_j} , \vect{A_1 B_{j + 1}} \big)
+%	\explnext*{$A_1 = B_1$
+%	        \\ $A^{\,\prime}_{n+1} = A_1$
+%	        \\ $B^{\,\prime}_{k+1} = B_1$}{}
+%    	\dsum_{j=1}^{n}
+%			\det \big( \vect{A_1 A^{\,\prime}_j} , \vect{A_1 A^{\,\prime}_{j + 1}} \big)
+%    	+
+%	    \dsum_{j=1}^{k}
+%			\det \big( \vect{B_1 B^{\,\prime}_j} , \vect{B_1 B^{\,\prime}_{j + 1}} \big)
+%	\explnext{}
+%    	\mu(A_1 ; \setproba{L}) + \mu(B_1 ; \setproba{L}^{\,\prime})
+%	\explnext{}
+%    	\mu(\setproba{L}) + \mu(\setproba{L}^{\,\prime})
+%    \end{stepcalc}
+%
+%    \null\vspace{-3.5ex}
+%\end{proof}
+%
+%
+%% ----------------------- %
+%
 
 \newpage
 
 \begin{fact} \label{ngone-trick}
     Tout \ncycle\ $\setproba{L}$ non dégénéré admet une décomposition
-    $\setproba{L}_1 \cdot \setproba{L}_2 \cdot \dots \cdot \setproba{L}_s$ 
+    $\setproba{L}_1 \cdot \setproba{L}_2 \cdot ... \cdot \setproba{L}_s$ 
     vérifiant les conditions suivantes.
     %
     \begin{enumerate}
@@ -665,7 +665,7 @@ L'exemple suivant montre que l'unification de deux cycles mariables est paisible
     Pour une telle décomposition, 
     $ \garea{\setproba{L}} 
     = \dfrac12 \, \abs*{\,
-    	\dsum_{j} \mu(\setproba{L}_{2j + 1}) - \dsum_{j} \mu(\setproba{L}_{2j})
+    	\dsum_{j} \garea{\setproba{L}_{2j + 1}}  -  \dsum_{j} \garea{\setproba{L}_{2j}}
 	  \,}$.
 \end{fact}
 
@@ -675,13 +675,6 @@ L'exemple suivant montre que l'unification de deux cycles mariables est paisible
     
     ptruvr viz ntersection la plus proche, puis arg de type induction comme dans lexemples !
 \end{proof}
-
-
-
-
-
-
-
 
 
 
@@ -698,7 +691,33 @@ L'exemple suivant montre que l'unification de deux cycles mariables est paisible
 
 
 \begin{proof}
-	Notons $\setproba{C}$ l'enveloppe convexe de $\setproba{L}$. Le fait \ref{ngone-trick} donne sans ambiguïté que $\garea{\setproba{C}} > \garea{\setproba{L}}$. De plus, il est clair que $\perim{\setproba{C}} < \perim{\setproba{L}}$, mais nous savons juste que $\setproba{C}$ est un \kgone\ avec $k < n$. 
+	Notons $\setproba{C}$ l'enveloppe convexe de $\setproba{L}$.
+	
+	\begin{center}
+		\includegraphics[scale=.4]{content/polygon/at-least-one/convex-hull.png}
+	\end{center}
+	
+		
+	Clairement, $\perim{\setproba{C}} < \perim{\setproba{L}}$, et $\garea{\setproba{C}} > \garea{\setproba{L}}$ vient des implications logiques suivantes où l'on reprend les notations du fait \ref{ngone-trick}.
+
+    \smallskip
+    
+    \noindent\kern-1.75ex
+    \begin{stepcalc}[style=ar*]
+    	\mu( \setproba{L} )
+	\explnext{}
+    	\mu( \setproba{L}_1 \cdot \setproba{L}_2 \cdot ... \cdot \setproba{L}_s )
+    \end{stepcalc}
+	
+	
+	WWWWW
+	 .
+	Le donne sans ambiguïté que $\garea{\setproba{C}} > \garea{\setproba{L}}$. De plus, il est clair que $\perim{\setproba{C}} < \perim{\setproba{L}}$
+
+	
+	\smallskip
+	
+	Malheureusement, $\setproba{C}$ est un \kgone\ avec $k < n$. 
 	%
 	Comment gérer ce problème?
 	%
@@ -710,7 +729,7 @@ L'exemple suivant montre que l'unification de deux cycles mariables est paisible
 	\end{center}
 
 
-	Notons $s$ le nombre de sommets dans $\setproba{C}$, nous notons $m = n - s$ le nombre de sommets manquants.
+	Notons $s$ le nombre de sommets dans $\setproba{C}$, de sorte que $m = n - s$ compte les sommets manquants.
 	Si $m = 0$, il n'y a rien à faire.
 	Sinon, posons $\delta = \frac{\perim{\setproba{L}} - \perim{\setproba{C}}}{m}$.
 	%
@@ -750,7 +769,7 @@ L'exemple suivant montre que l'unification de deux cycles mariables est paisible
 
 \begin{fact} \label{suff-cond}
     Soit $n \in \NN_{\geq3}$ un naturel fixé.
-    Parmi tous les \ncycles\ de périmètre fixé, il en existe au moins un d'aire généralisée maximale, un tel \ncycle\ devant être forcément un \ngone.
+    Parmi tous les \ncycles\ de périmètre fixé, il en existe au moins un d'aire généralisée maximale, un tel \ncycle\ devant être a minima un \ngone.
 \end{fact}
 
 
