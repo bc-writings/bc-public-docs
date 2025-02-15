@@ -40,27 +40,41 @@
 \NewDocumentCommand{\garea}{m}{\mathrm{AireGene}(#1)}
 
 
-\newcommand{\ncycle}{$n$-cycle}
-\newcommand{\ncycles}{$n$-cycles}
+\NewDocumentCommand{\xcycle}{m}{$#1$-cycle}
+\NewDocumentCommand{\xcycles}{m}{\xcycle{#1}s}
 
-\newcommand{\kcycle}{$k$-cycle}
-\newcommand{\kcycles}{$k$-cycles}
+\newcommand{\ncycle}{\xcycle{n}}
+\newcommand{\ncycles}{\xcycles{n}}
+
+\newcommand{\kcycle}{\xcycle{k}}
+\newcommand{\kcycles}{\xcycles{k}}
 
 
-\newcommand{\ngone}{$n$-gone}
-\newcommand{\ngones}{$n$-gones}
 
-\newcommand{\kgone}{$k$-gone}
-\newcommand{\kgones}{$k$-gones}
+\NewDocumentCommand{\xgone}{m}{$#1$-gone}
+\NewDocumentCommand{\xgones}{m}{\xgone{#1}s}
+
+\newcommand{\ngone}{\xgone{n}}
+\newcommand{\ngones}{\xgones{n}}
+
+\newcommand{\kgone}{\xgone{k}}
+\newcommand{\kgones}{\xgones{k}}
+
 
 \newcommand{\nequi}{\ngone\ équilatéral}
 \newcommand{\nequis}{\ngones\ équilatéraux}
 
-\newcommand{\niso}{$n$-isogone}
-\newcommand{\nisos}{$n$-isogones}
 
-\newcommand{\kiso}{$k$-isogone}
-\newcommand{\kisos}{$k$-isogones}
+
+\NewDocumentCommand{\xiso}{m}{$#1$-isogone}
+\NewDocumentCommand{\xisos}{m}{\xgone{#1}s}
+
+\newcommand{\niso}{\xiso{n}}
+\newcommand{\nisos}{\xisos{n}}
+
+\newcommand{\kiso}{\xiso{k}}
+\newcommand{\kisos}{\xisos{k}}
+
 
 
 \newcommand{\geogebra}{{\normalfont\texttt{GeoGebra}}}
@@ -75,7 +89,7 @@
 
 \title{BROUILLON - Inégalités isopérimétriques restreintes aux polygones}
 \author{Christophe BAL}
-\date{18 Jan. 2025 -- 13 Fev. 2025}
+\date{18 Jan. 2025 -- 15 Fev. 2025}
 
 \maketitle
 
@@ -111,80 +125,80 @@
 % ------------- %
 
 
-\newpage
-
-Ce document, de niveau élémentaire,%
-\footnote{
-    Cela nous conduira à admettre certains théorèmes qui, bien que paraissant simples, méritent une justification approfondie.
-}
-s'intéresse au classique problème de l'isopérimétrie plane, c'est-à-dire à la recherche d'une surface plane maximisant son aire pour un périmètre donné.
-Nous nous limiterons ici au cas des polygones, en privilégiant des démonstrations les plus géométriques que possible, et en ne faisant appel à l'analyse qu'en cas de nécessité.%
-\footnote{
-    L'usage des nombres complexes fournit une approche très synthétique.
-}
-
-
-\begin{tcolorbox}
-    \itshape\small
-    Afin d'alléger le texte, nous raisonnerons parfois modulo des isométries. Ainsi, nous parlerons directement du \og carré de côté \( c \) \fg, du \og triangle équilatéral de côté \( c \) \fg, etc.
-\end{tcolorbox}
-
-
-% ------------- %
-
-
-\section{Pourquoi un  nouveau document sur l'isopérimétrie?}
-\input{content/why}
-
-
-% ------------- %
-
-
-\section{Triangles}
-
-\subsection{Avec un côté fixé}
-\input{content/triangle-one-side-fixed/triangle-one-side-fixed}
-
-
-\subsection{Le cas général}
-\input{content/triangle-gene/triangle-gene}
-
-
-\subsection{Des preuves courtes non géométriques}
-\input{content/triangle-ana-short/triangle-ana-short}
-
-
-% ------------- %
-
-
-\section{Quadriltères}
-
-\subsection{Les rectangles}
-\input{content/rectangle/rectangle}
-
-
-\subsection{Les parallélogrammes}
-\input{content/parallelogram/parallelogram}
-
-
-\subsection{Le cas général}
-\input{content/quadrilateral/quadrilateral}
-
-
-% ------------- %   
-
-
-\section{Les polygones}
-
-\subsection{Où allons-nous?}
-\input{content/polygon/plan}
-
-
-\subsection{Quelques définitions}
-\input{content/polygon/def}
-
-
-\subsection{Au moins une solution}
+%\newpage
+%
+%Ce document, de niveau élémentaire,%
+%\footnote{
+%    Cela nous conduira à admettre certains théorèmes qui, bien que paraissant simples, méritent une justification approfondie.
+%}
+%s'intéresse au classique problème de l'isopérimétrie plane, c'est-à-dire à la recherche d'une surface plane maximisant son aire pour un périmètre donné.
+%Nous nous limiterons ici au cas des polygones, en privilégiant des démonstrations les plus géométriques que possible, et en ne faisant appel à l'analyse qu'en cas de nécessité.%
+%\footnote{
+%    L'usage des nombres complexes fournit une approche très synthétique.
+%}
+%
+%
+%\begin{tcolorbox}
+%    \itshape\small
+%    Afin d'alléger le texte, nous raisonnerons parfois modulo des isométries. Ainsi, nous parlerons directement du \og carré de côté \( c \) \fg, du \og triangle équilatéral de côté \( c \) \fg, etc.
+%\end{tcolorbox}
+%
+%
+%% ------------- %
+%
+%
+%\section{Pourquoi un  nouveau document sur l'isopérimétrie?}
+%\input{content/why}
+%
+%
+%% ------------- %
+%
+%
+%\section{Triangles}
+%
+%\subsection{Avec un côté fixé}
+%\input{content/triangle-one-side-fixed/triangle-one-side-fixed}
+%
+%
+%\subsection{Le cas général}
+%\input{content/triangle-gene/triangle-gene}
+%
+%
+%\subsection{Des preuves courtes non géométriques}
+%\input{content/triangle-ana-short/triangle-ana-short}
+%
+%
+%% ------------- %
+%
+%
+%\section{Quadriltères}
+%
+%\subsection{Les rectangles}
+%\input{content/rectangle/rectangle}
+%
+%
+%\subsection{Les parallélogrammes}
+%\input{content/parallelogram/parallelogram}
+%
+%
+%\subsection{Le cas général}
+%\input{content/quadrilateral/quadrilateral}
+%
+%
+%% ------------- %   
+%
+%
+%\section{Les polygones}
+%
+%\subsection{Où allons-nous?}
+%\input{content/polygon/plan}
+%
+%
+%\subsection{Quelques définitions}
+%\input{content/polygon/def}
+%
+%
+%\subsection{Au moins une solution}
 \input{content/polygon/at-least-one/at-least-one}
 
 
