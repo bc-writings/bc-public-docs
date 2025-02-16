@@ -650,22 +650,20 @@
 \begin{fact} \label{ngone-trick}
     Tout \ncycle\ $\setproba{L}$ non dégénéré admet une décomposition
     $\setproba{L}_1 \cdot \setproba{L}_2 \cdot ... \cdot \setproba{L}_s$ 
-    vérifiant les conditions suivantes.
+    vérifiant les conditions suivantes où $s \in \NNs$.
     %
     \begin{enumerate}
-    	\item $s \in \NNs$.
-
     	\item $\forall i \in \ZintervalC{1}{s}$, $\setproba{L}_i$ est un \xgone{k_i}.
 	
     	\item $\forall i \in \ZintervalC{1}{s-1}$, $\setproba{L}_i$ et $\setproba{L}_{i+1}$ sont mariables.
 
-    	\item Les surfaces intérieures des $\setproba{L}_i$ sont disjointes deux à deux.
+    	\item Les surfaces intérieures des \xgones{k_i} $\setproba{L}_i$ sont disjointes deux à deux.
     \end{enumerate}
     
     Pour une telle décomposition, 
     $ \garea{\setproba{L}} 
     = \dfrac12 \, \abs*{\,
-    	\dsum_{j} \garea{\setproba{L}_{2j + 1}}  -  \dsum_{j} \garea{\setproba{L}_{2j}}
+    	\dsum_{j} \area{\setproba{L}_{2j + 1}}  -  \dsum_{j} \area{\setproba{L}_{2j}}
 	  \,}$.
 \end{fact}
 
@@ -683,7 +681,7 @@
 
 
 \begin{fact} \label{no-cross-max}
-    Si un \ncycle\ $\setproba{L}$ non dégénéré n'est pas un \ngone, donc est un polygone croisé, alors il existe un \ngone\ convexe $\setproba{P}$ tel que
+    Si un \ncycle\ $\setproba{L}$, éventuellement dégénéré, n'est pas un \ngone\ convexe, alors il existe un \ngone\ convexe $\setproba{P}$ tel que
 	$\perim{\setproba{P}} = \perim{\setproba{L}}$
 	et
 	$\garea{\setproba{P}} > \garea{\setproba{L}}$.
@@ -691,37 +689,61 @@
 
 
 \begin{proof}
-	Notons $\setproba{C}$ l'enveloppe convexe de $\setproba{L}$.
+	Commençons par le cas \og hyper-dégénéré \fg: si tous les sommets de $\setproba{L}$ sont alignés, son aire généralisée est nulle. Le triangle équilatéral de côté $\frac13 \perim{\setproba{L}}$ permet de conclure.
+	%
+	Supposons maintenant qu'au moins trois sommets non alignés existent.
+	Notons $\setproba{C}$ l'enveloppe convexe de $\setproba{L}$ (nous savons que $\setproba{C}$ contient au moins un triangle).
 	
 	\begin{center}
+		\centering
+		\small\itshape
 		\includegraphics[scale=.4]{content/polygon/at-least-one/convex-hull.png}
+		
+		\smallskip
+		Exemple où $N = C$ et $O = B$.
 	\end{center}
 	
 		
-	Clairement, $\perim{\setproba{C}} < \perim{\setproba{L}}$, et $\garea{\setproba{C}} > \garea{\setproba{L}}$ vient des implications logiques suivantes où l'on reprend les notations du fait \ref{ngone-trick}.
+	Clairement, $\perim{\setproba{C}} < \perim{\setproba{L}}$.
+	Justifions que $\garea{\setproba{C}} > \garea{\setproba{L}}$ en reprenant les notations du fait \ref{ngone-trick} précédent.
 
     \smallskip
     
     \noindent\kern-1.75ex
     \begin{stepcalc}[style=ar*]
-    	\mu( \setproba{L} )
+		2 \garea{\setproba{L}} 
 	\explnext{}
-    	\mu( \setproba{L}_1 \cdot \setproba{L}_2 \cdot ... \cdot \setproba{L}_s )
+     	\abs*{\,
+    		\dsum_{j} \area{\setproba{L}_{2j + 1}}  -  \dsum_{j} \area{\setproba{L}_{2j}}
+	  	\,}
+	\explnext*[<]{Deux \xgones{k_i}, au moins, sont d'orientations différentes.}{}
+     	  \dsum_{j} \area{\setproba{L}_{2j + 1}}  
+	    + \dsum_{j} \area{\setproba{L}_{2j}}
+	\explnext{}
+     	2 \area{\setproba{C}}
+	\explnext{}
+     	2 \garea{\setproba{C}}
     \end{stepcalc}
 	
 	
-	WWWWW
-	 .
-	Le donne sans ambiguïté que $\garea{\setproba{C}} > \garea{\setproba{L}}$. De plus, il est clair que $\perim{\setproba{C}} < \perim{\setproba{L}}$
 
+
+
+
+
+
+
+
+	
+	
+	
+	
 	
 	\smallskip
 	
-	Malheureusement, $\setproba{C}$ est un \kgone\ avec $k < n$. 
+	Il reste un problème à gérer: $\setproba{C}$ est un \kgone\ avec $k < n$. 
 	%
-	Comment gérer ce problème?
-	%
-	Une idée simple, formalisée après, consiste à ajouter des sommets suffisamment prêts des côtés de $\setproba{C}$ pour garder la convexité, un périmètre strictement inférieur à $\perim{\setproba{L}}$, et une aire généralisée strictement plus grande que $\garea{\setproba{L}}$. Si cela est faisable, un agrandissement de rapport $r > 1$ ramènera au périmètre $\perim{\setproba{L}}$ avec une aire strictement plus grande que $\garea{\setproba{L}}$.
+	Une idée simple, formalisée après, est d'ajouter des sommets assez prêts des côtés de $\setproba{C}$ pour garder la convexité, une longueur strictement supérieure à $\perim{\setproba{L}}$, et une aire généralisée strictement plus grande que $\garea{\setproba{L}}$. Si c'est faisable, un agrandissement de rapport $r > 1$ ramène à la longueur $\perim{\setproba{L}}$ avec une aire supérieure strictement à $\garea{\setproba{L}}$.
 	La figure suivante illustre cette idée.
 
 	\begin{center}
@@ -769,7 +791,7 @@
 
 \begin{fact} \label{suff-cond}
     Soit $n \in \NN_{\geq3}$ un naturel fixé.
-    Parmi tous les \ncycles\ de périmètre fixé, il en existe au moins un d'aire généralisée maximale, un tel \ncycle\ devant être a minima un \ngone.
+    Parmi tous les \ncycles\ de périmètre fixé, il en existe au moins un d'aire généralisée maximale, un tel \ncycle\ devant être a minima un \ngone\ convexe.
 \end{fact}
 
 
@@ -796,7 +818,7 @@
         Cette fonction est continue comme valeur absolue d'une fonction polynomiale en les coordonnées.
 
 
-        \item Finalement, par continuité et compacité, on sait que $\alpha$ admet un maximum sur $\setproba{G}$.
-        Or, un tel maximum ne peut pas être atteint en un \ncycle\ dégénéré, clairement, ni en un polygone croisé d'après le fait \ref{no-cross-max}, donc un tel maximum sera obtenu en un \ngone. That's all folks!
+        \item Finalement, par continuité et compacité, $\alpha$ admet un maximum sur $\setproba{G}$.
+        Or, un tel maximum ne peut pas être atteint qu'en un \ngone\ convexe, au moins, selon le fait \ref{no-cross-max}.
     \end{itemize}
 \end{proof}

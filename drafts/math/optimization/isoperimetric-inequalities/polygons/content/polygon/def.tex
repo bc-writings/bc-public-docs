@@ -1,10 +1,22 @@
 \begin{defi}
 	Pour $n \geq 3$, un \og \emph{\ncycle} \fg\ désigne une ligne brisée fermée à $n$ sommets et $n$ côtés sans restriction particulière (tous les cas pathologiques sont acceptés).
+	Les côtés d'un \ncycle\ $\setproba{L} = A_1 A_2 \cdots A_n$ sont $[A_n A_1]$, et $[A_i A_{i+1}]$ pour $i \in \ZintervalC{1}{n-1}$,
+	et sa longueur naturellement définie par $\perim{\setproba{L}} = A_n A_1 + \dsum_{i=1}^{n-1} A_i A_{i+1}$. 
 \end{defi}
 
 
 \begin{defi}
-	Un \og \emph{\ngone} \fg\ est un \ncycle\ n'admettant aucun couple de sommets confondus, ni aucun couple de côtés non contigüs sécants.
+	Un \ncycle\ est dit \og \emph{dégénéré} \fg\ s'il possède au moins trois sommets consécutifs alignés.
+\end{defi}
+
+
+\begin{defi}
+	Un \og \emph{\ngone} \fg\ est un \ncycle\ non dégénéré n'admettant aucun couple de sommets confondus, ni aucun couple de côtés non contigüs sécants.
+	Si certains côtés non contigüs sont sécants, mais aucun couple de sommets confondus, on parle de \og \emph{\ngone\ croisé} \fg.%
+	\footnote{
+		Bien retenir qu'un \ngone\ n'est jamais croisé par définition.
+		De plus, la longueur d'un \ngone\ correspond à son périmètre.
+	}
 \end{defi}
 
 
