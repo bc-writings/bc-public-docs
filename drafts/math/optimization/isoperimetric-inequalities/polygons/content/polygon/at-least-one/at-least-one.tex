@@ -1,4 +1,4 @@
-%Il est connu que tout triangle $ABC$ possède une aire donnée par $\frac12 \abs{ \det \big( \vect{AB} , \vect{AC} \big) }$ où $\frac12 \det \big( \vect{AB} , \vect{AC} \big)$ est l'aire algébrique de $ABC$.
+%Il est connu que tout triangle $ABC$ possède une aire donnée par $\frac12 \abs{ \det \big( \vect{AB} , \vect{AC} \big) }$, et que $\frac12 \det \big( \vect{AB} , \vect{AC} \big)$ est l'aire algébrique de $ABC$.
 %Il devient naturel de définir l'aire algébrique d'un \ngone\ via celles de triangles comme dans l'exemple suivant utilisant les triangles $\Omega AB$, $\Omega BC$, $\Omega CD$, $\Omega DE$ et $\Omega EA$. A priori, le résultat pourrait dépendre du point $\Omega$ employé, mais le fait \ref{garea-pt-ct}, donné plus bas, montrera que ce n'est pas le cas.
 %
 %\begin{multicols}{2}
@@ -644,7 +644,7 @@
 %
 %% ----------------------- %
 %
-
+%
 \newpage
 
 \begin{fact} \label{ngone-trick}
@@ -662,163 +662,198 @@
     
     Pour une telle décomposition, 
     $ \garea{\setproba{L}} 
-    = \dfrac12 \, \abs*{\,
-    	\dsum_{j} \area{\setproba{L}_{2j + 1}}  -  \dsum_{j} \area{\setproba{L}_{2j}}
+    = \abs*{\,
+    	  \dsum_{j} \area{\setproba{L}_{2j + 1}}  
+		- \dsum_{j} \area{\setproba{L}_{2j}}
 	  \,}$.
 \end{fact}
 
 
 \begin{proof}
-    XXX
-    
-    ptruvr viz ntersection la plus proche, puis arg de type induction comme dans lexemples !
-\end{proof}
-
-
-
-
-% ----------------------- %
-
-
-\begin{fact} \label{no-cross-max}
-    Si un \ncycle\ $\setproba{L}$, éventuellement dégénéré, n'est pas un \ngone\ convexe, alors il existe un \ngone\ convexe $\setproba{P}$ tel que
-	$\perim{\setproba{P}} = \perim{\setproba{L}}$
+	Nommons, temporairement, \og \emph{point d'intersection} \fg\ toute intersection de deux côtés non contigüs.
+	Si $\setproba{L}$ n'a aucun point d'intersection,
+	le choix $\setproba{L}_1 = \setproba{L}$ avec $s = 1$ convient.
+	Supposons maintenant que $\setproba{L} = A_1 A_2 \cdots A_n$ admet au moins un point d'intersection.
+	Parmi les points d'intersection de $\setproba{L}$, considérons 
+	$I$ le premier rencontré en parcourant $\setproba{L}$ via $A_1$, $A_2$, $A_3$,\,...\,, $A_n$, la rencontre se faisant juste après $A_i$,
 	et
-	$\garea{\setproba{P}} > \garea{\setproba{L}}$.
-\end{fact}
-
-
-\begin{proof}
-	Commençons par le cas \og hyper-dégénéré \fg: si tous les sommets de $\setproba{L}$ sont alignés, son aire généralisée est nulle. Le triangle équilatéral de côté $\frac13 \perim{\setproba{L}}$ permet de conclure.
-	%
-	Supposons maintenant qu'au moins trois sommets non alignés existent.
-	Notons $\setproba{C}$ l'enveloppe convexe de $\setproba{L}$ (nous savons que $\setproba{C}$ contient au moins un triangle).
-	
-	\begin{center}
-		\centering
-		\small\itshape
-		\includegraphics[scale=.4]{content/polygon/at-least-one/convex-hull.png}
-		
-		\smallskip
-		Exemple où $N = C$ et $O = B$.
-	\end{center}
-	
-		
-	Clairement, $\perim{\setproba{C}} < \perim{\setproba{L}}$.
-	Justifions que $\garea{\setproba{C}} > \garea{\setproba{L}}$ en reprenant les notations du fait \ref{ngone-trick} précédent.
-
-    \smallskip
-    
-    \noindent\kern-1.75ex
-    \begin{stepcalc}[style=ar*]
-		2 \garea{\setproba{L}} 
-	\explnext{}
-     	\abs*{\,
-    		\dsum_{j} \area{\setproba{L}_{2j + 1}}  -  \dsum_{j} \area{\setproba{L}_{2j}}
-	  	\,}
-	\explnext*[<]{Deux \xgones{k_i}, au moins, sont d'orientations différentes.}{}
-     	  \dsum_{j} \area{\setproba{L}_{2j + 1}}  
-	    + \dsum_{j} \area{\setproba{L}_{2j}}
-	\explnext{}
-     	2 \area{\setproba{C}}
-	\explnext{}
-     	2 \garea{\setproba{C}}
-    \end{stepcalc}
-	
-	
-
-
-
-
-
-
-
-
-	
-	
-	
-	
-	
-	\smallskip
-	
-	Il reste un problème à gérer: $\setproba{C}$ est un \kgone\ avec $k < n$. 
-	%
-	Une idée simple, formalisée après, est d'ajouter des sommets assez prêts des côtés de $\setproba{C}$ pour garder la convexité, une longueur strictement supérieure à $\perim{\setproba{L}}$, et une aire généralisée strictement plus grande que $\garea{\setproba{L}}$. Si c'est faisable, un agrandissement de rapport $r > 1$ ramène à la longueur $\perim{\setproba{L}}$ avec une aire supérieure strictement à $\garea{\setproba{L}}$.
-	La figure suivante illustre cette idée.
+	$J$ le premier rencontré en parcourant $\setproba{L}$ via $A_1$, $A_n$, $A_{n-1}$,\,...\,, $A_2$, la rencontre se faisant juste après $A_j$.
+	Ci-dessous, nous avons, par exemple, $i = 3$ et $j = 11$.
 
 	\begin{center}
-		\includegraphics[scale=.4]{content/polygon/at-least-one/convex-hull-distortion.png}
+		\includegraphics[scale=.35]{content/polygon/at-least-one/ngone-trick.png}
 	\end{center}
 
 
-	Notons $s$ le nombre de sommets dans $\setproba{C}$, de sorte que $m = n - s$ compte les sommets manquants.
-	Si $m = 0$, il n'y a rien à faire.
-	Sinon, posons $\delta = \frac{\perim{\setproba{L}} - \perim{\setproba{C}}}{m}$.
-	%
-	\begin{enumerate}
-		\item \label{add-vertex-start}
-		Considérons $[AB]$ un côté quelconque de $\setproba{C}$.
-		Les droites portées par les côtés \og \emph{autour} \fg\ de $[AB]$ \og \emph{dessinent} \fg\ une région contenant toujours un triangle $ABC$ dont l'intérieur est à l'extérieur
-		\footnote{
-			C'est ce que l'on appelle de la \og \emph{low poetry} \fg\,.
-		}
-		de $\setproba{C}$ comme dans les deux cas ci-dessous.
-	%
-		\begin{multicols}{2}
-			\centering
-
-			\includegraphics[scale=.4]{content/polygon/at-least-one/add-vertex-1.png}
-
-			\includegraphics[scale=.4]{content/polygon/at-least-one/add-vertex-2.png}
-		\end{multicols}
-
-		\item Clairement, le polygone $\setproba{C}_+$ obtenu à partir de $\setproba{C}$ en remplaçant le côté $[AB]$ par les côtés $[AC]$ et $[CB]$ est un convexe avec un sommet de plus que $\setproba{C}$.
-
-		\item \label{add-vertex-end}
-		Comme $HC$ peut être rendu aussi proche de $0$ que souhaité, il est aisé de voir que l'on peut choisir cette distance de sorte que $AC + BC < AB + \delta$.
-		Dès lors, le périmètre de $\setproba{C}_+$ augmente inférieurement strictement à $\delta$ relativement à $\setproba{C}$.
-
-		\item En répétant $(m-1)$ fois les étapes \ref{add-vertex-start} à \ref{add-vertex-end}, nous obtenons un \ngone\ convexe $\setproba{C}^{\,\prime}$ tel que
-		$\area{\setproba{C}^{\,\prime}} > \area{\setproba{L}}$
-		et
-		$\perim{\setproba{C}^{\,\prime}} < \perim{\setproba{C}} + m \delta = \perim{\setproba{L}}$.
-	\end{enumerate}
-\end{proof}
-
-
-% ----------------------- %
-
-
-\begin{fact} \label{suff-cond}
-    Soit $n \in \NN_{\geq3}$ un naturel fixé.
-    Parmi tous les \ncycles\ de périmètre fixé, il en existe au moins un d'aire généralisée maximale, un tel \ncycle\ devant être a minima un \ngone\ convexe.
-\end{fact}
-
-
-\begin{proof}
-	Notons $p$ le périmètre fixé..
+    Nous pouvons faire les observations suivantes.
 	%
     \begin{itemize}
-        \item Munissant le plan d'un repère orthonormé direct $\pvaxes{O | i | j}$, on note $\setproba{Z}$ l'ensemble des \ncycles\ $\setproba{L} = A_1 A_2 \cdots A_n$ tels que
-        $\perim{A_1 A_2 \cdots A_n} = p$
-        et
-        $A_1\coord{0 | 0}$,%
-        \footnote{
-        	Le mot \og \emph{Zeile} \fg\ est une traduction possible de \og \emph{ligne} \fg\ en allemand.
-        }
-        puis $\setproba{G} \subset \RR^{2n}$ l'ensemble des uplets de coordonnées $\big( x(A_1) ; y(A_1) ; \dots ; x(A_n) ; y(A_n) \big)$ pour $A_1 A_2 \cdots A_n \in \setproba{Z}$.
+    	\item 
 
+    	\item 
 
-        \item $\setproba{G}$ est clairement fermé dans $\RR^{2n}$.
-        De plus, il est borné, car les coordonnées des sommets des \ncycles\ considérés le sont.
-        En résumé, $\setproba{G}$ est un compact de $\RR^{2n}$.
+    	\item 
 
-
-        \item Nous définissons la fonction $\alpha: \setproba{G} \rightarrow \RRp$ qui à un uplet de $\setproba{G}$ associe l'aire généralisée du \ncycle\ qu'il représente.
-        Cette fonction est continue comme valeur absolue d'une fonction polynomiale en les coordonnées.
-
-
-        \item Finalement, par continuité et compacité, $\alpha$ admet un maximum sur $\setproba{G}$.
-        Or, un tel maximum ne peut pas être atteint qu'en un \ngone\ convexe, au moins, selon le fait \ref{no-cross-max}.
+    	\item 
     \end{itemize}
+	
+	
+	
+	 
+    XXX
+    
+   
+	Posant
+	$\setproba{L}_1 = A_1 \cdots A_i I$
+    et
+    $\setproba{L}^{\,\prime} = I A_{i+1} \cdots A_n$,
+    
+    \smallskip
+    
+    Nous obtenons $\setproba{L} = \setproba{L}_1 \cdot \setproba{L}^{\,\prime}$ où
+
+    avec $\setproba{L}_1$ un \ngone, car non dégénéré et sans point d'intersection.
+    
+    
+    
 \end{proof}
+
+
+
+
+
+
+
+
+
+%% ----------------------- %
+%
+%
+%\begin{fact} \label{no-cross-max}
+%    Si un \ncycle\ $\setproba{L}$, éventuellement dégénéré, n'est pas un \ngone\ convexe, alors il existe un \ngone\ convexe $\setproba{P}$ tel que
+%	$\perim{\setproba{P}} = \perim{\setproba{L}}$
+%	et
+%	$\garea{\setproba{P}} > \garea{\setproba{L}}$.
+%\end{fact}
+%
+%
+%\begin{proof}
+%	Commençons par le cas \og hyper-dégénéré \fg: si tous les sommets de $\setproba{L}$ sont alignés, son aire généralisée est nulle. Le triangle équilatéral de côté $\frac13 \perim{\setproba{L}}$ permet de conclure.
+%	%
+%	Supposons maintenant qu'au moins trois sommets non alignés existent.
+%	Notons $\setproba{C}$ l'enveloppe convexe de $\setproba{L}$ (nous savons que $\setproba{C}$ contient au moins un triangle).
+%	
+%	\begin{center}
+%		\centering
+%		\small\itshape
+%		\includegraphics[scale=.4]{content/polygon/at-least-one/convex-hull.png}
+%		
+%		\smallskip
+%		Exemple où $N = C$ et $O = B$.
+%	\end{center}
+%	
+%		
+%	Clairement, $\perim{\setproba{C}} < \perim{\setproba{L}}$.
+%	Justifions que $\garea{\setproba{C}} > \garea{\setproba{L}}$ en reprenant les notations du fait \ref{ngone-trick} précédent.
+%
+%    \smallskip
+%    
+%    \noindent\kern-1.75ex
+%    \begin{stepcalc}[style=ar*]
+%		2 \garea{\setproba{L}} 
+%	\explnext{}
+%     	\abs*{\,
+%    		\dsum_{j} \area{\setproba{L}_{2j + 1}}  -  \dsum_{j} \area{\setproba{L}_{2j}}
+%	  	\,}
+%	\explnext[\leq]{}
+%     	  \dsum_{j} \area{\setproba{L}_{2j + 1}}  
+%	    + \dsum_{j} \area{\setproba{L}_{2j}}
+%	\explnext*[<]{$\setproba{L}$ n'est pas un \ngone\ convexe.}{}
+%     	2 \area{\setproba{C}}
+%	\explnext{}
+%     	2 \garea{\setproba{C}}
+%    \end{stepcalc}	
+%	
+%	\smallskip
+%	
+%	Il reste un problème à gérer: $\setproba{C}$ est un \kgone\ avec $k < n$. 
+%	%
+%	Une idée simple, formalisée après, est d'ajouter des sommets assez prêts des côtés de $\setproba{C}$ pour garder la convexité, une longueur strictement supérieure à $\perim{\setproba{L}}$, et une aire généralisée strictement plus grande que $\garea{\setproba{L}}$. Si c'est faisable, un agrandissement de rapport $r > 1$ donnera le \ngone\ $\setproba{P}$ cherché.
+%	La figure suivante illustre cette idée.
+%
+%	\begin{center}
+%		\includegraphics[scale=.4]{content/polygon/at-least-one/convex-hull-distortion.png}
+%	\end{center}
+%
+%
+%	Notons $s$ le nombre de sommets dans $\setproba{C}$, de sorte que $m = n - s$ compte les sommets manquants.
+%	Si $m = 0$, il n'y a rien à faire.
+%	Sinon, posons $\delta = \frac{\perim{\setproba{L}} - \perim{\setproba{C}}}{m}$.
+%	%
+%	\begin{enumerate}
+%		\item \label{add-vertex-start}
+%		Considérons $[AB]$ un côté quelconque de $\setproba{C}$.
+%		Les droites portées par les côtés \og \emph{autour} \fg\ de $[AB]$ \og \emph{dessinent} \fg\ une région contenant toujours un triangle $ABC$ dont l'intérieur est à l'extérieur
+%		\footnote{
+%			C'est ce que l'on appelle de la \og \emph{low poetry} \fg\,.
+%		}
+%		de $\setproba{C}$ comme dans les deux cas ci-dessous.
+%	%
+%		\begin{multicols}{2}
+%			\centering
+%
+%			\includegraphics[scale=.4]{content/polygon/at-least-one/add-vertex-1.png}
+%
+%			\includegraphics[scale=.4]{content/polygon/at-least-one/add-vertex-2.png}
+%		\end{multicols}
+%
+%		\item Clairement, le polygone $\setproba{C}_+$ obtenu à partir de $\setproba{C}$ en remplaçant le côté $[AB]$ par les côtés $[AC]$ et $[CB]$ est un convexe avec un sommet de plus que $\setproba{C}$.
+%
+%		\item \label{add-vertex-end}
+%		Comme $HC$ peut être rendu aussi proche de $0$ que souhaité, il est aisé de voir que l'on peut choisir cette distance de sorte que $AC + BC < AB + \delta$.
+%		Dès lors, le périmètre de $\setproba{C}_+$ augmente inférieurement strictement à $\delta$ relativement à $\setproba{C}$.
+%
+%		\item En répétant $(m-1)$ fois les étapes \ref{add-vertex-start} à \ref{add-vertex-end}, nous obtenons un \ngone\ convexe $\setproba{C}^{\,\prime}$ tel que
+%		$\garea{\setproba{C}^{\,\prime}} > \garea{\setproba{L}}$
+%		et
+%		$\perim{\setproba{C}^{\,\prime}} < \perim{\setproba{C}} + m \delta = \perim{\setproba{L}}$.
+%	\end{enumerate}
+%\end{proof}
+%
+%
+%% ----------------------- %
+%
+%
+%\begin{fact} \label{suff-cond}
+%    Soit $n \in \NN_{\geq3}$ un naturel fixé.
+%    Parmi tous les \ncycles\ de périmètre fixé, il en existe au moins un d'aire généralisée maximale, un tel \ncycle\ devant être a minima un \ngone\ convexe.
+%\end{fact}
+%
+%
+%\begin{proof}
+%	Notons $p$ le périmètre fixé..
+%	%
+%    \begin{itemize}
+%        \item Munissant le plan d'un repère orthonormé direct $\pvaxes{O | i | j}$, on note $\setproba{Z}$ l'ensemble des \ncycles\ $\setproba{L} = A_1 A_2 \cdots A_n$ tels que
+%        $\perim{A_1 A_2 \cdots A_n} = p$
+%        et
+%        $A_1\coord{0 | 0}$,%
+%        \footnote{
+%        	Le mot \og \emph{Zeile} \fg\ est une traduction possible de \og \emph{ligne} \fg\ en allemand.
+%        }
+%        puis $\setproba{G} \subset \RR^{2n}$ l'ensemble des uplets de coordonnées $\big( x(A_1) ; y(A_1) ; \dots ; x(A_n) ; y(A_n) \big)$ pour $A_1 A_2 \cdots A_n \in \setproba{Z}$.
+%
+%
+%        \item $\setproba{G}$ est clairement fermé dans $\RR^{2n}$.
+%        De plus, il est borné, car les coordonnées des sommets des \ncycles\ considérés le sont.
+%        En résumé, $\setproba{G}$ est un compact de $\RR^{2n}$.
+%
+%
+%        \item Nous définissons la fonction $\alpha: \setproba{G} \rightarrow \RRp$ qui à un uplet de $\setproba{G}$ associe l'aire généralisée du \ncycle\ qu'il représente.
+%        Cette fonction est continue comme valeur absolue d'une fonction polynomiale en les coordonnées.
+%
+%
+%        \item Finalement, par continuité et compacité, $\alpha$ admet un maximum sur $\setproba{G}$.
+%        Or, un tel maximum ne peut pas être atteint qu'en un \ngone\ convexe, au moins, selon le fait \ref{no-cross-max}.
+%    \end{itemize}
+%\end{proof}
