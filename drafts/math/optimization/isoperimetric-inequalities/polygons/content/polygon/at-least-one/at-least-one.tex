@@ -71,7 +71,7 @@ L'image de gauche nous donne la solution: il suffit de définir l'aire comme la 
 \end{center}
 
 
-\begin{defi}
+\begin{defi} \label{garea-def}
     Soit
     $\setproba{L}$ un \ncycle\
     ayant $\dcup_{i} \setproba{P}_i$ pour frontière de sa surface impaire, où les $\setproba{P}_i$, en nombre fini éventuellement nul, sont des \ngones\ d'intérieurs disjoints deux à deux.
@@ -541,6 +541,8 @@ Dans le cas non-convexe, les choses se compliquent a priori, car nous ne maîtri
 % ----------------------- %
 
 
+\newpage % TEMP
+
 \begin{fact} \label{suff-cond-ncycle}
     Soit $n \in \NN_{\geq3}$ un naturel fixé.
     Parmi tous les \ncycles\ de longueur fixée, non nulle, il en existe au moins un d'aire généralisée maximale, un tel \ncycle\ devant être a minima un \ngone\ convexe.
@@ -564,14 +566,42 @@ Dans le cas non-convexe, les choses se compliquent a priori, car nous ne maîtri
         \item $\setproba{G}$ est clairement fermé dans $\RR^{2n}$.%
         \footnote{
         	Il est faux d'affirmer que l'ensemble des \ngones\ est fermé: penser par exemple à un \ngone\ dont tous les sommets seraient fixés sauf un que l'on ferait d'entre vers l'un de ses voisins: ceci fait passer d'un \ngone\ à \kgone\ avec $k \leq n-1$.
-	        On peut aussi penser à des \ngones\ que l'on ferait tendre, en les \og aplatissant \fg, vers un \ncycle\ totalement plat.
+	        On peut aussi penser à des \ngones\ que l'on ferait tendre, en les \og aplatissant \fg, vers un \ncycle\ totalement \og plat \fg.
         }
-        De plus, il est borné, car les coordonnées des sommets des \ncycles\ $\setproba{L}$ considérés le sont, puisque $\perim{\setproba{L}} = \ell$.
+        De plus, il est borné, car les coordonnées des sommets des \ncycles\ $\setproba{L}$ considérés le sont, d'après la contrainte $\perim{\setproba{L}} = \ell$.
         En résumé, $\setproba{G}$ est un compact de $\RR^{2n}$.
 
 
         \item Nous définissons la fonction $\alpha: \setproba{G} \rightarrow \RRp$ qui à un uplet de $\setproba{G}$ associe l'aire généralisée du \ncycle\ qu'il représente.
-        Cette fonction est continue comme valeur absolue d'une fonction polynomiale grâce au fait \ref{garea-ngone} (ne pas oublier de prendre en compte le cas d'une famille de \ngones\ tendant vers un \ncycle\ dégénéré).
+        Cette fonction est continue pour les raisons suivantes où $\setproba{L} = A_1 A_2 \cdots A_n$ désigne un \ncycle.
+        %
+        \begin{enumerate}
+        	\item $\garea{\setproba{L}} = \dsum_{i} \area{\setproba{P}_i}$ où $\dcup_{i} \setproba{P}_i$ est frontière de la surface impaire de $\setproba{L}$.
+
+
+			\item Si $\dcup_{i} \setproba{P}_i = \emptyset$, alors $\garea{\setproba{L}} = 0$.
+
+
+			\item Si $\dcup_{i} \setproba{P}_i \neq \emptyset$, 
+			en posant $\setproba{P}_i = A_{i,1} A_{i,2} \cdots A_{i,n_i}$, 
+			le fait \ref{garea-ngone} nous permet d'écrire
+			$ \garea{\setproba{L}} 
+			= \frac12 \dsum_{i} \big\lvert
+				\dsum_{k=1}^{n_i} \big( 
+					  x(A^{\,\prime}_{i,k}) y(A^{\,\prime}_{i,k+1}) 
+					- y(A^{\,\prime}_{i,k}) x(A^{\,\prime}_{i,k+1})
+				\big)
+			 \big\rvert$
+			en calculant les aires algébriques via l'origine $O$ de notre repère.
+
+			\item XXXXX
+
+			\item XXXXX
+
+			\item XXXXX
+
+			\item XXXXX
+        \end{enumerate}
 
 
         \item Finalement, par continuité et compacité, $\alpha$ admet un maximum sur $\setproba{G}$.
@@ -590,5 +620,5 @@ Dans le cas non-convexe, les choses se compliquent a priori, car nous ne maîtri
 
 
 \begin{proof}
-    Il suffit de convier les faits \ref{garea-ncycle}, \ref{garea-ngone} et \ref{suff-cond-ncycle}.
+    Il suffit de convier les faits \ref{garea-ncycle}, \ref{garea-ngone} et \ref{suff-cond-ncycle} au même banquet des idées.
 \end{proof}
