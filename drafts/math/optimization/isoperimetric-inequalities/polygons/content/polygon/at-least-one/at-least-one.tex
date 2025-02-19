@@ -1,9 +1,9 @@
 %Nous allons commencer par trouver un moyen de mesurer l'aire d'un \ncycle\ $\setproba{L}$, si tant est que cela signifie quelque chose. 
 %Il existe une notion d'aire algébrique d'un \ncycle\ qui s'appuie sur le déterminant: si $\setproba{L} = A_1 A_2 \cdots A_n$, alors l'aire algébrique de $\setproba{L}$ est $\frac12 \dsum_{i=1}^{n} \det \big( \vect{\Omega A^{\,\prime}_i} , \vect{\Omega A^{\,\prime}_{i+1}} \big)$, une quantité indépendante du point $\Omega$ choisi.
 %Quand \geogebra\ associe un nombre à un \ncycle\ $\setproba{L}$, il calcule la valeur absolue de son aire algébrique.
-%Malheureusement, cette notion n'est pas une bonne candidate pour nous comme le montre l'exemple suivant facile à construire,%
+%Malheureusement, cette notion n'est pas la bonne candidate comme le montre l'exemple suivant,%
 %\footnote{
-%	Il suffit de fabriquer un \ngone\ croisé en \og spirale \fg, et de penser au calcul de l'aire algébrique avec un point $\Omega$ au \og centre \fg\ de cette spirale, car $\frac12 \det \big( \vect{\Omega A_i} , \vect{\Omega A_{i+1}} \big)$ est l'aire algébrique du triangle $\Omega A_i A_{i+1}$.
+%	Pour construire un tel exemple, il suffit de fabriquer un \ngone\ croisé en \og spirale \fg, et de penser au calcul de l'aire algébrique avec un point $\Omega$ au \og centre \fg\ de cette spirale, car $\frac12 \det \big( \vect{\Omega A_i} , \vect{\Omega A_{i+1}} \big)$ est l'aire algébrique du triangle $\Omega A_i A_{i+1}$.
 %}
 %mais l'aire algébrique sera néanmoins utile pour formuler un argument de continuité.
 %
@@ -59,12 +59,15 @@
 %	
 %%	\smallskip
 %	
-%	Quelques calculs de $p(M)$.
+%	Quelques calculs de $p(M)$:
 %
 %	\smallskip
 %	
 %	$p(E_1) = 5$,
 %	$p(E_2) = 1$,
+%%	
+%%	\smallskip
+%%	
 %	$p(O_1) = 4$,
 %	$p(O_2) = 2$ et
 %	$p(O_3) = 0$.
@@ -167,6 +170,8 @@
 %		et
 %		$\perim{\setproba{P}} < \perim{\setproba{C}} + m \delta = \perim{\setproba{L}}$.
 %	\end{enumerate}
+%	
+%	\null\vspace{-6ex}
 %\end{proof}
 %
 %
@@ -452,16 +457,16 @@
 %%			\dsum_{j=1}^{n} \det \big( \vect{A_1 A^{\,\prime}_j} , \vect{A_1 A^{\,\prime}_{j + 1}} \big)
 %%		%
 %		\explnext{}
-%			\dsum_{j=1}^{n-1} \det \big( \vect{A_1 A^{\,\prime}_j} , \vect{A_1 A^{\,\prime}_{j + 1}} \big)
-%			+
-%			\det \big( \vect{A_1 A^{\,\prime}_n} , \vect{A_1 A^{\,\prime}_{n+1}} \big)
+%			\dsum_{j=1}^{n} \det \big( \vect{A_1 A^{\,\prime}_j} , \vect{A_1 A^{\,\prime}_{j + 1}} \big)
+%%			+
+%%			\det \big( \vect{A_1 A^{\,\prime}_n} , \vect{A_1 A^{\,\prime}_{n+1}} \big)
 %		%
-%		\explnext*{$A_1 = A^{\,\prime}_{n+1}$ \\
-%		           $A_i = A^{\,\prime}_i$ \\ pour $i \leq n$}%
+%		\explnext*{$A^{\,\prime}_{n+1} = A_1$ \\
+%		           $A^{\,\prime}_i = A_i$ pour $i \leq n$}%
 %		          {}
 %			\dsum_{j=1}^{n-1} \det \big( \vect{A_1 A_j} , \vect{A_1 A_{j + 1}} \big)
-%			+
-%			\det \big( \vect{A_1 A_n} , \vect{A_1 A_1} \big)
+%%			+
+%%			\det \big( \vect{A_1 A_n} , \vect{A_1 A_1} \big)
 %		%
 %		\explnext{}
 %			\dsum_{j=1}^{n-2} \det \big( \vect{A_1 A_j} , \vect{A_1 A_{j + 1}} \big)
@@ -482,6 +487,8 @@
 %		et comme $A_{n-1} A_n A_1$ est une oreille de $\setproba{P}$, la $3$-ligne $A_{n-1} A_n A_1$ est forcément positive, d'où $\mu(A_{n-1} A_n A_1) \geq 0$ d'après le cas de base.
 %		Nous arrivons bien à $\mu(\setproba{P}) \geq 0$, ce qui permet de finir aisément la démonstration par récurrence.
 %	\end{itemize}
+%	
+%	\null\vspace{-6ex}
 %\end{proof}
 %
 %
@@ -535,7 +542,21 @@
 %		    \frac12 \abs{\mu(\setproba{P})}
 %		\end{stepcalc}
 %    \end{itemize}
+%    
+%    \null\vspace{-3.5ex}
 %\end{proof}
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
 %
 %
 %% ----------------------- %
@@ -562,34 +583,35 @@
 	
 	pour les raisons suivantes où $\setproba{L} = A_1 A_2 \cdots A_n$ désigne un \ncycle.
         %
-        \begin{enumerate}
-        	\item $\garea{\setproba{L}} = \dsum_{i} \area{\setproba{P}_i}$ où $\dcup_{i} \setproba{P}_i$ est frontière de la surface impaire de $\setproba{L}$.
+    \begin{itemize}
+        \item $\garea{\setproba{L}} = \dsum_{i} \area{\setproba{P}_i}$ où $\dcup_{i} \setproba{P}_i$ est frontière de la surface impaire de $\setproba{L}$.
 
 
-			\item Si $\dcup_{i} \setproba{P}_i = \emptyset$, alors $\garea{\setproba{L}} = 0$.
+		\item Si $\dcup_{i} \setproba{P}_i = \emptyset$, alors $\garea{\setproba{L}} = 0$.
 
 
-			\item Si $\dcup_{i} \setproba{P}_i \neq \emptyset$, 
-			en posant $\setproba{P}_i = A_{i,1} A_{i,2} \cdots A_{i,n_i}$, 
-			le fait \ref{garea-ngone} nous permet d'écrire
-			$ \garea{\setproba{L}} 
-			= \frac12 \dsum_{i} \big\lvert
-				\dsum_{k=1}^{n_i} \big( 
-					  x(A^{\,\prime}_{i,k}) y(A^{\,\prime}_{i,k+1}) 
-					- y(A^{\,\prime}_{i,k}) x(A^{\,\prime}_{i,k+1})
-				\big)
-			 \big\rvert$
-			en calculant les aires algébriques via l'origine $O$ de notre repère.
+		\item Si $\dcup_{i} \setproba{P}_i \neq \emptyset$, 
+		en posant $\setproba{P}_i = A_{i,1} A_{i,2} \cdots A_{i,n_i}$, 
+		le fait \ref{garea-ngone} nous permet d'écrire, en calculant les aires algébriques via l'origine $O$ du repère,
+		$ \garea{\setproba{L}} 
+		= \frac12 \dsum_{i} \big\lvert
+			\dsum_{k=1}^{n_i} \big( 
+				  x(A^{\,\prime}_{i,k}) y(A^{\,\prime}_{i,k+1}) 
+				- y(A^{\,\prime}_{i,k}) x(A^{\,\prime}_{i,k+1})
+			\big)
+		 \big\rvert$
+		.
 
-			\item XXXXX
+		\item XXXXX
 
-			\item XXXXX
+		\item XXXXX
 
-			\item XXXXX
+		\item XXXXX
 
-			\item XXXXX
-        \end{enumerate}
+		\item XXXXX
+    \end{itemize}
 
+	\null\vspace{-6ex}
 \end{proof}
 
 
@@ -632,6 +654,8 @@
         \item Finalement, par continuité et compacité, $\alpha$ admet un maximum sur $\setproba{U}$.
         Or, un tel maximum ne peut être atteint qu'en un \ngone\ convexe, au moins, selon le fait \ref{max-is-nconv}.
     \end{itemize}
+    
+    \null\vspace{-6ex}
 \end{proof}
 
 
