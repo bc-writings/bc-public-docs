@@ -2,13 +2,20 @@
 	Pour $n \geq 3$, un \og \emph{\ncycle} \fg\ désigne une ligne brisée fermée à $n$ sommets et $n$ côtés sans restriction particulière (tous les cas pathologiques sont acceptés).
 \end{defi}
 
-	
+
 \begin{defi}
-	Un \ncycle\ $\setproba{L} = A_1 A_2 \cdots A_n$ admet pour \og \emph{côtés} \fg\ les segments
-	$[A_n A_1]$ et	
-	$[A_i A_{i+1}]$ pour $i \in \ZintervalC{1}{n-1}$,
-	et pour longueur $\perim{\setproba{L}} = A_n A_1 + \dsum_{i=1}^{n-1} A_i A_{i+1}$.
+    Pour tout \ncycle\ $\setproba{L} = A_1 A_2 \cdots A_n$, on définit $\big( A^{\,\prime}_i \big)_{i \in \ZZ}$ comme étant $n$-périodique, et vérifiant $A^{\,\prime}_{i} = A_i$ sur $\ZintervalC{1}{n}$.
 \end{defi}
+
+
+\begin{defi}
+	Les \og \emph{côtés} \fg\ d'un \ncycle\ $\setproba{L} = A_1 A_2 \cdots A_n$ sont les segments
+	$[A^{\,\prime}_i A^{\,\prime}_{i+1}]$ pour $i \in \ZintervalC{1}{n}$,
+	et $\perim{\setproba{L}} = \dsum_{i=1}^{n} A^{\,\prime}_i A^{\,\prime}_{i+1}$ est la \og \emph{longueur} \fg\ de $\setproba{L}$.
+\end{defi}
+
+
+% ----------------------- %
 
 
 \begin{defi}
@@ -16,9 +23,12 @@
 \end{defi}
 
 
+% ----------------------- %
+
+
 \begin{defi}
 	Un \og \emph{\ngone} \fg\ est un \ncycle\ non dégénéré n'admettant aucun couple de sommets confondus, ni aucun couple de côtés non contigüs sécants.
-	Si certains côtés non contigüs sont sécants, mais aucun couple de sommets confondus, on parle de \og \emph{\ngone\ croisé} \fg.%
+	Si certains côtés non contigüs sont sécants, mais aucun couple de sommets confondus, nous parlerons de \og \emph{\ngone\ croisé} \fg.%
 	\footnote{
 		Bien retenir qu'un \ngone\ n'est jamais croisé par définition.
 		De plus, la longueur d'un \ngone\ correspond à son périmètre.
@@ -26,21 +36,21 @@
 \end{defi}
 
 
-\begin{defi}
-	Un \ngone\ est dit \og \emph{équilatéral} \fg\ si tous ses côtés sont de même mesure.
-\end{defi}
-
-
-\begin{defi}
-	Un \og \emph{\niso} \fg\ est un \ngone\ dont tous les angles au sommet sont de même mesure.
-\end{defi}
-
-
-\begin{defi}
-	Un \ngone\ est dit \og \emph{régulier} \fg\ si c'est un \niso\ équilatéral.
-\end{defi}
-
-
-\begin{remark}
-	Un losange non carré est un \nequi\ convexe non régulier, et un rectangle non carré est un \niso\ convexe non régulier.
-\end{remark}
+%\begin{defi}
+%	Un \ngone\ est dit \og \emph{équilatéral} \fg\ si tous ses côtés sont de même mesure.
+%\end{defi}
+%
+%
+%\begin{defi}
+%	Un \og \emph{\niso} \fg\ est un \ngone\ dont tous les angles au sommet sont de même mesure.
+%\end{defi}
+%
+%
+%\begin{defi}
+%	Un \ngone\ est dit \og \emph{régulier} \fg\ si c'est un \niso\ équilatéral.
+%\end{defi}
+%
+%
+%\begin{remark}
+%	Un losange non carré est un \nequi\ convexe non régulier, et un rectangle non carré est un \niso\ convexe non régulier.
+%\end{remark}
