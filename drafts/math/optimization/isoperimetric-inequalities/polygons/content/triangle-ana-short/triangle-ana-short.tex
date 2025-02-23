@@ -31,22 +31,24 @@ Nous donnons ici des preuves courtes du fait \ref{iso-tri}, mais sans notion gé
 
 
 \begin{proof}[\altproof{2}]
-	Faisons appel à \textbf{l'analyse élémentaire}.
-	Le fait \ref{tri-one-side-fixed} implique de chercher un éventuel triangle \og optimal \fg\ parmi les triangles isocèles.
-	Soit donc $ABC$ un triangle isocèle en $C$. 
-	Plaçons-nous dans un repère orthonormé $\pvaxes{O | i | j}$ tel que  $A\coord{0 | 0}$, $B\coord{AB | 0}$ et $C\coord{x_C | y_C}$ avec $y_C \geq 0$, et posons $c = AC = BC \neq 0$ et $s = \frac{p}{2}$.
-	Nous avons 
+	Faisons appel à \textbf{l'analyse élémentaire aidée du fait \ref{tri-one-side-fixed}}.
+	Ce fait permet de se concentrer sur $ABC$ isocèle en $C$. 
+	Choisissons un repère orthonormé $\pvaxes{O | i | j}$ tel que  $A\coord{0 | 0}$, $B\coord{AB | 0}$ et $C\coord{x_C | y_C}$ avec $y_C \geq 0$, et posons $c = AC = BC \neq 0$ et $s = \frac{p}{2}$.
+	Donc
 	$x_B = 2 s - 2 c \neq 0$, et 
-	$y_C = \sqrt{c^2 - (s - c)^2}$, puis 
-	$\area{ABC}^2 = (s - c)^2 (c^2 - (s - c)^2 ) = s (s - c)^2 (s - 2 c)$.%
+	$y_C = \sqrt{c^2 - (s - c)^2}$, 
+	puis
+	$\area{ABC}^2 = (s - c)^2 (c^2 - (s - c)^2 )$,
+	soit
+	$\area{ABC}^2 = s (s - c)^2 (s - 2 c)$.%
 	\footnote{
 		Nous venons de démontrer la formule de Héron dans le cas particulier d'un triangle isocèle.
 	}
 	Or, le maximum de la fonction 
 	$\alpha : c \mapsto s (s - c)^2 (s - 2 c)$ est forcément atteint en $c$ annulant 
 	$\sder{\alpha}{1}(c) = - 2 s (s - c) (s - 2 c) - 2 s (s - c)^2 = 2 s (c - s) (2s - 3c)$, 
-	soit pour $c = \frac{2s}{3} = \frac{p}{3}$, car $c = s$ est exclu.
-	Ceci prouve que $ABC$ équilatéral est la solution \og optimale \fg.
+	soit pour $c = \frac{2s}{3} = \frac{p}{3}$, car $c = s$ est exclu,
+	donc $ABC$ équilatéral est la solution \og optimale \fg.
 \end{proof}
 
 
@@ -54,7 +56,7 @@ Nous donnons ici des preuves courtes du fait \ref{iso-tri}, mais sans notion gé
 
 
 \begin{proof}[\altproof{3}] \label{tri-topo-comp}
-	Utilisons \textbf{la continuité et la compacité sans le théorème des extrema liés}.% (nous généraliserons cette idée au cas des polygones à $n$ côtés).
+	Utilisons \textbf{juste la continuité et la compacité}.% (nous généraliserons cette idée au cas des polygones à $n$ côtés).
 	%
 	\begin{itemize}
 		\item On munit le plan d'un repère orthonormé $\pvaxes{O | i | j}$. 
