@@ -1,0 +1,405 @@
+Pour prouver l'existence d'un \ngone\ solution du problème d'isopérimétrie polygonale, nous allons accepter de travailler avec des \ncycles. Il nous faut donc une notion d'aire pour ces objets très particuliers. Pour comprendre le choix fait, commençons par rappeler que tout triangle $ABC$ possède une aire donnée par
+$\frac12 \abs{ \det \big( \vect{AB} , \vect{AC} \big) }$
+où
+$\frac12 \det \big( \vect{AB} , \vect{AC} \big)$
+est l'aire algébrique de $ABC$.
+Il devient naturel de définir l'aire algébrique d'un \ngone\ via celles de triangles comme dans l'exemple suivant utilisant les triangles $\Omega AB$, $\Omega BC$, $\Omega CD$, $\Omega DE$ et $\Omega EA$. A priori, le résultat pourrait dépendre du point $\Omega$ employé, mais le fait \ref{sarea-pt-ct}, donné plus bas, montrera que ce n'est pas le cas.
+
+\begin{multicols}{2}
+	\small\itshape
+    \begin{center}
+		Calcul direct à la main.
+
+		\smallskip
+
+        \includegraphics[scale=.35]{content/polygon/signed-area/convex-1.png}
+
+       	\smallskip
+
+		$11 = 3 \cdot 6 - \dfrac{3 \cdot 1 + 3 \cdot 2 + 3 \cdot 1 + 1 \cdot 2}{2}$
+    \end{center}
+
+	\columnbreak
+
+    \begin{center}
+		Via le déterminant.
+
+		\smallskip
+
+        \includegraphics[scale=.35]{content/polygon/signed-area/convex-2.png}
+
+       	\smallskip
+
+		$- 11 = 3 - \num{1.5} - \num{6.5} - 3 - 3 \vphantom{\dfrac22}$
+    \end{center}
+\end{multicols}
+
+
+Ce mode de calcul est celui employé par \geogebra\ qui donne une aire de \num{6.5} pour le polygone croisé de la bande dessinée ci-après qui détaille les calculs faits: les aires algébriques représentées en bleu sont positives, et celles en rouge négatives.
+\footnote{
+	Le triangle $\Omega AB$ est rouge, car orienté dans le sens horaire lorsqu'on le lit, tandis que $\Omega CD$ est bleu, car orienté suivant le sens anti-horaire.
+}
+Nous obtenons un total de $(- \num{6.5})$, soit la valeur fournie par \geogebra\ au signe près.
+
+%\newpage
+
+\begin{multicols}{3}
+    \small\itshape
+
+    \begin{center}
+        \includegraphics[scale=.4]{content/polygon/signed-area/why.png}
+    \end{center}
+
+    \foreach \i in {3,1,4,2,5} {
+    	\begin{center}
+            \includegraphics[scale=.4]{content/polygon/signed-area/why-step-\i.png}
+        \end{center}
+	}
+\end{multicols}
+
+
+Avant de formaliser ce qui précède, il faut noter que la notion d'aire algébrique est à manier avec prudence lorsqu'on la découvre.
+Si c'est votre cas, que pensez-vous de l'aire algébrique du quadrilatère croisé $ABCD$ ci-dessous qui est un antiparallélogramme très particulier? Réponse en note de bas de page.%
+\footnote{
+    La réponse est $0$. Comme nous allons voir que le choix de $\Omega$ est libre, il suffit de faire les calculs avec $\Omega$ l'intersection des segments $[AD]$ et $[BC]$.
+    On peut donner du sens à ceci. Voici comment.
+    Plongeons-nous dans l'espace.
+    Imaginons une toile rectangulaire bleue sur le dessus, et rouge en dessous.
+    Tournons de \qty{180}{\degree} verticalement l'un des côtés du rectangle.
+    En supposant que la toile soit parfaitement tendue, nous obtenons, vue de dessus, un antiparallélogramme dont l'un des triangles est bleu, et l'autre rouge.
+    De façon savante, les deux faces ont deux orientations différentes. Nous reparlerons de cette notion plus tard, c'est elle qui justifie les jeux de signes dans les calculs introductifs précédents.
+}
+
+\begin{center}
+    \includegraphics[scale=.4]{content/polygon/signed-area/anti-para.png}
+\end{center}
+
+
+% ----------------------- %
+
+
+\begin{fact} \label{sarea-pt-ct}
+    Soit $\setproba{L} = A_1 A_2 \cdots A_n$ un \ncycle.
+    La fonction qui à un point $\Omega$ du plan associe
+    $\mu_1^n (\Omega ;\setproba{L}) = \dsum_{i=1}^{n} \det \big( \vect{\Omega A^{\,\prime}_i} , \vect{\Omega A^{\,\prime}_{i+1}} \big)$ est indépendante du point $\Omega$.
+    Dans la suite, cette quantité indépendante de $\Omega$ sera notée $\mu_1^n (\setproba{L})$.
+\end{fact}
+
+
+\begin{proof}
+    Soit $M$ un autre point du plan.
+
+    \begin{stepcalc}[style=ar*]
+        \mu_1^n (\Omega ;\setproba{L})
+    \explnext{}
+        \dsum_{i=1}^{n} \det \big( \vect{\Omega A^{\,\prime}_i} , \vect{\Omega A^{\,\prime}_{i+1}} \big)
+    \explnext{}
+        \dsum_{i=1}^{n} \det \big( \vect{\Omega M} + \vect{M A^{\,\prime}_i} , \vect{\Omega M} + \vect{M A^{\,\prime}_{i+1}} \big)
+    \explnext{}
+        \dsum_{i=1}^{n} \Big[
+            \det \big( \vect{\Omega M} , \vect{\Omega M} \big)
+            +
+            \det \big( \vect{\Omega M} , \vect{M A^{\,\prime}_{i+1}} \big)
+            +
+            \det \big( \vect{M A^{\,\prime}_i} , \vect{\Omega M} \big)
+            +
+            \det \big( \vect{M A^{\,\prime}_i} , \vect{M A^{\,\prime}_{i+1}} \big)
+        \Big]
+    \explnext{}
+        \dsum_{i=1}^{n} \det \big( \vect{\Omega M} , \vect{M A^{\,\prime}_{i+1}} \big)
+        +
+        \dsum_{i=1}^{n} \det \big( \vect{M A^{\,\prime}_i} , \vect{\Omega M} \big)
+        +
+        \mu_1^n (M ; \setproba{L})
+    \explnext{}
+        \mu_1^n (M ; \setproba{L})
+        +
+        \dsum_{i=2}^{n+1} \det \big( \vect{\Omega M} , \vect{M A^{\,\prime}_{i}} \big)
+        -
+        \dsum_{i=1}^{n} \det \big( \vect{\Omega M} , \vect{M A^{\,\prime}_i} \big)
+    \explnext*{$A^{\,\prime}_{n+1} = A^{\,\prime}_1$}{}
+        \mu_1^n (M ; \setproba{L})
+    \end{stepcalc}
+
+    \null\vspace{-3.5ex}
+\end{proof}
+
+
+% ----------------------- %
+
+
+\begin{fact} \label{ncycle-shift-inva}
+    Soit $\setproba{L} = A_1 A_2 \cdots A_n$ un \ncycle.
+    Pour $k \in \ZintervalC{1}{n}$,
+    le \ncycle\ $\setproba{L}_j = B_1 B_2 \cdots B_n$, où $B_i = A^{\,\prime}_{i+k-1}$,
+    vérifie
+    $\mu_1^n (\setproba{L}) = \mu_1^n (\setproba{L}_k)$.
+    Dans la suite, cette quantité commune sera notée $\mu (\setproba{L})$.
+\end{fact}
+
+
+\begin{proof}
+    Il suffit de s'adonner à un petit jeu sur les indices de sommation.
+\end{proof}
+
+
+% ----------------------- %
+
+
+\begin{fact} \label{ncycle-rota-inva}
+    Soit
+    $\setproba{L} = A_1 A_2 \cdots A_n$ un \ncycle.
+    Le \ncycle\ $\setproba{L}^{\mathrm{op}} = B_1 B_2 \cdots B_n$, où $B_i =  A_{n + 1 - i}$,
+    vérifie
+    $\mu(\setproba{L}^{\mathrm{op}}) = {} - \mu(\setproba{L})$.
+    Le \ncycle\ $\setproba{L}^{\mathrm{op}}$ est dit \og \emph{opposé} \fg\ à $\setproba{L}$.
+\end{fact}
+
+
+\begin{proof}
+    Soit $\Omega$ un point quelconque du plan.
+
+    \begin{stepcalc}[style=ar*]
+        \mu(\setproba{L}^{\mathrm{op}})
+    \explnext{}
+        \dsum_{i=1}^{n} \det \big( \vect{\Omega B^{\,\prime}_i} , \vect{\Omega B^{\,\prime}_{i+1}} \big)
+    \explnext{}
+        \dsum_{i=1}^{n} \det \big( \vect{\Omega A^{\,\prime}_{n + 1 - i}} , \vect{\Omega A^{\,\prime}_{n - i}} \big)
+    \explnext{}
+        \dsum_{j=0}^{n-1} \det \big( \vect{\Omega A^{\,\prime}_{j + 1}} , \vect{\Omega A^{\,\prime}_j} \big)
+    \explnext*{$A^{\,\prime}_0 = A^{\,\prime}_n$ et $A^{\,\prime}_1 = A^{\,\prime}_{n+1}$}{}
+        \dsum_{j=1}^{n} \det \big( \vect{\Omega A^{\,\prime}_{j + 1}} , \vect{\Omega A^{\,\prime}_j} \big)
+    \explnext{}
+        {} - \dsum_{j=1}^{n} \det \big( \vect{\Omega A^{\,\prime}_j} , \vect{\Omega A^{\,\prime}_{j + 1}} \big)
+    \explnext{}
+        {} - \mu(\setproba{L})
+    \end{stepcalc}
+
+    \null\vspace{-3.5ex}
+\end{proof}
+
+
+% ----------------------- %
+
+
+\begin{fact}
+    Soit
+    $\setproba{L} = A_1 A_2 \cdots A_n$ un \ncycle.
+    La quantité $\frac12 \abs{\mu(\setproba{L})}$ ne dépend ni du sens de parcours de $\setproba{L}$, ni du point de départ choisi.%
+    \footnote{
+        Le lecteur pardonnera les abus de langage utilisés.
+    }
+    La quantité $\garea{\setproba{L}} = \frac12 \abs{\mu(\setproba{L})}$ sera nommée \og \emph{aire généralisée} \fg, 
+    tandis que $\sarea{\setproba{L}} = \frac12 \mu(\setproba{L})$ sera appelée \og \emph{aire algébrique} \fg.
+\end{fact}
+
+
+\begin{proof}
+    C'est une conséquence directe des faits \ref{ncycle-shift-inva} et \ref{ncycle-rota-inva}.
+\end{proof}
+
+
+% ----------------------- %
+
+
+Dans la suite, nous utiliserons $\garea{\setproba{P}} = \area{\setproba{P}}$ dès que $\setproba{P}$ est un \ngone\ (ceci sera démontré plus bas).
+Notons que ceci est évident dans le cas convexe, car il suffit de choisir l'isobarycentre $G$ de $A_1$, $A_2$, ..., $A_n$ pour le calcul de $\garea{\setproba{P}}$: en effet, avec ce choix, tous les déterminants $\det \big( \vect{G A^{\,\prime}_i} , \vect{G A^{\,\prime}_{i+1}} \big)$ ont le même signe.
+Par contre, dans le cas non-convexe, les choses se compliquent a priori, car nous ne maîtrisons plus les signes des déterminants. Heureusement, nous avons le résultat suivant.
+
+
+\begin{fact} \label{route-direction}
+    Soit un \ngone\ $\setproba{P}$ de \ncycle\ associé $\setproba{L} = A_1 A_2 \cdots A_n$ tel que $A_1$, $A_2$, ..., $A_n$ soient parcourus dans le sens trigonométrique, ou anti-horaire.
+    Un tel \ncycle\ sera dit \og \emph{positif} \fg.%
+    \footnote{
+    	Bien noté que cette notion ne peut pas exister pour un polygone croisé. De façon cachée, nous utilisons le célèbre théorème de Jordan, dans sa forme polygonale.
+    }
+    Sous cette hypothèse, nous avons $\mu(\setproba{L}) \geq 0$.
+\end{fact}
+
+
+\begin{proof}
+	Le théorème de triangulation affirme que tout \ngone\ est triangulable comme dans l'exemple très basique suivant qui laisse envisager une démonstration par récurrence en retirant l'un des triangles ayant deux côtés correspondant à deux côtés consécutifs du \ngone\ (pour peu qu'un tel triangle existe toujours).
+
+
+    \begin{multicols}{3}
+        \small\itshape
+        \begin{center}
+            \includegraphics[scale=.4]{content/polygon/signed-area/triangulation-1.png}
+
+            \smallskip
+            Un \ngone\ \og nu \fg.
+        \end{center}
+
+
+        \begin{center}
+            \includegraphics[scale=.4]{content/polygon/signed-area/triangulation-2.png}
+
+            \smallskip
+            Le \ngone\ triangulé.
+        \end{center}
+
+
+        \begin{center}
+            \includegraphics[scale=.4]{content/polygon/signed-area/triangulation-3.png}
+
+            \smallskip
+            Le \ngone\ allégé.
+        \end{center}
+    \end{multicols}
+
+
+    Le théorème de triangulation admet une forme forte donnant une décomposition contenant un triangle formé de deux côtés consécutifs du \ngone.%
+    \footnote{
+        En pratique, cette forme forte est peu utile, car elle aboutit à un algorithme de recherche trop lent.
+    }
+    Nous dirons qu'une telle décomposition est \og \emph{à l'écoute} \fg.
+    Ce très mauvais jeu de mots fait référence à la notion sérieuse \og \emph{d'oreille} \fg\ pour un \ngone: une oreille est un triangle inclus dans le \ngone, et formé de deux côtés consécutifs du \ngone.
+    L'exemple suivant donne un \ngone\ ayant juste deux oreilles.%
+    \footnote{
+        On démontre que tout \ngone\ admet au minimum deux oreilles.
+    }
+
+
+    \begin{multicols}{2}
+        \small\itshape
+    	\begin{center}
+        	\includegraphics[scale=.4]{content/polygon/signed-area/mini-ear-1.png}
+
+        	\smallskip
+       		Un \ngone\ basique.
+    	\end{center}
+
+    	\begin{center}
+        	\includegraphics[scale=.4]{content/polygon/signed-area/mini-ear-2.png}
+
+        	\smallskip
+       		Juste deux oreilles disponibles.
+    	\end{center}
+    \end{multicols}
+
+
+	Raisonnons donc par récurrence sur $n \in \NN_{\geq3}$.
+
+	\begin{itemize}
+		\item \textbf{Cas de base.}
+		Soit $ABC$ un triangle. Dire que les sommets $A$, $B$ et $C$ sont parcourus dans le sens trigonométrique, c'est savoir que $\mu(ABC) = \det \big( \vect{AB} , \vect{AC} \big) > 0$.
+
+
+		\item \textbf{Hérédité.}
+		Soient un \ngone\ $\setproba{P}$, avec $n \in \NN_{>3}$, et $\setproba{L} = A_1 A_2 \cdots A_n$ un \ncycle\ positif qui lui est associée. On peut supposer que $A_{n-1} A_n A_1$ est une oreille d'une triangulation à l'écoute du \ngone\ $\setproba{P}$.
+
+
+	    \begin{multicols}{2}
+    	    \small\itshape
+    		\begin{center}
+        	\includegraphics[scale=.4]{content/polygon/signed-area/triangulation-proof-OK.png}
+
+	        	\smallskip
+    	   		$A_{n-1} A_n A_1$ est une oreille.
+    	\end{center}
+
+	    	\begin{center}
+        	\includegraphics[scale=.4]{content/polygon/signed-area/triangulation-proof-KO.png}
+
+        		\smallskip
+    	   		$A_{n-1} A_n A_1$ n'est pas une oreille.
+    		\end{center}
+    	\end{multicols}
+
+
+		\noindent
+		Notons $\setproba{P}^{\,\prime}$ le \kgone\ associé au \kcycle\ $\setproba{L}^{\,\prime} = A_1 \cdots A_{n-1}$ où $k = n-1$ vérifie $k \in \NN_{\geq3}$. Par hypothèse, $\setproba{L}^{\,\prime}$ est positive. Nous arrivons aux calculs élémentaires suivants en utilisant $\Omega = A_1$ comme point de calcul de $\mu(\setproba{L})$.
+
+		\leavevmode\kern-2em%
+		\begin{stepcalc}[style=ar*]
+			\mu(\setproba{L})
+		%
+		\explnext{}
+%			\dsum_{j=1}^{n} \det \big( \vect{A_1 A^{\,\prime}_j} , \vect{A_1 A^{\,\prime}_{j + 1}} \big)
+%		%
+		\explnext{}
+			\dsum_{j=1}^{n-2} \det \big( \vect{A_1 A^{\,\prime}_j} , \vect{A_1 A^{\,\prime}_{j + 1}} \big)
+			+
+			\det \big( \vect{A_1 A^{\,\prime}_{n-1}} , \vect{A_1 A^{\,\prime}_n} \big)
+			+
+			\det \big( \vect{A_1 A^{\,\prime}_n} , \vect{A_1 A^{\,\prime}_{n+1}} \big)
+		%
+		\explnext*{$A_1 = A^{\,\prime}_{n+1}$ \\
+		           $A_i = A^{\,\prime}_i$ \\ pour $i \leq n$}%
+		          {}
+			\dsum_{j=1}^{n-2} \det \big( \vect{A_1 A_j} , \vect{A_1 A_{j + 1}} \big)
+			+
+			\det \big( \vect{A_1 A_{n-1}} , \vect{A_1 A_n} \big)
+			+
+			\det \big( \vect{A_1 A_n} , \vect{A_1 A_1} \big)
+		%
+		\explnext{}
+			\dsum_{j=1}^{n-2} \det \big( \vect{A_1 A_j} , \vect{A_1 A_{j + 1}} \big)
+			+
+			\det \big( \vect{A_1 A_{n-1}} , \vect{A_1 A_n} \big)
+		%
+		\explnext{}
+			\mu(\setproba{L}^{\,\prime})
+			+
+			\mu(A_{n-1} A_n A_1)
+		\end{stepcalc}
+
+
+		\noindent
+		Par hypothèse de récurrence, nous savons que
+		$\mu(\setproba{L}^{\,\prime}) \geq 0$,
+		et comme $A_{n-1} A_n A_1$ est une oreille de $\setproba{P}$, la $3$-ligne $A_{n-1} A_n A_1$ est forcément positive, d'où $\mu(A_{n-1} A_n A_1) \geq 0$ d'après le cas de base.
+		Nous arrivons bien à $\mu(\setproba{L}) \geq 0$, ce qui permet de finir aisément la démonstration par récurrence.
+	\end{itemize}
+
+    \null\vspace{-5ex}
+\end{proof}
+
+
+% ----------------------- %
+
+
+\begin{fact} \label{ngone-garea-is-area} 
+    Pour tout \ngone\ $\setproba{P}$, nous avons: $\garea{\setproba{P}} = \area{\setproba{P}}$.
+\end{fact}
+
+
+\begin{proof}
+    Les deux points suivants permettent de faire une preuve par récurrence.
+
+    \begin{itemize}
+		\item \textbf{Cas de base.}
+		L'égalité est immédiate pour les triangles (c'est ce qui a motivé la définition de l'aire généralisée).
+
+
+		\item \textbf{Hérédité.}
+		Reprenons les notations de la démonstration du fait \ref{route-direction} : $\setproba{P}$ est un \ngone\ où $n \in \NN_{>3}$, $\setproba{L} = A_1 A_2 \cdots A_n$ un \ncycle\ positif qui lui est associée, $A_{n-1} A_n A_1$ une oreille d'une triangulation à l'écoute du \ngone\ $\setproba{P}$, $\setproba{P}^{\,\prime}$ le \kgone\ associé au \kcycle\ $\setproba{L}^{\,\prime} = A_1 \cdots A_{n-1}$ où $k = n-1$ vérifie $k \in \NN_{\geq3}$, avec $\setproba{L}^{\,\prime}$ positif. Nous arrivons aux calculs élémentaires suivants.
+		
+		\leavevmode\kern-2em%
+		\begin{stepcalc}[style=ar*]
+			\area{\setproba{P}}
+		%
+		\explnext*{$A_{n-1} A_n A_1$ est une oreille de $\setproba{P}$.}%
+		          {}
+		    \area{\setproba{P}^{\,\prime}} + \area{A_{n-1} A_n A_1}
+		%
+		\explnext*{Hypothèse de récurrence et cas de base.}%
+		          {}
+		    \garea{\setproba{P}^{\,\prime}} + \garea{A_{n-1} A_n A_1}
+		%
+		\explnext*{Voir le fait \ref{route-direction}.}%
+		          {}
+		    \frac12 \big( \mu(\setproba{L}^{\,\prime}) + \mu(A_{n-1} A_n A_1) \big)
+		%
+		\explnext*{Comme dans la preuve du fait \ref{route-direction}.}%
+		          {}
+		    \frac12 \mu(\setproba{L})
+		%
+		\explnext*{Voir le fait \ref{route-direction}.}%
+		          {}
+		    \garea{\setproba{P}}
+		\end{stepcalc}
+    \end{itemize}
+
+    \null\vspace{-3.5ex}
+\end{proof}
