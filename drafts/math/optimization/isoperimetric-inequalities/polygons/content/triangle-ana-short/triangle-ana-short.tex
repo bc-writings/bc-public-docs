@@ -30,8 +30,31 @@ Nous donnons ici des preuves courtes du fait \ref{iso-tri}, mais sans notion gé
 % ----------------------- %
 
 
-\begin{proof}[\altproof{2}] \label{tri-topo-comp}
-	Utilisons \textbf{l'analyse sans le théorème des extrema liés.}% (nous généraliserons cette idée au cas des polygones à $n$ côtés).
+\begin{proof}[\altproof{2}]
+	Faisons appel à \textbf{l'analyse élémentaire}.
+	Le fait \ref{tri-one-side-fixed} implique de chercher un éventuel triangle \og optimal \fg\ parmi les triangles isocèles.
+	Soit donc $ABC$ un triangle isocèle en $C$. 
+	Plaçons-nous dans un repère orthonormé $\pvaxes{O | i | j}$ tel que  $A\coord{0 | 0}$, $B\coord{AB | 0}$ et $C\coord{x_C | y_C}$ avec $y_C \geq 0$, et posons $c = AC = BC \neq 0$ et $s = \frac{p}{2}$.
+	Nous avons 
+	$x_B = 2 s - 2 c \neq 0$, et 
+	$y_C = \sqrt{c^2 - (s - c)^2}$, puis 
+	$\area{ABC}^2 = (s - c)^2 (c^2 - (s - c)^2 ) = s (s - c)^2 (s - 2 c)$.%
+	\footnote{
+		Nous venons de démontrer la formule de Héron dans le cas particulier d'un triangle isocèle.
+	}
+	Or, le maximum de la fonction 
+	$\alpha : c \mapsto s (s - c)^2 (s - 2 c)$ est forcément atteint en $c$ annulant 
+	$\sder{\alpha}{1}(c) = - 2 s (s - c) (s - 2 c) - 2 s (s - c)^2 = 2 s (c - s) (2s - 3c)$, 
+	soit pour $c = \frac{2s}{3} = \frac{p}{3}$, car $c = s$ est exclu.
+	Ceci prouve que $ABC$ équilatéral est la solution \og optimale \fg.
+\end{proof}
+
+
+% ----------------------- %
+
+
+\begin{proof}[\altproof{3}] \label{tri-topo-comp}
+	Utilisons \textbf{la continuité et la compacité sans le théorème des extrema liés}.% (nous généraliserons cette idée au cas des polygones à $n$ côtés).
 	%
 	\begin{itemize}
 		\item On munit le plan d'un repère orthonormé $\pvaxes{O | i | j}$. 
@@ -45,22 +68,13 @@ Nous donnons ici des preuves courtes du fait \ref{iso-tri}, mais sans notion gé
 		En résumé, $\setproba{T}$ est un compact de $\RR^3$.
 
 		\item La fonction $\alpha: \coord{x_B | x_C | y_C} \in \setproba{T} \mapsto \num{.5} x_B y_C \in \RRp$ est la fonction \og \emph{aire} \fg\ des triangles représentés.
-		Par continuité et compacité, on sait que $\alpha$ admet un maximum sur $\setproba{T}$. 
-		Notons $ABC$ un triangle maximisant $\alpha$.
+		Par continuité et compacité, $\alpha$ admet un maximum sur $\setproba{T}$. 
+		
 
-		\item $ABC$ n'est clairement pas dégénéré. Est-il équilatéral pour autant? Selon le fait \ref{tri-one-side-fixed}, $ABC$ doit être isocèle en $C$. 
-		Posant $c = AC = BC \neq 0$ et $s = \frac{p}{2}$, nous avons 
-		$x_B = 2 s - 2 c \neq 0$, et 
-		$y_C = \sqrt{c^2 - (s - c)^2}$, puis 
-		$\area{ABC}^2 = (s - c)^2 (c^2 - (s - c)^2 ) = s (s - c)^2 (s - 2 c)$.%
-		\footnote{
-			Nous venons de démontrer la formule de Héron dans le cas particulier d'un triangle isocèle.
-		}
-		Or, le maximum de la fonction 
-		$\beta : c \mapsto s (s - c)^2 (s - 2 c)$ est forcément atteint en $c$ annulant 
-		$\sder{\beta}{1}(c) = - 2 s (s - c) (s - 2 c) - 2 s (s - c)^2 = 2 s (c - s) (2s - 3c)$, 
-		soit pour $c = \frac{2s}{3} = \frac{p}{3}$, car $c = s$ est exclu.
-		Ceci prouve que $ABC$ est équilatéral.
+		\item Notons $ABC$ un triangle maximisant $\alpha$, qui forcément n'est pas dégénéré. 
+		Le fait \ref{tri-one-side-fixed} implique que $ABC$ est équilatéral. 
+		En effet,
+		dans le cas contraire, il existe un sommet $X$ en lequel $ABC$ n'est pas isocèle, mais la \og maximalité \fg\ de $ABC$ contredit le fait \ref{tri-one-side-fixed} en considérant comme fixé le côté opposé au sommet $X$.
 	\end{itemize}
 	
 	\null\vspace{-6ex}
@@ -70,7 +84,7 @@ Nous donnons ici des preuves courtes du fait \ref{iso-tri}, mais sans notion gé
 % ----------------------- %
 
 
-\begin{proof}[\altproof{3}] \label{constrained-extrema}
+\begin{proof}[\altproof{4}] \label{constrained-extrema}
 	Nous allons faire appel à \textbf{la méthode des extrema liés et la formule de Héron}.
 	Pour cela, notons que l'aire d'un triangle étant positive ou nulle, nous pouvons chercher à maximiser son carré
 	$f(a;b;c) = s(s - a)(s - b)(s - c)$
