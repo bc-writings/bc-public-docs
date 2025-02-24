@@ -12,7 +12,7 @@ Cette section va établir le fait \ref{nece-cond} affirmant qu'un \ngone\ maximi
 
 \begin{fact} \label{gene-sol-is-ngone}
 	Si un \ncycle\ $\setproba{L}$ n'est pas un \ngone, alors on peut construire un \kcycle\ $\setproba{L}^{\,\prime}$, où $k \leq n$, tel que
-	$\cyclelen{\setproba{L}^{\,\prime}} = \cyclelen{\setproba{L}}$
+	$\perim{\setproba{L}^{\,\prime}} = \perim{\setproba{L}}$
 	et
 	$\area{\setproba{L}^{\,\prime}} > \area{\setproba{L}}$.
 \end{fact}
@@ -60,7 +60,7 @@ Cette section va établir le fait \ref{nece-cond} affirmant qu'un \ngone\ maximi
 %
 %\begin{fact} \label{conv-poly}
 %	Si un \ngone\ $\setproba{P}$ n'est pas convexe, alors on peut construire un \ngone\ convexe $\setproba{P}^{\,\prime}$ tel que
-%	$\cyclelen{\setproba{P}^{\,\prime}} = \cyclelen{\setproba{P}}$
+%	$\perim{\setproba{P}^{\,\prime}} = \perim{\setproba{P}}$
 %	et
 %	$\area{\setproba{P}^{\,\prime}} > \area{\setproba{P}}$.
 %\end{fact}
@@ -116,12 +116,12 @@ Cette section va établir le fait \ref{nece-cond} affirmant qu'un \ngone\ maximi
 %
 %	Considérons donc un \ngone\ non convexe $\setproba{P}$.
 %	Son enveloppe convexe $\setproba{C}$ vérifie, par construction,
-%	$\cyclelen{\setproba{C}} < \cyclelen{\setproba{P}}$
+%	$\perim{\setproba{C}} < \perim{\setproba{P}}$
 %	et
 %	$\area{\setproba{C}} > \area{\setproba{P}}$.
 %	Notons $m$ le nombre de sommets en moins dans $\setproba{C}$ relativement à $\setproba{P}$.
 %	Si $m = 0$, il n'y a rien à faire.
-%	Sinon, posons $\delta = \frac{\cyclelen{\setproba{P}} - \cyclelen{\setproba{C}}}{m}$.
+%	Sinon, posons $\delta = \frac{\perim{\setproba{P}} - \perim{\setproba{C}}}{m}$.
 %	%
 %	\begin{enumerate}
 %		\item \label{add-vertex-start}
@@ -149,7 +149,7 @@ Cette section va établir le fait \ref{nece-cond} affirmant qu'un \ngone\ maximi
 %		\item En répétant $(m-1)$ fois les étapes \ref{add-vertex-start} à \ref{add-vertex-end}, nous obtenons un \ngone\ convexe $\setproba{P}^{\,\prime}$ tel que
 %		$\area{\setproba{P}^{\,\prime}} > \area{\setproba{P}}$
 %		et
-%		$\cyclelen{\setproba{P}^{\,\prime}} < \cyclelen{\setproba{C}} + m \delta = \cyclelen{\setproba{P}}$.
+%		$\perim{\setproba{P}^{\,\prime}} < \perim{\setproba{C}} + m \delta = \perim{\setproba{P}}$.
 %	\end{enumerate}
 %\end{proof}
 %
@@ -164,7 +164,7 @@ Cette section va établir le fait \ref{nece-cond} affirmant qu'un \ngone\ maximi
 %
 %\begin{fact} \label{iso-poly}
 %	Si un \ngone\ convexe $\setproba{P}$ n'est pas un \nequi, alors on peut construire un \ngone\ convexe $\setproba{P}^{\,\prime}$ tel que
-%	$\cyclelen{\setproba{P}^{\,\prime}} = \cyclelen{\setproba{P}}$
+%	$\perim{\setproba{P}^{\,\prime}} = \perim{\setproba{P}}$
 %	et
 %	$\area{\setproba{P}^{\,\prime}} > \area{\setproba{P}}$.
 %\end{fact}
@@ -185,11 +185,11 @@ Cette section va établir le fait \ref{nece-cond} affirmant qu'un \ngone\ maximi
 %	\end{multicols}
 %
 %	Dans chaque cas, nous avons construit un \ngone\ convexe $\setproba{P}^{\,\prime\prime}$ tel que
-%	$\cyclelen{\setproba{P}^{\,\prime\prime}} < \cyclelen{\setproba{P}}$
+%	$\perim{\setproba{P}^{\,\prime\prime}} < \perim{\setproba{P}}$
 %	et
 %	$\area{\setproba{P}^{\,\prime\prime}} = \area{\setproba{P}}$.
 %	Un simple agrandissement donne un \ngone\ convexe $\setproba{P}^{\,\prime}$ vérifiant
-%	$\cyclelen{\setproba{P}^{\,\prime}} = \cyclelen{\setproba{P}}$
+%	$\perim{\setproba{P}^{\,\prime}} = \perim{\setproba{P}}$
 %	et
 %	$\area{\setproba{P}^{\,\prime}} > \area{\setproba{P}}$.
 %\end{proof}
@@ -206,7 +206,7 @@ Cette section va établir le fait \ref{nece-cond} affirmant qu'un \ngone\ maximi
 %\begin{fact} \label{almost-reg-poly}
 %	Si un \nequi\ convexe $\setproba{P}$ n'est pas un \niso,
 %	alors il existe un \ngone\ convexe $\setproba{P}^{\,\prime}$ tel que
-%	$\cyclelen{\setproba{P}^{\,\prime}} = \cyclelen{\setproba{P}}$
+%	$\perim{\setproba{P}^{\,\prime}} = \perim{\setproba{P}}$
 %	et
 %	$\area{\setproba{P}^{\,\prime}} > \area{\setproba{P}}$.
 %\end{fact}
@@ -347,7 +347,7 @@ Cette section va établir le fait \ref{nece-cond} affirmant qu'un \ngone\ maximi
 %\begin{fact} \label{nece-cond}
 %	Si un \ngone\ $\setproba{P}$ n'est pas régulier,
 %	alors il existe un \ngone\ convexe $\setproba{P}^{\,\prime}$ tel que
-%	$\cyclelen{\setproba{P}^{\,\prime}} = \cyclelen{\setproba{P}}$
+%	$\perim{\setproba{P}^{\,\prime}} = \perim{\setproba{P}}$
 %	et
 %	$\area{\setproba{P}^{\,\prime}} > \area{\setproba{P}}$.
 %\end{fact}

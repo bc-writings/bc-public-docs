@@ -35,10 +35,13 @@
 
 \newtheorem{remark}{Remarque}[section]
 
-\NewDocumentCommand{\perim}{m}{\mathrm{Long}(#1)}
+\NewDocumentCommand{\cyclelen}{m}{\mathrm{Long}(#1)}
+%\NewDocumentCommand{\perim}{m}{\mathrm{Perim}(#1)}
+
 \NewDocumentCommand{\area}{m}{\mathrm{Aire}(#1)}
 \NewDocumentCommand{\sarea}{m}{\overline{\mathrm{Aire}}(#1)}
-\NewDocumentCommand{\garea}{m}{\mathrm{AireGene}(#1)}
+\NewDocumentCommand{\genearea}{m}{\mathrm{AireGene}(#1)}
+\NewDocumentCommand{\geoarea}{m}{\mathrm{AireGeo}(#1)}
 
 
 \NewDocumentCommand{\xcycle}{m}{$#1$-cycle}
@@ -199,19 +202,19 @@
 %\input{content/polygon/def}
 %
 %
-%\subsection{Aires généralisée et algébrique d'un \ncycle}
-%\input{content/polygon/signed-area/signed-area}
+\subsection{Aire géométrique d'un \ncycle}
+\input{content/polygon/geo-area/geo-area}
 %
 %
 %\subsection{Au moins une solution généralisée}
 %\input{content/polygon/at-least-one}
 %
 %
-\subsection{Solutions généralisées, qui êtes-vous?}
-\input{content/polygon/sol-is/sol-is}
-%%
-%%
-%%\subsection{Théorème d'isopérimétrie polygonal}
-%%\input{content/polygon/isoperim}
-
+%\subsection{Solutions, qui êtes-vous?}
+%\input{content/polygon/sol-is/sol-is}
+%
+%
+%\subsection{Théorème d'isopérimétrie polygonal}
+%\input{content/polygon/isoperim}
+%
 \end{document}
