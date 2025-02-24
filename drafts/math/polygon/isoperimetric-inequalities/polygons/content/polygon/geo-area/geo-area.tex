@@ -7,9 +7,9 @@ Nous verrons que l'aire algébrique nous sera néanmoins utile pour formuler un 
 
 \begin{multicols}{2}
 	\small\itshape\centering
-	\includegraphics[scale=.4]{content/polygon/geo-area/geo-area-ncycle-not-opti-pb-1.png}
+	\includegraphics[scale=.3]{content/polygon/geo-area/geo-area-ncycle-not-opti-pb-1.png}
 
-	\includegraphics[scale=.4]{content/polygon/geo-area/geo-area-ncycle-not-opti-pb-2.png}
+	\includegraphics[scale=.3]{content/polygon/geo-area/geo-area-ncycle-not-opti-pb-2.png}
 \end{multicols}
 
 
@@ -41,7 +41,7 @@ Tout n'est pas perdu, car l'image de gauche nous donne la solution: il suffit de
 
 \begin{center}
 	\small\itshape
-	\includegraphics[scale=.3]{content/polygon/geo-area/geo-area-odd-even.png}
+	\includegraphics[scale=.25]{content/polygon/geo-area/geo-area-odd-even.png}
 	
 %	\smallskip
 	
@@ -82,82 +82,6 @@ Tout n'est pas perdu, car l'image de gauche nous donne la solution: il suffit de
 
 \begin{proof}
 	Immédiat.
-\end{proof}
-
-
-% ----------------------- %
-
-
-\begin{fact} \label{max-is-nconv}
-    Si un \ncycle\ $\setproba{L}$ de longueur non nulle n'est pas un \ngone\ convexe, alors il existe un \ngone\ convexe $\setproba{P}$ tel que
-	$\cyclelen{\setproba{P}} = \cyclelen{\setproba{L}}$
-	et
-	$\geoarea{\setproba{P}} > \geoarea{\setproba{L}}$.
-\end{fact}
-
-
-\begin{proof}
-	Commençons par le cas \og hyper-dégénéré \fg: si tous les sommets de $\setproba{L}$ sont alignés, son aire géométrique est nulle. Le triangle équilatéral de côté $\frac13 \cyclelen{\setproba{L}}$ permet de conclure.
-	
-	Supposons maintenant que $\setproba{L}$ possède au moins trois sommets non alignés.
-	Notons $\setproba{C}$ l'enveloppe convexe de $\setproba{L}$ (nous savons donc que $\setproba{C}$ contient au moins un triangle).
-	
-	\begin{center}
-		\centering
-		\small\itshape
-		\includegraphics[scale=.45]{content/polygon/geo-area/convex-hull.png}
-		
-		\smallskip
-		Exemple où $N = C$ et $O = B$.
-	\end{center}
-	
-		
-	Clairement, $\cyclelen{\setproba{C}} < \cyclelen{\setproba{L}}$.
-	Quant à $\geoarea{\setproba{C}} > \geoarea{\setproba{L}}$, c'est une conséquence directe de la définition de l'aire géométrique combinée au fait que $\setproba{L}$ ne soit pas un \ngone\ convexe.
-	Il reste un problème à gérer: $\setproba{C}$ est un \xgone{s} avec $s \leq n$. 
-	%
-	Une idée simple, formalisée après, est d'ajouter des sommets assez prêts des côtés de $\setproba{C}$ pour garder la convexité, une longueur strictement inférieure à $\cyclelen{\setproba{L}}$, et une aire géométrique strictement plus grande que $\geoarea{\setproba{L}}$. Si c'est faisable, un agrandissement de rapport $r > 1$ donnera le \ngone\ $\setproba{P}$ cherché.
-	La figure suivante illustre cette idée.
-
-	\begin{center}
-		\includegraphics[scale=.45]{content/polygon/geo-area/convex-hull-distortion.png}
-	\end{center}
-
-
-	$m = n - s$ compte les sommets manquants.
-	Si $m = 0$, il n'y a rien à faire.
-	Sinon, posons $\delta = \frac{\cyclelen{\setproba{L}} - \cyclelen{\setproba{C}}}{m}$.
-	%
-	\begin{enumerate}
-		\item \label{add-vertex-start}
-		Considérons $[AB]$ un côté quelconque de $\setproba{C}$.
-		Les droites portées par les côtés \og \emph{autour} \fg\ de $[AB]$ \og \emph{dessinent} \fg\ une région contenant toujours un triangle $ABC$ dont l'intérieur est à l'extérieur
-		\footnote{
-			C'est ce que l'on appelle de la \og \emph{low poetry} \fg\,.
-		}
-		de $\setproba{C}$ comme dans les deux cas ci-dessous.
-	%
-		\begin{multicols}{2}
-			\centering
-
-			\includegraphics[scale=.35]{content/polygon/geo-area/add-vertex-1.png}
-
-			\includegraphics[scale=.35]{content/polygon/geo-area/add-vertex-2.png}
-		\end{multicols}
-
-		\item Clairement, le polygone $\setproba{C}_+$ obtenu à partir de $\setproba{C}$ en remplaçant le côté $[AB]$ par les côtés $[AC]$ et $[CB]$ est un convexe avec un sommet de plus que $\setproba{C}$.
-
-		\item \label{add-vertex-end}
-		Comme $HC$ peut être rendu aussi proche de $0$ que souhaité, il est aisé de voir que l'on peut choisir cette distance de sorte que $AC + BC < AB + \delta$.
-		Dès lors, le périmètre de $\setproba{C}_+$ augmente inférieurement strictement à $\delta$ relativement à $\setproba{C}$.
-
-		\item En répétant $(m-1)$ fois les étapes \ref{add-vertex-start} à \ref{add-vertex-end}, nous obtenons un \ngone\ convexe $\setproba{P}$ tel que
-		$\geoarea{\setproba{P}} > \geoarea{\setproba{L}}$
-		et
-		$\cyclelen{\setproba{P}} < \cyclelen{\setproba{C}} + m \delta = \cyclelen{\setproba{L}}$.
-	\end{enumerate}
-	
-	\null\vspace{-6ex}
 \end{proof}
 
 
@@ -288,13 +212,13 @@ Dans le cas précédent, le résultat pourrait dépendre du point $\Omega$ emplo
         \mu(\setproba{L}^{\mathrm{op}})
     \explnext{}
         \dsum_{i=1}^{n} \det \big( \vect{\Omega B^{\,\prime}_i} , \vect{\Omega B^{\,\prime}_{i+1}} \big)
-    \explnext{}
-        \dsum_{i=1}^{n} \det \big( \vect{\Omega A^{\,\prime}_{n + 1 - i}} , \vect{\Omega A^{\,\prime}_{n - i}} \big)
-    \explnext{}
+    \explnext*{$B^{\,\prime}_i =  A^{\,\prime}_{n + 1 - i}$ et $j = n - i$}{}
+%        \dsum_{i=1}^{n} \det \big( \vect{\Omega A^{\,\prime}_{n + 1 - i}} , \vect{\Omega A^{\,\prime}_{n - i}} \big)
+%    \explnext{}
         \dsum_{j=0}^{n-1} \det \big( \vect{\Omega A^{\,\prime}_{j + 1}} , \vect{\Omega A^{\,\prime}_j} \big)
     \explnext*{$A^{\,\prime}_0 = A^{\,\prime}_n$ et $A^{\,\prime}_1 = A^{\,\prime}_{n+1}$}{}
-        \dsum_{j=1}^{n} \det \big( \vect{\Omega A^{\,\prime}_{j + 1}} , \vect{\Omega A^{\,\prime}_j} \big)
-    \explnext{}
+%        \dsum_{j=1}^{n} \det \big( \vect{\Omega A^{\,\prime}_{j + 1}} , \vect{\Omega A^{\,\prime}_j} \big)
+%    \explnext{}
         {} - \dsum_{j=1}^{n} \det \big( \vect{\Omega A^{\,\prime}_j} , \vect{\Omega A^{\,\prime}_{j + 1}} \big)
     \explnext{}
         {} - \mu(\setproba{L})
@@ -347,7 +271,7 @@ Dans le cas non-convexe, les choses se compliquent a priori, car nous ne maîtri
 
 
 \begin{proof}
-	Le théorème de triangulation affirme que tout \ngone\ est triangulable comme dans l'exemple très basique suivant qui laisse envisager une démonstration par récurrence en retirant l'un des triangles ayant deux côtés correspondant à deux côtés consécutifs du \ngone\ (pour peu qu'un tel triangle existe toujours).
+	Le théorème de triangulation affirme que tout \ngone\ est triangulable comme dans l'exemple suivant: ceci laisse envisager une démonstration par récurrence en retirant l'un des triangles ayant deux côtés correspondant à deux côtés consécutifs du \ngone\ (pour peu qu'un tel triangle existe toujours).
 
 
     \begin{multicols}{3}
@@ -549,34 +473,26 @@ Tout ce qui précède va nous permettre de justifier la continuité de l'aire g�
 % ----------------------- %
 
 
+%\newpage %TEMPO
+
 \begin{fact} \label{garea-cont}
-    Soit $n \in \NN_{\geq3}$ un naturel fixé.
-   
-   
-   le plan d'un repère orthonormé direct $\pvaxes{O | i | j}$
-   
-   
-    $\alpha: \setproba{U} \rightarrow \RRp$ qui à un uplet de $\setproba{U}$ associe l'aire généralisée du \ncycle\ qu'il représente.
-        Cette fonction est continue d'après le fait \ref{garea-cont}.
+    Soient $n \in \NN_{\geq3}$, $\ell \in \RRsp$ et
+    $\pvaxes{O | i | j}$ un repère orthonormé direct du plan. 
+    On note $\setproba{U} \subset \RR^{2n}$ l'ensemble des uplets de coordonnées $\big( x(A_1) ; y(A_1) ; \dots ; x(A_n) ; y(A_n) \big)$ où $A_1 A_2 \cdots A_n$ désigne un \ncycle\ de longueur $\ell$.
+   	%
+	Nous avons la continuité de la fonction $\alpha: \setproba{U} \rightarrow \RRp$ qui à un uplet de $\setproba{U}$ associe l'aire géométrique du \ncycle\ qu'il représente.
 \end{fact}
 
 
 \begin{proof}
-	GGGGG
-	
-	
-	pour les raisons suivantes où $\setproba{L} = A_1 A_2 \cdots A_n$ désigne un \ncycle.
-        %
+	Notons $\dcup_{i} \setproba{P}_i$ la frontière de la surface impaire de $\setproba{L}$, et $\setproba{P}_i = A_{i,1} A_{i,2} \cdots A_{i,n_i}$, les $A_{i,j}$ pouvant désigner des intersections d'arêtes non contigües.
+    %
     \begin{itemize}
-        \item $\geoarea{\setproba{L}} = \dsum_{i} \area{\setproba{P}_i}$ où $\dcup_{i} \setproba{P}_i$ est frontière de la surface impaire de $\setproba{L}$.
-
-
-		\item Si $\dcup_{i} \setproba{P}_i = \emptyset$, alors $\geoarea{\setproba{L}} = 0$.
-
-
-		\item Si $\dcup_{i} \setproba{P}_i \neq \emptyset$, 
-		en posant $\setproba{P}_i = A_{i,1} A_{i,2} \cdots A_{i,n_i}$, 
-		le fait \ref{garea-ngone} nous permet d'écrire, en calculant les aires algébriques via l'origine $O$ du repère,
+        \item Par définition, 
+        $\geoarea{\setproba{L}} = \dsum_{i} \area{\setproba{P}_i}$.
+        Si $\dcup_{i} \setproba{P}_i = \emptyset$, alors 
+		$\geoarea{\setproba{L}} = 0$,
+		sinon
 		$ \geoarea{\setproba{L}} 
 		= \frac12 \dsum_{i} \big\lvert
 			\dsum_{k=1}^{n_i} \big( 
@@ -584,6 +500,18 @@ Tout ce qui précède va nous permettre de justifier la continuité de l'aire g�
 				- y(A^{\,\prime}_{i,k}) x(A^{\,\prime}_{i,k+1})
 			\big)
 		 \big\rvert$
+	    selon le fait \ref{garea-ngone}.%
+	    \footnote{
+	    	Il suffit d'utiliser l'origine $\mathrm{O}$ du repère comme point de calcul.
+		}
+
+
+		\item XXXX
+
+
+
+
+		\item 
 		.
 
 		\item XXXXX

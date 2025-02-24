@@ -8,14 +8,8 @@
 	Notons $\ell$ la longueur fixée que nous supposons non nulle.
 	%
     \begin{itemize}
-        \item Munissant le plan d'un repère orthonormé direct $\pvaxes{O | i | j}$, on note $\setproba{Z}$ l'ensemble des \ncycles\ $\setproba{L} = A_1 A_2 \cdots A_n$ tels que
-        $\cyclelen{A_1 A_2 \cdots A_n} = \ell$
-        et
-        $A_1\coord{0 | 0}$,%
-        \footnote{
-        	Le mot \og \emph{Zeile} \fg\ est une traduction possible de \og \emph{ligne} \fg\ en allemand.
-        }
-        puis $\setproba{U} \subset \RR^{2n}$ l'ensemble des uplets de coordonnées $\big( x(A_1) ; y(A_1) ; \dots ; x(A_n) ; y(A_n) \big)$ pour $A_1 A_2 \cdots A_n \in \setproba{Z}$.
+        \item Munissant le plan d'un repère orthonormé direct $\pvaxes{O | i | j}$, 
+	    on note $\setproba{U} \subset \RR^{2n}$ l'ensemble des uplets de coordonnées $\big( x(A_1) ; y(A_1) ; \dots ; x(A_n) ; y(A_n) \big)$ où $A_1 A_2 \cdots A_n$ désigne un \ncycle\ de longueur $\ell$.
 
 
         \item $\setproba{U}$ est clairement fermé dans $\RR^{2n}$.
@@ -23,8 +17,8 @@
         En résumé, $\setproba{U}$ est un compact de $\RR^{2n}$.
 
 
-        \item Nous définissons la fonction $\alpha: \setproba{U} \rightarrow \RRp$ qui à un uplet de $\setproba{U}$ associe l'aire généralisée du \ncycle\ qu'il représente.
-        Cette fonction est continue comme valeur absolue d'une fonction polynomiale en les coordonnées.
+        \item Nous définissons la fonction $\alpha: \setproba{U} \rightarrow \RRp$ qui à un uplet de $\setproba{U}$ associe l'aire géométrique du \ncycle\ qu'il représente.
+        Cette fonction est continue d'après le fait \ref{garea-cont}.
 
 
         \item Finalement, par continuité et compacité, $\alpha$ admet un maximum sur $\setproba{U}$.
