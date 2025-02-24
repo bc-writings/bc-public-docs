@@ -1,4 +1,4 @@
-Nous allons établir le fait \ref{nece-cond} affirmant qu'un \ncycle\ maximisant son aire généralisée à périmètre fixé doit être, a minima, un \ngone\ régulier.
+Cette section va établir le fait \ref{nece-cond} affirmant qu'un \ngone\ maximisant son aire à périmètre fixé doit être, a minima, un \ngone\ régulier.
 
 
 \begin{tcolorbox}
@@ -7,11 +7,29 @@ Nous allons établir le fait \ref{nece-cond} affirmant qu'un \ncycle\ maximisant
 \end{tcolorbox}
 
 
+% ----------------------- %
 
 
+\begin{fact} \label{gene-sol-is-ngone}
+	Si un \ncycle\ $\setproba{L}$ n'est pas un \ngone, alors on peut construire un \kcycle\ $\setproba{L}^{\,\prime}$, où $k \leq n$, tel que
+	$\perim{\setproba{L}^{\,\prime}} = \perim{\setproba{L}}$
+	et
+	$\area{\setproba{L}^{\,\prime}} > \area{\setproba{L}}$.
+\end{fact}
 
 
+\begin{proof}
+    L'exemple ci-dessous montre que la démonstration va demander quelques précautions: le \ncycle\ proposé a été construit via une spirale positive depuis le point $A$, de sorte que les déterminants pour calculer l'aire généralisée sont tous positifs, ceci donnant une aire généralisée supérieure à celle de l'enveloppe convexe du \ncycle.
+	
+	\newpage % TEMPO
+	
+	\begin{multicols}{2}
+	    \small\itshape\centering
+    	\includegraphics[scale=.4]{content/polygon/sol-is/gene-area-ncycle-not-opti-pb-1.png}
 
+    	\includegraphics[scale=.4]{content/polygon/sol-is/gene-area-ncycle-not-opti-pb-2.png}
+	\end{multicols}
+\end{proof}
 
 
 
