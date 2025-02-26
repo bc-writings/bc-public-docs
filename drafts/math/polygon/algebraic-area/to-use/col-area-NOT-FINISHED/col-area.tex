@@ -2,14 +2,14 @@ Pour prouver l'existence d'un \ngone\ solution du problème d'isopérimétrie po
 Il existe une notion d'aire algébrique d'un \ncycle\ qui s'appuie sur le déterminant: si $\setproba{L} = A_1 A_2 \cdots A_n$, alors l'aire algébrique de $\setproba{L}$ est $\frac12 \dsum_{i=1}^{n} \det \big( \vect{\Omega A^{\,\prime}_i} , \vect{\Omega A^{\,\prime}_{i+1}} \big)$, une quantité indépendante du point $\Omega$ choisi.
 Quand \geogebra\ associe un nombre à un \ncycle\ $\setproba{L}$, il calcule la valeur absolue de son aire algébrique.
 Malheureusement, cette notion n'est pas la bonne candidate, pour une approche élémentaire, comme le montre l'exemple suivant, où le \ncycle\ proposé a été construit via une spirale positive depuis le point $A$, de sorte que les déterminants pour calculer l'aire algébrique sont tous positifs, ceci donnant au total une aire algébrique, positive, supérieure à celle de l'enveloppe convexe du \ncycle.
-Nous verrons que l'aire algébrique nous sera néanmoins utile pour formuler un argument de continuité.
+L'aire algébrique nous sera néanmoins utile pour formuler un argument de continuité.
 
 
 \begin{multicols}{2}
 	\small\itshape\centering
-	\includegraphics[scale=.3]{content/polygon/geo-area/geo-area-ncycle-not-opti-pb-1.png}
+	\includegraphics[scale=.3]{content/polygon/col-area/col-area-ncycle-not-opti-pb-1.png}
 
-	\includegraphics[scale=.3]{content/polygon/geo-area/geo-area-ncycle-not-opti-pb-2.png}
+	\includegraphics[scale=.3]{content/polygon/col-area/col-area-ncycle-not-opti-pb-2.png}
 \end{multicols}
 
 
@@ -41,7 +41,7 @@ Tout n'est pas perdu, car l'image de gauche nous donne la solution: il suffit de
 
 \begin{center}
 	\small\itshape
-	\includegraphics[scale=.25]{content/polygon/geo-area/geo-area-odd-even.png}
+	\includegraphics[scale=.25]{content/polygon/col-area/col-area-odd-even.png}
 	
 %	\smallskip
 	
@@ -49,22 +49,22 @@ Tout n'est pas perdu, car l'image de gauche nous donne la solution: il suffit de
 
 	\smallskip
 	
-	$p(E_1) = 5$,
-	$p(E_2) = 1$,
+	$p(O_1) = 5$,
+	$p(O_2) = 1$,
 %	
 %	\smallskip
 %	
-	$p(O_1) = 4$,
-	$p(O_2) = 2$ et
-	$p(O_3) = 0$.
+	$p(E_1) = 4$,
+	$p(E_2) = 2$ et
+	$p(E_3) = 0$.
 \end{center}
 
 
-\begin{defi} \label{garea-def}
+\begin{defi} \label{carea-def}
     Soit
     $\setproba{L}$ un \ncycle\
     ayant $\dcup_{i} \setproba{P}_i$ pour frontière de sa surface impaire, où les $\setproba{P}_i$, en nombre fini éventuellement nul, sont des \ngones\ d'intérieurs disjoints deux à deux.
-    La quantité $\geoarea{\setproba{L}} = \dsum_{i} \area{\setproba{P}_i}$ sera nommée \og \emph{aire géométrique} \fg\ du \ncycle\ $\setproba{L}$.%
+    La quantité $\carea{\setproba{L}} = \dsum_{i} \area{\setproba{P}_i}$ sera nommée \og \emph{aire colorée} \fg\ du \ncycle\ $\setproba{L}$.%
     \footnote{
     	Rappelons qu'une somme de réels sur l'ensemble vide vaut zéro par convention.
     }
@@ -76,7 +76,7 @@ Tout n'est pas perdu, car l'image de gauche nous donne la solution: il suffit de
 
 \begin{fact}
     Pour tout \ngone\ $\setproba{P}$, nous avons
-	$\geoarea{\setproba{P}} = \area{\setproba{P}}$.
+	$\carea{\setproba{P}} = \area{\setproba{P}}$.
 \end{fact}
 
 
@@ -88,7 +88,7 @@ Tout n'est pas perdu, car l'image de gauche nous donne la solution: il suffit de
 % ----------------------- %
 
 
-Enquêtons sur le calcul de l'aire d'un \ngone, afin de savoir si l'aire géométrique est \og continue \fg. 
+Enquêtons sur le calcul de l'aire d'un \ngone, afin de savoir si l'aire colorée est \og continue \fg. 
 Il est connu que $ABC$ est d'aire $\area{ABC} = \frac12 \abs{ \det \big( \vect{AB} , \vect{AC} \big) }$ où $\frac12 \det \big( \vect{AB} , \vect{AC} \big)$ est appelé aire algébrique. Nous allons donc travailler avec des triangles comme dans l'exemple suivant.
 
 
@@ -99,7 +99,7 @@ Il est connu que $ABC$ est d'aire $\area{ABC} = \frac12 \abs{ \det \big( \vect{A
 
 		\smallskip
 
-        \includegraphics[scale=.35]{content/polygon/geo-area/convex-1.png}
+        \includegraphics[scale=.35]{content/polygon/col-area/convex-1.png}
 
        	\smallskip
 
@@ -113,7 +113,7 @@ Il est connu que $ABC$ est d'aire $\area{ABC} = \frac12 \abs{ \det \big( \vect{A
 
 		\smallskip
 
-        \includegraphics[scale=.35]{content/polygon/geo-area/convex-2.png}
+        \includegraphics[scale=.35]{content/polygon/col-area/convex-2.png}
 
        	\smallskip
 
@@ -128,7 +128,7 @@ Dans le cas précédent, le résultat pourrait dépendre du point $\Omega$ emplo
 % ----------------------- %
 
 
-\begin{fact} \label{garea-pt-ct}
+\begin{fact} \label{carea-pt-ct}
     Soit $\setproba{L} = A_1 A_2 \cdots A_n$ un \ncycle.
     La fonction qui à un point $\Omega$ du plan associe
     $\mu_1^n (\Omega ;\setproba{L}) = \dsum_{i=1}^{n} \det \big( \vect{\Omega A^{\,\prime}_i} , \vect{\Omega A^{\,\prime}_{i+1}} \big)$ est indépendante du point $\Omega$.
@@ -231,14 +231,14 @@ Dans le cas précédent, le résultat pourrait dépendre du point $\Omega$ emplo
 % ----------------------- %
 
 
-\begin{fact} \label{garea-ncycle}
+\begin{fact} \label{carea-ncycle}
     Soit
     $\setproba{L} = A_1 A_2 \cdots A_n$ un \ncycle.
-    La quantité $\sarea{\setproba{L}} = \frac12 \mu(\setproba{L})$, qui dépend juste du sens de parcours de $\setproba{L}$, mais pas du point de départ,%
+    La quantité $\sarea{\setproba{L}} = \frac12 \mu(\setproba{L})$ ne dépend que du sens de parcours de $\setproba{L}$, mais pas du point de départ,%
     \footnote{
         Le lecteur pardonnera les abus de langage utilisés.
-    }
-    sera appelé \og \emph{aire algébrique} \fg\ de $\setproba{L}$.
+    }.
+    Elle sera appelée \og \emph{aire algébrique} \fg\ de $\setproba{L}$.
 \end{fact}
 
 
@@ -277,7 +277,7 @@ Dans le cas non-convexe, les choses se compliquent a priori, car nous ne maîtri
     \begin{multicols}{3}
         \small\itshape
         \begin{center}
-            \includegraphics[scale=.4]{content/polygon/geo-area/triangulation-1.png}
+            \includegraphics[scale=.4]{content/polygon/col-area/triangulation-1.png}
 
             \smallskip
             Un \ngone\ \og nu \fg.
@@ -285,7 +285,7 @@ Dans le cas non-convexe, les choses se compliquent a priori, car nous ne maîtri
 
 
         \begin{center}
-            \includegraphics[scale=.4]{content/polygon/geo-area/triangulation-2.png}
+            \includegraphics[scale=.4]{content/polygon/col-area/triangulation-2.png}
 
             \smallskip
             Le \ngone\ triangulé.
@@ -293,7 +293,7 @@ Dans le cas non-convexe, les choses se compliquent a priori, car nous ne maîtri
 
 
         \begin{center}
-            \includegraphics[scale=.4]{content/polygon/geo-area/triangulation-3.png}
+            \includegraphics[scale=.4]{content/polygon/col-area/triangulation-3.png}
 
             \smallskip
             Le \ngone\ allégé.
@@ -316,14 +316,14 @@ Dans le cas non-convexe, les choses se compliquent a priori, car nous ne maîtri
     \begin{multicols}{2}
         \small\itshape
     	\begin{center}
-        	\includegraphics[scale=.4]{content/polygon/geo-area/mini-ear-1.png}
+        	\includegraphics[scale=.4]{content/polygon/col-area/mini-ear-1.png}
 
         	\smallskip
        		Un \ngone\ basique.
     	\end{center}
 
     	\begin{center}
-        	\includegraphics[scale=.4]{content/polygon/geo-area/mini-ear-2.png}
+        	\includegraphics[scale=.4]{content/polygon/col-area/mini-ear-2.png}
 
         	\smallskip
        		Juste deux oreilles disponibles.
@@ -345,14 +345,14 @@ Dans le cas non-convexe, les choses se compliquent a priori, car nous ne maîtri
 	    \begin{multicols}{2}
     	    \small\itshape
     		\begin{center}
-        	\includegraphics[scale=.4]{content/polygon/geo-area/triangulation-proof-OK.png}
+        	\includegraphics[scale=.4]{content/polygon/col-area/triangulation-proof-OK.png}
 
 	        	\smallskip
     	   		$A_{n-1} A_n A_1$ est une oreille.
     	\end{center}
 
 	    	\begin{center}
-        	\includegraphics[scale=.4]{content/polygon/geo-area/triangulation-proof-KO.png}
+        	\includegraphics[scale=.4]{content/polygon/col-area/triangulation-proof-KO.png}
 
         		\smallskip
     	   		$A_{n-1} A_n A_1$ n'est pas une oreille.
@@ -410,7 +410,7 @@ Dans le cas non-convexe, les choses se compliquent a priori, car nous ne maîtri
 % ----------------------- %
 
 
-\begin{fact} \label{garea-ngone}
+\begin{fact} \label{carea-ngone}
     Pour tout \ngone\ $\setproba{P}$, nous avons:
     $\area{\setproba{P}} = \abs{\sarea{\setproba{P}}}$.
 \end{fact}
@@ -467,7 +467,7 @@ Dans le cas non-convexe, les choses se compliquent a priori, car nous ne maîtri
 % ----------------------- %
 
 
-Tout ce qui précède va nous permettre de justifier la continuité de l'aire géométrique sur l'ensemble des \ncycles\ de longueur $\ell$ pour $\ell$ un réel fixé.
+Tout ce qui précède va nous permettre de justifier la continuité de l'aire colorée sur l'ensemble des \ncycles\ de longueur fixée.
 
 
 % ----------------------- %
@@ -475,38 +475,41 @@ Tout ce qui précède va nous permettre de justifier la continuité de l'aire g�
 
 %\newpage %TEMPO
 
-\begin{fact} \label{garea-cont}
+\begin{fact} \label{carea-cont}
     Soient $n \in \NN_{\geq3}$, $\ell \in \RRsp$ et
     $\pvaxes{O | i | j}$ un repère orthonormé direct du plan. 
-    On note $\setproba{U} \subset \RR^{2n}$ l'ensemble des uplets de coordonnées $\big( x(A_1) ; y(A_1) ; \dots ; x(A_n) ; y(A_n) \big)$ où $A_1 A_2 \cdots A_n$ désigne un \ncycle\ de longueur $\ell$.
+    On note $\setproba{U} \subset \RR^{2n}$ l'ensemble des uplets de coordonnées $\big( x(A_1) ; y(A_1) ; \dots ; x(A_n) ; y(A_n) \big)$ où $A_1 A_2 \cdots A_n$ désigne un \ncycle\ de longueur $\ell$,
+    et enfin $\alpha: \setproba{U} \rightarrow \RRp$ la fonction qui à un uplet de $\setproba{U}$ associe l'aire colorée du \ncycle\ qu'il représente.
    	%
-	Nous avons la continuité de la fonction $\alpha: \setproba{U} \rightarrow \RRp$ qui à un uplet de $\setproba{U}$ associe l'aire géométrique du \ncycle\ qu'il représente.
+	Avec ces notations, la fonction $\alpha: \setproba{U} \rightarrow \RRp$ est continue.
 \end{fact}
 
 
 \begin{proof}
-	Notons $\dcup_{i} \setproba{P}_i$ la frontière de la surface impaire de $\setproba{L}$, et $\setproba{P}_i = A_{i,1} A_{i,2} \cdots A_{i,n_i}$, les $A_{i,j}$ pouvant désigner des intersections d'arêtes non contigües.
+	Notons $\dcup_{i} \setproba{P}_i$ la frontière de la surface impaire de $\setproba{L}$, et $\setproba{P}_i = A_{i,1} A_{i,2} \cdots A_{i,n_i}$, les $A_{i,j}$ étant soit des sommets de $\setproba{L}$, soit des intersections d'arêtes non contigües.
+	Par définition, 
+    $\carea{\setproba{L}} = \dsum_{i} \area{\setproba{P}_i}$.
     %
     \begin{itemize}
-        \item Par définition, 
-        $\geoarea{\setproba{L}} = \dsum_{i} \area{\setproba{P}_i}$.
-        Si $\dcup_{i} \setproba{P}_i = \emptyset$, alors 
-		$\geoarea{\setproba{L}} = 0$,
-		sinon
-		$ \geoarea{\setproba{L}} 
+        \item Si $\dcup_{i} \setproba{P}_i = \emptyset$, alors 
+		$\carea{\setproba{L}} = 0$.
+
+
+        \item Si $\dcup_{i} \setproba{P}_i \neq \emptyset$, alors 		
+        $ \carea{\setproba{L}} 
 		= \frac12 \dsum_{i} \big\lvert
 			\dsum_{k=1}^{n_i} \big( 
 				  x(A^{\,\prime}_{i,k}) y(A^{\,\prime}_{i,k+1}) 
 				- y(A^{\,\prime}_{i,k}) x(A^{\,\prime}_{i,k+1})
 			\big)
 		 \big\rvert$
-	    selon le fait \ref{garea-ngone}.%
+	    selon le fait \ref{carea-ngone}.%
 	    \footnote{
-	    	Il suffit d'utiliser l'origine $\mathrm{O}$ du repère comme point de calcul.
+	    	Il suffit d'utiliser l'origine $\pt{O}$ du repère comme point de calcul.
 		}
 
 
-		\item XXXX
+		\item Les seules discontinuités possibles sont finalement lorsqu'un point d'intersection disparait, ou est créé.
 
 
 

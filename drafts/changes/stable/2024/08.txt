@@ -1,9 +1,0 @@
-==
-31
-==
-
-Moved from
-
-https://github.com/bc-writing/letters-and-science.git
-
-to
