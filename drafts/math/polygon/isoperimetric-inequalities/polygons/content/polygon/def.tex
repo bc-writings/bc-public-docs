@@ -1,17 +1,31 @@
+Pour l'existence d'au moins une solution, via l'analyse, nous allons devoir sortir de l'ensemble des polygones en travaillant avec des objets plus souples, à savoir les \ncycles\ que nous définissons tout de suite.
+
+
+% ----------------------- %
+
+
 \begin{defi}
-	Pour $n \geq 3$, un \og \emph{\ncycle} \fg\ désigne une ligne brisée fermée à $n$ sommets et $n$ côtés sans restriction particulière (tous les cas pathologiques sont acceptés).
+	Pour $n \in \NN$, un \og \emph{\ncycle} \fg\ désigne une liste ordonnée de $n$ points du plan, les répétitions étant possibles.
+	Pour $n \geq 1$, nous noterons $A_1 A_2 \cdots A_n$ un \ncycle, et appellerons \og \emph{sommets}\fg\ du \ncycle\ les points $A_i$ pour $i \in \ZintervalC{1}{n}$.
+	Quant au \xcycle{0}, il sera noté $\emptyset$.
 \end{defi}
 
 
+\begin{remark}
+	Le choix d'autoriser des \ncycles\ pour $n \leq 2$ va permettre de travailler facilement dans un ensemble fermé de \ncycles\ afin d'obtenir l'existence d'au moins une solution. 
+\end{remark}
+
+
 \begin{defi}
-    Pour tout \ncycle\ $\setproba{L} = A_1 A_2 \cdots A_n$, on définit $\big( A^{\,\prime}_i \big)_{i \in \ZZ}$ comme étant $n$-périodique, et vérifiant $A^{\,\prime}_{i} = A_i$ sur $\ZintervalC{1}{n}$.
+    Pour tout \ncycle\ $A_1 A_2 \cdots A_n$ avec $n \geq 1$, on définit $\big( A^{\,\prime}_i \big)_{i \in \ZZ}$ comme étant $n$-périodique, et vérifiant $A^{\,\prime}_{i} = A_i$ sur $\ZintervalC{1}{n}$.
 \end{defi}
 
 
 \begin{defi}
 	Les \og \emph{côtés} \fg\ d'un \ncycle\ $\setproba{L} = A_1 A_2 \cdots A_n$ sont les segments
 	$[A^{\,\prime}_i A^{\,\prime}_{i+1}]$ pour $i \in \ZintervalC{1}{n}$,
-	et $\cyclelen{\setproba{L}} = \dsum_{i=1}^{n} A^{\,\prime}_i A^{\,\prime}_{i+1}$ est la \og \emph{longueur} \fg\ de $\setproba{L}$.
+	et
+	la \og \emph{longueur} \fg\ de $\setproba{L}$ est définie par $\cyclelen{\setproba{L}} = \dsum_{i=1}^{n} A^{\,\prime}_i A^{\,\prime}_{i+1}$.
 \end{defi}
 
 
@@ -27,8 +41,8 @@
 
 
 \begin{defi}
-	Un \og \emph{\ngone} \fg\ est un \ncycle\ non dégénéré n'admettant aucun couple de sommets confondus, ni aucun couple de côtés non contigüs sécants.
-	Si certains côtés non contigüs sont sécants, mais aucun couple de sommets confondus, nous parlerons de \og \emph{\ngone\ croisé} \fg.%
+	Un \og \emph{\ngone} \fg\ est un \ncycle\ non dégénéré n'admettant aucun couple de sommets confondus, ni aucun couple de côtés non contigus sécants.
+	Si certains côtés non contigus sont sécants, mais aucun couple de sommets confondus, nous parlerons de \og \emph{\ngone\ croisé} \fg.%
 	\footnote{
 		Bien retenir qu'un \ngone\ n'est jamais croisé par définition.
 		Dès lors, la longueur d'un \ngone\ correspond à son périmètre.
