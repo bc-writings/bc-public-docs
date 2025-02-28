@@ -1,6 +1,17 @@
-Pour prouver l'existence d'un \ngone\ solution du problème d'isopérimétrie polygonale, nous allons accepter de travailler avec des \ncycles. Il nous faut donc une notion d'aire pour ces objets très particuliers: nous allons utiliser l'aire algébrique d'un \ncycle\ qui s'appuie sur le déterminant: si $\setproba{L} = A_1 A_2 \cdots A_n$, alors l'aire algébrique de $\setproba{L}$ est $\frac12 \dsum_{i=1}^{n} \det \big( \vect{\Omega A^{\,\prime}_i} , \vect{\Omega A^{\,\prime}_{i+1}} \big)$, une quantité indépendante du point $\Omega$ choisi cmme nous le verrons plus bas.
-Quand \geogebra\ associe un nombre à un \ncycle\ $\setproba{L}$, il calcule la valeur absolue de son aire algébrique.
-Il faut être prudent avec cette notion comme le montre l'exemple suivant, où le \ncycle\ proposé a été construit via une spirale positive depuis le point $A$, de sorte que les déterminants pour calculer l'aire algébrique sont tous positifs, ceci donnant au total une aire algébrique, positive, supérieure à celle de l'enveloppe convexe du \ncycle.
+Pour prouver l'existence d'un \ngone\ solution du problème d'isopérimétrie polygonale, il faut un moyen \og continu \fg\ de calculer une aire polygonale. L'outil que nous allons utiliser est l'aire algébrique qui est définie pour tout \ncycle\ $\setproba{L} = A_1 A_2 \cdots A_n$ par $\frac12 \dsum_{i=1}^{n} \det \big( \vect{\Omega A^{\,\prime}_i} , \vect{\Omega A^{\,\prime}_{i+1}} \big)$ indépendamment du point $\Omega$.%
+\footnote{
+    Ce fait est démontré un peu plus bas.
+}
+
+Indiquons au passage qu'il faut être prudent avec cette notion comme le montre l'exemple suivant, obtenu avec \geogebra,%
+\footnote{
+	Quand \geogebra\ associe un nombre à un \ncycle\ $\setproba{L}$, il calcule la valeur absolue de son aire algébrique.
+}
+où le \ngone\ croisé proposé, construit via une spirale positive depuis le point $A$,%
+\footnote{
+	En calculant l'aire algébrique avec un point \og au centre \fg, les déterminants sont tous positifs.
+} 
+possède une aire algébrique positive supérieure à celle de l'enveloppe convexe du \ngone. Contre-intuitif, mais normal.
 
 
 \begin{multicols}{2}
@@ -14,7 +25,7 @@ Il faut être prudent avec cette notion comme le montre l'exemple suivant, où l
 % ----------------------- %
 
 
-Il est connu que $ABC$ est d'aire $\area{ABC} = \frac12 \abs{ \det \big( \vect{AB} , \vect{AC} \big) }$ où $\frac12 \det \big( \vect{AB} , \vect{AC} \big)$ est appelé aire algébrique. Nous allons donc travailler avec des triangles comme dans l'exemple suivant.
+Au commencement étaient les triangles... Il est connu que $ABC$ est d'aire $\frac12 \abs{ \det \big( \vect{AB} , \vect{AC} \big) }$ où $\frac12 \det \big( \vect{AB} , \vect{AC} \big)$ est appelé aire algébrique de $ABC$. Pour passer aux polygones, il \og suffit \fg\ d'utiliser des triangles comme dans l'exemple suivant.
 
 
 \begin{multicols}{2}
@@ -47,14 +58,14 @@ Il est connu que $ABC$ est d'aire $\area{ABC} = \frac12 \abs{ \det \big( \vect{A
 \end{multicols}
 
 
-Dans le cas précédent, le résultat pourrait dépendre du point $\Omega$ employé, mais le fait suivant nous montre que non. Allons-y!
+Dans le cas précédent, le résultat pourrait dépendre du point $\Omega$ employé, mais le fait suivant nous montre que non. Bonne nouvelle! Yapluka...
 
 
 % ----------------------- %
 
 
 \begin{fact} \label{sarea-pt-ct}
-    Soit $\setproba{L} = A_1 A_2 \cdots A_n$ un \ncycle.
+    Soit $\setproba{L} = A_1 A_2 \cdots A_n$ un \ncycle\ où $n \geq 2$.
     La fonction qui à un point $\Omega$ du plan associe
     $\mu_1^n (\Omega ;\setproba{L}) = \dsum_{i=1}^{n} \det \big( \vect{\Omega A^{\,\prime}_i} , \vect{\Omega A^{\,\prime}_{i+1}} \big)$ est indépendante du point $\Omega$.
     Dans la suite, cette quantité indépendante de $\Omega$ sera notée $\mu_1^n (\setproba{L})$.
@@ -104,10 +115,10 @@ Dans le cas précédent, le résultat pourrait dépendre du point $\Omega$ emplo
 
 
 \begin{fact} \label{nline-shift-inva}
-    Soit $\setproba{L} = A_1 A_2 \cdots A_n$ un \ncycle.
+    Soit $\setproba{L} = A_1 A_2 \cdots A_n$ un \ncycle\ où $n \geq 2$.
     Pour $k \in \ZintervalC{1}{n}$,
-    le \ncycle\ $\setproba{L}_j = B_1 B_2 \cdots B_n$, où $B_i = A^{\,\prime}_{i+k-1}$,
-    vérifie
+    définissant le \ncycle\ $\setproba{L}_k = B_1 B_2 \cdots B_n$ par $B_i = A^{\,\prime}_{i+k-1}$,
+    nous avons
     $\mu_1^n (\setproba{L}) = \mu_1^n (\setproba{L}_k)$.
     Dans la suite, cette quantité commune sera notée $\mu (\setproba{L})$.
 \end{fact}
@@ -123,8 +134,8 @@ Dans le cas précédent, le résultat pourrait dépendre du point $\Omega$ emplo
 
 \begin{fact} \label{nline-rota-opp}
     Soit
-    $\setproba{L} = A_1 A_2 \cdots A_n$ un \ncycle.
-    Le \ncycle\ $\setproba{L}^{\mathrm{op}} = B_1 B_2 \cdots B_n$, où $B_i =  A_{n + 1 - i}$,
+    $\setproba{L} = A_1 A_2 \cdots A_n$ un \ncycle\ où $n \geq 2$.
+    Le \ncycle\ \og \emph{opposé} \fg\ $\setproba{L}^{\mathrm{op}} = B_1 B_2 \cdots B_n$, où $B_i =  A_{n + 1 - i}$,
     vérifie
     $\mu(\setproba{L}^{\mathrm{op}}) = {} - \mu(\setproba{L})$.
 \end{fact}
@@ -158,17 +169,17 @@ Dans le cas précédent, le résultat pourrait dépendre du point $\Omega$ emplo
 
 \begin{fact} \label{sarea-ncycle}
     Soit
-    $\setproba{L} = A_1 A_2 \cdots A_n$ un \ncycle.
-    La quantité $\sarea{\setproba{L}} = \frac12 \mu(\setproba{L})$ ne dépend que du sens de parcours de $\setproba{L}$, mais pas du point de départ,%
+    $\setproba{L} = A_1 A_2 \cdots A_n$ un \ncycle\ où $n \geq 2$.
+    La quantité $\sarea{\setproba{L}} = \frac12 \mu(\setproba{L})$ ne dépend que du sens de parcours de $\setproba{L}$, mais pas du point de départ.%
     \footnote{
         Le lecteur pardonnera les abus de langage utilisés.
-    }.
-    Elle sera appelée \og \emph{aire algébrique} \fg\ de $\setproba{L}$.
+    }
+    Elle sera appelée \og \emph{aire algébrique} \fg\ de $\setproba{L}$, et elle est étendue au \xcycle{0} et aux \xcycles{1} par $\sarea{\setproba{L}} = 0$ pour ces cycles particuliers.
 \end{fact}
 
 
 \begin{proof}
-    C'est une conséquence directe des faits \ref{nline-shift-inva} et \ref{nline-rota-inva}.
+    C'est une conséquence directe des faits \ref{nline-shift-inva} et \ref{nline-rota-opp}.
 \end{proof}
 
 
@@ -267,6 +278,7 @@ Dans le cas non-convexe, les choses se compliquent a priori, car nous ne maîtri
 		Soit un \ngone\ positif $\setproba{P} = A_1 A_2 \cdots A_n$ avec $n \in \NN_{>3}$. On peut supposer que $A_{n-1} A_n A_1$ est une oreille d'une triangulation à l'écoute du \ngone\ $\setproba{P}$.
 
 
+	    \newpage
 	    \begin{multicols}{2}
     	    \small\itshape
     		\begin{center}
@@ -352,7 +364,7 @@ Dans le cas non-convexe, les choses se compliquent a priori, car nous ne maîtri
 		\item \textbf{Hérédité.}
 		Soit $\setproba{P} = A_1 \cdots A_n$ un \ngone\ avec $n \in \NN_{>3}$.
 		%
-		Comme $\sarea{\setproba{P}^{\mathrm{op}}} = {} - \sarea{\setproba{P}}$ selon le fait \ref{nline-rota-inva}, nous pouvons choisir de parcourir $\setproba{P}$ positivement, puis de nous placer dans la situation de la démonstration du fait \ref{route-direction}:
+		Comme $\sarea{\setproba{P}^{\mathrm{op}}} = {} - \sarea{\setproba{P}}$ selon le fait \ref{nline-rota-opp}, nous pouvons choisir de parcourir $\setproba{P}$ positivement, puis de nous placer dans la situation de la démonstration du fait \ref{route-direction}:
 		$A_{n-1} A_n A_1$ est une oreille positive d'une triangulation à l'écoute du \ngone\ $\setproba{P}$, et $\setproba{P}^{\,\prime} = A_1 \cdots A_{n-1}$ un \kgone\ positif où $k = n-1$ vérifie $k \in \NN_{\geq3}$.
 		%
 		Nous arrivons finalement aux calculs élémentaires suivants.
@@ -396,7 +408,7 @@ Finissons par un théorème de continuité qui permettra de justifier l'existenc
 
 
 \begin{fact} \label{sarea-cont}
-    Soient $n \in \NN_{\geq3}$ et
+    Soient $n \in \NN_{\geq2}$ et
     $\pvaxes{O | i | j}$ un repère orthonormé direct du plan. 
     On note $\setproba{U} \subset \RR^{2n}$ l'ensemble des uplets de coordonnées $\big( x(A_1) ; y(A_1) ; \dots ; x(A_n) ; y(A_n) \big)$ où $A_1 A_2 \cdots A_n$ désigne un \ncycle,
     et $\alpha: \setproba{U} \rightarrow \RRp$ la fonction qui à un uplet de $\setproba{U}$ associe l'aire algébrique du \ncycle\ qu'il représente.
@@ -406,5 +418,5 @@ Finissons par un théorème de continuité qui permettra de justifier l'existenc
 
 
 \begin{proof}
-	Immédiat.
+	Immédiat, car nous avons une fonction polynomiale.
 \end{proof}

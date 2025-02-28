@@ -10,6 +10,83 @@ Cette section va établir le fait \ref{nece-cond} affirmant qu'un \ngone\ maximi
 % ----------------------- %
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+Précisons la nature des solutions optimales données par le fait \ref{at-least-one} ci-dessus.
+
+
+\begin{fact} \label{at-least-one-convex}
+    Soit $n \in \NN_{\geq3}$ un naturel fixé.
+    Parmi tous les \ngones\ convexes de longueur $\ell$ fixée, non nulle, il en existe au moins un d'aire maximale.
+\end{fact}
+
+
+\begin{proof}
+	XXXX
+	
+	donne l'existence, parmi tous les \ncycles\ convexes de longueur $\ell$, d'au moins un \ncycle\ $\setproba{M} = A_1 A_2 \cdots A_n$ d'aire algébrique maximale.
+	%
+	\begin{itemize}
+        \item $\sarea{\setproba{P}} \geq 0$ pour tout \ngone\ positif $\setproba{P}$ selon le fait \ref{sarea-ngone}, 
+        et de plus
+        $\area{\setproba{P}} = \abs{\sarea{\setproba{P}}}$ pour tout \ngone\ $\setproba{P}$ selon le fait \ref{sarea-ngone},
+        donc $\sarea{\setproba{M}}$ est supérieure, ou égale, à l'aire, géométrique, de tout \ngone\ convexe de longueur $\ell$.
+
+
+
+
+
+
+
+
+
+
+        \item Pour conclure, il suffit de démontrer que $\setproba{M}$ est un \ngone. Démontrons que le contraire est impossible.
+        %
+        \begin{enumerate}
+        	\item Supposons que trois sommets $A^{\,\prime}_i$, $A^{\,\prime}_{i+1}$ et $A^{\,\prime}_{i+2}$ soient alignés.
+			%
+			XXXX   DESSIN !
+			pas bon via triangle cassant la ligne des trois points
+			
+			
+        	\item Supposons l'existence de $(k, i) \in \ZintervalC{1}{n}^2$ où $k \neq i$ tel que $[A^{\,\prime}_i A^{\,\prime}_{i+1}]$ et $[A^{\,\prime}_k A^{\,\prime}_{k+1}]$ soient deux côtés non contigus sécants.
+			%
+			XXXX   DESSIN !
+			si se croise c'est cas plat mais rejeter avant
+
+
+        	\item Supposons l'existence de $(k, i) \in \ZintervalC{1}{n}^2$ où $k \neq i$ tel que $A^{\,\prime}_i = A^{\,\prime}_k$.
+			%
+			XXXX  Pb ici a priorir mais du coup on garde k gone au lieu de n gone, SI VRAI, on met en remarque que pas rave car on montrerea que n gone régulier meilleur que k gone régulier si n > k .
+        \end{enumerate}
+    \end{itemize}
+	
+	\null\vspace{-6ex}
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
 \begin{fact} \label{max-is-conv}
     Si un \ncycle\ $\setproba{L}$ de longueur non nulle n'est pas un \ngone\ convexe, alors il existe un \ngone\ convexe $\setproba{P}$ tel que
 	$\cyclelen{\setproba{P}} = \cyclelen{\setproba{L}}$

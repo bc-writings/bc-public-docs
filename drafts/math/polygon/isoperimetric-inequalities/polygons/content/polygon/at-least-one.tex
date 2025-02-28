@@ -1,56 +1,53 @@
-Nous allons restreindre notre recherche d'un \ngone\ solution du problème d'isopérimétrie polygonale à l'ensemble des \ngones\ convexes. Le fait \ref{max-is-conv} nous montrera plus tard que cette restriction n'est pas excessive.
+Nous allons restreindre notre recherche d'un \ngone\ solution du problème d'isopérimétrie polygonale à l'ensemble des \ngones\ convexes. Le fait \ref{max-is-conv} nous montrera plus tard que cette restriction n'en est pas une. 
+Cette section va se résumer à l'unique fait suivant a priori imprécis,%
+\footnote{
+    Un \ncycle\ convexe n'est pas forcément un \ngone. Penser tout bêtement à un \ncycle\ \og plat \fg.
+    Il existe plein d'autres exemples de \ncycles\ convexes dégénérés.
+}
+mais qui va être essentiel dans la suite de notre analyse.
 
 
-\begin{fact} \label{suff-cond}
+% ----------------------- %
+
+
+\begin{fact} \label{at-least-one}
     Soit $n \in \NN_{\geq3}$ un naturel fixé.
-    Parmi tous les \ngones\ convexes de longueur fixée, il en existe au moins un d'aire maximale.
+    Parmi tous les \ncycles\ convexes positifs de longueur $\ell$ fixée, non nulle, il en existe au moins un d'aire algébrique maximale.
 \end{fact}
 
 
 \begin{proof}
-	Notons $\ell$ la longueur fixée qui est forcément non nulle.
-	%
-    \begin{itemize}
+	\leavevmode
+	\begin{itemize}
         \item Munissant le plan d'un repère orthonormé direct $\pvaxes{O | i | j}$, 
-	    on note $\setproba{U} \subset \RR^{2n}$ l'ensemble des uplets de coordonnées $\big( x(A_1) ; y(A_1) ; \dots ; x(A_n) ; y(A_n) \big)$ où $A_1 A_2 \cdots A_n$ désigne un \ncycle\ $\setproba{L}$ vérifiant les conditions suivantes.
+	    on note $\setproba{U} \subset \RR^{2n}$ l'ensemble des uplets de coordonnées $\big( x(A_1) ; y(A_1) ; \dots ; x(A_n) ; y(A_n) \big)$ où $\setproba{L} = A_1 A_2 \cdots A_n$ est un \ncycle\ vérifiant les conditions suivantes.
 	    %
 	    \begin{enumerate}
 	    	\item $A_1 = \pt{O}$.
-	    	\item $\perim{\setproba{L}} = \ell$.
-		    \item \label{conv-cond-start}
-		          XXXX
-		    \item XXXX
-		    \item XXXX
-		    \item \label{conv-cond-end}
-		          XXXX
+
+	    	\item $\cyclelen{\setproba{L}} = \ell$.
+
+		    \item \label{conv-cond}
+		    $\forall (k, i) \in \ZintervalC{1}{n}^2$,
+		    $\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_k} \big) \geq 0$.
 	    \end{enumerate}
 
 
-        \item Les conditions 
-        \ref{conv-cond-start}
-        XXX
-        \ref{conv-cond-end}
-        impliquent que $\setproba{U}$ n'est autre que l'ensemble des \kgones\ convexes positifs $\pt{O} A_2 \cdots A_K$ de longueur $\ell$ avec $0 \leq k \leq n$.
+        \item La condition \ref{conv-cond} n'est autre que celle caractérisant les \ncycles\ convexes et positifs,
+        donc $\setproba{U}$ est l'ensemble des \ncycles\ convexes positifs $\pt{O} A_2 \cdots A_n$ de longueur $\ell$.
 
 
-        \item $\setproba{U}$ est fermé dans $\RR^{2n}$, car les conditions qui le définissent le sont.
-        Il est aussi borné, car inclus dans le disque de centre $\pt{O}$ et de rayon $\ell$.%
-        \footnote{
-        	Il suffit de \og \emph{mettre à plat} \fg\ les côtés de $A_1 A_2 \cdots A_n$.
-        }
+        \item $\setproba{U}$ est fermé dans $\RR^{2n}$, car les conditions le définissant le sont, et il est borné, car inclus dans la boule fermée de centre $\pt{O}$ et de rayon $\ell$.
         En résumé, $\setproba{U}$ est un compact de $\RR^{2n}$.
 
 
         \item Nous définissons la fonction $\alpha: \setproba{U} \rightarrow \RRp$ qui à un uplet de $\setproba{U}$ associe l'aire algébrique du \ncycle\ qu'il représente.
-        Cette fonction est continue d'après le fait \ref{carea-cont}.
+        Cette fonction est continue d'après le fait \ref{sarea-cont}.
         %
-        Donc, par continuité et compacité, $\alpha$ admet un maximum sur $\setproba{U}$.
+        Donc, $\alpha$ admet un maximum sur $\setproba{U}$ par continuité et compacité.
 
 
-        \item Finalement, comme
-        $\sarea{\setproba{L}^{\mathrm{op}}} = {} - \sarea{\setproba{L}}$ d'après le fait \ref{nline-rota-opp}, et 
-        $\area{\setproba{P}} = \abs{\sarea{\setproba{P}}}$ pour tout \ngone\ $\setproba{P}$ selon le fait \ref{sarea-ngone},
-        le maximum de $\alpha$ maximise les aires, géométriques, de tous les \ngones\ convexes de longueur $\ell$.
+        \item Pour conclure, il suffit de noter que tout \ncycle\ d'origine $B_1$ translaté via le vecteur $\vect{B_1 \pt{O}}$ donne un \ncycle\ d'origine $\pt{O}$, sans modification de la longueur, ni de l'aire algébrique, ni de l'orientation des sommets.
     \end{itemize}
 	
 	\null\vspace{-6ex}
