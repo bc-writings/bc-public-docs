@@ -1,0 +1,152 @@
+L'étude du cas des quadrilatères a montré que la convexité était un ingrédient central. Ceci sera aussi le cas pour les \ngones, bien que moins immédiat à justifier, comme nous le verrons dans le fait \ref{max-is-conv} dont la preuve est indépendante des résultats de cette section.
+%
+Ceci explique qu'ici nous cherchions à justifier l'existence d'au moins un \ngone\ convexe d'aire maximale parmi les \ngones\ convexes de longueur fixée.
+
+
+% ----------------------- %
+
+
+\newpage
+
+\begin{fact}
+    Si $\setproba{L}$ est un \ncycle\ convexe, alors nous avons l'une des deux alternatives suivantes.
+    %
+	\begin{itemize}
+		\item $\forall (i, k) \in \ZintervalC{1}{n}^2$,
+		$\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_k} \big) \geq 0$.
+
+		\item $\forall (i, k) \in \ZintervalC{1}{n}^2$,
+		$\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_k} \big) \leq 0$.
+    \end{itemize}
+\end{fact}
+
+
+\begin{proof}
+    Soit $\setproba{L}$ un \ncycle\ convexe. 
+    Supposons avoir $\forall (i, k, j, m) \in \ZintervalC{1}{n}^4$ vérifiant
+    $\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_k} \big) > 0$
+    et
+    $\det \big( \vect{A^{\,\prime}_j A^{\,\prime}_{j+1}}, \vect{A^{\,\prime}_j A^{\,\prime}_m} \big) < 0$.
+    %
+    Quitte à considérer $\setproba{L}^{\mathrm{op}}$, et à changer d'origine, on peut supposer avoir 
+    $\det \big( \vect{A^{\,\prime}_1 A^{\,\prime}_2}, \vect{A^{\,\prime}_1 A^{\,\prime}_k} \big) > 0$
+    et
+    $\det \big( \vect{A^{\,\prime}_2 A^{\,\prime}_3}, \vect{A^{\,\prime}_2 A^{\,\prime}_m} \big) < 0$
+    (il suffit de considérer $k$ le plus petit possible tel que $k > i$, puis ensuite $i$ le plus grand possible tel que $i < k$, pour obtenir $k = i+1$). Nous avons alors les résultats suivants.
+    %
+	\begin{itemize}
+		\item Par convexité, 
+        $\forall r \in \ZintervalC{1}{n}$,
+        nous avons
+        $\det \big( \vect{A^{\,\prime}_1 A^{\,\prime}_2}, \vect{A^{\,\prime}_1 A^{\,\prime}_r} \big) \geq 0$
+        et
+        $\det \big( \vect{A^{\,\prime}_2 A^{\,\prime}_3}, \vect{A^{\,\prime}_2 A^{\,\prime}_r} \big) \leq 0$.
+
+
+		\item En particulier,
+        $\det \big( \vect{A^{\,\prime}_1 A^{\,\prime}_2}, \vect{A^{\,\prime}_1 A^{\,\prime}_r} \big) \geq 0$
+        et
+        $\det \big( \vect{A^{\,\prime}_2 A^{\,\prime}_3}, \vect{A^{\,\prime}_2 A^{\,\prime}_r} \big) \leq 0$.
+
+
+		\item Le point précédent n'est possible que si $A_1$, $A_2$ et $A_3$ sont alignés comme le montre le dessin suivant où les hachures donnent les zones où doivent se trouver les sommets relativement aux droites $(A_1 A_2)$, hachures vertes, et $(A_2 A_3)$, hachures marron, les droites étant comprises.
+    \end{itemize}
+    
+    \begin{center}
+        \includegraphics[scale=.5]{content/polygon/at-least-one/conv-det-sign.png}
+    \end{center}
+
+
+    \begin{itemize}
+		\item XXXX
+    \end{itemize}
+	
+	\null\vspace{-6ex}
+\end{proof}
+
+
+% ----------------------- %
+
+
+\newpage
+
+\begin{fact} \label{at-least-one-ncycle}
+    Soit $n \in \NN_{\geq3}$ un naturel fixé.
+    Parmi tous les \ncycles\ convexes de longueur $\ell$ fixée, non nulle, il en existe au moins un d'aire algébrique maximale.
+\end{fact}
+
+
+\begin{proof}
+	\leavevmode
+	\begin{itemize}
+		\item Munissons le plan d'un repère orthonormé direct $\pvaxes{O | i | j}$.
+
+
+        \item Commençons par noter que tout \ncycle\ d'origine $A_1$ translaté via le vecteur $\vect{A_1 \pt{O}}$ donne un \ncycle\ d'origine $\pt{O}$, sans modification de la longueur, ni de l'aire algébrique, ni l'ordre des sommets après $A_1$.
+        %
+        De plus, $\sarea{\setproba{L}^{\mathrm{op}}} = - \sarea{\setproba{L}}$ pour tout \ncycle\ $\setproba{L}$ d'après le fait \ref{nline-rota-opp}, donc nous pouvons nous concentrer sur les \ncycles\ convexes vérifiant $\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_k} \big) \geq 0$ pour tous les sommets $A_i$ et $A_k$ grâce au fait précédent.
+
+
+        \item Soit $\setproba{U} \subset \RR^{2n}$ l'ensemble des uplets de coordonnées $\big( x(A_1) ; y(A_1) ; \dots ; x(A_n) ; y(A_n) \big)$ où $\setproba{L} = A_1 A_2 \cdots A_n$ est un \ncycle\ vérifiant les conditions suivantes.
+	    %
+	    \begin{enumerate}
+	    	\item $A_1 = \pt{O}$.
+
+	    	\item $\cyclelen{\setproba{L}} = \ell$.
+
+		    \item
+		    $\forall (k, i) \in \ZintervalC{1}{n}^2$,
+		    $\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_k} \big) \geq 0$.
+	    \end{enumerate}
+
+
+        \item $\setproba{U}$ est fermé dans $\RR^{2n}$, car les conditions le définissant le sont, et il est borné, car inclus dans la boule fermée de centre $\pt{O}$ et de rayon $\ell$.
+        En résumé, $\setproba{U}$ est un compact de $\RR^{2n}$.
+
+
+        \item Nous définissons la fonction $\alpha: \setproba{U} \rightarrow \RRp$ qui à un uplet de $\setproba{U}$ associe l'aire algébrique du \ncycle\ qu'il représente.
+        Cette fonction est continue d'après le fait \ref{sarea-cont}.
+        %
+        Donc, $\alpha$ admet un maximum sur $\setproba{U}$ par continuité et compacité. Affaire conclue!
+    \end{itemize}
+	
+	\null\vspace{-6ex}
+\end{proof}
+
+
+% ----------------------- %
+
+\newpage
+
+Nous arrivons au résultat central suivant pour les \ngones\ convexes. On perd a priori des sommets, mais nous verrons plus tard que cela suffit, car nous nous ramènerons à la comparaison de \kregs\ convexes pour $k$ variable, ce qui sera facile, puisque nous disposons de formules, en fonction de $k$, pour le périmètre et l'aire d'un \kreg\ convexe.
+
+
+\begin{fact} \label{at-least-one-kgone}
+    Soient $n \in \NN_{\geq3}$ et $\ell \in \RRs$ fixés.
+    Il existe un \kgone\ convexe $\setproba{K}$ validant les assertions suivantes.
+    %
+	\begin{itemize}
+		\item $k \leq n$.
+
+		\item $\cyclelen{\setproba{K}} = \ell$.
+
+		\item Si $\setproba{P}$ est un \ngone\ convexe tel que $\cyclelen{\setproba{P}} = \ell$, alors $\area{\setproba{P}} \leq \area{\setproba{K}}$.
+    \end{itemize}
+\end{fact}
+
+
+\begin{proof}
+    Reprenons les notations de la preuve du fait \ref{at-least-one-ncycle}, puis notons $\setproba{K}$ un \ncycle\ convexe maximisant la fonction $\alpha$ sur $\setproba{U}$, de sorte que $\cyclelen{\setproba{K}} = \ell$ est validée.
+    %
+    Il est immédiat que pour tout \ngone\ convexe $\setproba{P}$ tel que $\cyclelen{\setproba{P}} = \ell$, nous avons $\sarea{\setproba{P}} \leq \sarea{\setproba{K}}$, puis le fait \ref{sarea-ngone} donne que $\area{\setproba{P}} \leq \abs{\sarea{\setproba{K}}}$, après avoir noté que nécessairement $\sarea{\setproba{K}} \geq 0$.
+    %
+    Pour finir, voyons pourquoi $\setproba{K}$ est un \kgone\ convexe avec $k \leq n$, ce qui impliquera ensuite $\abs{\sarea{\setproba{K}}} = \area{\setproba{K}}$.
+    %
+	\begin{itemize}
+		\item XXX
+
+		\item XXX
+    \end{itemize}
+	
+	\null\vspace{-6ex}
+\end{proof}
