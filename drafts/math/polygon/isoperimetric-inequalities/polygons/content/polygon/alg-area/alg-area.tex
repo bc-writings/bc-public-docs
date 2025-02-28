@@ -1,4 +1,5 @@
-Pour prouver l'existence d'un \ngone\ solution du problème d'isopérimétrie polygonale, il faut un moyen \og continu \fg\ de calculer une aire polygonale. L'outil que nous allons utiliser est l'aire algébrique qui est définie pour tout \ncycle\ $\setproba{L} = A_1 A_2 \cdots A_n$ par $\frac12 \dsum_{i=1}^{n} \det \big( \vect{\Omega A^{\,\prime}_i} , \vect{\Omega A^{\,\prime}_{i+1}} \big)$ indépendamment du point $\Omega$.%
+L'existence d'un \ngone\ solution du problème d'isopérimétrie polygonale nécessite un moyen \og continu \fg\ de calculer une aire polygonale, ou plus généralement celle d'un \ncycle.
+Pour ce faire, nous utiliserons l'aire algébrique qui est définie pour tout \ncycle\ $\setproba{L} = A_1 A_2 \cdots A_n$ par $\frac12 \dsum_{i=1}^{n} \det \big( \vect{\Omega A^{\,\prime}_i} , \vect{\Omega A^{\,\prime}_{i+1}} \big)$ indépendamment du point $\Omega$.%
 \footnote{
     Ce fait est démontré un peu plus bas.
 }
@@ -65,9 +66,10 @@ Dans le cas précédent, le résultat pourrait dépendre du point $\Omega$ emplo
 
 
 \begin{fact} \label{sarea-pt-ct}
-    Soit $\setproba{L} = A_1 A_2 \cdots A_n$ un \ncycle\ où $n \geq 2$.
-    La fonction qui à un point $\Omega$ du plan associe
-    $\mu_1^n (\Omega ;\setproba{L}) = \dsum_{i=1}^{n} \det \big( \vect{\Omega A^{\,\prime}_i} , \vect{\Omega A^{\,\prime}_{i+1}} \big)$ est indépendante du point $\Omega$.
+    Soit $\setproba{L} = A_1 A_2 \cdots A_n$ un \ncycle.
+    La quantité
+    $\mu_1^n (\Omega ;\setproba{L}) = \dsum_{i=1}^{n} \det \big( \vect{\Omega A^{\,\prime}_i} , \vect{\Omega A^{\,\prime}_{i+1}} \big)$ 
+    est indépendante du point $\Omega$.
     Dans la suite, cette quantité indépendante de $\Omega$ sera notée $\mu_1^n (\setproba{L})$.
 \end{fact}
 
@@ -115,12 +117,13 @@ Dans le cas précédent, le résultat pourrait dépendre du point $\Omega$ emplo
 
 
 \begin{fact} \label{nline-shift-inva}
-    Soit $\setproba{L} = A_1 A_2 \cdots A_n$ un \ncycle\ où $n \geq 2$.
-    Pour $k \in \ZintervalC{1}{n}$,
-    définissant le \ncycle\ $\setproba{L}_k = B_1 B_2 \cdots B_n$ par $B_i = A^{\,\prime}_{i+k-1}$,
-    nous avons
+    Soient $\setproba{L} = A_1 A_2 \cdots A_n$ un \ncycle,
+    et
+    le \ncycle\ $\setproba{L}_k = B_1 B_2 \cdots B_n$ par $B_i = A^{\,\prime}_{i+k-1}$ où $k \in \ZintervalC{1}{n}$,
+    %
+    Nous avons
     $\mu_1^n (\setproba{L}) = \mu_1^n (\setproba{L}_k)$.
-    Dans la suite, cette quantité commune sera notée $\mu (\setproba{L})$.
+    Cette quantité commune sera notée $\mu (\setproba{L})$.
 \end{fact}
 
 
@@ -133,10 +136,12 @@ Dans le cas précédent, le résultat pourrait dépendre du point $\Omega$ emplo
 
 
 \begin{fact} \label{nline-rota-opp}
-    Soit
-    $\setproba{L} = A_1 A_2 \cdots A_n$ un \ncycle\ où $n \geq 2$.
-    Le \ncycle\ \og \emph{opposé} \fg\ $\setproba{L}^{\mathrm{op}} = B_1 B_2 \cdots B_n$, où $B_i =  A_{n + 1 - i}$,
-    vérifie
+    Soient
+    $\setproba{L} = A_1 A_2 \cdots A_n$ un \ncycle.
+    et
+    son \ncycle\ \og \emph{opposé} \fg\ $\setproba{L}^{\mathrm{op}} = B_1 B_2 \cdots B_n$ où $B_i =  A_{n + 1 - i}$.
+    %
+    Nous avons
     $\mu(\setproba{L}^{\mathrm{op}}) = {} - \mu(\setproba{L})$.
 \end{fact}
 
@@ -169,12 +174,12 @@ Dans le cas précédent, le résultat pourrait dépendre du point $\Omega$ emplo
 
 \begin{fact} \label{sarea-ncycle}
     Soit
-    $\setproba{L} = A_1 A_2 \cdots A_n$ un \ncycle\ où $n \geq 2$.
+    $\setproba{L} = A_1 A_2 \cdots A_n$ un \ncycle.
     La quantité $\sarea{\setproba{L}} = \frac12 \mu(\setproba{L})$ ne dépend que du sens de parcours de $\setproba{L}$, mais pas du point de départ.%
     \footnote{
         Le lecteur pardonnera les abus de langage utilisés.
     }
-    Elle sera appelée \og \emph{aire algébrique} \fg\ de $\setproba{L}$, et elle est étendue au \xcycle{0} et aux \xcycles{1} par $\sarea{\setproba{L}} = 0$ pour ces cycles particuliers.
+    Elle sera appelée \og \emph{aire algébrique} \fg\ de $\setproba{L}$.
 \end{fact}
 
 
@@ -187,7 +192,7 @@ Dans le cas précédent, le résultat pourrait dépendre du point $\Omega$ emplo
 
 
 Considérons, maintenant, un \ngone\ convexe $\setproba{P} = A_1 A_2 \cdots A_n$ où les sommets sont parcourus dans le sens anti-horaire.
-En choisissant l'isobarycentre $G$ des points $A_1$, $A_2$, ..., $A_n$ pour le calcul de $\sarea{\setproba{P}}$, nous obtenons que $\area{\setproba{P}} = \sarea{\setproba{P}}$:
+En choisissant l'isobarycentre $G$ des points $A_1$, $A_2$, ..., $A_n$ pour calculer $\sarea{\setproba{P}}$, nous obtenons $\area{\setproba{P}} = \sarea{\setproba{P}}$:
 en effet,
 avec ce choix, tous les déterminants $\det \big( \vect{G A^{\,\prime}_i} , \vect{G A^{\,\prime}_{i+1}} \big)$ sont positifs.
 Dans le cas non-convexe, les choses se compliquent a priori, car nous ne maîtrisons plus les signes des déterminants. Heureusement, nous avons le résultat essentiel suivant.
@@ -197,7 +202,7 @@ Dans le cas non-convexe, les choses se compliquent a priori, car nous ne maîtri
     Soit un \ngone\ $\setproba{P} = A_1 A_2 \cdots A_n$ tel que $A_1$, $A_2$, ..., $A_n$ soient parcourus dans le sens trigonométrique, ou anti-horaire.
     Un tel \ngone\ sera dit \og \emph{positif} \fg.%
     \footnote{
-    	Bien noté que cette notion ne peut pas exister pour un \ngone\ croisé. De façon cachée, nous utilisons le célèbre théorème de Jordan, dans sa forme polygonale.
+    	De façon cachée, nous utilisons le célèbre théorème de Jordan, dans sa forme polygonale.
     }
     Sous cette hypothèse, nous avons 
     $\mu(\setproba{P}) \geq 0$,
@@ -407,7 +412,7 @@ Finissons par un théorème de continuité qui permettra de justifier l'existenc
 
 
 \begin{fact} \label{sarea-cont}
-    Soient $n \in \NN_{\geq2}$ et
+    Soient $n \in \NN_{\geq3}$ et
     $\pvaxes{O | i | j}$ un repère orthonormé direct du plan. 
     On note $\setproba{U} \subset \RR^{2n}$ l'ensemble des uplets de coordonnées $\big( x(A_1) ; y(A_1) ; \dots ; x(A_n) ; y(A_n) \big)$ où $A_1 A_2 \cdots A_n$ désigne un \ncycle,
     et $\alpha: \setproba{U} \rightarrow \RRp$ la fonction qui à un uplet de $\setproba{U}$ associe l'aire algébrique du \ncycle\ qu'il représente.
