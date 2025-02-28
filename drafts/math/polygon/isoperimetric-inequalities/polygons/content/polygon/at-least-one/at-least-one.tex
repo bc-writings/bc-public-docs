@@ -1,67 +1,109 @@
 L'étude du cas des quadrilatères a montré que la convexité était un ingrédient central. Ceci sera aussi le cas pour les \ngones, bien que moins immédiat à justifier, comme nous le verrons dans le fait \ref{max-is-conv} dont la preuve est indépendante des résultats de cette section.
 %
-Ceci explique qu'ici nous cherchions à justifier l'existence d'au moins un \ngone\ convexe d'aire maximale parmi les \ngones\ convexes de longueur fixée.
+Ceci explique qu'ici nous cherchions à justifier l'existence d'au moins un \ngone\ convexe d'aire maximale parmi les \ngones\ convexes de longueur fixée. Nous allons presque y arriver...
 
 
 % ----------------------- %
 
 
-\newpage
-
 \begin{fact}
-    Si $\setproba{L}$ est un \ncycle\ convexe, alors nous avons l'une des deux alternatives suivantes.
+    Si $\setproba{P} = A_1 A_2 \cdots A_n$ est un \ngone\ convexe, alors nous avons l'une des deux alternatives suivantes.
     %
 	\begin{itemize}
 		\item $\forall (i, k) \in \ZintervalC{1}{n}^2$,
-		$\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_k} \big) \geq 0$.
+		$\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_k} \big) > 0$
+		dès que $k \notin \setgene{i ; i+1}$.
 
 		\item $\forall (i, k) \in \ZintervalC{1}{n}^2$,
-		$\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_k} \big) \leq 0$.
+		$\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_k} \big) < 0$
+		dès que $k \notin \setgene{i ; i+1}$.
     \end{itemize}
 \end{fact}
 
 
 \begin{proof}
-    Soit $\setproba{L}$ un \ncycle\ convexe. 
-    Supposons avoir $\forall (i, k, j, m) \in \ZintervalC{1}{n}^4$ vérifiant
-    $\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_k} \big) > 0$
-    et
-    $\det \big( \vect{A^{\,\prime}_j A^{\,\prime}_{j+1}}, \vect{A^{\,\prime}_j A^{\,\prime}_m} \big) < 0$.
+    Le cas $n = 3$ étant immédiat, nous allons supposer $n \geq 4$. 
     %
-    Quitte à considérer $\setproba{L}^{\mathrm{op}}$, et à changer d'origine, on peut supposer avoir 
-    $\det \big( \vect{A^{\,\prime}_1 A^{\,\prime}_2}, \vect{A^{\,\prime}_1 A^{\,\prime}_k} \big) > 0$
-    et
-    $\det \big( \vect{A^{\,\prime}_2 A^{\,\prime}_3}, \vect{A^{\,\prime}_2 A^{\,\prime}_m} \big) < 0$
-    (il suffit de considérer $k$ le plus petit possible tel que $k > i$, puis ensuite $i$ le plus grand possible tel que $i < k$, pour obtenir $k = i+1$). Nous avons alors les résultats suivants.
+    Comme $\setproba{P}$ est un \ngone, nous savons que ses sommets sont distincts deux à deux, et qu'aucun triplet de sommets consécutifs alignés n'existe. 
+    %
+    Dès lors, dans le plan orienté, les trois premiers sommets sont placés suivant l'une des deux configurations suivantes. 
+    
+    \begin{multicols}{2}
+    	\small\itshape\centering
+    	\includegraphics[scale=.45]{content/polygon/at-least-one/conv-det-sign-1.png}
+	    
+	    \smallskip
+	    Cas positif.
+    
+    	\includegraphics[scale=.45]{content/polygon/at-least-one/conv-det-sign-2.png}
+	    
+	    \smallskip
+	    Cas négatif.
+    \end{multicols}
+
+    
+    Considérons le cas positif, c'est-à-dire supposons que 
+    $\det \big( \vect{A^{\,\prime}_1 A^{\,\prime}_2}, \vect{A^{\,\prime}_1 A^{\,\prime}_3} \big) > 0$.
     %
 	\begin{itemize}
-		\item Par convexité, 
-        $\forall r \in \ZintervalC{1}{n}$,
-        nous avons
-        $\det \big( \vect{A^{\,\prime}_1 A^{\,\prime}_2}, \vect{A^{\,\prime}_1 A^{\,\prime}_r} \big) \geq 0$
-        et
-        $\det \big( \vect{A^{\,\prime}_2 A^{\,\prime}_3}, \vect{A^{\,\prime}_2 A^{\,\prime}_r} \big) \leq 0$.
+		\item $\vect{A^{\,\prime}_1 A^{\,\prime}_3} = \vect{A^{\,\prime}_1 A^{\,\prime}_2} + \vect{A^{\,\prime}_2 A^{\,\prime}_3}$
+		donne
+		$\det \big( \vect{A^{\,\prime}_2 A^{\,\prime}_3}, \vect{A^{\,\prime}_2 A^{\,\prime}_1} \big) > 0$.
 
 
-		\item En particulier,
-        $\det \big( \vect{A^{\,\prime}_1 A^{\,\prime}_2}, \vect{A^{\,\prime}_1 A^{\,\prime}_r} \big) \geq 0$
-        et
-        $\det \big( \vect{A^{\,\prime}_2 A^{\,\prime}_3}, \vect{A^{\,\prime}_2 A^{\,\prime}_r} \big) \leq 0$.
+		\item Comme $A_2$, $A_3$ et $A_4$ ne sont pas alignés, et de plus $A_1$ et $A_4$ du même côté de la droite $(A_2 A_3)$, nous obtenons
+		$\det \big( \vect{A^{\,\prime}_2 A^{\,\prime}_3}, \vect{A^{\,\prime}_2 A^{\,\prime}_4} \big) > 0$.
 
 
-		\item Le point précédent n'est possible que si $A_1$, $A_2$ et $A_3$ sont alignés comme le montre le dessin suivant où les hachures donnent les zones où doivent se trouver les sommets relativement aux droites $(A_1 A_2)$, hachures vertes, et $(A_2 A_3)$, hachures marron, les droites étant comprises.
-    \end{itemize}
+		\item En continuant de proche en proche, nous arrivons à
+		$\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_{i+2}} \big) > 0$
+		pour $i \in \ZintervalC{1}{n}$ quelconque.
+
+
+		\item Le point précédent et la convexité donnent
+		$\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_k} \big) \geq 0$
+		pour $(i, k) \in \ZintervalC{1}{n}^2$ tel que $k \notin \setgene{i ; i+1}$.
+
+
+		\item Supposons avoir $(i, k) \in \ZintervalC{1}{n}^2$ tel que
+		$k \notin \setgene{i ; i+1}$
+		et
+		$\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_k} \big) = 0$.
+		Quitte à renommer les sommets si besoin, nous pouvons supposer que $i = 1$, et donc que nous avons $k \in \ZintervalC{3}{n}$ tel que
+		$\det \big( \vect{A^{\,\prime}_1 A^{\,\prime}_2}, \vect{A^{\,\prime}_1 A^{\,\prime}_k} \big) = 0$.
+        Ceci nous amène à étudier les deux configurations suivantes. 
     
-    \begin{center}
-        \includegraphics[scale=.5]{content/polygon/at-least-one/conv-det-sign.png}
-    \end{center}
+        \begin{multicols}{2}
+        	\small\itshape\centering
+        	\includegraphics[scale=.45]{content/polygon/at-least-one/conv-det-sign-KO-1.png}
+    	    
+    	    \smallskip
+    	    Cas 1.
+        
+        	\includegraphics[scale=.45]{content/polygon/at-least-one/conv-det-sign-KO-2.png}
+    	    
+    	    \smallskip
+    	    Cas 2.
+        \end{multicols}
+        
+        \noindent 
+        XXX
 
 
-    \begin{itemize}
-		\item XXXX
+
+
+
+
+
+
+		\item Finalement,
+		$\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_k} \big) > 0$
+		pour $(i, k) \in \ZintervalC{1}{n}^2$ tel que $k \notin \setgene{i ; i+1}$.
     \end{itemize}
-	
-	\null\vspace{-6ex}
+
+    \smallskip
+    
+    Le cas négatif se traite de façon similaire. 
 \end{proof}
 
 
@@ -71,8 +113,8 @@ Ceci explique qu'ici nous cherchions à justifier l'existence d'au moins un \ngo
 \newpage
 
 \begin{fact} \label{at-least-one-ncycle}
-    Soit $n \in \NN_{\geq3}$ un naturel fixé.
-    Parmi tous les \ncycles\ convexes de longueur $\ell$ fixée, non nulle, il en existe au moins un d'aire algébrique maximale.
+    Soient $n \in \NN_{\geq3}$ et $\ell \in \RRsp$ fixés.
+    Parmi tous les \ncycles\ convexes de longueur $\ell$, il en existe au moins un d'aire algébrique maximale.
 \end{fact}
 
 
@@ -122,7 +164,7 @@ Nous arrivons au résultat central suivant pour les \ngones\ convexes. On perd a
 
 
 \begin{fact} \label{at-least-one-kgone}
-    Soient $n \in \NN_{\geq3}$ et $\ell \in \RRs$ fixés.
+    Soient $n \in \NN_{\geq3}$ et $\ell \in \RRsp$ fixés.
     Il existe un \kgone\ convexe $\setproba{K}$ validant les assertions suivantes.
     %
 	\begin{itemize}
