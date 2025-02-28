@@ -70,14 +70,25 @@
 
 
 
-\NewDocumentCommand{\xiso}{m}{$#1$-isogone}
-\NewDocumentCommand{\xisos}{m}{\xgone{#1}s}
+\NewDocumentCommand{\xiso}{m}{\xgone{#1} équiangle}
+\NewDocumentCommand{\xisos}{m}{\xgones{#1} équiangles}
 
 \newcommand{\niso}{\xiso{n}}
 \newcommand{\nisos}{\xisos{n}}
 
 \newcommand{\kiso}{\xiso{k}}
 \newcommand{\kisos}{\xisos{k}}
+
+
+
+\NewDocumentCommand{\xreg}{m}{\xgone{#1} régulier}
+\NewDocumentCommand{\xregs}{m}{\xgones{#1} réguliers}
+
+\newcommand{\nreg}{\xreg{n}}
+\newcommand{\nregs}{\xregs{n}}
+
+\newcommand{\kreg}{\xreg{k}}
+\newcommand{\kregs}{\xregs{k}}
 
 
 
@@ -93,7 +104,7 @@
 
 \title{BROUILLON - Inégalités isopérimétriques restreintes aux polygones}
 \author{Christophe BAL}
-\date{18 Jan. 2025 -- 27 Fev. 2025}
+\date{18 Jan. 2025 -- 28 Fev. 2025}
 
 \maketitle
 
@@ -199,15 +210,15 @@ Nous nous limiterons ici au cas des polygones, en privilégiant des démonstrati
 
 
 \subsection{Quelques définitions}
-\input{content/polygon/def}
+\input{content/polygon/def/def}
 
 
-\subsection{Aire algébrique d'un \ncycle}
-\input{content/polygon/alg-area/alg-area}
-
-
-\subsection{Au moins une solution, ou presque}
-\input{content/polygon/at-least-one}
+%\subsection{Aire algébrique d'un \ncycle}
+%\input{content/polygon/alg-area/alg-area}
+%
+%
+%\subsection{Au moins une solution, ou presque}
+%\input{content/polygon/at-least-one}
 %
 %
 %\subsection{Solutions, qui êtes-vous?}
