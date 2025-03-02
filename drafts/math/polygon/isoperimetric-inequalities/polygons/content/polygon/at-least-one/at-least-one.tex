@@ -1,57 +1,58 @@
-L'étude du cas des quadrilatères a montré que la convexité était un ingrédient central. Ceci sera aussi le cas pour les \ngones, bien que moins immédiat à justifier, comme nous le verrons dans le fait \ref{max-is-conv}, dont la preuve est indépendante des résultats de cette section.
+Le cas des quadrilatères a montré que la convexité était un ingrédient central. Ceci sera aussi le cas pour les \ngones, bien que moins immédiat à justifier, comme nous le verrons dans le fait \ref{max-is-conv}, dont la preuve est indépendante des résultats de cette section.
 %
 Ceci explique que nous allons chercher à justifier l'existence d'au moins un \ngone\ convexe d'aire maximale parmi les \ngones\ convexes de longueur fixée. Nous allons presque y arriver...
+Pour ce faire, commençons par vérifier que notre définition d'un \ngone\ convexe correspond bien à ce que nous connaissions des polygones convexes au lycée.
 
 
 % ----------------------- %
 
 
 \begin{fact} \label{conv-pos-det}
-    Si $\setproba{P} = A_1 A_2 \cdots A_n$ est un \ngone\ convexe, alors nous avons l'une des deux alternatives suivantes.
+    Pour tout \ngone\ convexe $\setproba{P} = A_1 A_2 \cdots A_n$, l'une des alternatives suivantes a lieu.
     %
 	\begin{itemize}
 		\item $\forall (i, k) \in \ZintervalC{1}{n}^2$,
-		$\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_k} \big) \geq 0$.
+		si $k \notin \setgene{i ; i+1}$, alors
+		$\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_k} \big) > 0$.
 
 		\item $\forall (i, k) \in \ZintervalC{1}{n}^2$,
-		$\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_k} \big) \leq 0$.
+		si $k \notin \setgene{i ; i+1}$, alors
+		$\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_k} \big) < 0$.
     \end{itemize}
 \end{fact}
 
 
 \begin{proof}
-    Le cas $n = 3$ étant immédiat, nous allons supposer $n \geq 4$. 
-    %
-    Comme $\setproba{P}$ est un \ngone, nous savons que ses sommets sont distincts deux à deux, et qu'aucun triplet de sommets consécutifs alignés n'existe. 
-    %
-    Dès lors, dans le plan orienté, les trois premiers sommets sont placés suivant l'une des deux configurations suivantes. 
+	Le cas $n = 3$ des triangles est immédiat.
+	On considère alors $\setproba{P}$ un \ngone\ convexe où  $n \geq 4$.
+	Nous savons que, relativement à $\setproba{P}$, les sommets sont distincts deux à deux, et qu'aucun triplet de sommets consécutifs alignés n'existe.
+	Dès lors, dans le plan orienté, les trois premiers sommets sont placés suivant l'une des deux configurations suivantes. 
     
     \begin{multicols}{2}
-    	\small\itshape\centering
-    	\includegraphics[scale=.45]{content/polygon/at-least-one/conv-det-sign-1.png}
-	    
-	    \smallskip
-	    Cas positif.
-    
-    	\includegraphics[scale=.45]{content/polygon/at-least-one/conv-det-sign-2.png}
-	    
-	    \smallskip
-	    Cas négatif.
+        \small\itshape\centering
+       	\includegraphics[scale=.45]{content/polygon/at-least-one/conv-det-sign-1.png}
+    	    
+    	\smallskip
+        Cas positif.
+        
+        \includegraphics[scale=.45]{content/polygon/at-least-one/conv-det-sign-2.png}
+    	    
+    	\smallskip
+        Cas négatif.
     \end{multicols}
 
     
-    \newpage
-    
+    \noindent
     Considérons le cas positif, c'est-à-dire supposons que 
     $\det \big( \vect{A^{\,\prime}_1 A^{\,\prime}_2}, \vect{A^{\,\prime}_1 A^{\,\prime}_3} \big) > 0$.
-    %
+	%
 	\begin{itemize}
-		\item $\vect{A^{\,\prime}_1 A^{\,\prime}_3} = \vect{A^{\,\prime}_1 A^{\,\prime}_2} + \vect{A^{\,\prime}_2 A^{\,\prime}_3}$
-		donne
+    	\item $\vect{A^{\,\prime}_1 A^{\,\prime}_3} = \vect{A^{\,\prime}_1 A^{\,\prime}_2} + \vect{A^{\,\prime}_2 A^{\,\prime}_3}$
+    	donne
 		$\det \big( \vect{A^{\,\prime}_2 A^{\,\prime}_3}, \vect{A^{\,\prime}_2 A^{\,\prime}_1} \big) > 0$.
 
 
-		\item Comme $A_2$, $A_3$ et $A_4$ ne sont pas alignés, et de plus $A_1$ et $A_4$ du même côté de la droite $(A_2 A_3)$, nous obtenons
+		\item Comme $A_2$, $A_3$ et $A_4$ ne sont pas alignés, et de plus $A_1$ et $A_4$ du même côté, au sens large, de la droite $(A_2 A_3)$, nous obtenons
 		$\det \big( \vect{A^{\,\prime}_2 A^{\,\prime}_3}, \vect{A^{\,\prime}_2 A^{\,\prime}_4} \big) > 0$.
 
 
@@ -63,19 +64,156 @@ Ceci explique que nous allons chercher à justifier l'existence d'au moins un \n
 		\item Le point précédent et la convexité donnent
 		$\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_k} \big) \geq 0$
 		pour $(i, k) \in \ZintervalC{1}{n}^2$ tel que $k \notin \setgene{i ; i+1}$.
-    \end{itemize}
 
-    \smallskip
+
+		\item
+		Montrons maintenant que
+		$\det \big( \vect{A^{\,\prime}_1 A^{\,\prime}_2}, \vect{A^{\,\prime}_1 A^{\,\prime}_k} \big) > 0$
+		pour $k \in \ZintervalC{3}{n}$.
+		%
+		Nous savons déjà l'inégalité vraie pour $k = 3$, donc passons à $k = 4$.
+		Pour avoir 
+		$\det \big( \vect{A^{\,\prime}_1 A^{\,\prime}_2}, \vect{A^{\,\prime}_1 A^{\,\prime}_k} \big) > 0$, 
+		le point précédent donne qu'il faut vérifier que 
+		$\det \big( \vect{A^{\,\prime}_1 A^{\,\prime}_2}, \vect{A^{\,\prime}_1 A^{\,\prime}_k} \big) = 0$
+		est impossible.
+		Supposons donc l'égalité vraie, ce qui implique d'avoir $n \geq 5$, et donne les configurations suivantes où les hachures et la droite en trait plein sont des zones interdites pour $A_4$.
+
+        \begin{multicols}{2}
+            \small\itshape\centering
+           	\includegraphics[scale=.4]{content/polygon/at-least-one/conv-det-A4-1.png}
+        	    
+        	\smallskip
+            Cas 1.
+            
+            \includegraphics[scale=.4]{content/polygon/at-least-one/conv-det-A4-2.png}
+        	    
+        	\smallskip
+            Cas 2.
+        \end{multicols}
     
-    Le cas négatif se traite de façon similaire. 
+		\noindent
+		Le cas 2 est impossible par raison de convexité, car $A_1$ et $A_2$ sont de part et d'autre de la droite $(A_3 A_4)$. Voyons donc ce qu'implique le 1\ier\ cas pour $A_5$.
+		
+        \begin{multicols}{2}
+            \small\itshape\centering
+           	\includegraphics[scale=.4]{content/polygon/at-least-one/conv-det-A5-1.png}
+        	    
+        	\smallskip
+            Cas 1-1.
+            
+            \includegraphics[scale=.4]{content/polygon/at-least-one/conv-det-A5-2.png}
+        	    
+        	\smallskip
+            Cas 1-2.
+        \end{multicols}
+    
+		\noindent
+		Le cas 1-2 est impossible par raison de convexité à cause de $(A_4 A_5)$.
+		Notons que dans le cas 1-1, il est possible d'avoir $A_5 \in ]A_4 A_1[$.
+		Comme $A_5 \in (A_1 A_2)$, nous devons avoir $n \geq 6$.
+		Dès lors, nous avons de nouveau $A_6 \in (A_1 A_2)$, mais ceci donne la contradiction $A_6 \in (A_4 A_5)$.
+		Continuons ensuite de proche en proche, nous obtenons bien
+		$\det \big( \vect{A^{\,\prime}_1 A^{\,\prime}_2}, \vect{A^{\,\prime}_1 A^{\,\prime}_k} \big) > 0$
+		pour $k \in \ZintervalC{3}{n}$.
+
+
+		\item En généralisant le raisonnement précédent,%
+		\footnote{
+		    Se souvenir de la définition de la suite $(A^{\,\prime}_i)$.
+		}
+		nous avons
+		$\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_k} \big) > 0$
+		pour tout couple $(i, k) \in \ZintervalC{1}{n}^2$ vérifiant $k \notin \setgene{i ; i+1}$.
+	\end{itemize}
+
+
+    \noindent
+    Le cas négatif se traite de façon similaire.
 \end{proof}
 
 
 % ----------------------- %
 
 
-On aurait pu établir des inégalités strictes pour les indices $k \notin \setgene{i ; i+1}$, mais nous n'aurons pas besoin de cette précision, car nous allons travailler dans un ensemble compact, et donc fermé, de \ncycles.
-Ceci aura pour inconvénient de ne pas garantir le caractère $n$-gonal, mais nous n'avons pas le choix!
+\newpage %TEMPO
+
+Nous allons établir une réciproque élargie du résultat précédent. Ce nouveau fait va nous rendre un grand service par la suite.%
+\footnote{
+    Pourquoi s'attarder sur des inégalités larges? Parce que nous allons travailler dans un ensemble compact, et donc fermé, de \ncycles, même si cela aura pour inconvénient de ne pas garantir le caractère $n$-gonal, selon le fait \ref{conv-from-non-neg-det}, mais nous n'avons pas le choix!
+}
+
+
+\begin{fact} \label{conv-from-non-neg-det}
+    Soit $\setproba{L} = A_1 A_2 \cdots A_n$ un \ncycle\ convexe vérifiant l'une des alternatives suivantes.
+    %
+	\begin{itemize}
+		\item $\forall (i, k) \in \ZintervalC{1}{n}^2$,
+		$\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_k} \big) \geq 0$.
+
+		\item $\forall (i, k) \in \ZintervalC{1}{n}^2$,
+		$\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_k} \big) \leq 0$.
+    \end{itemize}
+    
+    Ceci implique la validité de l'une des deux assertions ci-dessous.
+    %
+	\begin{enumerate}[label=\roman*.]
+		\item Tous les sommets de $\setproba{L}$ sont alignés, autrement dit, $\setproba{L}$ est totalement dégénéré.
+
+		\item XXXX
+    \end{enumerate}
+\end{fact}
+
+
+\begin{proof}
+    Par symétrie des alternatives à vérifier, nous pouvons nous concentrer sur le cas positif, c'est-à-dire supposer que
+    $\forall (i, k) \in \ZintervalC{1}{n}^2$,
+	$\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_k} \big) \geq 0$.
+	%
+    Supposons alors $\setproba{L}$ non totalement dégénéré, de sorte qu'il existe 
+    $(i, k) \in \ZintervalC{1}{n}^2$ tel que
+	$k \notin \setgene{i ; i+1}$
+	et
+	$\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_k} \big) > 0$.
+	Pour raisonner algorithmiquement, nous aurons besoin d'un ensemble $\setgeo{T}$ de sommets testés, et d'une liste $\setalge{U}$ de sommets utiles, tous les deux initialement vides.
+	%
+	\begin{enumerate}
+    	\item XXXX
+
+
+    	\item XXXX
+
+
+    	\item XXXX
+
+
+    	\item Prenons alors $k$ minimal.
+    \end{enumerate}
+    
+    
+    YYYY
+    
+    
+    Quitte à changer l'origine de $\setproba{L}$, sans changer le sens de parcours des sommets, nous pouvons supposer avoir $i = 1$, et donc
+		$k \in \ZintervalC{3}{n}$
+		tel que
+		$\det \big( \vect{A^{\,\prime}_1 A^{\,\prime}_2}, \vect{A^{\,\prime}_1 A^{\,\prime}_k} \big) > 0$.
+		Lors de ce renommage, on met aussi à jour tous les noms des points contenus dans $\setgeo{T}$ et $\setalge{U}$.
+\end{proof}
+
+
+
+
+
+
+% ----------------------- %
+
+
+\newpage %TEMPO
+XXX
+
+
+Le résultat qui suit est juste là pour simplifier la justification du fait \ref{at-least-one-kgone} à venir.
 
 
 \begin{fact} \label{at-least-one-ncycle}
@@ -108,6 +246,9 @@ Ceci aura pour inconvénient de ne pas garantir le caractère $n$-gonal, mais no
 
 % ----------------------- %
 
+
+\newpage %TEMPO
+XXX
 
 Nous arrivons, ci-dessous, au résultat central pour les \ngones\ convexes où la perte éventuelle de sommets est un faux problème, car nous aboutirons, plus tard, à la comparaison de \kregs\ convexes pour $k$ variable, une tâche aisée, puisque le périmètre et l'aire d'un \kreg\ convexe s'expriment en fonction de $k$.
 
