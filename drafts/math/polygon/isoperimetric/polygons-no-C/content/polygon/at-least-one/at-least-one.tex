@@ -1,7 +1,6 @@
 Le cas des quadrilatères a montré que la convexité était un ingrédient central. Ceci sera aussi le cas pour les \ngones, bien que moins immédiat à justifier, comme nous le verrons dans le fait \ref{max-is-conv}, dont la preuve est indépendante des résultats de cette section.
 %
 Ceci explique que nous allons chercher à justifier l'existence d'au moins un \ngone\ convexe d'aire maximale parmi les \ngones\ convexes de longueur fixée. Nous allons presque y arriver...
-Pour ce faire, commençons par vérifier que notre définition d'un \ngone\ convexe correspond bien à ce que nous connaissions des polygones convexes au lycée.
 
 
 % ----------------------- %
@@ -136,7 +135,8 @@ Pour ce faire, commençons par vérifier que notre définition d'un \ngone\ conv
 % ----------------------- %
 
 
-\newpage %TEMPO
+\newpage
+
 
 Nous allons établir une réciproque élargie du résultat précédent. Ce nouveau fait va nous rendre un grand service par la suite.%
 \footnote{
@@ -145,7 +145,7 @@ Nous allons établir une réciproque élargie du résultat précédent. Ce nouve
 
 
 \begin{fact} \label{conv-from-non-neg-det}
-    Soit $\setproba{L} = A_1 A_2 \cdots A_n$ un \ncycle\ convexe vérifiant l'une des alternatives suivantes.
+    Soit $\setproba{L} = A_1 A_2 \cdots A_n$ un \ncycle\ vérifiant l'une des alternatives suivantes.
     %
 	\begin{itemize}
 		\item $\forall (i, k) \in \ZintervalC{1}{n}^2$,
@@ -155,29 +155,42 @@ Nous allons établir une réciproque élargie du résultat précédent. Ce nouve
 		$\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_k} \big) \leq 0$.
     \end{itemize}
     
-    Ceci implique la validité de l'une des deux assertions ci-dessous.
+    Ceci implique la validité de l'une des assertions ci-dessous.
     %
 	\begin{enumerate}[label=\roman*.]
 		\item Tous les sommets de $\setproba{L}$ sont alignés, autrement dit, $\setproba{L}$ est totalement dégénéré.
 
-		\item XXXX
+		\item $\setproba{L}$ est un \ngone\ convexe.
+
+		\item Il existe un \kgone\ convexe $\setproba{C}$ tel que
+		$k < n$, 
+		$\cyclelen{\setproba{C}} \leq \cyclelen{\setproba{L}}$
+		et
+		$\sarea{\setproba{C}} = \sarea{\setproba{L}}$,
+		ceci se faisant en retirant des sommets de $\setproba{L}$, sans modifier l'ordre de parcours pour les sommets gardés.
     \end{enumerate}
 \end{fact}
 
 
 \begin{proof}
-    Par symétrie des alternatives à vérifier, nous pouvons nous concentrer sur le cas positif, c'est-à-dire supposer que
+    Par symétrie des alternatives, nous pouvons nous concentrer sur le cas positif, c'est-à-dire supposer que
     $\forall (i, k) \in \ZintervalC{1}{n}^2$,
 	$\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_k} \big) \geq 0$.
 	%
-    Supposons alors $\setproba{L}$ non totalement dégénéré, de sorte qu'il existe 
-    $(i, k) \in \ZintervalC{1}{n}^2$ tel que
-	$k \notin \setgene{i ; i+1}$
-	et
+    Traitons alors le cas où $\setproba{L}$ est non totalement dégénéré, de sorte que 
+    $\exists (i, k) \in \ZintervalC{1}{n}^2$
+	tel que
 	$\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_k} \big) > 0$.
-	Pour raisonner algorithmiquement, nous aurons besoin d'un ensemble $\setgeo{T}$ de sommets testés, et d'une liste $\setalge{U}$ de sommets utiles, tous les deux initialement vides.
+
+
+
+
+
+
+    XXX
+    Pour raisonner algorithmiquement, nous aurons besoin d'un ensemble $\setgeo{T}$ de sommets testés, et d'une liste $\setalge{U}$ de sommets utiles, tous les deux initialement vides.
 	%
-	\begin{enumerate}
+	\begin{itemize}
     	\item XXXX
 
 
@@ -188,8 +201,10 @@ Nous allons établir une réciproque élargie du résultat précédent. Ce nouve
 
 
     	\item Prenons alors $k$ minimal.
-    \end{enumerate}
+    \end{itemize}
     
+
+
     
     YYYY
     
@@ -202,18 +217,11 @@ Nous allons établir une réciproque élargie du résultat précédent. Ce nouve
 \end{proof}
 
 
-
-
-
-
 % ----------------------- %
 
 
 \newpage %TEMPO
-XXX
-
-
-Le résultat qui suit est juste là pour simplifier la justification du fait \ref{at-least-one-kgone} à venir.
+Le résultat qui suit est juste là pour simplifier la justification du fait \ref{at-least-one-kgone}, central, à venir.
 
 
 \begin{fact} \label{at-least-one-ncycle}
@@ -226,13 +234,13 @@ Le résultat qui suit est juste là pour simplifier la justification du fait \re
     \begin{itemize}
         \item $\cyclelen{\setproba{L}} = \ell$.
     
-        \item  $\forall (i, k) \in \ZintervalC{1}{n}^2$,
+        \item $\forall (i, k) \in \ZintervalC{1}{n}^2$,
 		$\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_k} \big) \geq 0$.
     \end{itemize}
     
     On considère alors la fonction $\alpha: \setproba{U} \rightarrow \RRp$ qui à un uplet de $\setproba{U}$ associe l'aire algébrique du \ncycle\ qu'il représente.
    	%
-	Avec ces notations, la fonction $\alpha: \setproba{U} \rightarrow \RRp$ admet au moins un maximum.
+	Avec ces notations, la fonction $\alpha: \setproba{U} \rightarrow \RRp$ admet au moins un maximum forcément positif strict.
 \end{fact}
 
 
@@ -240,17 +248,37 @@ Le résultat qui suit est juste là pour simplifier la justification du fait \re
      $\setproba{U}$ est fermé dans $\RR^{2n}$, car les conditions le définissant le sont, et il est borné, car inclus dans la boule fermée de centre $\pt{O}$ et de rayon $\ell$,
      donc $\setproba{U}$ est un compact de $\RR^{2n}$.
      De plus, $\alpha$ est continue d'après le fait \ref{sarea-cont}.
-     Finalement, par continuité et compacité, $\alpha$ admet un maximum sur $\setproba{U}$.
+     Donc, par continuité et compacité, $\alpha$ admet un maximum sur $\setproba{U}$, celui-ci étant positif strict pour les raisons suivantes.
+    %
+    \begin{itemize}
+		\item Via une translation, on peut supposer $\setproba{R}$ d'origine $\pt{O}$.
+
+
+        \item Un \nreg\ convexe $\setproba{R}$, de périmètre $\ell$, est d'aire non nulle.
+
+        \item $\area{\setproba{R}} = \abs{\sarea{\setproba{R}}}$
+		selon le fait \ref{sarea-ngone},
+		et
+		$\sarea{\setproba{R}^{\mathrm{op}}} = - \sarea{\setproba{R}}$ d'après le fait \ref{nline-rota-opp}.
+		
+		\item $\setproba{R} \in \setproba{U}$, ou $\setproba{R}^{\mathrm{op}} \in \setproba{U}$ selon le fait \ref{conv-pos-det}.
+		
+		\item Si $\setproba{R} \in \setproba{U}$, alors 
+		$\setproba{R}$ est orienté positivement, 
+		d'où $\sarea{\setproba{R}} \geq 0$, 
+		et par conséquent $\sarea{\setproba{R}} = \area{\setproba{R}}$ 
+		(c'est immédiat en utilisant le centre de gravité de $\setproba{R}$ comme point de calcul). 
+		Il en va de même pour $\setproba{R}^{\mathrm{op}}$.
+    \end{itemize}
+
+	\null\vspace{-6ex}
 \end{proof}
 
 
 % ----------------------- %
 
 
-\newpage %TEMPO
-XXX
-
-Nous arrivons, ci-dessous, au résultat central pour les \ngones\ convexes où la perte éventuelle de sommets est un faux problème, car nous aboutirons, plus tard, à la comparaison de \kregs\ convexes pour $k$ variable, une tâche aisée, puisque le périmètre et l'aire d'un \kreg\ convexe s'expriment en fonction de $k$.
+Nous arrivons, au résultat essentiel pour les \ngones\ convexes où la perte éventuelle de sommets est un faux problème, car nous aboutirons, plus tard, à la comparaison de \kregs\ convexes pour $k$ variable, une tâche aisée, puisque le périmètre et l'aire d'un \kreg\ convexe s'expriment en fonction de $k$.
 
 
 \begin{fact} \label{at-least-one-kgone}
@@ -266,77 +294,52 @@ Nous arrivons, ci-dessous, au résultat central pour les \ngones\ convexes où l
 
 
 \begin{proof}
-    Reprenons les notations du fait \ref{at-least-one-ncycle}, et considérons $\setproba{M} \in \setproba{U}$ maximisant $\alpha$.
+    Reprenons les notations du fait \ref{at-least-one-ncycle}, puis 
+    choisissons $\setproba{L} \in \setproba{U}$ maximisant l'aire algébrique sur $\setproba{U}$.
+    Ce \ncycle\ ne peut être totalement dégénéré, car $\sarea{\setproba{L}} > 0$.
+    Dès lors, pour tout \ngone\ convexe $\setproba{P}$ vérifiant $\cyclelen{\setproba{P}} = \ell$, nous pouvons raisonner comme suit. 
 	%
 	\begin{itemize}
-		\item Une simple translation permet de se ramener au cas de \ngones\ convexes d'origine $\pt{O}$.
+		\item Via une translation, on peut supposer $\setproba{P}$ d'origine $\pt{O}$.
 
 
-		\item XXXX
+		\item Comme dans la preuve du fait \ref{at-least-one-ncycle},
+		soit
+		$\setproba{P} \in \setproba{U}$ et $\sarea{\setproba{P}} = \area{\setproba{P}}$,
+		soit
+		$\setproba{P}^{\mathrm{op}} \in \setproba{U}$ et $\sarea{\setproba{P}^{\mathrm{op}}} = \area{\setproba{P}^{\mathrm{op}}}$.
+		Quitte à échanger $\setproba{P}$ et $\setproba{P}^{\mathrm{op}}$, on peut supposer que $\setproba{P} \in \setproba{U}$.
 
 
-		\item XXXX
+		\item Le fait \ref{conv-from-non-neg-det} donne un \kgone\ convexe $\setproba{C}$, où $k \leq n$, tel que
+		$\cyclelen{\setproba{C}} \leq \cyclelen{\setproba{L}}$,
+		ainsi que
+		$\sarea{\setproba{C}} = \sarea{\setproba{L}}$.
 
 
-		\item XXXX
+		\item Le choix de $\setproba{L}$ fait que 
+		$\cyclelen{\setproba{C}} \leq \ell$
+		et
+		$\sarea{\setproba{P}} \leq \sarea{\setproba{C}}$,
+		mais aussi que
+		$\sarea{\setproba{C}} > 0$.
 
 
-		\item XXXX
+		\item Comme
+		$\area{\setproba{C}} = \abs{\sarea{\setproba{C}}} = \sarea{\setproba{C}}$
+		selon le fait \ref{sarea-ngone},
+		$\sarea{\setproba{P}} \leq \sarea{\setproba{C}}$
+		devient
+		$\area{\setproba{P}} \leq \area{\setproba{C}}$.
 
 
-		\item XXXX
-    \end{itemize}
-    
-    
-    
-    
-    
-    
-    
-	
-	XXXX
-	
-	
-	Commençons par chercher un \ncycle\ $\setproba{M}$ tel que $\area{\setproba{P}} \leq \area{\setproba{M}}$ pour tout \ngone\ convexe $\setproba{P}$ vérifiant $\cyclelen{\setproba{P}} = \ell$.
-    
-    De plus, selon le fait \ref{conv-pos-det},
-    
-    $\sarea{\setproba{L}^{\mathrm{op}}} = - \sarea{\setproba{L}}$ pour tout \ncycle\ $\setproba{L}$ d'après le fait \ref{nline-rota-opp}, donc nous pouvons nous concentrer sur les \ncycles\ convexes vérifiant $\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_k} \big) \geq 0$ pour tous les sommets $A_i$ et $A_k$ grâce au fait précédent.
-	
+		\item Or $\cyclelen{\setproba{C}} > 0$, donc une homothétie de rapport $\frac{\ell}{\cyclelen{\setproba{C}}} \geq 1$ fournit finalement un \kgone\ convexe $\setproba{K}$ tel que
+		$k \leq n$,
+		$\cyclelen{\setproba{K}} = \ell$
+		et
+		$\area{\setproba{P}} \leq \area{\setproba{K}}$.
+		Affaire conclue!
+	\end{itemize}
 
-
-	\begin{itemize}
-		\item Munissons le plan d'un repère orthonormé direct $\pvaxes{O | i | j}$, puis notons $\setproba{U} \subset \RR^{2n}$ l'ensemble des uplets de coordonnées $\big( x(A_1) ; y(A_1) ; \dots ; x(A_n) ; y(A_n) \big)$ où $\setproba{L} = A_1 A_2 \cdots A_n$ est un \ncycle\ vérifiant les conditions suivantes.
-	    %
-	    \begin{enumerate}
-	    	\item $A_1 = \pt{O}$.
-
-	    	\item $\cyclelen{\setproba{L}} = \ell$.
-
-		    \item
-		    $\forall (k, i) \in \ZintervalC{1}{n}^2$,
-		    $\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_k} \big) \geq 0$.
-	    \end{enumerate}
-
-
-        \item $\setproba{U}$ est fermé dans $\RR^{2n}$, car les conditions le définissant le sont, et il est borné, car inclus dans la boule fermée de centre $\pt{O}$ et de rayon $\ell$.
-        En résumé, $\setproba{U}$ est un compact de $\RR^{2n}$.
-
-
-        \item Nous définissons la fonction $\alpha: \setproba{U} \rightarrow \RRp$ qui à un uplet de $\setproba{U}$ associe l'aire algébrique du \ncycle\ qu'il représente.
-        Cette fonction est continue d'après le fait \ref{sarea-cont}.
-        %
-        Donc, $\alpha$ admet un maximum sur $\setproba{U}$ par continuité et compacité. Affaire conclue!
-        
-        
-        \item Reprenons les notations de la preuve du fait \ref{at-least-one-ncycle}, puis notons $\setproba{K}$ un \ncycle\ convexe maximisant la fonction $\alpha$ sur $\setproba{U}$, de sorte que $\cyclelen{\setproba{K}} = \ell$ est validée.
-		%
-		Il est immédiat que pour tout \ngone\ convexe $\setproba{P}$ tel que $\cyclelen{\setproba{P}} = \ell$, nous avons $\sarea{\setproba{P}} \leq \sarea{\setproba{K}}$, puis le fait \ref{sarea-ngone} donne que $\area{\setproba{P}} \leq \abs{\sarea{\setproba{K}}}$, après avoir noté que nécessairement $\sarea{\setproba{K}} \geq 0$.
-		%
-		Pour finir, voyons pourquoi $\setproba{K}$ est un \kgone\ convexe avec $k \leq n$, ce qui impliquera ensuite $\abs{\sarea{\setproba{K}}} = \area{\setproba{K}}$.
-    \end{itemize}
-	
-	\null\vspace{-6ex}
+	\null\vspace{-3.5ex}
 \end{proof}
-
-Affaire conclue!
