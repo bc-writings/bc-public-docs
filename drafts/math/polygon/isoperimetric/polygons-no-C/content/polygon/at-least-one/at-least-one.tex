@@ -23,7 +23,7 @@ Ceci explique que nous allons chercher à justifier l'existence d'au moins un \n
 
 \begin{proof}
 	Le cas $n = 3$ des triangles est immédiat.
-	On considère alors $\setproba{P}$ un \ngone\ convexe où  $n \geq 4$.
+	Nous considérons alors $\setproba{P}$ un \ngone\ convexe où  $n \geq 4$.
 	Nous savons que, relativement à $\setproba{P}$, les sommets sont distincts deux à deux, et qu'aucun triplet de sommets consécutifs alignés n'existe.
 	Dès lors, dans le plan orienté, les trois premiers sommets sont placés suivant l'une des deux configurations suivantes. 
     
@@ -140,7 +140,9 @@ Ceci explique que nous allons chercher à justifier l'existence d'au moins un \n
 
 Nous allons établir une réciproque élargie du résultat précédent. Ce nouveau fait va nous rendre un grand service par la suite.%
 \footnote{
-    Pourquoi s'attarder sur des inégalités larges? Parce que nous allons travailler dans un ensemble compact, et donc fermé, de \ncycles, même si cela aura pour inconvénient de ne pas garantir le caractère $n$-gonal, selon le fait \ref{conv-from-non-neg-det}, mais nous n'avons pas le choix!
+    Pourquoi s'attarder sur des inégalités larges? Parce que nous allons travailler dans un ensemble compact, et donc fermé, de \ncycles.
+    Pour garder des \ngones, nous devrions utiliser des non-égalités, mais ceci nous ferait sortir du cadre fermé qui nous intéresse.
+    Nous n'avons pas le choix!
 }
 
 
@@ -158,16 +160,14 @@ Nous allons établir une réciproque élargie du résultat précédent. Ce nouve
     Ceci implique la validité de l'une des assertions ci-dessous.
     %
 	\begin{enumerate}[label=\roman*.]
-		\item Tous les sommets de $\setproba{L}$ sont alignés, autrement dit, $\setproba{L}$ est totalement dégénéré.
-
-		\item $\setproba{L}$ est un \ngone\ convexe.
+		\item $\setproba{L}$ est totalement dégénéré.
 
 		\item Il existe un \kgone\ convexe $\setproba{C}$ tel que
-		$k < n$, 
+		$k \leq n$, 
 		$\cyclelen{\setproba{C}} \leq \cyclelen{\setproba{L}}$
 		et
 		$\sarea{\setproba{C}} = \sarea{\setproba{L}}$,
-		ceci se faisant en retirant des sommets de $\setproba{L}$, sans modifier l'ordre de parcours pour les sommets gardés.
+		ceci se faisant en retirant, si nécessaire, des sommets de $\setproba{L}$, sans modifier l'ordre de parcours pour les sommets gardés.
     \end{enumerate}
 \end{fact}
 
@@ -177,50 +177,72 @@ Nous allons établir une réciproque élargie du résultat précédent. Ce nouve
     $\forall (i, k) \in \ZintervalC{1}{n}^2$,
 	$\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_k} \big) \geq 0$.
 	%
-    Traitons alors le cas où $\setproba{L}$ est non totalement dégénéré, de sorte que 
-    $\exists (i, k) \in \ZintervalC{1}{n}^2$
-	tel que
+	Seul le cas $\setproba{L}$ non totalement dégénéré demande notre attention.
+	Nous allons raisonner algorithmiquement en utilisant
+	une variable $i$ initialisée à $1$, 
+	et une liste $\onelist{C}$, initialement vide, pour stocker les sommets \og utiles \fg\ à la fabrication du \kgone\ convexe final.
+	Notons que la non totale dégénérescence donne que 
+    $\forall i \in \ZintervalC{1}{n}$,
+    $\exists k \in \ZintervalC{1}{n}$
+    tel que
 	$\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_k} \big) > 0$.
-
-
-
-
-
-
-    XXX
-    Pour raisonner algorithmiquement, nous aurons besoin d'un ensemble $\setgeo{T}$ de sommets testés, et d'une liste $\setalge{U}$ de sommets utiles, tous les deux initialement vides.
 	%
-	\begin{itemize}
-    	\item XXXX
+	\begin{enumerate}[label=\fbox{\small\bfseries\textsf{A\kern.25pt\arabic*}}]
+    	\item \label{start-algo-extract-kgone}
+	    Si 
+		$\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}} \big) > 0$,
+		nous ajoutons $i$ à la fin de la liste $\onelist{C}$,
+		puis nous passons directement à l'action \ref{next-algo-extract-kgone}\,.
 
 
-    	\item XXXX
+    	\item Sinon, il existe 
+	    $m \in \ZZ_{>i+1}$ minimal tel que
+		$\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_m} \big) > 0$.%
+		\footnote{
+		    Voir la remarque juste avant le présent algorithme.
+		}
+        %
+        \begin{center}
+        	\includegraphics[scale=.4]{content/polygon/at-least-one/next-extract-kgone.png}
+        \end{center}
+        
+        \noindent
+        Comme 
+        $\det \big( \vect{A^{\,\prime}_{m-1} A^{\,\prime}_m}, \vect{A^{\,\prime}_{m-1} A^{\,\prime}_{i+1}} \big) \geq 0$, 
+        forcément 
+        $A^{\,\prime}_{m-1} \in (A^{\,\prime}_i A^{\,\prime}_{i+1}) - (A^{\,\prime}_i A^{\,\prime}_{i+1}[$ 
+        où il est possible d'avoir $A^{\,\prime}_{m-1} = A^{\,\prime}_{i+1}$.
+        Nous pouvons alors faire les constations suivantes.
+        %
+        \begin{itemize}
+            \item Les points $A^{\,\prime}_i$, $A^{\,\prime}_{m-1}$ et $A^{\,\prime}_m$ ne sont pas alignés.
 
+            \item L'évaluation de l'aire algébrique via le point de calcul $A^{\,\prime}_{m-1}$ n'a pas besoin de tenir compte des sommets $A^{\,\prime}_j$ pour $j \in \ZintervalO{i+1}{m-1}$.
 
-    	\item XXXX
+            \item Ignorer les sommets comme ci-dessus fait diminuer la valeur de la longueur.
+        \end{itemize}
+        
+        \noindent
+        Ceci justifie l'ajout de $(m-1)$ à la fin de la liste $\onelist{C}$, puis de poser $i = m-1$.
 
-
-    	\item Prenons alors $k$ minimal.
-    \end{itemize}
+	
+		\item \label{next-algo-extract-kgone}
+		Ajoutons $1$ à $i$.
+		Si $i \geq n+1$, nous avons fini, sinon nous retournons à l'action \ref{start-algo-extract-kgone}\,.
+    \end{enumerate}
     
-
-
+    \medskip
     
-    YYYY
-    
-    
-    Quitte à changer l'origine de $\setproba{L}$, sans changer le sens de parcours des sommets, nous pouvons supposer avoir $i = 1$, et donc
-		$k \in \ZintervalC{3}{n}$
-		tel que
-		$\det \big( \vect{A^{\,\prime}_1 A^{\,\prime}_2}, \vect{A^{\,\prime}_1 A^{\,\prime}_k} \big) > 0$.
-		Lors de ce renommage, on met aussi à jour tous les noms des points contenus dans $\setgeo{T}$ et $\setalge{U}$.
+    La liste $\onelist{C}$, lue de gauche à droite, donne les sommets du \kgone\ convexe $\setproba{C}$.
 \end{proof}
 
 
 % ----------------------- %
 
 
-\newpage %TEMPO
+%\newpage
+%
+
 Le résultat qui suit est juste là pour simplifier la justification du fait \ref{at-least-one-kgone}, central, à venir.
 
 
@@ -238,7 +260,7 @@ Le résultat qui suit est juste là pour simplifier la justification du fait \re
 		$\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_k} \big) \geq 0$.
     \end{itemize}
     
-    On considère alors la fonction $\alpha: \setproba{U} \rightarrow \RRp$ qui à un uplet de $\setproba{U}$ associe l'aire algébrique du \ncycle\ qu'il représente.
+    Considérons alors la fonction $\alpha: \setproba{U} \rightarrow \RRp$ qui à un uplet de $\setproba{U}$ associe l'aire algébrique du \ncycle\ qu'il représente.
    	%
 	Avec ces notations, la fonction $\alpha: \setproba{U} \rightarrow \RRp$ admet au moins un maximum forcément positif strict.
 \end{fact}
@@ -248,13 +270,13 @@ Le résultat qui suit est juste là pour simplifier la justification du fait \re
      $\setproba{U}$ est fermé dans $\RR^{2n}$, car les conditions le définissant le sont, et il est borné, car inclus dans la boule fermée de centre $\pt{O}$ et de rayon $\ell$,
      donc $\setproba{U}$ est un compact de $\RR^{2n}$.
      De plus, $\alpha$ est continue d'après le fait \ref{sarea-cont}.
-     Donc, par continuité et compacité, $\alpha$ admet un maximum sur $\setproba{U}$, celui-ci étant positif strict pour les raisons suivantes.
+     Donc, par continuité et compacité, $\alpha$ admet un maximum sur $\setproba{U}$, celui-ci étant positif strict pour les raisons suivantes où $\setproba{R}$ désigné un \nreg\ convexe.
     %
     \begin{itemize}
-		\item Via une translation, on peut supposer $\setproba{R}$ d'origine $\pt{O}$.
+		\item Via une translation, nous pouvons supposer $\setproba{R}$ d'origine $\pt{O}$.
 
 
-        \item Un \nreg\ convexe $\setproba{R}$, de périmètre $\ell$, est d'aire non nulle.
+        \item $\setproba{R}$, de périmètre non nul, est d'aire non nulle.
 
         \item $\area{\setproba{R}} = \abs{\sarea{\setproba{R}}}$
 		selon le fait \ref{sarea-ngone},
@@ -268,7 +290,7 @@ Le résultat qui suit est juste là pour simplifier la justification du fait \re
 		d'où $\sarea{\setproba{R}} \geq 0$, 
 		et par conséquent $\sarea{\setproba{R}} = \area{\setproba{R}}$ 
 		(c'est immédiat en utilisant le centre de gravité de $\setproba{R}$ comme point de calcul). 
-		Il en va de même pour $\setproba{R}^{\mathrm{op}}$.
+		Nous avons une propriété similaire si $\setproba{R}^{\mathrm{op}} \in \setproba{U}$.
     \end{itemize}
 
 	\null\vspace{-6ex}
@@ -278,7 +300,7 @@ Le résultat qui suit est juste là pour simplifier la justification du fait \re
 % ----------------------- %
 
 
-Nous arrivons, au résultat essentiel pour les \ngones\ convexes où la perte éventuelle de sommets est un faux problème, car nous aboutirons, plus tard, à la comparaison de \kregs\ convexes pour $k$ variable, une tâche aisée, puisque le périmètre et l'aire d'un \kreg\ convexe s'expriment en fonction de $k$.
+Nous arrivons, au résultat fondamental pour les \ngones\ convexes où la perte éventuelle de sommets est un faux problème, car nous aboutirons, plus tard, à la comparaison de \kregs\ convexes pour $k$ variable, une tâche aisée, puisque le périmètre et l'aire d'un \kreg\ convexe s'expriment en fonction de $k$.
 
 
 \begin{fact} \label{at-least-one-kgone}
@@ -300,7 +322,7 @@ Nous arrivons, au résultat essentiel pour les \ngones\ convexes où la perte é
     Dès lors, pour tout \ngone\ convexe $\setproba{P}$ vérifiant $\cyclelen{\setproba{P}} = \ell$, nous pouvons raisonner comme suit. 
 	%
 	\begin{itemize}
-		\item Via une translation, on peut supposer $\setproba{P}$ d'origine $\pt{O}$.
+		\item Via une translation, nous nous ramenons à $\setproba{P}$ d'origine $\pt{O}$.
 
 
 		\item Comme dans la preuve du fait \ref{at-least-one-ncycle},
@@ -308,7 +330,7 @@ Nous arrivons, au résultat essentiel pour les \ngones\ convexes où la perte é
 		$\setproba{P} \in \setproba{U}$ et $\sarea{\setproba{P}} = \area{\setproba{P}}$,
 		soit
 		$\setproba{P}^{\mathrm{op}} \in \setproba{U}$ et $\sarea{\setproba{P}^{\mathrm{op}}} = \area{\setproba{P}^{\mathrm{op}}}$.
-		Quitte à échanger $\setproba{P}$ et $\setproba{P}^{\mathrm{op}}$, on peut supposer que $\setproba{P} \in \setproba{U}$.
+		Quitte à échanger $\setproba{P}$ et $\setproba{P}^{\mathrm{op}}$, nous pouvons supposer que $\setproba{P} \in \setproba{U}$.
 
 
 		\item Le fait \ref{conv-from-non-neg-det} donne un \kgone\ convexe $\setproba{C}$, où $k \leq n$, tel que
@@ -327,7 +349,8 @@ Nous arrivons, au résultat essentiel pour les \ngones\ convexes où la perte é
 
 		\item Comme
 		$\area{\setproba{C}} = \abs{\sarea{\setproba{C}}} = \sarea{\setproba{C}}$
-		selon le fait \ref{sarea-ngone},
+		via le fait \ref{sarea-ngone},
+		alors
 		$\sarea{\setproba{P}} \leq \sarea{\setproba{C}}$
 		devient
 		$\area{\setproba{P}} \leq \area{\setproba{C}}$.
@@ -338,8 +361,8 @@ Nous arrivons, au résultat essentiel pour les \ngones\ convexes où la perte é
 		$\cyclelen{\setproba{K}} = \ell$
 		et
 		$\area{\setproba{P}} \leq \area{\setproba{K}}$.
-		Affaire conclue!
+		Affaire conclue, sans arnaque logique!
 	\end{itemize}
 
-	\null\vspace{-3.5ex}
+	\null\vspace{-6ex}
 \end{proof}

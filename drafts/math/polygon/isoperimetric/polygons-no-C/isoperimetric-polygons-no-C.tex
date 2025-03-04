@@ -8,6 +8,8 @@
 \usepackage{wrapfig}
 
 \usepackage{hyperref}
+\hypersetup{hidelinks}
+
 \usepackage{enumitem}
 \usepackage{tcolorbox}
 \usepackage{float}
@@ -35,6 +37,9 @@
 
 \newtheorem{remark}{Remarque}[section]
 
+
+\NewDocumentCommand{\onelist}{m}{\mathsf{#1}}
+
 \NewDocumentCommand{\cyclelen}{m}{\mathrm{Long}(#1)}
 \NewDocumentCommand{\perim}{m}{\mathrm{Perim}(#1)}
 
@@ -52,7 +57,6 @@
 
 \newcommand{\kcycle}{\xcycle{k}}
 \newcommand{\kcycles}{\xcycles{k}}
-
 
 
 \NewDocumentCommand{\xgone}{m}{$#1$-gone}
@@ -104,7 +108,7 @@
 
 \title{BROUILLON - Inégalités isopérimétriques restreintes aux polygones}
 \author{Christophe BAL}
-\date{18 Jan. 2025 -- 2 Mars 2025}
+\date{18 Jan. 2025 -- 4 Mars 2025}
 
 \maketitle
 
@@ -203,20 +207,20 @@
 %% ------------- %
 %
 %
-%\section{Les polygones}
-%
-%\subsection{Où allons-nous?}
-%\input{content/polygon/plan}
-%
-%
-%\subsection{Quelques définitions}
-%\input{content/polygon/def/def}
-%
-%
-%\subsection{Aire algébrique d'un \ncycle}
-%\input{content/polygon/alg-area/alg-area}
-%
-%
+\section{Les polygones}
+
+\subsection{Où allons-nous?}
+\input{content/polygon/plan}
+
+
+\subsection{Quelques définitions}
+\input{content/polygon/def/def}
+
+
+\subsection{Aire algébrique d'un \ncycle}
+\input{content/polygon/alg-area/alg-area}
+
+
 \subsection{Au moins une solution, ou presque}
 \input{content/polygon/at-least-one/at-least-one}
 
