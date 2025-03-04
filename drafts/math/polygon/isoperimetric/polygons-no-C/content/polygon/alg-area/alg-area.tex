@@ -6,7 +6,7 @@ Pour ce faire, nous utiliserons l'aire algébrique qui est définie pour tout \n
 
 Indiquons au passage qu'il faut être prudent avec cette notion comme le montre l'exemple suivant, obtenu avec \geogebra,%
 \footnote{
-	Quand \geogebra\ associe un nombre à un \ncycle\ $\setproba{L}$, il calcule la valeur absolue de son aire algébrique.
+	Quand \geogebra\ associe un nombre à un \ngone\ croisé, il calcule la valeur absolue de son aire algébrique.
 }
 où le \ngone\ croisé proposé, construit via une spirale positive depuis le point $A$,%
 \footnote{
@@ -119,7 +119,7 @@ Dans le cas précédent, le résultat pourrait dépendre du point $\Omega$ emplo
 \begin{fact} \label{nline-shift-inva}
     Soient $\setproba{L} = A_1 A_2 \cdots A_n$ un \ncycle,
     et
-    le \ncycle\ $\setproba{L}_k = B_1 B_2 \cdots B_n$ par $B_i = A^{\,\prime}_{i+k-1}$ où $k \in \ZintervalC{1}{n}$,
+    l'une de ses\ \og \emph{permutés} \fg\ $\setproba{L}_k = B_1 B_2 \cdots B_n$ défini par $B_i = A^{\,\prime}_{i+k-1}$ pour $k \in \ZintervalC{1}{n}$,
     %
     Nous avons
     $\mu_1^n (\setproba{L}) = \mu_1^n (\setproba{L}_k)$.
@@ -137,7 +137,7 @@ Dans le cas précédent, le résultat pourrait dépendre du point $\Omega$ emplo
 
 \begin{fact} \label{nline-rota-opp}
     Soient
-    $\setproba{L} = A_1 A_2 \cdots A_n$ un \ncycle.
+    $\setproba{L} = A_1 A_2 \cdots A_n$ un \ncycle,
     et
     son \ncycle\ \og \emph{opposé} \fg\ $\setproba{L}^{\mathrm{op}} = B_1 B_2 \cdots B_n$ où $B_i =  A_{n + 1 - i}$.
     %
@@ -175,7 +175,7 @@ Dans le cas précédent, le résultat pourrait dépendre du point $\Omega$ emplo
 \begin{fact} \label{sarea-ncycle}
     Soit
     $\setproba{L} = A_1 A_2 \cdots A_n$ un \ncycle.
-    La quantité $\sarea{\setproba{L}} = \frac12 \mu(\setproba{L})$ ne dépend que du sens de parcours de $\setproba{L}$, mais pas du point de départ.%
+    La quantité $\sarea{\setproba{L}} = \frac12 \mu(\setproba{L})$ ne dépend que du sens de parcours de $\setproba{L}$, mais pas de l'origine.%
     \footnote{
         Le lecteur pardonnera les abus de langage utilisés.
     }
@@ -200,7 +200,7 @@ Dans le cas non-convexe, les choses se compliquent a priori, car nous ne maîtri
 
 \begin{fact} \label{route-direction}
     Soit un \ngone\ $\setproba{P} = A_1 A_2 \cdots A_n$ tel que $A_1$, $A_2$, ..., $A_n$ soient parcourus dans le sens trigonométrique, ou anti-horaire.
-    Un tel \ngone\ sera dit \og \emph{positif} \fg.%
+    Un tel \ngone\ sera dit \onedef{positif}.%
     \footnote{
     	De façon cachée, nous utilisons le célèbre théorème de Jordan, dans sa forme polygonale.
     }
@@ -303,7 +303,7 @@ Dans le cas non-convexe, les choses se compliquent a priori, car nous ne maîtri
 
 		\noindent
 		Posons $\setproba{P}^{\,\prime} = A_1 \cdots A_{n-1}$ où $k = n-1$ vérifie $k \in \NN_{\geq3}$. Par hypothèse, $\setproba{P}^{\,\prime}$ est positif. 
-		Nous arrivons finalement aux calculs élémentaires suivants en utilisant $A_1$ comme point de calcul de $\mu(\setproba{P})$.
+		Nous arrivons aux calculs suivants en utilisant $A_1$ comme point de calcul de $\mu(\setproba{P})$.
 
 		\leavevmode\kern-2em%
 		\begin{stepcalc}[style=ar*]

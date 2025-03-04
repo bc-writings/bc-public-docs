@@ -24,7 +24,7 @@ Ceci explique que nous allons chercher à justifier l'existence d'au moins un \n
 \begin{proof}
 	Le cas $n = 3$ des triangles est immédiat.
 	Nous considérons alors $\setproba{P}$ un \ngone\ convexe où  $n \geq 4$.
-	Nous savons que, relativement à $\setproba{P}$, les sommets sont distincts deux à deux, et qu'aucun triplet de sommets consécutifs alignés n'existe.
+	Nous savons que, relativement à $\setproba{P}$, aucun triplet de sommets consécutifs alignés n'existe.
 	Dès lors, dans le plan orienté, les trois premiers sommets sont placés suivant l'une des deux configurations suivantes. 
     
     \begin{multicols}{2}
@@ -72,9 +72,9 @@ Ceci explique que nous allons chercher à justifier l'existence d'au moins un \n
 		%
 		Nous savons déjà l'inégalité vraie pour $k = 3$, donc passons à $k = 4$.
 		Pour avoir 
-		$\det \big( \vect{A^{\,\prime}_1 A^{\,\prime}_2}, \vect{A^{\,\prime}_1 A^{\,\prime}_k} \big) > 0$, 
+		$\det \big( \vect{A^{\,\prime}_1 A^{\,\prime}_2}, \vect{A^{\,\prime}_1 A^{\,\prime}_4} \big) > 0$, 
 		le point précédent donne qu'il faut vérifier que 
-		$\det \big( \vect{A^{\,\prime}_1 A^{\,\prime}_2}, \vect{A^{\,\prime}_1 A^{\,\prime}_k} \big) = 0$
+		$\det \big( \vect{A^{\,\prime}_1 A^{\,\prime}_2}, \vect{A^{\,\prime}_1 A^{\,\prime}_4} \big) = 0$
 		est impossible.
 		Supposons donc l'égalité vraie, ce qui implique d'avoir $n \geq 5$, et donne les configurations suivantes où les hachures et la droite en trait plein sont des zones interdites pour $A_4$.
 
@@ -111,8 +111,9 @@ Ceci explique que nous allons chercher à justifier l'existence d'au moins un \n
 		Le cas 1-2 est impossible par raison de convexité à cause de $(A_4 A_5)$.
 		Notons que dans le cas 1-1, il est possible d'avoir $A_5 \in ]A_4 A_1[$.
 		Comme $A_5 \in (A_1 A_2)$, nous devons avoir $n \geq 6$.
-		Dès lors, nous avons de nouveau $A_6 \in (A_1 A_2)$, mais ceci donne la contradiction $A_6 \in (A_4 A_5)$.
-		Continuons ensuite de proche en proche, nous obtenons bien
+		Dès lors, nous avons de nouveau $A_6 \in (A_1 A_2)$, mais ceci donne la contradiction $A_6 \in (A_4 A_5)$, donc nous avons nécessairement 
+		$\det \big( \vect{A^{\,\prime}_1 A^{\,\prime}_2}, \vect{A^{\,\prime}_1 A^{\,\prime}_4} \big) > 0$.
+		En continuant de même, de proche en proche, nous arrivons à
 		$\det \big( \vect{A^{\,\prime}_1 A^{\,\prime}_2}, \vect{A^{\,\prime}_1 A^{\,\prime}_k} \big) > 0$
 		pour $k \in \ZintervalC{3}{n}$.
 
@@ -126,7 +127,8 @@ Ceci explique que nous allons chercher à justifier l'existence d'au moins un \n
 		pour tout couple $(i, k) \in \ZintervalC{1}{n}^2$ vérifiant $k \notin \setgene{i ; i+1}$.
 	\end{itemize}
 
-
+    \medskip
+    
     \noindent
     Le cas négatif se traite de façon similaire.
 \end{proof}
@@ -260,9 +262,9 @@ Le résultat qui suit est juste là pour simplifier la justification du fait \re
 		$\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_k} \big) \geq 0$.
     \end{itemize}
     
-    Considérons alors la fonction $\alpha: \setproba{U} \rightarrow \RRp$ qui à un uplet de $\setproba{U}$ associe l'aire algébrique du \ncycle\ qu'il représente.
+    Considérons alors la fonction $\alpha: \setproba{U} \rightarrow \RR$ qui à un uplet de $\setproba{U}$ associe l'aire algébrique du \ncycle\ qu'il représente.
    	%
-	Avec ces notations, la fonction $\alpha: \setproba{U} \rightarrow \RRp$ admet au moins un maximum forcément positif strict.
+	Avec ces notations, la fonction $\alpha: \setproba{U} \rightarrow \RR$ admet au moins un maximum forcément positif strict.
 \end{fact}
 
 
@@ -270,7 +272,7 @@ Le résultat qui suit est juste là pour simplifier la justification du fait \re
      $\setproba{U}$ est fermé dans $\RR^{2n}$, car les conditions le définissant le sont, et il est borné, car inclus dans la boule fermée de centre $\pt{O}$ et de rayon $\ell$,
      donc $\setproba{U}$ est un compact de $\RR^{2n}$.
      De plus, $\alpha$ est continue d'après le fait \ref{sarea-cont}.
-     Donc, par continuité et compacité, $\alpha$ admet un maximum sur $\setproba{U}$, celui-ci étant positif strict pour les raisons suivantes où $\setproba{R}$ désigné un \nreg\ convexe.
+     Donc, par continuité et compacité, $\alpha$ admet un maximum sur $\setproba{U}$, celui-ci étant positif strict pour les raisons suivantes où $\setproba{R}$ désigne un \nreg\ convexe.
     %
     \begin{itemize}
 		\item Via une translation, nous pouvons supposer $\setproba{R}$ d'origine $\pt{O}$.
