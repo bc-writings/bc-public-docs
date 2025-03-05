@@ -237,7 +237,7 @@ Nous allons établir une réciproque élargie du résultat précédent. Ce nouve
     
     \medskip
     
-    Justifions que l'algorithme s'arrêtera en fournissant une liste $\onelist{C}$ qui, lue de gauche à droite, donnera les sommets du \kgone\ convexe $\setproba{C}$ cherché.
+    Commençons par justifier que l'algorithme s'arrête sans entrer dans une boucle infinie.
     Tant que l'indice $m$ de l'étape \ref{algo-kgone-remove-vertices} vérifie $m \leq n$, il n'y a aucune difficulté, puisque $i$ augmente, et les points ajoutés ne se placent pas \focus{après} l'origine $A_1$ du \ncycle\ initial $\setproba{L}$, et donc n'empiètent pas sur les \focus{premiers} sommets. Supposons donc avoir $m > n$ pour un certain indice $i$.
     %
     \begin{itemize}
@@ -296,6 +296,20 @@ Nous allons établir une réciproque élargie du résultat précédent. Ce nouve
         donc l'algorithme s'arrêtera après avoir juste modifié $i$ en $(n + r)$.
         Ici aussi, tout se passe bien pour l'algorithme.
     \end{itemize}
+    
+    \medskip
+    
+    Il reste à justifier que la liste $\onelist{C}$ qui, lue de gauche à droite, donnera les sommets du \kgone\ convexe $\setproba{C}$ cherché.
+    %
+    \begin{itemize}
+        \item Par construction, deux sommets \focus{consécutifs} $A^{\,\prime}_r$ et $A^{\,\prime}_s$ de $\setproba{C}$, sont tels que tout point du cycle initial $\setproba{L}$ situé entre $A^{\,\prime}_r$ et $A^{\,\prime}_s$ est sur la droite $(A^{\,\prime}_r A^{\,\prime}_s)$.
+        En ignorant ces points, on fait donc diminuer, au sens large, la longueur du \ncycle, mais sans modifier la valeur de l'aire algébrique, cette dernière étant calculable depuis $A^{\,\prime}_r$, ou $A^{\,\prime}_s$.
+
+
+        \item Par construction, trois sommets \focus{consécutifs} $A^{\,\prime}_q$, $A^{\,\prime}_r$ et $A^{\,\prime}_s$ de $\setproba{C}$, sont tels que $\det \big( \vect{A^{\,\prime}_q A^{\,\prime}_{p}}, \vect{A^{\,\prime}_q A^{\,\prime}_s} \big) > 0$. 
+        En particulier, ces trois sommets \focus{consécutifs} ne sont pas alignés.
+        Dès lors, $\setproba{C}$ est un \kgone, et il est aussi convexe. 
+    \end{itemize}
 \end{proof}
 
 
@@ -305,7 +319,7 @@ Nous allons établir une réciproque élargie du résultat précédent. Ce nouve
 %\newpage
 %
 
-Le résultat qui suit est juste là pour simplifier la justification du fait \ref{at-least-one-kgone}, central, à venir.
+Le résultat qui suit est juste là pour simplifier la justification du fait \ref{at-least-one-kgone} à venir qui est la raison d'être de cette section.
 
 
 \begin{fact} \label{at-least-one-ncycle}
