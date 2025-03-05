@@ -23,7 +23,7 @@ Ceci explique que nous allons chercher à justifier l'existence d'au moins un \n
 
 \begin{proof}
 	Le cas $n = 3$ des triangles est immédiat.
-	Nous considérons alors $\setproba{P}$ un \ngone\ convexe où  $n \geq 4$.
+	Considérons alors $\setproba{P}$ un \ngone\ convexe où  $n \geq 4$.
 	Nous savons que, relativement à $\setproba{P}$, aucun triplet de sommets consécutifs alignés n'existe.
 	Dès lors, dans le plan orienté, les trois premiers sommets sont placés suivant l'une des deux configurations suivantes. 
     
@@ -51,7 +51,7 @@ Ceci explique que nous allons chercher à justifier l'existence d'au moins un \n
 		$\det \big( \vect{A^{\,\prime}_2 A^{\,\prime}_3}, \vect{A^{\,\prime}_2 A^{\,\prime}_1} \big) > 0$.
 
 
-		\item Comme $A_2$, $A_3$ et $A_4$ ne sont pas alignés, et de plus $A_1$ et $A_4$ du même côté, au sens large, de la droite $(A_2 A_3)$, nous obtenons
+		\item Comme $A_2$, $A_3$ et $A_4$ ne sont pas alignés, et de plus $A_1$ et $A_4$ du même côté de la droite $(A_2 A_3)$, au sens large, nous obtenons
 		$\det \big( \vect{A^{\,\prime}_2 A^{\,\prime}_3}, \vect{A^{\,\prime}_2 A^{\,\prime}_4} \big) > 0$.
 
 
@@ -70,13 +70,14 @@ Ceci explique que nous allons chercher à justifier l'existence d'au moins un \n
 		$\det \big( \vect{A^{\,\prime}_1 A^{\,\prime}_2}, \vect{A^{\,\prime}_1 A^{\,\prime}_k} \big) > 0$
 		pour $k \in \ZintervalC{3}{n}$.
 		%
-		Nous savons déjà l'inégalité vraie pour $k = 3$, donc passons à $k = 4$.
+		Nous savons déjà l'inégalité vraie pour $k = 3$; passons donc à $k = 4$.
 		Pour avoir 
 		$\det \big( \vect{A^{\,\prime}_1 A^{\,\prime}_2}, \vect{A^{\,\prime}_1 A^{\,\prime}_4} \big) > 0$, 
 		le point précédent donne qu'il faut vérifier que 
 		$\det \big( \vect{A^{\,\prime}_1 A^{\,\prime}_2}, \vect{A^{\,\prime}_1 A^{\,\prime}_4} \big) = 0$
 		est impossible.
-		Supposons donc l'égalité vraie, ce qui implique d'avoir $n \geq 5$, et donne les configurations suivantes où les hachures et la droite en trait plein sont des zones interdites pour $A_4$.
+		Supposons donc l'égalité vraie, ce qui implique d'avoir $n \geq 5$, car dans le cas contraire les sommets consécutifs $A_4$, $A_5$ et $A_1$ seraient alignés.
+		Nous aboutissons aux configurations suivantes où les hachures et la droite en trait plein sont des zones interdites pour $A_4$.
 
         \begin{multicols}{2}
             \small\itshape\centering
@@ -108,12 +109,12 @@ Ceci explique que nous allons chercher à justifier l'existence d'au moins un \n
         \end{multicols}
     
 		\noindent
-		Le cas 1-2 est impossible par raison de convexité à cause de $(A_4 A_5)$.
-		Notons que dans le cas 1-1, il est possible d'avoir $A_5 \in ]A_4 A_1[$.
+		Le cas 1-2 est impossible par raison de convexité, car $(A_4 A_5)$ sépare les points $A_3$ et $A_2$.
+		Notons que dans le cas 1-1, il est possible d'avoir $A_5 \in {]A_4 A_1[}$.
 		Comme $A_5 \in (A_1 A_2)$, nous devons avoir $n \geq 6$, 
-		puis $A_6 \in (A_1 A_2)$ par convexité,
-		mais ceci donne la contradiction $A_6 \in (A_4 A_5)$.
-		Donc, nécessairement 
+		mais $A_6$ ne peut être ni à l'intérieur du triangle $A_2 A_3 A_4$ par convexité,
+		ni sur la droite $(A_1 A_2)$, car $A_4$, $A_5$ et $A_6$ ne peuvent pas être alignés.
+		Cette situation contradictoire montre que
 		$\det \big( \vect{A^{\,\prime}_1 A^{\,\prime}_2}, \vect{A^{\,\prime}_1 A^{\,\prime}_4} \big) > 0$.
 		En continuant de même, de proche en proche, nous arrivons à
 		$\det \big( \vect{A^{\,\prime}_1 A^{\,\prime}_2}, \vect{A^{\,\prime}_1 A^{\,\prime}_k} \big) > 0$
@@ -122,7 +123,7 @@ Ceci explique que nous allons chercher à justifier l'existence d'au moins un \n
 
 		\item En généralisant le raisonnement précédent,%
 		\footnote{
-		    Se souvenir de la définition de la suite $(A^{\,\prime}_i)$.
+		    Se souvenir de la définition \focus{cyclique} de la suite $(A^{\,\prime}_i)$.
 		}
 		nous avons
 		$\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_k} \big) > 0$
@@ -161,7 +162,7 @@ Nous allons établir une réciproque élargie du résultat précédent. Ce nouve
 		$\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_k} \big) \leq 0$.
     \end{itemize}
     
-    Ceci implique la validité de l'une des assertions ci-dessous.
+    Sous l'une de ces hypothèses, l'une des assertions ci-après est validée.
     %
 	\begin{enumerate}[label=\roman*.]
 		\item $\setproba{L}$ est totalement dégénéré.
@@ -170,14 +171,18 @@ Nous allons établir une réciproque élargie du résultat précédent. Ce nouve
 		$k \leq n$, 
 		$\cyclelen{\setproba{C}} \leq \cyclelen{\setproba{L}}$
 		et
-		$\sarea{\setproba{C}} = \sarea{\setproba{L}}$,
-		ceci se faisant en retirant, si nécessaire, des sommets de $\setproba{L}$, sans modifier l'ordre de parcours pour les sommets gardés.
+		$\sarea{\setproba{C}} = \sarea{\setproba{L}}$.
+		$\setproba{C}$ se construit en retirant, si nécessaire, des sommets de $\setproba{L}$, sans modifier l'ordre de parcours pour les sommets gardés.
     \end{enumerate}
 \end{fact}
 
 
 \begin{proof}
-    Par symétrie des alternatives, nous pouvons nous concentrer sur le cas positif, c'est-à-dire supposer que
+    Par symétrie des alternatives, nous pouvons nous concentrer sur le cas positif,%
+    \footnote{
+        On pourrait aussi invoquer des cycles opposés.
+    }
+    c'est-à-dire supposer que
     $\forall (i, k) \in \ZintervalC{1}{n}^2$,
 	$\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_k} \big) \geq 0$.
 	%
@@ -302,14 +307,20 @@ Nous allons établir une réciproque élargie du résultat précédent. Ce nouve
     Il reste à justifier que la liste $\onelist{C}$ qui, lue de gauche à droite, donnera les sommets du \kgone\ convexe $\setproba{C}$ cherché.
     %
     \begin{itemize}
-        \item Par construction, deux sommets \focus{consécutifs} $A^{\,\prime}_r$ et $A^{\,\prime}_s$ de $\setproba{C}$, sont tels que tout point du cycle initial $\setproba{L}$ situé entre $A^{\,\prime}_r$ et $A^{\,\prime}_s$ est sur la droite $(A^{\,\prime}_r A^{\,\prime}_s)$.
+        \item Par construction, deux sommets \focus{consécutifs} $A^{\,\prime}_r$ et $A^{\,\prime}_s$ de $\setproba{C}$, sont tels que tout point du cycle initial $\setproba{L}$ situé entre $A^{\,\prime}_r$ et $A^{\,\prime}_s$ est sur le segment $[A^{\,\prime}_r A^{\,\prime}_s]$.
         En ignorant ces points, on fait donc diminuer, au sens large, la longueur du \ncycle, mais sans modifier la valeur de l'aire algébrique, cette dernière étant calculable depuis $A^{\,\prime}_r$, ou $A^{\,\prime}_s$.
+        Donc
+        $\cyclelen{\setproba{C}} \leq \cyclelen{\setproba{L}}$
+		et
+		$\sarea{\setproba{C}} = \sarea{\setproba{L}}$
 
 
-        \item Par construction, trois sommets \focus{consécutifs} $A^{\,\prime}_q$, $A^{\,\prime}_r$ et $A^{\,\prime}_s$ de $\setproba{C}$, sont tels que $\det \big( \vect{A^{\,\prime}_q A^{\,\prime}_{p}}, \vect{A^{\,\prime}_q A^{\,\prime}_s} \big) > 0$. 
+        \item Par construction, trois sommets \focus{consécutifs} $A^{\,\prime}_q$, $A^{\,\prime}_r$ et $A^{\,\prime}_s$ de $\setproba{C}$, sont tels que $\det \big( \vect{A^{\,\prime}_q A^{\,\prime}_{r}}, \vect{A^{\,\prime}_q A^{\,\prime}_s} \big) > 0$. 
         En particulier, ces trois sommets \focus{consécutifs} ne sont pas alignés.
         Dès lors, $\setproba{C}$ est un \kgone, et il est aussi convexe. 
     \end{itemize}
+
+	\null\vspace{-6ex}
 \end{proof}
 
 
@@ -336,9 +347,7 @@ Le résultat qui suit est juste là pour simplifier la justification du fait \re
 		$\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_k} \big) \geq 0$.
     \end{itemize}
     
-    Considérons alors la fonction $\alpha: \setproba{U} \rightarrow \RR$ qui à un uplet de $\setproba{U}$ associe l'aire algébrique du \ncycle\ qu'il représente.
-   	%
-	Avec ces notations, la fonction $\alpha: \setproba{U} \rightarrow \RR$ admet au moins un maximum forcément positif strict.
+    Dès lors, la fonction $\alpha: \setproba{U} \rightarrow \RR$, qui à un uplet de $\setproba{U}$ associe l'aire algébrique du \ncycle\ qu'il représente, est une fonction admettant au moins un maximum, qui est positif strict.
 \end{fact}
 
 
@@ -376,7 +385,7 @@ Le résultat qui suit est juste là pour simplifier la justification du fait \re
 % ----------------------- %
 
 
-Nous arrivons, au résultat fondamental pour les \ngones\ convexes où la perte éventuelle de sommets est un faux problème, car nous aboutirons, plus tard, à la comparaison de \kregs\ convexes pour $k$ variable, une tâche aisée, puisque le périmètre et l'aire d'un \kreg\ convexe s'expriment en fonction de $k$.
+Nous arrivons, au résultat fondamental pour les \ngones\ convexes où la perte éventuelle de sommets est un faux problème, car nous aboutirons, plus tard, à la comparaison de \kregs\ convexes pour $k$ variable, une tâche aisée, puisque le périmètre et l'aire d'un \kreg\ convexe s'expriment en fonction de $k$; nous saurons alors que le \kgone\ convexe $\setproba{K}$ ci-après est en fait un \nreg\ convexe.
 
 
 \begin{fact} \label{at-least-one-kgone}
@@ -406,7 +415,8 @@ Nous arrivons, au résultat fondamental pour les \ngones\ convexes où la perte 
 		$\setproba{P} \in \setproba{U}$ et $\sarea{\setproba{P}} = \area{\setproba{P}}$,
 		soit
 		$\setproba{P}^{\mathrm{op}} \in \setproba{U}$ et $\sarea{\setproba{P}^{\mathrm{op}}} = \area{\setproba{P}^{\mathrm{op}}}$.
-		Quitte à échanger $\setproba{P}$ et $\setproba{P}^{\mathrm{op}}$, nous pouvons supposer que $\setproba{P} \in \setproba{U}$.
+		Comme, de plus, $\area{\setproba{P}^{\mathrm{op}}} = \area{\setproba{P}}$,
+		nous pouvons échanger, si besoin, $\setproba{P}$ et $\setproba{P}^{\mathrm{op}}$, afin d'avoir $\setproba{P} \in \setproba{U}$.
 
 
 		\item Le fait \ref{conv-from-non-neg-det} donne un \kgone\ convexe $\setproba{C}$, où $k \leq n$, tel que
