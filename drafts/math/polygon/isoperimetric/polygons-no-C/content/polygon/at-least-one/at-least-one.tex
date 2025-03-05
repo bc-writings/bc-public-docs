@@ -110,8 +110,10 @@ Ceci explique que nous allons chercher à justifier l'existence d'au moins un \n
 		\noindent
 		Le cas 1-2 est impossible par raison de convexité à cause de $(A_4 A_5)$.
 		Notons que dans le cas 1-1, il est possible d'avoir $A_5 \in ]A_4 A_1[$.
-		Comme $A_5 \in (A_1 A_2)$, nous devons avoir $n \geq 6$.
-		Dès lors, nous avons de nouveau $A_6 \in (A_1 A_2)$, mais ceci donne la contradiction $A_6 \in (A_4 A_5)$, donc nous avons nécessairement 
+		Comme $A_5 \in (A_1 A_2)$, nous devons avoir $n \geq 6$, 
+		puis $A_6 \in (A_1 A_2)$ par convexité,
+		mais ceci donne la contradiction $A_6 \in (A_4 A_5)$.
+		Donc, nécessairement 
 		$\det \big( \vect{A^{\,\prime}_1 A^{\,\prime}_2}, \vect{A^{\,\prime}_1 A^{\,\prime}_4} \big) > 0$.
 		En continuant de même, de proche en proche, nous arrivons à
 		$\det \big( \vect{A^{\,\prime}_1 A^{\,\prime}_2}, \vect{A^{\,\prime}_1 A^{\,\prime}_k} \big) > 0$
@@ -179,63 +181,121 @@ Nous allons établir une réciproque élargie du résultat précédent. Ce nouve
     $\forall (i, k) \in \ZintervalC{1}{n}^2$,
 	$\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_k} \big) \geq 0$.
 	%
-	Seul le cas $\setproba{L}$ non totalement dégénéré demande notre attention.
+	Seul le cas $\setproba{L}$ non totalement dégénéré requiert notre attention.
 	Nous allons raisonner algorithmiquement en utilisant
 	une variable $i$ initialisée à $1$, 
 	et une liste $\onelist{C}$, initialement vide, pour stocker les sommets \og utiles \fg\ à la fabrication du \kgone\ convexe final.
-	Notons que la non totale dégénérescence donne que 
-    $\forall i \in \ZintervalC{1}{n}$,
-    $\exists k \in \ZintervalC{1}{n}$
-    tel que
-	$\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_k} \big) > 0$.
 	%
 	\begin{enumerate}[label=\fbox{\small\bfseries\textsf{A\kern.25pt\arabic*}}]
-    	\item \label{start-algo-extract-kgone}
+    	\item \label{algo-kgone-start}
 	    Si 
-		$\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}} \big) > 0$,
-		nous ajoutons $i$ à la fin de la liste $\onelist{C}$,
-		puis nous passons directement à l'action \ref{next-algo-extract-kgone}\,.
+		$\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_{i+2}} \big) > 0$,
+		nous ajoutons $A^{\,\prime}_{i+1}$ à la fin de la liste $\onelist{C}$,
+		puis nous passons directement à l'action \ref{algo-kgone-loop-back}\,.
 
 
-    	\item Sinon, il existe 
-	    $m \in \ZZ_{>i+1}$ minimal tel que
-		$\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_m} \big) > 0$.%
-		\footnote{
-		    Voir la remarque juste avant le présent algorithme.
-		}
+    	\item \label{algo-kgone-remove-vertices}
+        Sinon, il existe 
+	    $m \in \NN_{>i+2}$ minimal tel que
+		$\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_m} \big) > 0$, car $\setproba{L}$ n'est pas totalement dégénéré.
         %
         \begin{center}
-        	\includegraphics[scale=.4]{content/polygon/at-least-one/next-extract-kgone.png}
+        	\includegraphics[scale=.4]{content/polygon/at-least-one/algo-kgone-remove-vertices.png}
         \end{center}
         
         \noindent
         Comme 
         $\det \big( \vect{A^{\,\prime}_{m-1} A^{\,\prime}_m}, \vect{A^{\,\prime}_{m-1} A^{\,\prime}_{i+1}} \big) \geq 0$, 
-        forcément 
-        $A^{\,\prime}_{m-1} \in (A^{\,\prime}_i A^{\,\prime}_{i+1}) - (A^{\,\prime}_i A^{\,\prime}_{i+1}[$ 
-        avec la possibilité d'avoir $A^{\,\prime}_{m-1} = A^{\,\prime}_{i+1}$.
-        Nous pouvons alors faire les constations suivantes.
+        forcément
+        $A^{\,\prime}_{m-1} \in [ A^{\,\prime}_{i+1} , \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}} )$.%
+        \footnote{
+        	Ceci signifie juste que $A^{\,\prime}_{m-1}$ est confondu avec $A^{\,\prime}_{i+1}$, ou \focus{aligné} à droite de $A^{\,\prime}_{i+1}$ sur notre schéma.
+        }
+        Nous arrivons aux constatations suivantes.
         %
         \begin{itemize}
             \item Les points $A^{\,\prime}_i$, $A^{\,\prime}_{m-1}$ et $A^{\,\prime}_m$ ne sont pas alignés.
 
-            \item L'évaluation de l'aire algébrique via le point de calcul $A^{\,\prime}_{m-1}$ n'a pas besoin de tenir compte des sommets $A^{\,\prime}_j$ pour $j \in \ZintervalO{i+1}{m-1}$.
+            \item L'évaluation de l'aire algébrique via le point de calcul $A^{\,\prime}_{m-1}$ n'a pas besoin de tenir compte des sommets $A^{\,\prime}_j$ pour $j \in \ZintervalO{i}{m-1}$.
 
-            \item Ignorer les sommets comme ci-dessus fait diminuer la valeur de la longueur.
+            \item Ignorer des sommets, tout en conservant l'ordre de parcours, pour former un nouveau cycle $\setproba{L}^{\,\prime}$, donne $\cyclelen{\setproba{L}^{\,\prime}} \leq \cyclelen{\setproba{L}} $.
         \end{itemize}
         
         \noindent
-        Ceci justifie l'ajout de $(m-1)$ à la fin de la liste $\onelist{C}$, puis de poser $i = m-1$.
+        Ceci justifie l'ajout de
+        $A^{\,\prime}_{m-1}$ à la fin de la liste $\onelist{C}$ si $A^{\,\prime}_{m-1}$ n'est pas dans cette liste,%
+        \footnote{
+        	La justification de l'algorithme, donnée un peu plus bas, montrera la possibilité d'avoir un doublon dans la liste $\onelist{C}$.
+        }
+        puis de poser $i = m - 2$.
 
 	
-		\item \label{next-algo-extract-kgone}
+		\item \label{algo-kgone-loop-back}
 		Ajoutons $1$ à $i$.
-		Si $i \geq n+1$, nous avons fini, sinon nous retournons à l'action \ref{start-algo-extract-kgone}\,.
+		Si $i \geq n+1$, nous avons fini, sinon nous retournons à l'action \ref{algo-kgone-start}\,.
     \end{enumerate}
     
     \medskip
     
-    La liste $\onelist{C}$, lue de gauche à droite, donne les sommets du \kgone\ convexe $\setproba{C}$.
+    Justifions que l'algorithme s'arrêtera en fournissant une liste $\onelist{C}$ qui, lue de gauche à droite, donnera les sommets du \kgone\ convexe $\setproba{C}$ cherché.
+    Tant que l'indice $m$ de l'étape \ref{algo-kgone-remove-vertices} vérifie $m \leq n$, il n'y a aucune difficulté, puisque $i$ augmente, et les points ajoutés ne se placent pas \focus{après} l'origine $A_1$ du \ncycle\ initial $\setproba{L}$, et donc n'empiètent pas sur les \focus{premiers} sommets. Supposons donc avoir $m > n$ pour un certain indice $i$.
+    %
+    \begin{itemize}
+        \item Notons que $i > 1$. 
+        En effet,
+        dans le cas contraire, le \ncycle\ $\setproba{L}$ serait totalement dégénéré. Nous avons donc au passage $A_1$, $A_r$ et $A_s$ non alignés avec $s \in \ZintervalC{3}{n}$ minimal et $A_r$ stocké dans $\onelist{C}$, où $r \in \ZintervalC{2}{s-1}$. 
+
+
+        \item Supposons que $i = s$. 
+        Pour $j \in \ZintervalC{s+1}{n}$, les points $A^{\,\prime}_j$ sont sur la droite $( A^{\,\prime}_s A^{\,\prime}_1)$, 
+        et ensuite plus généralement pour $j \in \ZintervalO{s}{m}$. 
+        Le schéma suivant montre sans ambigüité qu'alors
+        $A^{\,\prime}_m = A^{\,\prime}_2$
+        et
+        $A^{\,\prime}_{m-1} = A^{\,\prime}_1$,%
+        \footnote{
+            $A^{\,\prime}_{m-1} \neq A^{\,\prime}_1$ contredirait la condition de positivité large sur les déterminants.
+        }
+        ceci ne levant aucune difficulté pour l'algorithme, car il y a ajout de $A^{\,\prime}_1$ à la fin de la liste $\onelist{C}$, puis arrêt de l'algorithme car $i$ devient $n+2$ pour l'action \ref{algo-kgone-start}.
+        %
+        \begin{center}
+        	\includegraphics[scale=.4]{content/polygon/at-least-one/algo-kgone-terminate-1.png}
+        \end{center}
+
+
+        \item Le raisonnement précédent fonctionne plus généralement lorsque $A^{\,\prime}_i \notin (A^{\,\prime}_1 A^{\,\prime}_r)$.
+
+
+        \item Pour conclure, supposons que $A^{\,\prime}_i \in (A^{\,\prime}_1 A^{\,\prime}_r)$.
+       Ceci nous donne le schéma suivant, où, a priori, il est possible d'avoir $A^{\,\prime}_i \in [A^{\,\prime}_1 A^{\,\prime}_r]$. 
+        %
+        \begin{center}
+        	\includegraphics[scale=.4]{content/polygon/at-least-one/algo-kgone-terminate-2.png}
+        \end{center}
+        
+        \noindent
+        L'algorithme assure l'existence d'un point $A^{\,\prime}_p$ stocké dans $\onelist{C}$ et \focus{précédent} $A^{\,\prime}_i$,
+        tel que tout point entre $A^{\,\prime}_p$ et $A^{\,\prime}_i$, lors du parcours du \ncycle\ $\setproba{L}$, soit sur $(A^{\,\prime}_p A^{\,\prime}_i)$,
+        sans être sur $(A^{\,\prime}_1 A^{\,\prime}_2)$.%
+        \footnote{
+            Sinon, le traitement de $A^{\,\prime}_p$ aurait mené à l'arrêt de l'algorithme.
+        }
+        Nous arrivons au schéma plus précis ci-dessous, où $A^{\,\prime}_p = A^{\,\prime}_s$ est possible,
+        et de plus
+        $A^{\,\prime}_1 \in [ A^{\,\prime}_i , A^{\,\prime}_r ]$
+        par positivité large des déterminants
+        $\det \big( \vect{A^{\,\prime}_p A^{\,\prime}_{p+1}}, \vect{A^{\,\prime}_p A^{\,\prime}_x} \big)$.
+        %
+        \begin{center}
+        	\includegraphics[scale=.4]{content/polygon/at-least-one/algo-kgone-terminate-3.png}
+        \end{center}
+        
+        \noindent
+        Dans ce cas,
+        $A^{\,\prime}_r$ est déjà présent dans $\onelist{C}$,
+        donc l'algorithme s'arrêtera après avoir juste modifié $i$ en $(n + r)$.
+        Ici aussi, tout se passe bien pour l'algorithme.
+    \end{itemize}
 \end{proof}
 
 

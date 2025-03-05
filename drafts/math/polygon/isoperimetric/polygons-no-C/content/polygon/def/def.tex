@@ -5,11 +5,11 @@ Pour l'existence d'au moins une solution, nous allons devoir sortir de l'ensembl
 
 
 \begin{defi}
-	Pour $n \in \NN_{\geq3}$ uniquement, un \onedef{\ncycle} désigne une liste ordonnée de $n$ points du plan, les répétitions étant possibles.
+	Pour $n \in \NN_{\geq3}$ uniquement, un \focus{\ncycle} désigne une liste ordonnée de $n$ points du plan, les répétitions étant possibles.
 	Nous noterons $A_1 A_2 \cdots A_n$ un \ncycle, 
 	et appellerons 
 	\og \emph{sommets}\fg\ du \ncycle\ les points $A_i$ pour $i \in \ZintervalC{1}{n}$,
-	et $A_1$ sera dit \onedef{origine} du \ncycle.
+	et $A_1$ sera dit \focus{origine} du \ncycle.
 \end{defi}
 
 
@@ -19,22 +19,22 @@ Pour l'existence d'au moins une solution, nous allons devoir sortir de l'ensembl
 
 
 \begin{defi}
-	Les \onedef{côtés} d'un \ncycle\ $\setproba{L} = A_1 A_2 \cdots A_n$ sont les segments
+	Les \focus{côtés} d'un \ncycle\ $\setproba{L} = A_1 A_2 \cdots A_n$ sont les segments
 	$[A^{\,\prime}_i A^{\,\prime}_{i+1}]$ pour $i \in \ZintervalC{1}{n}$,
 	et
-	la \onedef{longueur} de $\setproba{L}$ est définie par $\cyclelen{\setproba{L}} = \dsum_{i=1}^{n} A^{\,\prime}_i A^{\,\prime}_{i+1}$.
+	la \focus{longueur} de $\setproba{L}$ est définie par $\cyclelen{\setproba{L}} = \dsum_{i=1}^{n} A^{\,\prime}_i A^{\,\prime}_{i+1}$.
 \end{defi}
 
 
 \begin{defi}
-	Un \ncycle\ $\setproba{L} = A_1 A_2 \cdots A_n$ est dit \onedef{convexe} si, pour chaque côté $[A^{\,\prime}_i A^{\,\prime}_{i+1}]$, tous les sommets de $\setproba{L}$ sont dans un même demi-plan fermé délimité par la droite $(A^{\,\prime}_i A^{\,\prime}_{i+1})$ (un sommet peut donc être sur cette droite).
+	Un \ncycle\ $\setproba{L} = A_1 A_2 \cdots A_n$ est dit \focus{convexe} si, pour chaque côté $[A^{\,\prime}_i A^{\,\prime}_{i+1}]$, tous les sommets de $\setproba{L}$ sont dans un même demi-plan fermé délimité par la droite $(A^{\,\prime}_i A^{\,\prime}_{i+1})$ (un sommet peut donc être sur cette droite).
 \end{defi}
 
 
 \begin{defi}
-	Un \ncycle\ est \onedef{dégénéré} s'il a, au moins, trois sommets consécutifs alignés,
+	Un \ncycle\ est \focus{dégénéré} s'il a, au moins, trois sommets consécutifs alignés,
 	et
-	\onedef{totalement dégénéré} si tous ses sommets sont alignés.
+	\focus{totalement dégénéré} si tous ses sommets sont alignés.
 \end{defi}
 
 
@@ -43,10 +43,10 @@ Pour l'existence d'au moins une solution, nous allons devoir sortir de l'ensembl
 	\includegraphics[scale=.35]{content/polygon/def/degenerated-ncycles.png}
 	
 	\smallskip
-	$ABCDEFG$ est un \ncycle\ ni dégénéré, ni convexe, et qui n'est pas un \ngone.
+	$ABCDEFG$ est un \xcycle{7} ni dégénéré, ni convexe, et qui n'est pas un \ngone.
 	
 	\smallskip
-	$HIJKLMNO$ est un \ncycle\ dégénéré et convexe.
+	$HIJKLMNO$ est un \xcycle{8} dégénéré et convexe.
 \end{center}
 
 
@@ -56,7 +56,7 @@ Pour l'existence d'au moins une solution, nous allons devoir sortir de l'ensembl
 \newpage
 
 \begin{defi}
-	Un \onedef{\ngone} $\setproba{P}$ est un \ncycle\ vérifiant les conditions suivantes impliquant que les sommets sont distincts deux à deux.
+	Un \focus{\ngone} $\setproba{P}$ est un \ncycle\ vérifiant les conditions suivantes impliquant que les sommets sont distincts deux à deux.
 	%
 	\begin{itemize}
 		\item Les côtés de $\setproba{P}$ contiennent tous exactement deux sommets.
@@ -65,7 +65,7 @@ Pour l'existence d'au moins une solution, nous allons devoir sortir de l'ensembl
 	\end{itemize}
 
 
-	Si certains côtés non contigus sont sécants en un point, mais tous les sommets distincts deux à deux, nous parlerons de \onedef{\ngone\ croisé}.%
+	Si certains côtés non contigus sont sécants en un point, mais tous les sommets distincts deux à deux, nous parlerons de \focus{\ngone\ croisé}.%
 	\footnote{
 		Bien retenir que, par définition, un \ngone\ n'est jamais croisé.
 		Dès lors, la longueur d'un \ngone\ correspond à son périmètre.
@@ -74,17 +74,17 @@ Pour l'existence d'au moins une solution, nous allons devoir sortir de l'ensembl
 
 
 \begin{defi}
-	Un \ngone, croisé ou non, est dit \onedef{équilatéral} si tous ses côtés sont de même mesure.
+	Un \ngone, croisé ou non, est dit \focus{équilatéral} si tous ses côtés sont de même mesure.
 \end{defi}
 
 
 \begin{defi}
-	Un \ngone, croisé ou non, est dit \onedef{équiangle} si tous ses angles au sommet sont de même mesure.
+	Un \ngone, croisé ou non, est dit \focus{équiangle} si tous ses angles au sommet sont de même mesure.
 \end{defi}
 
 
 \begin{defi}
-	Un \ngone, croisé ou non, est dit \onedef{régulier} s'il est à la fois équiangle et équilatéral.
+	Un \ngone, croisé ou non, est dit \focus{régulier} s'il est à la fois équiangle et équilatéral.
 \end{defi}
 
 
