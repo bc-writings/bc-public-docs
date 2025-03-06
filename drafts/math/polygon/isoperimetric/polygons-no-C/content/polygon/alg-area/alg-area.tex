@@ -139,10 +139,10 @@ Dans le cas précédent, le résultat pourrait dépendre du point $\Omega$ emplo
     Soient
     $\setproba{L} = A_1 A_2 \cdots A_n$ un \ncycle,
     et
-    son \ncycle\ \og \emph{opposé} \fg\ $\setproba{L}^{\mathrm{op}} = B_1 B_2 \cdots B_n$ où $B_i =  A_{n + 1 - i}$.
+    son \ncycle\ \og \emph{opposé} \fg\ $\cycleop{L} = B_1 B_2 \cdots B_n$ où $B_i =  A_{n + 1 - i}$.
     %
     Nous avons
-    $\mu(\setproba{L}^{\mathrm{op}}) = - \mu(\setproba{L})$.
+    $\mu(\cycleop{L}) = - \mu(\setproba{L})$.
 \end{fact}
 
 
@@ -150,7 +150,7 @@ Dans le cas précédent, le résultat pourrait dépendre du point $\Omega$ emplo
     Soit $\Omega$ un point quelconque du plan.
 
     \begin{stepcalc}[style=ar*]
-        \mu(\setproba{L}^{\mathrm{op}})
+        \mu(\cycleop{L})
     \explnext{}
         \dsum_{i=1}^{n} \det \big( \vect{\Omega B^{\,\prime}_i} , \vect{\Omega B^{\,\prime}_{i+1}} \big)
     \explnext*{$B^{\,\prime}_i =  \primeit{A}_{n + 1 - i}$ et $j = n - i$}{}

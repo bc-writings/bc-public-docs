@@ -12,7 +12,7 @@ Nous pourrons alors conclure dans la section finale suivante.
 
 \begin{tcolorbox}
 	\itshape\small
-	Les cas $n = 3$ et $n = 4$ étant résolus, voir les faits \ref{iso-tri} et \ref{quadri}, dans toutes les preuves de cette section, nous supposerons $n \geq 5$.
+	Les cas $n = 3$ et $n = 4$ étant résolus, voir les faits \ref{iso-tri} et \ref{quadri}, dans toutes les preuves de cette section, nous supposerons $n \geq 5$, pour ne pas alourdir le texte.
 \end{tcolorbox}
 
 
@@ -69,7 +69,7 @@ Nous pourrons alors conclure dans la section finale suivante.
 			C'est ce que l'on appelle de la \focus{low poetry},.
 		}
 		de $\setproba{E}$ comme dans les deux cas ci-dessous.
-	%
+		%
 		\begin{multicols}{2}
 			\centering
 
@@ -142,7 +142,7 @@ Nous pourrons alors conclure dans la section finale suivante.
 
 \begin{fact} \label{must-be-reg}
 	Si un \nequi\ convexe $\setproba{P}$ n'est pas équiangle,
-	alors il existe un \ngone\ convexe $\primeit{\setproba{P}}$ tel que
+	alors il existe un \ngone\ $\primeit{\setproba{P}}$ tel que
 	$\perim{\primeit{\setproba{P}}} = \perim{\setproba{P}}$
 	et
 	$\area{\primeit{\setproba{P}}} > \area{\setproba{P}}$.
@@ -150,19 +150,87 @@ Nous pourrons alors conclure dans la section finale suivante.
 
 
 \begin{proof}
-%	Par hypothèse, nous avons deux paires de côtés
-%	$\big( [AB] , [BC] \big)$ et
-%	$\big( [DE] , [EF] \big)$ telles que
-%	$\anglein{BAC} > \anglein{DEF}$ comme ci-dessous, sans savoir si un côté lie les sommets $C$ et $D$, et de même pour $F$ et $A$.
-%	Par contre, il est possible que $C$ et $D$ soient confondus.
-%	%
-%	\begin{multicols}{2}
-%		\centering
-%		
-%		\includegraphics[scale=.4]{content/polygon/sol-must-be/2-eq-angles-start.png}
-%		
-%		\includegraphics[scale=.4]{content/polygon/sol-must-be/2-eq-angles-start.png}
-%	\end{multicols}
+	Considérons un \nequi\ convexe non équiangle $\setproba{P}$.
+	%
+	Dans ce cas, $\setproba{P}$ admet un quadruplet de sommets consécutifs $A$, $B$, $C$ et $D$ tels que $\anglein{ABC} \neq \anglein{BCD}$
+	(sinon, on obtiendrait de proche en proche l'équiangularité).
+	Quitte à changer l'ordre de parcours des sommets de $\setproba{P}$, nous pouvons supposer $\anglein{ABC} > \anglein{BCD}$.
+	%
+	\begin{center}
+		\includegraphics[scale=.4]{content/polygon/sol-must-be/2-eq-angles-start.png}
+	\end{center}
+	
+	Les seuls degré de liberté que nous avons sont de bouger les points $B$ et $C$. Nous décidons de nous limiter à la zone grise hachurée en excluant les droites vertes en pointillés, afin de garder un \ngone.
+	%
+	Concentrons-nous donc sur le quadrilatère $ABCD$, et posons $c = AB$ la longueur commune des côtés de $\setproba{P}$, ainsi que $d = AD$ que nous ne pouvons pas modifier.
+	%
+	Si nous fixons la valeur de $c$, notre situation possède juste un degré de liberté comme le montre, ci-après, la construction de $C$ à partir de cercles de rayon $c$ centrés en $A$ et $D$ fixes, et $B$ mobile.
+	%
+	\begin{center}
+		\includegraphics[scale=.4]{content/polygon/sol-must-be/2-eq-angles-circle.png}
+	\end{center}
+	
+	Cherchons donc à exprimer $\area{ABCD}$ en fonction de $\alpha = \anglein{DAB}$, cet angle permettant de repérer le point mobile $B$.
+	%
+	\begin{itemize}
+	    \item Le théorème d'Al-Kashi donne
+	    $BD^2 = c^2 + d^2 - 2 c d \cos \alpha$ dans le triangle $ABD$,
+	    ainsi que
+	    $BD^2 = 2 c^2 - 2 c^2 \cos \gamma$ dans le triangle $BCD$.
+	    Donc,
+	    $\cos \gamma = 1 - k^2 + 2 k \cos \alpha$ où l'on a posé $k = \frac{d}{c}$.%
+	    \footnote{
+	    	Notons que l'inégalité triangulaire donne $d \leq 3 c$, puis $k \leq 3$.
+		}
+
+
+	    \item La formule des sinus donne
+	    $\area{ABD} = \num{.5} c d \sin \alpha$
+	    et
+	    $\area{BCD} = \num{.5} c^2 \sin \gamma$,
+	   	donc
+	    $\area{ABCD} = \num{.5} c^2 ( k \sin \alpha + \sin \gamma )$.%
+	    \footnote{
+    	    Notons que
+    	    $\area{ABCD} = \num{.5} c^2 f(\alpha)$
+    	    en posant 
+    	    $f(\alpha) = k \sin \alpha + \sqrt{1 - ( 1 - k^2 + 2 k \cos \alpha)^2}$,
+	    	puisque 
+	    	$\sin \gamma = \sqrt{1 - \cos^2 \gamma}$. 
+	    	Malheureusement, la fonction $f$ est peu sympathique, donc nous allons être moins brutaux.
+        }
+
+
+	    \item XXXX
+
+
+	    \item Par choix, nous considérons juste $\alpha \in \intervalO{0}{\pi}$. Un nombre fini de valeurs de $\alpha$ ne seront pas acceptées: ce sont celles amenant $B$, ou $C$, sur les droites vertes en pointillés de la 1\iere\ figure. 
+	\end{itemize}
+
+	
+%	    \item Par convexité, $\gamma \in \intervalO{0}{\pi}$.
+%	    Nous allons donc étudier les extrema de
+%	    $f(\alpha , \gamma) = k \sin \alpha + \sin \gamma$
+%	    sur $\intervalO{0}{\pi}^2$ sous la contrainte
+%	    $g(\alpha , \gamma) = 0$
+%	    avec
+%	    $g(\alpha , \gamma) = 1 - k^2 + 2 k \cos \alpha - \cos \gamma$,
+%	    ceci nous permettant de faire appel aux extrema liés.%
+
+%		%
+%    	Si un extremum existe,
+%    	$\exists \lambda \in \RR$ tel que
+%    	$\pder[i]{f}{\alpha}{1} = \lambda \pder[i]{g}{\alpha}{1}$
+%		et
+%    	$\pder[i]{f}{\gamma}{1} = \lambda \pder[i]{g}{\gamma}{1}$,
+%		de sorte que
+%		$k \cos \alpha = \lambda ( - 2 k \sin \alpha)$
+%		et
+%		$\cos \gamma = \lambda \sin \gamma$.
+%		%
+%		Donc, nécessairement 
+%		$\tan \gamma = -2 \tan \alpha$. 
+
 %	
 %	
 %	
@@ -229,6 +297,11 @@ Nous pourrons alors conclure dans la section finale suivante.
 %		$0 < \beta < \beta^{\,\prime\prime} < \mu < \alpha^{\,\prime\prime} < \alpha < \pi$.
 %	\end{itemize}
 \end{proof}
+
+
+\begin{remark}
+	Constrcution ?
+\end{remark}
 
 
 \begin{remark}
@@ -310,7 +383,7 @@ Afin d'en finir avec le problème d'isopérimétrie polygonal, nous aurons besoi
 
 
 \begin{proof}
-    Il est connu, et facile de démontrer, qu'un \nreg\ convexe $\setproba{R}$ vérifie
+    Il est connu, et facile à démontrer, qu'un \nreg\ convexe $\setproba{R}$ vérifie
     $\perim{\setproba{R}} = 2 n \sin (\frac{\pi}{n}) \rho$
     et
 	$\area{\setproba{R}} = n \sin (\frac{\pi}{n})  \cos (\frac{\pi}{n}) \rho^2$
@@ -318,8 +391,8 @@ Afin d'en finir avec le problème d'isopérimétrie polygonal, nous aurons besoi
 	Ceci donne 
 	$\area{\setproba{R}} = \frac{\perim{\setproba{R}}^2}{4 n \tan (\frac{\pi}{n})}$,
 	puis amène à justifier que 
-	$k_1 \tan (\frac{\pi}{k_1}) > k_2 \tan (\frac{\pi}{k_2})$.
-	Donc, nous devons démontrer que la suite $\big( k \tan (\frac{\pi}{k}) \big)_{k \in \leq 3}$ est strictement décroissante.
+	$k_1 \tan (\frac{\pi}{k_1}) > k_2 \tan (\frac{\pi}{k_2})$,
+	c'est-à-dire que la suite $\big( k \tan (\frac{\pi}{k}) \big)_{k \in \NN_{\geq 3}}$ est strictement décroissante.
 	
 	
 	XXXX
