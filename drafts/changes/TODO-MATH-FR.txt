@@ -2,6 +2,12 @@
 drafts (math) - TODO
 =============
 
+GRAPHE & CO
+    ---> rasionner avecs des arbres binaires
+            + formules de ttes les puissances (cas positif)
+            + liebniz rule, pascal et fibo
+
+
 AIRE
     ---> part d'aire du traingle non ambig
     ---> aire quadrilatère comme cas d'étude : différentiangul ==> meême aire
@@ -49,7 +55,6 @@ compter moi le signe égal
 
 être nul fait aller vite
     ---> formule puissnace succesive sur N ==> vraie sur R via poly nul sur ensemble infinie
-    ---> cas identiét relaruqable via uns impel dessn géométrique donc juste pour val > 0 mais en fait valable partout !
 
 
 eq-via-boite
@@ -68,13 +73,6 @@ quadrature 33
 fixated-on-point-fixed-theorems
     ---> balayer differnts theo du point fixe simple à comprendre
 
-
-squares-int
-    ---> simpliifier perreuve cas n = 2 via une bête réuc et garder la fonction pour le cas géénral
-    ---> histogramme : les normaliser car là axe bizazare !!!
-    ---> cas général : bigger-power-some-periods
-        + améliorer bigger-power-all-periods pour ne pas refaire des calcusl inutiles
-        + coder en C, là il y a besoin !!!! On prooduit résultat au format texte et python se charge de faire des gra^hiques !
 
 math-tool
     ---> comment raisonner vai des exemples

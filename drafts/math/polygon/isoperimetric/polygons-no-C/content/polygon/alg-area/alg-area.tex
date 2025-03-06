@@ -1,5 +1,5 @@
 L'existence d'un \ngone\ solution du problème d'isopérimétrie polygonale nécessite un moyen \og continu \fg\ de calculer une aire polygonale, ou plus généralement celle d'un \ncycle.
-Pour ce faire, nous utiliserons l'aire algébrique qui est définie pour tout \ncycle\ $\setproba{L} = A_1 A_2 \cdots A_n$ par $\frac12 \dsum_{i=1}^{n} \det \big( \vect{\Omega A^{\,\prime}_i} , \vect{\Omega A^{\,\prime}_{i+1}} \big)$ indépendamment du point $\Omega$.%
+Pour ce faire, nous utiliserons l'aire algébrique qui est définie pour tout \ncycle\ $\setproba{L} = A_1 A_2 \cdots A_n$ par $\frac12 \dsum_{i=1}^{n} \det \big( \vect{\Omega \primeit{A}_i} , \vect{\Omega \primeit{A}_{i+1}} \big)$ indépendamment du point $\Omega$.%
 \footnote{
     Ce fait est démontré un peu plus bas.
 }
@@ -68,7 +68,7 @@ Dans le cas précédent, le résultat pourrait dépendre du point $\Omega$ emplo
 \begin{fact} \label{sarea-pt-ct}
     Soit $\setproba{L} = A_1 A_2 \cdots A_n$ un \ncycle.
     La quantité
-    $\mu_1^n (\Omega ;\setproba{L}) = \dsum_{i=1}^{n} \det \big( \vect{\Omega A^{\,\prime}_i} , \vect{\Omega A^{\,\prime}_{i+1}} \big)$ 
+    $\mu_1^n (\Omega ;\setproba{L}) = \dsum_{i=1}^{n} \det \big( \vect{\Omega \primeit{A}_i} , \vect{\Omega \primeit{A}_{i+1}} \big)$ 
     est indépendante du point $\Omega$.
     Dans la suite, cette quantité indépendante de $\Omega$ sera notée $\mu_1^n (\setproba{L})$.
 \end{fact}
@@ -80,32 +80,32 @@ Dans le cas précédent, le résultat pourrait dépendre du point $\Omega$ emplo
     \begin{stepcalc}[style=ar*]
         \mu_1^n (\Omega ;\setproba{L})
     \explnext{}
-        \dsum_{i=1}^{n} \det \big( \vect{\Omega A^{\,\prime}_i} , \vect{\Omega A^{\,\prime}_{i+1}} \big)
+        \dsum_{i=1}^{n} \det \big( \vect{\Omega \primeit{A}_i} , \vect{\Omega \primeit{A}_{i+1}} \big)
     \explnext{}
-        \dsum_{i=1}^{n} \det \big( \vect{\Omega M} + \vect{M A^{\,\prime}_i} , \vect{\Omega M} + \vect{M A^{\,\prime}_{i+1}} \big)
+        \dsum_{i=1}^{n} \det \big( \vect{\Omega M} + \vect{M \primeit{A}_i} , \vect{\Omega M} + \vect{M \primeit{A}_{i+1}} \big)
     \explnext{}
         \dsum_{i=1}^{n} \Big[
             \det \big( \vect{\Omega M} , \vect{\Omega M} \big)
             +
-            \det \big( \vect{\Omega M} , \vect{M A^{\,\prime}_{i+1}} \big)
+            \det \big( \vect{\Omega M} , \vect{M \primeit{A}_{i+1}} \big)
             +
-            \det \big( \vect{M A^{\,\prime}_i} , \vect{\Omega M} \big)
+            \det \big( \vect{M \primeit{A}_i} , \vect{\Omega M} \big)
             +
-            \det \big( \vect{M A^{\,\prime}_i} , \vect{M A^{\,\prime}_{i+1}} \big)
+            \det \big( \vect{M \primeit{A}_i} , \vect{M \primeit{A}_{i+1}} \big)
         \Big]
     \explnext{}
-        \dsum_{i=1}^{n} \det \big( \vect{\Omega M} , \vect{M A^{\,\prime}_{i+1}} \big)
+        \dsum_{i=1}^{n} \det \big( \vect{\Omega M} , \vect{M \primeit{A}_{i+1}} \big)
         +
-        \dsum_{i=1}^{n} \det \big( \vect{M A^{\,\prime}_i} , \vect{\Omega M} \big)
+        \dsum_{i=1}^{n} \det \big( \vect{M \primeit{A}_i} , \vect{\Omega M} \big)
         +
         \mu_1^n (M ; \setproba{L})
     \explnext{}
         \mu_1^n (M ; \setproba{L})
         +
-        \dsum_{i=2}^{n+1} \det \big( \vect{\Omega M} , \vect{M A^{\,\prime}_{i}} \big)
+        \dsum_{i=2}^{n+1} \det \big( \vect{\Omega M} , \vect{M \primeit{A}_{i}} \big)
         -
-        \dsum_{i=1}^{n} \det \big( \vect{\Omega M} , \vect{M A^{\,\prime}_i} \big)
-    \explnext*{$A^{\,\prime}_{n+1} = A^{\,\prime}_1$}{}
+        \dsum_{i=1}^{n} \det \big( \vect{\Omega M} , \vect{M \primeit{A}_i} \big)
+    \explnext*{$\primeit{A}_{n+1} = \primeit{A}_1$}{}
         \mu_1^n (M ; \setproba{L})
     \end{stepcalc}
 
@@ -119,7 +119,7 @@ Dans le cas précédent, le résultat pourrait dépendre du point $\Omega$ emplo
 \begin{fact} \label{nline-shift-inva}
     Soient $\setproba{L} = A_1 A_2 \cdots A_n$ un \ncycle,
     et
-    l'une de ses\ \og \emph{permutés} \fg\ $\setproba{L}_k = B_1 B_2 \cdots B_n$ défini par $B_i = A^{\,\prime}_{i+k-1}$ pour $k \in \ZintervalC{1}{n}$,
+    l'une de ses\ \og \emph{permutés} \fg\ $\setproba{L}_k = B_1 B_2 \cdots B_n$ défini par $B_i = \primeit{A}_{i+k-1}$ pour $k \in \ZintervalC{1}{n}$,
     %
     Nous avons
     $\mu_1^n (\setproba{L}) = \mu_1^n (\setproba{L}_k)$.
@@ -153,14 +153,14 @@ Dans le cas précédent, le résultat pourrait dépendre du point $\Omega$ emplo
         \mu(\setproba{L}^{\mathrm{op}})
     \explnext{}
         \dsum_{i=1}^{n} \det \big( \vect{\Omega B^{\,\prime}_i} , \vect{\Omega B^{\,\prime}_{i+1}} \big)
-    \explnext*{$B^{\,\prime}_i =  A^{\,\prime}_{n + 1 - i}$ et $j = n - i$}{}
-%        \dsum_{i=1}^{n} \det \big( \vect{\Omega A^{\,\prime}_{n + 1 - i}} , \vect{\Omega A^{\,\prime}_{n - i}} \big)
+    \explnext*{$B^{\,\prime}_i =  \primeit{A}_{n + 1 - i}$ et $j = n - i$}{}
+%        \dsum_{i=1}^{n} \det \big( \vect{\Omega \primeit{A}_{n + 1 - i}} , \vect{\Omega \primeit{A}_{n - i}} \big)
 %    \explnext{}
-        \dsum_{j=0}^{n-1} \det \big( \vect{\Omega A^{\,\prime}_{j + 1}} , \vect{\Omega A^{\,\prime}_j} \big)
-    \explnext*{$A^{\,\prime}_0 = A^{\,\prime}_n$ et $A^{\,\prime}_1 = A^{\,\prime}_{n+1}$}{}
-%        \dsum_{j=1}^{n} \det \big( \vect{\Omega A^{\,\prime}_{j + 1}} , \vect{\Omega A^{\,\prime}_j} \big)
+        \dsum_{j=0}^{n-1} \det \big( \vect{\Omega \primeit{A}_{j + 1}} , \vect{\Omega \primeit{A}_j} \big)
+    \explnext*{$\primeit{A}_0 = \primeit{A}_n$ et $\primeit{A}_1 = \primeit{A}_{n+1}$}{}
+%        \dsum_{j=1}^{n} \det \big( \vect{\Omega \primeit{A}_{j + 1}} , \vect{\Omega \primeit{A}_j} \big)
 %    \explnext{}
-        - \dsum_{j=1}^{n} \det \big( \vect{\Omega A^{\,\prime}_j} , \vect{\Omega A^{\,\prime}_{j + 1}} \big)
+        - \dsum_{j=1}^{n} \det \big( \vect{\Omega \primeit{A}_j} , \vect{\Omega \primeit{A}_{j + 1}} \big)
     \explnext{}
         - \mu(\setproba{L})
     \end{stepcalc}
@@ -194,7 +194,7 @@ Dans le cas précédent, le résultat pourrait dépendre du point $\Omega$ emplo
 Considérons, maintenant, un \ngone\ convexe $\setproba{P} = A_1 A_2 \cdots A_n$ où les sommets sont parcourus dans le sens anti-horaire.
 En choisissant l'isobarycentre $G$ des points $A_1$, $A_2$, ..., $A_n$ pour calculer $\sarea{\setproba{P}}$, nous obtenons $\area{\setproba{P}} = \sarea{\setproba{P}}$:
 en effet,
-avec ce choix, tous les déterminants $\det \big( \vect{G A^{\,\prime}_i} , \vect{G A^{\,\prime}_{i+1}} \big)$ sont positifs.
+avec ce choix, tous les déterminants $\det \big( \vect{G \primeit{A}_i} , \vect{G \primeit{A}_{i+1}} \big)$ sont positifs.
 Dans le cas non-convexe, les choses se compliquent a priori, car nous ne maîtrisons plus les signes des déterminants. Heureusement, nous avons le résultat essentiel suivant.
 
 
@@ -310,15 +310,15 @@ Dans le cas non-convexe, les choses se compliquent a priori, car nous ne maîtri
 			\mu(\setproba{P})
 		%
 %		\explnext{}
-%			\dsum_{j=1}^{n} \det \big( \vect{A_1 A^{\,\prime}_j} , \vect{A_1 A^{\,\prime}_{j + 1}} \big)
+%			\dsum_{j=1}^{n} \det \big( \vect{A_1 \primeit{A}_j} , \vect{A_1 \primeit{A}_{j + 1}} \big)
 %		%
 		\explnext{}
-			\dsum_{j=1}^{n} \det \big( \vect{A_1 A^{\,\prime}_j} , \vect{A_1 A^{\,\prime}_{j + 1}} \big)
+			\dsum_{j=1}^{n} \det \big( \vect{A_1 \primeit{A}_j} , \vect{A_1 \primeit{A}_{j + 1}} \big)
 %			+
-%			\det \big( \vect{A_1 A^{\,\prime}_n} , \vect{A_1 A^{\,\prime}_{n+1}} \big)
+%			\det \big( \vect{A_1 \primeit{A}_n} , \vect{A_1 \primeit{A}_{n+1}} \big)
 		%
-		\explnext*{$A^{\,\prime}_{n+1} = A_1$ \\
-		           $A^{\,\prime}_i = A_i$ pour $i \leq n$}%
+		\explnext*{$\primeit{A}_{n+1} = A_1$ \\
+		           $\primeit{A}_i = A_i$ pour $i \leq n$}%
 		          {}
 			\dsum_{j=1}^{n-1} \det \big( \vect{A_1 A_j} , \vect{A_1 A_{j + 1}} \big)
 %			+

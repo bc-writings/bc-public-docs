@@ -12,11 +12,11 @@ Ceci explique que nous allons chercher à justifier l'existence d'au moins un \n
 	\begin{itemize}
 		\item $\forall (i, k) \in \ZintervalC{1}{n}^2$,
 		si $k \notin \setgene{i ; i+1}$, alors
-		$\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_k} \big) > 0$.
+		$\det \big( \vect{\primeit{A}_i \primeit{A}_{i+1}}, \vect{\primeit{A}_i \primeit{A}_k} \big) > 0$.
 
 		\item $\forall (i, k) \in \ZintervalC{1}{n}^2$,
 		si $k \notin \setgene{i ; i+1}$, alors
-		$\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_k} \big) < 0$.
+		$\det \big( \vect{\primeit{A}_i \primeit{A}_{i+1}}, \vect{\primeit{A}_i \primeit{A}_k} \big) < 0$.
     \end{itemize}
 \end{fact}
 
@@ -41,42 +41,45 @@ Ceci explique que nous allons chercher à justifier l'existence d'au moins un \n
     \end{multicols}
 
     
+    \newpage
+
+
     \noindent
     Considérons le cas positif, c'est-à-dire supposons que 
-    $\det \big( \vect{A^{\,\prime}_1 A^{\,\prime}_2}, \vect{A^{\,\prime}_1 A^{\,\prime}_3} \big) > 0$.
+    $\det \big( \vect{\primeit{A}_1 \primeit{A}_2}, \vect{\primeit{A}_1 \primeit{A}_3} \big) > 0$.
 	%
 	\begin{itemize}
-    	\item $\vect{A^{\,\prime}_1 A^{\,\prime}_3} = \vect{A^{\,\prime}_1 A^{\,\prime}_2} + \vect{A^{\,\prime}_2 A^{\,\prime}_3}$
+    	\item $\vect{\primeit{A}_1 \primeit{A}_3} = \vect{\primeit{A}_1 \primeit{A}_2} + \vect{\primeit{A}_2 \primeit{A}_3}$
     	donne
-		$\det \big( \vect{A^{\,\prime}_2 A^{\,\prime}_3}, \vect{A^{\,\prime}_2 A^{\,\prime}_1} \big) > 0$.
+		$\det \big( \vect{\primeit{A}_2 \primeit{A}_3}, \vect{\primeit{A}_2 \primeit{A}_1} \big) > 0$.
 
 
 		\item Comme $A_2$, $A_3$ et $A_4$ ne sont pas alignés, et de plus $A_1$ et $A_4$ du même côté de la droite $(A_2 A_3)$, au sens large, nous obtenons
-		$\det \big( \vect{A^{\,\prime}_2 A^{\,\prime}_3}, \vect{A^{\,\prime}_2 A^{\,\prime}_4} \big) > 0$.
+		$\det \big( \vect{\primeit{A}_2 \primeit{A}_3}, \vect{\primeit{A}_2 \primeit{A}_4} \big) > 0$.
 
 
 		\item En continuant de proche en proche, nous arrivons à
-		$\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_{i+2}} \big) > 0$
+		$\det \big( \vect{\primeit{A}_i \primeit{A}_{i+1}}, \vect{\primeit{A}_i \primeit{A}_{i+2}} \big) > 0$
 		pour $i \in \ZintervalC{1}{n}$ quelconque.
 
 
 		\item Le point précédent et la convexité donnent
-		$\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_k} \big) \geq 0$
+		$\det \big( \vect{\primeit{A}_i \primeit{A}_{i+1}}, \vect{\primeit{A}_i \primeit{A}_k} \big) \geq 0$
 		pour $(i, k) \in \ZintervalC{1}{n}^2$ tel que $k \notin \setgene{i ; i+1}$.
 
 
 		\item
 		Montrons maintenant que
-		$\det \big( \vect{A^{\,\prime}_1 A^{\,\prime}_2}, \vect{A^{\,\prime}_1 A^{\,\prime}_k} \big) > 0$
+		$\det \big( \vect{\primeit{A}_1 \primeit{A}_2}, \vect{\primeit{A}_1 \primeit{A}_k} \big) > 0$
 		pour $k \in \ZintervalC{3}{n}$.
 		%
 		Nous savons déjà l'inégalité vraie pour $k = 3$; passons donc à $k = 4$.
 		Pour avoir 
-		$\det \big( \vect{A^{\,\prime}_1 A^{\,\prime}_2}, \vect{A^{\,\prime}_1 A^{\,\prime}_4} \big) > 0$, 
+		$\det \big( \vect{\primeit{A}_1 \primeit{A}_2}, \vect{\primeit{A}_1 \primeit{A}_4} \big) > 0$, 
 		le point précédent donne qu'il faut vérifier que 
-		$\det \big( \vect{A^{\,\prime}_1 A^{\,\prime}_2}, \vect{A^{\,\prime}_1 A^{\,\prime}_4} \big) = 0$
+		$\det \big( \vect{\primeit{A}_1 \primeit{A}_2}, \vect{\primeit{A}_1 \primeit{A}_4} \big) = 0$
 		est impossible.
-		Supposons donc l'égalité vraie, ce qui implique d'avoir $n \geq 5$, car dans le cas contraire les sommets consécutifs $A_4$, $A_5$ et $A_1$ seraient alignés.
+		Supposons donc l'égalité vraie, ce qui implique d'avoir $n \geq 5$, car dans le cas contraire les sommets consécutifs $A_4$, $A_1$ et $A_2$ seraient alignés.
 		Nous aboutissons aux configurations suivantes où les hachures et la droite en trait plein sont des zones interdites pour $A_4$.
 
         \begin{multicols}{2}
@@ -115,18 +118,18 @@ Ceci explique que nous allons chercher à justifier l'existence d'au moins un \n
 		mais $A_6$ ne peut être ni à l'intérieur du triangle $A_2 A_3 A_4$ par convexité,
 		ni sur la droite $(A_1 A_2)$, car $A_4$, $A_5$ et $A_6$ ne peuvent pas être alignés.
 		Cette situation contradictoire montre que
-		$\det \big( \vect{A^{\,\prime}_1 A^{\,\prime}_2}, \vect{A^{\,\prime}_1 A^{\,\prime}_4} \big) > 0$.
+		$\det \big( \vect{\primeit{A}_1 \primeit{A}_2}, \vect{\primeit{A}_1 \primeit{A}_4} \big) > 0$.
 		En continuant de même, de proche en proche, nous arrivons à
-		$\det \big( \vect{A^{\,\prime}_1 A^{\,\prime}_2}, \vect{A^{\,\prime}_1 A^{\,\prime}_k} \big) > 0$
+		$\det \big( \vect{\primeit{A}_1 \primeit{A}_2}, \vect{\primeit{A}_1 \primeit{A}_k} \big) > 0$
 		pour $k \in \ZintervalC{3}{n}$.
 
 
 		\item En généralisant le raisonnement précédent,%
 		\footnote{
-		    Se souvenir de la définition \focus{cyclique} de la suite $(A^{\,\prime}_i)$.
+		    Se souvenir de la définition \focus{cyclique} de la suite $(\primeit{A}_i)$.
 		}
 		nous avons
-		$\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_k} \big) > 0$
+		$\det \big( \vect{\primeit{A}_i \primeit{A}_{i+1}}, \vect{\primeit{A}_i \primeit{A}_k} \big) > 0$
 		pour tout couple $(i, k) \in \ZintervalC{1}{n}^2$ vérifiant $k \notin \setgene{i ; i+1}$.
 	\end{itemize}
 
@@ -140,10 +143,7 @@ Ceci explique que nous allons chercher à justifier l'existence d'au moins un \n
 % ----------------------- %
 
 
-\newpage
-
-
-Nous allons établir une réciproque élargie du résultat précédent. Ce nouveau fait va nous rendre un grand service par la suite.%
+Nous allons établir une réciproque élargie du résultat précédent. Ce nouveau fait, le plus technique à justifier, va nous rendre un grand service par la suite.%
 \footnote{
     Pourquoi s'attarder sur des inégalités larges? Parce que nous allons travailler dans un ensemble compact, et donc fermé, de \ncycles.
     Pour garder des \ngones, nous devrions utiliser des non-égalités, mais ceci nous ferait sortir du cadre fermé qui nous intéresse.
@@ -156,10 +156,10 @@ Nous allons établir une réciproque élargie du résultat précédent. Ce nouve
     %
 	\begin{itemize}
 		\item $\forall (i, k) \in \ZintervalC{1}{n}^2$,
-		$\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_k} \big) \geq 0$.
+		$\det \big( \vect{\primeit{A}_i \primeit{A}_{i+1}}, \vect{\primeit{A}_i \primeit{A}_k} \big) \geq 0$.
 
 		\item $\forall (i, k) \in \ZintervalC{1}{n}^2$,
-		$\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_k} \big) \leq 0$.
+		$\det \big( \vect{\primeit{A}_i \primeit{A}_{i+1}}, \vect{\primeit{A}_i \primeit{A}_k} \big) \leq 0$.
     \end{itemize}
     
     Sous l'une de ces hypothèses, l'une des assertions ci-après est validée.
@@ -182,57 +182,62 @@ Nous allons établir une réciproque élargie du résultat précédent. Ce nouve
     \footnote{
         On pourrait aussi invoquer des cycles opposés.
     }
-    c'est-à-dire supposer que
+    c'est-à-dire supposer que 
     $\forall (i, k) \in \ZintervalC{1}{n}^2$,
-	$\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_k} \big) \geq 0$.
+	$\det \big( \vect{\primeit{A}_i \primeit{A}_{i+1}}, \vect{\primeit{A}_i \primeit{A}_k} \big) \geq 0$.
 	%
 	Seul le cas $\setproba{L}$ non totalement dégénéré requiert notre attention.
-	Nous allons raisonner algorithmiquement en utilisant
+	%
+	L'idée de la construction est simple: il s'agit de chercher des sommets extrémaux, c'est-à-dire qui \focus{forment un angle}. Nous allons raisonner algorithmiquement en utilisant
 	une variable $i$ initialisée à $1$, 
-	et une liste $\onelist{C}$, initialement vide, pour stocker les sommets \og utiles \fg\ à la fabrication du \kgone\ convexe final.
+	et
+	une liste $\onelist{C}$, initialement vide, pour stocker les sommets \og utiles \fg\ à la fabrication du \kgone\ convexe final.
 	%
 	\begin{enumerate}[label=\fbox{\small\bfseries\textsf{A\kern.25pt\arabic*}}]
     	\item \label{algo-kgone-start}
 	    Si 
-		$\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_{i+2}} \big) > 0$,
-		nous ajoutons $A^{\,\prime}_{i+1}$ à la fin de la liste $\onelist{C}$,
+		$\det \big( \vect{\primeit{A}_i \primeit{A}_{i+1}}, \vect{\primeit{A}_i \primeit{A}_{i+2}} \big) > 0$,
+		nous ajoutons $\primeit{A}_{i+1}$ à la fin de la liste $\onelist{C}$,
 		puis nous passons directement à l'action \ref{algo-kgone-loop-back}\,.
 
 
     	\item \label{algo-kgone-remove-vertices}
         Sinon, il existe 
 	    $m \in \NN_{>i+2}$ minimal tel que
-		$\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_m} \big) > 0$, car $\setproba{L}$ n'est pas totalement dégénéré.
+		$\det \big( \vect{\primeit{A}_i \primeit{A}_{i+1}}, \vect{\primeit{A}_i \primeit{A}_m} \big) > 0$, car $\setproba{L}$ n'est pas totalement dégénéré.
         %
         \begin{center}
         	\includegraphics[scale=.4]{content/polygon/at-least-one/algo-kgone-remove-vertices.png}
         \end{center}
         
         \noindent
-        Comme 
-        $\det \big( \vect{A^{\,\prime}_{m-1} A^{\,\prime}_m}, \vect{A^{\,\prime}_{m-1} A^{\,\prime}_{i+1}} \big) \geq 0$, 
-        forcément
-        $A^{\,\prime}_{m-1} \in [ A^{\,\prime}_{i+1} , \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}} )$.%
-        \footnote{
-        	Ceci signifie juste que $A^{\,\prime}_{m-1}$ est confondu avec $A^{\,\prime}_{i+1}$, ou \focus{aligné} à droite de $A^{\,\prime}_{i+1}$ sur notre schéma.
-        }
         Nous arrivons aux constatations suivantes.
         %
         \begin{itemize}
-            \item Les points $A^{\,\prime}_i$, $A^{\,\prime}_{m-1}$ et $A^{\,\prime}_m$ ne sont pas alignés.
+            \item Les points $\primeit{A}_i$, $\primeit{A}_{m-1}$ et $\primeit{A}_m$ ne sont pas alignés, et par conséquent deux à deux distincts.
+            
+            \item Comme 
+            $\forall j \in \ZintervalC{1}{n}$,
+            $\det \big( \vect{\primeit{A}_{m-1} \primeit{A}_m}, \vect{\primeit{A}_{m-1} \primeit{A}_{j}} \big) \geq 0$, 
+            nous avons
+            $\primeit{A}_{j} \in ( \primeit{A}_i , \primeit{A}_{m-1} ]$,
+            pour $j \in \ZintervalO{i}{m-1}$.%
+            \footnote{
+        	    Le point $\primeit{A}_{m-1}$ est le plus à droite sur notre schéma.
+            }
 
-            \item L'évaluation de l'aire algébrique via le point de calcul $A^{\,\prime}_{m-1}$ n'a pas besoin de tenir compte des sommets $A^{\,\prime}_j$ pour $j \in \ZintervalO{i}{m-1}$.
+            \item L'évaluation de l'aire algébrique via le point de calcul $\primeit{A}_{m-1}$ peut se passer des sommets $\primeit{A}_j$ pour $j \in \ZintervalO{i}{m-1}$, par raison d'alignement.
 
             \item Ignorer des sommets, tout en conservant l'ordre de parcours, pour former un nouveau cycle $\setproba{L}^{\,\prime}$, donne $\cyclelen{\setproba{L}^{\,\prime}} \leq \cyclelen{\setproba{L}} $.
         \end{itemize}
         
         \noindent
-        Ceci justifie l'ajout de
-        $A^{\,\prime}_{m-1}$ à la fin de la liste $\onelist{C}$ si $A^{\,\prime}_{m-1}$ n'est pas dans cette liste,%
+        Les constatations précédentes justifient l'ajout de
+        $\primeit{A}_{m-1}$ à la fin de la liste $\onelist{C}$, uniquement si $\primeit{A}_{m-1}$ n'est pas dans cette liste,%
         \footnote{
         	La justification de l'algorithme, donnée un peu plus bas, montrera la possibilité d'avoir un doublon dans la liste $\onelist{C}$.
         }
-        puis de poser $i = m - 2$.
+        puis de poser $i = m - 2$, puisque nous augmentons $i$ de $1$ juste après.
 
 	
 		\item \label{algo-kgone-loop-back}
@@ -240,82 +245,83 @@ Nous allons établir une réciproque élargie du résultat précédent. Ce nouve
 		Si $i \geq n+1$, nous avons fini, sinon nous retournons à l'action \ref{algo-kgone-start}\,.
     \end{enumerate}
     
+
     \medskip
+
     
     Commençons par justifier que l'algorithme s'arrête sans entrer dans une boucle infinie.
-    Tant que l'indice $m$ de l'étape \ref{algo-kgone-remove-vertices} vérifie $m \leq n$, il n'y a aucune difficulté, puisque $i$ augmente, et les points ajoutés ne se placent pas \focus{après} l'origine $A_1$ du \ncycle\ initial $\setproba{L}$, et donc n'empiètent pas sur les \focus{premiers} sommets. Supposons donc avoir $m > n$ pour un certain indice $i$.
+    Tant que l'indice $m$ de l'étape \ref{algo-kgone-remove-vertices} vérifie $m \leq n$, il n'y a aucune difficulté, car $i$ augmente, et les sommets ajoutés se placent \focus{avant} l'origine $A_1$ du \ncycle\ initial $\setproba{L}$ sans empiéter sur les \focus{premiers} sommets. Supposons avoir $m \in \ZintervalO{n}{n+i}$ pour un indice $i$, où forcément $i > 1$, et par conséquent $\primeit{A}_i$ a été stocké dans la liste $\onelist{C}$.
     %
     \begin{itemize}
-        \item Notons que $i > 1$. 
+        \item Commençons par noter l'existence de $A_1$, $A_r$ et $A_s$ non alignés avec $A_r$ et $A_s$ stockés dans $\onelist{C}$.
         En effet,
-        dans le cas contraire, le \ncycle\ $\setproba{L}$ serait totalement dégénéré. Nous avons donc au passage $A_1$, $A_r$ et $A_s$ non alignés avec $s \in \ZintervalC{3}{n}$ minimal et $A_r$ stocké dans $\onelist{C}$, où $r \in \ZintervalC{2}{s-1}$. 
+        $A_r$ vient de l'application de l'algorithme à $i = 1$, 
+        puis
+        $A_s$ s'obtient avec $i = r$.
 
 
         \item Supposons que $i = s$. 
-        Pour $j \in \ZintervalC{s+1}{n}$, les points $A^{\,\prime}_j$ sont sur la droite $( A^{\,\prime}_s A^{\,\prime}_1)$, 
+        Pour $j \in \ZintervalC{s+1}{n}$, les points $\primeit{A}_j$ sont sur la droite $( \primeit{A}_s \primeit{A}_1)$, 
         et ensuite plus généralement pour $j \in \ZintervalO{s}{m}$. 
         Le schéma suivant montre sans ambigüité qu'alors
-        $A^{\,\prime}_m = A^{\,\prime}_2$
-        et
-        $A^{\,\prime}_{m-1} = A^{\,\prime}_1$,%
+        $\primeit{A}_{m-1} = \primeit{A}_1$.%
         \footnote{
-            $A^{\,\prime}_{m-1} \neq A^{\,\prime}_1$ contredirait la condition de positivité large sur les déterminants.
+            $\primeit{A}_{m-1} \neq \primeit{A}_1$ contredirait la condition de positivité large sur les déterminants.
         }
-        ceci ne levant aucune difficulté pour l'algorithme, car il y a ajout de $A^{\,\prime}_1$ à la fin de la liste $\onelist{C}$, puis arrêt de l'algorithme car $i$ devient $n+2$ pour l'action \ref{algo-kgone-start}.
+        Dès lors, $m = n+2$, d'où l'ajout de $\primeit{A}_1$ à la fin de la liste $\onelist{C}$, puis l'arrêt de l'algorithme à l'étape suivante.
         %
         \begin{center}
         	\includegraphics[scale=.4]{content/polygon/at-least-one/algo-kgone-terminate-1.png}
         \end{center}
 
 
-        \item Le raisonnement précédent fonctionne plus généralement lorsque $A^{\,\prime}_i \notin (A^{\,\prime}_1 A^{\,\prime}_r)$.
+        \item Le raisonnement précédent fonctionne plus généralement lorsque $\primeit{A}_i \notin (\primeit{A}_1 \primeit{A}_r)$.
 
 
-        \item Pour conclure, supposons que $A^{\,\prime}_i \in (A^{\,\prime}_1 A^{\,\prime}_r)$.
-       Ceci nous donne le schéma suivant, où, a priori, il est possible d'avoir $A^{\,\prime}_i \in [A^{\,\prime}_1 A^{\,\prime}_r]$. 
+        \item Il reste le cas où $\primeit{A}_i \in (\primeit{A}_1 \primeit{A}_r)$.
+       Ceci nous donne le schéma suivant, où
+       $\primeit{A}_i \in [\primeit{A}_1 \primeit{A}_r]$ est possible, a priori. 
         %
         \begin{center}
         	\includegraphics[scale=.4]{content/polygon/at-least-one/algo-kgone-terminate-2.png}
         \end{center}
         
         \noindent
-        L'algorithme assure l'existence d'un point $A^{\,\prime}_p$ stocké dans $\onelist{C}$ et \focus{précédent} $A^{\,\prime}_i$,
-        tel que tout point entre $A^{\,\prime}_p$ et $A^{\,\prime}_i$, lors du parcours du \ncycle\ $\setproba{L}$, soit sur $(A^{\,\prime}_p A^{\,\prime}_i)$,
-        sans être sur $(A^{\,\prime}_1 A^{\,\prime}_2)$.%
-        \footnote{
-            Sinon, le traitement de $A^{\,\prime}_p$ aurait mené à l'arrêt de l'algorithme.
-        }
-        Nous arrivons au schéma plus précis ci-dessous, où $A^{\,\prime}_p = A^{\,\prime}_s$ est possible,
-        et de plus
-        $A^{\,\prime}_1 \in [ A^{\,\prime}_i , A^{\,\prime}_r ]$
+        L'algorithme assure l'existence d'un point $\primeit{A}_p \notin ( \primeit{A}_1 , \primeit{A}_r )$ stocké dans $\onelist{C}$ et \focus{précédent} $\primeit{A}_i$,
+        tel que tout point entre $\primeit{A}_p$ et $\primeit{A}_i$ soit sur $(\primeit{A}_p \primeit{A}_i)$.
+        Nous arrivons au schéma plus précis ci-dessous, où
+        $\primeit{A}_1 \in [ \primeit{A}_i , \primeit{A}_r ]$
         par positivité large des déterminants
-        $\det \big( \vect{A^{\,\prime}_p A^{\,\prime}_{p+1}}, \vect{A^{\,\prime}_p A^{\,\prime}_x} \big)$.
+        $\det \big( \vect{\primeit{A}_p \primeit{A}_{p+1}}, \vect{\primeit{A}_p \primeit{A}_k} \big)$,
+        avec la possibilité d'avoir $\primeit{A}_p = \primeit{A}_s$.
         %
         \begin{center}
         	\includegraphics[scale=.4]{content/polygon/at-least-one/algo-kgone-terminate-3.png}
         \end{center}
         
         \noindent
-        Dans ce cas,
-        $A^{\,\prime}_r$ est déjà présent dans $\onelist{C}$,
+        Ici,
+        $\primeit{A}_r$ est déjà présent dans $\onelist{C}$,
         donc l'algorithme s'arrêtera après avoir juste modifié $i$ en $(n + r)$.
-        Ici aussi, tout se passe bien pour l'algorithme.
+        Notons que les points de $\primeit{A}_{i+1}$ à $\primeit{A}_{r-1}$ sont \focus{mangés} comme attendu.
     \end{itemize}
     
+    
     \medskip
+    
     
     Il reste à justifier que la liste $\onelist{C}$ qui, lue de gauche à droite, donnera les sommets du \kgone\ convexe $\setproba{C}$ cherché.
     %
     \begin{itemize}
-        \item Par construction, deux sommets \focus{consécutifs} $A^{\,\prime}_r$ et $A^{\,\prime}_s$ de $\setproba{C}$, sont tels que tout point du cycle initial $\setproba{L}$ situé entre $A^{\,\prime}_r$ et $A^{\,\prime}_s$ est sur le segment $[A^{\,\prime}_r A^{\,\prime}_s]$.
-        En ignorant ces points, on fait donc diminuer, au sens large, la longueur du \ncycle, mais sans modifier la valeur de l'aire algébrique, cette dernière étant calculable depuis $A^{\,\prime}_r$, ou $A^{\,\prime}_s$.
+        \item Par construction, deux sommets \focus{consécutifs} $\primeit{A}_r$ et $\primeit{A}_s$ de $\setproba{C}$, sont tels que tout point du cycle initial $\setproba{L}$ situé entre $\primeit{A}_r$ et $\primeit{A}_s$ se trouve sur le segment $[\primeit{A}_r \primeit{A}_s]$.
+        En ignorant ces points, on fait donc diminuer, au sens large, la longueur du \ncycle, mais sans modifier la valeur de l'aire algébrique, cette dernière étant calculable depuis $\primeit{A}_r$, ou $\primeit{A}_s$.
         Donc
         $\cyclelen{\setproba{C}} \leq \cyclelen{\setproba{L}}$
 		et
 		$\sarea{\setproba{C}} = \sarea{\setproba{L}}$
 
 
-        \item Par construction, trois sommets \focus{consécutifs} $A^{\,\prime}_q$, $A^{\,\prime}_r$ et $A^{\,\prime}_s$ de $\setproba{C}$, sont tels que $\det \big( \vect{A^{\,\prime}_q A^{\,\prime}_{r}}, \vect{A^{\,\prime}_q A^{\,\prime}_s} \big) > 0$. 
+        \item Par construction, trois sommets \focus{consécutifs} $\primeit{A}_q$, $\primeit{A}_r$ et $\primeit{A}_s$ de $\setproba{C}$, sont tels que $\det \big( \vect{\primeit{A}_q \primeit{A}_{r}}, \vect{\primeit{A}_q \primeit{A}_s} \big) > 0$. 
         En particulier, ces trois sommets \focus{consécutifs} ne sont pas alignés.
         Dès lors, $\setproba{C}$ est un \kgone, et il est aussi convexe. 
     \end{itemize}
@@ -344,7 +350,7 @@ Le résultat qui suit est juste là pour simplifier la justification du fait \re
         \item $\cyclelen{\setproba{L}} = \ell$.
     
         \item $\forall (i, k) \in \ZintervalC{1}{n}^2$,
-		$\det \big( \vect{A^{\,\prime}_i A^{\,\prime}_{i+1}}, \vect{A^{\,\prime}_i A^{\,\prime}_k} \big) \geq 0$.
+		$\det \big( \vect{\primeit{A}_i \primeit{A}_{i+1}}, \vect{\primeit{A}_i \primeit{A}_k} \big) \geq 0$.
     \end{itemize}
     
     Dès lors, la fonction $\alpha: \setproba{U} \rightarrow \RR$, qui à un uplet de $\setproba{U}$ associe l'aire algébrique du \ncycle\ qu'il représente, est une fonction admettant au moins un maximum, qui est positif strict.
@@ -385,7 +391,7 @@ Le résultat qui suit est juste là pour simplifier la justification du fait \re
 % ----------------------- %
 
 
-Nous arrivons, au résultat fondamental pour les \ngones\ convexes où la perte éventuelle de sommets est un faux problème, car nous aboutirons, plus tard, à la comparaison de \kregs\ convexes pour $k$ variable, une tâche aisée, puisque le périmètre et l'aire d'un \kreg\ convexe s'expriment en fonction de $k$; nous saurons alors que le \kgone\ convexe $\setproba{K}$ ci-après est en fait un \nreg\ convexe.
+Nous arrivons, au résultat fondamental pour les \ngones\ convexes avec une perte éventuelle de sommets: ceci est un faux problème, car nous aboutirons, plus tard, à la comparaison de \kregs\ convexes pour $k$ variable, une tâche aisée, puisque le périmètre et l'aire d'un \kreg\ convexe s'expriment en fonction de $k$, nous saurons alors que le \kgone\ convexe $\setproba{K}$ ci-après est en fait un \nreg\ convexe.
 
 
 \begin{fact} \label{at-least-one-kgone}
@@ -410,13 +416,12 @@ Nous arrivons, au résultat fondamental pour les \ngones\ convexes où la perte 
 		\item Via une translation, nous nous ramenons à $\setproba{P}$ d'origine $\pt{O}$.
 
 
-		\item Comme dans la preuve du fait \ref{at-least-one-ncycle},
-		soit
-		$\setproba{P} \in \setproba{U}$ et $\sarea{\setproba{P}} = \area{\setproba{P}}$,
-		soit
-		$\setproba{P}^{\mathrm{op}} \in \setproba{U}$ et $\sarea{\setproba{P}^{\mathrm{op}}} = \area{\setproba{P}^{\mathrm{op}}}$.
+		\item Comme dans la preuve du fait \ref{at-least-one-ncycle}, nous avons
+		soit $\setproba{P} \in \setproba{U}$ et $\sarea{\setproba{P}} = \area{\setproba{P}}$,
+		soit $\setproba{P}^{\mathrm{op}} \in \setproba{U}$ et $\sarea{\setproba{P}^{\mathrm{op}}} = \area{\setproba{P}^{\mathrm{op}}}$.
 		Comme, de plus, $\area{\setproba{P}^{\mathrm{op}}} = \area{\setproba{P}}$,
-		nous pouvons échanger, si besoin, $\setproba{P}$ et $\setproba{P}^{\mathrm{op}}$, afin d'avoir $\setproba{P} \in \setproba{U}$.
+		quitte à échanger $\setproba{P}$ et $\setproba{P}^{\mathrm{op}}$,
+		nous pouvons supposer avoir $\setproba{P} \in \setproba{U}$.
 
 
 		\item Le fait \ref{conv-from-non-neg-det} donne un \kgone\ convexe $\setproba{C}$, où $k \leq n$, tel que
@@ -447,7 +452,7 @@ Nous arrivons, au résultat fondamental pour les \ngones\ convexes où la perte 
 		$\cyclelen{\setproba{K}} = \ell$
 		et
 		$\area{\setproba{P}} \leq \area{\setproba{K}}$.
-		Affaire conclue, sans arnaque logique!
+		Affaire conclue!
 	\end{itemize}
 
 	\null\vspace{-6ex}

@@ -14,20 +14,20 @@ Pour l'existence d'au moins une solution, nous allons devoir sortir de l'ensembl
 
 
 \begin{defi}
-    Pour tout \ncycle\ $A_1 A_2 \cdots A_n$, on définit $\big( A^{\,\prime}_i \big)_{i \in \ZZ}$ comme étant $n$-périodique, et vérifiant $A^{\,\prime}_{i} = A_i$ sur $\ZintervalC{1}{n}$.
+    Pour tout \ncycle\ $A_1 A_2 \cdots A_n$, on définit $\big( \primeit{A}_i \big)_{i \in \ZZ}$ comme étant $n$-périodique, et vérifiant $\primeit{A}_{i} = A_i$ sur $\ZintervalC{1}{n}$.
 \end{defi}
 
 
 \begin{defi}
 	Les \focus{côtés} d'un \ncycle\ $\setproba{L} = A_1 A_2 \cdots A_n$ sont les segments
-	$[A^{\,\prime}_i A^{\,\prime}_{i+1}]$ pour $i \in \ZintervalC{1}{n}$,
+	$[\primeit{A}_i \primeit{A}_{i+1}]$ pour $i \in \ZintervalC{1}{n}$,
 	et
-	la \focus{longueur} de $\setproba{L}$ est définie par $\cyclelen{\setproba{L}} = \dsum_{i=1}^{n} A^{\,\prime}_i A^{\,\prime}_{i+1}$.
+	la \focus{longueur} de $\setproba{L}$ est définie par $\cyclelen{\setproba{L}} = \dsum_{i=1}^{n} \primeit{A}_i \primeit{A}_{i+1}$.
 \end{defi}
 
 
 \begin{defi}
-	Un \ncycle\ $\setproba{L} = A_1 A_2 \cdots A_n$ est dit \focus{convexe} si, pour chaque côté $[A^{\,\prime}_i A^{\,\prime}_{i+1}]$, tous les sommets de $\setproba{L}$ sont dans un même demi-plan fermé délimité par la droite $(A^{\,\prime}_i A^{\,\prime}_{i+1})$ (un sommet peut donc être sur cette droite).
+	Un \ncycle\ $\setproba{L} = A_1 A_2 \cdots A_n$ est dit \focus{convexe} si, pour chaque côté $[\primeit{A}_i \primeit{A}_{i+1}]$, tous les sommets de $\setproba{L}$ sont dans un même demi-plan fermé délimité par la droite $(\primeit{A}_i \primeit{A}_{i+1})$ (un sommet peut donc être sur cette droite).
 \end{defi}
 
 
@@ -53,7 +53,8 @@ Pour l'existence d'au moins une solution, nous allons devoir sortir de l'ensembl
 % ----------------------- %
 
 
-\newpage
+\newpage %TEMPO
+
 
 \begin{defi}
 	Un \focus{\ngone} $\setproba{P}$ est un \ncycle\ vérifiant les conditions suivantes impliquant que les sommets sont distincts deux à deux.
