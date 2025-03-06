@@ -1,227 +1,155 @@
-TOUT REPRENDRE : 
-au final rapide acr on page de kgone convexe régulier à kgone régulier, puis on conclut vai formule pour le nreg !!!
-
-besoin aussi de voir que sol max ne peut etre un ncycle convexe non ngone
-
-
-le fait \ref{at-least-one-kgone}
-
-Cette section va établir le fait \ref{nece-cond} affirmant qu'un \ngone\ maximisant son aire à périmètre fixé doit être, a minima, un \ngone\ régulier.
+Cette section va établir que, relativement au problème d'isopérimétrie polygonal,
+un \ngone\ solution doit être convexe, 
+puis
+qu'un \ngone\ convexe solution doit être un \nreg,
+et enfin
+que si $\setproba*{R}{1}$ et $\setproba*{R}{2}$ sont respectivement un \xgone{k_1} et un \xgone{k_2}, tous les deux réguliers convexes, avec 
+$k_1 < k_2$ et $\perim{\setproba*{R}{1}} = \perim{\setproba*{R}{2}}$, 
+alors
+$\area{\setproba*{R}{1}} < \area{\setproba*{R}{2}}$.
+Nous pourrons alors conclure dans la section finale suivante.
 
 
 \begin{tcolorbox}
 	\itshape\small
-	Les cas $n = 3$ et $n = 4$ étant résolus, voir les faits \ref{iso-tri} et \ref{quadri}, dans toutes les preuves de cette section, nous supposerons $n \geq 5 $.
+	Les cas $n = 3$ et $n = 4$ étant résolus, voir les faits \ref{iso-tri} et \ref{quadri}, dans toutes les preuves de cette section, nous supposerons $n \geq 5$.
 \end{tcolorbox}
 
 
 % ----------------------- %
 
 
+\begin{fact} \label{must-be-conv}
+    Pour tout \ngone\ non convexe $\setproba{P}$, alors on peut construire un \ngone\ convexe $\setproba{C}$ tel que
+	$\perim{\setproba{C}} = \perim{\setproba{P}}$
+	et
+	$\area{\setproba{C}} > \area{\setproba{P}}$.
+\end{fact}
 
-%
-%
-%
-%
-%
-%
-%
-%
-%
-%
-%
-%Précisons la nature des solutions optimales données par le fait \ref{at-least-one} ci-dessus.
-%
-%
-%\begin{fact} \label{at-least-one-convex}
-%    Soit $n \in \NN_{\geq3}$ un naturel fixé.
-%    Parmi tous les \ngones\ convexes de longueur $\ell$ fixée, non nulle, il en existe au moins un d'aire maximale.
-%\end{fact}
-%
-%
-%\begin{proof}
-%	XXXX
-%	
-%	donne l'existence, parmi tous les \ncycles\ convexes de longueur $\ell$, d'au moins un \ncycle\ $\setproba{M} = A_1 A_2 \cdots A_n$ d'aire algébrique maximale.
-%	%
-%	\begin{itemize}
-%        \item $\sarea{\setproba{P}} \geq 0$ pour tout \ngone\ positif $\setproba{P}$ selon le fait \ref{sarea-ngone}, 
-%        et de plus
-%        $\area{\setproba{P}} = \abs{\sarea{\setproba{P}}}$ pour tout \ngone\ $\setproba{P}$ selon le fait \ref{sarea-ngone},
-%        donc $\sarea{\setproba{M}}$ est supérieure, ou égale, à l'aire, géométrique, de tout \ngone\ convexe de longueur $\ell$.
-%
-%
-%
-%
-%
-%
-%
-%
-%
-%
-%        \item Pour conclure, il suffit de démontrer que $\setproba{M}$ est un \ngone. Démontrons que le contraire est impossible.
-%        %
-%        \begin{enumerate}
-%        	\item Supposons que trois sommets $\primeit{A}_i$, $\primeit{A}_{i+1}$ et $\primeit{A}_{i+2}$ soient alignés.
-%			%
-%			XXXX   DESSIN !
-%			pas bon via triangle cassant la ligne des trois points
-%			
-%			
-%        	\item Supposons l'existence de $(k, i) \in \ZintervalC{1}{n}^2$ où $k \neq i$ tel que $[\primeit{A}_i \primeit{A}_{i+1}]$ et $[\primeit{A}_k \primeit{A}_{k+1}]$ soient deux côtés non contigus sécants.
-%			%
-%			XXXX   DESSIN !
-%			si se croise c'est cas plat mais rejeter avant
-%
-%
-%        	\item Supposons l'existence de $(k, i) \in \ZintervalC{1}{n}^2$ où $k \neq i$ tel que $\primeit{A}_i = \primeit{A}_k$.
-%			%
-%			XXXX  Pb ici a priorir mais du coup on garde k gone au lieu de n gone, SI VRAI, on met en remarque que pas rave car on montrerea que n gone régulier meilleur que k gone régulier si n > k .
-%        \end{enumerate}
-%    \end{itemize}
-%	
-%	\null\vspace{-6ex}
-%\end{proof}
-%
-%
-%
-%
-%
-%
-%
-%
-%
-%
-%
-%
-%
-%\begin{fact} \label{max-is-conv}
-%    Si un \ncycle\ $\setproba{L}$ de longueur non nulle n'est pas un \ngone\ convexe, alors il existe un \ngone\ convexe $\setproba{P}$ tel que
-%	$\cyclelen{\setproba{P}} = \cyclelen{\setproba{L}}$
-%	et
-%	$\geoarea{\setproba{P}} > \geoarea{\setproba{L}}$.
-%\end{fact}
-%
-%
-%\begin{proof}
-%	Commençons par le cas \og hyper-dégénéré \fg: si tous les sommets de $\setproba{L}$ sont alignés, son aire géométrique est nulle. Le triangle équilatéral de côté $\frac13 \cyclelen{\setproba{L}}$ permet de conclure.
-%	
-%	Supposons maintenant que $\setproba{L}$ possède au moins trois sommets non alignés.
-%	Notons $\setproba{C}$ l'enveloppe convexe de $\setproba{L}$ (nous savons donc que $\setproba{C}$ contient au moins un triangle).
-%	
-%	\begin{center}
-%		\centering
-%		\small\itshape
-%		\includegraphics[scale=.45]{content/polygon/sol-is/convex-hull.png}
-%		
-%		\smallskip
-%		Exemple où $N = C$ et $O = B$.
-%	\end{center}
-%	
-%		
-%	Clairement, $\cyclelen{\setproba{C}} < \cyclelen{\setproba{L}}$.
-%	Quant à $\geoarea{\setproba{C}} > \geoarea{\setproba{L}}$, c'est une conséquence directe de la définition de l'aire géométrique combinée au fait que $\setproba{L}$ ne soit pas un \ngone\ convexe.
-%	Il reste un problème à gérer: $\setproba{C}$ est un \xgone{s} avec $s \leq n$. 
-%	%
-%	Une idée simple, formalisée après, est d'ajouter des sommets assez prêts des côtés de $\setproba{C}$ pour garder la convexité, une longueur strictement inférieure à $\cyclelen{\setproba{L}}$, et une aire géométrique strictement plus grande que $\geoarea{\setproba{L}}$. Si c'est faisable, un agrandissement de rapport $r > 1$ donnera le \ngone\ $\setproba{P}$ cherché.
-%	La figure suivante illustre cette idée.
-%
-%	\begin{center}
-%		\includegraphics[scale=.45]{content/polygon/sol-is/convex-hull-distortion.png}
-%	\end{center}
-%
-%
-%	$m = n - s$ compte les sommets manquants.
-%	Si $m = 0$, il n'y a rien à faire.
-%	Sinon, posons $\delta = \frac{\cyclelen{\setproba{L}} - \cyclelen{\setproba{C}}}{m}$.
-%	%
-%	\begin{enumerate}
-%		\item \label{add-vertex-start}
-%		Considérons $[AB]$ un côté quelconque de $\setproba{C}$.
-%		Les droites portées par les côtés \og \emph{autour} \fg\ de $[AB]$ \og \emph{dessinent} \fg\ une région contenant toujours un triangle $ABC$ dont l'intérieur est à l'extérieur
-%		\footnote{
-%			C'est ce que l'on appelle de la \og \emph{low poetry} \fg\,.
-%		}
-%		de $\setproba{C}$ comme dans les deux cas ci-dessous.
-%	%
-%		\begin{multicols}{2}
-%			\centering
-%
-%			\includegraphics[scale=.35]{content/polygon/sol-is/add-vertex-1.png}
-%
-%			\includegraphics[scale=.35]{content/polygon/sol-is/add-vertex-2.png}
-%		\end{multicols}
-%
-%		\item Clairement, le polygone $\setproba{C}_+$ obtenu à partir de $\setproba{C}$ en remplaçant le côté $[AB]$ par les côtés $[AC]$ et $[CB]$ est un convexe avec un sommet de plus que $\setproba{C}$.
-%
-%		\item \label{add-vertex-end}
-%		Comme $HC$ peut être rendu aussi proche de $0$ que souhaité, il est aisé de voir que l'on peut choisir cette distance de sorte que $AC + BC < AB + \delta$.
-%		Dès lors, le périmètre de $\setproba{C}_+$ augmente inférieurement strictement à $\delta$ relativement à $\setproba{C}$.
-%
-%		\item En répétant $(m-1)$ fois les étapes \ref{add-vertex-start} à \ref{add-vertex-end}, nous obtenons un \ngone\ convexe $\setproba{P}$ tel que
-%		$\geoarea{\setproba{P}} > \geoarea{\setproba{L}}$
-%		et
-%		$\cyclelen{\setproba{P}} < \cyclelen{\setproba{C}} + m \delta = \cyclelen{\setproba{L}}$.
-%	\end{enumerate}
-%	
-%	\null\vspace{-6ex}
-%\end{proof}
-%
-%
-%% ----------------------- %
-%
-%
-%\begin{fact} \label{iso-poly}
-%	Si un \ngone\ convexe $\setproba{P}$ n'est pas un \nequi, alors on peut construire un \ngone\ convexe $\setproba{P}^{\,\prime}$ tel que
-%	$\cyclelen{\setproba{P}^{\,\prime}} = \cyclelen{\setproba{P}}$
-%	et
-%	$\area{\setproba{P}^{\,\prime}} > \area{\setproba{P}}$.
-%\end{fact}
-%
-%
-%\begin{proof}
-%	Considérons un \ngone\ convexe $\setproba{P}$ qui ne soit pas un \nequi.
-%	Dans ce cas, $\setproba{P}$ admet un triplet de sommets consécutifs $A$, $B$ et $C$ tels que $AB \neq BC$ (sinon, on obtiendrait de proche en proche un \nequi).
-%	La construction vue dans la preuve du fait \ref{tri-one-side-fixed} nous donne la solution: voir les deux dessins ci-après dans lesquels $(AC) \parallel (BB^{\,\prime})$.
-%	Pour le 2\ieme\ cas, il n'est pas possible d'utiliser le triangle $AB^{\,\prime}C$ isocèle en $B^{\,\prime}$ car $(B^{\,\prime}C)$ porte le côté de $\setproba{P}$ de sommet $C$ juste après $[BC]$, mais ce problème se contourne en considérant un point $B^{\,\prime\prime}$ du segment ouvert $]BB^{\,\prime}[$ (si besoin, se reporter au 2\ieme\ dessin de la preuve du fait \ref{tri-one-side-fixed}).
-%	%
-%	\begin{multicols}{2}
-%		\centering
-%
-%		\includegraphics[scale=.4]{content/polygon/sol-is/not-iso-OK.png}
-%
-%		\includegraphics[scale=.4]{content/polygon/sol-is/not-iso-KO.png}
-%	\end{multicols}
-%
-%	Dans chaque cas, nous avons construit un \ngone\ convexe $\setproba{P}^{\,\prime\prime}$ tel que
-%	$\cyclelen{\setproba{P}^{\,\prime\prime}} < \cyclelen{\setproba{P}}$
-%	et
-%	$\area{\setproba{P}^{\,\prime\prime}} = \area{\setproba{P}}$.
-%	Un simple agrandissement donne un \ngone\ convexe $\setproba{P}^{\,\prime}$ vérifiant
-%	$\cyclelen{\setproba{P}^{\,\prime}} = \cyclelen{\setproba{P}}$
-%	et
-%	$\area{\setproba{P}^{\,\prime}} > \area{\setproba{P}}$.
-%\end{proof}
-%
-%
-%\begin{remark}
-%	Le fait précédent ne permet pas de se ramener toujours au cas d'un \nequi\ convexe. Il nous dit juste que si un \ngone\ convexe maximise son aire à périmètre fixé, alors il devra être, a minima, un \nequi. La nuance est importante, et une similaire existe pour la conclusion du fait suivant.
-%\end{remark}
-%
-%
-%% ----------------------- %
-%
-%
-%\begin{fact} \label{almost-reg-poly}
-%	Si un \nequi\ convexe $\setproba{P}$ n'est pas un \niso,
-%	alors il existe un \ngone\ convexe $\setproba{P}^{\,\prime}$ tel que
-%	$\cyclelen{\setproba{P}^{\,\prime}} = \cyclelen{\setproba{P}}$
-%	et
-%	$\area{\setproba{P}^{\,\prime}} > \area{\setproba{P}}$.
-%\end{fact}
-%
-%
-%\begin{proof}
+
+\begin{proof}
+	Soit $\setproba{E}$ l'enveloppe convexe d'un \ngone\ non convexe $\setproba{P}$ (voir ci-dessous).
+	
+	\begin{center}
+		\centering
+		\small\itshape
+		\includegraphics[scale=.45]{content/polygon/sol-must-be/convex-hull.png}
+	\end{center}
+	
+		
+	Clairement,
+	$\perim{\setproba{E}} < \perim{\setproba{P}}$
+	et
+	$\area{\setproba{E}} > \area{\setproba{P}}$,
+	mais
+	$\setproba{E}$ est un \xgone{s} avec $s < n$. 
+	%
+	Pour gérer ce problème, une idée simple, formalisée après, est d'ajouter des sommets assez prêts des côtés de $\setproba{E}$ pour garder 
+	la convexité, 
+	un périmètre inférieur à $\perim{\setproba{P}}$, 
+	et
+	une aire supérieure à $\area{\setproba{P}}$.
+	Si c'est faisable, une homothétie de rapport $r \geq 1$, où $r = \frac{ \perim{\setproba{P}} }{ \perim{\setproba{E}} }$, donnera le \ngone\ convexe $\setproba{C}$ cherché.
+	La figure suivante illustre cette idée.
+	
+	\begin{center}
+		\includegraphics[scale=.45]{content/polygon/sol-must-be/convex-hull-distortion.png}
+	\end{center}
+
+	\newpage % TEMPO
+
+	Notons $m = n - s$ qui compte les sommets manquants, puis posons
+	$\delta = \frac{\perim{\setproba{P}} - \perim{\setproba{E}}}{m}$.
+	%
+	\begin{enumerate}
+		\item \label{add-vertex-start}
+		Considérons $[AB]$ un côté quelconque de $\setproba{E}$.
+		Les droites portées par les côtés \focus{autour} de $[AB]$ \focus{dessinent} une région contenant toujours un triangle $ABC$ dont l'intérieur est à l'extérieur
+		\footnote{
+			C'est ce que l'on appelle de la \focus{low poetry},.
+		}
+		de $\setproba{E}$ comme dans les deux cas ci-dessous.
+	%
+		\begin{multicols}{2}
+			\centering
+
+			\includegraphics[scale=.35]{content/polygon/sol-must-be/add-vertex-1.png}
+
+			\includegraphics[scale=.35]{content/polygon/sol-must-be/add-vertex-2.png}
+		\end{multicols}
+
+		\item Clairement, le polygone $\setproba{E}_+$ obtenu à partir de $\setproba{E}$ en remplaçant le côté $[AB]$ par les côtés $[AC]$ et $[CB]$ est un convexe avec un sommet de plus que $\setproba{E}$.
+
+		\item \label{add-vertex-end}
+		Comme $HC$ peut être rendu aussi proche de $0$ que souhaité, il est aisé de voir que l'on peut choisir cette distance de sorte que $AC + BC < AB + \delta$.
+		Dès lors, le périmètre de $\setproba{E}_+$ augmente inférieurement strictement à $\delta$ relativement à $\setproba{E}$.
+
+		\item En répétant $(m-1)$ fois les étapes \ref{add-vertex-start} à \ref{add-vertex-end}, nous obtenons un \ngone\ convexe $\setproba{C}$ tel que
+		$\area{\setproba{C}} > \area{\setproba{P}}$
+		et
+		$\perim{\setproba{C}} < \perim{\setproba{E}} + m \delta = \perim{\setproba{P}}$.
+	\end{enumerate}
+	
+	\null\vspace{-6ex}
+\end{proof}
+
+
+% ----------------------- %
+
+
+\begin{fact} \label{must-be-equi}
+	Si un \ngone\ convexe $\setproba{P}$ n'est pas équilatéral, alors on peut construire un \ngone\ convexe $\primeit{\setproba{P}}$ tel que
+	$\perim{\primeit{\setproba{P}}} = \perim{\setproba{P}}$
+	et
+	$\area{\primeit{\setproba{P}}} > \area{\setproba{P}}$.
+\end{fact}
+
+
+\begin{proof}
+	Considérons un \ngone\ convexe non équilatéral $\setproba{P}$.
+	%
+	Dans ce cas, $\setproba{P}$ admet un triplet de sommets consécutifs $A$, $B$ et $C$ tels que $AB \neq BC$
+	(sinon, on obtiendrait de proche en proche l'équilatéralité).
+	La construction vue dans la preuve du fait \ref{tri-one-side-fixed} nous donne la solution: voir les deux dessins ci-après dans lesquels $(AC) \parallel (BB^{\,\prime})$.
+	Pour le 2\ieme\ cas, il n'est pas possible d'utiliser le triangle $AB^{\,\prime}C$ isocèle en $B^{\,\prime}$ car $(B^{\,\prime}C)$ porte le côté de $\setproba{P}$ de sommet $C$ juste après $[BC]$, mais ce problème se contourne en considérant un point $B^{\,\prime\prime}$ du segment ouvert $]BB^{\,\prime}[$ (si besoin, se reporter au 2\ieme\ dessin de la preuve du fait \ref{tri-one-side-fixed}).
+	%
+	\begin{multicols}{2}
+		\centering
+
+		\includegraphics[scale=.4]{content/polygon/sol-must-be/not-iso-OK.png}
+
+		\includegraphics[scale=.4]{content/polygon/sol-must-be/not-iso-KO.png}
+	\end{multicols}
+
+	Dans chaque cas, nous avons construit un \ngone\ convexe $\dbleprimeit{\setproba{P}}$ tel que
+	$\perim{\dbleprimeit{\setproba{P}}} < \perim{\setproba{P}}$
+	et
+	$\area{\dbleprimeit{\setproba{P}}} = \area{\setproba{P}}$.
+	Une homothétie de rapport $r > 1$, où $r = \frac{ \perim{\setproba{P}} }{ \perim{\setproba{E}} }$, donne un \ngone\ convexe $\primeit{\setproba{P}}$ vérifiant
+	$\perim{\primeit{\setproba{P}}} = \perim{\setproba{P}}$
+	et
+	$\area{\primeit{\setproba{P}}} > \area{\setproba{P}}$.
+\end{proof}
+
+
+\begin{remark}
+	Le fait précédent ne permet pas de se ramener toujours au cas d'un \nequi\ convexe. Il nous dit juste que si un \ngone\ convexe maximise son aire à périmètre fixé, alors il devra être, a minima, un \nequi. La nuance est importante, et une similaire existe pour la conclusion du fait suivant.
+\end{remark}
+
+
+% ----------------------- %
+
+
+\begin{fact} \label{must-be-reg}
+	Si un \nequi\ convexe $\setproba{P}$ n'est pas équiangle,
+	alors il existe un \ngone\ convexe $\primeit{\setproba{P}}$ tel que
+	$\perim{\primeit{\setproba{P}}} = \perim{\setproba{P}}$
+	et
+	$\area{\primeit{\setproba{P}}} > \area{\setproba{P}}$.
+\end{fact}
+
+
+\begin{proof}
 %	Par hypothèse, nous avons deux paires de côtés
 %	$\big( [AB] , [BC] \big)$ et
 %	$\big( [DE] , [EF] \big)$ telles que
@@ -231,9 +159,9 @@ Cette section va établir le fait \ref{nece-cond} affirmant qu'un \ngone\ maximi
 %	\begin{multicols}{2}
 %		\centering
 %		
-%		\includegraphics[scale=.4]{content/polygon/sol-is/2-eq-angles-start.png}
+%		\includegraphics[scale=.4]{content/polygon/sol-must-be/2-eq-angles-start.png}
 %		
-%		\includegraphics[scale=.4]{content/polygon/sol-is/2-eq-angles-start.png}
+%		\includegraphics[scale=.4]{content/polygon/sol-must-be/2-eq-angles-start.png}
 %	\end{multicols}
 %	
 %	
@@ -245,7 +173,7 @@ Cette section va établir le fait \ref{nece-cond} affirmant qu'un \ngone\ maximi
 %
 %
 %	
-%	Dans nos manipulations à venir, nous fixons $A$, $C$, $E$ et $G$, tout en cherchant à bouger $B$ et $F$ de sorte à toujours avoir des triangles isocèles \og \emph{pointant} \fg\ vers l'extérieur du convexe $\setproba{P}$.
+%	Dans nos manipulations à venir, nous fixons $A$, $C$, $E$ et $G$, tout en cherchant à bouger $B$ et $F$ de sorte à toujours avoir des triangles isocèles \focus{pointant} vers l'extérieur du convexe $\setproba{P}$.
 %	Posons $\ell = AB$, $d_1 = AC$ et $d_2 = EG$. Comme nous ne touchons pas aux points $A$, $C$, $E$ et $G$, les nombres $d_1$ et $d_2$ sont constants.
 %	%
 %	\begin{itemize}
@@ -300,15 +228,15 @@ Cette section va établir le fait \ref{nece-cond} affirmant qu'un \ngone\ maximi
 %		$\cos \delta < \cos \big( \frac{\delta}{2} \big)$ et
 %		$0 < \beta < \beta^{\,\prime\prime} < \mu < \alpha^{\,\prime\prime} < \alpha < \pi$.
 %	\end{itemize}
-%\end{proof}
-%
-%
-%\begin{remark}
-%	Une démonstration géométrique courante du fait précédent, que l'on retrouve souvent reproduite, s'appuie sur un résultat attribué à Zénodore sur la maximisation de l'aire totale de deux triangles isocèles de bases fixées, et de périmètre total constant:
-%	ce résultat affirme que les deux triangles doivent avoir des angles en leur sommet principal de même mesure.
-%	Malheureusement, cette preuve échoue lors de la disparition d'un sommet en choisissant les deux triangles isocèles optimaux pour construire un nouveau \ngone\ \og plus gros \fg\,, sauf à affiner la recherche comme dans notre approche analytique.
-%	Indiquons, au passage, que la preuve du résultat de Zénodore est un peu fastidieuse, sans être ingrate.
-%\end{remark}
+\end{proof}
+
+
+\begin{remark}
+	Une démonstration géométrique courante du fait précédent, que l'on retrouve souvent reproduite, s'appuie sur un résultat attribué à Zénodore sur la maximisation de l'aire totale de deux triangles isocèles de bases fixées, et de périmètre total constant:
+	ce résultat affirme que les deux triangles doivent avoir des angles en leur sommet principal de même mesure.
+	Malheureusement, cette preuve échoue lors de la disparition d'un sommet en choisissant les deux triangles isocèles optimaux pour construire un nouveau \ngone\ \focus{plus gros}, sauf à affiner la recherche comme dans notre approche analytique.
+	Indiquons, au passage, que la preuve du résultat de Zénodore est un peu fastidieuse, sans être ingrate.
+\end{remark}
 %	
 %
 %% ----------------------- %
@@ -348,21 +276,52 @@ Cette section va établir le fait \ref{nece-cond} affirmant qu'un \ngone\ maximi
 %%		\item ????
 %%	\end{itemize}
 %%\end{remark}
-%
-%
-%% ----------------------- %
-%
-%
-%\begin{fact} \label{nece-cond}
-%	Si un \ngone\ $\setproba{P}$ n'est pas régulier,
-%	alors il existe un \ngone\ convexe $\setproba{P}^{\,\prime}$ tel que
-%	$\cyclelen{\setproba{P}^{\,\prime}} = \cyclelen{\setproba{P}}$
-%	et
-%	$\area{\setproba{P}^{\,\prime}} > \area{\setproba{P}}$.
-%\end{fact}
-%
-%
-%\begin{proof}
-%	Le fait \ref{max-is-conv} permet de considérer le problème de maximisation d'aire à longueur fixée juste pour des \ngones\ convexes.
-%	Selon les faits \ref{iso-poly} et \ref{almost-reg-poly}, si, parmi les \ngones\ convexes de longueur fixée, il en existe un d'aire maximale, alors il devra être, a minima, régulier.
-%\end{proof}
+
+
+% ----------------------- %
+
+
+\begin{fact} \label{nece-cond}
+	Si un \ngone\ $\setproba{P}$ n'est pas un \nreg\ convexe,
+	alors il existe un \ngone\ convexe $\primeit{\setproba{P}}$ tel que
+	$\perim{\primeit{\setproba{P}}} = \perim{\setproba{P}}$
+	et
+	$\area{\primeit{\setproba{P}}} > \area{\setproba{P}}$.
+\end{fact}
+
+
+\begin{proof}
+	Il suffit d'utiliser les faits \ref{must-be-conv}, \ref{must-be-equi} et \ref{must-be-reg}.
+\end{proof}
+
+
+% ----------------------- %
+
+
+Afin d'en finir avec le problème d'isopérimétrie polygonal, nous aurons besoin du fait suivant.
+
+
+\begin{fact} \label{nregs-sorting}
+	Si $\setproba*{R}{1}$ et $\setproba*{R}{2}$ sont respectivement un \xgone{k_1} et un \xgone{k_2}, tous les deux réguliers convexes, avec 
+	$k_1 < k_2$ et $\perim{\setproba*{R}{1}} = \perim{\setproba*{R}{2}}$,
+	alors
+	$\area{\setproba*{R}{1}} < \area{\setproba*{R}{2}}$.
+\end{fact}
+
+
+\begin{proof}
+    Il est connu, et facile de démontrer, qu'un \nreg\ convexe $\setproba{R}$ vérifie
+    $\perim{\setproba{R}} = 2 n \sin (\frac{\pi}{n}) \rho$
+    et
+	$\area{\setproba{R}} = n \sin (\frac{\pi}{n})  \cos (\frac{\pi}{n}) \rho^2$
+	où $\rho$ désigne le rayon du cercle circonscrit à $\setproba{R}$.
+	Ceci donne 
+	$\area{\setproba{R}} = \frac{\perim{\setproba{R}}^2}{4 n \tan (\frac{\pi}{n})}$,
+	puis amène à justifier que 
+	$k_1 \tan (\frac{\pi}{k_1}) > k_2 \tan (\frac{\pi}{k_2})$.
+	Donc, nous devons démontrer que la suite $\big( k \tan (\frac{\pi}{k}) \big)_{k \in \leq 3}$ est strictement décroissante.
+	
+	
+	XXXX
+\end{proof}
+
