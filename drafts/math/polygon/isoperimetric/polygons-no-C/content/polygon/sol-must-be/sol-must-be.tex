@@ -21,7 +21,7 @@ Nous pourrons alors conclure dans la section finale suivante.
 
 \begin{fact} \label{must-be-conv}
     Pour tout \ngone\ non convexe $\setproba{P}$,
-	alors on peut construire un \ngone\ convexe $\setproba{C}$ tel que
+	nous pouvons construire un \ngone\ convexe $\setproba{C}$ tel que
 	$\perim{\setproba{C}} = \perim{\setproba{P}}$
 	et
 	$\area{\setproba{C}} > \area{\setproba{P}}$.
@@ -82,7 +82,7 @@ Nous pourrons alors conclure dans la section finale suivante.
 		\item Clairement, le polygone $\setproba{E}_+$ obtenu à partir de $\setproba{E}$ en remplaçant le côté $[AB]$ par les côtés $[AC]$ et $[CB]$ est un convexe avec un sommet de plus que $\setproba{E}$.
 
 		\item \label{add-vertex-end}
-		Comme $HC$ peut être rendu aussi proche de $0$ que souhaité, il est aisé de voir que l'on peut choisir cette distance de sorte que $AC + BC < AB + \delta$.
+		Comme $HC$ peut être rendu aussi proche de $0$ que souhaité, il est aisé de voir que l'nous pouvons choisir cette distance de sorte que $AC + BC < AB + \delta$.
 		Dès lors, le périmètre de $\setproba{E}_+$ augmente inférieurement strictement à $\delta$ relativement à $\setproba{E}$.
 
 		\item En répétant $(m-1)$ fois les étapes \ref{add-vertex-start} à \ref{add-vertex-end}, nous obtenons un \ngone\ convexe $\setproba{C}$ tel que
@@ -100,7 +100,7 @@ Nous pourrons alors conclure dans la section finale suivante.
 
 \begin{fact} \label{must-be-equi}
 	Si un \ngone\ convexe $\setproba{P}$ n'est pas équilatéral,
-	alors on peut construire un \ngone\ convexe $\primeit{\setproba{P}}$ tel que
+	alors nous pouvons construire un \ngone\ convexe $\primeit{\setproba{P}}$ tel que
 	$\perim{\primeit{\setproba{P}}} = \perim{\setproba{P}}$
 	et
 	$\area{\primeit{\setproba{P}}} > \area{\setproba{P}}$.
@@ -135,7 +135,7 @@ Nous pourrons alors conclure dans la section finale suivante.
 
 
 \begin{remark}
-	Le fait précédent ne permet pas de se ramener toujours au cas d'un \nequi\ convexe. Il nous dit juste que si un \ngone\ convexe maximise son aire à périmètre fixé, alors il devra être, a minima, un \nequi. La nuance est importante, et une similaire existe pour la conclusion du fait suivant.
+	Le fait précédent ne permet pas de toujours se ramener au cas d'un \nequi\ convexe. Il nous dit juste que si un \ngone\ convexe maximise son aire à périmètre fixé, alors il devra être, a minima, un \nequi. La nuance est importante, et une similaire existe pour la conclusion du fait suivant.
 \end{remark}
 
 
@@ -144,7 +144,7 @@ Nous pourrons alors conclure dans la section finale suivante.
 
 \begin{fact} \label{must-be-iso}
 	Si un \nequi\ convexe $\setproba{P}$ n'est pas équiangle,
-	alors on peut construire un \ngone\ convexe $\primeit{\setproba{P}}$ tel que
+	alors il existe un \ngone\ convexe $\primeit{\setproba{P}}$ tel que
 	$\perim{\primeit{\setproba{P}}} = \perim{\setproba{P}}$
 	et
 	$\area{\primeit{\setproba{P}}} > \area{\setproba{P}}$.
@@ -162,16 +162,16 @@ Nous pourrons alors conclure dans la section finale suivante.
 		\includegraphics[scale=.4]{content/polygon/sol-must-be/2-eq-angles-start.png}
 	\end{center}
 	
-	Nous pouvons juste bouger les points $B$ et $C$ dans la zone grise hachurée strictement entre les droites vertes en pointillés, afin de garder un \ngone\ convexe.
+	En déplaçant $B$ et $C$ dans la zone grise hachurée strictement entre les droites vertes en pointillés, nous garderons un \ngone\ convexe.
 	%
 	Concentrons-nous donc sur le quadrilatère $ABCD$, et posons $c = AB$ la longueur commune des côtés de $\setproba{P}$, ainsi que $d = AD$ que nous ne pouvons pas modifier.
 	%
-	Si nous fixons la valeur de $c$, notre situation possède juste un degré de liberté comme le montre, ci-après, la construction de $C$ à partir de cercles de rayon $c$ centrés en $A$ et $D$ fixes, et $B$ mobile.
+	Si nous fixons la valeur de $c$, notre situation possède juste un degré de liberté comme le montre la construction de $C$ ci-après qui utilise des cercles de rayon $c$ centrés en $A$ et $D$ fixes, et $B$ mobile.
 	%
 	\begin{center}
 		\includegraphics[scale=.4]{content/polygon/sol-must-be/2-eq-angles-circle.png}
 	\end{center}
-	
+
 	Cherchons donc à exprimer $\area{ABCD}$ en fonction de $\alpha = \anglein{DAB}$, cet angle permettant de repérer le point mobile $B$.
 	%
 	\begin{itemize}
@@ -201,8 +201,8 @@ Nous pourrons alors conclure dans la section finale suivante.
 	    $\sin \gamma = \sqrt{1 - \cos^2 \gamma}$.
 
 
-	    \item Nous n'avons pas besoin d'atteindre le maximum de $f$, nous voulons juste pouvoir faire augmenter localement $f(\alpha)$. 
-	    Ceci nécessite de savoir ce qu'implique $\sder{f}{1}(\alpha) = 0$, et nous mène aux implications logiques suivantes où 
+	    \item Passons à l'étude de $\sder{f}{1}(\alpha) = 0$, en nous souvenant que nous n'avons pas besoin d'atteindre le maximum de $f$, mais juste de pouvoir faire augmenter localement $f(\alpha)$. 
+	    Dans les implications suivantes, nous avons posé 
 	    $\onelist{S} = \sin \alpha$ et $\onelist{C} = \cos \alpha$.
 	    
 	    \begin{stepcalc}[style=ar*, ope={\implies[d'où]}]
@@ -236,21 +236,25 @@ Nous pourrons alors conclure dans la section finale suivante.
 	        (1 - k) ( 1 + k - 2 \onelist{C} )
 	        \,
 	        (1 + k) ( 1 - k + 2 \onelist{C} ) = 0
-	    \explnext{}
-	        k \in \setgene{-1, 1}
+	    \explnext*{$k > 0$}{}
+	        k = 1
 	        \,\, \text{ou} \,\,
 	        \onelist{C} \in \setgene{ \frac{k - 1}{2} , \frac{k + 1}{2} }
 	    \end{stepcalc}
 
 
-	    \item $k = -1$ est exclus.
-
-
-	    \item $k = 1$ signifie que $ABCD$ est un losange, mais dans ce cas, en bougeant un peu le sommet $B$ parallèlement à $(AD)$ en faisant augmenter $\alpha$ légèrement,%
+	    \item $k = 1$ signifie que $ABCD$ est un losange, non rectangle, car $\anglein{ABC} \neq \anglein{BCD}$.
+	    Dans ce cas, en bougeant un peu le sommet $B$ parallèlement à $(AD)$, tout en faisant
+	    augmenter $\alpha$ légèrement si $\alpha \in \intervalO{0}{\frac{\pi}{2}}$,
+	    ou
+	    diminuer $\alpha$ légèrement si $\alpha \in \intervalO{\frac{\pi}{2}}{\pi}$,%
 	    \footnote{
 	        $B$ se déplace vers la gauche dans notre cas.
 	    }
-	    nous obtenons un parallélogramme de même aire, mais de périmètre diminué, comme dans la preuve du fait \ref{iso-para}.
+	    nous obtenons un parallélogramme de même aire, mais de périmètre diminué.%
+	    \footnote{
+	        Si besoin, se reporter à la preuve du fait \ref{iso-para}.
+	    }
 	    On obtient au final un \ngone\ convexe $\primeit{\setproba{P}}$ tel que
 		$\perim{\primeit{\setproba{P}}} < \perim{\setproba{P}}$
 		et
@@ -258,22 +262,29 @@ Nous pourrons alors conclure dans la section finale suivante.
 		qu'il suffit d'agrandir pour conclure.
 
 
-	    \item $\onelist{C} = \frac{k - 1}{2}$, 
-	    c'est-à-dire $2\cos \alpha = k - 1$, 
-	    donne 
+	    \item Pour $k \neq 1$ et $\onelist{C} = \frac{k - 1}{2}$,
+	    nous avons $2\cos \alpha = k - 1$, 
+	    puis 
 	    $2 \cos \gamma = 1 - k^2 + k(k - 1) = 1 - k$,
-	    d'où
-	    $\cos \gamma = - \cos \alpha$, puis $\gamma = \pi - \alpha$, en se souvenant que $(\alpha , \gamma) \in \intervalO{0}{\pi}^2$.
+	    soit
+	    $\cos \gamma = - \cos \alpha$ qui fournit
+	    $\gamma = \pi - \alpha$, en se souvenant que $(\alpha , \gamma) \in \intervalO{0}{\pi}^2$.
+	    Notons que $\alpha \neq \frac{\pi}{2}$ et $\gamma \neq \frac{\pi}{2}$, car $k \neq 1$.
 	    %
+	    
+	    
 	    XXX
 
 
-	    \item Comme dans le point précédent,
-	    $\onelist{C} = \frac{k + 1}{2}$
-	    donne
-	    $\cos \gamma = \cos \alpha$, puis $\gamma = \alpha$ avec $(\alpha , \gamma) \in \intervalO{0}{\pi}^2$.
-	    %
-	    XXXX
+	    \item Pour $k \neq 1$ et $\onelist{C} = \frac{k + 1}{2}$,
+	    comme au début du point précédent,
+	    nous avons $\cos \gamma = \cos \alpha$, puis $\gamma = \alpha$ avec $(\alpha , \gamma) \in \intervalO{0}{\pi}^2$.
+	    Notons qu'ici $0 < k < 1$, puis $(\alpha , \gamma) \in \intervalO{0}{\frac{\pi}{3}}^2$.
+	    Dès lors, les monotonies de $\sin$ et $\cos$ sur $\intervalO{0}{\frac{\pi}{3}}$, combinées à $1 - k^2 + 2 k \cos \alpha \geq 0$, impliquent la stricte croissance de $f$ sur $\intervalO{0}{\frac{\pi}{3}}$.%
+	    \footnote{
+	    	Nous utilisons la composition de fonctions monotones, ce qui n'est pas toujours faisable.
+	    }
+	    Il suffit donc d'augmenter légèrement la valeur de  $\alpha$.
 	\end{itemize}
 	
 	\null\vspace{-6ex}
@@ -282,33 +293,49 @@ Nous pourrons alors conclure dans la section finale suivante.
 
 \begin{remark}
     Ce qui précède donne envie de faire appel à la méthode des extrema liés pour plus d'élégance dans les calculs.
-    Nous étudions les extrema de
+    Étudions donc les extrema de
 	$f(\alpha , \gamma) = k \sin \alpha + \sin \gamma$
 	sur $\intervalO{0}{\pi}^2$ sous la contrainte
 	$g(\alpha , \gamma) = 0$
 	avec
 	$g(\alpha , \gamma) = 1 - k^2 + 2 k \cos \alpha - 2 \cos \gamma$.
 	%
-    Si un extremum existe, alors $\exists \lambda \in \RR$ tel que
+    Si un extremum existe, alors nous avons $\lambda \in \RR$ tel que
     $\pder[i]{f}{\alpha}{1} = \lambda \pder[i]{g}{\alpha}{1}$
 	et
     $\pder[i]{f}{\gamma}{1} = \lambda \pder[i]{g}{\gamma}{1}$,
 	de sorte que
-	$k \cos \alpha = \lambda \cdot ( - 2 k \sin \alpha)$
-	et
-	$\cos \gamma = \lambda \cdot 2 \sin \gamma$,
-	puis
-	$\tan \gamma = - \tan \alpha$,
-	et donc $\gamma = \pi - \alpha$.
-	On conclut alors comme ci-dessus.
+	$k \cos \alpha = - 2 k \lambda \sin \alpha$,
+	soit
+	$\cos \alpha = - 2 \lambda \sin \alpha$,
+	et aussi
+	$\cos \gamma = 2 \lambda \sin \gamma$.
+	Nous avons alors les deux alternatives suivantes qui rejoignent les arguments de la preuve précédente.
+	%
+	\begin{enumerate}
+	    \item Si $\lambda = 0$,
+	    alors
+	    $\alpha = \gamma = \frac{\pi}{2}$, puis $k = 1$. 
+
+	    \item Si $\lambda \neq 0$,
+	    alors
+	    $\cos \alpha \sin \gamma = - \cos \gamma \sin \alpha$,
+	    puis
+	    $\sin (\alpha + \gamma) = 0$,
+	    et
+	    $\gamma = \pi - \alpha$.
+	\end{enumerate}
 \end{remark}
 
 
 \begin{remark}
-	Une démonstration géométrique du fait précédent s'appuie sur un résultat attribué à Zénodore sur la maximisation de l'aire totale de deux triangles isocèles de bases fixées, et de périmètre total constant:
+	Une démonstration géométrique du fait \ref{must-be-iso} est possible via un résultat attribué à Zénodore%
+	\footnote{
+	    La preuve du résultat de Zénodore est un peu fastidieuse.
+	}
+	sur la maximisation de l'aire totale de deux triangles isocèles de bases fixées, et de périmètre total constant:
 	ce résultat affirme que les deux triangles doivent avoir des angles en leur sommet principal de même mesure.
-	Malheureusement, cette preuve échoue lors de la disparition d'un sommet en choisissant les deux triangles isocèles optimaux pour construire un nouveau \ngone\ \focus{plus gros}.
-	Indiquons, au passage, que la preuve du résultat de Zénodore est un peu fastidieuse, sans être ingrate.
+	Malheureusement, cette preuve échoue lors de la disparition d'un sommet en choisissant la paire optimale de triangles isocèles pour construire un nouveau \ngone\ \focus{plus gros}.
 \end{remark}
 
 
