@@ -269,11 +269,19 @@ Nous pourrons alors conclure dans la section finale suivante.
 	    soit
 	    $\cos \gamma = - \cos \alpha$ qui fournit
 	    $\gamma = \pi - \alpha$, en se souvenant que $(\alpha , \gamma) \in \intervalO{0}{\pi}^2$.
-	    Notons que $\alpha \neq \frac{\pi}{2}$ et $\gamma \neq \frac{\pi}{2}$, car $k \neq 1$.
+	    Notons que $\alpha \neq \frac{\pi}{2}$ et $\gamma \neq \frac{\pi}{2}$, car $k \neq 1$. 
+	    Nous aboutissons à la contradiction que $ABCD$ est un trapèze isocèle de bases $[AD]$ et $[BC]$, ceci impliquant $\anglein{ABC} = \anglein{BCD}$. 
+	    L'isocélité vient des points suivants.
 	    %
-	    
-	    
-	    XXX
+	    \begin{enumerate}
+	        \item Notre construction de $C$ à base de cercles est déterministe car $B$ et $C$ sont situés dans le même demi-plan délimité par $(AD)$.
+
+	        \item Si $\primeit{A} \primeit{B} \primeit{C} \primeit{D}$ est un trapèze isocèle de bases $[\primeit{A} \primeit{D}]$ et $[\primeit{B} \primeit{C}]$, via la somme des angles aux sommets d'un quadrilatère convexe, qui vaut $(4 - 2) \pi = 2 \pi$, nous avons
+	        $\anglein{\primeit{B} \primeit{C} \primeit{D}} = \pi - \anglein{\primeit{D} \primeit{A} \primeit{B}}$.
+
+	        \item Comme $2 \cos \gamma = 1 - k^2 + 2 k \cos \alpha$, nous avons:
+	        $\gamma = \pi - \alpha$ si, et seulement si, $\cos \alpha = \frac{k - 1}{2}$.
+	    \end{enumerate}
 
 
 	    \item Pour $k \neq 1$ et $\onelist{C} = \frac{k + 1}{2}$,
@@ -326,6 +334,13 @@ Nous pourrons alors conclure dans la section finale suivante.
 	    $\gamma = \pi - \alpha$.
 	\end{enumerate}
 \end{remark}
+
+
+%\begin{remark}
+%    XXX
+%    
+%    À périmètre fixé, le trapèze isocèle de bases $[AD]$ et $[BC]$ est celui maximise l'aire parmi les quadrilatères $ABCD$ vérifiant $AB = BC = CD$.
+%\end{remark}
 
 
 \begin{remark}
