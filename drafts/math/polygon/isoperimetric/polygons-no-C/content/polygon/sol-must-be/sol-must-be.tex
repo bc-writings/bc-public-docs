@@ -210,7 +210,7 @@ Nous pourrons alors conclure dans la section finale suivante.
 	    \explnext{}
 	        k \onelist{C}
 	        +
-	        \dfrac{ k \onelist{S} ( 1 - k^2 + 2 k \onelist{C}) }{ 2 \sqrt{1 -  \num{.25} ( 1 - k^2 + 2 k \onelist{C})^2} }
+	        \frac{ k \onelist{S} ( 1 - k^2 + 2 k \onelist{C}) }{ 2 \sqrt{1 -  \num{.25} ( 1 - k^2 + 2 k \onelist{C})^2} }
 	        =
 	        0
 	    \explnext{}
@@ -396,8 +396,24 @@ Pour en finir avec le problème d'isopérimétrie polygonal, nous aurons besoin 
 	puis amène à justifier que 
 	$k_1 \tan (\frac{\pi}{k_1}) > k_2 \tan (\frac{\pi}{k_2})$,
 	c'est-à-dire que la suite $\big( k \tan (\frac{\pi}{k}) \big)_{k \in \NN_{\geq 3}}$ est strictement décroissante.
+	Ce fait découle directement de la stricte décroissance de la fonction $f$ définie sur $\RR_{>2}$ par $f(x) = x \tan (\frac{\pi}{x})$, ceci venant des équivalences logiques suivantes où $x > 1$, la dernière assertion étant vraie d'après la validité de $\sin X \leq X$ sur $\RRp$.
+
+	\begin{stepcalc}[style=ar*, ope={\iff[ssi]}]
+		\sder{f}{1}(x) < 0
+	\explnext{}
+		\tan (\frac{\pi}{x}) - \frac{\pi}{x \cos^2 (\frac{\pi}{x})} < 0
+	\explnext{}
+		\tan (\frac{\pi}{x}) < \frac{\pi}{x \cos^2 (\frac{\pi}{x})}
+	\explnext{$\frac{\pi}{x} \in \intervalO{0}{\frac{\pi}{2}}$}
+		\cos^2 (\frac{\pi}{x}) \tan (\frac{\pi}{x}) < \frac{\pi}{x}
+	\explnext{}
+		\cos (\frac{\pi}{x}) \sin (\frac{\pi}{x}) < \frac{\pi}{x}
+	\explnext{}
+		2 \sin (\frac{\pi}{2 x}) < \frac{\pi}{x}
+	\explnext{}
+		\sin (\frac{\pi}{2 x}) < \frac{\pi}{2 x}
+	\end{stepcalc}
 	
-	
-	XXXX
+	\null\vspace{-3.5ex}
 \end{proof}
 
