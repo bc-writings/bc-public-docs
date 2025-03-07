@@ -20,7 +20,8 @@ Nous pourrons alors conclure dans la section finale suivante.
 
 
 \begin{fact} \label{must-be-conv}
-    Pour tout \ngone\ non convexe $\setproba{P}$, alors on peut construire un \ngone\ convexe $\setproba{C}$ tel que
+    Pour tout \ngone\ non convexe $\setproba{P}$,
+	alors on peut construire un \ngone\ convexe $\setproba{C}$ tel que
 	$\perim{\setproba{C}} = \perim{\setproba{P}}$
 	et
 	$\area{\setproba{C}} > \area{\setproba{P}}$.
@@ -98,7 +99,8 @@ Nous pourrons alors conclure dans la section finale suivante.
 
 
 \begin{fact} \label{must-be-equi}
-	Si un \ngone\ convexe $\setproba{P}$ n'est pas équilatéral, alors on peut construire un \ngone\ convexe $\primeit{\setproba{P}}$ tel que
+	Si un \ngone\ convexe $\setproba{P}$ n'est pas équilatéral,
+	alors on peut construire un \ngone\ convexe $\primeit{\setproba{P}}$ tel que
 	$\perim{\primeit{\setproba{P}}} = \perim{\setproba{P}}$
 	et
 	$\area{\primeit{\setproba{P}}} > \area{\setproba{P}}$.
@@ -140,9 +142,9 @@ Nous pourrons alors conclure dans la section finale suivante.
 % ----------------------- %
 
 
-\begin{fact} \label{must-be-reg}
+\begin{fact} \label{must-be-iso}
 	Si un \nequi\ convexe $\setproba{P}$ n'est pas équiangle,
-	alors il existe un \ngone\ $\primeit{\setproba{P}}$ tel que
+	alors on peut construire un \ngone\ convexe $\primeit{\setproba{P}}$ tel que
 	$\perim{\primeit{\setproba{P}}} = \perim{\setproba{P}}$
 	et
 	$\area{\primeit{\setproba{P}}} > \area{\setproba{P}}$.
@@ -160,7 +162,7 @@ Nous pourrons alors conclure dans la section finale suivante.
 		\includegraphics[scale=.4]{content/polygon/sol-must-be/2-eq-angles-start.png}
 	\end{center}
 	
-	Les seuls degré de liberté que nous avons sont de bouger les points $B$ et $C$. Nous décidons de nous limiter à la zone grise hachurée en excluant les droites vertes en pointillés, afin de garder un \ngone.
+	Nous pouvons juste bouger les points $B$ et $C$ dans la zone grise hachurée strictement entre les droites vertes en pointillés, afin de garder un \ngone\ convexe.
 	%
 	Concentrons-nous donc sur le quadrilatère $ABCD$, et posons $c = AB$ la longueur commune des côtés de $\setproba{P}$, ainsi que $d = AD$ que nous ne pouvons pas modifier.
 	%
@@ -173,188 +175,147 @@ Nous pourrons alors conclure dans la section finale suivante.
 	Cherchons donc à exprimer $\area{ABCD}$ en fonction de $\alpha = \anglein{DAB}$, cet angle permettant de repérer le point mobile $B$.
 	%
 	\begin{itemize}
+	    \item Nous avons $\alpha \in \intervalO{0}{\pi}$ et $\gamma \in \intervalO{0}{\pi}$.
+
+
 	    \item Le théorème d'Al-Kashi donne
 	    $BD^2 = c^2 + d^2 - 2 c d \cos \alpha$ dans le triangle $ABD$,
 	    ainsi que
 	    $BD^2 = 2 c^2 - 2 c^2 \cos \gamma$ dans le triangle $BCD$.
 	    Donc,
-	    $\cos \gamma = 1 - k^2 + 2 k \cos \alpha$ où l'on a posé $k = \frac{d}{c}$.%
-	    \footnote{
-	    	Notons que l'inégalité triangulaire donne $d \leq 3 c$, puis $k \leq 3$.
-		}
+	    $2 \cos \gamma = 1 - k^2 + 2 k \cos \alpha$ où l'on a posé $k = \frac{d}{c}$.
+	    Notons que l'inégalité triangulaire donne $d < 3 c$, puis $0 < k < 3$.
 
 
-	    \item La formule des sinus donne
+	    \item La formule trigonométrique de l'aire d'un triangle donne
 	    $\area{ABD} = \num{.5} c d \sin \alpha$
 	    et
 	    $\area{BCD} = \num{.5} c^2 \sin \gamma$,
-	   	donc
-	    $\area{ABCD} = \num{.5} c^2 ( k \sin \alpha + \sin \gamma )$.%
+	   	puis
+	    $\area{ABCD} = \num{.5} c^2 ( k \sin \alpha + \sin \gamma )$,
+	    de sorte que
+    	$\area{ABCD} = \num{.5} c^2 f(\alpha)$
+    	en posant 
+    	$f(\alpha) = k \sin \alpha + \sqrt{1 - \num{.25} ( 1 - k^2 + 2 k \cos \alpha)^2}$,
+	    car 
+	    $\sin \gamma = \sqrt{1 - \cos^2 \gamma}$.
+
+
+	    \item Nous n'avons pas besoin d'atteindre le maximum de $f$, nous voulons juste pouvoir faire augmenter localement $f(\alpha)$. 
+	    Ceci nécessite de savoir ce qu'implique $\sder{f}{1}(\alpha) = 0$, et nous mène aux implications logiques suivantes où 
+	    $\onelist{S} = \sin \alpha$ et $\onelist{C} = \cos \alpha$.
+	    
+	    \begin{stepcalc}[style=ar*, ope={\implies[d'où]}]
+	        \sder{f}{1}(\alpha) = 0
+	    \explnext{}
+	        k \onelist{C}
+	        +
+	        \dfrac{ k \onelist{S} ( 1 - k^2 + 2 k \onelist{C}) }{ 2 \sqrt{1 -  \num{.25} ( 1 - k^2 + 2 k \onelist{C})^2} }
+	        =
+	        0
+	    \explnext{}
+	        \onelist{S} ( 1 - k^2 + 2 k \onelist{C}) 
+	        =
+	        - 2 \onelist{C} \sqrt{1 - \num{.25} ( 1 - k^2 + 2 k \onelist{C})^2}
+	    \explnext{}
+	        \onelist{S}^2 ( 1 - k^2 + 2 k \onelist{C})^2
+	        =
+	        4 \onelist{C}^2 \big( 1 - \num{.25} ( 1 - k^2 + 2 k \onelist{C})^2 \big)
+	    \explnext{}
+	        ( 1 - k^2 + 2 k \onelist{C})^2 (\onelist{S}^2 + \onelist{C}^2)
+	        =
+	        4 \onelist{C}^2
+	    \explnext*{$\onelist{C}^2 + \onelist{S}^2 = 1$}{}
+	        ( 1 - k^2 + 2 k \onelist{C})^2 - 4 \onelist{C}^2 = 0
+	    \explnext{}
+	        ( 1 - k^2 + 2 k \onelist{C} - 2 \onelist{C} )
+	        \,
+	        ( 1 - k^2 + 2 k \onelist{C} + 2 \onelist{C} )
+	        = 0
+	    \explnext{}
+	        (1 - k) ( 1 + k - 2 \onelist{C} )
+	        \,
+	        (1 + k) ( 1 - k + 2 \onelist{C} ) = 0
+	    \explnext{}
+	        k \in \setgene{-1, 1}
+	        \,\, \text{ou} \,\,
+	        \onelist{C} \in \setgene{ \frac{k - 1}{2} , \frac{k + 1}{2} }
+	    \end{stepcalc}
+
+
+	    \item $k = -1$ est exclus.
+
+
+	    \item $k = 1$ signifie que $ABCD$ est un losange, mais dans ce cas, en bougeant un peu le sommet $B$ parallèlement à $(AD)$ en faisant augmenter $\alpha$ légèrement,%
 	    \footnote{
-    	    Notons que
-    	    $\area{ABCD} = \num{.5} c^2 f(\alpha)$
-    	    en posant 
-    	    $f(\alpha) = k \sin \alpha + \sqrt{1 - ( 1 - k^2 + 2 k \cos \alpha)^2}$,
-	    	puisque 
-	    	$\sin \gamma = \sqrt{1 - \cos^2 \gamma}$. 
-	    	Malheureusement, la fonction $f$ est peu sympathique, donc nous allons être moins brutaux.
-        }
+	        $B$ se déplace vers la gauche dans notre cas.
+	    }
+	    nous obtenons un parallélogramme de même aire, mais de périmètre diminué, comme dans la preuve du fait \ref{iso-para}.
+	    On obtient au final un \ngone\ convexe $\primeit{\setproba{P}}$ tel que
+		$\perim{\primeit{\setproba{P}}} < \perim{\setproba{P}}$
+		et
+		$\area{\primeit{\setproba{P}}} = \area{\setproba{P}}$,
+		qu'il suffit d'agrandir pour conclure.
 
 
-	    \item XXXX
+	    \item $\onelist{C} = \frac{k - 1}{2}$, 
+	    c'est-à-dire $2\cos \alpha = k - 1$, 
+	    donne 
+	    $2 \cos \gamma = 1 - k^2 + k(k - 1) = 1 - k$,
+	    d'où
+	    $\cos \gamma = - \cos \alpha$, puis $\gamma = \pi - \alpha$, en se souvenant que $(\alpha , \gamma) \in \intervalO{0}{\pi}^2$.
+	    %
+	    XXX
 
 
-	    \item Par choix, nous considérons juste $\alpha \in \intervalO{0}{\pi}$. Un nombre fini de valeurs de $\alpha$ ne seront pas acceptées: ce sont celles amenant $B$, ou $C$, sur les droites vertes en pointillés de la 1\iere\ figure. 
+	    \item Comme dans le point précédent,
+	    $\onelist{C} = \frac{k + 1}{2}$
+	    donne
+	    $\cos \gamma = \cos \alpha$, puis $\gamma = \alpha$ avec $(\alpha , \gamma) \in \intervalO{0}{\pi}^2$.
+	    %
+	    XXXX
 	\end{itemize}
-
 	
-%	    \item Par convexité, $\gamma \in \intervalO{0}{\pi}$.
-%	    Nous allons donc étudier les extrema de
-%	    $f(\alpha , \gamma) = k \sin \alpha + \sin \gamma$
-%	    sur $\intervalO{0}{\pi}^2$ sous la contrainte
-%	    $g(\alpha , \gamma) = 0$
-%	    avec
-%	    $g(\alpha , \gamma) = 1 - k^2 + 2 k \cos \alpha - \cos \gamma$,
-%	    ceci nous permettant de faire appel aux extrema liés.%
-
-%		%
-%    	Si un extremum existe,
-%    	$\exists \lambda \in \RR$ tel que
-%    	$\pder[i]{f}{\alpha}{1} = \lambda \pder[i]{g}{\alpha}{1}$
-%		et
-%    	$\pder[i]{f}{\gamma}{1} = \lambda \pder[i]{g}{\gamma}{1}$,
-%		de sorte que
-%		$k \cos \alpha = \lambda ( - 2 k \sin \alpha)$
-%		et
-%		$\cos \gamma = \lambda \sin \gamma$.
-%		%
-%		Donc, nécessairement 
-%		$\tan \gamma = -2 \tan \alpha$. 
-
-%	
-%	
-%	
-%	\newpage
-%	
-%
-%
-%
-%
-%	
-%	Dans nos manipulations à venir, nous fixons $A$, $C$, $E$ et $G$, tout en cherchant à bouger $B$ et $F$ de sorte à toujours avoir des triangles isocèles \focus{pointant} vers l'extérieur du convexe $\setproba{P}$.
-%	Posons $\ell = AB$, $d_1 = AC$ et $d_2 = EG$. Comme nous ne touchons pas aux points $A$, $C$, $E$ et $G$, les nombres $d_1$ et $d_2$ sont constants.
-%	%
-%	\begin{itemize}
-%		\item ????
-%
-%		\item ????
-%	\end{itemize}
-%
-%
-%	FAUX 
-%	Les deux exemples ci-dessus nous permettent de noter que si $\alpha = \anglein{ABC}$ diminue, et $\beta = \anglein{EFG}$ augmente, alors la somme des aires se rapprochent de $0$.
-%	Par raison de symétrie, si on fixe $\anglein{ABC} + \anglein{EFG}$, on devine que la somme des aires est maximisée quand $\anglein{ABC} = \anglein{EFG}$.
-%	Nous allons établir ceci de façon élémentaire en commençant par les calculs suivants où
-%	$\ell = AB$,
-%	$\mu = \frac{\alpha + \beta}{2}$ et
-%	$\delta = \mu - \beta > 0$ (rappelons que nous avons supposé $\alpha > \beta$).
-%
-%	\medskip
-%	\begin{stepcalc}[style=ar*]
-%		\area{ABC} + \area{EFG}
-%	\explnext*{Formule dite des sinus.}{}
-%		\dfrac12 BA \cdot BC \cdot \sin \big( \anglein{ABC} \big)
-%		+
-%		\dfrac12 FE \cdot FG \cdot \sin \big( \anglein{EFG} \big)
-%	\explnext{}
-%		\dfrac12 \ell^2 ( \sin \alpha + \sin \beta )
-%	\explnext*{Formules de Simpson.}{}
-%		\dfrac12 \ell^2 \sin \big( \dfrac{\alpha + \beta}{2} \big) \cos \big( \dfrac{\alpha - \beta}{2} \big)
-%	\explnext{}
-%		\dfrac12 \ell^2 \sin \mu \cos \delta
-%	\end{stepcalc}
-%
-%
-%	\medskip
-%
-%	Comme $(\delta ; \mu) \in \intervalO{0}{\pi}^2$,
-%	nous avons $\sin \mu \cos \delta > \sin \mu$.
-%	Remplaçons alors $\alpha$ et $\beta$ respectivement par $\alph\primeit{A}$ et $\bet\primeit{A}$ de telle sorte que $\alph\primeit{A} = \bet\primeit{A} = \frac{\alpha + \beta}{2} = \mu$.
-%	Notons que
-%	$0 < \beta < \mu < \alpha < \pi$
-%	(diminution de $\alpha$ et augmentation de $\beta$).
-%	Deux situations se présentent à nous.
-%	%
-%	\begin{itemize}
-%		\item Le \ngone\ obtenu ne perd aucun côté.
-%		Comme la convexité est gardée, c'est gagné.
-%
-%		\item Le \ngone\ obtenu perd au moins un côté. La solution consiste à choisir
-%		$\alpha^{\,\prime\prime} = \mu + \frac{\delta}{2}$ et $\beta^{\,\prime\prime} = \mu - \frac{\delta}{2}$
-%		au lieu de
-%		$\alph\primeit{A} = \bet\primeit{A} = \mu$, puisque nous avons
-%		$\cos \delta < \cos \big( \frac{\delta}{2} \big)$ et
-%		$0 < \beta < \beta^{\,\prime\prime} < \mu < \alpha^{\,\prime\prime} < \alpha < \pi$.
-%	\end{itemize}
+	\null\vspace{-6ex}
 \end{proof}
 
 
 \begin{remark}
-	Constrcution ?
+    Ce qui précède donne envie de faire appel à la méthode des extrema liés pour plus d'élégance dans les calculs.
+    Nous étudions les extrema de
+	$f(\alpha , \gamma) = k \sin \alpha + \sin \gamma$
+	sur $\intervalO{0}{\pi}^2$ sous la contrainte
+	$g(\alpha , \gamma) = 0$
+	avec
+	$g(\alpha , \gamma) = 1 - k^2 + 2 k \cos \alpha - 2 \cos \gamma$.
+	%
+    Si un extremum existe, alors $\exists \lambda \in \RR$ tel que
+    $\pder[i]{f}{\alpha}{1} = \lambda \pder[i]{g}{\alpha}{1}$
+	et
+    $\pder[i]{f}{\gamma}{1} = \lambda \pder[i]{g}{\gamma}{1}$,
+	de sorte que
+	$k \cos \alpha = \lambda \cdot ( - 2 k \sin \alpha)$
+	et
+	$\cos \gamma = \lambda \cdot 2 \sin \gamma$,
+	puis
+	$\tan \gamma = - \tan \alpha$,
+	et donc $\gamma = \pi - \alpha$.
+	On conclut alors comme ci-dessus.
 \end{remark}
 
 
 \begin{remark}
-	Une démonstration géométrique courante du fait précédent, que l'on retrouve souvent reproduite, s'appuie sur un résultat attribué à Zénodore sur la maximisation de l'aire totale de deux triangles isocèles de bases fixées, et de périmètre total constant:
+	Une démonstration géométrique du fait précédent s'appuie sur un résultat attribué à Zénodore sur la maximisation de l'aire totale de deux triangles isocèles de bases fixées, et de périmètre total constant:
 	ce résultat affirme que les deux triangles doivent avoir des angles en leur sommet principal de même mesure.
-	Malheureusement, cette preuve échoue lors de la disparition d'un sommet en choisissant les deux triangles isocèles optimaux pour construire un nouveau \ngone\ \focus{plus gros}, sauf à affiner la recherche comme dans notre approche analytique.
+	Malheureusement, cette preuve échoue lors de la disparition d'un sommet en choisissant les deux triangles isocèles optimaux pour construire un nouveau \ngone\ \focus{plus gros}.
 	Indiquons, au passage, que la preuve du résultat de Zénodore est un peu fastidieuse, sans être ingrate.
 \end{remark}
-%	
-%
-%% ----------------------- %
-%
-%
-%%\begin{remark}
-%%	La méthode des extrema liés, rappelée dans la remarque \ref{constrained-extrema}, donne une autre justification. Voici comment faire.
-%%	%
-%%	\begin{itemize}
-%%		\item $\area{ABC} + \area{EFG} = \frac14 ( d_1^2 \tan \alpha + d_2^2 \tan \beta )$
-%%
-%%		\item
-%%		\begin{stepcalc}[style=sar]
-%%			4 \ell
-%%		\explnext{}
-%%			AB + BC + EF + FG
-%%		\explnext{}
-%%			2 ( AB + EF )
-%%		\explnext{}
-%%			\frac{d_1}{\cos \alpha} + \frac{d_2}{\cos \beta}
-%%		\end{stepcalc}
-%%
-%%		\item Pour $(\alpha ; \beta) \in \intervalO{0}{\frac{\pi}{2}}^2$, on cherche donc à maximiser $f(\alpha ; \beta) =  d_1^2 \tan \alpha + d_2^2 \tan \beta$ sous la contrainte $g(\alpha ; \beta) = 0$ où $g(\alpha ; \beta) = 4 \ell - \frac{d_1}{\cos \alpha} - \frac{d_2}{\cos \beta}$.
-%%
-%%		\item On doit avoir $\lambda \in \RR$ tel que
-%%    	$\pder[i]{f}{\alpha}{1} = \lambda \pder[i]{g}{\alpha}{1}$ et
-%%    	$\pder[i]{f}{\beta}{1} = \lambda \pder[i]{g}{\beta}{1}$
-%%		(méthode des extrema liés).
-%%
-%%		\item Donc
-%%    	$\frac{d_1^2}{\cos^2 \alpha} = \lambda \frac{d_1 \sin \alpha}{\cos^2 \alpha}$,
-%%		c'est-à-dire
-%%		$\lambda \sin \alpha = d_1$.
-%%		De même,
-%%		$\lambda \sin \beta = d_2$.
-%%	
-%%		\item ????
-%%	\end{itemize}
-%%\end{remark}
 
 
 % ----------------------- %
 
 
-\begin{fact} \label{nece-cond}
+\begin{fact} \label{must-be-reg}
 	Si un \ngone\ $\setproba{P}$ n'est pas un \nreg\ convexe,
 	alors il existe un \ngone\ convexe $\primeit{\setproba{P}}$ tel que
 	$\perim{\primeit{\setproba{P}}} = \perim{\setproba{P}}$
@@ -364,14 +325,14 @@ Nous pourrons alors conclure dans la section finale suivante.
 
 
 \begin{proof}
-	Il suffit d'utiliser les faits \ref{must-be-conv}, \ref{must-be-equi} et \ref{must-be-reg}.
+	Il suffit d'utiliser les faits \ref{must-be-conv}, \ref{must-be-equi} et \ref{must-be-iso}.
 \end{proof}
 
 
 % ----------------------- %
 
 
-Afin d'en finir avec le problème d'isopérimétrie polygonal, nous aurons besoin du fait suivant.
+Pour en finir avec le problème d'isopérimétrie polygonal, nous aurons besoin du fait suivant.
 
 
 \begin{fact} \label{nregs-sorting}
