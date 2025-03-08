@@ -341,13 +341,13 @@ Nous allons établir une réciproque élargie du résultat précédent. Ce nouve
         \item On pose $i = 1$, et on considère une liste vide $\onelist{C}$.
 
         \item \label{algo-easy-extract-conv}
-              On pose $j = i + 1$.
+              On pose $j = i + 1$,
+              puis
+              tant que $\primeit{A}_j = \primeit{A}_i$, on augmente $j$ de $1$.
 
-        \item Tant que $\primeit{A}_j = \primeit{A}_i$, on augmente $j$ de $1$.
-
-        \item On pose $k = j + 1$.
-
-        \item Tant que $\primeit{A}_k \in (\primeit{A}_i \primeit{A}_j)$, on augmente $k$ de $1$.
+        \item On pose $k = j + 1$,
+              puis
+              tant que $\primeit{A}_k \in (\primeit{A}_i \primeit{A}_j)$, on augmente $k$ de $1$.
 
         \item Si $\primeit{A}_k$ n'est pas dans $\onelist{C}$, on ajoute ce sommet à droite de la liste, on pose $i = k$, et on retourne à l'action \ref{algo-easy-extract-conv}.
     \end{enumerate}
@@ -379,7 +379,7 @@ Le résultat qui suit est juste là pour simplifier la démonstration du fait \r
     
     Dès lors, la fonction $\alpha: \setproba{U} \rightarrow \RR$, qui à un uplet de $\setproba{U}$ associe l'aire algébrique du \ncycle\ qu'il représente, est une fonction admettant au moins un maximum, qui est positif strict.
     %
-    De plus, les sommets d'un \ncycle\ maximisant $\alpha$ sont distincts deux à deux.
+    De plus, un \ncycle\ maximisant $\alpha$ est forcément un \ngone\ convexe.
 \end{fact}
 
 
@@ -415,49 +415,35 @@ Le résultat qui suit est juste là pour simplifier la démonstration du fait \r
     \end{itemize}
 
     
-    Soit $\setproba{M} \in \setproba{U}$ maximisant $\alpha$, il reste à vérifier que les sommets de $\setproba{M}$ sont distincts deux à deux.
+    Pour finir, justifions que $\setproba{M} \in \setproba{U}$ maximisant $\alpha$ est forcément un \ngone\ convexe.
+    %
+    \begin{itemize}
+		\item Les côtés de $\setproba{M}$ contiennent tous exactement deux sommets.
+		
+		XXXXX
+
+
+
+
+
+
+
+
+		\item La positivité des déterminants $\det \big( \vect{\primeit{A}_i \primeit{A}_{i+1}}, \vect{\primeit{A}_i \primeit{A}_k} \big)$ et le point précédent impliquent que deux côtés non contigus de $\setproba{M}$ ne peuvent pas être sécants.
+    \end{itemize}
     
+    
+    
+
+
+
+
     
     XXXX
-
-
-%	\null\vspace{-6ex}
-\end{proof}
-
-
-% ----------------------- %
-
-
-Nous arrivons au résultat fondamental sur les \ngones\ convexes.
-
-
-\begin{fact} \label{at-least-one-ngone-convex}
-    Soit $n \in \NN_{\geq3}$ un naturel fixé.
-    Parmi les \ngones\ convexes de longueur fixée, non nulle, il en existe au moins un d'aire maximale.
-\end{fact}
-
-
-\begin{proof}
-    Notons $\ell > 0$ la longueur fixée,
-    reprenons les notations du fait \ref{at-least-one-ncycle},
-    et choisissons $\setproba{M} \in \setproba{U}$ maximisant l'aire algébrique sur $\setproba{U}$.
-    Nous savons que les sommets de $\setproba{M}$ sont distincts deux à deux,
-    et que $\sarea{\setproba{M}} > 0$, 
-    d'où la non totale dégénérescence de $\setproba{M}$.
-    Dès lors,
-    pour tout \ngone\ convexe $\setproba{P}$ vérifiant $\cyclelen{\setproba{P}} = \ell$, nous pouvons raisonner comme suit. 
-	%
-	\begin{itemize}
-		\item Comme pour le \nreg\ convexe $\setproba{R}$ de la preuve du fait \ref{at-least-one-ncycle},
-		via une translation, nous pouvons supposer $\setproba{P}$ d'origine $\pt{O}$, puis nous avons
-		soit $\setproba{P} \in \setproba{U}$ et $\sarea{\setproba{P}} = \area{\setproba{P}}$,
-		soit $\cycleop{P} \in \setproba{U}$ et $\sarea{\cycleop{P}} = \area{\cycleop{P}}$.
-		Comme, de plus, $\area{\cycleop{P}} = \area{\setproba{P}}$,
-		nous pouvons supposer avoir $\setproba{P} \in \setproba{U}$,
-		quitte à échanger $\setproba{P}$ et $\cycleop{P}$.
-
-
-		\item Le fait \ref{conv-from-non-neg-det} donne un \kgone\ convexe $\setproba{C}$, où $k \leq n$, tel que
+    
+    fait \ref{tri-one-side-fixed} 
+    
+    Le fait \ref{conv-from-non-neg-det} donne un \kgone\ convexe $\setproba{C}$, où $k \leq n$, tel que
 		$\cyclelen{\setproba{C}} \leq \cyclelen{\setproba{M}}$,
 		ainsi que
 		$\sarea{\setproba{C}} = \sarea{\setproba{M}}$.
@@ -482,27 +468,6 @@ Nous arrivons au résultat fondamental sur les \ngones\ convexes.
 		    selon le fait \ref{sarea-ngone}.
 		\end{enumerate}
 
-
-		\item Le choix de $\setproba{M}$ implique 
-		$\cyclelen{\primeit{\setproba{C}}} \leq \ell$
-		et
-		$\sarea{\primeit{\setproba{C}}} \geq \sarea{\setproba{P}}$.
-
-
-		\item Selon le fait \ref{sarea-ngone},
-		$\area{\primeit{\setproba{C}}} = \abs{\sarea{\primeit{\setproba{C}}}} = \sarea{\primeit{\setproba{C}}}$,
-		donc l'inégalité
-		$\sarea{\setproba{P}} \leq \sarea{\primeit{\setproba{C}}}$
-		devient
-		$\area{\setproba{P}} \leq \area{\primeit{\setproba{C}}}$.
-		
-		
-		\item Pour conclure, notons que $\cyclelen{\primeit{\setproba{C}}} > 0$, donc une homothétie de rapport $\frac{\ell}{\cyclelen{\primeit{\setproba{C}}}} \geq 1$ fournit un \ngone\ convexe $\dbleprimeit{\setproba{C}}$ tel que
-		$\cyclelen{\dbleprimeit{\setproba{C}}} = \ell$
-		et
-		$\area{\setproba{P}} \leq \area{\dbleprimeit{\setproba{C}}}$.
-	\end{itemize}
-
 	\null\vspace{-6ex}
 \end{proof}
 
@@ -510,57 +475,25 @@ Nous arrivons au résultat fondamental sur les \ngones\ convexes.
 % ----------------------- %
 
 
-Le fait suivant, nécessaire pour la preuve précédente, nous sera aussi utile pour obtenir qu'un \ngone\ \focus{maximal} doit être convexe.
+Nous arrivons au résultat fondamental sur les \ngones\ convexes.
 
 
-\begin{fact} \label{bigger-convex}
-    Si $\setproba{P}$ est un \ngone\ convexe, $s \in \NNs$ et $L \in \RR_{>\cyclelen{\setproba{P}}}$,
-    alors il existe un \xgone{(n+s)}\ convexe $\setproba{K}$ tel que
-	$\cyclelen{\setproba{P}} < \cyclelen{\setproba{K}} < L$
-	et
-	$\area{\setproba{P}} < \area{\setproba{K}}$.
+\begin{fact} \label{at-least-one-ngone-convex}
+    Soit $n \in \NN_{\geq3}$ un naturel fixé.
+    Parmi les \ngones\ convexes de longueur fixée, non nulle, il en existe au moins un d'aire maximale.
 \end{fact}
 
 
 \begin{proof}
-    Intuitivement, il suffit d'ajouter des points suffisamment proches d'un côté, et à l'extérieur, comme l'illustre la figure suivante.
+    Soit un \ngone\ convexe $\setproba{P}$ ayant la longueur fixée. 
     %
-    \begin{center}
-        \includegraphics[scale=.4]{content/polygon/at-least-one/bigger-convex.png}
-    \end{center}
-    
-    Pour formaliser proprement notre idée, posons
-	$\delta = \frac{L - \cyclelen{\setproba{P}}}{s}$ qui est tel que $\delta > 0$.
-	%
-	\begin{enumerate}
-		\item \label{add-vertex-start}
-		Considérons $[AB]$ un côté quelconque de $\setproba{P}$.
-		Les droites portées par les côtés \focus{autour} de $[AB]$ \focus{dessinent} une région contenant toujours un triangle $ABC$ dont l'intérieur est à l'extérieur
-		\footnote{
-			C'est ce que l'on appelle de la \focus{low poetry},.
-		}
-		de $\setproba{P}$ comme dans les deux cas ci-dessous.
-		%
-		\begin{multicols}{2}
-			\centering
-
-			\includegraphics[scale=.35]{content/polygon/at-least-one/add-vertex-1.png}
-
-			\includegraphics[scale=.35]{content/polygon/at-least-one/add-vertex-2.png}
-		\end{multicols}
-
-		\item Clairement, le polygone $\setproba{P}_+$ obtenu à partir de $\setproba{P}$ en remplaçant le côté $[AB]$ par les côtés $[AC]$ et $[CB]$ est un convexe avec un sommet de plus que $\setproba{P}$.
-
-		\item \label{add-vertex-end}
-		Comme $HC$ peut être rendu aussi proche de $0$ que souhaité, il est aisé de voir que nous pouvons choisir cette distance de sorte que $AC + BC < AB + \delta$.
-		Dès lors, le périmètre de $\setproba{P}_+$ augmente inférieurement strictement à $\delta$ relativement à $\setproba{P}$.
-
-		\item En répétant $(s - 1)$ fois de plus les étapes \ref{add-vertex-start} à \ref{add-vertex-end}, avec $\setproba{P}_+$ à la place de $\setproba{P}$ à chaque fois,
-		nous obtenons un \xgone{(n+s)} convexe $\primeit{\setproba{K}}$ vérifiant à la fois
-		$\area{\setproba{P}} < \area{\setproba{K}}$
-		et
-		$\cyclelen{\setproba{P}} < \cyclelen{\setproba{K}} < \cyclelen{\setproba{P}} + s \delta = L$.
-	\end{enumerate}
-
-	\null\vspace{-6ex}
+    Comme pour $\setproba{R}$ dans la preuve précédente,
+	nous pouvons supposer $\setproba{P}$ d'origine $\pt{O}$, via une translation,
+	puis nous avons
+	soit $\setproba{P} \in \setproba{U}$ et $\sarea{\setproba{P}} = \area{\setproba{P}}$,
+	soit $\cycleop{P} \in \setproba{U}$ et $\sarea{\cycleop{P}} = \area{\cycleop{P}}$.
+	Comme, de plus, $\area{\cycleop{P}} = \area{\setproba{P}}$,
+	nous pouvons supposer avoir $\setproba{P} \in \setproba{U}$,
+	quitte à échanger $\setproba{P}$ et $\cycleop{P}$.
+    Dès lors, pour conclure, il suffit de faire appel au fait \ref{at-least-one-ncycle}.    
 \end{proof}

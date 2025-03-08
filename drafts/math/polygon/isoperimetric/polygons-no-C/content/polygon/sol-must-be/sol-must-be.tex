@@ -34,7 +34,7 @@ Cette section cherche à caractériser la nature des solutions du problème d’
 	mais
 	$\setproba{E}$ est un \kgone avec $k < n$. 
 	%
-	Pour avoir le bon nombre de sommets, il suffit d'appliquer le fait \ref{bigger-convex} au convexe $\setproba{E}$ avec $s = n - k$ et $L = \perim{\setproba{P}}$.
+	Pour avoir le bon nombre de sommets, il suffit d'appliquer le fait \ref{bigger-convex} ci-dessous au convexe $\setproba{E}$ avec $s = n - k$ et $L = \perim{\setproba{P}}$.
 	Ceci nous donne un \ngone\ convexe $\primeit{\setproba{C}}$ vérifiant à la fois
 	$\area{\setproba{E}} < \area{\primeit{\setproba{C}}}$
 	et
@@ -43,6 +43,65 @@ Cette section cherche à caractériser la nature des solutions du problème d’
 	Finalement, une homothétie de rapport $r > 1$, où $r = \frac{ \perim{\setproba{P}} }{ \perim{\primeit{\setproba{C}}} }$, donne le \ngone\ convexe $\setproba{C}$ cherché.
 	
 	\null\vspace{-5ex}
+\end{proof}
+
+
+% ----------------------- %
+
+
+Le fait suivant, utilisé dans la preuve précédente, mérite d'être mis en valeur.
+
+
+\begin{fact} \label{bigger-convex}
+    Si $\setproba{P}$ est un \ngone\ convexe, $s \in \NNs$ et $L \in \RR_{>\cyclelen{\setproba{P}}}$,
+    alors il existe un \xgone{(n+s)}\ convexe $\setproba{K}$ tel que
+	$\cyclelen{\setproba{P}} < \cyclelen{\setproba{K}} < L$
+	et
+	$\area{\setproba{P}} < \area{\setproba{K}}$.
+\end{fact}
+
+
+\begin{proof}
+    Intuitivement, il suffit d'ajouter des points suffisamment proches d'un côté, et à l'extérieur, comme l'illustre la figure suivante.
+    %
+    \begin{center}
+        \includegraphics[scale=.4]{content/polygon/at-least-one/bigger-convex.png}
+    \end{center}
+    
+    Pour formaliser proprement notre idée, posons
+	$\delta = \frac{L - \cyclelen{\setproba{P}}}{s}$ qui est tel que $\delta > 0$.
+	%
+	\begin{enumerate}
+		\item \label{add-vertex-start}
+		Considérons $[AB]$ un côté quelconque de $\setproba{P}$.
+		Les droites portées par les côtés \focus{autour} de $[AB]$ \focus{dessinent} une région contenant toujours un triangle $ABC$ dont l'intérieur est à l'extérieur
+		\footnote{
+			C'est ce que l'on appelle de la \focus{low poetry},.
+		}
+		de $\setproba{P}$ comme dans les deux cas ci-dessous.
+		%
+		\begin{multicols}{2}
+			\centering
+
+			\includegraphics[scale=.35]{content/polygon/at-least-one/add-vertex-1.png}
+
+			\includegraphics[scale=.35]{content/polygon/at-least-one/add-vertex-2.png}
+		\end{multicols}
+
+		\item Clairement, le polygone $\setproba{P}_+$ obtenu à partir de $\setproba{P}$ en remplaçant le côté $[AB]$ par les côtés $[AC]$ et $[CB]$ est un convexe avec un sommet de plus que $\setproba{P}$.
+
+		\item \label{add-vertex-end}
+		Comme $HC$ peut être rendu aussi proche de $0$ que souhaité, il est aisé de voir que nous pouvons choisir cette distance de sorte que $AC + BC < AB + \delta$.
+		Dès lors, le périmètre de $\setproba{P}_+$ augmente inférieurement strictement à $\delta$ relativement à $\setproba{P}$.
+
+		\item En répétant $(s - 1)$ fois de plus les étapes \ref{add-vertex-start} à \ref{add-vertex-end}, avec $\setproba{P}_+$ à la place de $\setproba{P}$ à chaque fois,
+		nous obtenons un \xgone{(n+s)} convexe $\primeit{\setproba{K}}$ vérifiant à la fois
+		$\area{\setproba{P}} < \area{\setproba{K}}$
+		et
+		$\cyclelen{\setproba{P}} < \cyclelen{\setproba{K}} < \cyclelen{\setproba{P}} + s \delta = L$.
+	\end{enumerate}
+
+	\null\vspace{-6ex}
 \end{proof}
 
 
