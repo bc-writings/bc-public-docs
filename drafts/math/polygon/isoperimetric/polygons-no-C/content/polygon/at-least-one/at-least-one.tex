@@ -326,12 +326,32 @@ Nous allons établir une réciproque élargie du résultat précédent. Ce nouve
 
         \item Par construction, trois sommets \focus{consécutifs} $\primeit{A}_q$, $\primeit{A}_r$ et $\primeit{A}_s$ de $\setproba{C}$, sont tels que $\det \big( \vect{\primeit{A}_q \primeit{A}_{r}}, \vect{\primeit{A}_q \primeit{A}_s} \big) > 0$. 
         En particulier, ces trois sommets \focus{consécutifs} ne sont pas alignés.
-        Dès lors, $\setproba{C}$ est un \kgone, et il est aussi convexe. 
+        Dès lors, $\setproba{C}$ est un \kgone, et il est aussi convexe.
     \end{itemize}
 
 	
-	Enfin, la preuve de l'algorithme a montré que pour $\primeit{A}_i$ et $\primeit{A}_k$ deux sommets consécutifs de $\setproba{C}$, les sommets $\primeit{A}_j$, pour $j \in \ZintervalC{i}{k}$, sont les seuls situés sur $[\primeit{A}_i \primeit{A}_k]$.
+	Pour finir, la preuve ci-dessus de l'algorithme montre que pour $\primeit{A}_i$ et $\primeit{A}_k$ deux sommets consécutifs de $\setproba{C}$, les sommets $\big( \primeit{A}_j \big)_{ j \in \ZintervalC{i}{k} }$ sont les seuls situés sur $[\primeit{A}_i \primeit{A}_k]$.
 \end{proof}
+
+
+\begin{remark}
+    La propriété sur les sommets donne un algorithme très simple de construction de $\setproba{C}$ lorsque $\setproba{L}$ n'est pas totalement dégénéré.
+    %
+    \begin{enumerate}[label=\fbox{\small\bfseries\textsf{A\kern.25pt\arabic*}}]
+        \item On pose $i = 1$, et on considère une liste vide $\onelist{C}$.
+
+        \item \label{algo-easy-extract-conv}
+              On pose $j = i + 1$.
+
+        \item Tant que $\primeit{A}_j = \primeit{A}_i$, on augmente $j$ de $1$.
+
+        \item On pose $k = j + 1$.
+
+        \item Tant que $\primeit{A}_k \in (\primeit{A}_i \primeit{A}_j)$, on augmente $k$ de $1$.
+
+        \item Si $\primeit{A}_k$ n'est pas dans $\onelist{C}$, on ajoute ce sommet à droite de la liste, on pose $i = k$, et on retourne à l'action \ref{algo-easy-extract-conv}.
+    \end{enumerate}
+\end{remark}
 
 
 % ----------------------- %
@@ -340,7 +360,7 @@ Nous allons établir une réciproque élargie du résultat précédent. Ce nouve
 %\newpage
 %
 
-Le résultat qui suit est juste là pour simplifier la justification du fait \ref{at-least-one-ngone-convex} à venir qui est la raison d'être de cette section.
+Le résultat qui suit est juste là pour simplifier la démonstration du fait \ref{at-least-one-ngone-convex} à venir qui est la raison d'être de cette section.
 
 
 \begin{fact} \label{at-least-one-ncycle}
@@ -358,6 +378,8 @@ Le résultat qui suit est juste là pour simplifier la justification du fait \re
     \end{itemize}
     
     Dès lors, la fonction $\alpha: \setproba{U} \rightarrow \RR$, qui à un uplet de $\setproba{U}$ associe l'aire algébrique du \ncycle\ qu'il représente, est une fonction admettant au moins un maximum, qui est positif strict.
+    %
+    De plus, les sommets d'un \ncycle\ maximisant $\alpha$ sont distincts deux à deux.
 \end{fact}
 
 
@@ -392,7 +414,14 @@ Le résultat qui suit est juste là pour simplifier la justification du fait \re
 		Nous avons une propriété similaire si $\setproba{R}^{\mathrm{op}} \in \setproba{U}$.
     \end{itemize}
 
-	\null\vspace{-6ex}
+    
+    Soit $\setproba{M} \in \setproba{U}$ maximisant $\alpha$, il reste à vérifier que les sommets de $\setproba{M}$ sont distincts deux à deux.
+    
+    
+    XXXX
+
+
+%	\null\vspace{-6ex}
 \end{proof}
 
 
@@ -412,8 +441,11 @@ Nous arrivons au résultat fondamental sur les \ngones\ convexes.
     Notons $\ell > 0$ la longueur fixée,
     reprenons les notations du fait \ref{at-least-one-ncycle},
     et choisissons $\setproba{M} \in \setproba{U}$ maximisant l'aire algébrique sur $\setproba{U}$.
-    Ce \ncycle\ ne peut être totalement dégénéré, car $\sarea{\setproba{M}} > 0$.
-    Dès lors, pour tout \ngone\ convexe $\setproba{P}$ vérifiant $\cyclelen{\setproba{P}} = \ell$, nous pouvons raisonner comme suit. 
+    Nous savons que les sommets de $\setproba{M}$ sont distincts deux à deux,
+    et que $\sarea{\setproba{M}} > 0$, 
+    d'où la non totale dégénérescence de $\setproba{M}$.
+    Dès lors,
+    pour tout \ngone\ convexe $\setproba{P}$ vérifiant $\cyclelen{\setproba{P}} = \ell$, nous pouvons raisonner comme suit. 
 	%
 	\begin{itemize}
 		\item Comme pour le \nreg\ convexe $\setproba{R}$ de la preuve du fait \ref{at-least-one-ncycle},
@@ -430,29 +462,28 @@ Nous arrivons au résultat fondamental sur les \ngones\ convexes.
 		ainsi que
 		$\sarea{\setproba{C}} = \sarea{\setproba{M}}$.
 		%
-		Nous savons que pour deux sommets consécutifs $\primeit{A}_i$ et $\primeit{A}_k$ de $\setproba{C}$, seuls les sommets $\primeit{A}_j$, pour $j \in \ZintervalC{i}{k}$, sont situés sur $[\primeit{A}_i \primeit{A}_k]$.
+%		Nous savons que pour deux sommets consécutifs $\primeit{A}_i$ et $\primeit{A}_k$ de $\setproba{C}$, seuls les sommets $\primeit{A}_j$, pour $j \in \ZintervalC{i}{k}$, sont situés sur $[\primeit{A}_i \primeit{A}_k]$.
 		%
 		Ceci nous amène aux deux alternatives suivantes donnant un \ngone\ convexe $\primeit{\setproba{C}}$ tel que 
 		$\cyclelen{\primeit{\setproba{C}}} \leq \cyclelen{\setproba{M}}$
 		et
-		$\sarea{\primeit{\setproba{C}}} \geq \sarea{\setproba{M}} > 0$.
+		$\sarea{\primeit{\setproba{C}}} \geq \sarea{\setproba{M}}$.
 		%
 		\begin{enumerate}
 		    \item Si $M$ est déjà un \ngone\ convexe, alors $\setproba{C} = \setproba{M}$ et donc $\primeit{\setproba{C}} \eq[def] \setproba{C}$ convient.
 		    
 
-		    \item Sinon, forcément $\primeit{\setproba{C}}$ possède strictement moins de sommets que $\setproba{M}$, et par conséquent $\cyclelen{\setproba{C}} < \cyclelen{\setproba{M}}$.
+		    \item Sinon, forcément $\setproba{C}$ possède strictement moins de sommets que $\setproba{M}$, de sorte que $\cyclelen{\setproba{C}} < \cyclelen{\setproba{M}}$.
 		    Dans ce cas, 
-		    le \ngone\ convexe $\primeit{\setproba{C}}$ vient du fait \ref{bigger-convex} ci-dessous appliqué 
-		    au convexe $\setproba{C}$ 
-		    avec 
-		    $s = n - k$
-		    et
-		    $\delta = \cyclelen{\setproba{M}} - \cyclelen{\setproba{C}}$.
+		    le \ngone\ convexe $\primeit{\setproba{C}}$ est donné par le fait \ref{bigger-convex} ci-dessous appliqué 
+		    au convexe $\setproba{C}$ avec $s = n - k$ et $L = \cyclelen{\setproba{M}}$,
+		    en se souvenant que 
+		    $\area{\setproba{C}} = \abs{\sarea{\setproba{C}}} = \sarea{\setproba{C}}$
+		    selon le fait \ref{sarea-ngone}.
 		\end{enumerate}
 
 
-		\item Le choix de $\setproba{M}$ fait que 
+		\item Le choix de $\setproba{M}$ implique 
 		$\cyclelen{\primeit{\setproba{C}}} \leq \ell$
 		et
 		$\sarea{\primeit{\setproba{C}}} \geq \sarea{\setproba{P}}$.
@@ -479,29 +510,57 @@ Nous arrivons au résultat fondamental sur les \ngones\ convexes.
 % ----------------------- %
 
 
-Le fait suivant, utilisé dans la preuve précédente, nous sera aussi utile pour obtenir qu'un \ngone\ \focus{maximal} doit être convexe.
+Le fait suivant, nécessaire pour la preuve précédente, nous sera aussi utile pour obtenir qu'un \ngone\ \focus{maximal} doit être convexe.
 
 
 \begin{fact} \label{bigger-convex}
-    XXXX
+    Si $\setproba{P}$ est un \ngone\ convexe, $s \in \NNs$ et $L \in \RR_{>\cyclelen{\setproba{P}}}$,
+    alors il existe un \xgone{(n+s)}\ convexe $\setproba{K}$ tel que
+	$\cyclelen{\setproba{P}} < \cyclelen{\setproba{K}} < L$
+	et
+	$\area{\setproba{P}} < \area{\setproba{K}}$.
 \end{fact}
 
 
 \begin{proof}
-    XXXX
-    		    ceci conduisant à une situation comme la suivante où nous notons la possibilité d'ajouter autant de sommets manquant que nécessaire, la zone hachurée indiquant les points $M$ tels que 
-		    $\det \big( \vect{\primeit{A}_i \primeit{A}_{i+1}}, \vect{\primeit{A}_i M} \big) < 0$, une zone ne contenant aucun sommet de $\setproba{M}$.
-            %
-            \begin{multicols}{2}
-                \small\itshape\centering
-           	    \includegraphics[scale=.4]{content/polygon/at-least-one/max-ngone-1.png}
-        	    
-        	    \smallskip
-                Un cas possible où $\primeit{A}_s = \primeit{A}_t$.
-            
-                \includegraphics[scale=.4]{content/polygon/at-least-one/max-ngone-2.png}
-        	    
-        	    \smallskip
-                Déformation \focus{convexe possible}.
-        \end{multicols}
+    Intuitivement, il suffit d'ajouter des points suffisamment proches d'un côté, et à l'extérieur, comme l'illustre la figure suivante.
+    %
+    \begin{center}
+        \includegraphics[scale=.4]{content/polygon/at-least-one/bigger-convex.png}
+    \end{center}
+    
+    Pour formaliser proprement notre idée, posons
+	$\delta = \frac{L - \cyclelen{\setproba{P}}}{s}$ qui est tel que $\delta > 0$.
+	%
+	\begin{enumerate}
+		\item \label{add-vertex-start}
+		Considérons $[AB]$ un côté quelconque de $\setproba{P}$.
+		Les droites portées par les côtés \focus{autour} de $[AB]$ \focus{dessinent} une région contenant toujours un triangle $ABC$ dont l'intérieur est à l'extérieur
+		\footnote{
+			C'est ce que l'on appelle de la \focus{low poetry},.
+		}
+		de $\setproba{P}$ comme dans les deux cas ci-dessous.
+		%
+		\begin{multicols}{2}
+			\centering
+
+			\includegraphics[scale=.35]{content/polygon/at-least-one/add-vertex-1.png}
+
+			\includegraphics[scale=.35]{content/polygon/at-least-one/add-vertex-2.png}
+		\end{multicols}
+
+		\item Clairement, le polygone $\setproba{P}_+$ obtenu à partir de $\setproba{P}$ en remplaçant le côté $[AB]$ par les côtés $[AC]$ et $[CB]$ est un convexe avec un sommet de plus que $\setproba{P}$.
+
+		\item \label{add-vertex-end}
+		Comme $HC$ peut être rendu aussi proche de $0$ que souhaité, il est aisé de voir que nous pouvons choisir cette distance de sorte que $AC + BC < AB + \delta$.
+		Dès lors, le périmètre de $\setproba{P}_+$ augmente inférieurement strictement à $\delta$ relativement à $\setproba{P}$.
+
+		\item En répétant $(s - 1)$ fois de plus les étapes \ref{add-vertex-start} à \ref{add-vertex-end}, avec $\setproba{P}_+$ à la place de $\setproba{P}$ à chaque fois,
+		nous obtenons un \xgone{(n+s)} convexe $\primeit{\setproba{K}}$ vérifiant à la fois
+		$\area{\setproba{P}} < \area{\setproba{K}}$
+		et
+		$\cyclelen{\setproba{P}} < \cyclelen{\setproba{K}} < \cyclelen{\setproba{P}} + s \delta = L$.
+	\end{enumerate}
+
+	\null\vspace{-6ex}
 \end{proof}

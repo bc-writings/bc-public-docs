@@ -27,63 +27,22 @@ Cette section cherche à caractériser la nature des solutions du problème d’
 		\includegraphics[scale=.45]{content/polygon/sol-must-be/convex-hull.png}
 	\end{center}
 	
-		
 	Clairement,
 	$\perim{\setproba{E}} < \perim{\setproba{P}}$
 	et
 	$\area{\setproba{E}} > \area{\setproba{P}}$,
 	mais
-	$\setproba{E}$ est un \xgone{s} avec $s < n$. 
+	$\setproba{E}$ est un \kgone avec $k < n$. 
 	%
-	Pour gérer ce problème, une idée simple, formalisée après, est d'ajouter des sommets assez prêts des côtés de $\setproba{E}$ pour garder à la fois
-	la convexité, 
-	un périmètre inférieur à $\perim{\setproba{P}}$, 
+	Pour avoir le bon nombre de sommets, il suffit d'appliquer le fait \ref{bigger-convex} au convexe $\setproba{E}$ avec $s = n - k$ et $L = \perim{\setproba{P}}$.
+	Ceci nous donne un \ngone\ convexe $\primeit{\setproba{C}}$ vérifiant à la fois
+	$\area{\setproba{E}} < \area{\primeit{\setproba{C}}}$
 	et
-	une aire supérieure à $\area{\setproba{P}}$.
-	Si c'est faisable, une homothétie de rapport $r \geq 1$, où $r = \frac{ \perim{\setproba{P}} }{ \perim{\setproba{E}} }$, donnera le \ngone\ convexe $\setproba{C}$ cherché.
-	La figure suivante illustre cette idée.
-	
-	\begin{center}
-		\includegraphics[scale=.45]{content/polygon/sol-must-be/convex-hull-distortion.png}
-	\end{center}
-
-	\newpage % TEMPO
-
-	Notons $m = n - s$ qui compte les sommets manquants, et vérifie $m \neq 0$. 
-	Ceci permet de poser
-	$\delta = \frac{\perim{\setproba{P}} - \perim{\setproba{E}}}{m}$ qui est tel que $\delta > 0$.
+	$\perim{\setproba{E}} < \perim{\primeit{\setproba{C}}} < \perim{\setproba{P}}$.
 	%
-	\begin{enumerate}
-		\item \label{add-vertex-start}
-		Considérons $[AB]$ un côté quelconque de $\setproba{E}$.
-		Les droites portées par les côtés \focus{autour} de $[AB]$ \focus{dessinent} une région contenant toujours un triangle $ABC$ dont l'intérieur est à l'extérieur
-		\footnote{
-			C'est ce que l'on appelle de la \focus{low poetry},.
-		}
-		de $\setproba{E}$ comme dans les deux cas ci-dessous.
-		%
-		\begin{multicols}{2}
-			\centering
-
-			\includegraphics[scale=.35]{content/polygon/sol-must-be/add-vertex-1.png}
-
-			\includegraphics[scale=.35]{content/polygon/sol-must-be/add-vertex-2.png}
-		\end{multicols}
-
-		\item Clairement, le polygone $\setproba{E}_+$ obtenu à partir de $\setproba{E}$ en remplaçant le côté $[AB]$ par les côtés $[AC]$ et $[CB]$ est un convexe avec un sommet de plus que $\setproba{E}$.
-
-		\item \label{add-vertex-end}
-		Comme $HC$ peut être rendu aussi proche de $0$ que souhaité, il est aisé de voir que nous pouvons choisir cette distance de sorte que $AC + BC < AB + \delta$.
-		Dès lors, le périmètre de $\setproba{E}_+$ augmente inférieurement strictement à $\delta$ relativement à $\setproba{E}$.
-
-		\item En répétant $(m-1)$ fois les étapes \ref{add-vertex-start} à \ref{add-vertex-end}, avec $\setproba{E}_+$ à la place de $\setproba{E}$,
-		nous obtenons un \ngone\ convexe $\primeit{\setproba{C}}$ tel que
-		$\area{\primeit{\setproba{C}}} > \area{\setproba{P}}$
-		et
-		$\perim{\primeit{\setproba{C}}} < \perim{\setproba{E}} + m \delta = \perim{\setproba{P}}$.
-	\end{enumerate}
+	Finalement, une homothétie de rapport $r > 1$, où $r = \frac{ \perim{\setproba{P}} }{ \perim{\primeit{\setproba{C}}} }$, donne le \ngone\ convexe $\setproba{C}$ cherché.
 	
-	\null\vspace{-6ex}
+	\null\vspace{-5ex}
 \end{proof}
 
 
