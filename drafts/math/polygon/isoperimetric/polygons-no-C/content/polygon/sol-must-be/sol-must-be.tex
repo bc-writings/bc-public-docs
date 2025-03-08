@@ -1,18 +1,8 @@
-Cette section va établir que, relativement au problème d'isopérimétrie polygonal,
-un \ngone\ solution doit être convexe, 
-puis
-qu'un \ngone\ convexe solution doit être un \nreg,
-et enfin
-que si $\setproba*{R}{1}$ et $\setproba*{R}{2}$ sont respectivement un \xgone{k_1} et un \xgone{k_2}, tous les deux réguliers convexes, avec 
-$k_1 < k_2$ et $\perim{\setproba*{R}{1}} = \perim{\setproba*{R}{2}}$, 
-alors
-$\area{\setproba*{R}{1}} < \area{\setproba*{R}{2}}$.
-Nous pourrons alors conclure dans la section finale suivante.
-
+Cette section cherche à caractériser la nature des solutions du problème d’isopérimétrie polygonale.
 
 \begin{tcolorbox}
 	\itshape\small
-	Les cas $n = 3$ et $n = 4$ étant résolus, voir les faits \ref{iso-tri} et \ref{quadri}, dans toutes les preuves de cette section, nous supposerons $n \geq 5$, pour ne pas alourdir le texte.
+	Les cas $n = 3$ et $n = 4$ étant résolus, voir les faits \ref{iso-tri} et \ref{quadri}, dans toutes les preuves de cette section, nous supposerons $n \geq 5$ pour ne pas alourdir le texte.
 \end{tcolorbox}
 
 
@@ -45,7 +35,7 @@ Nous pourrons alors conclure dans la section finale suivante.
 	mais
 	$\setproba{E}$ est un \xgone{s} avec $s < n$. 
 	%
-	Pour gérer ce problème, une idée simple, formalisée après, est d'ajouter des sommets assez prêts des côtés de $\setproba{E}$ pour garder 
+	Pour gérer ce problème, une idée simple, formalisée après, est d'ajouter des sommets assez prêts des côtés de $\setproba{E}$ pour garder à la fois
 	la convexité, 
 	un périmètre inférieur à $\perim{\setproba{P}}$, 
 	et
@@ -59,8 +49,9 @@ Nous pourrons alors conclure dans la section finale suivante.
 
 	\newpage % TEMPO
 
-	Notons $m = n - s$ qui compte les sommets manquants, puis posons
-	$\delta = \frac{\perim{\setproba{P}} - \perim{\setproba{E}}}{m}$.
+	Notons $m = n - s$ qui compte les sommets manquants, et vérifie $m \neq 0$. 
+	Ceci permet de poser
+	$\delta = \frac{\perim{\setproba{P}} - \perim{\setproba{E}}}{m}$ qui est tel que $\delta > 0$.
 	%
 	\begin{enumerate}
 		\item \label{add-vertex-start}
@@ -82,13 +73,14 @@ Nous pourrons alors conclure dans la section finale suivante.
 		\item Clairement, le polygone $\setproba{E}_+$ obtenu à partir de $\setproba{E}$ en remplaçant le côté $[AB]$ par les côtés $[AC]$ et $[CB]$ est un convexe avec un sommet de plus que $\setproba{E}$.
 
 		\item \label{add-vertex-end}
-		Comme $HC$ peut être rendu aussi proche de $0$ que souhaité, il est aisé de voir que l'nous pouvons choisir cette distance de sorte que $AC + BC < AB + \delta$.
+		Comme $HC$ peut être rendu aussi proche de $0$ que souhaité, il est aisé de voir que nous pouvons choisir cette distance de sorte que $AC + BC < AB + \delta$.
 		Dès lors, le périmètre de $\setproba{E}_+$ augmente inférieurement strictement à $\delta$ relativement à $\setproba{E}$.
 
-		\item En répétant $(m-1)$ fois les étapes \ref{add-vertex-start} à \ref{add-vertex-end}, nous obtenons un \ngone\ convexe $\setproba{C}$ tel que
-		$\area{\setproba{C}} > \area{\setproba{P}}$
+		\item En répétant $(m-1)$ fois les étapes \ref{add-vertex-start} à \ref{add-vertex-end}, avec $\setproba{E}_+$ à la place de $\setproba{E}$,
+		nous obtenons un \ngone\ convexe $\primeit{\setproba{C}}$ tel que
+		$\area{\primeit{\setproba{C}}} > \area{\setproba{P}}$
 		et
-		$\perim{\setproba{C}} < \perim{\setproba{E}} + m \delta = \perim{\setproba{P}}$.
+		$\perim{\primeit{\setproba{C}}} < \perim{\setproba{E}} + m \delta = \perim{\setproba{P}}$.
 	\end{enumerate}
 	
 	\null\vspace{-6ex}
@@ -113,7 +105,10 @@ Nous pourrons alors conclure dans la section finale suivante.
 	Dans ce cas, $\setproba{P}$ admet un triplet de sommets consécutifs $A$, $B$ et $C$ tels que $AB \neq BC$
 	(sinon, on obtiendrait de proche en proche l'équilatéralité).
 	La construction vue dans la preuve du fait \ref{tri-one-side-fixed} nous donne la solution: voir les deux dessins ci-après dans lesquels $(AC) \parallel (BB^{\,\prime})$.
-	Pour le 2\ieme\ cas, il n'est pas possible d'utiliser le triangle $AB^{\,\prime}C$ isocèle en $B^{\,\prime}$ car $(B^{\,\prime}C)$ porte le côté de $\setproba{P}$ de sommet $C$ juste après $[BC]$, mais ce problème se contourne en considérant un point $B^{\,\prime\prime}$ du segment ouvert $]BB^{\,\prime}[$ (si besoin, se reporter au 2\ieme\ dessin de la preuve du fait \ref{tri-one-side-fixed}).
+	Pour le 2\ieme\ cas, il n'est pas possible d'utiliser le triangle $AB^{\,\prime}C$ isocèle en $B^{\,\prime}$ car $(B^{\,\prime}C)$ porte le côté de $\setproba{P}$ de sommet $C$ juste après $[BC]$, mais ce problème se contourne en considérant un point $B^{\,\prime\prime}$ du segment ouvert $]BB^{\,\prime}[$.%
+	\footnote{
+	    Si besoin, se reporter au 2\ieme\ dessin de la preuve du fait \ref{tri-one-side-fixed}.
+	}
 	%
 	\begin{multicols}{2}
 		\centering
@@ -162,7 +157,7 @@ Nous pourrons alors conclure dans la section finale suivante.
 		\includegraphics[scale=.4]{content/polygon/sol-must-be/2-eq-angles-start.png}
 	\end{center}
 	
-	En déplaçant $B$ et $C$ dans la zone grise hachurée strictement entre les droites vertes en pointillés, nous garderons un \ngone\ convexe.
+	En déplaçant $B$ et $C$ dans la zone grise hachurée, et strictement entre les droites vertes en pointillés, nous garderons un \ngone\ convexe.
 	%
 	Concentrons-nous donc sur le quadrilatère $ABCD$, et posons $c = AB$ la longueur commune des côtés de $\setproba{P}$, ainsi que $d = AD$ que nous ne pouvons pas modifier.
 	%
@@ -175,7 +170,7 @@ Nous pourrons alors conclure dans la section finale suivante.
 	Cherchons donc à exprimer $\area{ABCD}$ en fonction de $\alpha = \anglein{DAB}$, cet angle permettant de repérer le point mobile $B$.
 	%
 	\begin{itemize}
-	    \item Nous avons $\alpha \in \intervalO{0}{\pi}$ et $\gamma \in \intervalO{0}{\pi}$.
+	    \item Par convexité, nous avons $\alpha \in \intervalO{0}{\pi}$ et $\gamma \in \intervalO{0}{\pi}$.
 
 
 	    \item Le théorème d'Al-Kashi donne
@@ -255,10 +250,10 @@ Nous pourrons alors conclure dans la section finale suivante.
 	    \footnote{
 	        Si besoin, se reporter à la preuve du fait \ref{iso-para}.
 	    }
-	    On obtient au final un \ngone\ convexe $\primeit{\setproba{P}}$ tel que
-		$\perim{\primeit{\setproba{P}}} < \perim{\setproba{P}}$
+	    On obtient au final un \ngone\ convexe $\dbleprimeit{\setproba{P}}$ tel que
+		$\perim{\dbleprimeit{\setproba{P}}} < \perim{\setproba{P}}$
 		et
-		$\area{\primeit{\setproba{P}}} = \area{\setproba{P}}$,
+		$\area{\dbleprimeit{\setproba{P}}} = \area{\setproba{P}}$,
 		qu'il suffit d'agrandir pour conclure.
 
 
@@ -274,7 +269,7 @@ Nous pourrons alors conclure dans la section finale suivante.
 	    L'isocélité vient des points suivants.
 	    %
 	    \begin{enumerate}
-	        \item Notre construction de $C$ à base de cercles est déterministe car $B$ et $C$ sont situés dans le même demi-plan délimité par $(AD)$.
+	        \item Notre construction de $C$ à base de cercles est déterministe, car $B$ et $C$ sont situés dans le même demi-plan délimité par $(AD)$.
 
 	        \item Si $\primeit{A} \primeit{B} \primeit{C} \primeit{D}$ est un trapèze isocèle de bases $[\primeit{A} \primeit{D}]$ et $[\primeit{B} \primeit{C}]$, via la somme des angles aux sommets d'un quadrilatère convexe, qui vaut $(4 - 2) \pi = 2 \pi$, nous avons
 	        $\anglein{\primeit{B} \primeit{C} \primeit{D}} = \pi - \anglein{\primeit{D} \primeit{A} \primeit{B}}$.
@@ -300,7 +295,7 @@ Nous pourrons alors conclure dans la section finale suivante.
 
 
 \begin{remark}
-    Ce qui précède donne envie de faire appel à la méthode des extrema liés pour plus d'élégance dans les calculs.
+    Ce qui précède donne envie de faire appel à la méthode des extrema liés pour plus d'élégance dans les calculs, modulo l'utilisation d'un très gros théorème.
     Étudions donc les extrema de
 	$f(\alpha , \gamma) = k \sin \alpha + \sin \gamma$
 	sur $\intervalO{0}{\pi}^2$ sous la contrainte
@@ -331,7 +326,7 @@ Nous pourrons alors conclure dans la section finale suivante.
 	    puis
 	    $\sin (\alpha + \gamma) = 0$,
 	    et
-	    $\gamma = \pi - \alpha$.
+	    $\alpha + \gamma = \pi$.
 	\end{enumerate}
 \end{remark}
 
@@ -371,49 +366,50 @@ Nous pourrons alors conclure dans la section finale suivante.
 \end{proof}
 
 
-% ----------------------- %
-
-
-Pour en finir avec le problème d'isopérimétrie polygonal, nous aurons besoin du fait suivant.
-
-
-\begin{fact} \label{nregs-sorting}
-	Si $\setproba*{R}{1}$ et $\setproba*{R}{2}$ sont respectivement un \xgone{k_1} et un \xgone{k_2}, tous les deux réguliers convexes, avec 
-	$k_1 < k_2$ et $\perim{\setproba*{R}{1}} = \perim{\setproba*{R}{2}}$,
-	alors
-	$\area{\setproba*{R}{1}} < \area{\setproba*{R}{2}}$.
-\end{fact}
-
-
-\begin{proof}
-    Il est connu, et facile à démontrer, qu'un \nreg\ convexe $\setproba{R}$ vérifie
-    $\perim{\setproba{R}} = 2 n \sin (\frac{\pi}{n}) \rho$
-    et
-	$\area{\setproba{R}} = n \sin (\frac{\pi}{n})  \cos (\frac{\pi}{n}) \rho^2$
-	où $\rho$ désigne le rayon du cercle circonscrit à $\setproba{R}$.
-	Ceci donne 
-	$\area{\setproba{R}} = \frac{\perim{\setproba{R}}^2}{4 n \tan (\frac{\pi}{n})}$,
-	puis amène à justifier que 
-	$k_1 \tan (\frac{\pi}{k_1}) > k_2 \tan (\frac{\pi}{k_2})$,
-	c'est-à-dire que la suite $\big( k \tan (\frac{\pi}{k}) \big)_{k \in \NN_{\geq 3}}$ est strictement décroissante.
-	Ce fait découle directement de la stricte décroissance de la fonction $f$ définie sur $\RR_{>2}$ par $f(x) = x \tan (\frac{\pi}{x})$, ceci venant des équivalences logiques suivantes où $x > 1$, la dernière assertion étant vraie d'après la validité de $\sin X \leq X$ sur $\RRp$.
-
-	\begin{stepcalc}[style=ar*, ope={\iff[ssi]}]
-		\sder{f}{1}(x) < 0
-	\explnext{}
-		\tan (\frac{\pi}{x}) - \frac{\pi}{x \cos^2 (\frac{\pi}{x})} < 0
-	\explnext{}
-		\tan (\frac{\pi}{x}) < \frac{\pi}{x \cos^2 (\frac{\pi}{x})}
-	\explnext{$\frac{\pi}{x} \in \intervalO{0}{\frac{\pi}{2}}$}
-		\cos^2 (\frac{\pi}{x}) \tan (\frac{\pi}{x}) < \frac{\pi}{x}
-	\explnext{}
-		\cos (\frac{\pi}{x}) \sin (\frac{\pi}{x}) < \frac{\pi}{x}
-	\explnext{}
-		2 \sin (\frac{\pi}{2 x}) < \frac{\pi}{x}
-	\explnext{}
-		\sin (\frac{\pi}{2 x}) < \frac{\pi}{2 x}
-	\end{stepcalc}
-	
-	\null\vspace{-3.5ex}
-\end{proof}
-
+%% ----------------------- %
+%
+%
+%Pour en finir avec le problème d'isopérimétrie polygonal, nous aurons besoin du fait suivant.
+%
+%
+%\begin{fact} \label{nregs-sorting}
+%	Si $\setproba*{R}{1}$ et $\setproba*{R}{2}$ sont respectivement un \xgone{k_1} et un \xgone{k_2}, tous les deux réguliers convexes, avec 
+%	$k_1 < k_2$ et $\perim{\setproba*{R}{1}} = \perim{\setproba*{R}{2}}$,
+%	alors
+%	$\area{\setproba*{R}{1}} < \area{\setproba*{R}{2}}$.
+%\end{fact}
+%
+%
+%\begin{proof}
+%    Rappelons que pour un \nreg\ convexe $\setproba{R}$,
+%    $\perim{\setproba{R}} = 2 n \sin (\frac{\pi}{n}) \rho$
+%    et
+%	$\area{\setproba{R}} = n \sin (\frac{\pi}{n})  \cos (\frac{\pi}{n}) \rho^2$
+%	où $\rho$ désigne le rayon du cercle circonscrit à $\setproba{R}$.
+%	Ceci donne 
+%	$\area{\setproba{R}} = \frac{\perim{\setproba{R}}^2}{4 n \tan (\frac{\pi}{n})}$,
+%	puis amène à justifier que 
+%	$k_1 \tan (\frac{\pi}{k_1}) > k_2 \tan (\frac{\pi}{k_2})$,
+%	c'est-à-dire que la suite $\big( k \tan (\frac{\pi}{k}) \big)_{k \in \NN_{\geq 3}}$ est strictement décroissante.
+%	Ce fait découle directement de la stricte décroissance de la fonction $f$ définie sur $\RR_{>2}$ par $f(x) = x \tan (\frac{\pi}{x})$,
+%	celle-ci venant des équivalences logiques suivantes où $x > 2$, la dernière assertion étant vraie d'après la validité de $\sin X \leq X$ sur $\RRp$.
+%
+%	\begin{stepcalc}[style=ar*, ope={\iff[ssi]}]
+%		\sder{f}{1}(x) < 0
+%	\explnext{}
+%		\tan (\frac{\pi}{x}) - \frac{\pi}{x \cos^2 (\frac{\pi}{x})} < 0
+%	\explnext{}
+%		\tan (\frac{\pi}{x}) < \frac{\pi}{x \cos^2 (\frac{\pi}{x})}
+%	\explnext{$\frac{\pi}{x} \in \intervalO{0}{\frac{\pi}{2}}$}
+%		\cos^2 (\frac{\pi}{x}) \tan (\frac{\pi}{x}) < \frac{\pi}{x}
+%	\explnext{}
+%		\cos (\frac{\pi}{x}) \sin (\frac{\pi}{x}) < \frac{\pi}{x}
+%	\explnext{}
+%		\frac{1}{2} \sin (\frac{2 \pi}{x}) < \frac{\pi}{x}
+%	\explnext{}
+%		\sin (\frac{2 \pi}{x}) < \frac{2 \pi}{x}
+%	\end{stepcalc}
+%	
+%	\null\vspace{-3.5ex}
+%\end{proof}
+%

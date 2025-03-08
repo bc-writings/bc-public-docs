@@ -1,6 +1,6 @@
-Le cas des quadrilatères a montré que la convexité était un ingrédient central. Ceci sera aussi le cas pour les \ngones, bien que moins immédiat à justifier, comme nous le verrons dans le fait \ref{max-is-conv}, dont la preuve est indépendante des résultats de cette section.
+Tout comme pour les quadrilatères, la convexité va jouer un rôle central pour l’isopérimétrie polygonale dans le cas général
 %
-Ceci explique que nous allons chercher à justifier l'existence d'au moins un \ngone\ convexe d'aire maximale parmi les \ngones\ convexes de longueur fixée. Nous allons presque y arriver...
+Ceci explique que nous allons chercher à justifier l'existence d'au moins un \ngone\ convexe d'aire maximale parmi les \ngones\ convexes de longueur fixée.
 
 
 % ----------------------- %
@@ -173,6 +173,9 @@ Nous allons établir une réciproque élargie du résultat précédent. Ce nouve
 		et
 		$\sarea{\setproba{C}} = \sarea{\setproba{L}}$.
 		$\setproba{C}$ se construit en retirant, si nécessaire, des sommets de $\setproba{L}$, sans modifier l'ordre de parcours pour les sommets gardés.
+		De plus,
+		si $\primeit{A}_i$ et $\primeit{A}_k$ sont deux sommets consécutifs de $\setproba{C}$,
+		alors les sommets $\primeit{A}_j$, pour $j \in \ZintervalC{i}{k}$, sont les seuls situés sur $[\primeit{A}_i \primeit{A}_k]$.
     \end{enumerate}
 \end{fact}
 
@@ -310,7 +313,7 @@ Nous allons établir une réciproque élargie du résultat précédent. Ce nouve
     \medskip
     
     
-    Il reste à justifier que la liste $\onelist{C}$ qui, lue de gauche à droite, donnera les sommets du \kgone\ convexe $\setproba{C}$ cherché.
+    Il faut aussi justifier que la liste $\onelist{C}$, lue de gauche à droite, donnera les sommets du \kgone\ convexe $\setproba{C}$ cherché.
     %
     \begin{itemize}
         \item Par construction, deux sommets \focus{consécutifs} $\primeit{A}_r$ et $\primeit{A}_s$ de $\setproba{C}$, sont tels que tout point du cycle initial $\setproba{L}$ situé entre $\primeit{A}_r$ et $\primeit{A}_s$ se trouve sur le segment $[\primeit{A}_r \primeit{A}_s]$.
@@ -326,7 +329,8 @@ Nous allons établir une réciproque élargie du résultat précédent. Ce nouve
         Dès lors, $\setproba{C}$ est un \kgone, et il est aussi convexe. 
     \end{itemize}
 
-	\null\vspace{-6ex}
+	
+	Enfin, la preuve de l'algorithme a montré que pour $\primeit{A}_i$ et $\primeit{A}_k$ deux sommets consécutifs de $\setproba{C}$, les sommets $\primeit{A}_j$, pour $j \in \ZintervalC{i}{k}$, sont les seuls situés sur $[\primeit{A}_i \primeit{A}_k]$.
 \end{proof}
 
 
@@ -336,7 +340,7 @@ Nous allons établir une réciproque élargie du résultat précédent. Ce nouve
 %\newpage
 %
 
-Le résultat qui suit est juste là pour simplifier la justification du fait \ref{at-least-one-kgone} à venir qui est la raison d'être de cette section.
+Le résultat qui suit est juste là pour simplifier la justification du fait \ref{at-least-one-ngone-convex} à venir qui est la raison d'être de cette section.
 
 
 \begin{fact} \label{at-least-one-ncycle}
@@ -364,10 +368,14 @@ Le résultat qui suit est juste là pour simplifier la justification du fait \re
      Donc, par continuité et compacité, $\alpha$ admet un maximum sur $\setproba{U}$, celui-ci étant positif strict pour les raisons suivantes où $\setproba{R}$ désigne un \nreg\ convexe.
     %
     \begin{itemize}
+        \item Il est connu, et facile de démontrer, que pour tout \nreg\ convexe $\setproba{R}$, nous avons 
+        $\perim{\setproba{R}} = 2 n \sin (\frac{\pi}{n}) \rho$
+		et
+		$\area{\setproba{R}} = n \sin (\frac{\pi}{n})  \cos (\frac{\pi}{n}) \rho^2$
+		où $\rho$ désigne le rayon du cercle circonscrit à $\setproba{R}$.
+		Ceci donne un \nreg\ convexe $\setproba{R}$ de longueur $\ell$, et d'aire non nulle.
+
 		\item Via une translation, nous pouvons supposer $\setproba{R}$ d'origine $\pt{O}$.
-
-
-        \item $\setproba{R}$, de périmètre non nul, est d'aire non nulle.
 
         \item $\area{\setproba{R}} = \abs{\sarea{\setproba{R}}}$
 		selon le fait \ref{sarea-ngone},
@@ -391,69 +399,109 @@ Le résultat qui suit est juste là pour simplifier la justification du fait \re
 % ----------------------- %
 
 
-Nous arrivons, au résultat fondamental pour les \ngones\ convexes avec une perte éventuelle de sommets: ceci est un faux problème, car nous aboutirons, plus tard, à la comparaison de \kregs\ convexes pour $k$ variable, une tâche aisée, puisque le périmètre et l'aire d'un \kreg\ convexe s'expriment en fonction de $k$, nous saurons alors que le \kgone\ convexe $\setproba{K}$ ci-après est en fait un \nreg\ convexe.
+Nous arrivons au résultat fondamental sur les \ngones\ convexes.
 
 
-\begin{fact} \label{at-least-one-kgone}
-    Soient $n \in \NN_{\geq3}$ et $\ell \in \RRsp$.
-    Il existe un \kgone\ convexe $\setproba{K}$ validant les assertions suivantes.
-    %
-	\begin{itemize}
-		\item $k \leq n$ et $\cyclelen{\setproba{K}} = \ell$.
-
-		\item Si $\setproba{P}$ est un \ngone\ convexe tel que $\cyclelen{\setproba{P}} = \ell$, alors $\area{\setproba{P}} \leq \area{\setproba{K}}$.
-    \end{itemize}
+\begin{fact} \label{at-least-one-ngone-convex}
+    Soit $n \in \NN_{\geq3}$ un naturel fixé.
+    Parmi les \ngones\ convexes de longueur fixée, non nulle, il en existe au moins un d'aire maximale.
 \end{fact}
 
 
 \begin{proof}
-    Reprenons les notations du fait \ref{at-least-one-ncycle}, puis 
-    choisissons $\setproba{L} \in \setproba{U}$ maximisant l'aire algébrique sur $\setproba{U}$.
-    Ce \ncycle\ ne peut être totalement dégénéré, car $\sarea{\setproba{L}} > 0$.
+    Notons $\ell > 0$ la longueur fixée,
+    reprenons les notations du fait \ref{at-least-one-ncycle},
+    et choisissons $\setproba{M} \in \setproba{U}$ maximisant l'aire algébrique sur $\setproba{U}$.
+    Ce \ncycle\ ne peut être totalement dégénéré, car $\sarea{\setproba{M}} > 0$.
     Dès lors, pour tout \ngone\ convexe $\setproba{P}$ vérifiant $\cyclelen{\setproba{P}} = \ell$, nous pouvons raisonner comme suit. 
 	%
 	\begin{itemize}
-		\item Via une translation, nous nous ramenons à $\setproba{P}$ d'origine $\pt{O}$.
-
-
-		\item Comme dans la preuve du fait \ref{at-least-one-ncycle}, nous avons
+		\item Comme pour le \nreg\ convexe $\setproba{R}$ de la preuve du fait \ref{at-least-one-ncycle},
+		via une translation, nous pouvons supposer $\setproba{P}$ d'origine $\pt{O}$, puis nous avons
 		soit $\setproba{P} \in \setproba{U}$ et $\sarea{\setproba{P}} = \area{\setproba{P}}$,
 		soit $\cycleop{P} \in \setproba{U}$ et $\sarea{\cycleop{P}} = \area{\cycleop{P}}$.
 		Comme, de plus, $\area{\cycleop{P}} = \area{\setproba{P}}$,
-		quitte à échanger $\setproba{P}$ et $\cycleop{P}$,
-		nous pouvons supposer avoir $\setproba{P} \in \setproba{U}$.
+		nous pouvons supposer avoir $\setproba{P} \in \setproba{U}$,
+		quitte à échanger $\setproba{P}$ et $\cycleop{P}$.
 
 
 		\item Le fait \ref{conv-from-non-neg-det} donne un \kgone\ convexe $\setproba{C}$, où $k \leq n$, tel que
-		$\cyclelen{\setproba{C}} \leq \cyclelen{\setproba{L}}$,
+		$\cyclelen{\setproba{C}} \leq \cyclelen{\setproba{M}}$,
 		ainsi que
-		$\sarea{\setproba{C}} = \sarea{\setproba{L}}$.
-
-
-		\item Le choix de $\setproba{L}$ fait que 
-		$\cyclelen{\setproba{C}} \leq \ell$
+		$\sarea{\setproba{C}} = \sarea{\setproba{M}}$.
+		%
+		Nous savons que pour deux sommets consécutifs $\primeit{A}_i$ et $\primeit{A}_k$ de $\setproba{C}$, seuls les sommets $\primeit{A}_j$, pour $j \in \ZintervalC{i}{k}$, sont situés sur $[\primeit{A}_i \primeit{A}_k]$.
+		%
+		Ceci nous amène aux deux alternatives suivantes donnant un \ngone\ convexe $\primeit{\setproba{C}}$ tel que 
+		$\cyclelen{\primeit{\setproba{C}}} \leq \cyclelen{\setproba{M}}$
 		et
-		$\sarea{\setproba{P}} \leq \sarea{\setproba{C}}$,
-		mais aussi que
-		$\sarea{\setproba{C}} > 0$.
+		$\sarea{\primeit{\setproba{C}}} \geq \sarea{\setproba{M}} > 0$.
+		%
+		\begin{enumerate}
+		    \item Si $M$ est déjà un \ngone\ convexe, alors $\setproba{C} = \setproba{M}$ et donc $\primeit{\setproba{C}} \eq[def] \setproba{C}$ convient.
+		    
+
+		    \item Sinon, forcément $\primeit{\setproba{C}}$ possède strictement moins de sommets que $\setproba{M}$, et par conséquent $\cyclelen{\setproba{C}} < \cyclelen{\setproba{M}}$.
+		    Dans ce cas, 
+		    le \ngone\ convexe $\primeit{\setproba{C}}$ vient du fait \ref{bigger-convex} ci-dessous appliqué 
+		    au convexe $\setproba{C}$ 
+		    avec 
+		    $s = n - k$
+		    et
+		    $\delta = \cyclelen{\setproba{M}} - \cyclelen{\setproba{C}}$.
+		\end{enumerate}
 
 
-		\item Comme
-		$\area{\setproba{C}} = \abs{\sarea{\setproba{C}}} = \sarea{\setproba{C}}$
-		via le fait \ref{sarea-ngone},
-		alors
-		$\sarea{\setproba{P}} \leq \sarea{\setproba{C}}$
+		\item Le choix de $\setproba{M}$ fait que 
+		$\cyclelen{\primeit{\setproba{C}}} \leq \ell$
+		et
+		$\sarea{\primeit{\setproba{C}}} \geq \sarea{\setproba{P}}$.
+
+
+		\item Selon le fait \ref{sarea-ngone},
+		$\area{\primeit{\setproba{C}}} = \abs{\sarea{\primeit{\setproba{C}}}} = \sarea{\primeit{\setproba{C}}}$,
+		donc l'inégalité
+		$\sarea{\setproba{P}} \leq \sarea{\primeit{\setproba{C}}}$
 		devient
-		$\area{\setproba{P}} \leq \area{\setproba{C}}$.
-
-
-		\item Or $\cyclelen{\setproba{C}} > 0$, donc une homothétie de rapport $\frac{\ell}{\cyclelen{\setproba{C}}} \geq 1$ fournit finalement un \kgone\ convexe $\setproba{K}$ tel que
-		$k \leq n$,
-		$\cyclelen{\setproba{K}} = \ell$
+		$\area{\setproba{P}} \leq \area{\primeit{\setproba{C}}}$.
+		
+		
+		\item Pour conclure, notons que $\cyclelen{\primeit{\setproba{C}}} > 0$, donc une homothétie de rapport $\frac{\ell}{\cyclelen{\primeit{\setproba{C}}}} \geq 1$ fournit un \ngone\ convexe $\dbleprimeit{\setproba{C}}$ tel que
+		$\cyclelen{\dbleprimeit{\setproba{C}}} = \ell$
 		et
-		$\area{\setproba{P}} \leq \area{\setproba{K}}$.
-		Affaire conclue!
+		$\area{\setproba{P}} \leq \area{\dbleprimeit{\setproba{C}}}$.
 	\end{itemize}
 
-	\null\vspace{-3.5ex}
+	\null\vspace{-6ex}
+\end{proof}
+
+
+% ----------------------- %
+
+
+Le fait suivant, utilisé dans la preuve précédente, nous sera aussi utile pour obtenir qu'un \ngone\ \focus{maximal} doit être convexe.
+
+
+\begin{fact} \label{bigger-convex}
+    XXXX
+\end{fact}
+
+
+\begin{proof}
+    XXXX
+    		    ceci conduisant à une situation comme la suivante où nous notons la possibilité d'ajouter autant de sommets manquant que nécessaire, la zone hachurée indiquant les points $M$ tels que 
+		    $\det \big( \vect{\primeit{A}_i \primeit{A}_{i+1}}, \vect{\primeit{A}_i M} \big) < 0$, une zone ne contenant aucun sommet de $\setproba{M}$.
+            %
+            \begin{multicols}{2}
+                \small\itshape\centering
+           	    \includegraphics[scale=.4]{content/polygon/at-least-one/max-ngone-1.png}
+        	    
+        	    \smallskip
+                Un cas possible où $\primeit{A}_s = \primeit{A}_t$.
+            
+                \includegraphics[scale=.4]{content/polygon/at-least-one/max-ngone-2.png}
+        	    
+        	    \smallskip
+                Déformation \focus{convexe possible}.
+        \end{multicols}
 \end{proof}

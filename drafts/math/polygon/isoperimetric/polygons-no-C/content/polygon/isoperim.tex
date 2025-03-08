@@ -1,12 +1,30 @@
 \begin{fact}
     Soit $n \in \NN_{\geq3}$ un naturel fixé.
-    Considérons tous les \ngones\  de périmètre fixé. Parmi tous ces \ngones, un seul est d'aire maximale, c'est le \ngone\ régulier.
+    Parmi les \ngones\ de périmètre fixé, non nul,
+    le \nreg\ convexe est le seul à maximiser l'aire.
 \end{fact}
 
 
 \begin{proof}
-	Les cas $n = 3$ et $n = 4$ sont donnés par les faits \ref{iso-tri} et \ref{quadri}.
-	Pour $n \geq 5 $, il suffit d'invoquer les faits \ref{XXXXXXXX} et \ref{YYYYYYY}.
+    Tout a été fait, il ne reste plus qu'à assembler les arguments.
+    %
+    \begin{enumerate}
+        \item Le cas $n = 3$ correspond au fait \ref{iso-tri}.
+        
+        \item Le cas $n = 4$ a été établi dans le fait \ref{quadri}.
+        
+        \item Pour $n \geq 5$, il suffit de se rappeler des faits suivants où $\ell \in \RRsp$.
+        %
+        \begin{itemize}
+            \item D'après le fait \ref{at-least-one-ngone-convex}, il existe, au moins, un \ngone\ convexe maximisant l'aire parmi les \ngones\ convexes de périmètre, ou de longueur, fixé.
+
+            \item Selon le fait \ref{must-be-reg}, un \ngone\ \focus{maximal} doit être, a minima, régulier et convexe.
+
+            \item Il reste à voir que l'on ne peut pas faire mieux qu'un \nreg\ convexe $\setproba{R}$. Ceci se fait facilement par l'absurde, car l'existence d'un \focus{meilleur} \ngone\ $\setproba{P}$ donnerait $\area{\setproba{R}} < \area{\setproba{P}} < \area{\setproba{R}}$, puisque tous les \nregs\ convexes sont isométriques. 
+        \end{itemize} 
+	
+	\null\vspace{-6ex}
+    \end{enumerate}
 \end{proof}
 
 \bigskip
