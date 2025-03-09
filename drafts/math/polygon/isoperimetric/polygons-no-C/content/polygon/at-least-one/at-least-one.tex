@@ -390,13 +390,6 @@ Le résultat qui suit est juste là pour simplifier la démonstration du fait \r
      Donc, par continuité et compacité, $\alpha$ admet un maximum sur $\setproba{U}$, celui-ci étant positif strict pour les raisons suivantes où $\setproba{R}$ désigne un \nreg\ convexe.
     %
     \begin{itemize}
-        \item Il est connu, et facile de démontrer, que pour tout \nreg\ convexe $\setproba{R}$, nous avons 
-        $\perim{\setproba{R}} = 2 n \sin (\frac{\pi}{n}) \rho$
-		et
-		$\area{\setproba{R}} = n \sin (\frac{\pi}{n})  \cos (\frac{\pi}{n}) \rho^2$
-		où $\rho$ désigne le rayon du cercle circonscrit à $\setproba{R}$.
-		Ceci donne un \nreg\ convexe $\setproba{R}$ de longueur $\ell$, et d'aire non nulle.
-
 		\item Via une translation, nous pouvons supposer $\setproba{R}$ d'origine $\pt{O}$.
 
         \item $\area{\setproba{R}} = \abs{\sarea{\setproba{R}}}$
@@ -410,63 +403,101 @@ Le résultat qui suit est juste là pour simplifier la démonstration du fait \r
 		$\setproba{R}$ est orienté positivement, 
 		d'où $\sarea{\setproba{R}} \geq 0$, 
 		et par conséquent $\sarea{\setproba{R}} = \area{\setproba{R}}$ 
-		(c'est immédiat en utilisant le centre de gravité de $\setproba{R}$ comme point de calcul). 
+		(ceci se démontre aisément en utilisant le centre de gravité de $\setproba{R}$ comme point de calcul). 
 		Nous avons une propriété similaire si $\setproba{R}^{\mathrm{op}} \in \setproba{U}$.
+
+        \item Enfin, il est connu, et très facile de démontrer, que tout \nreg\ convexe $\setproba{R}$ vérifie
+        $\cyclelen{\setproba{R}} = 2 n \sin (\frac{\pi}{n}) \rho$
+		et
+		$\area{\setproba{R}} = n \sin (\frac{\pi}{n})  \cos (\frac{\pi}{n}) \rho^2$
+		où $\rho$ est le rayon du cercle circonscrit à $\setproba{R}$.
+		Il existe donc un \nreg\ convexe $\setproba{R}$ de longueur $\ell$, et forcément d'aire non nulle.
     \end{itemize}
 
     
-    Pour finir, justifions que $\setproba{M} \in \setproba{U}$ maximisant $\alpha$ est forcément un \ngone\ convexe.
+    Pour finir, justifions que si $\setproba{M} \in \setproba{U}$ maximise $\alpha$, alors $\setproba{M}$ est forcément un \ngone\ convexe. 
+    Comme $\sarea{\setproba{M}} > 0$, $\setproba{M}$ n'est pas totalement dégénéré,
+    donc nous pouvons considérer le \kgone\ convexe $\setproba{C}$ donné par le fait \ref{conv-from-non-neg-det}.
+    Via des arguments similaires à ceux utilisés pour $\setproba{R}$, 
+    nous avons $\area{\setproba{C}} = \sarea{\setproba{C}} = \sarea{\setproba{M}}$.
+    De plus,
+    $0 < \cyclelen{\setproba{C}} \leq \cyclelen{\setproba{M}}$.
     %
     \begin{itemize}
-		\item Les côtés de $\setproba{M}$ contiennent tous exactement deux sommets.
-		
-		XXXXX
-
-
-
-
-
-
-
-
-		\item La positivité des déterminants $\det \big( \vect{\primeit{A}_i \primeit{A}_{i+1}}, \vect{\primeit{A}_i \primeit{A}_k} \big)$ et le point précédent impliquent que deux côtés non contigus de $\setproba{M}$ ne peuvent pas être sécants.
-    \end{itemize}
-    
-    
-    
-
-
-
-
-    
-    XXXX
-    
-    fait \ref{tri-one-side-fixed} 
-    
-    Le fait \ref{conv-from-non-neg-det} donne un \kgone\ convexe $\setproba{C}$, où $k \leq n$, tel que
-		$\cyclelen{\setproba{C}} \leq \cyclelen{\setproba{M}}$,
-		ainsi que
-		$\sarea{\setproba{C}} = \sarea{\setproba{M}}$.
-		%
-%		Nous savons que pour deux sommets consécutifs $\primeit{A}_i$ et $\primeit{A}_k$ de $\setproba{C}$, seuls les sommets $\primeit{A}_j$, pour $j \in \ZintervalC{i}{k}$, sont situés sur $[\primeit{A}_i \primeit{A}_k]$.
-		%
-		Ceci nous amène aux deux alternatives suivantes donnant un \ngone\ convexe $\primeit{\setproba{C}}$ tel que 
-		$\cyclelen{\primeit{\setproba{C}}} \leq \cyclelen{\setproba{M}}$
+		\item Supposons d'abord $k = n$.
+		Si $\cyclelen{\setproba{C}} = \cyclelen{\setproba{M}}$, nous n'avons rien à faire.
+		En fait, il se trouve que $\cyclelen{\setproba{C}} < \cyclelen{\setproba{M}}$ est impossible, 
+		car une homothétie de rapport $r > 1$, où $r = \frac{ \cyclelen{\setproba{M}} }{ \cyclelen{\setproba{C}} }$, donnerait un \ngone\ convexe $\primeit{\setproba{C}}$ vérifiant
+		$\cyclelen{\primeit{\setproba{C}}} = \cyclelen{\setproba{M}}$
 		et
-		$\sarea{\primeit{\setproba{C}}} \geq \sarea{\setproba{M}}$.
+		$\sarea{\primeit{\setproba{C}}} > \sarea{\setproba{M}}$, ceci contredisant la maximalité de $\setproba{M}$.
+
+
+		\item Pour la suite, nous supposons $k < n$, et considérons $A$, $B$ et $C$, trois sommets consécutifs, forcément distincts, du \kgone\ $\setproba{C}$. 
+
+
+		\item Par convexité de $\setproba{C}$, nous avons l'une des deux configurations génériques suivantes où les demi-droites vertes en pointillés, portées par les côtés contigus à $[AB]$, \focus{dessinent} avec $[AB]$ une région grisée qui est ouverte et à l'extérieur de $\setproba{C}$. 
+		Sans perte de généralité, nous allons travailler avec la 1\iere\ configuration.
+		%
+		\begin{multicols}{2}
+			\centering
+
+			\includegraphics[scale=.35]{content/polygon/at-least-one/add-vertex-1.png}
+
+			\includegraphics[scale=.35]{content/polygon/at-least-one/add-vertex-2.png}
+		\end{multicols}
+
+
+		\item Considérons alors $M \in {]BC[}$ quelconque pour le moment.
+		Définissons ensuite le point $\primeit{B}$ par les contraintes $(B \primeit{B}) \parallel (AM)$
+		et
+		$\primeit{B} \in d$, où $d$ est la droite portant le côté contenant $A$ et contigu à $[AB]$.
+		Par convexité, $]B \primeit{B}[$ est inclus dans la zone grisée.
+		La figure suivante représente notre situation.
+		%
+		\begin{center}
+			\includegraphics[scale=.4]{content/polygon/at-least-one/add-vertex-1-1.png}
+		\end{center}
+		
+
+
+		\item Avec la preuve du fait \ref{tri-one-side-fixed} en tête, nous allons imposer d'avoir $BM < AB$, ce qui est toujours possible.
+		Dès lors, nommant $m$ la médiatrice du segment $[AM]$,
+		en prenant $\dbleprimeit{B} \in {]B \primeit{B}[}$ plus proche de $m$ que $B$,%
+		\footnote{
+		    Le choix d'avoir $BM < AB$ donne l'existence de $\dbleprimeit{B}$.
+		    Par contre, rien n'interdit à $m$ et $]B \primeit{B}[$ de ne jamais se croiser.
+		}
+		les conditions suivantes sont validées (voir la figure \focus{zoomée} juste après).
 		%
 		\begin{enumerate}
-		    \item Si $M$ est déjà un \ngone\ convexe, alors $\setproba{C} = \setproba{M}$ et donc $\primeit{\setproba{C}} \eq[def] \setproba{C}$ convient.
-		    
+			\item $AB + MB < A \dbleprimeit{B} + M \dbleprimeit{B}$ par diminution du périmètre.
 
-		    \item Sinon, forcément $\setproba{C}$ possède strictement moins de sommets que $\setproba{M}$, de sorte que $\cyclelen{\setproba{C}} < \cyclelen{\setproba{M}}$.
-		    Dans ce cas, 
-		    le \ngone\ convexe $\primeit{\setproba{C}}$ est donné par le fait \ref{bigger-convex} ci-dessous appliqué 
-		    au convexe $\setproba{C}$ avec $s = n - k$ et $L = \cyclelen{\setproba{M}}$,
-		    en se souvenant que 
-		    $\area{\setproba{C}} = \abs{\sarea{\setproba{C}}} = \sarea{\setproba{C}}$
-		    selon le fait \ref{sarea-ngone}.
+			\item $\area{AMB} = \area{AM \dbleprimeit{B}}$ par conservation de l'aire.
+
+			\item En \focus{remplaçant} dans $\setproba{C}$ le sommet $B$ par $\dbleprimeit{B}$ et $M$,
+		nous avons un \xgone{(k+1)} convexe $\primeit{\setproba{C}}$.
 		\end{enumerate}
+		%
+		\begin{center}
+			\includegraphics[scale=.4]{content/polygon/at-least-one/add-vertex-1-2.png}
+		\end{center}
+
+
+		\item $\primeit{\setproba{C}}$ vérifie
+		$\cyclelen{\primeit{\setproba{C}}} < \cyclelen{\setproba{C}} \leq \cyclelen{\setproba{M}}$
+		et
+		$\area{\primeit{\setproba{C}}} = \area{\setproba{C}} = \sarea{\setproba{M}}$.
+
+
+		\item En répétant $(n - k - 1)$ fois de plus les étapes précédentes, avec $\primeit{\setproba{C}}$ à la place de $\setproba{C}$ à chaque fois,
+		nous obtenons un \ngone\ convexe $\dbleprimeit{\setproba{C}}$
+		tel que
+		$\cyclelen{\dbleprimeit{\setproba{C}}} < \cyclelen{\setproba{M}}$
+		et
+		$\sarea{\dbleprimeit{\setproba{C}}} = \sarea{\setproba{M}}$.
+		Or, nous savons ceci impossible, donc $k < n$ ne se peut pas.
+    \end{itemize}
 
 	\null\vspace{-6ex}
 \end{proof}
@@ -487,13 +518,12 @@ Nous arrivons au résultat fondamental sur les \ngones\ convexes.
 \begin{proof}
     Soit un \ngone\ convexe $\setproba{P}$ ayant la longueur fixée. 
     %
-    Comme pour $\setproba{R}$ dans la preuve précédente,
-	nous pouvons supposer $\setproba{P}$ d'origine $\pt{O}$, via une translation,
-	puis nous avons
+    Pour les mêmes raisons que le \nreg\ $\setproba{R}$ utilisé dans la preuve du fait \ref{at-least-one-ncycle},
+	nous pouvons supposer avoir
 	soit $\setproba{P} \in \setproba{U}$ et $\sarea{\setproba{P}} = \area{\setproba{P}}$,
 	soit $\cycleop{P} \in \setproba{U}$ et $\sarea{\cycleop{P}} = \area{\cycleop{P}}$.
 	Comme, de plus, $\area{\cycleop{P}} = \area{\setproba{P}}$,
-	nous pouvons supposer avoir $\setproba{P} \in \setproba{U}$,
+	nous pouvons supposer que $\setproba{P} \in \setproba{U}$,
 	quitte à échanger $\setproba{P}$ et $\cycleop{P}$.
-    Dès lors, pour conclure, il suffit de faire appel au fait \ref{at-least-one-ncycle}.    
+    Dès lors, il suffit de faire appel au fait \ref{at-least-one-ncycle} pour conclure.    
 \end{proof}

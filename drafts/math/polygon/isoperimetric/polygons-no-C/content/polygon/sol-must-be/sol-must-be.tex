@@ -32,11 +32,11 @@ Cette section cherche à caractériser la nature des solutions du problème d’
 	et
 	$\area{\setproba{E}} > \area{\setproba{P}}$,
 	mais
-	$\setproba{E}$ est un \kgone avec $k < n$. 
+	$\setproba{E}$ est un \kgone\ avec $k < n$. 
 	%
 	Pour avoir le bon nombre de sommets, il suffit d'appliquer le fait \ref{bigger-convex} ci-dessous au convexe $\setproba{E}$ avec $s = n - k$ et $L = \perim{\setproba{P}}$.
 	Ceci nous donne un \ngone\ convexe $\primeit{\setproba{C}}$ vérifiant à la fois
-	$\area{\setproba{E}} < \area{\primeit{\setproba{C}}}$
+	$\area{\setproba{P}} < \area{\setproba{E}} < \area{\primeit{\setproba{C}}}$
 	et
 	$\perim{\setproba{E}} < \perim{\primeit{\setproba{C}}} < \perim{\setproba{P}}$.
 	%
@@ -74,7 +74,7 @@ Le fait suivant, utilisé dans la preuve précédente, mérite d'être mis en va
 	\begin{enumerate}
 		\item \label{add-vertex-start}
 		Considérons $[AB]$ un côté quelconque de $\setproba{P}$.
-		Les droites portées par les côtés \focus{autour} de $[AB]$ \focus{dessinent} une région contenant toujours un triangle $ABC$ dont l'intérieur est à l'extérieur
+		Les droites portées par les côtés contigus à $[AB]$ \focus{dessinent} une région contenant toujours un triangle $ABC$ dont l'intérieur est à l'extérieur
 		\footnote{
 			C'est ce que l'on appelle de la \focus{low poetry},.
 		}
@@ -83,9 +83,9 @@ Le fait suivant, utilisé dans la preuve précédente, mérite d'être mis en va
 		\begin{multicols}{2}
 			\centering
 
-			\includegraphics[scale=.35]{content/polygon/at-least-one/add-vertex-1.png}
+			\includegraphics[scale=.35]{content/polygon/sol-must-be/add-vertex-1.png}
 
-			\includegraphics[scale=.35]{content/polygon/at-least-one/add-vertex-2.png}
+			\includegraphics[scale=.35]{content/polygon/sol-must-be/add-vertex-2.png}
 		\end{multicols}
 
 		\item Clairement, le polygone $\setproba{P}_+$ obtenu à partir de $\setproba{P}$ en remplaçant le côté $[AB]$ par les côtés $[AC]$ et $[CB]$ est un convexe avec un sommet de plus que $\setproba{P}$.
@@ -95,7 +95,7 @@ Le fait suivant, utilisé dans la preuve précédente, mérite d'être mis en va
 		Dès lors, le périmètre de $\setproba{P}_+$ augmente inférieurement strictement à $\delta$ relativement à $\setproba{P}$.
 
 		\item En répétant $(s - 1)$ fois de plus les étapes \ref{add-vertex-start} à \ref{add-vertex-end}, avec $\setproba{P}_+$ à la place de $\setproba{P}$ à chaque fois,
-		nous obtenons un \xgone{(n+s)} convexe $\primeit{\setproba{K}}$ vérifiant à la fois
+		nous obtenons un \xgone{(n+s)} convexe $\setproba{K}$ vérifiant à la fois
 		$\area{\setproba{P}} < \area{\setproba{K}}$
 		et
 		$\cyclelen{\setproba{P}} < \cyclelen{\setproba{K}} < \cyclelen{\setproba{P}} + s \delta = L$.
@@ -118,12 +118,16 @@ Le fait suivant, utilisé dans la preuve précédente, mérite d'être mis en va
 
 
 \begin{proof}
-	Considérons un \ngone\ convexe non équilatéral $\setproba{P}$.
+	Considérons un \ngone\ convexe non équilatéral $\setproba{P}$,
+	de sorte que $\setproba{P}$ admet un triplet de sommets consécutifs $A$, $B$ et $C$ tels que $AB \neq BC$
+	(sinon, on obtiendrait, de proche en proche, l'équilatéralité).
 	%
-	Dans ce cas, $\setproba{P}$ admet un triplet de sommets consécutifs $A$, $B$ et $C$ tels que $AB \neq BC$
-	(sinon, on obtiendrait de proche en proche l'équilatéralité).
-	La construction vue dans la preuve du fait \ref{tri-one-side-fixed} nous donne la solution: voir les deux dessins ci-après dans lesquels $(AC) \parallel (BB^{\,\prime})$.
-	Pour le 2\ieme\ cas, il n'est pas possible d'utiliser le triangle $AB^{\,\prime}C$ isocèle en $B^{\,\prime}$ car $(B^{\,\prime}C)$ porte le côté de $\setproba{P}$ de sommet $C$ juste après $[BC]$, mais ce problème se contourne en considérant un point $B^{\,\prime\prime}$ du segment ouvert $]BB^{\,\prime}[$.%
+	La construction vue dans la preuve du fait \ref{tri-one-side-fixed} nous donne la solution: voir les dessins ci-après dans lesquels
+	$m$ est la médiatrice du segment $[AC]$,
+	et
+	$(AC) \parallel (BB^{\,\prime})$.
+	Pour le 2\ieme\ cas, il n'est pas possible d'utiliser le triangle $AB^{\,\prime}C$ isocèle en $B^{\,\prime}$, sinon nous n'aurions plus un \ngone.
+	Pour ces situations problématiques, il suffit de se \focus{déplacer} un peu sur le segment ouvert $]BB^{\,\prime}[$ en direction de $m$.%
 	\footnote{
 	    Si besoin, se reporter au 2\ieme\ dessin de la preuve du fait \ref{tri-one-side-fixed}.
 	}
@@ -131,9 +135,9 @@ Le fait suivant, utilisé dans la preuve précédente, mérite d'être mis en va
 	\begin{multicols}{2}
 		\centering
 
-		\includegraphics[scale=.4]{content/polygon/sol-must-be/not-iso-OK.png}
+		\includegraphics[scale=.4]{content/polygon/sol-must-be/not-iso-IN.png}
 
-		\includegraphics[scale=.4]{content/polygon/sol-must-be/not-iso-KO.png}
+		\includegraphics[scale=.4]{content/polygon/sol-must-be/not-iso-BORDER.png}
 	\end{multicols}
 
 	Dans chaque cas, nous avons construit un \ngone\ convexe $\dbleprimeit{\setproba{P}}$ tel que
@@ -165,10 +169,9 @@ Le fait suivant, utilisé dans la preuve précédente, mérite d'être mis en va
 
 
 \begin{proof}
-	Considérons un \nequi\ convexe non équiangle $\setproba{P}$.
-	%
-	Dans ce cas, $\setproba{P}$ admet un quadruplet de sommets consécutifs $A$, $B$, $C$ et $D$ tels que $\anglein{ABC} \neq \anglein{BCD}$
-	(sinon, on obtiendrait de proche en proche l'équiangularité).
+	Considérons un \nequi\ convexe non équiangle $\setproba{P}$, 
+	de sorte que $\setproba{P}$ admet un quadruplet de sommets consécutifs $A$, $B$, $C$ et $D$ tels que $\anglein{ABC} \neq \anglein{BCD}$
+	(sinon, on obtiendrait, de proche en proche, l'équiangularité).
 	Quitte à changer l'ordre de parcours des sommets de $\setproba{P}$, nous pouvons supposer $\anglein{ABC} > \anglein{BCD}$.
 	%
 	\begin{center}
@@ -313,7 +316,7 @@ Le fait suivant, utilisé dans la preuve précédente, mérite d'être mis en va
 
 
 \begin{remark}
-    Ce qui précède donne envie de faire appel à la méthode des extrema liés pour plus d'élégance dans les calculs, modulo l'utilisation d'un très gros théorème.
+    Ce qui précède donne envie de faire appel à la méthode des extrema liés pour plus d'élégance, et d'efficacité, dans les calculs, modulo l'utilisation d'un gros théorème.
     Étudions donc les extrema de
 	$f(\alpha , \gamma) = k \sin \alpha + \sin \gamma$
 	sur $\intervalO{0}{\pi}^2$ sous la contrainte
@@ -340,7 +343,7 @@ Le fait suivant, utilisé dans la preuve précédente, mérite d'être mis en va
 
 	    \item Si $\lambda \neq 0$,
 	    alors
-	    $\cos \alpha \sin \gamma = - \cos \gamma \sin \alpha$,
+	    $\cos \alpha \sin \gamma = - \sin \alpha \cos \gamma$,
 	    puis
 	    $\sin (\alpha + \gamma) = 0$,
 	    et
@@ -350,7 +353,7 @@ Le fait suivant, utilisé dans la preuve précédente, mérite d'être mis en va
 
 
 %\begin{remark}
-%    XXX
+%    OK ???
 %    
 %    À périmètre fixé, le trapèze isocèle de bases $[AD]$ et $[BC]$ est celui maximise l'aire parmi les quadrilatères $ABCD$ vérifiant $AB = BC = CD$.
 %\end{remark}
@@ -371,31 +374,21 @@ Le fait suivant, utilisé dans la preuve précédente, mérite d'être mis en va
 
 
 \begin{fact} \label{must-be-reg}
-	Si un \ngone\ $\setproba{P}$ n'est pas un \nreg\ convexe,
-	alors il existe un \ngone\ convexe $\primeit{\setproba{P}}$ tel que
-	$\perim{\primeit{\setproba{P}}} = \perim{\setproba{P}}$
-	et
-	$\area{\primeit{\setproba{P}}} > \area{\setproba{P}}$.
+    Si $\setproba{P}$ est un \ngone\ convexe maximise l'aire parmi les \ngones\ convexes de périmètre fixé, alors $\setproba{P}$ est régulier.
 \end{fact}
 
 
 \begin{proof}
-	Il suffit d'utiliser les faits \ref{must-be-conv}, \ref{must-be-equi} et \ref{must-be-iso}.
+    Si $\setproba{P}$ n'était pas régulier convexe, alors 
+    soit il ne serait pas convexe, 
+    soit il serait convexe, mais pas équilatéral, 
+    soit il serait convexe et équilatéral, mais pas équiangle.
+    Or, aucune de ces alternatives n'est possible d'après les faits \ref{must-be-conv}, \ref{must-be-equi} et \ref{must-be-iso}.
 \end{proof}
 
 
 %% ----------------------- %
-%
-%
-%Pour en finir avec le problème d'isopérimétrie polygonal, nous aurons besoin du fait suivant.
-%
-%
-%\begin{fact} \label{nregs-sorting}
-%	Si $\setproba*{R}{1}$ et $\setproba*{R}{2}$ sont respectivement un \xgone{k_1} et un \xgone{k_2}, tous les deux réguliers convexes, avec 
-%	$k_1 < k_2$ et $\perim{\setproba*{R}{1}} = \perim{\setproba*{R}{2}}$,
-%	alors
-%	$\area{\setproba*{R}{1}} < \area{\setproba*{R}{2}}$.
-%\end{fact}
+%   GARDER POUR LYCée !!!
 %
 %
 %\begin{proof}
