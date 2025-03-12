@@ -1,170 +1,14 @@
-Tout comme pour les quadrilatères, la convexité va jouer un rôle central pour l’isopérimétrie polygonale dans le cas général
-%
-Ceci explique que nous allons chercher à justifier l'existence d'au moins un \ngone\ convexe d'aire maximale parmi les \ngones\ convexes de longueur fixée.
+Tout comme pour les quadrilatères, la convexité va jouer un rôle central pour l’isopérimétrie polygonale dans le cas général.
+Nous allons donc chercher à justifier l'existence d'au moins un \ngone\ convexe d'aire maximale parmi les \ngones\ convexes de longueur fixée.
 
 
 % ----------------------- %
-
-
-\begin{fact} \label{conv-pos-det}
-    Pour tout \ngone\ convexe $\setproba{P} = A_1 A_2 \cdots A_n$, l'une des alternatives suivantes a lieu.
-    %
-	\begin{itemize}
-		\item $\forall (i, k) \in \ZintervalC{1}{n}^2$,
-		si $k \notin \setgene{i ; i+1}$, alors
-		$\det \big( \vect{\primeit{A}_i \primeit{A}_{i+1}}, \vect{\primeit{A}_i \primeit{A}_k} \big) > 0$.
-
-		\item $\forall (i, k) \in \ZintervalC{1}{n}^2$,
-		si $k \notin \setgene{i ; i+1}$, alors
-		$\det \big( \vect{\primeit{A}_i \primeit{A}_{i+1}}, \vect{\primeit{A}_i \primeit{A}_k} \big) < 0$.
-    \end{itemize}
-\end{fact}
-
-
-\begin{proof}
-	Le cas $n = 3$ des triangles est immédiat.
-	Considérons alors $\setproba{P}$ un \ngone\ convexe où  $n \geq 4$.
-	Nous savons que, relativement à $\setproba{P}$, aucun triplet de sommets consécutifs alignés n'existe.
-	Dès lors, dans le plan orienté, les trois premiers sommets sont placés suivant l'une des deux configurations suivantes. 
-    
-    \begin{multicols}{2}
-        \small\itshape\centering
-       	\includegraphics[scale=.45]{content/polygon/at-least-one/conv-det-sign-1.png}
-    	    
-    	\smallskip
-        Cas positif.
-        
-        \includegraphics[scale=.45]{content/polygon/at-least-one/conv-det-sign-2.png}
-    	    
-    	\smallskip
-        Cas négatif.
-    \end{multicols}
-
-    
-%    \newpage
-
-
-    \noindent
-    Considérons le cas positif, c'est-à-dire supposons que 
-    $\det \big( \vect{\primeit{A}_1 \primeit{A}_2}, \vect{\primeit{A}_1 \primeit{A}_3} \big) > 0$.
-	%
-	\begin{itemize}
-    	\item $\vect{\primeit{A}_1 \primeit{A}_3} = \vect{\primeit{A}_1 \primeit{A}_2} + \vect{\primeit{A}_2 \primeit{A}_3}$
-    	donne
-		$\det \big( \vect{\primeit{A}_2 \primeit{A}_3}, \vect{\primeit{A}_2 \primeit{A}_1} \big) > 0$.
-
-
-		\item Comme $A_2$, $A_3$ et $A_4$ ne sont pas alignés, et de plus $A_1$ et $A_4$ du même côté de la droite $(A_2 A_3)$, au sens large, nous obtenons
-		$\det \big( \vect{\primeit{A}_2 \primeit{A}_3}, \vect{\primeit{A}_2 \primeit{A}_4} \big) > 0$.
-
-
-		\item En continuant de proche en proche, nous arrivons à
-		$\det \big( \vect{\primeit{A}_i \primeit{A}_{i+1}}, \vect{\primeit{A}_i \primeit{A}_{i+2}} \big) > 0$
-		pour $i \in \ZintervalC{1}{n}$ quelconque.
-
-
-		\item Le point précédent et la convexité donnent
-		$\det \big( \vect{\primeit{A}_i \primeit{A}_{i+1}}, \vect{\primeit{A}_i \primeit{A}_k} \big) \geq 0$
-		pour $(i, k) \in \ZintervalC{1}{n}^2$ tel que $k \notin \setgene{i ; i+1}$.
-
-
-		\item
-		Montrons maintenant que
-		$\det \big( \vect{\primeit{A}_1 \primeit{A}_2}, \vect{\primeit{A}_1 \primeit{A}_k} \big) > 0$
-		pour $k \in \ZintervalC{3}{n}$.
-		%
-		Nous savons déjà l'inégalité vraie pour $k = 3$; passons donc à $k = 4$.
-		Pour avoir 
-		$\det \big( \vect{\primeit{A}_1 \primeit{A}_2}, \vect{\primeit{A}_1 \primeit{A}_4} \big) > 0$, 
-		le point précédent donne qu'il faut vérifier que 
-		$\det \big( \vect{\primeit{A}_1 \primeit{A}_2}, \vect{\primeit{A}_1 \primeit{A}_4} \big) = 0$
-		est impossible.
-		Supposons donc l'égalité vraie, ce qui implique d'avoir $n \geq 5$, car dans le cas contraire les sommets consécutifs $A_4$, $A_1$ et $A_2$ seraient alignés.
-		Nous aboutissons aux configurations suivantes où les hachures et la droite en trait plein sont des zones interdites pour $A_4$.
-
-        \begin{multicols}{2}
-            \small\itshape\centering
-           	\includegraphics[scale=.4]{content/polygon/at-least-one/conv-det-A4-1.png}
-        	    
-        	\smallskip
-            Cas 1.
-            
-            \includegraphics[scale=.4]{content/polygon/at-least-one/conv-det-A4-2.png}
-        	    
-        	\smallskip
-            Cas 2.
-        \end{multicols}
-    
-		\noindent
-		Le cas 2 est impossible par raison de convexité, car $A_1$ et $A_2$ sont de part et d'autre de la droite $(A_3 A_4)$. Voyons donc ce qu'implique le 1\ier\ cas pour $A_5$.
-		
-        \begin{multicols}{2}
-            \small\itshape\centering
-           	\includegraphics[scale=.4]{content/polygon/at-least-one/conv-det-A5-1.png}
-        	    
-        	\smallskip
-            Cas 1-1.
-            
-            \includegraphics[scale=.4]{content/polygon/at-least-one/conv-det-A5-2.png}
-        	    
-        	\smallskip
-            Cas 1-2.
-        \end{multicols}
-    
-		\noindent
-		Le cas 1-2 est impossible par raison de convexité, car $(A_4 A_5)$ sépare les points $A_3$ et $A_2$.
-		Notons que dans le cas 1-1, il est possible d'avoir $A_5 \in {]A_4 A_1[}$.
-		Comme $A_5 \in (A_1 A_2)$, nous devons avoir $n \geq 6$, 
-		mais $A_6$ ne peut être ni à l'intérieur du triangle $A_2 A_3 A_4$ par convexité,
-		ni sur la droite $(A_1 A_2)$, car $A_4$, $A_5$ et $A_6$ ne peuvent pas être alignés.
-		Cette situation contradictoire montre que
-		$\det \big( \vect{\primeit{A}_1 \primeit{A}_2}, \vect{\primeit{A}_1 \primeit{A}_4} \big) > 0$.
-		En continuant de même, de proche en proche, nous arrivons à
-		$\det \big( \vect{\primeit{A}_1 \primeit{A}_2}, \vect{\primeit{A}_1 \primeit{A}_k} \big) > 0$
-		pour $k \in \ZintervalC{3}{n}$.
-
-
-		\item En généralisant le raisonnement précédent,%
-		\footnote{
-		    Se souvenir de la définition \focus{cyclique} de la suite $(\primeit{A}_i)$.
-		}
-		nous avons
-		$\det \big( \vect{\primeit{A}_i \primeit{A}_{i+1}}, \vect{\primeit{A}_i \primeit{A}_k} \big) > 0$
-		pour tout couple $(i, k) \in \ZintervalC{1}{n}^2$ vérifiant $k \notin \setgene{i ; i+1}$.
-	\end{itemize}
-
-    \medskip
-    
-    \noindent
-    Le cas négatif se traite de façon similaire.
-\end{proof}
-
-
-% ----------------------- %
-
-
-Nous allons établir une réciproque élargie du résultat précédent. Ce nouveau fait, le plus technique à justifier, va nous rendre un grand service par la suite.%
-\footnote{
-    Pourquoi s'attarder sur des inégalités larges? Parce que nous allons travailler dans un ensemble compact, et donc fermé, de \ncycles.
-    Pour garder des \ngones, nous devrions utiliser des non-égalités, mais ceci nous ferait sortir du cadre fermé qui nous intéresse.
-    Nous n'avons pas le choix!
-}
 
 
 \begin{fact} \label{conv-from-non-neg-det}
-    Soit $\setproba{L} = A_1 A_2 \cdots A_n$ un \ncycle\ vérifiant l'une des alternatives suivantes.
+    Si $\setproba{L} = A_1 A_2 \cdots A_n$ un \ncycle\ convexe, alors l'une des assertions suivante est validée.
     %
-	\begin{itemize}
-		\item $\forall (i, k) \in \ZintervalC{1}{n}^2$,
-		$\det \big( \vect{\primeit{A}_i \primeit{A}_{i+1}}, \vect{\primeit{A}_i \primeit{A}_k} \big) \geq 0$.
-
-		\item $\forall (i, k) \in \ZintervalC{1}{n}^2$,
-		$\det \big( \vect{\primeit{A}_i \primeit{A}_{i+1}}, \vect{\primeit{A}_i \primeit{A}_k} \big) \leq 0$.
-    \end{itemize}
-    
-    Sous l'une de ces hypothèses, l'une des assertions ci-après est validée.
-    %
-	\begin{enumerate}[label=\roman*.]
+	\begin{enumerate}
 		\item $\setproba{L}$ est totalement dégénéré.
 
 		\item Il existe un \kgone\ convexe $\setproba{C}$ tel que
@@ -210,15 +54,15 @@ Nous allons établir une réciproque élargie du résultat précédent. Ce nouve
 		$\det \big( \vect{\primeit{A}_i \primeit{A}_{i+1}}, \vect{\primeit{A}_i \primeit{A}_m} \big) > 0$, car $\setproba{L}$ n'est pas totalement dégénéré.
         %
         \begin{center}
-        	\includegraphics[scale=.4]{content/polygon/at-least-one/algo-kgone-remove-vertices.png}
+        	\includegraphics[scale=.2]{content/polygon/at-least-one/algo-kgone-remove-vertices.png}
         \end{center}
         
         \noindent
         Nous arrivons aux constatations suivantes.
         %
         \begin{itemize}
-            \item Les points $\primeit{A}_i$, $\primeit{A}_{m-1}$ et $\primeit{A}_m$ ne sont pas alignés, et par conséquent deux à deux distincts.
-            
+            \item Les points $\primeit{A}_i$, $\primeit{A}_{m-1}$ et $\primeit{A}_m$ ne sont pas alignés.
+
             \item Comme 
             $\forall j \in \ZintervalC{1}{n}$,
             $\det \big( \vect{\primeit{A}_{m-1} \primeit{A}_m}, \vect{\primeit{A}_{m-1} \primeit{A}_{j}} \big) \geq 0$, 
@@ -253,19 +97,17 @@ Nous allons établir une réciproque élargie du résultat précédent. Ce nouve
 
     
     Commençons par justifier que l'algorithme s'arrête sans entrer dans une boucle infinie.
-    Tant que l'indice $m$ de l'étape \ref{algo-kgone-remove-vertices} vérifie $m \leq n$, il n'y a aucune difficulté, car $i$ augmente, et les sommets ajoutés se placent \focus{avant} l'origine $A_1$ du \ncycle\ initial $\setproba{L}$ sans empiéter sur les \focus{premiers} sommets. Supposons avoir $m \in \ZintervalO{n}{n+i}$ pour un indice $i$, où forcément $i > 1$, et par conséquent $\primeit{A}_i$ a été stocké dans la liste $\onelist{C}$.
+    Tant que l'indice $m$ de l'étape \ref{algo-kgone-remove-vertices} vérifie $m \leq n$, il n'y a aucune difficulté, car $i$ augmente, et les sommets ajoutés se placent \focus{avant} l'origine $A_1$ du \ncycle\ initial $\setproba{L}$ sans empiéter sur les \focus{premiers} sommets. Supposons avoir $m \in \ZintervalO{n}{n+i}$ pour un indice $i$, avec $\primeit{A}_i$ stocké précédemment dans la liste $\onelist{C}$, et forcément $i > 1$.
     %
     \begin{itemize}
         \item Commençons par noter l'existence de $A_1$, $A_r$ et $A_s$ non alignés avec $A_r$ et $A_s$ stockés dans $\onelist{C}$.
         En effet,
-        $A_r$ vient de l'application de l'algorithme à $i = 1$, 
-        puis
-        $A_s$ s'obtient avec $i = r$.
+        la première boucle de l'algorithme donne $A_r$, puis $A_s$ apparaît lors de la deuxième boucle.
 
 
         \item Supposons que $i = s$. 
-        Pour $j \in \ZintervalC{s+1}{n}$, les points $\primeit{A}_j$ sont sur la droite $( \primeit{A}_s \primeit{A}_1)$, 
-        et ensuite plus généralement pour $j \in \ZintervalO{s}{m}$. 
+        Pour $j \in \ZintervalC{s+1}{n}$, les points $\primeit{A}_j$ sont sur la droite $( \primeit{A}_s \primeit{A}_1)$ d'après l'algorithme, 
+        puis plus généralement $\primeit{A}_j \in ( \primeit{A}_s \primeit{A}_1)$ pour $j \in \ZintervalO{s}{m}$. 
         Le schéma suivant montre sans ambigüité qu'alors
         $\primeit{A}_{m-1} = \primeit{A}_1$.%
         \footnote{
@@ -274,11 +116,11 @@ Nous allons établir une réciproque élargie du résultat précédent. Ce nouve
         Dès lors, $m = n+2$, d'où l'ajout de $\primeit{A}_1$ à la fin de la liste $\onelist{C}$, puis l'arrêt de l'algorithme à l'étape suivante.
         %
         \begin{center}
-        	\includegraphics[scale=.4]{content/polygon/at-least-one/algo-kgone-terminate-1.png}
+        	\includegraphics[scale=.2]{content/polygon/at-least-one/algo-kgone-terminate-1.png}
         \end{center}
 
 
-        \item Le raisonnement précédent fonctionne plus généralement lorsque $\primeit{A}_i \notin (\primeit{A}_1 \primeit{A}_r)$.
+        \item Le raisonnement précédent fonctionne aussi lorsque $\primeit{A}_i \notin (\primeit{A}_1 \primeit{A}_r)$.
 
 
         \item Il reste le cas où $\primeit{A}_i \in (\primeit{A}_1 \primeit{A}_r)$.
@@ -286,7 +128,7 @@ Nous allons établir une réciproque élargie du résultat précédent. Ce nouve
        $\primeit{A}_i \in [\primeit{A}_1 \primeit{A}_r]$ est possible, a priori. 
         %
         \begin{center}
-        	\includegraphics[scale=.4]{content/polygon/at-least-one/algo-kgone-terminate-2.png}
+        	\includegraphics[scale=.2]{content/polygon/at-least-one/algo-kgone-terminate-2.png}
         \end{center}
         
         \noindent
@@ -304,7 +146,7 @@ Nous allons établir une réciproque élargie du résultat précédent. Ce nouve
         
         \noindent
         Ici,
-        $\primeit{A}_r$ est déjà présent dans $\onelist{C}$,
+        $\primeit{A}_{m-1} = \primeit{A}_r$ est déjà dans $\onelist{C}$,
         donc l'algorithme s'arrêtera après avoir juste modifié $i$ en $(n + r)$.
         Notons que les points de $\primeit{A}_{i+1}$ à $\primeit{A}_{r-1}$ sont \focus{mangés} comme attendu.
     \end{itemize}
@@ -317,16 +159,15 @@ Nous allons établir une réciproque élargie du résultat précédent. Ce nouve
     %
     \begin{itemize}
         \item Par construction, deux sommets \focus{consécutifs} $\primeit{A}_r$ et $\primeit{A}_s$ de $\setproba{C}$, sont tels que tout point du cycle initial $\setproba{L}$ situé entre $\primeit{A}_r$ et $\primeit{A}_s$ se trouve sur le segment $[\primeit{A}_r \primeit{A}_s]$.
-        En ignorant ces points, on fait donc diminuer, au sens large, la longueur du \ncycle, mais sans modifier la valeur de l'aire algébrique, cette dernière étant calculable depuis $\primeit{A}_r$, ou $\primeit{A}_s$.
+        En ignorant ces points, on fait donc diminuer, au sens large, la longueur du \ncycle, mais sans modifier la valeur de l'aire algébrique, cette dernière étant calculable depuis $\primeit{A}_r$.
         Donc
         $\cyclelen{\setproba{C}} \leq \cyclelen{\setproba{L}}$
 		et
 		$\sarea{\setproba{C}} = \sarea{\setproba{L}}$
 
 
-        \item Par construction, trois sommets \focus{consécutifs} $\primeit{A}_q$, $\primeit{A}_r$ et $\primeit{A}_s$ de $\setproba{C}$, sont tels que $\det \big( \vect{\primeit{A}_q \primeit{A}_{r}}, \vect{\primeit{A}_q \primeit{A}_s} \big) > 0$. 
-        En particulier, ces trois sommets \focus{consécutifs} ne sont pas alignés.
-        Dès lors, $\setproba{C}$ est un \kgone, et il est aussi convexe.
+        \item Par construction, trois sommets \focus{consécutifs} $\primeit{A}_q$, $\primeit{A}_r$ et $\primeit{A}_s$ de $\setproba{C}$, sont tels que $\det \big( \vect{\primeit{A}_q \primeit{A}_{r}}, \vect{\primeit{A}_q \primeit{A}_s} \big) > 0$.
+        Dès lors, $\setproba{C}$ est un \kgone\ convexe.
     \end{itemize}
 
 	
@@ -335,7 +176,7 @@ Nous allons établir une réciproque élargie du résultat précédent. Ce nouve
 
 
 \begin{remark}
-    La propriété sur les sommets donne un algorithme très simple de construction de $\setproba{C}$ lorsque $\setproba{L}$ n'est pas totalement dégénéré.
+    La propriété sur les sommets donne un algorithme de construction de $\setproba{C}$, très simple, lorsque $\setproba{L}$ n'est pas totalement dégénéré.
     %
     \begin{enumerate}[label=\fbox{\small\bfseries\textsf{A\kern.25pt\arabic*}}]
         \item On pose $i = 1$, et on considère une liste vide $\onelist{C}$.
@@ -349,7 +190,7 @@ Nous allons établir une réciproque élargie du résultat précédent. Ce nouve
               puis
               tant que $\primeit{A}_k \in (\primeit{A}_i \primeit{A}_j)$, on augmente $k$ de $1$.
 
-        \item Si $\primeit{A}_k$ n'est pas dans $\onelist{C}$, on ajoute ce sommet à droite de la liste, on pose $i = k$, et on retourne à l'action \ref{algo-easy-extract-conv}.
+        \item Si $\primeit{A}_k$ n'est pas dans $\onelist{C}$, on ajoute ce sommet à droite de la liste, on pose $i = k$, et on retourne à l'action \ref{algo-easy-extract-conv}. Sinon, on s'arrête.
     \end{enumerate}
 \end{remark}
 
@@ -368,15 +209,8 @@ Le résultat qui suit est juste là pour simplifier la démonstration du fait \r
     $\ell \in \RRsp$,
     $\pvaxes{O | i | j}$ un repère orthonormé direct du plan
     et
-    $\setproba{U} \subset \RR^{2n}$ l'ensemble des uplets de coordonnées $\big( x(A_1) ; y(A_1) ; \dots ; x(A_n) ; y(A_n) \big)$ où $\setproba{L} = A_1 A_2 \cdots A_n$ désigne un \ncycle\ vérifiant les conditions suivantes.
+    $\setproba{U} \subset \RR^{2n}$ l'ensemble des uplets de coordonnées $\big( x(A_1) ; y(A_1) ; \dots ; x(A_n) ; y(A_n) \big)$ où $\setproba{L} = A_1 A_2 \cdots A_n$ désigne un \ncycle\ convexe tel que $\cyclelen{\setproba{L}} = \ell$.
     %
-    \begin{itemize}
-        \item $\cyclelen{\setproba{L}} = \ell$.
-    
-        \item $\forall (i, k) \in \ZintervalC{1}{n}^2$,
-		$\det \big( \vect{\primeit{A}_i \primeit{A}_{i+1}}, \vect{\primeit{A}_i \primeit{A}_k} \big) \geq 0$.
-    \end{itemize}
-    
     Dès lors, la fonction $\alpha: \setproba{U} \rightarrow \RR$, qui à un uplet de $\setproba{U}$ associe l'aire algébrique du \ncycle\ qu'il représente, est une fonction admettant au moins un maximum, qui est positif strict.
     %
     De plus, un \ncycle\ maximisant $\alpha$ est forcément un \ngone\ convexe.
@@ -397,7 +231,7 @@ Le résultat qui suit est juste là pour simplifier la démonstration du fait \r
 		et
 		$\sarea{\setproba{R}^{\mathrm{op}}} = - \sarea{\setproba{R}}$ d'après le fait \ref{nline-rota-opp}.
 		
-		\item $\setproba{R} \in \setproba{U}$, ou $\setproba{R}^{\mathrm{op}} \in \setproba{U}$ selon le fait \ref{conv-pos-det}.
+		\item $\setproba{R} \in \setproba{U}$, ou $\setproba{R}^{\mathrm{op}} \in \setproba{U}$ par convexité.
 		
 		\item Si $\setproba{R} \in \setproba{U}$, alors 
 		$\setproba{R}$ est orienté positivement, 
@@ -415,7 +249,7 @@ Le résultat qui suit est juste là pour simplifier la démonstration du fait \r
     \end{itemize}
 
     
-    Pour finir, justifions que si $\setproba{M} \in \setproba{U}$ maximise $\alpha$, alors $\setproba{M}$ est forcément un \ngone\ convexe. 
+    Pour finir, justifions qu'un \ncycle\ $\setproba{M} \in \setproba{U}$ maximisant $\alpha$ est forcément un \ngone\ convexe. 
     Comme $\sarea{\setproba{M}} > 0$, $\setproba{M}$ n'est pas totalement dégénéré,
     donc nous pouvons considérer le \kgone\ convexe $\setproba{C}$ donné par le fait \ref{conv-from-non-neg-det}.
     Via des arguments similaires à ceux utilisés pour $\setproba{R}$, 
@@ -426,8 +260,8 @@ Le résultat qui suit est juste là pour simplifier la démonstration du fait \r
     \begin{itemize}
 		\item Supposons d'abord $k = n$.
 		Si $\cyclelen{\setproba{C}} = \cyclelen{\setproba{M}}$, nous n'avons rien à faire.
-		En fait, il se trouve que $\cyclelen{\setproba{C}} < \cyclelen{\setproba{M}}$ est impossible, 
-		car une homothétie de rapport $r > 1$, où $r = \frac{ \cyclelen{\setproba{M}} }{ \cyclelen{\setproba{C}} }$, donnerait un \ngone\ convexe $\primeit{\setproba{C}}$ vérifiant
+		En fait, $\cyclelen{\setproba{C}} < \cyclelen{\setproba{M}}$ est impossible, 
+		car une homothétie de rapport $r > 1$, où l'on a posé $r = \frac{ \cyclelen{\setproba{M}} }{ \cyclelen{\setproba{C}} }$, donnerait un \ngone\ convexe $\primeit{\setproba{C}}$ vérifiant
 		$\cyclelen{\primeit{\setproba{C}}} = \cyclelen{\setproba{M}}$
 		et
 		$\sarea{\primeit{\setproba{C}}} > \sarea{\setproba{M}}$, ceci contredisant la maximalité de $\setproba{M}$.
@@ -436,8 +270,8 @@ Le résultat qui suit est juste là pour simplifier la démonstration du fait \r
 		\item Pour la suite, nous supposons $k < n$, et considérons $A$, $B$ et $C$, trois sommets consécutifs, forcément distincts, du \kgone\ $\setproba{C}$. 
 
 
-		\item Par convexité de $\setproba{C}$, nous avons l'une des deux configurations génériques suivantes où les demi-droites vertes en pointillés, portées par les côtés contigus à $[AB]$, \focus{dessinent} avec $[AB]$ une région grisée qui est ouverte et à l'extérieur de $\setproba{C}$. 
-		Sans perte de généralité, nous allons travailler avec la 1\iere\ configuration.
+		\item Par convexité de $\setproba{C}$, nous avons l'une des deux configurations génériques suivantes où les demi-droites en pointillés, portées par les côtés contigus à $[AB]$, \focus{dessinent} avec $[AB]$ une région hachurée $\setproba{H}$ qui est ouverte et à l'extérieur de $\setproba{C}$. 
+		Sans perte de généralité, nous allons travailler avec la 1\iere\ configuration (qui laisse moins de liberté géométrique).
 		%
 		\begin{multicols}{2}
 			\centering
@@ -452,8 +286,8 @@ Le résultat qui suit est juste là pour simplifier la démonstration du fait \r
 		Définissons ensuite le point $\primeit{B}$ par les contraintes $(B \primeit{B}) \parallel (AM)$
 		et
 		$\primeit{B} \in d$, où $d$ est la droite portant le côté contenant $A$ et contigu à $[AB]$.
-		Par convexité, $]B \primeit{B}[$ est inclus dans la zone grisée.
-		La figure suivante représente notre situation.
+		Par convexité, $]B \primeit{B}[$ est inclus dans la zone $\setproba{H}$.
+		La figure suivante représente cette situation.
 		%
 		\begin{center}
 			\includegraphics[scale=.4]{content/polygon/at-least-one/add-vertex-1-1.png}
@@ -462,8 +296,9 @@ Le résultat qui suit est juste là pour simplifier la démonstration du fait \r
 
 
 		\item Avec la preuve du fait \ref{tri-one-side-fixed} en tête, nous allons imposer d'avoir $BM < AB$, ce qui est toujours possible.
-		Dès lors, nommant $m$ la médiatrice du segment $[AM]$,
-		en prenant $\dbleprimeit{B} \in {]B \primeit{B}[}$ plus proche de $m$ que $B$,%
+		Dès lors,
+		nommons $m$ la médiatrice du segment $[AM]$,
+		puis prenons $\dbleprimeit{B} \in {]B \primeit{B}[}$ plus proche de $m$ que $B$,%
 		\footnote{
 		    Le choix d'avoir $BM < AB$ donne l'existence de $\dbleprimeit{B}$.
 		    Par contre, rien n'interdit à $m$ et $]B \primeit{B}[$ de ne jamais se croiser.
@@ -471,9 +306,9 @@ Le résultat qui suit est juste là pour simplifier la démonstration du fait \r
 		les conditions suivantes sont validées (voir la figure \focus{zoomée} juste après).
 		%
 		\begin{enumerate}
-			\item $AB + MB < A \dbleprimeit{B} + M \dbleprimeit{B}$ par diminution du périmètre.
+			\item $A \dbleprimeit{B} + M \dbleprimeit{B} < AB + MB$ par diminution du périmètre.
 
-			\item $\area{AMB} = \area{AM \dbleprimeit{B}}$ par conservation de l'aire.
+			\item $\area{AM \dbleprimeit{B}} = \area{AMB}$ par conservation de l'aire.
 
 			\item En \focus{remplaçant} dans $\setproba{C}$ le sommet $B$ par $\dbleprimeit{B}$ et $M$,
 		nous avons un \xgone{(k+1)} convexe $\primeit{\setproba{C}}$.

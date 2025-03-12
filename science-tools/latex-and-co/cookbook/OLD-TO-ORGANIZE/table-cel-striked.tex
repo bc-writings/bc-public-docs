@@ -1,0 +1,36 @@
+% Spurce: https://www.mathematex.fr/viewtopic.php?p=165203#p165203
+
+\documentclass[10pt,a4paper]{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{nicematrix,tikz}
+
+\begin{document}
+
+\ExplSyntaxOn
+\cs_new_protected:Nn \__pantigny_crossbox:nnn
+  {
+    \tikz \draw [ #3 ]
+          ( #1 -| #2 ) -- ( \int_eval:n { #1 + 1 } -| \int_eval:n { #2 + 1 } ) ;
+  }
+
+
+\NewDocumentCommand \crossbox { ! O { } }
+  {
+    \tl_gput_right:Nx \g_nicematrix_code_after_tl
+      {
+        \__pantigny_crossbox:nnn
+          { \arabic { iRow } }
+          { \arabic { jCol } }
+          { \exp_not:n { #1 } }
+      }
+  }
+\ExplSyntaxOff
+
+\begin{NiceTabular}{cccc}[hvlines]
+  2&6&\crossbox[red]9&9\\
+  17&24&\crossbox[red]33&130\\
+\end{NiceTabular}
+
+\end{document}

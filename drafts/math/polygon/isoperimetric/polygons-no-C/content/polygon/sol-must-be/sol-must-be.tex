@@ -1,4 +1,10 @@
 Cette section cherche à caractériser la nature des solutions du problème d’isopérimétrie polygonale.
+Compte-tenu du fait \ref{at-least-one-ncycle}, nous pourrions raisonner avec des \ncycles\ convexes:
+par exemple, pour justifier qu'un \ngone\ non convexe $\setproba{P}$ n'est pas optimal, il suffit d'exhiber un \ncycle\ convexe $\setproba{L}$ qui vérifie
+$\cyclelen{\setproba{L}} = \cyclelen{\setproba{P}}$,
+ainsi que
+$\area{\setproba{L}} > \area{\setproba{P}}$.
+Nous allons tout de même nous restreindre aux \ngones, car cela ne demande que peu d'efforts supplémentaires, tout en fournissant de jolis résultats.
 
 \begin{tcolorbox}
 	\itshape\small
@@ -36,7 +42,7 @@ Cette section cherche à caractériser la nature des solutions du problème d’
 	%
 	Pour avoir le bon nombre de sommets, il suffit d'appliquer le fait \ref{bigger-convex} ci-dessous au convexe $\setproba{E}$ avec $s = n - k$ et $L = \perim{\setproba{P}}$.
 	Ceci nous donne un \ngone\ convexe $\primeit{\setproba{C}}$ vérifiant à la fois
-	$\area{\setproba{P}} < \area{\setproba{E}} < \area{\primeit{\setproba{C}}}$
+	$ \area{\primeit{\setproba{C}}} > \area{\setproba{E}} > \area{\setproba{P}}$
 	et
 	$\perim{\setproba{E}} < \perim{\primeit{\setproba{C}}} < \perim{\setproba{P}}$.
 	%
@@ -74,7 +80,7 @@ Le fait suivant, utilisé dans la preuve précédente, mérite d'être mis en va
 	\begin{enumerate}
 		\item \label{add-vertex-start}
 		Considérons $[AB]$ un côté quelconque de $\setproba{P}$.
-		Les droites portées par les côtés contigus à $[AB]$ \focus{dessinent} une région contenant toujours un triangle $ABC$ dont l'intérieur est à l'extérieur
+		Les droites portées par les côtés contigus à $[AB]$ \focus{dessinent} une région hachurée contenant toujours un triangle $ABC$ dont l'intérieur est à l'extérieur
 		\footnote{
 			C'est ce que l'on appelle de la \focus{low poetry},.
 		}
@@ -96,7 +102,7 @@ Le fait suivant, utilisé dans la preuve précédente, mérite d'être mis en va
 
 		\item En répétant $(s - 1)$ fois de plus les étapes \ref{add-vertex-start} à \ref{add-vertex-end}, avec $\setproba{P}_+$ à la place de $\setproba{P}$ à chaque fois,
 		nous obtenons un \xgone{(n+s)} convexe $\setproba{K}$ vérifiant à la fois
-		$\area{\setproba{P}} < \area{\setproba{K}}$
+		$\area{\setproba{K}} > \area{\setproba{P}}$
 		et
 		$\cyclelen{\setproba{P}} < \cyclelen{\setproba{K}} < \cyclelen{\setproba{P}} + s \delta = L$.
 	\end{enumerate}
@@ -127,10 +133,7 @@ Le fait suivant, utilisé dans la preuve précédente, mérite d'être mis en va
 	et
 	$(AC) \parallel (BB^{\,\prime})$.
 	Pour le 2\ieme\ cas, il n'est pas possible d'utiliser le triangle $AB^{\,\prime}C$ isocèle en $B^{\,\prime}$, sinon nous n'aurions plus un \ngone.
-	Pour ces situations problématiques, il suffit de se \focus{déplacer} un peu sur le segment ouvert $]BB^{\,\prime}[$ en direction de $m$.%
-	\footnote{
-	    Si besoin, se reporter au 2\ieme\ dessin de la preuve du fait \ref{tri-one-side-fixed}.
-	}
+	Pour ces situations problématiques, il suffit de se \focus{déplacer} un peu sur le segment ouvert $]BB^{\,\prime}[$ en direction de $m$.
 	%
 	\begin{multicols}{2}
 		\centering
@@ -144,7 +147,7 @@ Le fait suivant, utilisé dans la preuve précédente, mérite d'être mis en va
 	$\perim{\dbleprimeit{\setproba{P}}} < \perim{\setproba{P}}$
 	et
 	$\area{\dbleprimeit{\setproba{P}}} = \area{\setproba{P}}$.
-	Une homothétie de rapport $r > 1$, où $r = \frac{ \perim{\setproba{P}} }{ \perim{\setproba{E}} }$, donne un \ngone\ convexe $\primeit{\setproba{P}}$ vérifiant
+	Une homothétie de rapport $r > 1$, où $r = \frac{ \perim{\setproba{P}} }{ \perim{\dbleprimeit{\setproba{P}}} }$, donne un \ngone\ convexe $\primeit{\setproba{P}}$ vérifiant
 	$\perim{\primeit{\setproba{P}}} = \perim{\setproba{P}}$
 	et
 	$\area{\primeit{\setproba{P}}} > \area{\setproba{P}}$.
@@ -178,11 +181,11 @@ Le fait suivant, utilisé dans la preuve précédente, mérite d'être mis en va
 		\includegraphics[scale=.4]{content/polygon/sol-must-be/2-eq-angles-start.png}
 	\end{center}
 	
-	En déplaçant $B$ et $C$ dans la zone grise hachurée, et strictement entre les droites vertes en pointillés, nous garderons un \ngone\ convexe.
+	Nous garderons un \ngone\ convexe si nous déplaçons $B$ et $C$ dans la zone hachurée qui est à l'extérieur du \ngone, et strictement entre les droites en pointillés, portées par des côtés contigus à $[AB]$ et $[CD]$.
 	%
-	Concentrons-nous donc sur le quadrilatère $ABCD$, et posons $c = AB$ la longueur commune des côtés de $\setproba{P}$, ainsi que $d = AD$ que nous ne pouvons pas modifier.
+	Concentrons-nous donc sur le quadrilatère $ABCD$, et posons $c = AB$ la longueur commune des côtés de $\setproba{P}$, ainsi que $d = AD$, une longueur que nous ne pouvons pas modifier, car $A$ et $D$ doivent rester fixés.
 	%
-	Si nous fixons la valeur de $c$, notre situation possède juste un degré de liberté comme le montre la construction de $C$ ci-après qui utilise des cercles de rayon $c$ centrés en $A$ et $D$ fixes, et $B$ mobile.
+	Si nous gardons la longueur $c$ constante, notre situation possède juste un degré de liberté comme le montre la construction de $C$ ci-après qui utilise des cercles de rayon $c$ centrés en $A$ et $D$ fixes, et en $B$ mobile.
 	%
 	\begin{center}
 		\includegraphics[scale=.4]{content/polygon/sol-must-be/2-eq-angles-circle.png}
@@ -275,7 +278,7 @@ Le fait suivant, utilisé dans la preuve précédente, mérite d'être mis en va
 		$\perim{\dbleprimeit{\setproba{P}}} < \perim{\setproba{P}}$
 		et
 		$\area{\dbleprimeit{\setproba{P}}} = \area{\setproba{P}}$,
-		qu'il suffit d'agrandir pour conclure.
+		qu'il suffit d'agrandir homothétiquement pour conclure.
 
 
 	    \item Pour $k \neq 1$ et $\onelist{C} = \frac{k - 1}{2}$,
@@ -366,7 +369,7 @@ Le fait suivant, utilisé dans la preuve précédente, mérite d'être mis en va
 	}
 	sur la maximisation de l'aire totale de deux triangles isocèles de bases fixées, et de périmètre total constant:
 	ce résultat affirme que les deux triangles doivent avoir des angles en leur sommet principal de même mesure.
-	Malheureusement, cette preuve échoue lors de la disparition d'un sommet en choisissant la paire optimale de triangles isocèles pour construire un nouveau \ngone\ \focus{plus gros}.
+	Malheureusement, cette preuve peut \focus{échouer} lors de la disparition d'un sommet en choisissant la paire optimale de triangles isocèles pour construire un nouveau \ngone\ \focus{plus gros}.
 \end{remark}
 
 

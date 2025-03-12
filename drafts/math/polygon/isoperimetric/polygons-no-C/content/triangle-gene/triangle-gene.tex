@@ -1,14 +1,14 @@
 \begin{fact} \label{iso-tri}
-	Considérons tous les triangles de périmètre fixé $p$. Parmi tous ces triangles, un seul est d'aire maximale, c'est le triangle équilatéral de côté $c = \dfrac13 p$.
+	Considérons tous les triangles de périmètre fixé $p$. Parmi tous ces triangles, il en existe un seul d'aire maximale, c'est le triangle équilatéral de côté $c = \dfrac13 p$.
 \end{fact}
 
 
 \begin{proof}	
-	Nous allons donner une démonstration constructive via une application itérative du fait \ref{tri-one-side-fixed} qui va donner à la limite le triangle équilatéral d'aire maximale, et ceci avec une vitesse de convergence exponentielle.%
+	Nous allons donner une démonstration constructive via une application itérative du fait \ref{tri-one-side-fixed} donnant, par passage à la limite, le triangle équilatéral d'aire maximale, et ceci avec une vitesse de convergence exponentielle.%
 	\footnote{
 		Ceci ne va nécessiter que l'emploi de propriétés simples de l'ensemble des réels.
 	}
-	Partons donc d'un triangle $ABC$ quelconque, mais de périmètre $p$, le fait \ref{tri-one-side-fixed} nous donne successivement les triangles $ACD$, $ADE$ et $AEF$ isocèles en $D$, $E$ et $F$ respectivement, ayant tous pour périmètre $p$, et ceci avec des aires de plus en plus grandes.  
+	Partons donc d'un triangle $ABC$ quelconque, mais de périmètre $p$, le fait \ref{tri-one-side-fixed} donne successivement les triangles $ACD$, $ADE$ et $AEF$ isocèles en $D$, $E$ et $F$ respectivement, ayant tous pour périmètre $p$, et ceci avec des aires de plus en plus grandes.  
 	Le dessin suivant amène à conjecturer qu'en poursuivant le procédé pour avoir ensuite un triangle $AFG$ isocèle en $G$...\,, nous aboutirons \focus{à la limite} à un triangle équilatéral.
 
 	\begin{center}
@@ -21,7 +21,7 @@
 	%
 	\begin{enumerate}
 		\item Comme $AC + 2 AD = p$ et $AC > AD$, nous avons $AC > \frac13 p > AD$.
-		À l'étape suivante, comme $AD + 2 AE = p$, nous obtenons $AD < \frac13 p < AE$.
+		À l'étape suivante, comme $AD + 2 AE = p$, nous obtenons nécessaireemnt $AD < \frac13 p < AE$.
 
 
 		\item Pour $AEF$ isocèle en $F$, comme $AE + 2AF = p$, nous arrivons à  $AE > \frac13 p > AF$.

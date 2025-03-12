@@ -4,7 +4,7 @@
 
 
 \begin{proof}
-	Voici une preuve géométrique élémentaire s'appuyant sur le dessin suivant où les rectangles $1$, $2$ et $3$ sont isométriques au rectangle vert étudié de dimension $L \times \ell$.
+	Voici une preuve géométrique élémentaire s'appuyant sur le dessin suivant où les rectangles $1$, $2$ et $3$ sont isométriques au rectangle étudié de dimension $L \times \ell$.
 
 	\begin{center}
 		\includegraphics[scale=.4]{content/rectangle/rect-2-square.png}
@@ -22,7 +22,7 @@
 		et d'aire supérieure ou égale à $\num{.5}^2 \times 4 L \ell =  L \ell$, avec inégalité stricte si le rectangle initial n'est pas un carré.
 	\end{enumerate}
 	
-	Donc, parmi tous les rectangles de périmètre $p = 2 (L + \ell)$ et d'aire $L \ell$, le seul qui puisse avoir une aire maximale est le carré. Joli! Non?
+	Donc, parmi tous les rectangles de périmètre $p = 2 (L + \ell)$ et d'aire $L \ell$, le carré est d'aire maximale. Joli! Non?
 \end{proof}
 
 
@@ -30,8 +30,7 @@
 
 
 \begin{remark}
-	Une preuve courante consiste à exprimer l'aire du rectangle comme polynôme du 2\ieme\ degré en $L$ par exemple.
-	On obtient $L \ell = L (\num{.5} p - L)$ qui est maximale en $L_M = \num{.25} p$ (moyenne des racines), d'où $\ell_M = \num{.25} p = L_M$.
+	Une preuve courante consiste à exprimer l'aire du rectangle comme polynôme du 2\ieme\ degré en $L$, par exemple: on obtient $L \ell = L (\num{.5} p - L)$ qui est maximale en $L_M = \num{.25} p$ (moyenne des racines), d'où $\ell_M = \num{.25} p = L_M$.
 \end{remark}
 
 
@@ -39,10 +38,11 @@
 
 
 \begin{remark} \label{ineq-geo-quad-arith}
-	Nous avons établi que
+	Nous avons établi
 	$4 L \ell \leq (L + \ell)^2$
 	pour $(L ; \ell) \in \big( \RRsp \big)^2$.
-	Ceci permet de comparer les moyennes arithmétique $\frac12 (L + \ell)$, géométrique $\sqrt{L \ell}$ et quadratique $\sqrt{\frac12 (L^2 + \ell^2)}$.
+	Ceci permet de comparer les moyennes arithmétique $\frac12 (L + \ell)$, géométrique $\sqrt{L \ell}$ et quadratique $\sqrt{\frac12 (L^2 + \ell^2)}$ d'ordre $2$.
+	Voici comment faire.
 	%
 	\begin{itemize}
 		\item L'application de la racine carrée donne

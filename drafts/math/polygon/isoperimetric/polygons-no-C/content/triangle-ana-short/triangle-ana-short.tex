@@ -12,7 +12,7 @@ Nous donnons ici des preuves courtes du fait \ref{iso-tri}, mais sans notion gé
 	Selon \textbf{la formule de Héron},
 	$\sqrt{s(s - a)(s - b)(s - c)}$
 	est l'aire d'un triangle de côtés $a$, $b$, $c$ et de demi-périmètre $s = \num{.5} p$.
-	La comparaison des moyennes géométrique et arithmétique%
+	\textbf{La comparaison des moyennes géométrique et arithmétique}%
 	\footnote{
 		La formule de Héron reste un argument géométrique, mais quid de la comparaison des moyennes géométrique et arithmétique d'ordre $3$, généralement justifiée via la concavité de la fonction logarithme.
 		À l'ordre $2$, l'inégalité s'obtient aisément par un argument géométrique simple: voir la remarque \ref{ineq-geo-quad-arith}.
@@ -22,8 +22,8 @@ Nous donnons ici des preuves courtes du fait \ref{iso-tri}, mais sans notion gé
 	puis
 	$s(s - a)(s - b)(s - c) \leq \frac{1}{27} s^4$,
 	et enfin
-	$\sqrt{s(s - a)(s - b)(s - c)} \leq \frac{p^2}{12 \sqrt{3}}$
-	où $\frac{p^2}{12 \sqrt{3}}$ est l'aire du triangle équilatéral de périmètre $p$.
+	$\sqrt{s(s - a)(s - b)(s - c)} \leq \frac{s^2}{3 \sqrt{3}}$
+	où $\frac{s^2}{3 \sqrt{3}} = \frac{p^2}{12 \sqrt{3}}$ est l'aire du triangle équilatéral de périmètre $p$.
 \end{proof}
 
 
@@ -31,24 +31,21 @@ Nous donnons ici des preuves courtes du fait \ref{iso-tri}, mais sans notion gé
 
 
 \begin{proof}[\altproof{2}]
-	Faisons appel à \textbf{l'analyse élémentaire aidée du fait \ref{tri-one-side-fixed}}.
-	Ce fait permet de se concentrer sur $ABC$ isocèle en $C$. 
+	Faisons appel à \textbf{l'analyse élémentaire aidée du fait \ref{tri-one-side-fixed}} qui permet de se concentrer sur $ABC$ isocèle en $C$. 
 	Choisissons un repère orthonormé $\pvaxes{O | i | j}$ tel que  $A\coord{0 | 0}$, $B\coord{AB | 0}$ et $C\coord{x_C | y_C}$ avec $y_C \geq 0$, et posons $c = AC = BC \neq 0$ et $s = \frac{p}{2}$.
-	Donc
+	Dès lors,
 	$x_B = 2 s - 2 c \neq 0$, et 
 	$y_C = \sqrt{c^2 - (s - c)^2}$, 
 	puis
-	$\area{ABC}^2 = (s - c)^2 (c^2 - (s - c)^2 )$,
+	$\area{ABC}^2 = \big( s - c \big)^2 \big( c^2 - (s - c)^2 \big)$,
 	soit
 	$\area{ABC}^2 = s (s - c)^2 (s - 2 c)$.%
 	\footnote{
 		Nous venons de démontrer la formule de Héron dans le cas particulier d'un triangle isocèle.
 	}
-	Or, le maximum de la fonction 
-	$\alpha : c \mapsto s (s - c)^2 (s - 2 c)$ est forcément atteint en $c$ annulant 
-	$\sder{\alpha}{1}(c) = - 2 s (s - c) (s - 2 c) - 2 s (s - c)^2 = 2 s (c - s) (2s - 3c)$, 
-	soit pour $c = \frac{2s}{3} = \frac{p}{3}$, car $c = s$ est exclu,
-	donc $ABC$ équilatéral est la solution \og optimale \fg.
+	Notant $\alpha(c) = s (s - c)^2 (s - 2 c)$ pour $c \in \intervalO{0}{2 s}$, nous avons $\sder{\alpha}{1}(c) = - 2 s (s - c) (s - 2 c) - 2 s (s - c)^2 = 2 s (c - s) (2s - 3c)$.
+	Donc $\alpha$ admet un maximum en $c = \frac{2s}{3} = \frac{p}{3}$ uniquement,
+	ceci justifiant que $ABC$ équilatéral soit la solution \og optimale \fg.
 \end{proof}
 
 

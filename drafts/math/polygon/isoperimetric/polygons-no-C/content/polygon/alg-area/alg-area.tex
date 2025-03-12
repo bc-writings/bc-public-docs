@@ -100,11 +100,11 @@ Dans le cas précédent, le résultat pourrait dépendre du point $\Omega$ emplo
         +
         \mu_1^n (M ; \setproba{L})
     \explnext{}
-        \mu_1^n (M ; \setproba{L})
-        +
         \dsum_{i=2}^{n+1} \det \big( \vect{\Omega M} , \vect{M \primeit{A}_{i}} \big)
         -
         \dsum_{i=1}^{n} \det \big( \vect{\Omega M} , \vect{M \primeit{A}_i} \big)
+        +
+        \mu_1^n (M ; \setproba{L})
     \explnext*{$\primeit{A}_{n+1} = \primeit{A}_1$}{}
         \mu_1^n (M ; \setproba{L})
     \end{stepcalc}
@@ -119,7 +119,7 @@ Dans le cas précédent, le résultat pourrait dépendre du point $\Omega$ emplo
 \begin{fact} \label{nline-shift-inva}
     Soient $\setproba{L} = A_1 A_2 \cdots A_n$ un \ncycle,
     et
-    l'une de ses\ \og \emph{permutés} \fg\ $\setproba{L}_k = B_1 B_2 \cdots B_n$ défini par $B_i = \primeit{A}_{i+k-1}$ pour $k \in \ZintervalC{1}{n}$,
+    l'un de ses\ \og \emph{permutés} \fg\ $\setproba{L}_k = B_1 B_2 \cdots B_n$ défini par $B_i = \primeit{A}_{i+k}$ pour $k \in \ZZ$,
     %
     Nous avons
     $\mu_1^n (\setproba{L}) = \mu_1^n (\setproba{L}_k)$.
@@ -302,7 +302,7 @@ Dans le cas non-convexe, les choses se compliquent a priori, car nous ne maîtri
 
 
 		\noindent
-		Posons $\setproba{P}^{\,\prime} = A_1 \cdots A_{n-1}$ où $k = n-1$ vérifie $k \in \NN_{\geq3}$. Par hypothèse, $\setproba{P}^{\,\prime}$ est positif. 
+		Posons $\setproba{P}^{\,\prime} = A_1 \cdots A_{n-1}$ qui est positif comme $\setproba{P}$. 
 		Nous arrivons aux calculs suivants en utilisant $A_1$ comme point de calcul de $\mu(\setproba{P})$.
 
 		\leavevmode\kern-2em%
@@ -339,8 +339,9 @@ Dans le cas non-convexe, les choses se compliquent a priori, car nous ne maîtri
 
 		\noindent
 		Par hypothèse de récurrence, nous savons que
-		$\mu(\setproba{P}^{\,\prime}) \geq 0$,
-		et comme $A_{n-1} A_n A_1$ est une oreille de $\setproba{P}$, la $3$-ligne $A_{n-1} A_n A_1$ est forcément positive, d'où $\mu(A_{n-1} A_n A_1) \geq 0$ d'après le cas de base.
+		$\mu(\setproba{P}^{\,\prime}) \geq 0$.
+		De plus, $A_{n-1} A_n A_1$ étant une oreille de $\setproba{P}$, 
+		ce \xcycle{3} est forcément positif, d'où $\mu(A_{n-1} A_n A_1) \geq 0$ d'après le cas de base.
 		Nous arrivons bien à $\mu(\setproba{P}) \geq 0$, ce qui permet de finir aisément la démonstration par récurrence.
 	\end{itemize}
 	
@@ -349,6 +350,9 @@ Dans le cas non-convexe, les choses se compliquent a priori, car nous ne maîtri
 
 
 % ----------------------- %
+
+
+Le fait suivant nous montre que, pour les \ngones, l'aire algébrique est une extension de l'aire géométrique usuelle. Merci la tiangulisation!
 
 
 \begin{fact} \label{sarea-ngone}
@@ -369,9 +373,11 @@ Dans le cas non-convexe, les choses se compliquent a priori, car nous ne maîtri
 		Soit $\setproba{P} = A_1 \cdots A_n$ un \ngone\ avec $n \in \NN_{>3}$.
 		%
 		Comme $\sarea{\setproba{P}^{\mathrm{op}}} = - \sarea{\setproba{P}}$ selon le fait \ref{nline-rota-opp}, nous pouvons choisir de parcourir $\setproba{P}$ positivement, puis de nous placer dans la situation de la démonstration du fait \ref{route-direction}:
-		$A_{n-1} A_n A_1$ est une oreille positive d'une triangulation à l'écoute du \ngone\ $\setproba{P}$, et $\setproba{P}^{\,\prime} = A_1 \cdots A_{n-1}$ un \kgone\ positif où $k = n-1$ vérifie $k \in \NN_{\geq3}$.
+		$A_{n-1} A_n A_1$ est une oreille positive d'une triangulation à l'écoute du \ngone\ $\setproba{P}$,
+		et
+		$\setproba{P}^{\,\prime} = A_1 \cdots A_{n-1}$ positif.
 		%
-		Nous arrivons finalement aux calculs élémentaires suivants.
+		Nous arrivons alors aux calculs élémentaires suivants.
 		
 		\leavevmode\kern-2em%
 		\begin{stepcalc}[style=ar*]
@@ -385,7 +391,7 @@ Dans le cas non-convexe, les choses se compliquent a priori, car nous ne maîtri
 		          {}
 		    \frac12 \abs{\mu(\setproba{P}^{\,\prime})} + \frac12 \abs{\mu(A_{n-1} A_n A_1)}
 		%
-		\explnext*{Voir le fait \ref{route-direction}.}%
+		\explnext*{Par positivité.}%
 		          {}
 		    \frac12 \big( \mu(\setproba{P}^{\,\prime}) + \mu(A_{n-1} A_n A_1) \big)
 		%
@@ -393,7 +399,7 @@ Dans le cas non-convexe, les choses se compliquent a priori, car nous ne maîtri
 		          {}
 		    \frac12 \mu(\setproba{P})
 		%
-		\explnext*{Voir le fait \ref{route-direction}.}%
+		\explnext*{Par positivité.}%
 		          {}
 		    \frac12 \abs{\mu(\setproba{P})}
 		\explnext{}
