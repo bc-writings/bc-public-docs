@@ -5,6 +5,8 @@ Nous allons donc chercher à justifier l'existence d'au moins un \ngone\ convexe
 % ----------------------- %
 
 
+\newpage
+
 \begin{fact} \label{conv-from-non-neg-det}
     Si $\setproba{L} = A_1 A_2 \cdots A_n$ un \ncycle\ convexe, alors l'une des assertions suivante est validée.
     %
@@ -35,8 +37,8 @@ Nous allons donc chercher à justifier l'existence d'au moins un \ngone\ convexe
 	%
 	Seul le cas $\setproba{L}$ non totalement dégénéré requiert notre attention.
 	%
-	L'idée de la construction est simple: il s'agit de chercher des sommets extrémaux, c'est-à-dire qui \focus{forment un angle}. Nous allons raisonner algorithmiquement en utilisant
-	une variable $i$ initialisée à $1$, 
+	L'idée de la construction est simple: il s'agit de chercher des sommets extrémaux, c'est-à-dire qui \focus{forment un angle}.
+	Nous allons raisonner algorithmiquement en utilisant une variable $i$ initialisée à $1$, 
 	et
 	une liste $\onelist{C}$, initialement vide, pour stocker les sommets \og utiles \fg\ à la fabrication du \kgone\ convexe final.
 	%
@@ -48,7 +50,7 @@ Nous allons donc chercher à justifier l'existence d'au moins un \ngone\ convexe
 		puis nous passons directement à l'action \ref{algo-kgone-loop-back}\,.
 
 
-    	\item \label{algo-kgone-remove-vertices}
+	    \item \label{algo-kgone-remove-vertices}
         Sinon, il existe 
 	    $m \in \NN_{>i+2}$ minimal tel que
 		$\det \big( \vect{\primeit{A}_i \primeit{A}_{i+1}}, \vect{\primeit{A}_i \primeit{A}_m} \big) > 0$, car $\setproba{L}$ n'est pas totalement dégénéré.
@@ -124,8 +126,8 @@ Nous allons donc chercher à justifier l'existence d'au moins un \ngone\ convexe
 
 
         \item Il reste le cas où $\primeit{A}_i \in (\primeit{A}_1 \primeit{A}_r)$.
-       Ceci nous donne le schéma suivant, où
-       $\primeit{A}_i \in [\primeit{A}_1 \primeit{A}_r]$ est possible, a priori. 
+       	Ceci nous donne le schéma suivant, où
+       	$\primeit{A}_i \in [\primeit{A}_1 \primeit{A}_r]$ est possible, a priori. 
         %
         \begin{center}
         	\includegraphics[scale=.2]{content/polygon/at-least-one/algo-kgone-terminate-2.png}
@@ -167,7 +169,7 @@ Nous allons donc chercher à justifier l'existence d'au moins un \ngone\ convexe
 
 
         \item Par construction, trois sommets \focus{consécutifs} $\primeit{A}_q$, $\primeit{A}_r$ et $\primeit{A}_s$ de $\setproba{C}$, sont tels que $\det \big( \vect{\primeit{A}_q \primeit{A}_{r}}, \vect{\primeit{A}_q \primeit{A}_s} \big) > 0$.
-        Dès lors, $\setproba{C}$ est un \kgone\ convexe.
+        Dès lors, $\setproba{C}$ est un \kgone\ convexe d'après le fait \ref{conv-pos-det}.
     \end{itemize}
 
 	

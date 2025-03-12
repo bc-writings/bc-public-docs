@@ -1,9 +1,11 @@
 Cette section cherche à caractériser la nature des solutions du problème d’isopérimétrie polygonale.
-Compte-tenu du fait \ref{at-least-one-ncycle}, nous pourrions raisonner avec des \ncycles\ convexes:
-par exemple, pour justifier qu'un \ngone\ non convexe $\setproba{P}$ n'est pas optimal, il suffit d'exhiber un \ncycle\ convexe $\setproba{L}$ qui vérifie
+Compte-tenu du fait \ref{at-least-one-ncycle}, nous pourrions raisonner avec des \ncycles\ convexes.%
+\footnote{
+	Par exemple, pour justifier qu'un \ngone\ non convexe $\setproba{P}$ n'est pas optimal, il suffit d'exhiber un \ncycle\ convexe $\setproba{L}$ qui vérifie
 $\cyclelen{\setproba{L}} = \cyclelen{\setproba{P}}$,
-ainsi que
-$\area{\setproba{L}} > \area{\setproba{P}}$.
+	ainsi que
+	$\area{\setproba{L}} > \area{\setproba{P}}$.
+}
 Nous allons tout de même nous restreindre aux \ngones, car cela ne demande que peu d'efforts supplémentaires, tout en fournissant de jolis résultats.
 
 \begin{tcolorbox}
@@ -30,7 +32,7 @@ Nous allons tout de même nous restreindre aux \ngones, car cela ne demande que 
 	\begin{center}
 		\centering
 		\small\itshape
-		\includegraphics[scale=.45]{content/polygon/sol-must-be/convex-hull.png}
+		\includegraphics[scale=.25]{content/polygon/sol-must-be/convex-hull.png}
 	\end{center}
 	
 	Clairement,
@@ -128,12 +130,10 @@ Le fait suivant, utilisé dans la preuve précédente, mérite d'être mis en va
 	de sorte que $\setproba{P}$ admet un triplet de sommets consécutifs $A$, $B$ et $C$ tels que $AB \neq BC$
 	(sinon, on obtiendrait, de proche en proche, l'équilatéralité).
 	%
-	La construction vue dans la preuve du fait \ref{tri-one-side-fixed} nous donne la solution: voir les dessins ci-après dans lesquels
+	La construction vue dans la preuve du fait \ref{tri-one-side-fixed} nous donne la solution: voir les dessins ci-après où 
 	$m$ est la médiatrice du segment $[AC]$,
 	et
-	$(AC) \parallel (BB^{\,\prime})$.
-	Pour le 2\ieme\ cas, il n'est pas possible d'utiliser le triangle $AB^{\,\prime}C$ isocèle en $B^{\,\prime}$, sinon nous n'aurions plus un \ngone.
-	Pour ces situations problématiques, il suffit de se \focus{déplacer} un peu sur le segment ouvert $]BB^{\,\prime}[$ en direction de $m$.
+	$(AC) \parallel (BB^{\,\prime})$..
 	%
 	\begin{multicols}{2}
 		\centering
@@ -143,7 +143,11 @@ Le fait suivant, utilisé dans la preuve précédente, mérite d'être mis en va
 		\includegraphics[scale=.4]{content/polygon/sol-must-be/not-iso-BORDER.png}
 	\end{multicols}
 
-	Dans chaque cas, nous avons construit un \ngone\ convexe $\dbleprimeit{\setproba{P}}$ tel que
+
+	Il faut bien noter que pour le 2\ieme\ cas ci-dessus, il n'est pas possible d'utiliser le triangle $AB^{\,\prime}C$ isocèle en $B^{\,\prime}$, sinon nous n'aurions plus un \ngone.
+	Pour ces situations problématiques, il suffit de se \focus{déplacer} un peu sur le segment ouvert $]BB^{\,\prime}[$ en direction de $m$.
+	%
+	Quoiqu'il en soit, dans chaque cas, nous avons construit un \ngone\ convexe $\dbleprimeit{\setproba{P}}$ tel que
 	$\perim{\dbleprimeit{\setproba{P}}} < \perim{\setproba{P}}$
 	et
 	$\area{\dbleprimeit{\setproba{P}}} = \area{\setproba{P}}$.
