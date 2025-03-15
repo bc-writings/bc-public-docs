@@ -1,4 +1,4 @@
-Nous allons utiliser une définition simple de la convexité pour les \ngones, et plus généralement pour les \ncycles. Ceci demande de savoir que, dans un plan orienté, un triangle non dégénéré $ABC$ est dit \focus{orienté positivement} si la condition $\det \big( \vect{AB} , \vect{AC} \big) > 0$ est validée (dans ce cas, le triangle $BAC$ est orienté négativement, comme cela se vérifie aisément).
+Nous allons utiliser une définition simple de la convexité pour les \ngones, et plus généralement pour les \ncycles. Ceci demande de savoir que, dans un plan orienté, un triangle non dégénéré $ABC$ est dit \focus{orienté positivement} si la condition $\det \big( \vect{AB} , \vect{AC} \big) > 0$ est validée. Dans ce cas, le triangle $BAC$ est orienté négativement, comme cela se vérifie aisément via $\det \big( \vect{AB} , \vect{AB} + \vect{BC} \big)$.
 %Pourquoi étudier la convexité des \ncycles? Pour l'existence d'au moins une solution, nous travaillerons dans un ensemble compact, et donc fermé, de \ncycles, or, pour garder des \ngones, nous devrions utiliser des non-égalités, mais ceci nous ferait sortir du cadre fermé qui nous intéresse.
 
 
@@ -102,8 +102,8 @@ Nous allons utiliser une définition simple de la convexité pour les \ngones, e
 	$\det \big( \vect{\primeit{A}_i \primeit{A}_{i+1}}, \vect{\primeit{A}_i \primeit{A}_{i+2}} \big) > 0$
 	pour $i \in \ZintervalC{1}{n}$ quelconque.
 	%
-	Comme tous les sommets de $\setproba{P}$ sont du même côté de la droite $( \primeit{A}_i \primeit{A}_{i+1} )$, ou dessus elle,
-	le point précédent donne finalement
+	Comme tous les sommets de $\setproba{P}$ sont du même côté de la droite $( \primeit{A}_i \primeit{A}_{i+1} )$, ou sur elle,
+	nous obtenons alors
 	$\det \big( \vect{\primeit{A}_i \primeit{A}_{i+1}}, \vect{\primeit{A}_i \primeit{A}_k} \big) \geq 0$
 	pour $(i, k) \in \ZintervalC{1}{n}^2$.
 	Ceci établit la convexité de $\setproba{P}$.

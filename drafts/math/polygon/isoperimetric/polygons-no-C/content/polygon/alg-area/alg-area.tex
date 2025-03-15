@@ -47,15 +47,15 @@ il faut se souvenir qu'un triangle $ABC$ est d'aire $\frac12 \abs{ \det \big( \v
 
 
 \begin{proof}
-    Soit $M$ un autre point du plan.
+    Soit $M$ un autre point du plan. La bilinéarité du déterminant nous donne:
 
     \begin{stepcalc}[style=ar*]
         \mu_1^n (\Omega ;\setproba{L})
 %    \explnext{}
 %        \dsum_{i=1}^{n} \det \big( \vect{\Omega \primeit{A}_i} , \vect{\Omega \primeit{A}_{i+1}} \big)
     \explnext{}
-        \dsum_{i=1}^{n} \det \big( \vect{\Omega M} + \vect{M \primeit{A}_i} , \vect{\Omega M} + \vect{M \primeit{A}_{i+1}} \big)
-    \explnext{}
+%        \dsum_{i=1}^{n} \det \big( \vect{\Omega M} + \vect{M \primeit{A}_i} , \vect{\Omega M} + \vect{M \primeit{A}_{i+1}} \big)
+%    \explnext{}
         \dsum_{i=1}^{n} \Big[
             \det \big( \vect{\Omega M} , \vect{\Omega M} \big)
             +
@@ -65,12 +65,12 @@ il faut se souvenir qu'un triangle $ABC$ est d'aire $\frac12 \abs{ \det \big( \v
             +
             \det \big( \vect{M \primeit{A}_i} , \vect{M \primeit{A}_{i+1}} \big)
         \Big]
-    \explnext{}
-        \dsum_{i=1}^{n} \det \big( \vect{\Omega M} , \vect{M \primeit{A}_{i+1}} \big)
-        +
-        \dsum_{i=1}^{n} \det \big( \vect{M \primeit{A}_i} , \vect{\Omega M} \big)
-        +
-        \mu_1^n (M ; \setproba{L})
+%    \explnext{}
+%        \dsum_{i=1}^{n} \det \big( \vect{\Omega M} , \vect{M \primeit{A}_{i+1}} \big)
+%        +
+%        \dsum_{i=1}^{n} \det \big( \vect{M \primeit{A}_i} , \vect{\Omega M} \big)
+%        +
+%        \mu_1^n (M ; \setproba{L})
     \explnext{}
         \dsum_{i=2}^{n+1} \det \big( \vect{\Omega M} , \vect{M \primeit{A}_{i}} \big)
         -
@@ -190,7 +190,7 @@ Dans le cas non-convexe, les choses se compliquent a priori, car nous ne maîtri
     \begin{multicols}{3}
         \small\itshape
         \begin{center}
-            \includegraphics[scale=.4]{content/polygon/alg-area/triangulation-1.png}
+            \includegraphics[scale=.35]{content/polygon/alg-area/triangulation-1.png}
 
             \smallskip
             Un \ngone\ \og nu \fg.
@@ -198,7 +198,7 @@ Dans le cas non-convexe, les choses se compliquent a priori, car nous ne maîtri
 
 
         \begin{center}
-            \includegraphics[scale=.4]{content/polygon/alg-area/triangulation-2.png}
+            \includegraphics[scale=.35]{content/polygon/alg-area/triangulation-2.png}
 
             \smallskip
             Le \ngone\ triangulé.
@@ -206,7 +206,7 @@ Dans le cas non-convexe, les choses se compliquent a priori, car nous ne maîtri
 
 
         \begin{center}
-            \includegraphics[scale=.4]{content/polygon/alg-area/triangulation-3.png}
+            \includegraphics[scale=.35]{content/polygon/alg-area/triangulation-3.png}
 
             \smallskip
             Le \ngone\ allégé.
@@ -248,11 +248,14 @@ Dans le cas non-convexe, les choses se compliquent a priori, car nous ne maîtri
 
 	\begin{itemize}
 		\item \textbf{Cas de base.}
-		Soit $ABC$ un triangle. Dire que les sommets $A$, $B$ et $C$ sont parcourus dans le sens trigonométrique, c'est savoir que $\mu(ABC) = \det \big( \vect{AB} , \vect{AC} \big) > 0$.
+		Soit $ABC$ un triangle non dégénéré.
+		Dire que $A$, $B$ et $C$ sont parcourus dans le sens trigonométrique,
+		c'est savoir que $\mu(ABC) = \det \big( \vect{AB} , \vect{AC} \big) > 0$.
 
 
 		\item \textbf{Hérédité.}
-		Soit un \ngone\ positif $\setproba{P} = A_1 A_2 \cdots A_n$ avec $n \in \NN_{>3}$. On peut supposer que $A_{n-1} A_n A_1$ est une oreille d'une triangulation à l'écoute du \ngone\ $\setproba{P}$.
+		Soit un \ngone\ positif $\setproba{P} = A_1 A_2 \cdots A_n$ avec $n \in \NN_{>3}$.
+		Quitte à changer l'origine de $\setproba{P}$, sans modifier le sens de parcours, nous pouvons supposer que $A_{n-1} A_n A_1$ est une oreille d'une triangulation à l'écoute de $\setproba{P}$.
 
 
 	    \begin{multicols}{2}
@@ -324,7 +327,7 @@ Dans le cas non-convexe, les choses se compliquent a priori, car nous ne maîtri
 % ----------------------- %
 
 
-Le fait suivant nous montre que, pour les \ngones, l'aire algébrique est une extension de l'aire géométrique usuelle. Merci la tiangulisation!
+Le fait suivant nous montre que, pour les \ngones, l'aire algébrique est une extension de l'aire géométrique usuelle. Merci la tiangulation!
 
 
 \begin{fact} \label{sarea-ngone}
@@ -338,7 +341,7 @@ Le fait suivant nous montre que, pour les \ngones, l'aire algébrique est une ex
 
     \begin{itemize}
 		\item \textbf{Cas de base.}
-		L'égalité est immédiate pour les triangles (c'est ce qui a motivé la définition de l'aire algébrique).
+		L'égalité est immédiate pour les triangles non dégénérés (c'est ce qui a motivé la définition de l'aire algébrique).
 
 
 		\item \textbf{Hérédité.}
