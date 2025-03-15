@@ -51,11 +51,11 @@ il faut se souvenir qu'un triangle $ABC$ est d'aire $\frac12 \abs{ \det \big( \v
 
     \begin{stepcalc}[style=ar*]
         \mu_1^n (\Omega ;\setproba{L})
-%    \explnext{}
-%        \dsum_{i=1}^{n} \det \big( \vect{\Omega \primeit{A}_i} , \vect{\Omega \primeit{A}_{i+1}} \big)
     \explnext{}
-%        \dsum_{i=1}^{n} \det \big( \vect{\Omega M} + \vect{M \primeit{A}_i} , \vect{\Omega M} + \vect{M \primeit{A}_{i+1}} \big)
-%    \explnext{}
+        \dsum_{i=1}^{n} \det \big( \vect{\Omega \primeit{A}_i} , \vect{\Omega \primeit{A}_{i+1}} \big)
+    \explnext{}
+        \dsum_{i=1}^{n} \det \big( \vect{\Omega M} + \vect{M \primeit{A}_i} , \vect{\Omega M} + \vect{M \primeit{A}_{i+1}} \big)
+    \explnext{}
         \dsum_{i=1}^{n} \Big[
             \det \big( \vect{\Omega M} , \vect{\Omega M} \big)
             +
@@ -119,7 +119,7 @@ il faut se souvenir qu'un triangle $ABC$ est d'aire $\frac12 \abs{ \det \big( \v
 
 
 \begin{proof}
-    Soit $\Omega$ un point quelconque du plan.
+    Soit $\Omega$ un point quelconque du plan. Nous avons:
 
     \begin{stepcalc}[style=ar*]
         \mu(\cycleop{L})

@@ -225,7 +225,7 @@ Commençons par un fait simple, mais utile, qui mérite d'être mis en valeur.
 	    Dans les implications suivantes, nous avons posé 
 	    $\onelist{S} = \sin \alpha$ et $\onelist{C} = \cos \alpha$.
 	    
-	    \noindent
+	    \leavevmode\kern-2em%
 	    \begin{stepcalc}[style=ar*, ope={\implies[d'où]}]
 	        \sder{f}{1}(\alpha) = 0
 	    \explnext{}
@@ -247,6 +247,14 @@ Commençons par un fait simple, mais utile, qui mérite d'être mis en valeur.
 	        =
 	        4 \onelist{C}^2
 	    \explnext*{$\onelist{C}^2 + \onelist{S}^2 = 1$}{}
+	        ( 1 - k^2 + 2 k \onelist{C})^2 - 4 \onelist{C}^2 = 0
+	    \end{stepcalc}
+	    
+	    \noindent
+	    Les implications se poursuivent comme suit.
+	    
+	    \leavevmode\kern-2em%
+	    \begin{stepcalc}[style=ar*, ope={\implies[d'où]}]
 	        ( 1 - k^2 + 2 k \onelist{C})^2 - 4 \onelist{C}^2 = 0
 	    \explnext{}
 	        ( 1 - k^2 + 2 k \onelist{C} - 2 \onelist{C} )
