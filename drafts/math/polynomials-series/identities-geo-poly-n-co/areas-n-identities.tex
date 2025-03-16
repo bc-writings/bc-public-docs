@@ -37,7 +37,7 @@ Le fait \ref{poly-nullity-pos} ci-après va rendre licite le passage de la formu
 
 
 \begin{fact} \label{poly-nullity-pos}
-	Soit $P \in \setpoly{\RR}{X_1 | ... | X_n}$ un polynôme réel à $n$ variables où $n \in \NNs$.
+	Soit $P: \RR^n \rightarrow \RR$ une fonction polynomiale à $n$ variables, où $n \in \NNs$.
 	Si $P$ s'annule sur $\big( \RRsp \big)^n$, alors $P$ s'annule sur $\RR^n$ tout entier. 
 \end{fact}
 
@@ -45,36 +45,36 @@ Le fait \ref{poly-nullity-pos} ci-après va rendre licite le passage de la formu
 \begin{proof}
 	Raisonnons par récurrence sur $n \in \NNs$ pour démontrer la validité de la propriété $\setproba{P}(n)$ définie par
 	\emph{\og 
-		Pour tout polynôme réel $P \in \setpoly{\RR}{X_1 | ... | X_n}$ à $n$ variables,
+		Pour tout fonction polynomiale réelle $P: \RR^n \rightarrow \RR$,
 		si $P$ s'annule sur $\big( \RRsp \big)^n$,
 		alors $P$ s'annule sur $\RR^n$ tout entier. 
-	\fg}.
+	\fg}\kern2pt.
 	%
 	\begin{itemize}[label=\small\textbullet]
 		\item \textbf{Cas de base.}
 		%
-		$\setproba{P}(1)$ signifie qu'un polynôme réel à une variable s'annulant sur $\RRsp$ est identiquement nul sur $\RR$ tout entier.
+		$\setproba{P}(1)$ signifie qu'une fonction polynomiale réelle à une variable s'annulant sur $\RRsp$ est identiquement nulle sur $\RR$ tout entier.
 		%
 		Comme un polynôme réel non nul n'a qu'un nombre fini de racines, nous avons la validité de $\setproba{P}(1)$.
 
 
 		\item \textbf{Hérédité.}
 		%
-		Supposons $\setproba{P}(n)$ valide pour un naturel $n$ fixé, mais quelconque.
-		Soit un polynôme $P$ de $(n + 1)$ variables vérifiant les conditions de la propriété $\setproba{P}(n + 1)$.
+		Supposons $\setproba{P}(n)$ valide pour un naturel $n$ quelconque.
+		Soit une fonction polynomiale $P$ à $(n + 1)$ variables vérifiant les conditions de la propriété $\setproba{P}(n + 1)$.
 		%
 		\begin{enumerate}
-		    \item Fixons $x \in \RRsp$, et considérons le polynôme $P_x(X_1 ; ... ; X_n) = P(X_1 ; ... ; X_n ; x)$.
+		    \item Soient $x \in \RRsp$ fixé, puis la fonction polynomiale $P_x(x_1 ; ... ; x_n) = P(x_1 ; ... ; x_n ; x)$.
 		    Comme $P_x$ vérifie les conditions de la propriété $\setproba{P}(n)$, par hypothèse de récurrence, on a
 		    $P_x(x_1 ; ... ; x_n) = 0$, soit $P(x_1 ; ... ; x_n ; x) = 0$, pour tous réels $x_1$ , ... , $x_n$.
 
 
-		    \item Fixons maintenant des réels $x_1$ , ... , $x_n$ de signes quelconques, et considérons le polynôme $p(X) = P(x_1 ; ... ; x_n ; X)$.
+		    \item Fixons maintenant des réels $x_1$ , ... , $x_n$ de signes quelconques, et considérons la fonction polynomiale $p(x) = P(x_1 ; ... ; x_n ; x)$.
 		    Le point précédent montre que $p$ vérifie $\setproba{P}(1)$, donc $p(x) = 0$, soit $P(x_1 ; ... ; x_n ; x) = 0$, pour tout réel $x$, d'après le cas de base.
 
 
 		    \item Finalement $P(x_1 ; ... ; x_n ; x) = 0$ pour tous réels $x_1$ , ... , $x_n$ et $x$.
-		    Autrement dit, nous avons déduit la validité de $\setproba{P}(n+1)$ à partir de celle de $\setproba{P}(n)$ .
+		    Autrement dit, nous avons déduit la validité de $\setproba{P}(n+1)$ à partir de celle de $\setproba{P}(n)$.
 		\end{enumerate}
 		
 		
@@ -106,7 +106,7 @@ Le fait \ref{poly-nullity-pos} ci-après va rendre licite le passage de la formu
 
 
 \begin{example}
-	Nous laissons le soin au lecteur de vérifier à l'aide d'un cube, le solide géométrique, la validité de l'identité $(a + b)^3 = a^3 + 3 a^2 b + 3 a b^2 + b^3$ pour tous réels $a$ et $b$ .
+	Nous laissons le soin au lecteur de vérifier à l'aide d'un cube, le solide géométrique, la validité de l'identité $(a + b)^3 = a^3 + 3 a^2 b + 3 a b^2 + b^3$ pour tous réels $a$ et $b$.
 \end{example}
 
 
@@ -128,14 +128,14 @@ Le fait \ref{poly-nullity-pos}, bien que très utile, ne peut plus s'appliquer i
     (a-b)^2 = a^2 - 2ab + b^2
 \end{stepcalc}
 
-Peut-on tout de même déduire du calcul géométrique précédent la validité, pour tous réels $a$ et $b$, de l'identité $(a - b)^2 = a^2 + b^2 - 2ab$?
+Peut-on tout de même déduire du calcul géométrique précédent la validité, pour tous les réels $a$ et $b$, de l'identité $(a - b)^2 = a^2 + b^2 - 2ab$?
 Le fait \ref{poly-nullity-interval} suivant montre que cela est possible. 
 
 
 \medskip
 
 \begin{fact} \label{poly-nullity-interval}
-	Soit $P \in \setpoly{\RR}{X_1 | ... | X_n}$ un polynôme réel à $n$ variables où $n \in \NNs$ .
+	Soit $P: \RR^n \rightarrow \RR$ une fonction polynomiale à $n$ variables, où $n \in \NNs$.
 	Si $\setgeo{E} \subseteq \RR^n$ contient $\setgeo*{E}{1} \times \cdots \times \setgeo*{E}{n}$ où chaque $\setgeo*{E}{k} \subseteq \RR$ est infini,
 	et si $P$ s'annule sur $\setgeo{E}$ alors $P$ s'annule sur $\RR^n$ tout entier. 
 \end{fact}
@@ -167,7 +167,7 @@ Nous avons les calculs géométriques simples suivants.
     a^2 - b^2 = \setgeo*{A}{GHCK} + \setgeo*{A}{EBHG} + \setgeo*{A}{FGKD}
 \end{stepcalc}
 
-En déplaçant ensuite le rectangle $EBHG$ comme ci-dessous, nous obtenons alors un rectangle de dimension $(a+b) \times (a-b)$ . 
+En déplaçant ensuite le rectangle $EBHG$ comme ci-dessous, nous obtenons alors un rectangle de dimension $(a+b) \times (a-b)$. 
 	
 \begin{center}
 	\fbox{\includegraphics[scale = .7]{/areas-n-identities/(a-b)(a-b)-spe.png}}
