@@ -1,0 +1,67 @@
+\documentclass[12pt]{amsart}
+
+\usepackage{bc-writings}
+
+
+\NewDocumentCommand{\binosum}{m O{n} O{k}}{\dsum_{#3=0}^{#2} \binom{n}{k} #1}
+
+\begin{document}
+
+
+\title{Newton, Bernoulli, Leibniz \& Fibonacci}
+\author{Christophe BAL}
+\date{17 Mars 2025}
+
+\maketitle
+
+\begin{center}
+	\itshape
+	Document, avec son source \LaTeX, disponible sur la page
+
+	\url{https://github.com/bc-writings/bc-public-docs/tree/main/drafts}.
+\end{center}
+
+
+\bigskip
+
+
+\begin{center}
+	\hrule\vspace{.3em}
+	{
+		\fontsize{1.35em}{1em}\selectfont
+		\textbf{Mentions \og légales \fg}
+	}
+
+	\vspace{0.45em}
+	\doclicenseThis
+	\hrule
+\end{center}
+
+
+\bigskip
+
+
+\setcounter{tocdepth}{1}
+\tableofcontents
+
+
+
+\newpage
+
+\section{Des identités bien connues}
+
+\subimport*{content/}{intro}
+
+
+\section{Dites-les avec des arbres!}
+
+\subimport*{content/treeview}{treeview}
+
+
+
+\section{La formule du binôme de Newton implique...}
+
+\subimport*{content/newton-implies}{newton-implies}
+
+
+\end{document}

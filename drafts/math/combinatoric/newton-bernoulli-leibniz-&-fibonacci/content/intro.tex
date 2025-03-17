@@ -1,0 +1,33 @@
+Les formules suivantes, qui sont de grands classiques pour les trois premières,%
+\footnote{
+    La 4\ieme\ identité est un classique des classes préparatoires.
+}
+partagent une ressemblance évidente. Nous allons donner deux démonstrations de ces identités via deux méthodes rendant moins mystérieuses ces similarités portant sur des objets a priori bien différents.
+%
+Ci-après, 
+$\delta_{jk}$ désigne le symbole de Kronecker valant $1$ si $j=k$, et $0$ sinon,
+tandis que
+$X$ est la variable aléatoire comptant le nombre de succès d'un schéma de Bernoulli de paramètre $(n ; p)$,
+et enfin
+$(F_k)_{k \in \NN}$ correspond à la suite de Fibonacci.
+%
+\begin{itemize}
+    \item \textbf{Formule du binôme de Newton:}
+    %
+    $(a + b)^n = \binosum{a^k b^{n-k}}$.
+
+
+    \item \textbf{Formule de dérivation de Leibniz:}
+    %
+    $(fg)^{(n)}(x) = \binosum{f^{(k)}(x) g^{(n-k)}(x)}$.
+
+
+    \item \textbf{Loi binomiale:}
+    %
+    $\proba{X = j} = \binosum{p^k (1 - p)^{n-k}} \delta_{jk}$.
+
+
+    \item \textbf{\boldmath Expression de $F_{2n}$ en fonction de $F_k$ précédents:}
+    %
+    $F_{2n} = \binosum{F_k}$.
+\end{itemize}
