@@ -1,0 +1,212 @@
+\documentclass[12pt]{amsart}
+
+\usepackage{bc-writings}
+
+
+\NewDocumentCommand{\focus}{m}{\emph{\og #1 \fg}}
+
+
+\NewDocumentCommand{\onelist}{m}{\mathsf{#1}}
+
+
+\NewDocumentCommand{\primeit}{m}{#1^{\,\prime}}
+\NewDocumentCommand{\dbleprimeit}{m}{#1^{\,\prime\prime}}
+
+
+\NewDocumentCommand{\cycleop}{m}{\setproba{#1}^{\mathrm{op}}}
+
+
+\NewDocumentCommand{\cyclelen}{m}{\mathrm{Long}(#1)}
+\NewDocumentCommand{\perim}{m}{\mathrm{Perim}(#1)}
+
+
+\NewDocumentCommand{\area}{m}{\mathrm{Aire}(#1)}
+\NewDocumentCommand{\sarea}{m}{\overline{\mathrm{Aire}}(#1)}
+\NewDocumentCommand{\garea}{m}{\mathrm{AireGene}(#1)}
+\NewDocumentCommand{\carea}{m}{\mathrm{AireCol}(#1)}
+
+
+\NewDocumentCommand{\xcycle}{m}{$#1$-cycle}
+\NewDocumentCommand{\xcycles}{m}{\xcycle{#1}s}
+
+\newcommand{\ncycle}{\xcycle{n}}
+\newcommand{\ncycles}{\xcycles{n}}
+
+\newcommand{\kcycle}{\xcycle{k}}
+\newcommand{\kcycles}{\xcycles{k}}
+
+
+\NewDocumentCommand{\xgone}{m}{$#1$-gone}
+\NewDocumentCommand{\xgones}{m}{\xgone{#1}s}
+
+\newcommand{\ngone}{\xgone{n}}
+\newcommand{\ngones}{\xgones{n}}
+
+\newcommand{\kgone}{\xgone{k}}
+\newcommand{\kgones}{\xgones{k}}
+
+
+\newcommand{\nequi}{\ngone\ équilatéral}
+\newcommand{\nequis}{\ngones\ équilatéraux}
+
+
+
+\NewDocumentCommand{\xiso}{m}{\xgone{#1} équiangle}
+\NewDocumentCommand{\xisos}{m}{\xgones{#1} équiangles}
+
+\newcommand{\niso}{\xiso{n}}
+\newcommand{\nisos}{\xisos{n}}
+
+\newcommand{\kiso}{\xiso{k}}
+\newcommand{\kisos}{\xisos{k}}
+
+
+
+\NewDocumentCommand{\xreg}{m}{\xgone{#1} régulier}
+\NewDocumentCommand{\xregs}{m}{\xgones{#1} réguliers}
+
+\newcommand{\nreg}{\xreg{n}}
+\newcommand{\nregs}{\xregs{n}}
+
+\newcommand{\kreg}{\xreg{k}}
+\newcommand{\kregs}{\xregs{k}}
+
+
+\setlength\parindent{0pt}
+
+
+\begin{document}
+
+\title{Inégalités isopérimétriques restreintes aux polygones}
+\author{Christophe BAL}
+\date{18 Jan. 2025 -- 16 Mars 2025}
+
+\maketitle
+
+\begin{center}
+	\itshape
+	Document, avec son source \LaTeX, disponible sur la page
+
+	\url{https://github.com/bc-writings/bc-public-docs/tree/main/math/geometry/polygon/isoperimetric-no-C}.
+\end{center}
+
+
+\bigskip
+
+
+\begin{center}
+	\hrule\vspace{.3em}
+	{
+		\fontsize{1.35em}{1em}\selectfont
+		\textbf{Mentions \og légales \fg}
+	}
+
+	\vspace{0.45em}
+	\doclicenseThis
+	\hrule
+\end{center}
+
+
+
+\setcounter{tocdepth}{2}
+\tableofcontents
+
+
+% ------------- %
+
+
+\newpage
+
+Ce document, de niveau élémentaire,%
+\footnote{
+    Cela nous conduira à admettre certains théorèmes qui, bien que paraissant simples, méritent une justification approfondie.
+}
+s'intéresse au classique problème de l'isopérimétrie plane, c'est-à-dire à la recherche d'une surface plane maximisant son aire pour un périmètre donné.
+Nous nous limiterons ici au cas des polygones, en privilégiant des démonstrations les plus géométriques possible, et en ne faisant appel à l'analyse qu'en cas de nécessité.%
+\footnote{
+    Un autre point d'attaque serait l'usage du plan complexe pour tenter une approche synthétique.
+}
+
+
+\begin{tcolorbox}
+    \itshape\small
+    Afin d'alléger le texte, nous raisonnerons parfois modulo des isométries. Ainsi, nous parlerons directement du \og carré de côté \( c \) \fg, du \og triangle équilatéral de côté \( c \) \fg, etc.
+\end{tcolorbox}
+
+
+% ------------- %
+
+
+\section{Pourquoi un  nouveau document sur l'isopérimétrie?}
+\subimport*{content/}{why}
+
+
+% ------------- %
+
+
+\section{Triangles}
+
+\subsection{Avec un côté fixé}
+\subimport*{content/triangle/one-side-fixed/}{one-side-fixed}
+
+
+\subsection{Le cas général}
+\subimport*{content/triangle/gene/}{gene}
+
+
+\subsection{Des preuves courtes non géométriques}
+\subimport*{content/triangle/}{ana-short}
+
+
+% ------------- %
+
+
+\section{Quadrilatères}
+
+\subsection{Les rectangles}
+\subimport*{content/quadrilateral/rectangle/}{rectangle}
+
+
+\subsection{Les parallélogrammes}
+\subimport*{content/quadrilateral/parallelogram/}{parallelogram}
+
+
+\subsection{Le cas général}
+\subimport*{content/quadrilateral/gene/}{gene}
+
+
+% ------------- %
+
+
+\section{Les polygones}
+
+\subsection{Où allons-nous?}
+\subimport*{content/polygon/}{plan}
+
+
+\subsection{Les \ncycles\ et les \ngones}
+\subimport*{content/polygon/ncycle-ngone/}{ncycle-ngone}
+
+
+%%\newpage%TEMPO
+
+\subsection{La convexité revisitée}
+\subimport*{content/polygon/convex/}{convex}
+
+
+\subsection{Aire algébrique d'un \ncycle}
+\subimport*{content/polygon/alg-area/}{alg-area}
+
+
+\subsection{Au moins une solution}
+\subimport*{content/polygon/at-least-one/}{at-least-one}
+
+
+\subsection{Solutions, qui êtes-vous?}
+\subimport*{content/polygon/sol-must-be/}{sol-must-be}
+
+
+\subsection{Théorème d'isopérimétrie polygonale}
+\subimport*{content/polygon/}{isoperim}
+
+\end{document}
