@@ -64,4 +64,32 @@
 \subimport*{content/newton-implies}{newton-implies}
 
 
+
+
+Les nombres de Bell \( B_n \) comptent les partitions d'un ensemble et admettent la relation :
+\[
+B_{n+1} = \sum_{k=0}^{n} \binom{n}{k} B_k.
+\]  
+Cette somme ressemble fortement à la relation pour \( F_{2n} \).
+
+
+
+
+Les **nombres de Bell** \( B_n \) comptent le nombre de partitions d'un ensemble à \( n \) éléments. Ils apparaissent en combinatoire et ont plusieurs formules intéressantes impliquant des coefficients binomiaux et des sommes.  
+
+
+Le nombre de Bell \( B_n \) est défini comme le nombre de façons de partitionner un ensemble de \( n \) éléments en sous-ensembles non vides.  
+
+Quelques premiers termes :  
+\[
+B_0 = 1, \quad B_1 = 1, \quad B_2 = 2, \quad B_3 = 5, \quad B_4 = 15, \quad B_5 = 52.
+\]
+Par exemple, pour \( n=3 \), il y a \( B_3 = 5 \) partitions possibles de l’ensemble \(\{a, b, c\} \) :  
+1. \( \{ \{a, b, c\} \} \) (1 seul bloc)  
+2. \( \{ \{a, b\}, \{c\} \} \)  
+3. \( \{ \{a, c\}, \{b\} \} \)  
+4. \( \{ \{b, c\}, \{a\} \} \)  
+5. \( \{ \{a\}, \{b\}, \{c\} \} \) (chaque élément seul)
+
+
 \end{document}

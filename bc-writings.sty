@@ -36,10 +36,13 @@
 \newtheorem{remark}[fact]{Remarque}
 \newtheorem{example}[fact]{Exemple}
 
-\newtheorem*{proof*}{Preuve}
-
+\newtheorem*{skeproof}{Principe de la démonstration}
 \NewDocumentCommand{\altproof}{m}{Démonstration alternative #1}
 
+\NewDocumentEnvironment{meta-abstract}{+b}{}{}
+\NewDocumentEnvironment{meta-abstract*}{+b}{#1}{}
+
+\NewDocumentCommand{\focus}{m}{\emph{\og #1 \fg}}
 
 \setlength\parindent{0pt}
 
