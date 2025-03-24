@@ -28,51 +28,54 @@ Via les points $M$, $N$, $P$ et $Q$, il est facile de fournir des arguments géo
 
 De nouveau, il serait bien de pouvoir passer, sans plus d'effort, à la validité des formules ci-dessus sur $\RR$ tout entier \emph{(considérer les autres cas n'est pas compliqué, mais c'est pénible)}.
 %
-Nous allons voir que cela est licite grâce au fait \ref{analytic-nullity} suivant qui est un peu technique, car il nécessite la notion de fonction analytique, un concept dont nous donnons la définition ci-après.
+Nous allons voir que cela est licite grâce au fait \ref{analytic-identity} suivant qui est un peu technique, car il nécessite la notion de fonction analytique.
 
 
 \begin{defi}
     Soit $U \subseteq \RR$ un ouvert non vide.
+	%
 	Une fonction réelle $f: U \rightarrow \RR$ est dite analytique en $x_0$, 
 	s'il existe
-	une série entière $\dsum_{n \geq 0} a_n x^n$
+	une série entière $\dsum_{n = 0}^{+\infty} a_n x^n$
 	de rayon de convergence $\rho_0 > 0$,
 	et
 	un réel $r \in \intervalOC{0}{\rho_0}$ tels que 
 	$\forall x \in \intervalO{x_0 - r}{x_0 + r} \subseteq U$, on ait:
-	$f(x) = \dsum_{n \geq 0} a_n (x - x_0)^n$.
-	%
-	Si $f$ est analytique en tout réel de $U$, on dira que $f$ est analytique sur $U$.
+	$f(x) = \dsum_{n = 0}^{+\infty} a_n (x - x_0)^n$.
+
+	Si $f$ est analytique en tout réel de $U$, nous dirons que $f$ est analytique sur $U$.
 \end{defi}
 
 
-
-\begin{fact} \label{analytic-nullity}
+\begin{fact} \label{analytic-identity}
     Soit $U \subseteq \RR$ un ouvert connexe non vide,
     et
-    $f: U \rightarrow \RR$ une fonction analytique non identiquement nulle.
+    $f: U \rightarrow \RR$ une fonction analytique.
     %
-	Si $\alpha \in U$ vérifie $f(\alpha) = 0$,
-	alors il existe un ouvert $V$ tel que 
-	$\alpha \in V \subseteq U$,
-	et
-	$\forall x \in V - \setgene{\alpha}$, $f(x) \neq 0$ 
-	\emph{(c'est le principe des zéros isolés)}. 
+	Si $f$ s'annule sur un ouvert de $U$, alors $f$ est identiquement nulle
+	\emph{(c'est le théorème d'identité)}.  
 \end{fact}
 
 
 \begin{proof}
-	TODO
+	Ceci découle du fait \ref{multi-analytic-identity} analogue pour plusieurs variables que nous démontrerons plus tard.
 \end{proof}
 
 
+\begin{fact} \label{power-series-vs-analytic}
+    Soit $f: \RR \rightarrow \RR$.
+    S'il existe une série entière $\dsum_{n = 0}^{+\infty} a_n x^n$ de rayon de convergence infini
+    telle que
+	$\forall x \in \RR$, $f(x) = \dsum_{n = 0}^{+\infty} a_n x^n$,
+	alors
+	$f$ est analytique sur $\RR$. 
+\end{fact}
 
 
+\begin{proof}
+	Ceci découle du fait \ref{multi-power-series-vs-analytic} analogue pour plusieurs variables que nous démontrerons plus tard.
+\end{proof}
 
-
-
-
-\newpage
 
 Si nous revenons à nos identités trigonométriques, il suffit de savoir que les fonctions circulaires réelles sont analytiques sur $\RR$ tout entier, et de noter que le raisonnement géométrique au début de cette section fait clairement apparaître des zéros non isolés pour les fonctions analytiques sur $\RR$ suivantes.%
 \footnote{
@@ -93,6 +96,15 @@ Si nous revenons à nos identités trigonométriques, il suffit de savoir que le
 \end{itemize}
 
 
+
+
+
+
+
+
+\newpage
+
+
 Que faire si nous avons des formules trigonométriques impliquant deux variables? Par exemple, le dessin suivant, par simple application des définitions géométriques du cosinus et du sinus, donne à la fois
 $\cos(\alpha + \beta) = \cos \alpha \cos \beta - \sin \alpha \sin \beta$
 et
@@ -104,7 +116,7 @@ $(\alpha ; \beta) \in \big( \RRsp \big)^2$ tel que $0 < \alpha + \beta < \frac{\
 	\includegraphics[scale=.7]{two-var-trig-formulas.png}
 \end{center}
 
-Le fait \ref{multi-analytic-nullity} ci-dessous, qui généralise le fait \ref{analytic-nullity}, implique la validité des formules trigonométriques précédentes sur $\RR^2$ tout entier en faisant les choix ci-après.
+Le fait \ref{multi-analytic-identity} ci-dessous, qui généralise le fait \ref{analytic-identity}, implique la validité des formules trigonométriques précédentes sur $\RR^2$ tout entier en faisant les choix ci-après.
 Nous voilà sauvés!
 %
 \begin{itemize}[label=\small\textbullet]
@@ -114,28 +126,52 @@ Nous voilà sauvés!
 \end{itemize}
 
 
+
+
+
+
 \begin{defi}
-    Soient $n \in \NNs$, et $\Omega \subseteq \RR^n$ un ouvert non vide.
-	Une fonction complexe $f: \Omega \rightarrow \RR$ est dite analytique en $\omega \in \Omega$, 
-	si elle est $\RR$-différentiable en $\omega$,
-	c'est-à-dire s'il existe une application $\RR$-linéaire $Df: \RR^n \rightarrow \RR$
-	vérifiant
-	$\displaystyle \lim_{\stackrel{\norm{z - \omega}_n \, \rightarrow \, 0}{z \, \in \, \Omega - \setgene{\omega}}}\!\Big( \frac{f(z) - f(\omega) - Df(\omega) (z - \omega)}{\norm{z - \omega}_n} \Big) = 0$.
+    Soient $n \in \NNs$, et $U \subseteq \RR$ un ouvert non vide.
+	Une fonction réelle $f: U \rightarrow \RR$ est dite analytique en $x_0$, 
+	s'il existe
+	une série entière $\dsum_{n = 0}^{+\infty} a_n x^n$
+	de rayon de convergence $\rho_0 > 0$,
+	et
+	un réel $r \in \intervalOC{0}{\rho_0}$ tels que 
+	$\forall x \in \topodisc{x_0}{r} \subseteq U$, on ait:
+	$f(x) = \dsum_{XXX} a_n (x - x_0)^n$.
+	%
+	Si $f$ est analytique en tout réel de $U$, on dira que $f$ est analytique sur $U$.
 \end{defi}
 
 
-\begin{fact} \label{multi-analytic-nullity}
-    Soient $n \in \NN_{\geq 2}$,
-    $\Omega \subseteq \RR^n$ un ouvert connexe non vide,
-    et
-    $f: \Omega \rightarrow \RR$ une fonction analytique.
-    %
-	Si $f$ s'annule sur un ouvert de $\Omega$,
-	alors $f$ est identiquement nulle
-	\emph{(c'est le théorème d'identité)}. 
+
+\begin{fact} \label{multi-power-series-vs-analytic}
+    Soient $n \in \NNs$, et $f: \RR^n \rightarrow \RR$.
+    S'il existe une série entière $\dsum_{XXXX} a_n x^n$ de rayon de convergence infini
+    telle que
+	$\forall x \in \RR^n$, $f(x) = \dsum_{XXX} a_n x^n$,
+	alors
+	$f$ est analytique sur $\RR^n$. 
 \end{fact}
 
 
 \begin{proof}
-	Ceci nous amènerait trop loin, donc nous admettrons ce résultat. Si vous avez une impression de déjà-lu, c'est normal.
+	TODO
+\end{proof}
+
+
+
+\begin{fact} \label{multi-analytic-identity}
+    Soient $n \in \NNs$, et $U \subseteq \RR^n$ un ouvert connexe non vide,
+    et
+    $f: U \rightarrow \RR$ une fonction analytique.
+    %
+	Si $f$ s'annule sur un ouvert de $U$, alors $f$ est identiquement nulle
+	\emph{(c'est le théorème d'identité)}.  
+\end{fact}
+
+
+\begin{proof}
+	TODO
 \end{proof}
