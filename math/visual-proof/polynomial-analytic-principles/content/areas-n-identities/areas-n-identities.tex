@@ -14,17 +14,19 @@ Malheureusement, cette démonstration n'est valable que pour $a > 0$ et $b > 0$ 
 
 
 Comment passer à $(a + b)^2 = a^2 + b^2 + 2 ab$ pour $a$ et $b$ deux réels de signes quelconques ?
-Classiquement, on fait une vérification via un calcul algébrique: en résumé, on conjecture géométriquement, puis on valide algébriquement.
+Classiquement, nous faisons une vérification via un calcul algébrique.
+%
+En résumé, nous conjecturons géométriquement, puis nous validons algébriquement.
 %
 Bien que rigoureuse, la démarche précédente est peu satisfaisante, car elle balaye d'un revers de main l'approche géométrique, dont le rôle est réduit à la découverte d'une formule.
-Si l'on considère le dessin ci-après, il est dommage de devoir faire du calcul algébrique pour valider $(a + b + c)^2 = a^2 + b^2 + c^2 + 2 ab + 2 ac + 2 bc$ pour $a$, $b$ et $c$ des réels de signes quelconques.
+Si nous considérons le dessin ci-après, il est dommage de devoir faire du calcul algébrique pour valider $(a + b + c)^2 = a^2 + b^2 + c^2 + 2 ab + 2 ac + 2 bc$ pour $a$, $b$ et $c$ des réels de signes quelconques.
 Ce serait bien de pouvoir passer directement de $(a + b + c)^2 = a^2 + b^2 + c^2 + 2 ab + 2 ac + 2 bc$ vraie pour $a > 0$, $b > 0$ et $c > 0$, à la validation de l'identité pour $a$, $b$ et $c$ de signes quelconques.
 
 \begin{center}
 	\includegraphics[scale = .7]{(a+b)^3.png}
 \end{center}
 
-Le fait \ref{poly-nullity-pos} ci-après va rendre licite le passage des formules géométriques contraintes précdentes au cas général en faisant les choix suivants.
+Le fait \ref{poly-nullity-pos} ci-après va rendre licite le passage des formules géométriques contraintes précédentes au cas général en faisant les choix suivants de polynômes.
 %
 \begin{itemize}[label=\small\textbullet]
 	\item $p_1(a ; b) = (a + b)^2 - a^2 - b^2 - 2 ab$
@@ -65,7 +67,7 @@ Le fait \ref{poly-nullity-pos} ci-après va rendre licite le passage des formule
 		%
 		\begin{enumerate}
 		    \item Soient $x \in \RRsp$ fixé, puis la fonction polynomiale $p_x(x_1 ; ... ; x_n) = p(x_1 ; ... ; x_n ; x)$.
-		    Comme $p_x$ vérifie les conditions de la propriété $\setproba{P}(n)$, par hypothèse de récurrence, on a
+		    Comme $p_x$ vérifie les conditions de la propriété $\setproba{P}(n)$, par hypothèse de récurrence, nous avons
 		    $p_x(x_1 ; ... ; x_n) = 0$, soit $p(x_1 ; ... ; x_n ; x) = 0$, pour tous réels $x_1$ , ... , $x_n$.
 
 
@@ -91,7 +93,7 @@ Le fait \ref{poly-nullity-pos} ci-après va rendre licite le passage des formule
 
 
 \begin{example}
-	En utilisant une approche géométrique semblable à celle présentée plus haut, il devient évident, et rigoureux maintenant, d'affirmer que $\forall n \in \NNs$, $\forall (a_1 ; ... ; a_n) \in \RR^n$, on a :
+	En utilisant une approche géométrique semblable à celle présentée plus haut, il devient évident, et rigoureux maintenant, que $\forall n \in \NNs$, $\forall (a_1 ; ... ; a_n) \in \RR^n$, nous avons:
 \[
 	\big( \sum_{k=1}^{n}a_k \big)^2
 	=
@@ -123,7 +125,7 @@ Le fait \ref{poly-nullity-pos}, bien que très utile, ne peut plus s'appliquer i
 
 \leavevmode\kern-1em%
 \begin{stepcalc}[style=ar*, ope={\iff}]
-    \setgeo*{A}{GHCK} = \setgeo*{A}{ABCD} - \setgeo*{A}{ABHF} - \setgeo*{A}{AEKD} + \setgeo*{A}{AEGF}
+    \area{GHCK} = \area{ABCD} - \area{ABHF} - \area{AEKD} + \area{AEGF}
 \explnext{}
     (a-b)^2 = a^2 - 2ab + b^2
 \end{stepcalc}
@@ -163,9 +165,9 @@ Nous avons les calculs géométriques simples suivants.
 
 \leavevmode\kern-1em%
 \begin{stepcalc}[style=ar*, ope={\iff}]
-    \setgeo*{A}{ABCD} - \setgeo*{A}{AEGF} = \setgeo*{A}{GHCK} + \setgeo*{A}{EBHG} + \setgeo*{A}{FGKD}
+    \area{ABCD} - \area{AEGF} = \area{GHCK} + \area{EBHG} + \area{FGKD}
 \explnext{}
-    a^2 - b^2 = \setgeo*{A}{GHCK} + \setgeo*{A}{EBHG} + \setgeo*{A}{FGKD}
+    a^2 - b^2 = \area{GHCK} + \area{EBHG} + \area{FGKD}
 \end{stepcalc}
 
 En déplaçant ensuite le rectangle $EBHG$ comme ci-dessous, nous obtenons alors un rectangle de dimension $(a+b) \times (a-b)$. 
@@ -176,6 +178,7 @@ En déplaçant ensuite le rectangle $EBHG$ comme ci-dessous, nous obtenons alors
 
 Finalement, nous obtenons $a^2 - b^2 = (a+b)(a-b)$ si $a > b$,
 puis, 
-en appliquant le fait \ref{poly-nullity-interval} à $p(a ; b) = a^2 - b^2 - (a+b)(a-b)$, 
-on obtient: $\forall (a ; b) \in \RR^2$, $a^2 - b^2 = (a+b)(a-b)$.
+en appliquant le fait \ref{poly-nullity-interval} au polynôme $p(a ; b) = a^2 - b^2 - (a+b)(a-b)$, 
+nous avons:
+$\forall (a ; b) \in \RR^2$, $a^2 - b^2 = (a+b)(a-b)$.
 \end{example}

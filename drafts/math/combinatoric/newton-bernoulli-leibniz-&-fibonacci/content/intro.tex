@@ -1,15 +1,4 @@
-Les formules suivantes, qui sont de grands classiques pour les trois premières,%
-\footnote{
-    La 4\ieme\ identité est un classique des classes préparatoires.
-}
-partagent une ressemblance évidente. Nous allons donner deux démonstrations de ces identités via deux méthodes rendant moins mystérieuses ces similarités portant sur des objets a priori bien différents.
-%
-Ci-après, 
-$\delta_{jk}$ désigne le symbole de Kronecker valant $1$ si $j=k$, et $0$ sinon,
-tandis que
-$X$ est la variable aléatoire comptant le nombre de succès d'un schéma de Bernoulli de paramètre $(n ; p)$,
-et enfin
-$(F_k)_{k \in \NN}$ correspond à la suite de Fibonacci.
+Les formules suivantes sont intrigantes par leur ressemblance. Bien qu’elles relèvent de domaines différents, nous verrons que cela n'a rien d'une coïncidence : à travers deux démonstrations adoptant des points de vue distincts, nous mettrons en évidence les liens entre ces objets qui, à première vue, semblent sans rapport.
 %
 \begin{itemize}
     \item \textbf{Formule du binôme de Newton:}
@@ -24,10 +13,33 @@ $(F_k)_{k \in \NN}$ correspond à la suite de Fibonacci.
 
     \item \textbf{Loi binomiale:}
     %
-    $\proba{X = j} = \binosum{p^k (1 - p)^{n-k}} \delta_{jk}$.
+    $\proba{X = j} = \binosum{p^k (1 - p)^{n-k}} \delta_{jk}$,%
+    \footnote{
+    	$\delta_{jk}$ est le symbole de Kronecker valant $1$ si $j=k$, et $0$ sinon,
+		tandis que
+		$X$ désigne la variable aléatoire comptant le nombre de succès d'un schéma de Bernoulli de paramètre $(n ; p)$.
+    }
+    même s'il est d'usage de juste écrire
+    $\proba{X = j} =\binom{n}{j} p^j (1 - p)^{n-j}$.
 
 
-    \item \textbf{\boldmath Expression de $F_{2n}$ en fonction de $F_k$ précédents:}
+    \item \textbf{Une identité portant sur la suite de Fibonacci:}
     %
     $F_{2n} = \binosum{F_k}$.
+
+
+    \item \textbf{Une équation reliant les nombres de Bell:}
+    %
+    $B_{n+1} = \binosum{B_k}$.%
+    \footnote{
+    	$B_n$ est le nombre de façons de partitionner un ensemble de $n$ éléments en sous-ensembles non vides:
+		par exemple,
+		$B_3 = 5$,
+		car l'ensemble $\setgene{ a , b , c }$ admet les partitions
+		$\setgene{ a } \cup \setgene{ b } \cup \setgene{ c }$,
+		$\setgene{ a , b , c }$,
+		$\setgene{ a } \cup \setgene{ b , c }$,
+		$\setgene{ b } \cup \setgene{ a , c }$ et
+		$\setgene{ c } \cup \setgene{ a , b }$.
+    }
 \end{itemize}

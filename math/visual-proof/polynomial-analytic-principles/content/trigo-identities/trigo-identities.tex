@@ -4,7 +4,7 @@ Considérons le dessin suivant, où les mesures des angles sont en radians.
 	\includegraphics[scale = .7]{one-var-trig-formulas.png}
 \end{center}
 
-Via les points $M$, $N$, $P$ et $Q$, il est facile de fournir des arguments géométriques de symétrie justifiant que, sous la condition $x \in \intervalO{0}{\frac{\pi}{4}}$, on a:
+Via les points $M$, $N$, $P$ et $Q$, il est facile de fournir des arguments géométriques de symétrie justifiant que, sous la condition $x \in \intervalO{0}{\frac{\pi}{4}}$, nous avons:
 %
 \begin{multicols}{3}
 \begin{itemize}[label=\small\textbullet]
@@ -26,9 +26,9 @@ Via les points $M$, $N$, $P$ et $Q$, il est facile de fournir des arguments géo
 \end{multicols}
 
 
-De nouveau, il serait bien de pouvoir passer à la validité des formules précédentes sur $\RR$ tout entier sans plus d'effort \emph{(considérer les autres cas n'est pas compliqué, mais c'est pénible)}.
+De nouveau, il serait bien de pouvoir passer, sans plus d'effort, à la validité des formules ci-dessus sur $\RR$ tout entier \emph{(considérer les autres cas n'est pas compliqué, mais c'est pénible)}.
 %
-Nous allons voir que cela est licite grâce au fait \ref{holo-nullity} suivant qui est un peu technique, car il nécessite la notion de fonction holomorphe, un concept dont nous donnons la définition tout de suite.
+Nous allons voir que cela est licite grâce au fait \ref{analytic-nullity} suivant qui est un peu technique, car il nécessite la notion de fonction analytique, un concept dont nous donnons la définition tout de suite.
 
 
 \begin{defi}
@@ -45,7 +45,7 @@ Nous allons voir que cela est licite grâce au fait \ref{holo-nullity} suivant q
 Tout comme avec les fonctions réelles dérivables sur $\RR$, la propriété d'holomorphie se conserve par addition, multiplication, inverse et composition.
 De plus, comme les fonctions polynomiales, les fonctions holomorphes vérifient des restrictions fortes sur leurs zéros éventuels, comme le montre le fait classique suivant.
 
-\begin{fact} \label{holo-nullity}
+\begin{fact} \label{analytic-nullity}
     Soient $\Omega \subseteq \CC$ un ouvert connexe non vide,
     et
     $f: \Omega \rightarrow \CC$ une fonction holomorphe non identiquement nulle.
@@ -94,7 +94,7 @@ $(\alpha ; \beta) \in \big( \RRsp \big)^2$ tel que $0 < \alpha + \beta < \frac{\
 	\includegraphics[scale=.7]{two-var-trig-formulas.png}
 \end{center}
 
-Le fait \ref{multi-holo-nullity} ci-dessous, qui généralise le fait \ref{holo-nullity}, implique la validité des formules trigonométriques précédentes sur $\RR^2$ tout entier en faisant les choix ci-après.
+Le fait \ref{multi-analytic-nullity} ci-dessous, qui généralise le fait \ref{analytic-nullity}, implique la validité des formules trigonométriques précédentes sur $\RR^2$ tout entier en faisant les choix ci-après.
 Nous voilà sauvés!
 %
 \begin{itemize}[label=\small\textbullet]
@@ -114,7 +114,7 @@ Nous voilà sauvés!
 \end{defi}
 
 
-\begin{fact} \label{multi-holo-nullity}
+\begin{fact} \label{multi-analytic-nullity}
     Soient $n \in \NN_{\geq 2}$,
     $\Omega \subseteq \CC^n$ un ouvert connexe non vide,
     et

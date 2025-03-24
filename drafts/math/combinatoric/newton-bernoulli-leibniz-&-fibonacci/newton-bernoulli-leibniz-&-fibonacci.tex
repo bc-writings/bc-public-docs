@@ -2,15 +2,30 @@
 
 \usepackage{bc-writings}
 
+\usepackage{forest}
+
+
+\forestset{
+  default/.style={
+    rectangle,       % Forme rectangulaire des nœuds
+    draw,            % Tracer les bords des nœuds
+    minimum height=1cm, 
+    minimum width=1cm,
+    font=\sffamily,  % Police sans-serif
+    align=center,    % Centrer le texte dans les nœuds
+    edge={-},        % Pas de flèches sur les arêtes
+  }
+}
 
 \NewDocumentCommand{\binosum}{m O{n} O{k}}{\dsum_{#3=0}^{#2} \binom{n}{k} #1}
+
 
 \begin{document}
 
 
-\title{Newton, Bernoulli, Leibniz \& Fibonacci}
+\title{BROUILLON -- Newton, Bernoulli, Leibniz, Fibonacci et Bell}
 \author{Christophe BAL}
-\date{17 Mars 2025}
+\date{17 Mars 2025 - 22 Mars 2025}
 
 \maketitle
 
@@ -41,9 +56,11 @@
 \bigskip
 
 
-\setcounter{tocdepth}{1}
+\setcounter{tocdepth}{2}
 \tableofcontents
 
+
+% ----------------------- %
 
 
 \newpage
@@ -53,43 +70,26 @@
 \subimport*{content/}{intro}
 
 
-\section{Dites-les avec des arbres!}
+% ----------------------- %
 
-\subimport*{content/treeview}{treeview}
 
+\section{La loi binomiale révèle...}
+
+\subsection{De l'utilité des arbres}
+
+\subimport*{content/treeview}{binomial}
+
+
+\subsection{XXX}
+
+\subimport*{content/treeview}{binomial}
+
+
+% ----------------------- %
 
 
 \section{La formule du binôme de Newton implique...}
 
 \subimport*{content/newton-implies}{newton-implies}
-
-
-
-
-Les nombres de Bell \( B_n \) comptent les partitions d'un ensemble et admettent la relation :
-\[
-B_{n+1} = \sum_{k=0}^{n} \binom{n}{k} B_k.
-\]  
-Cette somme ressemble fortement à la relation pour \( F_{2n} \).
-
-
-
-
-Les **nombres de Bell** \( B_n \) comptent le nombre de partitions d'un ensemble à \( n \) éléments. Ils apparaissent en combinatoire et ont plusieurs formules intéressantes impliquant des coefficients binomiaux et des sommes.  
-
-
-Le nombre de Bell \( B_n \) est défini comme le nombre de façons de partitionner un ensemble de \( n \) éléments en sous-ensembles non vides.  
-
-Quelques premiers termes :  
-\[
-B_0 = 1, \quad B_1 = 1, \quad B_2 = 2, \quad B_3 = 5, \quad B_4 = 15, \quad B_5 = 52.
-\]
-Par exemple, pour \( n=3 \), il y a \( B_3 = 5 \) partitions possibles de l’ensemble \(\{a, b, c\} \) :  
-1. \( \{ \{a, b, c\} \} \) (1 seul bloc)  
-2. \( \{ \{a, b\}, \{c\} \} \)  
-3. \( \{ \{a, c\}, \{b\} \} \)  
-4. \( \{ \{b, c\}, \{a\} \} \)  
-5. \( \{ \{a\}, \{b\}, \{c\} \} \) (chaque élément seul)
-
 
 \end{document}
