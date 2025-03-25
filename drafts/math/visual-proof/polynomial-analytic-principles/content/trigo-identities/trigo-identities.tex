@@ -32,52 +32,58 @@ Nous allons voir que cela est licite grâce au fait \ref{analytic-identity} suiv
 
 
 \begin{defi}
-    Soit $U \subseteq \RR$ un ouvert non vide.
+    Soit $\Omega \subseteq \CC$ un ouvert non vide.
 	%
-	Une fonction réelle $f: U \rightarrow \RR$ est dite analytique en $x_0$, 
+	Une fonction $f: \Omega \rightarrow \CC$ est dite analytique en $z_0 \in \Omega$, 
 	s'il existe
-	une série entière $\dsum_{n = 0}^{+\infty} a_n x^n$
+	une série entière $\dsum_{n = 0}^{+\infty} a_n z^n$
 	de rayon de convergence $\rho_0 > 0$,
 	et
-	un réel $r \in \intervalOC{0}{\rho_0}$ tels que 
-	$\forall x \in \intervalO{x_0 - r}{x_0 + r} \subseteq U$, on ait:
-	$f(x) = \dsum_{n = 0}^{+\infty} a_n (x - x_0)^n$.
+	un réel $r \in \intervalOC{0}{\rho_0}$ tels que dans le disque ouvert $\topodisc{z_0}{r} \subseteq U$, on ait:
+	$f(z) = \dsum_{n = 0}^{+\infty} a_n (z - z_0)^n$.
 
-	Si $f$ est analytique en tout réel de $U$, nous dirons que $f$ est analytique sur $U$.
+	\smallskip
+	
+	Si $f$ est analytique en tout complexe de $\Omega$,
+	la fonction $f$ est dite analytique sur $\Omega$.
 \end{defi}
 
 
 \begin{fact} \label{analytic-identity}
-    Soit $U \subseteq \RR$ un ouvert connexe non vide,
+    Soit $\Omega \subseteq \CC$ un ouvert connexe non vide,
     et
-    $f: U \rightarrow \RR$ une fonction analytique.
+    $f: \Omega \rightarrow \CC$ une fonction analytique.
     %
-	Si $f$ s'annule sur un ouvert de $U$, alors $f$ est identiquement nulle
+	Si $f$ s'annule sur un ouvert de $\Omega$, alors $f$ est identiquement nulle
 	\emph{(c'est le théorème d'identité)}.  
 \end{fact}
 
 
 \begin{proof}
-	Ceci découle du fait \ref{multi-analytic-identity} analogue pour plusieurs variables que nous démontrerons plus tard.
+	TODO
 \end{proof}
 
 
 \begin{fact} \label{power-series-vs-analytic}
-    Soit $f: \RR \rightarrow \RR$.
-    S'il existe une série entière $\dsum_{n = 0}^{+\infty} a_n x^n$ de rayon de convergence infini
+    Soit $f: \Omega \rightarrow \CC$ où $\Omega \subseteq \CC$ est un ouvert non vide.
+    %
+    S'il existe
+    $z_0 \in \CC$,
+    et
+    une série entière $\dsum_{n = 0}^{+\infty} a_n z^n$ de rayon de convergence infini
     telle que
-	$\forall x \in \RR$, $f(x) = \dsum_{n = 0}^{+\infty} a_n x^n$,
+	$\forall z \in \CC$, $f(z) = \dsum_{n = 0}^{+\infty} a_n (z - z_0)^n$,
 	alors
-	$f$ est analytique sur $\RR$. 
+	$f$ est analytique sur $\Omega$. 
 \end{fact}
 
 
 \begin{proof}
-	Ceci découle du fait \ref{multi-power-series-vs-analytic} analogue pour plusieurs variables que nous démontrerons plus tard.
+	TODO
 \end{proof}
 
 
-Si nous revenons à nos identités trigonométriques, il suffit de savoir que les fonctions circulaires réelles sont analytiques sur $\RR$ tout entier, et de noter que le raisonnement géométrique au début de cette section fait clairement apparaître des zéros non isolés pour les fonctions analytiques sur $\RR$ suivantes.%
+Si nous revenons à nos identités trigonométriques, il suffit de savoir que les fonctions circulaires réelles sont analytiques sur $\CC$ tout entier, et de noter que le raisonnement géométrique au début de cette section fait clairement apparaître des zéros non isolés pour les fonctions analytiques sur $\CC$ suivantes.%
 \footnote{
 	Nous admettrons ces affirmations qui ne sont pas violentes à démontrer une fois que l'on a les bases de la théorie des fonctions analytiques.
 }
@@ -131,26 +137,25 @@ Nous voilà sauvés!
 
 
 \begin{defi}
-    Soient $n \in \NNs$, et $U \subseteq \RR$ un ouvert non vide.
-	Une fonction réelle $f: U \rightarrow \RR$ est dite analytique en $x_0$, 
+    Soient $n \in \NNs$, et $\Omega \subseteq \CC$ un ouvert non vide.
+	Une fonction $f: \Omega \rightarrow \CC$ est dite analytique en $z_0$, 
 	s'il existe
-	une série entière $\dsum_{n = 0}^{+\infty} a_n x^n$
+	une série entière $\dsum_{n = 0}^{+\infty} a_n z^n$
 	de rayon de convergence $\rho_0 > 0$,
 	et
-	un réel $r \in \intervalOC{0}{\rho_0}$ tels que 
-	$\forall x \in \topodisc{x_0}{r} \subseteq U$, on ait:
-	$f(x) = \dsum_{XXX} a_n (x - x_0)^n$.
+	un réel $r \in \intervalOC{0}{\rho_0}$ tels que dans le polydisque ouvert $\topodisc{z_0}{r} \subseteq U$, on ait:
+	$f(x) = \dsum_{XXX} a_n (x - z_0)^n$.
 	%
-	Si $f$ est analytique en tout réel de $U$, on dira que $f$ est analytique sur $U$.
+	Si $f$ est analytique en tout complexe de $\Omega$, on dira que $f$ est analytique sur $\Omega$.
 \end{defi}
 
 
 
 \begin{fact} \label{multi-power-series-vs-analytic}
     Soient $n \in \NNs$, et $f: \RR^n \rightarrow \RR$.
-    S'il existe une série entière $\dsum_{XXXX} a_n x^n$ de rayon de convergence infini
+    S'il existe une série entière $\dsum_{XXXX} a_n z^n$ de rayon de convergence infini
     telle que
-	$\forall x \in \RR^n$, $f(x) = \dsum_{XXX} a_n x^n$,
+	$\forall x \in \RR^n$, $f(x) = \dsum_{XXX} a_n z^n$,
 	alors
 	$f$ est analytique sur $\RR^n$. 
 \end{fact}
@@ -163,11 +168,11 @@ Nous voilà sauvés!
 
 
 \begin{fact} \label{multi-analytic-identity}
-    Soient $n \in \NNs$, et $U \subseteq \RR^n$ un ouvert connexe non vide,
+    Soient $n \in \NNs$, et $\Omega \subseteq \CC^n$ un ouvert connexe non vide,
     et
-    $f: U \rightarrow \RR$ une fonction analytique.
+    $f: \Omega \rightarrow \CC$ une fonction analytique.
     %
-	Si $f$ s'annule sur un ouvert de $U$, alors $f$ est identiquement nulle
+	Si $f$ s'annule sur un ouvert de $\Omega$, alors $f$ est identiquement nulle
 	\emph{(c'est le théorème d'identité)}.  
 \end{fact}
 
