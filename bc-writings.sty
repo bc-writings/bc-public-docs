@@ -44,10 +44,19 @@
 \NewDocumentCommand{\refspe}{mm}{#1 \ref{#2}}
 
 \NewDocumentCommand{\reffact}{m}{\refspe{fait}{#1}}
+\NewDocumentCommand{\reffacts}{m}{\refspe{faits}{#1}}
+
 \NewDocumentCommand{\refpreli}{m}{\refspe{résultat préliminaire}{#1}}
+\NewDocumentCommand{\refprelis}{m}{\refspe{résultats préliminaires}{#1}}
+
 \NewDocumentCommand{\refdefi}{m}{\refspe{définition}{#1}}
+\NewDocumentCommand{\refdefis}{m}{\refspe{définitions}{#1}}
+
 \NewDocumentCommand{\refrem}{m}{\refspe{remarque}{#1}}
+\NewDocumentCommand{\refrems}{m}{\refspe{remarques}{#1}}
+
 \NewDocumentCommand{\refexa}{m}{\refspe{exemple}{#1}}
+\NewDocumentCommand{\refexas}{m}{\refspe{exemples}{#1}}
 
 
 \NewDocumentEnvironment{meta-abstract}{+b}{}{}

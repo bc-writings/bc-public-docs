@@ -34,7 +34,7 @@ Nous allons voir que cela est licite grâce au fait \ref{analytic-identity}, don
 % ----------- %
 
 
-\begin{preli} \label{XXX}
+\begin{preli} \label{conv-ray}
     Le rayon de convergence $R$ de la série entière complexe $\dsum_{n=0}^{\infty} a_n z^n$ est défini par la formule de Hadamard%
     \footnote{
     	La démonstration va révéler le côté \focus{naturel} de la formule de Hadamard.
@@ -128,8 +128,11 @@ Nous allons voir que cela est licite grâce au fait \ref{analytic-identity}, don
     \end{itemize}
 
 
-    Le cas $\ell = 0$, c'est-à-dire $R = +\infty$, se traite comme ci-dessus sans aucun problème. 
-    Ce que nous venons de dire reste valable pour $\ell = +\infty$, c'est-à-dire $R = 0$.
+    Les cas
+    $\ell = 0$, c'est-à-dire $R = +\infty$,
+    et
+    $\ell = +\infty$, c'est-à-dire $R = 0$,
+    s'obtiennent via des adaptations immédiates de ce qui a été fait ci-dessus.
 \end{proof}
 
 
@@ -149,19 +152,19 @@ Nous allons voir que cela est licite grâce au fait \ref{analytic-identity}, don
 % ----------- %
 
 
-\begin{preli} \label{XXX}
+\begin{preli} \label{der-power-serie}
     Soit une série entière complexe $\dsum_{n=0}^{\infty} a_n z^n$ de rayon de convergence $R$ non nul.
     %
     La fonction $f: z \in \CdiscO{0}{R} \mapsto \dsum_{n=0}^{\infty} a_n z^n \in \CC$ vérifie les propriétés suivantes.
     %
     \begin{enumerate}
-    	\item $f$ est infiniment dérivable, au sens complexe.
+    	\item $f$ est infiniment $\CC$-dérivable.
 
     	\item $\forall k \in \NN$,
-		la série entière $\dsum_{n \geq k}^{\infty} \dfrac{n!}{(n-k)!} a_n z^{n - k}$ admet $R$ pour rayon de convergence.
+		la série entière $\dsum_{n = k}^{\infty} \dfrac{n!}{(n-k)!} a_n z^{n - k}$ admet $R$ pour rayon de convergence.
 
     	\item $\forall k \in \NN$, $\forall z \in \CdiscO{0}{R}$,
-		$\der[e]{f}{z}{k}(z) = \dsum_{n \geq k}^{\infty} \dfrac{n!}{(n-k)!} a_n z^{n - k}$.
+		$\der[e]{f}{z}{k}(z) = \dsum_{n = k}^{\infty} \dfrac{n!}{(n-k)!} a_n z^{n - k}$.
 
     	\item \label{a_n-value}
 		$\forall n \in \NN$,  $a_n = \dfrac{\der[e]{f}{z}{n}(0)}{n!}$.
@@ -172,9 +175,9 @@ Nous allons voir que cela est licite grâce au fait \ref{analytic-identity}, don
 \begin{proof}
 	La propriété \ref{a_n-value} étant aisée à déduire, une récurrence immédiate à faire montre que nous avons juste à démontrer que
 	$\forall z \in \CdiscO{0}{R}$,
-	$ \limit{\big( \frac{f(z+h) - f(z)}{h} \big)}%
-	        {h}{0 | h \in \CCs}
-	= \dsum_{n \geq 1}^{\infty} n a_n z^{n - 1}$.
+	$ \limit{\big( \frac{f(z) - f(z_0)}{z - z_0} \big)}%
+	        {z}{z_0 | z \in \CdiscO{0}{R}}
+	= \dsum_{n = 1}^{\infty} n a_n z^{n - 1}$.
 	%
 	\begin{itemize}
 		\item
@@ -182,37 +185,55 @@ Nous allons voir que cela est licite grâce au fait \ref{analytic-identity}, don
 		= \frac{\ln n}{n} + \ln \big( \sqrt[n]{\abs{a_n}} \big)$
 		donne que
 		$R$ est le rayon de convergence de
-		$\dsum_{n \geq 1}^{\infty} n a_n z^{n - 1}$.
+		$\dsum_{n = 1}^{\infty} n a_n z^{n - 1}$.
+		On peut donc définir la fonction $g: z \in \CdiscO{0}{R} \mapsto \dsum_{n = 1}^{\infty} n a_n z^{n - 1} \in \CC$.
 
 
-		\item 
+		\item Pour $(z , z_0) \in \CdiscO{0}{R}^2$ et $k \in \NNs$, nous introduisons les notations suivantes.
+        %
+        \begin{enumerate}[label=(\alph*)]
+	        \item $f_k(z) = \dsum_{n = 0}^{k} a_n z^n$.
+
+	        \item $g_k(z) = \dsum_{n = 1}^{k} n a_n z^{n-1}$,
+	        cette fonction étant clairement la $\CC$-dérivée de $f_k(z)$.
+
+	        \item $T_k(z) =
+			\begin{cases}
+	    		\frac{f_k(z) - f_k(z_0)}{z - z_0}  & \text{si $z \in \CdiscO{0}{R} - \setgene{z_0}$} \\
+	   			g_k(z_0)                           & \text{si $z = z_0$}
+	 		\end{cases}$
+
+	        \item $T(z) =
+			\begin{cases}
+	    		\frac{f(z) - f(z_0)}{z - z_0}  & \text{si $z \in \CdiscO{0}{R} - \setgene{z_0}$} \\
+	   			g(z_0)                         & \text{si $z = z_0$}
+	 		\end{cases}$
+	    \end{enumerate}
 
 
-		\item 
-
-
-		\item 
-
-
-		\item 
+		\item Soit ensuite $r \in \intervalO{0}{R}$ tel que $z_0 \in \CdiscO{0}{r}$.
+		Par convergence normale sur $\CdiscC{0}{r}$ de $(f_k)$ et $(g_k)$ vers $f$ et $g$ respectivement,
+		nous avons la convergence uniforme sur $\CdiscC{0}{r}$ de $(T_k)$ vers $T$. 
+		Or chaque fonction $T_k$ est continue en $z_0$ par $\CC$-dérivablité de $f_k$, donc, par raison de convergence uniforme, $T$ est continue en $z_0$. Ceci donne que $f$ est $\CC$-dérivable en $z_0$ avec $\der[e]{f}{z}{1}(z_0) = g(z_0)$.
+		Comme $z_0 \in \CdiscO{0}{R}$ est quelconque, ceci achève la preuve.
 	\end{itemize}
 \end{proof}
 
 
 \begin{remark}
-	La preuve précédente montre que, plus généralement,
+	Les preuves des \refprelis{conv-ray} et \ref{der-power-serie} montrent que, plus généralement,
 	pour toute série entière complexe $\dsum_{n=0}^{\infty} a_n z^n$ de rayon de convergence $R$ non nul,
 	et tout nombre complexe $z_0$,
 	la fonction $f: z \in \CdiscO{z_0}{R} \mapsto \dsum_{n=0}^{\infty} a_n (z - z_0)^n \in \CC$ vérifie les propriétés suivantes.
     %
     \begin{enumerate}
-    	\item $f$ est infiniment dérivable, au sens complexe.
+    	\item $f$ est infiniment $\CC$-dérivable.
 
     	\item $\forall k \in \NN$,
-		la série $\dsum_{n \geq k}^{\infty} \frac{n!}{(n-k)!} a_n (z - z_0)^{n - k}$ converge normalement sur $\CdiscO{z_0}{R}$,
+		la série $\dsum_{n = k}^{\infty} \frac{n!}{(n-k)!} a_n (z - z_0)^{n - k}$ converge normalement sur $\CdiscO{z_0}{R}$,
 
     	\item $\forall k \in \NN$, $\forall z \in \CdiscO{z_0}{R}$,
-		$\der[e]{f}{z}{k}(z) = \dsum_{n \geq k}^{\infty} \frac{n!}{(n-k)!} a_n (z - z_0)^{n - k}$.
+		$\der[e]{f}{z}{k}(z) = \dsum_{n = k}^{\infty} \frac{n!}{(n-k)!} a_n (z - z_0)^{n - k}$.
 
     	\item $\forall n \in \NN$, $a_n = \frac{\der[e]{f}{z}{n}(z_0)}{n!}$.
     \end{enumerate}
@@ -220,6 +241,9 @@ Nous allons voir que cela est licite grâce au fait \ref{analytic-identity}, don
 
 
 % ----------- %
+
+
+Nous allons voir que les fonctions développables en série entière autour de $0$ ont le bon ton de l'être aussi localement autour de nombres complexes $z_0$ assez proches de $0$.
 
 
 \begin{defi}
@@ -230,7 +254,7 @@ Nous allons voir que cela est licite grâce au fait \ref{analytic-identity}, don
 	une série entière $\dsum_{n = 0}^{+\infty} a_n z^n$
 	de rayon de convergence $R > 0$,
 	et
-	un réel $r \in \intervalOC{0}{R}$ tels que dans le disque ouvert $\CdiscO{z_0}{r} \subseteq U$, on ait:
+	un réel $r \in \intervalOC{0}{R}$ tels que dans le disque ouvert $\CdiscO{z_0}{r} \subseteq \Omega$, on ait
 	$f(z) = \dsum_{n = 0}^{+\infty} a_n (z - z_0)^n$.
 
 	\smallskip
@@ -270,8 +294,9 @@ Nous allons voir que cela est licite grâce au fait \ref{analytic-identity}, don
     et
     $f: \Omega \rightarrow \CC$ une fonction analytique.
     %
-	Si $f$ s'annule sur un ouvert de $\Omega$, alors $f$ est identiquement nulle
-	\emph{(c'est le théorème d'identité)}.  
+	Si $f$ s'annule sur un ouvert $V \subseteq \Omega$,
+	alors $f$ est nulle
+	\emph{(c'est le théorème de l'identité)}.  
 \end{fact}
 
 
@@ -283,10 +308,7 @@ Nous allons voir que cela est licite grâce au fait \ref{analytic-identity}, don
 % ----------- %
 
 
-Si nous revenons à nos identités trigonométriques, il suffit de savoir que les fonctions circulaires complexes sont analytiques sur $\CC$ tout entier, et de noter que le raisonnement géométrique au début de cette section fait clairement apparaître des zéros non isolés pour les fonctions analytiques sur $\CC$ suivantes.%
-\footnote{
-	Nous admettrons ces affirmations qui ne sont pas violentes à démontrer une fois que l'on a les bases de la théorie des fonctions analytiques.
-}
+Si nous revenons à nos identités trigonométriques, il suffit de savoir que les fonctions circulaires complexes sont analytiques sur $\CC$ tout entier, et de noter que le raisonnement géométrique au début de cette section fait clairement apparaître des zéros non isolés pour les fonctions analytiques sur $\CC$ suivantes.
 %
 \begin{itemize}[label=\small\textbullet]
 	\item $f_1(z) = \cos (\pi - z) + \cos z$ 
