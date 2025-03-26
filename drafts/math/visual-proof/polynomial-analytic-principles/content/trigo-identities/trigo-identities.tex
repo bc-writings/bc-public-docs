@@ -211,16 +211,18 @@ Nous allons voir que cela est licite grâce au fait \ref{analytic-identity}, don
 	    \end{enumerate}
 
 
-		\item Soit ensuite $r \in \intervalO{0}{R}$ tel que $z_0 \in \CdiscO{0}{r}$.
+		\item Considérons alors $r \in \intervalO{0}{R}$ tel que $z_0 \in \CdiscO{0}{r}$.
 		Par convergence normale sur $\CdiscC{0}{r}$ de $(f_k)$ et $(g_k)$ vers $f$ et $g$ respectivement,
 		nous avons la convergence uniforme sur $\CdiscC{0}{r}$ de $(T_k)$ vers $T$. 
-		Or chaque fonction $T_k$ est continue en $z_0$ par $\CC$-dérivablité de $f_k$, donc, par raison de convergence uniforme, $T$ est continue en $z_0$. Ceci donne que $f$ est $\CC$-dérivable en $z_0$ avec $\der[e]{f}{z}{1}(z_0) = g(z_0)$.
-		Comme $z_0 \in \CdiscO{0}{R}$ est quelconque, ceci achève la preuve.
+		Or chaque fonction $T_k$ est continue en $z_0$ par $\CC$-dérivablité de $f_k$, donc, par raison de convergence uniforme, $T$ est continue en $z_0$,
+		d'où
+		la $\CC$-dérivabilité de  $f$ en $z_0$ avec $\der{f}{z}{1}(z_0) = g(z_0)$.
+		Ceci achève la preuve, car $z_0 \in \CdiscO{0}{R}$ est quelconque.
 	\end{itemize}
 \end{proof}
 
 
-\begin{remark}
+\begin{remark} \label{der-power-serie-gene}
 	Les preuves des \refprelis{conv-ray} et \ref{der-power-serie} montrent que, plus généralement,
 	pour toute série entière complexe $\dsum_{n=0}^{\infty} a_n z^n$ de rayon de convergence $R$ non nul,
 	et tout nombre complexe $z_0$,
@@ -246,15 +248,17 @@ Nous allons voir que cela est licite grâce au fait \ref{analytic-identity}, don
 Nous allons voir que les fonctions développables en série entière autour de $0$ ont le bon ton de l'être aussi localement autour de nombres complexes $z_0$ assez proches de $0$.
 
 
-\begin{defi}
+\begin{defi} \label{def-analytic}
     Soit $\Omega \subseteq \CC$ un ouvert non vide.
 	%
 	Une fonction $f: \Omega \rightarrow \CC$ est dite analytique en $z_0 \in \Omega$, 
 	s'il existe
 	une série entière $\dsum_{n = 0}^{+\infty} a_n z^n$
-	de rayon de convergence $R > 0$,
+	de rayon de convergence $R > 0$
 	et
-	un réel $r \in \intervalOC{0}{R}$ tels que dans le disque ouvert $\CdiscO{z_0}{r} \subseteq \Omega$, on ait
+	un réel $r \in \intervalOC{0}{R}$ tels que,
+	dans le disque ouvert $\CdiscO{z_0}{r} \subseteq \Omega$,
+	on ait
 	$f(z) = \dsum_{n = 0}^{+\infty} a_n (z - z_0)^n$.
 
 	\smallskip
@@ -267,68 +271,85 @@ Nous allons voir que les fonctions développables en série entière autour de $
 % ----------- %
 
 
-\begin{fact} \label{power-series-vs-analytic}
+\begin{fact} \label{power-serie-vs-analytic}
     Soit $f: \Omega \rightarrow \CC$ où $\Omega \subseteq \CC$ est un ouvert non vide.
     %
-    S'il existe
-    $z_0 \in \CC$,
-    et
-    une série entière $\dsum_{n = 0}^{+\infty} a_n z^n$ de rayon de convergence infini
-    telle que
-	$\forall z \in \Omega$, $f(z) = \dsum_{n = 0}^{+\infty} a_n (z - z_0)^n$,
+    Si $f$ est analytique en $z_0$,
 	alors
-	$f$ est analytique sur $\Omega$. 
+	il existe un réel $r > 0$ tel que $f$ soit analytique sur $\CdiscO{z_0}{r}$ tout entier. 
 \end{fact}
 
 
 \begin{proof}
-	TODO
+    Nous allons voir que le réel $r$ de la \refdefi{def-analytic} convient. Reprenons toutes les notations de cette définition, et considérons $\omega \in \CdiscO{z_0}{r}$.
+    Notre but est de prouver l'existence d'une série entière $\dsum_{n = 0}^{+\infty} b_n z^n$
+	de rayon de convergence $S > 0$
+	et
+	d'un réel $\rho \in \intervalOC{0}{S}$
+	tels que,
+	dans le disque ouvert $\CdiscO{\omega}{\rho} \subseteq \CdiscO{z_0}{r}$,
+	on ait
+	$f(z) = \dsum_{n = 0}^{+\infty} b_n (z - w)^n$.
+	%
+	\begin{itemize}
+		\item XXXX
+	
+
+		\item XXXX
+	
+
+		\item XXXX
+	
+
+		\item XXXX
+	\end{itemize}
 \end{proof}
-
-
-% ----------- %
-
-
-\begin{fact} \label{analytic-identity}
-    Soit $\Omega \subseteq \CC$ un ouvert connexe non vide,
-    et
-    $f: \Omega \rightarrow \CC$ une fonction analytique.
-    %
-	Si $f$ s'annule sur un ouvert $V \subseteq \Omega$,
-	alors $f$ est nulle
-	\emph{(c'est le théorème de l'identité)}.  
-\end{fact}
-
-
-\begin{proof}
-	TODO
-\end{proof}
-
-
-% ----------- %
-
-
-Si nous revenons à nos identités trigonométriques, il suffit de savoir que les fonctions circulaires complexes sont analytiques sur $\CC$ tout entier, et de noter que le raisonnement géométrique au début de cette section fait clairement apparaître des zéros non isolés pour les fonctions analytiques sur $\CC$ suivantes.
 %
-\begin{itemize}[label=\small\textbullet]
-	\item $f_1(z) = \cos (\pi - z) + \cos z$ 
-	   et $f_2(z) = \sin (\pi - z) - \sin z$ 
-
-	\smallskip
-	\item $f_3(z) =\cos (z + \pi) + \cos z$ 
-	   et $f_4(z) =\sin (z + \pi) + \sin z$
-
-	\smallskip
-	\item $f_5(z) =\cos \left( \frac{\pi}{2} - z \right) - \sin z$ 
-	   et $f_6(z) =\sin \left( \frac{\pi}{2} - z \right) - \cos z$ 
-\end{itemize}
-
-
-
-
-
-
-
+%
+%% ----------- %
+%
+%
+%\newpage
+%\begin{fact} \label{analytic-identity}
+%    Soit $\Omega \subseteq \CC$ un ouvert connexe non vide
+%    et
+%    $f: \Omega \rightarrow \CC$ une fonction analytique.
+%    %
+%	Si $f$ s'annule sur un ouvert $V \subseteq \Omega$,
+%	alors $f$ est nulle
+%	\emph{(c'est le théorème de l'identité)}.  
+%\end{fact}
+%
+%
+%\begin{proof}
+%	TODO
+%\end{proof}
+%
+%
+%% ----------- %
+%
+%
+%Si nous revenons à nos identités trigonométriques, il suffit de savoir que les fonctions circulaires complexes sont analytiques sur $\CC$ tout entier, et de noter que le raisonnement géométrique au début de cette section fait clairement apparaître des zéros non isolés pour les fonctions analytiques sur $\CC$ suivantes.
+%%
+%\begin{itemize}[label=\small\textbullet]
+%	\item $f_1(z) = \cos (\pi - z) + \cos z$ 
+%	   et $f_2(z) = \sin (\pi - z) - \sin z$ 
+%
+%	\smallskip
+%	\item $f_3(z) =\cos (z + \pi) + \cos z$ 
+%	   et $f_4(z) =\sin (z + \pi) + \sin z$
+%
+%	\smallskip
+%	\item $f_5(z) =\cos \left( \frac{\pi}{2} - z \right) - \sin z$ 
+%	   et $f_6(z) =\sin \left( \frac{\pi}{2} - z \right) - \cos z$ 
+%\end{itemize}
+%
+%
+%
+%
+%
+%
+%
 
 %\newpage
 %
@@ -373,7 +394,7 @@ Si nous revenons à nos identités trigonométriques, il suffit de savoir que le
 %
 %
 %
-%\begin{fact} \label{multi-power-series-vs-analytic}
+%\begin{fact} \label{multi-power-serie-vs-analytic}
 %    Soient $n \in \NNs$, et $f: \RR^n \rightarrow \RR$.
 %    S'il existe une série entière $\dsum_{XXXX} a_n z^n$ de rayon de convergence infini
 %    telle que
