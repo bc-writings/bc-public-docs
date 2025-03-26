@@ -32,12 +32,23 @@
 \usepackage{tnsmath}
 
 \newtheorem{fact}{Fait}
+\newtheorem{preli}[fact]{Préliminaire}
 \newtheorem{defi}[fact]{Définition}
 \newtheorem{remark}[fact]{Remarque}
 \newtheorem{example}[fact]{Exemple}
 
 \newtheorem*{skeproof}{Principe de la démonstration}
 \NewDocumentCommand{\altproof}{m}{Démonstration alternative #1}
+
+
+\NewDocumentCommand{\refspe}{mm}{#1 \ref{#2}}
+
+\NewDocumentCommand{\reffact}{m}{\refspe{fait}{#1}}
+\NewDocumentCommand{\refpreli}{m}{\refspe{résultat préliminaire}{#1}}
+\NewDocumentCommand{\refdefi}{m}{\refspe{définition}{#1}}
+\NewDocumentCommand{\refrem}{m}{\refspe{remarque}{#1}}
+\NewDocumentCommand{\refexa}{m}{\refspe{exemple}{#1}}
+
 
 \NewDocumentEnvironment{meta-abstract}{+b}{}{}
 \NewDocumentEnvironment{meta-abstract*}{+b}{#1}{}

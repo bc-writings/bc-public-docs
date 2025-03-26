@@ -26,13 +26,26 @@ Ce serait bien de pouvoir passer directement de $(a + b + c)^2 = a^2 + b^2 + c^2
 	\includegraphics[scale = .7]{(a+b)^3.png}
 \end{center}
 
-Le fait \ref{poly-nullity-pos} ci-après va rendre licite le passage des formules géométriques contraintes précédentes au cas général en faisant les choix suivants de polynômes.
+Le \reffact{poly-nullity-pos}, donné un peu plus bas, rend licite le passage des formules géométriques contraintes précédentes au cas général en faisant les choix suivants de fonctions polynomiales.
 %
 \begin{itemize}[label=\small\textbullet]
 	\item $p_1(a ; b) = (a + b)^2 - a^2 - b^2 - 2 ab$
 
 	\item $p_2(a ; b ; c) = (a + b + c)^2 - a^2 - b^2 - c^2 - 2 ab - 2 ac - 2 bc$
 \end{itemize}
+
+
+% ----------- %
+
+
+\begin{preli} \label{poly-finite-zeros}
+	XXX 
+\end{preli}
+
+
+\begin{proof}
+	Soit
+\end{proof}
 
 
 % ----------- %
@@ -57,7 +70,7 @@ Le fait \ref{poly-nullity-pos} ci-après va rendre licite le passage des formule
 		%
 		$\setproba{P}(1)$ signifie qu'une fonction polynomiale réelle à une variable s'annulant sur $\RRsp$ est identiquement nulle sur $\RR$ tout entier.
 		%
-		Comme un polynôme réel non nul n'a qu'un nombre fini de racines, nous avons la validité de $\setproba{P}(1)$.
+		Or, selon le \refpreli{poly-finite-zeros}, un polynôme réel non nul n'a qu'un nombre fini de racines, donc $\setproba{P}(1)$ est validée.
 
 
 		\item \textbf{Hérédité.}
@@ -121,7 +134,7 @@ Considérons maintenant le dessin ci-dessous avec $d = a - b$, et la contrainte 
 	\includegraphics[scale = .7]{(a-b)^2.png}
 \end{center}
 
-Le fait \ref{poly-nullity-pos}, bien que très utile, ne peut plus s'appliquer ici au calcul géométrique évident suivant.
+Le \reffact{poly-nullity-pos}, très utile, ne peut pas s'appliquer au calcul géométrique évident suivant.
 
 \leavevmode\kern-1em%
 \begin{stepcalc}[style=ar*, ope={\iff}]
@@ -131,7 +144,7 @@ Le fait \ref{poly-nullity-pos}, bien que très utile, ne peut plus s'appliquer i
 \end{stepcalc}
 
 Peut-on tout de même déduire du calcul géométrique précédent la validité, pour tous les réels $a$ et $b$, de l'identité $(a - b)^2 = a^2 + b^2 - 2ab$?
-Le fait \ref{poly-nullity-interval} suivant montre que cela est possible. 
+Cela est rendu possible par le \reffact{poly-nullity-interval} suivant. 
 
 
 \medskip
@@ -145,7 +158,7 @@ Le fait \ref{poly-nullity-interval} suivant montre que cela est possible.
 
 
 \begin{proof}
-	La preuve du fait \ref{poly-nullity-pos} s'adapte facilement au cadre proposé ici (se souvenir que la clé du raisonnement était le fait qu'un polynôme réel n'admet qu'un nombre fini de racines).
+	La preuve du \reffact{poly-nullity-pos} s'adapte facilement au cadre proposé ici (se souvenir que la clé du raisonnement était le fait qu'un polynôme réel n'admet qu'un nombre fini de racines).
 \end{proof}
 
 
@@ -178,7 +191,7 @@ En déplaçant ensuite le rectangle $EBHG$ comme ci-dessous, nous obtenons alors
 
 Finalement, nous obtenons $a^2 - b^2 = (a+b)(a-b)$ si $a > b$,
 puis, 
-en appliquant le fait \ref{poly-nullity-interval} au polynôme $p(a ; b) = a^2 - b^2 - (a+b)(a-b)$, 
+en appliquant le \reffact{poly-nullity-interval} au polynôme $p(a ; b) = a^2 - b^2 - (a+b)(a-b)$, 
 nous avons:
 $\forall (a ; b) \in \RR^2$, $a^2 - b^2 = (a+b)(a-b)$.
 \end{example}
