@@ -35,68 +35,188 @@ Nous allons voir que cela est licite grâce au fait \ref{analytic-identity}, don
 
 
 \begin{preli} \label{XXX}
-    Le rayon de convergence $R$ de la série entière complexe $\dsum_{k=0}^{\infty} a_k z^k$ est défini par la formule d'Hadamard
-    $\displaystyle \frac{1}{R} = \limsup_{n \to \infty} \sqrt[n]{\abs{a_n}}$.
-    %
+    Le rayon de convergence $R$ de la série entière complexe $\dsum_{n=0}^{\infty} a_n z^n$ est défini par la formule de Hadamard%
+    \footnote{
+    	La démonstration va révéler le côté \focus{naturel} de la formule de Hadamard.
+    }
+    $\displaystyle \frac{1}{R} = \limsup_{n \to +\infty} \big( \sqrt[n]{\abs{a_n}} \big)$
+    avec les conventions
+    $0 = \dfrac{1}{+\infty}$
+    et
+    $+\infty = \dfrac{1}{0}$.
+
+    \smallskip
+    
     Ce nombre $R$ s'interprète comme suit.
-    \begin{itemize}
-        \item Si $R = 0$, la série ne converge que pour $z = 0$.
+    \begin{enumerate}
+        \item Si $R = 0$, la série ne converge que pour $z = 0$, et sinon elle diverge grossièrement.
 
-        \item Si $R = +\infty$, la série converge sur $\CC$, c'est-à-dire pour tout nombre complexe $z$.
+        \item Si $R = +\infty$, la série converge sur $\CC$.
+        Plus précisément, la série converge normalement sur tout disque ouvert $\CdiscO{0}{r}$ tel que $r \in \RRsp$. 
 
-        \item Si $0 < R < +\infty$, la série converge sur le disque ouvert $\CdiscO{0}{R}$, et elle diverge sur $\CC - \CdiscC{0}{R}$. Le comportement sur le cercle $\Ccircle{0}{R}$ se traite au cas par cas.
-    \end{itemize}
+        \item Si $0 < R < +\infty$, la série converge normalement sur tout disque ouvert $\CdiscO{0}{r}$ tel que $0 < r < R$, donc elle converge sur $\CdiscO{0}{R}$.
+        Par contre, elle diverge grossièrement sur $\CC - \CdiscC{0}{R}$,
+        et
+        le comportement sur le cercle $\Ccircle{0}{R}$ doit être traité au cas par cas.
+    \end{enumerate}
 \end{preli}
 
 
 \begin{proof}
-	TODO
-	
-	
-	
-	Considérons la série entière \( \sum a_n (x - x_0)^n \). Nous cherchons les valeurs de \( x \) pour lesquelles cette série converge absolument, c'est-à-dire lorsque la série \( \sum |a_n (x - x_0)^n| \) converge.
+    Notons 
+    $\displaystyle \ell
+    = \limsup_{n \to +\infty} \big( \sqrt[n]{\abs{a_n}} \big)$,
+    soit
+    $\displaystyle \ell
+    = \lim_{n \to +\infty} \big( \sup \big\{ \sqrt[k]{\abs{a_k}} \,,\, k \in \NN_{\geq n} \big\} \big)$,
+    de sorte que $\ell \in \intervalC{0}{+\infty}$.
+	%
+    Commençons par le cas $\ell \in \RRsp$, c'est-à-dire $R \in \RRsp$.
+    %
+    \begin{itemize}
+        \item Soit $r \in \intervalO{0}{R}$.
+        %
+        Considérons $\rho  \in \intervalO{r}{R}$ de sorte que $\frac1r > \frac{1}{\rho} > \frac1R$.
+        Par définition de $\ell = \frac1R$,
+        nous avons $n_0 \in \NN$ tel que
+        $\sup \big\{ \sqrt[k]{\abs{a_k}} \,,\, k \in \NN_{\geq n_0} \big\} < \frac{1}{\rho}$.
+        %
+        Donc pour $z \in \CdiscO{0}{r}$ et $k \in \NN_{\geq n_0}$, nous obtenons
+        $\abs{a_k z^k} < \big( \frac{r}{\rho} \big)^k$ pour $k \geq n_0$.
+        Comme $0 < \frac{r}{\rho} < 1$, la convergence normale devient évidente.
 
-Un critère classique est le critère de d'Alembert :
-\begin{equation}
-    \limsup_{n \to \infty} \left| \frac{a_{n+1} (x - x_0)^{n+1}}{a_n (x - x_0)^n} \right| < 1.
-\end{equation}
-Cela donne :
-\begin{equation}
-    \limsup_{n \to \infty} \left| \frac{a_{n+1}}{a_n} \right| |x - x_0| < 1.
-\end{equation}
 
-On introduit la notion de \( \limsup \), qui mène à la condition générale :
-\begin{equation}
-    \limsup_{n \to \infty} |a_n|^{1/n} |x - x_0| < 1.
-\end{equation}
+        \item Soit $z \in \CC - \CdiscC{0}{R}$.
+        %
+        Comme $\frac{1}{\abs{z}} < \frac{1}{R}$, nous avons ici $n_0 \in \NN$ tel que
+        $\forall n \in \NN_{\geq n_0}$,
+        $\sup \big\{ \sqrt[k]{\abs{a_k}} \,,\, k \in \NN_{\geq n} \big\} > \frac{1}{\abs{z}}$.
+        %
+        En particulier,
+        nous pouvons construire une suite strictement croissante d'indices $(k_i)$
+        telle que
+        $\abs{a_{k_i} z^{k_i}} > 1$.
+        Ceci donne la divergence grossière.
 
-Pour que cette inégalité soit satisfaite, il faut :
-\begin{equation}
-    |x - x_0| < \frac{1}{\limsup_{n \to \infty} |a_n|^{1/n}}.
-\end{equation}
 
-On définit alors le rayon de convergence \( R \) par :
-\begin{equation}
-    R = \frac{1}{\limsup_{n \to \infty} |a_n|^{1/n}}.
-\end{equation}
+        \item La justification du comportement pathologique sur le cercle $\Ccircle{0}{R}$ se fait via des contre-exemples. Nous pouvons citer les exemples classiques suivants.
+        %
+        \begin{enumerate}[label=(\alph*)]
+	        \item $\dsum_{n=0}^{\infty} z^n$, 
+	        de rayon de convergence $1$, 
+	        diverge grossièrement sur $\Ccircle{0}{1}$.
 
-Ainsi, la série converge absolument pour \( |x - x_0| < R \) et diverge pour \( |x - x_0| > R \).
+	        \item $\dsum_{n=0}^{\infty} \frac{1}{n^2} z^n$, 
+	        de rayon de convergence $1$,
+	        puisque 
+	        $ \ln \big( \sqrt[n]{\frac{1}{n^2}} \big)
+	        = -\frac{2 \ln n}{n}$.
+	        %
+	        De plus,
+	        cette série entière converge normalement sur $\Ccircle{0}{1}$.
+
+	        \item $\dsum_{n=0}^{\infty}  \frac{1}{n} z^n$, 
+	        de rayon de convergence $1$,
+	        puisque 
+	        $ \ln \big( \sqrt[n]{\frac{1}{n}} \big)
+	        = -\frac{\ln n}{n}$.
+	        %
+	        De plus,
+	        cette série entière converge sur $\Ccircle{0}{1} - \setgene{1}$, mais pas en $1$. 
+	        Le comportement sur $\Ccircle{0}{1} - \setgene{1}$ est plus délicat à démontrer, car il se base sur le test de Abel-Dirichlet.
+	    \end{enumerate}
+    \end{itemize}
+
+
+    Le cas $\ell = 0$, c'est-à-dire $R = +\infty$, se traite comme ci-dessus sans aucun problème. 
+    Ce que nous venons de dire reste valable pour $\ell = +\infty$, c'est-à-dire $R = 0$.
 \end{proof}
+
+
+\begin{example}
+	La série entière complexe $\dsum_{n=0}^{\infty} \frac{1}{n!} z^n$ admet un rayon de convergence infini; la fonction associée est l'exponentielle complexe $\exp$.
+	%
+	En effet,
+	notant $\ent$ la fonction partie entière, nous avons
+	$n! \geq \big( \frac{n}{2} \big)^{\ent (\frac{n}{2})} \geq \big( \frac{n}{2} \big)^{\frac{n}{2} - 1}$,
+	puis
+	$ \ln \big( \sqrt[n]{\frac{1}{n!}} \big)
+	\leq
+	  \frac{2 - n}{2 n} \ln \big( \frac{n}{2} \big)$.
+\end{example}
 
 
 % ----------- %
 
 
 \begin{preli} \label{XXX}
-    Soit une série entière complexe $\dsum_{k=0}^{\infty} a_k z^k$ de rayon $R$ de convergence non nul.
+    Soit une série entière complexe $\dsum_{n=0}^{\infty} a_n z^n$ de rayon de convergence $R$ non nul.
     %
-    La fonction $f: z \in \CdiscO{0}{R} \mapsto \dsum_{k=0}^{\infty} a_k z^k \in \CC$ est infiniment dérivable, au sens complexe, avec $\forall n \in \NN$, $\der[e]{f}{z}{n}(z) = \dsum_{k \geq n}^{\infty} \frac{n!}{k!} a_k z^{n - k}$.
+    La fonction $f: z \in \CdiscO{0}{R} \mapsto \dsum_{n=0}^{\infty} a_n z^n \in \CC$ vérifie les propriétés suivantes.
+    %
+    \begin{enumerate}
+    	\item $f$ est infiniment dérivable, au sens complexe.
+
+    	\item $\forall k \in \NN$,
+		la série entière $\dsum_{n \geq k}^{\infty} \dfrac{n!}{(n-k)!} a_n z^{n - k}$ admet $R$ pour rayon de convergence.
+
+    	\item $\forall k \in \NN$, $\forall z \in \CdiscO{0}{R}$,
+		$\der[e]{f}{z}{k}(z) = \dsum_{n \geq k}^{\infty} \dfrac{n!}{(n-k)!} a_n z^{n - k}$.
+
+    	\item \label{a_n-value}
+		$\forall n \in \NN$,  $a_n = \dfrac{\der[e]{f}{z}{n}(0)}{n!}$.
+    \end{enumerate}
 \end{preli}
 
 
 \begin{proof}
-	TODO
+	La propriété \ref{a_n-value} étant aisée à déduire, une récurrence immédiate à faire montre que nous avons juste à démontrer que
+	$\forall z \in \CdiscO{0}{R}$,
+	$ \limit{\big( \frac{f(z+h) - f(z)}{h} \big)}%
+	        {h}{0 | h \in \CCs}
+	= \dsum_{n \geq 1}^{\infty} n a_n z^{n - 1}$.
+	%
+	\begin{itemize}
+		\item
+		$ \ln \big( \sqrt[n]{\abs{n a_n}} \big)
+		= \frac{\ln n}{n} + \ln \big( \sqrt[n]{\abs{a_n}} \big)$
+		donne que
+		$R$ est le rayon de convergence de
+		$\dsum_{n \geq 1}^{\infty} n a_n z^{n - 1}$.
+
+
+		\item 
+
+
+		\item 
+
+
+		\item 
+
+
+		\item 
+	\end{itemize}
 \end{proof}
+
+
+\begin{remark}
+	La preuve précédente montre que, plus généralement,
+	pour toute série entière complexe $\dsum_{n=0}^{\infty} a_n z^n$ de rayon de convergence $R$ non nul,
+	et tout nombre complexe $z_0$,
+	la fonction $f: z \in \CdiscO{z_0}{R} \mapsto \dsum_{n=0}^{\infty} a_n (z - z_0)^n \in \CC$ vérifie les propriétés suivantes.
+    %
+    \begin{enumerate}
+    	\item $f$ est infiniment dérivable, au sens complexe.
+
+    	\item $\forall k \in \NN$,
+		la série $\dsum_{n \geq k}^{\infty} \frac{n!}{(n-k)!} a_n (z - z_0)^{n - k}$ converge normalement sur $\CdiscO{z_0}{R}$,
+
+    	\item $\forall k \in \NN$, $\forall z \in \CdiscO{z_0}{R}$,
+		$\der[e]{f}{z}{k}(z) = \dsum_{n \geq k}^{\infty} \frac{n!}{(n-k)!} a_n (z - z_0)^{n - k}$.
+
+    	\item $\forall n \in \NN$, $a_n = \frac{\der[e]{f}{z}{n}(z_0)}{n!}$.
+    \end{enumerate}
+\end{remark}
 
 
 % ----------- %
@@ -115,27 +235,9 @@ Ainsi, la série converge absolument pour \( |x - x_0| < R \) et diverge pour \(
 
 	\smallskip
 	
-	Si $f$ est analytique en tout complexe de $\Omega$,
+	Si $f$ est analytique en tout nombre complexe de $\Omega$,
 	la fonction $f$ est dite analytique sur $\Omega$.
 \end{defi}
-
-
-% ----------- %
-
-
-\begin{fact} \label{analytic-identity}
-    Soit $\Omega \subseteq \CC$ un ouvert connexe non vide,
-    et
-    $f: \Omega \rightarrow \CC$ une fonction analytique.
-    %
-	Si $f$ s'annule sur un ouvert de $\Omega$, alors $f$ est identiquement nulle
-	\emph{(c'est le théorème d'identité)}.  
-\end{fact}
-
-
-\begin{proof}
-	TODO
-\end{proof}
 
 
 % ----------- %
@@ -158,6 +260,27 @@ Ainsi, la série converge absolument pour \( |x - x_0| < R \) et diverge pour \(
 \begin{proof}
 	TODO
 \end{proof}
+
+
+% ----------- %
+
+
+\begin{fact} \label{analytic-identity}
+    Soit $\Omega \subseteq \CC$ un ouvert connexe non vide,
+    et
+    $f: \Omega \rightarrow \CC$ une fonction analytique.
+    %
+	Si $f$ s'annule sur un ouvert de $\Omega$, alors $f$ est identiquement nulle
+	\emph{(c'est le théorème d'identité)}.  
+\end{fact}
+
+
+\begin{proof}
+	TODO
+\end{proof}
+
+
+% ----------- %
 
 
 Si nous revenons à nos identités trigonométriques, il suffit de savoir que les fonctions circulaires complexes sont analytiques sur $\CC$ tout entier, et de noter que le raisonnement géométrique au début de cette section fait clairement apparaître des zéros non isolés pour les fonctions analytiques sur $\CC$ suivantes.%
@@ -223,7 +346,7 @@ Si nous revenons à nos identités trigonométriques, il suffit de savoir que le
 %	un réel $r \in \intervalOC{0}{R}$ tels que dans le polydisque ouvert $\topodisc{z_0}{r} \subseteq U$, on ait:
 %	$f(x) = \dsum_{XXX} a_n (x - z_0)^n$.
 %	%
-%	Si $f$ est analytique en tout complexe de $\Omega$, on dira que $f$ est analytique sur $\Omega$.
+%	Si $f$ est analytique en tout nombre complexe de $\Omega$, on dira que $f$ est analytique sur $\Omega$.
 %\end{defi}
 %
 %
