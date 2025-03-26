@@ -39,12 +39,28 @@ Le \reffact{poly-nullity-pos}, donné un peu plus bas, rend licite le passage de
 
 
 \begin{preli} \label{poly-finite-zeros}
-	XXX 
+	Soit $p(x)$ une fonction polynomiale à une variable et de degré $n \in \NNs$.
+	Pour tout réel $\lambda \in \RR$,
+	il existe une fonction polynomiale $q(x)$ de degré $(n-1)$ telle qu'on ait 
+	$p(x) - p(\lambda) = (x - \lambda) q(x)$.
+	Ceci implique que $p$ ne peut pas avoir plus de $n$ zéros.
 \end{preli}
 
 
 \begin{proof}
-	Soit
+	Posant $p(x) = \dsum_{k=0}^{n} a_k x^k$ avec $a_n \neq 0$ par hypothèse, nous avons:
+	
+	\begin{stepcalc}[style=sar]
+	    p(x) - p(\lambda)
+	\explnext{}
+	    \dsum_{k=0}^{n} a_k (x^k - \lambda^k)
+	\explnext{}
+	    \dsum_{k=1}^{n} a_k (x - \lambda) \big( \dsum_{i=0}^{k-1} x^i \lambda^{k-1-i} \big)
+	\explnext{}
+	    (x - \lambda) \dsum_{k=1}^{n} \dsum_{i=0}^{k-1} a_k x^i \lambda^{k-1-i} 
+	\end{stepcalc}
+	
+	La factorisation conjointe à la diminution du degré ne permet pas d'avoir plus de $n$ zéros. 
 \end{proof}
 
 

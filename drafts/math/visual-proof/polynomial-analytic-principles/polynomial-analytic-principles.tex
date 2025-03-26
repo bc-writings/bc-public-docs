@@ -5,7 +5,9 @@
 
 \NewDocumentCommand{\area}{m}{\mathrm{Aire}(#1)}
 
-\NewDocumentCommand{\Cdisc}{mm}{{\mathcal{D}(#1 ; #2[}}
+\NewDocumentCommand{\Ccircle}{mm}{\mathcal{C}(#1 ; #2)}
+\NewDocumentCommand{\CdiscO}{mm}{{\mathcal{D}(#1 ; #2[}}
+\NewDocumentCommand{\CdiscC}{mm}{{\mathcal{D}(#1 ; #2]}}
 
 
 \begin{document}
@@ -56,16 +58,20 @@
 \end{meta-abstract*}
 
 
+% ----------- %
+
+
 \section{Au commencement étaient les polynômes}
 
 \subimport*{content/areas-n-identities/}{areas-n-identities}
 
 
+% ----------- %
 
-\newpage
 
-\section{Puis vinrent les fonctions analytiques}
-
-\subimport*{content/trigo-identities/}{trigo-identities}
-
+%\newpage
+%\section{Puis vinrent les fonctions analytiques}
+%
+%\subimport*{content/trigo-identities/}{trigo-identities}
+%
 \end{document}
