@@ -185,31 +185,56 @@ Cela est rendu possible par le \reffact{poly-nullity-interval} suivant.
 \medskip
 
 \begin{example}
-Considérons le dessin ci-dessous avec $d = a - b$, et la contrainte $a > b$.
+	Considérons le dessin ci-dessous avec $d = a - b$, et la contrainte $a > b$.
 
-\begin{center}
-	\includegraphics[scale = .7]{(a-b)^2.png}
-\end{center}
+	\begin{center}
+		\includegraphics[scale = .7]{(a-b)^2.png}
+	\end{center}
 
-Nous avons les calculs géométriques simples suivants.
+	Nous avons les calculs géométriques simples suivants.
 
-\leavevmode\kern-1em%
-\begin{stepcalc}[style=ar*, ope={\iff}]
-    \area{ABCD} - \area{AEGF} = \area{GHCK} + \area{EBHG} + \area{FGKD}
-\explnext{}
-    a^2 - b^2 = \area{GHCK} + \area{EBHG} + \area{FGKD}
-\end{stepcalc}
+	\leavevmode\kern-1em%
+	\begin{stepcalc}[style=ar*, ope={\iff}]
+    	\area{ABCD} - \area{AEGF} = \area{GHCK} + \area{EBHG} + \area{FGKD}
+	\explnext{}
+    	a^2 - b^2 = \area{GHCK} + \area{EBHG} + \area{FGKD}
+	\end{stepcalc}
 
-\newpage
-En déplaçant ensuite le rectangle $EBHG$ comme ci-dessous, nous obtenons alors un rectangle de dimension $(a+b) \times (a-b)$. 
-	
-\begin{center}
-	\includegraphics[scale = .7]{(a-b)(a-b)-spe.png}
-\end{center}
+	\newpage
 
-Finalement, nous obtenons $a^2 - b^2 = (a+b)(a-b)$ si $a > b$,
-puis, 
-en appliquant le \reffact{poly-nullity-interval} au polynôme $p(a ; b) = a^2 - b^2 - (a+b)(a-b)$, 
-nous avons:
-$\forall (a ; b) \in \RR^2$, $a^2 - b^2 = (a+b)(a-b)$.
+	En déplaçant ensuite le rectangle $EBHG$ comme ci-dessous, nous obtenons alors un rectangle de dimension $(a+b) \times (a-b)$. 
+
+	\begin{center}
+		\includegraphics[scale = .7]{(a-b)(a-b)-sep.png}
+	\end{center}
+
+	Finalement, nous obtenons $a^2 - b^2 = (a+b)(a-b)$ si $a > b$,
+	puis,
+	en appliquant le \reffact{poly-nullity-interval} au polynôme $p(a ; b) = a^2 - b^2 - (a+b)(a-b)$,
+	nous avons:
+	$\forall (a ; b) \in \RR^2$, $a^2 - b^2 = (a+b)(a-b)$.
+\end{example}
+
+
+% ----------- %
+
+
+\begin{example}
+    Finissons par l'identité polynomiale
+    $ \widetilde{\mathtt{u}} \widetilde{\mathtt{v}}
+    = \mathtt{u} \mathtt{v}
+    + \mathtt{v} ( \widetilde{\mathtt{u}} - \mathtt{u} )
+    + \widetilde{\mathtt{u}} ( \widetilde{\mathtt{v}} - \mathtt{v} )$
+    obtenue sans effort via le dessin suivant sous les contraintes géométriques
+    $\widetilde{\mathtt{u}} > \mathtt{u}$
+    et
+    $\widetilde{\mathtt{v}} > \mathtt{v}$.
+    Cette identité permet de rendre naturelle la démonstration de la dérivabilité du produit de deux fonctions via
+    $ \frac{1}{h} \big( u(a+h) v(a+h) - u(a) v(a) \big)
+    = \frac{1}{h} v(a) \big( u(a+h) - u(a) \big)
+    + \frac{1}{h} u(a+h) \big( v(a+h) - v(a) \big)$.
+
+	\begin{center}
+		\includegraphics[scale=.75]{proder.png}
+	\end{center}
 \end{example}

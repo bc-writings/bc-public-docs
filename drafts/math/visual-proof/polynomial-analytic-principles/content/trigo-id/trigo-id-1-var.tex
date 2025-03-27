@@ -160,7 +160,8 @@ Nous allons voir que cela est licite grâce au fait \ref{analytic-identity}, don
     \begin{enumerate}
     	\item $f$ est infiniment $\CC$-dérivable.%
 		\footnote{
-			La théorie des fonctions $\CC$-dérivables est très riche. Elle est nommée \focus{analyse complexe}, et le terme \focus{holomorphie} est employé à la place de la $\CC$-dérivabilité.   
+			L'analyse complexe étudie les fonctions $\CC$-dérivables en les nommant \focus{fonctions holomorphes}.
+			Cette théorie est très riche, et très utile. 
 		}
 
     	\item $\forall k \in \NN$,
@@ -176,7 +177,7 @@ Nous allons voir que cela est licite grâce au fait \ref{analytic-identity}, don
 
 
 \begin{proof}
-	La propriété \ref{a_n-value} étant aisée à déduire, une récurrence immédiate à faire montre que nous avons juste à démontrer que
+	La propriété \ref{a_n-value} étant aisée à déduire, une récurrence immédiate à faire montre qu'il suffit de démontrer que
 	$\forall z \in \CdiscO{0}{R}$,
 	$ \limit{\big( \frac{f(z) - f(z_0)}{z - z_0} \big)}%
 	        {z}{z_0 | z \in \CdiscO{0}{R}}
@@ -288,57 +289,137 @@ Nous allons voir que les fonctions développables en série entière autour d'un
 
 
 \begin{proof}
-    Nous allons montrer que le réel $r$ introduit dans la \refdefi{def-analytic} convient.
-    Pour cela, reprenons les notations de cette définition,
-    et considérons $\omega \in \CdiscO{z_0}{r}$.
-    Nous devons trouver $\dsum_{n = 0}^{+\infty} b_n z^n$ de rayon de convergence $S > 0$
-	et
-	$\rho \in \intervalOC{0}{S}$
-	tels qu'on ait
-	$f(z) = \dsum_{n = 0}^{+\infty} b_n (z - w)^n$
-	sur le disque ouvert $\CdiscO{\omega}{\rho} \subseteq \CdiscO{z_0}{r}$.
+    Reprenons les notations de la \refdefi{def-analytic}.
+    Nous allons montrer que le réel $r$ convient.
+    Pour cela, considérons $\omega \in \CdiscO{z_0}{r}$
+    et
+    un disque ouvert non vide $\CdiscO{\omega}{\rho} \subseteq \CdiscO{z_0}{r}$.
+    Notons que $0 < \rho < r$.
 	%
 	\begin{itemize}
-		\item Faisons \textbf{une analyse purement formelle} sans nous soucier des problèmes de convergence.
-		Selon la \refrem{der-power-serie-gene},
+		\item Formellement,
 		$f(z) = \dsum_{n = 0}^{\infty} \frac{\der[e]{f}{z}{n}(\omega)}{n!} (z - \omega)^n$
 		et
 		$\der[e]{f}{z}{n}(\omega) = \dsum_{k = n}^{\infty} \frac{k!}{(k-n)!} a_k \omega^{k - n}$
-		amènent à considérer
-		$\dsum_{n = 0}^{\infty} \dsum_{k = n}^{\infty} \frac{k!}{n! (k-n)!} a_k \omega^{k - n} (z - \omega)^n$.
+		conduisent à étudier
+		$ \dsum_{n = 0}^{\infty} \dsum_{k = n}^{\infty} \frac{k!}{n! (k-n)!} a_k \omega^{k - n} (z - \omega)^n
+		= \dsum_{n = 0}^{\infty} \dsum_{q = 0}^{\infty} \frac{(n+q)!}{n! q!} a_{n+q} \omega^q (z - \omega)^n$.
 	
 
-		\item XXXX
+		\item Soit $F \subset \NN^2$ un ensemble fini.
+		%
+		Introduisons les notations suivantes.
+		%
+		\begin{enumerate}
+			\item $\sigma_F(z ; \omega) = \dsum_{(n,q) \in F} \alpha_{n,q}(z ; \omega)$
+			où
+			$\alpha_{n,q}(z ; \omega) = \frac{(n+q)!}{n! q!} a_{n+q} \omega^q (z - \omega)^n$.
+
+			\item $\mu(z) = \dsum_{n = 0}^{+\infty} \abs{a_n} z^n$ qui est de rayon de convergence $R$.
+
+			\item $N = \max \big\{ n + q \,,\, (n,q) \in F \big\}$.
+		\end{enumerate}
+		
+		\noindent
+		Pour $z \in \CdiscO{\omega}{\rho}$, nous avons:
+		
+		\noindent\kern-6pt
+		\begin{stepcalc}[style=sar, ope=\leq]
+			\dsum_{(n,q) \in F} \abs{\alpha_{n,q}(z ; \omega)}
+		\explnext{}
+			\dsum_{s=0}^{N} \dsum_{n+q=s} \abs{\alpha_{n,q}(z ; \omega)}
+		\explnext{}
+			\dsum_{s=0}^{N} \dsum_{n+q=s} \binom{n+q}{q} \abs{a_{n+q}} r^q \rho^n
+		\explnext{}
+			\dsum_{s=0}^{N} \abs{a_s} \big( \dsum_{n+q=s} \binom{n+q}{q} r^q \rho^n \big)
+		\explnext{}
+			\dsum_{s=0}^{N} \abs{a_s} (r + \rho)^s
+		\explnext{}
+			\dsum_{s=0}^{+\infty} \abs{a_s} (r + \rho)^s
+		\end{stepcalc}
+		
+		\noindent
+		En imposant aussi $r + \rho < R$, c'est-à-dire $\rho < R - r$, 
+		pour tout sous-ensemble fini $F$ de $\NN^2$, nous avons
+		$\dsum_{(n,q) \in F} \abs{\alpha_{n,q}(z ; \omega)} \leq \mu(r + \rho) < +\infty$.
+		
+		\noindent
+		Donc
+		$\dsum_{(n,q) \in \NN^2} \alpha_{n,q}(z ; \omega)$
+		est absolument convergente,
+		et commutativement convergente.
 	
 
-		\item XXXX
-	
+		\item Pour $z \in \CdiscO{\omega}{\rho}$, nous avons:
+		%
+		\begin{enumerate}
+			\item
+    		\begin{stepcalc}[style=sar]
+    			\dsum_{(n,q) \in \NN^2} \alpha_{n,q}(z ; \omega)
+    		\explnext{}
+    			\dsum_{s=0}^{+\infty} \dsum_{n+q=s} \alpha_{n,q}(z ; \omega)
+    		\explnext{}
+    			\dsum_{s=0}^{+\infty} \dsum_{n+q=s} \binom{n+q}{q} a_{n+q} \omega^q (z - \omega)^n
+    		\explnext{}
+    			\dsum_{s=0}^{+\infty} a_s \big( \dsum_{n+q=s} \binom{n+q}{q} \omega^q (z - \omega)^n \big)
+    		\explnext{}
+    			\dsum_{s=0}^{+\infty} a_s (\omega + z - \omega)^s
+    		\explnext{}
+    			f(z)
+    		\end{stepcalc}
 
-		\item XXXX
+
+			\item
+    		\begin{stepcalc}[style=sar]
+    			\dsum_{(n,q) \in \NN^2} \alpha_{n,q}(z ; \omega)
+    		\explnext{}
+    			\dsum_{n = 0}^{\infty} \dsum_{q = 0}^{\infty} \alpha_{n,q}(z ; \omega)
+    		\explnext{}
+    			\dsum_{n = 0}^{\infty} \dsum_{q = 0}^{\infty} \binom{n+q}{q} a_{n+q} \omega^q (z - \omega)^n
+    		\explnext{}
+    			\dsum_{n = 0}^{\infty} \dsum_{k = n}^{\infty} \binom{k}{k-n} a_{k} \omega^{k-n} (z - \omega)^n
+    		\explnext{}
+    			\dsum_{n = 0}^{\infty} \frac{1}{n!} (z - \omega)^n \big( \dsum_{k = n}^{\infty} \frac{k!}{(k-n)!} a_{k} \omega^{k-n} \big) 
+    		\explnext{}
+    			\dsum_{n = 0}^{\infty} \frac{\der[e]{f}{z}{n}(\omega)}{n!} (z - \omega)^n
+    		\end{stepcalc}
+		\end{enumerate}
+		
+		\noindent
+		Nous arrivons à
+		$f(z) = \dsum_{n = 0}^{\infty} \frac{\der[e]{f}{z}{n}(\omega)}{n!} (z - \omega)^n$
+		comme souhaité.
 	\end{itemize}
+	
+	\null\vspace{-2.25em}
 \end{proof}
 
 
 % ----------- %
 
 
-%\newpage
-%\begin{fact} \label{analytic-identity}
-%    Soit $\Omega \subseteq \CC$ un ouvert connexe non vide
-%    et
-%    $f: \Omega \rightarrow \CC$ une fonction analytique.
-%    %
-%	Si $f$ s'annule sur un ouvert $V \subseteq \Omega$,
-%	alors $f$ est nulle
-%	\emph{(c'est le théorème de l'identité)}.  
-%\end{fact}
-%
-%
-%\begin{proof}
-%	TODO
-%\end{proof}
-%
-%
+Passons, enfin, au résultat essentiel de cette section qui va permettre de valider nos identités trigonométriques obtenues partiellement via la géométrie.
+
+
+\begin{fact} \label{isolated-zero}
+    Soit $\Omega \subseteq \CC$ un ouvert connexe non vide,%
+    \footnote{
+    	On parle aussi de \focus{domaine complexe}.
+    }
+    et
+    $f: \Omega \rightarrow \CC$ une fonction analytique non identiquement nulle.
+    %
+	Pour tout zéro $\alpha$ de $f$, il existe un disque ouvert non vide $\CdiscO{\alpha}{r} \subseteq \Omega$ tel que 
+	$\forall z \in \CdiscO{\alpha}{r} - \setgene{\alpha}$, $f(z) \neq 0$
+	\emph{(c'est le principe des zéros isolés)}.  
+\end{fact}
+
+
+\begin{proof}
+	TODO
+\end{proof}
+
+
 %% ----------- %
 %
 %
