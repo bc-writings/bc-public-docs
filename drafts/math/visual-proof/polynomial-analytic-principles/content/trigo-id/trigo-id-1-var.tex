@@ -149,6 +149,11 @@ Nous allons voir que cela est licite grâce au fait \ref{analytic-identity}, don
 \end{example}
 
 
+\begin{example}
+	fonction trigo en expliquant rapidement constructiond e pi.
+\end{example}
+
+
 % ----------- %
 
 
@@ -229,6 +234,8 @@ Nous allons voir que cela est licite grâce au fait \ref{analytic-identity}, don
 		la $\CC$-dérivabilité de  $f$ en $z_0$ avec $\der{f}{z}{1}(z_0) = g(z_0)$.
 		Ceci achève la preuve, car $z_0 \in \CdiscO{0}{R}$ est quelconque.
 	\end{itemize}
+
+	\null\vspace{-6ex}
 \end{proof}
 
 
@@ -350,48 +357,47 @@ Nous allons voir que les fonctions développables en série entière autour d'un
 		et commutativement convergente.
 	
 
-		\item Pour $z \in \CdiscO{\omega}{\rho}$, nous avons:
-		%
-		\begin{enumerate}
-			\item
-    		\begin{stepcalc}[style=sar]
-    			\dsum_{(n,q) \in \NN^2} \alpha_{n,q}(z ; \omega)
-    		\explnext{}
-    			\dsum_{s=0}^{+\infty} \dsum_{n+q=s} \alpha_{n,q}(z ; \omega)
-    		\explnext{}
-    			\dsum_{s=0}^{+\infty} \dsum_{n+q=s} \binom{n+q}{q} a_{n+q} \omega^q (z - \omega)^n
-    		\explnext{}
-    			\dsum_{s=0}^{+\infty} a_s \big( \dsum_{n+q=s} \binom{n+q}{q} \omega^q (z - \omega)^n \big)
-    		\explnext{}
-    			\dsum_{s=0}^{+\infty} a_s (\omega + z - \omega)^s
-    		\explnext{}
-    			f(z)
-    		\end{stepcalc}
-
-
-			\item
-    		\begin{stepcalc}[style=sar]
-    			\dsum_{(n,q) \in \NN^2} \alpha_{n,q}(z ; \omega)
-    		\explnext{}
-    			\dsum_{n = 0}^{\infty} \dsum_{q = 0}^{\infty} \alpha_{n,q}(z ; \omega)
-    		\explnext{}
-    			\dsum_{n = 0}^{\infty} \dsum_{q = 0}^{\infty} \binom{n+q}{q} a_{n+q} \omega^q (z - \omega)^n
-    		\explnext{}
-    			\dsum_{n = 0}^{\infty} \dsum_{k = n}^{\infty} \binom{k}{k-n} a_{k} \omega^{k-n} (z - \omega)^n
-    		\explnext{}
-    			\dsum_{n = 0}^{\infty} \frac{1}{n!} (z - \omega)^n \big( \dsum_{k = n}^{\infty} \frac{k!}{(k-n)!} a_{k} \omega^{k-n} \big) 
-    		\explnext{}
-    			\dsum_{n = 0}^{\infty} \frac{\der[e]{f}{z}{n}(\omega)}{n!} (z - \omega)^n
-    		\end{stepcalc}
-		\end{enumerate}
-		
-		\noindent
-		Nous arrivons à
+		\item Pour $z \in \CdiscO{\omega}{\rho}$, ce qui suit nous donne
 		$f(z) = \dsum_{n = 0}^{\infty} \frac{\der[e]{f}{z}{n}(\omega)}{n!} (z - \omega)^n$
 		comme souhaité.
+
+        \begin{multicols}{2}
+        	\begin{enumerate}[wide]
+    			\item
+        		\begin{stepcalc}[style=ar*]
+        			\dsum_{(n,q) \in \NN^2} \alpha_{n,q}(z ; \omega)
+        		\explnext{}
+        			\dsum_{s=0}^{+\infty} \dsum_{n+q=s} \alpha_{n,q}(z ; \omega)
+        		\explnext{}
+        			\dsum_{s=0}^{+\infty} \dsum_{n+q=s} \binom{n+q}{q} a_{n+q} \omega^q (z - \omega)^n
+        		\explnext{}
+        			\dsum_{s=0}^{+\infty} a_s \big( \dsum_{n+q=s} \binom{n+q}{q} \omega^q (z - \omega)^n \big)
+        		\explnext{}
+        			\dsum_{s=0}^{+\infty} a_s (\omega + z - \omega)^s
+        		\explnext{}
+        			f(z)
+        		\end{stepcalc}
+
+
+    			\item
+        		\begin{stepcalc}[style=ar*]
+        			\dsum_{(n,q) \in \NN^2} \alpha_{n,q}(z ; \omega)
+        		\explnext{}
+        			\dsum_{n = 0}^{\infty} \dsum_{q = 0}^{\infty} \alpha_{n,q}(z ; \omega)
+        		\explnext{}
+        			\dsum_{n = 0}^{\infty} \dsum_{q = 0}^{\infty} \binom{n+q}{q} a_{n+q} \omega^q (z - \omega)^n
+        		\explnext{}
+        			\dsum_{n = 0}^{\infty} \dsum_{k = n}^{\infty} \binom{k}{k-n} a_{k} \omega^{k-n} (z - \omega)^n
+        		\explnext{}
+        			\dsum_{n = 0}^{\infty} \frac{1}{n!} (z - \omega)^n \big( \dsum_{k = n}^{\infty} \frac{k!}{(k-n)!} a_{k} \omega^{k-n} \big) 
+        		\explnext{}
+        			\dsum_{n = 0}^{\infty} \frac{\der[e]{f}{z}{n}(\omega)}{n!} (z - \omega)^n
+        		\end{stepcalc}
+    		\end{enumerate}
+	\end{multicols}
 	\end{itemize}
-	
-	\null\vspace{-2.25em}
+
+	\null\vspace{-8ex}
 \end{proof}
 
 
