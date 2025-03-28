@@ -149,8 +149,30 @@ Nous allons voir que cela est licite grâce au fait \ref{analytic-identity}, don
 \end{example}
 
 
-\begin{example}
-	fonction trigo en expliquant rapidement constructiond e pi.
+\begin{remark}
+	On peut démontrer que
+	$\exp : (\CC , {+}) \to (\CCs, {\times})$ est un morphisme de groupes, et que son noyau est du type $\ii r \ZZ$ avec $r \in \RRsp$.%
+	\footnote{
+	    Entre autres choses, ceci nécessite de savoir que
+	    $f(z) = \exp z - 1$ n'a que des zéros isolés,
+	    et
+	    que les sous-groupes de $\RR$ sont soit denses, soit discrets et du type $r \ZZ$ avec $r \in \RRsp$. 
+	}
+	Posant $\pi = \frac{r}{2}$, le noyau s'écrit $2 \ii \pi \ZZ$.
+	C'est un moyen, comme un autre, de définir et construire le nombre réel $\pi$.
+\end{remark}
+
+
+\begin{example} \label{cos-sin-analytic}
+    Les fonctions circulaires sont définissables sur $\CC$ via
+    $\cos z = \frac{\exp(\ii z) + \exp(- \ii z)}{2}$
+    et
+    $\sin z = \frac{\exp(\ii z) - \exp(- \ii z)}{2 \ii}$,
+    c'est-à-dire via
+    $\cos z = \dsum_{n=0}^{\infty} \frac{(-1)^n}{(2n)!} z^{2n}$
+    et
+    $\sin z = \dsum_{n=0}^{\infty} \frac{(-1)^n}{(2n+ 1)!} z^{2n+1}$.
+    La remarque précédente donne la $2 \pi$-périodicité des fonctions complexes $\cos$ et $\sin$.
 \end{example}
 
 
@@ -166,7 +188,7 @@ Nous allons voir que cela est licite grâce au fait \ref{analytic-identity}, don
     	\item $f$ est infiniment $\CC$-dérivable.%
 		\footnote{
 			L'analyse complexe étudie les fonctions $\CC$-dérivables en les nommant \focus{fonctions holomorphes}.
-			Cette théorie est très riche, et très utile. 
+			Cette théorie est ludique, riche, et très utile.
 		}
 
     	\item $\forall k \in \NN$,
@@ -346,7 +368,7 @@ Nous allons voir que les fonctions développables en série entière autour d'un
 		\end{stepcalc}
 		
 		\noindent
-		En imposant aussi $r + \rho < R$, c'est-à-dire $\rho < R - r$, 
+		En imposant $r + \rho < R$, c'est-à-dire $\rho < R - r$, 
 		pour tout sous-ensemble fini $F$ de $\NN^2$, nous avons
 		$\dsum_{(n,q) \in F} \abs{\alpha_{n,q}(z ; \omega)} \leq \mu(r + \rho) < +\infty$.
 		
@@ -357,9 +379,8 @@ Nous allons voir que les fonctions développables en série entière autour d'un
 		et commutativement convergente.
 	
 
-		\item Pour $z \in \CdiscO{\omega}{\rho}$, ce qui suit nous donne
-		$f(z) = \dsum_{n = 0}^{\infty} \frac{\der[e]{f}{z}{n}(\omega)}{n!} (z - \omega)^n$
-		comme souhaité.
+		\item Pour $z \in \CdiscO{\omega}{\rho} \subseteq \CdiscO{z_0}{r}$, où $0 < \rho < R - r$, ce qui suit nous donne, comme souhaité,
+		$f(z) = \dsum_{n = 0}^{\infty} \frac{\der[e]{f}{z}{n}(\omega)}{n!} (z - \omega)^n$.
 
         \begin{multicols}{2}
         	\begin{enumerate}[wide]
@@ -422,24 +443,58 @@ Passons, enfin, au résultat essentiel de cette section qui va permettre de vali
 
 
 \begin{proof}
-	TODO
+	Nous allons voir que la connexité est essentielle. Rappelons que ceci signifie que $\emptyset$ et $\Omega$ sont les seules sous-ensembles de $\Omega$ qui sont à la fois ouverts et fermés.
+	
+	\smallskip
+	
+	$\forall \omega \in \Omega$, il existe un disque ouvert $\CdiscO{\omega}{r} \subseteq \Omega$ sur lequel 
+	$f(z) = \dsum_{n = 0}^{\infty} \frac{\der[e]{f}{z}{n}(\omega)}{n!} (z - \omega)^n$.
+	%
+	Ceci permet de constater que les deux ensembles suivants sont identiques.
+	%
+	\begin{enumerate}
+		\item $V = \setgene{\omega \in \Omega \mid \text{$f$ s'annule sur un voisinage de $\omega$}}$
+
+		\item $D = \setgene{\omega \in \Omega \mid \forall n \in \NN, \der[e]{f}{z}{n}(\omega) = 0}$
+	\end{enumerate}
+		
+	Clairement,
+	$V$ est ouvert, et $D$ fermé, donc, par raison de connexité, $D$ est soit vide, soit égal à $\Omega$.
+	Comme $f$ n'est pas identiquement nulle sur $\Omega$, seule l'alternative $D = \emptyset$ est possible.
+
+	\smallskip
+	
+	Supposons alors avoir un zéro $\alpha$ de $f$. Le point précédent donne $m \in \NNs$ tel que 
+	$\forall n \in \ZintervalCO{0}{m}$, $\der[e]{f}{z}{n}(\alpha) = 0$,
+	et
+	$\der[e]{f}{z}{m}(\alpha) \neq 0$.
+	Ceci permet d'écrire
+	$f(z) = (z - \alpha)^m \dsum_{n = m}^{\infty} a_n (z - \alpha)^{n - m}$
+	sur un disque ouvert non vide $\CdiscO{\alpha}{\rho} \subseteq \Omega$,
+	avec $a_m = \frac{\der[e]{f}{z}{m}(\alpha)}{m!} \neq 0$.
+	Posant $g(z) = \dsum_{n = m}^{\infty} a_n (z - \alpha)^{n - m}$, nous obtenons une fonction continue sur $\CdiscO{\alpha}{\rho}$, et vérifiant $g(\alpha) \neq 0$.
+	Comme $f(z) = (z - \alpha)^m g(z)$, il devient clair qu'il existe $r > 0$ tel que
+	$\CdiscO{\alpha}{r} \subseteq \CdiscO{\alpha}{\rho}$
+	et
+	$\forall z \in \CdiscO{\alpha}{r} - \setgene{\alpha}$, $f(z) \neq 0$.
 \end{proof}
 
 
-%% ----------- %
-%
-%
-%Si nous revenons à nos identités trigonométriques, il suffit de savoir que les fonctions circulaires complexes sont analytiques sur $\CC$ tout entier, et de noter que le raisonnement géométrique au début de cette section fait clairement apparaître des zéros non isolés pour les fonctions analytiques sur $\CC$ suivantes.
-%%
-%\begin{itemize}[label=\small\textbullet]
-%	\item $f_1(z) = \cos (\pi - z) + \cos z$ 
-%	   et $f_2(z) = \sin (\pi - z) - \sin z$ 
-%
-%	\smallskip
-%	\item $f_3(z) =\cos (z + \pi) + \cos z$ 
-%	   et $f_4(z) =\sin (z + \pi) + \sin z$
-%
-%	\smallskip
-%	\item $f_5(z) =\cos \left( \frac{\pi}{2} - z \right) - \sin z$ 
-%	   et $f_6(z) =\sin \left( \frac{\pi}{2} - z \right) - \cos z$ 
-%\end{itemize}
+% ----------- %
+
+\begin{example}
+    Notre raisonnement géométrique de début de section fait clairement apparaître des zéros non isolés pour les fonctions analytiques sur $\CC$ suivantes, l'analycité des $f_k$ venant de celle des fonctions complexes $\cos$ et $\sin$ (voir l'\refexa{cos-sin-analytic}).
+    %
+    \begin{itemize}[label=\small\textbullet]
+    	\item $f_1(z) = \cos (\pi - z) + \cos z$ 
+    	   et $f_2(z) = \sin (\pi - z) - \sin z$ 
+    
+    	\smallskip
+    	\item $f_3(z) =\cos (z + \pi) + \cos z$ 
+    	   et $f_4(z) =\sin (z + \pi) + \sin z$
+    
+    	\smallskip
+    	\item $f_5(z) =\cos \left( \frac{\pi}{2} - z \right) - \sin z$ 
+    	   et $f_6(z) =\sin \left( \frac{\pi}{2} - z \right) - \cos z$ 
+    \end{itemize}
+\end{example}
