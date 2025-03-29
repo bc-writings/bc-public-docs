@@ -154,9 +154,9 @@ Nous allons voir que cela est licite grâce au fait \ref{isolated-zero}, donné 
 	$\exp : (\CC , {+}) \to (\CCs, {\times})$ est un morphisme de groupes, et que son noyau est du type $\ii r \ZZ$ avec $r \in \RRsp$.%
 	\footnote{
 	    Entre autres choses, ceci nécessite de savoir que
-	    $\exp z: \CC \to \CCs$ est une surjection continue ouverte,
+	    $\exp: \CC \to \CCs$ est une surjection continue ouverte,
 	    et
-	    que les sous-groupes de $\RR$ sont soit denses, soit discrets, et dans ce cas du type $r \ZZ$ avec $r \in \RRp$. 
+	    que les sous-groupes de $\RR$ sont soit denses, soit discrets, et dans ce cas du type $a \ZZ$ avec $a \in \RRp$. 
 	}
 	Posant $\pi = \frac{r}{2}$, le noyau s'écrit $2 \ii \pi \ZZ$.
 	C'est un moyen, comme un autre, de définir et construire le nombre réel $\pi$.
@@ -372,10 +372,9 @@ Nous allons voir que les fonctions développables en série entière autour d'un
 		$\dsum_{(n,q) \in F} \abs{\alpha_{n,q}(z ; \omega)} \leq \mu(r + \rho) < +\infty$.
 		
 		\noindent
-		Donc
+		Ainsi,
 		$\dsum_{(n,q) \in \NN^2} \alpha_{n,q}(z ; \omega)$
-		est absolument convergente,
-		et commutativement convergente.
+		est absolument, donc commutativement, convergente.
 	
 
 		\item Pour $z \in \CdiscO{\omega}{\rho} \subseteq \CdiscO{z_0}{r}$, où $0 < \rho < R - r$, ce qui suit nous donne, comme souhaité,
@@ -461,7 +460,7 @@ Passons, enfin, au résultat essentiel de cette section qui va permettre de vali
 	\end{enumerate}
 		
 	Clairement,
-	$V$ est ouvert, et $D$ fermé, donc, par raison de connexité, $D$ est soit vide, soit égal à $\Omega$.
+	$V$ est ouvert, et $D$ fermé, donc, par raison de connexité, $V = D$ est soit vide, soit égal à $\Omega$.
 	Comme $f$ n'est pas identiquement nulle sur $\Omega$, seule l'alternative $D = \emptyset$ est possible.
 
 	\smallskip
@@ -500,4 +499,39 @@ Passons, enfin, au résultat essentiel de cette section qui va permettre de vali
     	\item $f_5(z) =\cos \left( \frac{\pi}{2} - z \right) - \sin z$ 
     	   et $f_6(z) =\sin \left( \frac{\pi}{2} - z \right) - \cos z$ 
     \end{itemize}
+\end{example}
+
+
+% ----------- %
+
+
+\begin{example}
+    L'identité sympathique
+    $ \sin \big( (2n+1) \alpha \big)
+    = \sin \alpha
+    + 2 \sin \alpha \dsum_{k=1}^{n} \cos ( 2k \alpha )$,
+    valable pour $(n ; \alpha) \in \NNs \times \CC$,
+    est obtenue, relativement naturellement, via les dessins suivants avec les contraintes géométriques
+    $\alpha \in \RRsp$
+    et
+    $0 < (2n +1) \alpha \leq \frac{\pi}{2}$.
+	
+	
+	\begin{multicols}{2}
+	\small\itshape
+	\begin{center}
+		\includegraphics[scale=.75]{tricky-trigo-sum.png}
+		
+		\smallskip
+		Début de la construction.
+
+		\includegraphics[scale=.75]{tricky-trigo-sum-why.png}
+		
+		\smallskip
+		Pourquoi de telles valeurs à gauche?%
+		\footnote{
+		    Aucune polysémie ici...
+		}
+	\end{center}
+	\end{multicols}
 \end{example}

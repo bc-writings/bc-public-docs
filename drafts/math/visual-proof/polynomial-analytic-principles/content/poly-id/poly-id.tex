@@ -98,20 +98,22 @@ Le \reffact{poly-nullity-pos}, donné un peu plus bas, rend licite le passage de
 		    \item Pour $x \in \RRsp$ fixé quelconque,
 		    posons $p_x(x_1 ; ... ; x_n) = p(x_1 ; ... ; x_n ; x)$.
 		    Comme $p_x$ vérifie les conditions de la propriété $\setproba{P}(n)$, par hypothèse de récurrence, nous avons
+		    $\forall (x_1 ; ... ; x_n) \in \RR^n$,
 		    $p_x(x_1 ; ... ; x_n) = 0$,
-		    soit $p(x_1 ; ... ; x_n ; x) = 0$, 
-		    pour tous réels $x_1$ , ... , $x_n$.
+		    soit $p(x_1 ; ... ; x_n ; x) = 0$.
 
 
 		    \item Pour $x_1$ , ... , $x_n$ des réels quelconques,
 		    posons $\ell(x) = p(x_1 ; ... ; x_n ; x)$.
 		    Le point précédent montre que $\ell$ vérifie $\setproba{P}(1)$, donc, d'après le cas de base,
+		    $\forall x \in \RR$,
 		    $\ell(x) = 0$,
-		    soit $p(x_1 ; ... ; x_n ; x) = 0$,
-		    pour tout réel $x$.
+		    soit $p(x_1 ; ... ; x_n ; x) = 0$.
 
 
-		    \item Finalement, $p(x_1 ; ... ; x_n ; x) = 0$ pour tous réels $x_1$ , ... , $x_n$ et $x$.
+		    \item Finalement,
+		    $\forall (x_1 ; ... ; x_n : x) \in \RR^{n+1}$,
+		    $p(x_1 ; ... ; x_n ; x) = 0$.
 		    Autrement dit, nous avons déduit la validité de $\setproba{P}(n+1)$ à partir de celle de $\setproba{P}(n)$.
 		\end{enumerate}
 		
@@ -130,13 +132,14 @@ Le \reffact{poly-nullity-pos}, donné un peu plus bas, rend licite le passage de
 
 \begin{example}
 	En utilisant une approche géométrique semblable à celle présentée plus haut, il devient évident, et rigoureux maintenant, que $\forall n \in \NNs$, $\forall (a_1 ; ... ; a_n) \in \RR^n$, nous avons:
-\[
-	\big( \dsum_{k=1}^{n}a_k \big)^2
-	=
-	\dsum_{k=1}^{n} \left( a_k \right)^2
-	+
-	2 \dsum_{1 \leq i < j \leq n} a_i a_j
-\]
+    %
+    \[
+    	\big( \dsum_{k=1}^{n}a_k \big)^2
+    	=
+    	\dsum_{k=1}^{n} \left( a_k \right)^2
+    	+
+    	2 \dsum_{1 \leq i < j \leq n} a_i a_j
+    \]
 \end{example}
 
 
@@ -219,22 +222,26 @@ Cela est rendu possible par le \reffact{poly-nullity-interval} suivant.
 
 
 \begin{example}
-    Finissons par l'identité polynomiale
+    Via le dessin suivant, sous les contraintes géométriques
+    $\widetilde{\mathtt{u}} > \mathtt{u}$
+    et
+    $\widetilde{\mathtt{v}} > \mathtt{v}$,
+    nous obtenons sans effort l'identité polynomiale
     $ \widetilde{\mathtt{u}} \widetilde{\mathtt{v}}
     = \mathtt{u} \mathtt{v}
     + \mathtt{v} ( \widetilde{\mathtt{u}} - \mathtt{u} )
     + \widetilde{\mathtt{u}} ( \widetilde{\mathtt{v}} - \mathtt{v} )$
-    obtenue sans effort via le dessin suivant sous les contraintes géométriques
-    $\widetilde{\mathtt{u}} > \mathtt{u}$
-    et
-    $\widetilde{\mathtt{v}} > \mathtt{v}$.
+    sur $\RR^2$ tout entier.
 
 	\begin{center}
 		\includegraphics[scale=.75]{proder.png}
 	\end{center}
     
-    L'identité ci-dessus rend naturelle la démonstration de la dérivabilité du produit de deux fonctions via
-    $ \frac{1}{h} \big( u(a+h) v(a+h) - u(a) v(a) \big)
-    = \frac{1}{h} v(a) \big( u(a+h) - u(a) \big)
-    + \frac{1}{h} u(a+h) \big( v(a+h) - v(a) \big)$.
+    L'identité précédente rend naturelle la démonstration de la dérivabilité du produit de deux fonctions via l'égalité ci-dessous.
+    %
+    \[
+          \frac{u(a+h) v(a+h) - u(a) v(a)}{h}
+        = \frac{v(a) \big( u(a+h) - u(a) \big)}{h} 
+        + \frac{u(a+h) \big( v(a+h) - v(a) \big)}{h}
+    \]
 \end{example}
