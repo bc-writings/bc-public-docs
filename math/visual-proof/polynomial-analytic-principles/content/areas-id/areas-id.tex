@@ -103,11 +103,12 @@ Le \reffact{poly-nullity-pos}, donné un peu plus bas, rend licite le passage de
 		    pour tous réels $x_1$ , ... , $x_n$.
 
 
-		    \item Fixons ensuite $x_1$ , ... , $x_n$ des réels quelconques, et posons $\ell(x) = p(x_1 ; ... ; x_n ; x)$.
-		    Le point précédent montre que $\ell$ vérifie $\setproba{P}(1)$, ceci impliquant
+		    \item Pour $x_1$ , ... , $x_n$ des réels quelconques,
+		    posons $\ell(x) = p(x_1 ; ... ; x_n ; x)$.
+		    Le point précédent montre que $\ell$ vérifie $\setproba{P}(1)$, donc, d'après le cas de base,
 		    $\ell(x) = 0$,
 		    soit $p(x_1 ; ... ; x_n ; x) = 0$,
-		    pour tout réel $x$, d'après le cas de base.
+		    pour tout réel $x$.
 
 
 		    \item Finalement, $p(x_1 ; ... ; x_n ; x) = 0$ pour tous réels $x_1$ , ... , $x_n$ et $x$.
@@ -130,11 +131,11 @@ Le \reffact{poly-nullity-pos}, donné un peu plus bas, rend licite le passage de
 \begin{example}
 	En utilisant une approche géométrique semblable à celle présentée plus haut, il devient évident, et rigoureux maintenant, que $\forall n \in \NNs$, $\forall (a_1 ; ... ; a_n) \in \RR^n$, nous avons:
 \[
-	\big( \sum_{k=1}^{n}a_k \big)^2
+	\big( \dsum_{k=1}^{n}a_k \big)^2
 	=
-	\sum_{k=1}^{n} \left( a_k \right)^2
+	\dsum_{k=1}^{n} \left( a_k \right)^2
 	+
-	2 \sum_{1 \leq i < j \leq n} a_i a_j
+	2 \dsum_{1 \leq i < j \leq n} a_i a_j
 \]
 \end{example}
 
