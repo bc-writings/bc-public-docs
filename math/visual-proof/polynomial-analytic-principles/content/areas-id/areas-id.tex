@@ -20,10 +20,10 @@ En résumé, nous conjecturons géométriquement, puis nous validons algébrique
 %
 Bien que rigoureuse, la démarche précédente est peu satisfaisante, car elle balaye d'un revers de main l'approche géométrique, dont le rôle est réduit à la découverte d'une formule.
 Si nous considérons le dessin ci-après, il est dommage de devoir faire du calcul algébrique pour valider $(a + b + c)^2 = a^2 + b^2 + c^2 + 2 ab + 2 ac + 2 bc$ pour $a$, $b$ et $c$ des réels de signes quelconques.
-Ce serait bien de pouvoir passer directement de $(a + b + c)^2 = a^2 + b^2 + c^2 + 2 ab + 2 ac + 2 bc$ vraie pour $a > 0$, $b > 0$ et $c > 0$, à la validation de l'identité pour $a$, $b$ et $c$ de signes quelconques.
+Ce serait bien de pouvoir passer directement à l'identité pour $a$, $b$ et $c$ de signes quelconques.
 
 \begin{center}
-	\includegraphics[scale = .7]{(a+b)^3.png}
+	\includegraphics[scale = .7]{(a+b+c)^2.png}
 \end{center}
 
 Le \reffact{poly-nullity-pos}, donné un peu plus bas, rend licite le passage des formules géométriques contraintes précédentes au cas général en faisant les choix suivants de fonctions polynomiales.
@@ -39,9 +39,9 @@ Le \reffact{poly-nullity-pos}, donné un peu plus bas, rend licite le passage de
 
 
 \begin{preli} \label{poly-finite-zeros}
-	Soit $p(x)$ une fonction polynomiale à une variable et de degré $n \in \NNs$.
-	Pour tout réel $\lambda \in \RR$,
-	il existe une fonction polynomiale $q(x)$ de degré $(n-1)$ telle qu'on ait 
+	Si $p: \RR \rightarrow \RR$ est une fonction polynomiale de degré $n \in \NNs$,
+	alors $\forall \lambda \in \RR$,
+	il existe une fonction polynomiale $q(x)$ de degré $(n-1)$ vérifiant
 	$p(x) - p(\lambda) = (x - \lambda) q(x)$.
 	Ceci implique que $p$ ne peut pas avoir plus de $n$ zéros.
 \end{preli}
@@ -68,7 +68,7 @@ Le \reffact{poly-nullity-pos}, donné un peu plus bas, rend licite le passage de
 
 
 \begin{fact} \label{poly-nullity-pos}
-	Soit $p: \RR^n \rightarrow \RR$ une fonction polynomiale à $n$ variables, où $n \in \NNs$.
+	Soit $p: \RR^n \rightarrow \RR$ une fonction polynomiale, où $n \in \NNs$.
 	Si $p$ s'annule sur $\big( \RRsp \big)^n$, alors $p$ s'annule sur $\RR^n$ tout entier. 
 \end{fact}
 
@@ -76,7 +76,7 @@ Le \reffact{poly-nullity-pos}, donné un peu plus bas, rend licite le passage de
 \begin{proof}
 	Raisonnons par récurrence sur $n \in \NNs$ pour démontrer la validité de la propriété $\setproba{P}(n)$ définie par
 	\emph{\og 
-		Pour tout fonction polynomiale réelle $p: \RR^n \rightarrow \RR$,
+		Pour toute fonction polynomiale réelle $p: \RR^n \rightarrow \RR$,
 		si $p$ s'annule sur $\big( \RRsp \big)^n$,
 		alors $p$ s'annule sur $\RR^n$ tout entier. 
 	\fg}\kern2pt.
@@ -92,16 +92,22 @@ Le \reffact{poly-nullity-pos}, donné un peu plus bas, rend licite le passage de
 		\item \textbf{Hérédité.}
 		%
 		Supposons $\setproba{P}(n)$ valide pour un naturel $n$ quelconque.
-		Soit une fonction polynomiale $p$ à $(n + 1)$ variables vérifiant les conditions de la propriété $\setproba{P}(n + 1)$.
+		Soit $p$ une fonction polynomiale à $(n + 1)$ variables vérifiant les conditions de la propriété $\setproba{P}(n + 1)$.
 		%
 		\begin{enumerate}
-		    \item Soient $x \in \RRsp$ fixé, puis la fonction polynomiale $p_x(x_1 ; ... ; x_n) = p(x_1 ; ... ; x_n ; x)$.
+		    \item Pour $x \in \RRsp$ fixé quelconque,
+		    posons $p_x(x_1 ; ... ; x_n) = p(x_1 ; ... ; x_n ; x)$.
 		    Comme $p_x$ vérifie les conditions de la propriété $\setproba{P}(n)$, par hypothèse de récurrence, nous avons
-		    $p_x(x_1 ; ... ; x_n) = 0$, soit $p(x_1 ; ... ; x_n ; x) = 0$, pour tous réels $x_1$ , ... , $x_n$.
+		    $p_x(x_1 ; ... ; x_n) = 0$,
+		    soit $p(x_1 ; ... ; x_n ; x) = 0$, 
+		    pour tous réels $x_1$ , ... , $x_n$.
 
 
-		    \item Fixons maintenant des réels $x_1$ , ... , $x_n$ de signes quelconques, et considérons la fonction polynomiale $\ell(x) = p(x_1 ; ... ; x_n ; x)$.
-		    Le point précédent montre que $\ell$ vérifie $\setproba{P}(1)$, donc $\ell(x) = 0$, soit $p(x_1 ; ... ; x_n ; x) = 0$, pour tout réel $x$, d'après le cas de base.
+		    \item Fixons ensuite $x_1$ , ... , $x_n$ des réels quelconques, et posons $\ell(x) = p(x_1 ; ... ; x_n ; x)$.
+		    Le point précédent montre que $\ell$ vérifie $\setproba{P}(1)$, ceci impliquant
+		    $\ell(x) = 0$,
+		    soit $p(x_1 ; ... ; x_n ; x) = 0$,
+		    pour tout réel $x$, d'après le cas de base.
 
 
 		    \item Finalement, $p(x_1 ; ... ; x_n ; x) = 0$ pour tous réels $x_1$ , ... , $x_n$ et $x$.
@@ -145,7 +151,7 @@ Le \reffact{poly-nullity-pos}, donné un peu plus bas, rend licite le passage de
 
 
 \newpage
-Considérons maintenant le dessin ci-dessous avec $d = a - b$, et la contrainte $a > b$.
+Considérons maintenant le dessin ci-dessous avec la contrainte $a > b$.
 %
 \begin{center}
 	\includegraphics[scale = .7]{(a-b)^2.png}
@@ -167,7 +173,7 @@ Cela est rendu possible par le \reffact{poly-nullity-interval} suivant.
 \medskip
 
 \begin{fact} \label{poly-nullity-interval}
-	Soit $p: \RR^n \rightarrow \RR$ une fonction polynomiale à $n$ variables, où $n \in \NNs$.
+	Soit $p: \RR^n \rightarrow \RR$ une fonction polynomiale, où $n \in \NNs$.
 	Si $\setgeo{E} \subseteq \RR^n$ contient $\setgeo*{E}{1} \times \cdots \times \setgeo*{E}{n}$ où chaque $\setgeo*{E}{k} \subseteq \RR$ est infini,
 	et si $p$ s'annule sur $\setgeo{E}$,
 	alors $p$ s'annule sur $\RR^n$ tout entier. 
@@ -185,13 +191,7 @@ Cela est rendu possible par le \reffact{poly-nullity-interval} suivant.
 \medskip
 
 \begin{example}
-	Considérons le dessin ci-dessous avec $d = a - b$, et la contrainte $a > b$.
-
-	\begin{center}
-		\includegraphics[scale = .7]{(a-b)^2.png}
-	\end{center}
-
-	Nous avons les calculs géométriques simples suivants.
+	En reprenant le dessin précédent, nous avons les calculs géométriques simples suivants, toujours avec la contrainte $a > b$.
 
 	\leavevmode\kern-1em%
 	\begin{stepcalc}[style=ar*, ope={\iff}]
@@ -200,12 +200,10 @@ Cela est rendu possible par le \reffact{poly-nullity-interval} suivant.
     	a^2 - b^2 = \area{GHCK} + \area{EBHG} + \area{FGKD}
 	\end{stepcalc}
 
-	\newpage
-
 	En déplaçant ensuite le rectangle $EBHG$ comme ci-dessous, nous obtenons alors un rectangle de dimension $(a+b) \times (a-b)$. 
 
 	\begin{center}
-		\includegraphics[scale = .7]{(a-b)(a-b)-sep.png}
+		\includegraphics[scale = .7]{a^2-b^2.png}
 	\end{center}
 
 	Finalement, nous obtenons $a^2 - b^2 = (a+b)(a-b)$ si $a > b$,
@@ -229,12 +227,13 @@ Cela est rendu possible par le \reffact{poly-nullity-interval} suivant.
     $\widetilde{\mathtt{u}} > \mathtt{u}$
     et
     $\widetilde{\mathtt{v}} > \mathtt{v}$.
-    Cette identité permet de rendre naturelle la démonstration de la dérivabilité du produit de deux fonctions via
-    $ \frac{1}{h} \big( u(a+h) v(a+h) - u(a) v(a) \big)
-    = \frac{1}{h} v(a) \big( u(a+h) - u(a) \big)
-    + \frac{1}{h} u(a+h) \big( v(a+h) - v(a) \big)$.
 
 	\begin{center}
 		\includegraphics[scale=.75]{proder.png}
 	\end{center}
+    
+    L'identité ci-dessus rend naturelle la démonstration de la dérivabilité du produit de deux fonctions via
+    $ \frac{1}{h} \big( u(a+h) v(a+h) - u(a) v(a) \big)
+    = \frac{1}{h} v(a) \big( u(a+h) - u(a) \big)
+    + \frac{1}{h} u(a+h) \big( v(a+h) - v(a) \big)$.
 \end{example}

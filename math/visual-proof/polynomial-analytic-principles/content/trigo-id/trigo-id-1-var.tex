@@ -28,7 +28,7 @@ Via les points $M$, $N$, $P$ et $Q$, il est facile de fournir des arguments géo
 
 De nouveau, il serait bien de pouvoir passer, sans plus d'effort, à la validité des formules ci-dessus sur $\RR$ tout entier \emph{(considérer les autres cas n'est pas compliqué, mais c'est pénible)}.
 %
-Nous allons voir que cela est licite grâce au fait \ref{analytic-identity}, donné plus bas, qui est un peu technique, car il nécessite la notion de fonction analytique.
+Nous allons voir que cela est licite grâce au fait \ref{isolated-zero}, donné plus bas, qui est technique, car il nécessite la notion de fonction analytique.
 
 
 % ----------- %
@@ -52,10 +52,11 @@ Nous allons voir que cela est licite grâce au fait \ref{analytic-identity}, don
         \item Si $R = 0$, la série ne converge que pour $z = 0$, et sinon elle diverge grossièrement.
 
         \item Si $R = +\infty$, la série converge sur $\CC$.
-        Plus précisément, la série converge normalement sur tout disque ouvert $\CdiscO{0}{r}$ tel que $r \in \RRsp$. 
+        Plus précisément, la série converge normalement sur tout disque fermé $\CdiscC{0}{r}$ tel que $r \in \RRsp$. 
 
-        \item Si $0 < R < +\infty$, la série converge normalement sur tout disque ouvert $\CdiscO{0}{r}$ tel que $0 < r < R$, donc elle converge sur $\CdiscO{0}{R}$.
-        Par contre, elle diverge grossièrement sur $\CC - \CdiscC{0}{R}$,
+        \item Si $0 < R < +\infty$, la série converge normalement sur tout disque fermé $\CdiscC{0}{r}$ tel que $0 < r < R$,
+        donc absolument sur $\CdiscO{0}{R}$,
+        mais sur $\CC - \CdiscC{0}{R}$, elle diverge grossièrement,
         et
         le comportement sur le cercle $\Ccircle{0}{R}$ doit être traité au cas par cas.
     \end{enumerate}
@@ -92,11 +93,10 @@ Nous allons voir que cela est licite grâce au fait \ref{analytic-identity}, don
         $\forall n \in \NN_{\geq n_0}$,
         $\sup \big\{ \sqrt[k]{\abs{a_k}} \,,\, k \in \NN_{\geq n} \big\} > \frac{1}{\abs{z}}$.
         %
-        En particulier,
-        nous pouvons construire une suite strictement croissante d'indices $(k_i)$
+        Ceci permet de construire une suite strictement croissante d'indices $(k_i)_{i \in \NN}$
         telle que
-        $\abs{a_{k_i} z^{k_i}} > 1$.
-        Ceci donne la divergence grossière.
+        $\forall i \in \NN$, $\abs{a_{k_i} z^{k_i}} > 1$,
+        d'où la divergence grossière.
 
 
         \item La justification du comportement pathologique sur le cercle $\Ccircle{0}{R}$ se fait via des contre-exemples. Nous pouvons citer les exemples classiques suivants.
@@ -154,9 +154,9 @@ Nous allons voir que cela est licite grâce au fait \ref{analytic-identity}, don
 	$\exp : (\CC , {+}) \to (\CCs, {\times})$ est un morphisme de groupes, et que son noyau est du type $\ii r \ZZ$ avec $r \in \RRsp$.%
 	\footnote{
 	    Entre autres choses, ceci nécessite de savoir que
-	    $f(z) = \exp z - 1$ n'a que des zéros isolés,
+	    $\exp z: \CC \to \CCs$ est une surjection continue ouverte,
 	    et
-	    que les sous-groupes de $\RR$ sont soit denses, soit discrets et du type $r \ZZ$ avec $r \in \RRsp$. 
+	    que les sous-groupes de $\RR$ sont soit denses, soit discrets, et dans ce cas du type $r \ZZ$ avec $r \in \RRp$. 
 	}
 	Posant $\pi = \frac{r}{2}$, le noyau s'écrit $2 \ii \pi \ZZ$.
 	C'est un moyen, comme un autre, de définir et construire le nombre réel $\pi$.
@@ -180,7 +180,7 @@ Nous allons voir que cela est licite grâce au fait \ref{analytic-identity}, don
 
 
 \begin{preli} \label{der-power-serie}
-    Soit une série entière complexe $\dsum_{n=0}^{\infty} a_n z^n$ de rayon de convergence $R$ non nul.
+    Soit une série entière complexe $\dsum_{n=0}^{\infty} a_n z^n$ de rayon de convergence $R \neq 0$.
     %
     La fonction $f: z \in \CdiscO{0}{R} \mapsto \dsum_{n=0}^{\infty} a_n z^n \in \CC$ vérifie les propriétés suivantes.
     %
@@ -248,7 +248,7 @@ Nous allons voir que cela est licite grâce au fait \ref{analytic-identity}, don
 	    \end{enumerate}
 
 
-		\item Considérons alors $r \in \intervalO{0}{R}$ tel que $z_0 \in \CdiscO{0}{r}$.
+		\item Considérons alors $r \in \intervalO{0}{R}$ tel que $z_0 \in \CdiscC{0}{r}$.
 		Par convergence normale sur $\CdiscC{0}{r}$ de $(f_k)_k$ et $(g_k)_k$ vers $f$ et $g$ respectivement,
 		nous avons la convergence uniforme sur $\CdiscC{0}{r}$ de $(T_k)_k$ vers $T$. 
 		Or chaque fonction $T_k$ est continue en $z_0$ par $\CC$-dérivablité de $f_k$, donc $T$ est continue en $z_0$,
@@ -283,7 +283,7 @@ Nous allons voir que cela est licite grâce au fait \ref{analytic-identity}, don
 % ----------- %
 
 
-Nous allons voir que les fonctions développables en série entière autour d'un nombre complexe $z_0$ ont le bon ton de l'être aussi dans un voisinage de $z_0$.
+Nous allons voir que les fonctions développables en série entière autour d'un nombre complexe $z_0$ ont le bon ton de l'être aussi localement en chaque complexe dans un voisinage de $z_0$.
 
 
 \begin{defi} \label{def-analytic}
@@ -323,7 +323,6 @@ Nous allons voir que les fonctions développables en série entière autour d'un
     Pour cela, considérons $\omega \in \CdiscO{z_0}{r}$
     et
     un disque ouvert non vide $\CdiscO{\omega}{\rho} \subseteq \CdiscO{z_0}{r}$.
-    Notons que $0 < \rho < r$.
 	%
 	\begin{itemize}
 		\item Formellement,
@@ -344,7 +343,7 @@ Nous allons voir que les fonctions développables en série entière autour d'un
 			où
 			$\alpha_{n,q}(z ; \omega) = \frac{(n+q)!}{n! q!} a_{n+q} \omega^q (z - \omega)^n$.
 
-			\item $\mu(z) = \dsum_{n = 0}^{+\infty} \abs{a_n} z^n$ qui est de rayon de convergence $R$.
+			\item $\mu(z) = \dsum_{n = 0}^{+\infty} \abs{a_n} z^n$ admet $R$ pour rayon de convergence.
 
 			\item $N = \max \big\{ n + q \,,\, (n,q) \in F \big\}$.
 		\end{enumerate}
@@ -383,7 +382,8 @@ Nous allons voir que les fonctions développables en série entière autour d'un
 		$f(z) = \dsum_{n = 0}^{\infty} \frac{\der[e]{f}{z}{n}(\omega)}{n!} (z - \omega)^n$.
 
         \begin{multicols}{2}
-        	\begin{enumerate}[wide]
+        	\setlength{\columnseprule}{.75pt}
+	        \begin{enumerate}[wide]
     			\item
         		\begin{stepcalc}[style=ar*]
         			\dsum_{(n,q) \in \NN^2} \alpha_{n,q}(z ; \omega)
@@ -434,7 +434,7 @@ Passons, enfin, au résultat essentiel de cette section qui va permettre de vali
     	On parle aussi de \focus{domaine complexe}.
     }
     et
-    $f: \Omega \rightarrow \CC$ une fonction analytique non identiquement nulle.
+    $f: \Omega \rightarrow \CC$ une fonction analytique sur $\Omega$, et non identiquement nulle.
     %
 	Pour tout zéro $\alpha$ de $f$, il existe un disque ouvert non vide $\CdiscO{\alpha}{r} \subseteq \Omega$ tel que 
 	$\forall z \in \CdiscO{\alpha}{r} - \setgene{\alpha}$, $f(z) \neq 0$
@@ -447,10 +447,12 @@ Passons, enfin, au résultat essentiel de cette section qui va permettre de vali
 	
 	\smallskip
 	
-	$\forall \omega \in \Omega$, il existe un disque ouvert $\CdiscO{\omega}{r} \subseteq \Omega$ sur lequel 
+	Par hypothèse, 
+	$\forall \omega \in \Omega$, il existe un disque ouvert non vide $\CdiscO{\omega}{r} \subseteq \Omega$ tel que 
+	$\forall z \in \CdiscO{\omega}{r}$, 
 	$f(z) = \dsum_{n = 0}^{\infty} \frac{\der[e]{f}{z}{n}(\omega)}{n!} (z - \omega)^n$.
 	%
-	Ceci permet de constater que les deux ensembles suivants sont identiques.
+	Ceci implique l'égalité des deux ensembles suivants.
 	%
 	\begin{enumerate}
 		\item $V = \setgene{\omega \in \Omega \mid \text{$f$ s'annule sur un voisinage de $\omega$}}$
@@ -464,16 +466,17 @@ Passons, enfin, au résultat essentiel de cette section qui va permettre de vali
 
 	\smallskip
 	
-	Supposons alors avoir un zéro $\alpha$ de $f$. Le point précédent donne $m \in \NNs$ tel que 
-	$\forall n \in \ZintervalCO{0}{m}$, $\der[e]{f}{z}{n}(\alpha) = 0$,
+	Supposons alors avoir un zéro $\alpha$ de $f$. 
+	Comme $D = \emptyset$, $\exists p \in \NNs$ tel que 
+	$\forall n \in \ZintervalCO{0}{p}$, $\der[e]{f}{z}{n}(\alpha) = 0$,
 	et
-	$\der[e]{f}{z}{m}(\alpha) \neq 0$.
+	$\der[e]{f}{z}{p}(\alpha) \neq 0$.
 	Ceci permet d'écrire
-	$f(z) = (z - \alpha)^m \dsum_{n = m}^{\infty} a_n (z - \alpha)^{n - m}$
+	$f(z) = (z - \alpha)^p \dsum_{n = p}^{\infty} a_n (z - \alpha)^{n - p}$
 	sur un disque ouvert non vide $\CdiscO{\alpha}{\rho} \subseteq \Omega$,
-	avec $a_m = \frac{\der[e]{f}{z}{m}(\alpha)}{m!} \neq 0$.
-	Posant $g(z) = \dsum_{n = m}^{\infty} a_n (z - \alpha)^{n - m}$, nous obtenons une fonction continue sur $\CdiscO{\alpha}{\rho}$, et vérifiant $g(\alpha) \neq 0$.
-	Comme $f(z) = (z - \alpha)^m g(z)$, il devient clair qu'il existe $r > 0$ tel que
+	avec $a_p = \frac{\der[e]{f}{z}{p}(\alpha)}{p!} \neq 0$.
+	Posant $g(z) = \dsum_{n = p}^{\infty} a_n (z - \alpha)^{n - p}$, nous obtenons une fonction continue sur $\CdiscO{\alpha}{\rho}$, et vérifiant $g(\alpha) \neq 0$.
+	Comme $f(z) = (z - \alpha)^p g(z)$, il devient clair qu'il existe $r > 0$ tel que
 	$\CdiscO{\alpha}{r} \subseteq \CdiscO{\alpha}{\rho}$
 	et
 	$\forall z \in \CdiscO{\alpha}{r} - \setgene{\alpha}$, $f(z) \neq 0$.
@@ -483,7 +486,7 @@ Passons, enfin, au résultat essentiel de cette section qui va permettre de vali
 % ----------- %
 
 \begin{example}
-    Notre raisonnement géométrique de début de section fait clairement apparaître des zéros non isolés pour les fonctions analytiques sur $\CC$ suivantes, l'analycité des $f_k$ venant de celle des fonctions complexes $\cos$ et $\sin$ (voir l'\refexa{cos-sin-analytic}).
+    Notre raisonnement géométrique de début de section fait clairement apparaître des zéros non isolés pour les fonctions suivantes qui sont analytiques sur $\CC$, comme le sont les fonctions $\cos$ et $\sin$ (voir l'\refexa{cos-sin-analytic}).
     %
     \begin{itemize}[label=\small\textbullet]
     	\item $f_1(z) = \cos (\pi - z) + \cos z$ 
