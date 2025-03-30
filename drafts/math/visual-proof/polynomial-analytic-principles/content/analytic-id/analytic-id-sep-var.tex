@@ -33,8 +33,8 @@ Nous voilà sauvés!
     Pour $f: \CC^n \rightarrow \CC$
     et
     $k \in \ZintervalC{1}{n}$,
-    la \focus{k\ieme\ restriction} de $f$ est définie par
-    $f_k: z \in \CC \mapsto f(z_1 ; ... ; z_{k-1} ; z ; z_{k+1} ; ... ; z_n) \in \CC$.%
+    la \focus{k\ieme\ restriction} de $f$, relative à $(z_1 ; ... ; z_{k-1} ; z_{k+1} ; ... ; z_n) \in \CC^{n-1}$, est définie sur $\CC$ par
+    $f_k(z) = f(z_1 ; ... ; z_{k-1} ; z ; z_{k+1} ; ... ; z_n)$.%
 	\footnote{
 		Avec des abus de notations évidents.
 	}
@@ -46,7 +46,7 @@ Nous voilà sauvés!
     %
     Une fonction $f: \CC^n \rightarrow \CC$ sera dite \focus{séparablement analytique} sur $\CC^n$,
     si $\forall k \in \ZintervalC{1}{n}$,
-    la k\ieme\ restriction de $f$ est analytique sur $\CC$.
+    toutes les k\iemes\ restrictions de $f$ sont analytique sur $\CC$.
 \end{defi}
 
 
@@ -117,3 +117,69 @@ Nous voilà sauvés!
 
 	\null\vspace{-5.75ex}
 \end{proof}
+
+
+% ----------- %
+
+
+\begin{example}
+    L'implication
+    $\big[
+        \alpha + \beta + \gamma = \frac{\pi}{2}
+        \implies
+          \tan \alpha \tan \beta
+        + \tan \beta  \tan \gamma
+        + \tan \gamma \tan \alpha
+        = 1
+    \big]$
+    est vraie pour 
+    $(\alpha ; \beta ; \gamma) \in \big( \RRsp \big)^3$,
+    comme le montre le dessin suivant.
+    Il est naturel de se demander s'il est possible de partir, plus généralement, de
+    $(\alpha ; \beta ; \gamma) \in \big( \CC - \frac{\pi}{2} \ZZ \big)^3$.
+    Nous allons voir que c'est le cas.
+    %
+    \footnote{
+    	Pour une fois, la vérification directe est facile, mais cela sort de l'esprit de ce document, et est non généralisable.
+		%
+		En effet,
+		en multipliant par $\cos \alpha \cos \beta \cos \gamma$ l'égalité souhaitée, nous devons démontrer que
+		$ \sin \alpha \sin \beta  \cos \gamma
+        + \sin \beta  \sin \gamma \cos \alpha
+        + \sin \gamma \sin \alpha \cos \beta
+        - \cos \alpha \cos \beta  \cos \gamma
+        = 0$.
+        Dans le terme de gauche, les formules d'addition se cachent de façon ostentatoire.
+        Nous obtenons
+		$ \sin \alpha \sin(\beta + \gamma)
+        - \cos \alpha \cos(\beta + \gamma)$,
+        puis
+		$ - \cos (\alpha + \beta + \gamma)$,
+        soit
+		$- \cos (\frac{\pi}{2})$
+		qui est bien nul.
+    }
+    
+    \begin{center}
+    	\includegraphics[scale=.75]{sum-tan-prod.png}
+    \end{center}
+    
+    Voici comment arriver à une généralisation pour
+    $(\alpha ; \beta ; \gamma) \in \big( \CC - \frac{\pi}{2} \ZZ \big)^3$.
+    %
+    \begin{itemize}
+    	\item XXX
+
+
+    	\item XXX
+
+
+    	\item XXX
+
+
+    	\item XXX
+
+
+    	\item XXX
+    \end{itemize}
+\end{example}
