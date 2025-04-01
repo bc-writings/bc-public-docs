@@ -95,12 +95,13 @@ Le \reffact{poly-nullity-pos}, donné un peu plus bas, rend licite le passage de
 		Soit $p$ une fonction polynomiale à $(n + 1)$ variables vérifiant les conditions de la propriété $\setproba{P}(n + 1)$.
 		%
 		\begin{enumerate}
-		    \item Pour $x \in \RRsp$ fixé quelconque,
-		    posons $p_x(x_1 ; ... ; x_n) = p(x_1 ; ... ; x_n ; x)$.
-		    Comme $p_x$ vérifie les conditions de la propriété $\setproba{P}(n)$, par hypothèse de récurrence, nous avons
+		    \item Pour $\alpha \in \RRsp$ fixé,
+		    posons $p_\alpha(x_1 ; ... ; x_n) = p(x_1 ; ... ; x_n ; \alpha)$.
+		    Nous savons que $p_\alpha$ vérifie les conditions de la propriété $\setproba{P}(n)$,
+		    donc par hypothèse de récurrence, nous avons:
 		    $\forall (x_1 ; ... ; x_n) \in \RR^n$,
-		    $p_x(x_1 ; ... ; x_n) = 0$,
-		    soit $p(x_1 ; ... ; x_n ; x) = 0$.
+		    $p_\alpha(x_1 ; ... ; x_n) = 0$,
+		    soit $p(x_1 ; ... ; x_n ; \alpha) = 0$.
 
 
 		    \item Pour $x_1$ , ... , $x_n$ des réels quelconques,
@@ -161,14 +162,16 @@ Considérons maintenant le dessin ci-dessous avec la contrainte $a > b$.
 	\includegraphics[scale = .7]{(a-b)^2.png}
 \end{center}
 
-Le \reffact{poly-nullity-pos}, très utile, ne peut pas s'appliquer au calcul géométrique évident suivant.
+Le \reffact{poly-nullity-pos} ne peut pas s'appliquer au calcul géométrique évident suivant.
 
+\smallskip
 \leavevmode\kern-1em%
 \begin{stepcalc}[style=ar*, ope={\iff}]
     \area{GHCK} = \area{ABCD} - \area{ABHF} - \area{AEKD} + \area{AEGF}
 \explnext{}
     (a-b)^2 = a^2 - 2ab + b^2
 \end{stepcalc}
+\smallskip
 
 Peut-on tout de même déduire du calcul géométrique précédent la validité, pour tous les réels $a$ et $b$, de l'identité $(a - b)^2 = a^2 + b^2 - 2ab$?
 Cela est rendu possible par le \reffact{poly-nullity-interval} suivant. 
@@ -185,7 +188,8 @@ Cela est rendu possible par le \reffact{poly-nullity-interval} suivant.
 
 
 \begin{proof}
-	La preuve du \reffact{poly-nullity-pos} s'adapte facilement au cadre proposé ici (se souvenir que la clé du raisonnement était le fait qu'un polynôme réel n'admet qu'un nombre fini de racines).
+	Il suffit d'adapter la preuve du \reffact{poly-nullity-pos}
+	(se souvenir que la clé du raisonnement était l'impossibilité, pour une fonction polynomiale, d'avoir une infinité de racines).
 \end{proof}
 
 
@@ -197,12 +201,14 @@ Cela est rendu possible par le \reffact{poly-nullity-interval} suivant.
 \begin{example}
 	En reprenant le dessin précédent, nous avons les calculs géométriques simples suivants, toujours avec la contrainte $a > b$.
 
+	\smallskip
 	\leavevmode\kern-1em%
 	\begin{stepcalc}[style=ar*, ope={\iff}]
     	\area{ABCD} - \area{AEGF} = \area{GHCK} + \area{EBHG} + \area{FGKD}
 	\explnext{}
     	a^2 - b^2 = \area{GHCK} + \area{EBHG} + \area{FGKD}
 	\end{stepcalc}
+	\smallskip
 
 	En déplaçant ensuite le rectangle $EBHG$ comme ci-dessous, nous obtenons alors un rectangle de dimension $(a+b) \times (a-b)$. 
 

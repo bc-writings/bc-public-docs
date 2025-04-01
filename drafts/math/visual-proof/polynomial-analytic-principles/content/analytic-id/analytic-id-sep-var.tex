@@ -17,10 +17,8 @@ $\sin(\alpha + \beta) = \cos \alpha \sin \beta + \sin \alpha \cos \beta$.%
 Le \reffact{sep-isolated-zero} ci-dessous, qui généralise le \reffact{isolated-zero}, implique la validité des formules trigonométriques précédentes sur $\CC^2$ tout entier en choisissant
 $f_1(\alpha ; \beta) = \cos(\alpha + \beta) - \cos \alpha \cos \beta + \sin \alpha \sin \beta$
 et
-$f_2(\alpha ; \beta) = \sin(\alpha + \beta) - \cos \alpha \sin \beta - \sin \alpha \cos \beta$.%
-\footnote{
-    L'ouvert d'annulation est l'intérieur d'un triangle.
-}
+$f_2(\alpha ; \beta) = \sin(\alpha + \beta) - \cos \alpha \sin \beta - \sin \alpha \cos \beta$
+qui s'annulent sur $\intervalO{0}{\frac{\pi}{4}}^2$.
 Nous voilà sauvés!
 
 
@@ -30,14 +28,12 @@ Nous voilà sauvés!
 \begin{defi}
     Soit $n \in \NNs$.
     %
-    Pour $f: \CC^n \rightarrow \CC$
+    Pour toute fonction $f: \CC^n \rightarrow \CC$
     et
     $k \in \ZintervalC{1}{n}$,
-    la \focus{k\ieme\ restriction} de $f$, relative à $(z_1 ; ... ; z_{k-1} ; z_{k+1} ; ... ; z_n) \in \CC^{n-1}$, est définie sur $\CC$ par
-    $f_k(z) = f(z_1 ; ... ; z_{k-1} ; z ; z_{k+1} ; ... ; z_n)$.%
-	\footnote{
-		Avec des abus de notations évidents.
-	}
+    nous nommerons \focus{k\ieme\ restriction de $f$} relativement à $(z_1 ; ... ; z_{k-1} ; z_{k+1} ; ... ; z_n) \in \CC^{n-1}$ 
+    la fonction $f_{k , z_i}$ définie sur $\CC$ par
+    $f_{k , z_i}(z) = f(z_1 ; ... ; z_{k-1} ; z ; z_{k+1} ; ... ; z_n)$.
 \end{defi}
 
 
@@ -46,7 +42,16 @@ Nous voilà sauvés!
     %
     Une fonction $f: \CC^n \rightarrow \CC$ sera dite \focus{séparablement analytique} sur $\CC^n$,
     si $\forall k \in \ZintervalC{1}{n}$,
-    toutes les k\iemes\ restrictions de $f$ sont analytique sur $\CC$.
+    toutes ses k\iemes\ restrictions $f_{k , z_i}$ sont analytiques.
+\end{defi}
+
+
+\begin{defi}
+    L'ensemble $\setgeo{E} \subseteq \CC$ sera dit \focus{discriminant} 
+    s'il existe $\omega \in \setgeo{E}$ non isolé,
+    c'est-à-dire
+    que pour tout réel $r > 0$,
+    $\CdiscO{\omega}{r} \cap \setgeo{E}$ possède au moins deux éléments.
 \end{defi}
 
 
@@ -54,16 +59,18 @@ Nous voilà sauvés!
     Soient $n \in \NNs$
     et
     $f: \CC^n \rightarrow \CC$ une fonction séparablement analytique.
-	Si $f$ s'annule sur un ouvert non vide $\Omega$,
-	alors $f$ s'annule sur $\CC^n$. 
+	Si $f$ s'annule sur $\dprod_{k=1}^{n} \setgeo*{E}{k}$ où chaque $\setgeo*{E}{k} \subseteq \CC$ est discriminant,
+	alors $f$ s'annule sur $\CC^n$ tout entier. 
 \end{fact}
 
 
 \begin{proof}
-	Raisonnons par récurrence sur $n \in \NNs$ pour démontrer la validité de la propriété $\setproba{P}(n)$ définie par
+	Comme le schéma de démonstration est similaire à celui de la preuve du \reffact{poly-nullity-pos},
+	nous donnons juste les grandes étapes permettant de raisonner par récurrence sur $n \in \NNs$.
+	Pour cela, considérons $\setproba{P}(n)$ définie par
 	\emph{\og 
 		Pour toute fonction séparablement analytique $f: \CC^n \rightarrow \CC$,
-		si $f$ s'annule sur un ouvert non vide $\Omega$,
+		si $f$ s'annule sur $\dprod_{k=1}^{n} \setgeo*{E}{k}$ où chaque $\setgeo*{E}{k} \subseteq \CC$ est discriminant,
 		alors $f$ s'annule sur $\CC^n$. 
 	\fg}\kern2pt.
 	%
@@ -75,53 +82,37 @@ Nous voilà sauvés!
 
 		\item \textbf{Hérédité.}
 		%
-		Supposons $\setproba{P}(n)$ valide pour un naturel $n$ quelconque.
-		%
-		Soit $f$ une fonction séparablement analytique à $(n + 1)$ variables vérifiant les conditions de la propriété $\setproba{P}(n + 1)$.
-		Notons $\Omega$ l'ouvert non vide sur lequel $f$ est nulle.
-		%
-		Quitte à réduire $\Omega$, on peut supposer que
-		$\Omega = \dprod_{k=1}^{n+1} \CdiscO{\alpha_k}{r}$
-		avec $r > 0$ et les $\alpha_k$ des complexes fixés.
-		%
+		Soit $f$ une fonction séparablement analytique à $(n + 1)$ variables vérifiant les conditions de la propriété $\setproba{P}(n + 1)$
+		avec
+		$\dprod_{k=1}^{n+1} \setgeo*{E}{k}$ l'ensemble sur lequel $f$ est nulle.
+		
+		\vspace{-6pt}
 		\begin{enumerate}
-		    \item Pour $\omega \in \CdiscO{\alpha_{n+1}}{r}$ fixé,
-		    posons
-		    $f_\omega: (z_1 ; ... ; z_n) \in \CC^n \mapsto f(z_1 ; ... ; z_n ; \omega) \in \CC$.
-		    Comme $f_\omega$ vérifie les conditions de la propriété $\setproba{P}(n)$, par hypothèse de récurrence,
-		    $\forall (z_1 ; ... ; z_n) \in  \CC^n$,
-		    $f_\omega(z_1 ; ... ; z_n) = 0$, 
-		    soit $f(z_1 ; ... ; z_n ; \omega) = 0$.
+		    \item Pour $\omega \in \setgeo*{E}{n+1}$ fixé,
+		    en posant
+		    $f_\omega: (z_1 ; ... ; z_n) \in \CC^n \mapsto f(z_1 ; ... ; z_n ; \omega) \in \CC$, 
+		    nous avons $f_\omega$ validant $\setproba{P}(n)$.
 
 
-		    \item Pour $z_1$ , ... , $z_n$ des complexes quelconques,
-		    posons $\ell(z) = f(z_1 ; ... ; z_n ; z)$.
-		    Le point précédent montre que $\ell$ vérifie $\setproba{P}(1)$,
-		    donc, d'après le cas de base,
-		    $\forall z \in \CC$,
-		    $\ell(z) = 0$,
-		    soit $f(z_1 ; ... ; z_n ; z) = 0$.
+		    \item Donc, pour $z_1$ , ... , $z_n$ des complexes quelconques,
+		    posant $\ell(z) = f(z_1 ; ... ; z_n ; z)$,
+		    nous avons $\ell$ vérifiant $\setproba{P}(1)$.
 
 
 		    \item Finalement,
 		    $\forall (z_1 ; ... ; z_n ; z) \in  \CC^{n+1}$,
 		    $f(z_1 ; ... ; z_n ; z) = 0$.
-		    Autrement dit, nous avons déduit la validité de $\setproba{P}(n+1)$ à partir de celle de $\setproba{P}(n)$.
 		\end{enumerate}
-		
-		
-		\item \textbf{Conclusion.}
-		%
-		Par récurrence, $\setproba{P}(n)$ est vraie pour tout naturel non nul $n$.
 	\end{itemize}
 
-	\null\vspace{-5.75ex}
+	\null\vspace{-6.5ex}
 \end{proof}
 
 
 % ----------- %
 
 
+\newpage
 \begin{example}
     L'implication
     $\big[
@@ -133,21 +124,21 @@ Nous voilà sauvés!
         = 1
     \big]$
     est vraie pour 
-    $(\alpha ; \beta ; \gamma) \in \big( \RRsp \big)^3$,
+    $(\alpha ; \beta ; \gamma) \in \intervalO{0}{\frac{\pi}{2}}^3$,
     comme le montre le dessin suivant.
     Il est naturel de se demander s'il est possible de partir, plus généralement, de
     $(\alpha ; \beta ; \gamma) \in \big( \CC - \frac{\pi}{2} \ZZ \big)^3$.
-    Nous allons voir que c'est le cas.
+    Nous allons voir que c'est bien le cas.
     %
     \footnote{
-    	Pour une fois, la vérification directe est facile, mais cela sort de l'esprit de ce document, et est non généralisable.
+    	Ici, il est aisé de faire une vérification directe, mais cela sort de l'esprit de ce document, et est non généralisable.
 		%
 		En effet,
-		en multipliant par $\cos \alpha \cos \beta \cos \gamma$ l'égalité souhaitée, nous devons démontrer que
-		$ \sin \alpha \sin \beta  \cos \gamma
-        + \sin \beta  \sin \gamma \cos \alpha
-        + \sin \gamma \sin \alpha \cos \beta
-        - \cos \alpha \cos \beta  \cos \gamma
+		en multipliant l'égalité souhaitée par $\cos \alpha \cos \beta \cos \gamma$, nous devons démontrer que
+		$ \sin \alpha \sin \beta \cos \gamma
+        + \cos \alpha \sin \beta \sin \gamma
+        + \sin \alpha \cos \beta \sin \gamma
+        - \cos \alpha \cos \beta \cos \gamma
         = 0$.
         Dans le terme de gauche, les formules d'addition se cachent de façon ostentatoire.
         Nous obtenons
@@ -168,18 +159,35 @@ Nous voilà sauvés!
     $(\alpha ; \beta ; \gamma) \in \big( \CC - \frac{\pi}{2} \ZZ \big)^3$.
     %
     \begin{itemize}
-    	\item XXX
+    	\item Pour $(\alpha ; \beta) \in \big( \RRsp \big)^2$ tel que $0 < \alpha + \beta < \frac{\pi}{2}$,
+		en posant $\gamma = \frac{\pi}{2} - \alpha - \beta$,
+		le dessin donne
+        %
+        $
+            \tan \alpha \tan \beta
+            + \tan \beta  \tan \big( \frac{\pi}{2} - \alpha - \beta \big)
+            + \tan \big( \frac{\pi}{2} - \alpha - \beta \big) \tan \alpha
+            - 1
+            = 0
+        $.
+        
+
+    	\item En multipliant l'égalité précédente par 
+		$\cos \alpha \cos \beta \cos \big( \frac{\pi}{2} - \alpha - \beta \big)$,
+		nous obtenons la nullité sur $\intervalO{0}{\frac{\pi}{4}}^2$ d'une fonction $f(\alpha ; \beta)$ séparablement analytique.
 
 
-    	\item XXX
+    	\item Comme $\intervalO{0}{\frac{\pi}{4}}^2$ est discriminant, le \reffact{sep-isolated-zero} donne la nullité de $f(\alpha ; \beta)$ sur $\CC^2$.
 
 
-    	\item XXX
-
-
-    	\item XXX
-
-
-    	\item XXX
+    	\item Si
+		$(\alpha ; \beta) \in \big( \CC - \frac{\pi}{2} \ZZ \big)^2$
+		et
+		$\frac{\pi}{2} - \alpha - \beta \in \CC - \frac{\pi}{2} \ZZ$,
+		en divisant par
+		$\cos \alpha \cos \beta \cos \big( \frac{\pi}{2} - \alpha - \beta \big)$,
+		et
+		en posant $\gamma = \frac{\pi}{2} - \alpha - \beta$,
+		nous obtenons la généralisation à $(\alpha ; \beta ; \gamma) \in \big( \CC - \frac{\pi}{2} \ZZ \big)^3$ de l'implication initiale.
     \end{itemize}
 \end{example}
