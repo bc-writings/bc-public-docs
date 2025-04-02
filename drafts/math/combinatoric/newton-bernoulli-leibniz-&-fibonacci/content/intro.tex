@@ -1,4 +1,4 @@
-Les formules suivantes sont intrigantes par leur ressemblance. Bien qu’elles relèvent de domaines différents, nous verrons que cela n'a rien d'une coïncidence : à travers deux démonstrations adoptant des points de vue distincts, nous mettrons en évidence les liens entre ces objets qui, à première vue, semblent sans rapport.
+Les formules suivantes intriguent par leur ressemblance. Bien qu'elles appartiennent à des domaines distincts, leur similitude n’est pas le fruit du hasard. À travers deux démonstrations adoptant des approches différentes, nous révélerons les liens combinatoires qui unissent ces objets en apparence indépendants.
 %
 \begin{itemize}
     \item \textbf{Formule du binôme de Newton:}
@@ -28,18 +28,20 @@ Les formules suivantes sont intrigantes par leur ressemblance. Bien qu’elles r
     $F_{2n} = \binosum{F_k}$.
 
 
-    \item \textbf{Une équation reliant les nombres de Bell:}
+    \item \textbf{Une formule similaire avec des coefficients binomiaux:}
     %
-    $B_{n+1} = \binosum{B_k}$.%
-    \footnote{
-    	$B_n$ est le nombre de façons de partitionner un ensemble de $n$ éléments en sous-ensembles non vides:
-		par exemple,
-		$B_3 = 5$,
-		car l'ensemble $\setgene{ a , b , c }$ admet les partitions
-		$\setgene{ a } \cup \setgene{ b } \cup \setgene{ c }$,
-		$\setgene{ a , b , c }$,
-		$\setgene{ a } \cup \setgene{ b , c }$,
-		$\setgene{ b } \cup \setgene{ a , c }$ et
-		$\setgene{ c } \cup \setgene{ a , b }$.
-    }
+    $\binom{2n}{n} = \binosum{\binom{n}{k}}$.
+
+
+    \item \textbf{Une équation liant les nombres de Bell:}
+    %
+    $B_{n+1} = \binosum{B_k}$ où $B_s$ est le nombre de façons de partitionner un ensemble de $s$ éléments en sous-ensembles non vides:
+	par exemple,
+	$B_3 = 5$,
+	car l'ensemble $\setgene{ a , b , c }$ admet les partitions
+	$\setgene{ a } \cup \setgene{ b } \cup \setgene{ c }$,
+	$\setgene{ a , b , c }$,
+	$\setgene{ a } \cup \setgene{ b , c }$,
+	$\setgene{ b } \cup \setgene{ a , c }$ et
+	$\setgene{ c } \cup \setgene{ a , b }$.
 \end{itemize}

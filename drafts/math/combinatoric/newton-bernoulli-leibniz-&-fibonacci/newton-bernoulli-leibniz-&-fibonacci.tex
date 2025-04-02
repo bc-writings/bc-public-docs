@@ -2,22 +2,228 @@
 
 \usepackage{bc-writings}
 
+\hypersetup{hidelinks}
+
 \usepackage{forest}
 
 
 \forestset{
-  default/.style={
-    rectangle,       % Forme rectangulaire des nœuds
-    draw,            % Tracer les bords des nœuds
-    minimum height=1cm, 
-    minimum width=1cm,
-    font=\sffamily,  % Police sans-serif
-    align=center,    % Centrer le texte dans les nœuds
-    edge={-},        % Pas de flèches sur les arêtes
+  binomial/.style={
+    grow=east, % Orientation horizontale
+    parent anchor=east,
+    child anchor=west,
+    l sep=18pt, % Espacement vertical
+    s sep=5pt, % Espacement horizontal
+    edge={thick}, % Épaisseur des lignes
+    anchor=west,
+    tier/.option=level
+  },
+  widget/.style={
+    binomial,
+    l sep=20pt, % Espacement vertical
+    s sep=7pt, % Espacement horizontal
   }
 }
 
 \NewDocumentCommand{\binosum}{m O{n} O{k}}{\dsum_{#3=0}^{#2} \binom{n}{k} #1}
+
+
+\ExplSyntaxOn
+
+\NewDocumentCommand{ \pqprob }{ m m m }{
+  \str_if_eq:nnTF {#1#2} {00} {
+    1
+  }{
+    \str_case:nnF {#1} {
+        {0} {}
+        {1} {p}
+    }
+    {p^{#1}}
+
+    \str_case:nnF {#2} {
+        {0} {}
+        {1} {q}
+    }
+    {q^{#2}}
+  }
+}
+
+\NewDocumentCommand{ \prodder }{ m m m }{
+  \str_if_eq:nnTF {#1} {0} {
+    f
+  }{
+    f^{(#1)}
+  }
+
+  \str_if_eq:nnTF {#2} {0} {
+    g
+  }{
+    g^{(#2)}
+  }
+}
+
+
+\int_new:N \l_cbal_fibo_max_ind_int
+\str_new:N \l_cbal_fibo_max_ind_str
+\str_new:N \l_cbal_fibo_coef_str
+
+
+\NewDocumentCommand{ \fibo }{ m m m m }{
+  \isnat{#1}{
+    \int_set:Nn \l_cbal_fibo_max_ind_int { 2*#1 }
+    \str_set:Nx \l_cbal_fibo_max_ind_str { \int_use:N \l_cbal_fibo_max_ind_int }
+  }{
+    \str_set:Nn \l_cbal_fibo_max_ind_str { #1 }
+  }
+      
+  F\sb{
+    \str_use:N \l_cbal_fibo_max_ind_str
+
+    \str_if_eq:nnF { #2 }{ 0 }{
+      \str_set:Nn \l_cbal_fibo_coef_str { #2 }
+ 
+      -
+      \str_if_in:NnTF \l_cbal_fibo_coef_str { + } {
+        (#2)
+      } {
+        #2
+      }
+      \cdot 1
+    }
+    \str_if_eq:nnF { #3 }{ 0 }{
+      \str_set:Nn \l_cbal_fibo_coef_str { #3 }
+ 
+      -
+      \str_if_in:NnTF \l_cbal_fibo_coef_str { + } {
+        (#3)
+      } {
+        #3
+      }
+      \cdot 2
+    }
+  }
+}
+
+
+% Source for \isnat: https://tex.stackexchange.com/q/725606/6880
+\NewDocumentCommand{\isnat}{>{\TrimSpaces} m m m}{
+  \is_nat:eTF{#1}{#2}{#3}
+}
+
+\regex_new:N  \is_stack_nat_regex 
+\regex_set:Nn \is_stack_nat_regex{\A\s*[\d]+\s*\Z}
+
+\cs_new:Nn \is_nat:nTF{
+  \regex_match:NnTF \is_stack_nat_regex{#1}{#2}{#3}
+}
+
+\cs_generate_variant:Nn \is_nat:nTF{eTF}
+
+
+\int_new:N \l_cbal_newton_power_int
+\int_new:N \l_cbal_newton_sub_power_str
+
+\NewDocumentCommand{ \devnew }{ m m m m }{
+  \str_case:nnF {#2} {
+    {0} {}
+    {1} {x}
+  }{
+    x^{#2}
+  }
+
+  \str_case:nnF {#3} {
+    {0} {}
+    {1} {y}
+  }{
+    y^{#3}
+  }
+  
+  \int_set:Nn \l_cbal_newton_sub_power_str {#4}
+
+%    \str_if_eq:nnTF {#1} {3} { 
+%    
+    \isnat{#1}{
+      \int_set:Nn \l_cbal_newton_power_int {
+        #1 - \int_use:N \l_cbal_newton_sub_power_str
+      }
+      
+      \int_compare:nNnF \l_cbal_newton_power_int = 0 {
+        (x+y)^{\int_use:N \l_cbal_newton_power_int}
+      }
+    }{
+      (x+y)^{
+        #1
+        \int_compare:nNnF \l_cbal_newton_sub_power_str = 0 {
+          - \int_use:N \l_cbal_newton_sub_power_str
+        }
+      }
+    }
+}
+
+
+\ExplSyntaxOff
+
+
+
+
+\NewDocumentCommand{\calctree}{m m m}{
+\begin{center}
+\begin{forest}
+for tree={widget}
+%
+[$#1$
+  [$#2$]
+  [$#3$]
+]
+\end{forest}
+\end{center}
+}
+
+
+\NewDocumentCommand{\intertree}{m}{
+\begin{center}
+\begin{forest}
+for tree={widget}
+%
+[$#1{a}{b}{\forestoption{level}}$
+  [$#1{a}{b+1}{\forestoption{level}}$]
+  [$#1{a+1}{b}{\forestoption{level}}$]
+]
+\end{forest}
+\end{center}
+}
+
+
+\NewDocumentCommand{\binotree}{m}{
+\begin{center}
+\begin{forest}
+for tree={binomial}
+%
+[$#1{0}{0}{\forestoption{level}}$
+  [$#1{1}{0}{\forestoption{level}}$
+    [$#1{2}{0}{\forestoption{level}}$
+      [$#1{3}{0}{\forestoption{level}}$]
+      [$#1{2}{1}{\forestoption{level}}$]
+    ]
+    [$#1{1}{1}{\forestoption{level}}$
+      [$#1{2}{1}{\forestoption{level}}$]
+      [$#1{1}{2}{\forestoption{level}}$]
+    ]
+  ]
+  [$#1{0}{1}{\forestoption{level}}$
+    [$#1{1}{1}{\forestoption{level}}$
+      [$#1{2}{1}{\forestoption{level}}$]
+      [$#1{1}{2}{\forestoption{level}}$]
+    ]
+    [$#1{0}{2}{\forestoption{level}}$
+      [$#1{1}{2}{\forestoption{level}}$]
+      [$#1{0}{3}{\forestoption{level}}$]
+    ]
+  ]
+]
+\end{forest}
+\end{center}
+}
 
 
 \begin{document}
@@ -25,7 +231,7 @@
 
 \title{BROUILLON -- Newton, Bernoulli, Leibniz, Fibonacci et Bell}
 \author{Christophe BAL}
-\date{17 Mars 2025 - 22 Mars 2025}
+\date{2 Avril 2025 - 3 Avril 2025}
 
 \maketitle
 
@@ -77,19 +283,47 @@
 
 \subsection{De l'utilité des arbres}
 
-\subimport*{content/treeview}{binomial}
+\subimport*{content/treeview}{bino-law}
 
 
-\subsection{XXX}
+\subsection{Droit au binôme de Newton}
 
-\subimport*{content/treeview}{binomial}
-
-
-% ----------------------- %
+\subimport*{content/treeview}{newton}
 
 
-\section{La formule du binôme de Newton implique...}
+\subsection{Leibniz sans effort}
 
-\subimport*{content/newton-implies}{newton-implies}
+\subimport*{content/treeview}{leibniz}
 
+
+\subsection{Une petite astuce pour Fibonacci}
+
+\subimport*{content/treeview}{fibonacci}
+
+
+\subsection{Les coefficients binomiaux imitent Fibonacci}
+
+\subimport*{content/treeview}{bino-coef}
+
+
+\subsection{Bell sonne la fin du jeu}
+
+\subimport*{content/treeview}{bell}
+
+
+
+
+
+
+
+
+%
+%
+%% ----------------------- %
+%
+%
+%\section{La formule du binôme de Newton implique...}
+%
+%\subimport*{content/newton-implies}{newton-implies}
+%
 \end{document}
