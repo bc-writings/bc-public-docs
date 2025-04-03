@@ -1,10 +1,10 @@
-Notant $\mathcal{C}(n,k) = \frac{n!}{k!(n-k)!}$ si
-et $\mathcal{C}(n,k) = 0$ sinon, nous allons démontrer que $\mathcal{C}(n,k) = \binom{n}{k}$.
+Notant $\mathcal{C}^n_k = \frac{n!}{k!(n-k)!}$ si
+et $\mathcal{C}^n_k = 0$ sinon, nous allons démontrer que $\mathcal{C}^n_k = \binom{n}{k}$.
 
 XXXX
 
 
-\explaintree{\mathcal{C}(n,k)}{\mathcal{C}(n-1,k)}{\mathcal{C}(n-1,k-1)}%
+\explaintree{\mathcal{C}^n_k}{\mathcal{C}^{n-1}_k}{\mathcal{C}^{n-1}_{k-1}}%
             {\factobinomintertree}{\factobinom{n}{k}}
 
 
@@ -16,7 +16,7 @@ YYY
 % ----------------------- %
 
 
-Passons à l'identité $\binom{2n}{n} = \binosum{\binom{n}{k}}$ que nous allons démontrer sous la forme équivalente  $\mathcal{C}(2n,n) = \binosum{\mathcal{C}(n,n-k)}$.
+Passons à l'identité $\binom{2n}{n} = \binosum{\binom{n}{k}}$ que nous allons démontrer sous la forme équivalente  $\mathcal{C}^{2n}_n = \binosum{\mathcal{C}^n_{n-k}}$.
 
 YYY
 
@@ -24,8 +24,12 @@ YYY
 
 
 \begin{remark}
-	Notant $\mathsf{C}_n^k$ le nombre de sous-ensembles à ....
+	Notant $\mathsf{C}(n,k)$ le nombre de sous-ensembles à ....
 	
 	la dernière identité devient éévidente.
 \end{remark}
+
+
+Plus généralement, formule de Van der Monde
+$\binom{m+n}{p}=\dsum_{k=0}^p\binom{m}{k}\binom{n}{p-k}$
 

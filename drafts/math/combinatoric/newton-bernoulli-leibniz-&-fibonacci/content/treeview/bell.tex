@@ -1,12 +1,12 @@
 XXXX
 
-$B_n = \mathcal{B}(n, 0) = \mathcal{B}(n-1, n-1)$
+$B_n = \mathcal{B}^n_0 = \mathcal{B}^{n-1}_{n-1}$
 si
-$\mathcal{B}(n, k) = \mathcal{B}(n-1, k) + \mathcal{B}(n-1, k-1)$
+$\mathcal{B}^n_k = \mathcal{B}^n_{k-1} + \mathcal{B}^{n-1}_{k-1}$
 avec
-$\mathcal{B}(0, 0) = 1$
+$\mathcal{B}^0_0 = \mathcal{B}^1_0 = 1$
 et
-$\mathcal{B}(n, k) = 0$
+$\mathcal{B}^n_k = 0$
 si ???.
 
 situtaion similaire aux coefficients binomiaux 
@@ -15,10 +15,10 @@ situtaion similaire aux coefficients binomiaux
 XXXX
 
 
-\explaintree{\mathcal{B}(n,k)}{\mathcal{B}(n-1,k)}{\mathcal{B}(n-1,k-1)}%
-            {\bellintertree}{\bell{n}}
+\explaintree{\mathcal{B}^n_k}{\mathcal{B}^n_{k-1}}{\mathcal{B}^{n-1}_{k-1}}%
+            {\bellintertree}{\bell{n}{k}}
 
 
 YYY
 
-\belltree{\bell{3}}
+\belltree{\bell{3}{3}}

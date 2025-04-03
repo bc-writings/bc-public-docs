@@ -7,25 +7,35 @@
 \usepackage{forest}
 
 
+% ----------------------- %
+
+
 \forestset{
   binomial/.style={
     math content,
     sn edges,
     grow'  = 0,
-    l sep  = 18pt,
-    s sep  = 5pt,
+    l sep  = 30pt,
+    s sep  = -1pt,
     anchor = parent,
     edge   = {thick},
     tier/.option=level
   },
   widget/.style={
     binomial,
-    l sep=20pt, % Espacement vertical
-    s sep=7pt, % Espacement horizontal
+    l sep = 26pt, % Espacement vertical
+    s sep = 2pt, % Espacement horizontal
   }
 }
 
+
+% ----------------------- %
+
+
 \NewDocumentCommand{\binosum}{m O{n} O{k}}{\dsum_{#3=0}^{#2} \binom{#2}{#3} #1}
+
+
+% ----------------------- %
 
 
 \ExplSyntaxOn
@@ -43,6 +53,9 @@
 }
 
 \cs_generate_variant:Nn \is_nat:nTF{eTF}
+
+
+% ----------------------- %
 
 
 \NewDocumentCommand{ \pqprob }{ m m m }{
@@ -64,6 +77,9 @@
 }
 
 
+% ----------------------- %
+
+
 \NewDocumentCommand{ \prodder }{ m m m }{
   \str_if_eq:nnTF {#1} {0} {
     f
@@ -77,6 +93,30 @@
     g^{(#2)}
   }
 }
+
+
+\NewDocumentCommand{ \prodderthree }{ m m m m }{
+  \str_if_eq:nnTF {#1} {0} {
+    f
+  }{
+    f^{(#1)}
+  }
+
+  \str_if_eq:nnTF {#2} {0} {
+    g
+  }{
+    g^{(#2)}
+  }
+
+  \str_if_eq:nnTF {#3} {0} {
+    h
+  }{
+    h^{(#3)}
+  }
+}
+
+
+% ----------------------- %
 
 
 \int_new:N \l_cbal_fibo_max_ind_int
@@ -120,13 +160,63 @@
 }
 
 
-%\int_new:N \l_cbal_factobinom_max_ind_int
+\NewDocumentCommand{ \fibothree }{ m m m m m }{
+  \isnat{#1}{
+    \int_set:Nn \l_cbal_fibo_max_ind_int { 2*#1 }
+    \str_set:Nx \l_cbal_fibo_max_ind_str { \int_use:N \l_cbal_fibo_max_ind_int }
+  }{
+    \str_set:Nn \l_cbal_fibo_max_ind_str { #1 }
+  }
+      
+  L \sb {
+    \str_use:N \l_cbal_fibo_max_ind_str
+
+    \str_if_eq:nnF { #2 }{ 0 }{
+      \str_set:Nn \l_cbal_fibo_coef_str { #2 }
+ 
+      -
+      \str_if_in:NnTF \l_cbal_fibo_coef_str { + } {
+        (#2)
+      } {
+        #2
+      }
+      \cdot 1
+    }
+    \str_if_eq:nnF { #3 }{ 0 }{
+      \str_set:Nn \l_cbal_fibo_coef_str { #3 }
+ 
+      -
+      \str_if_in:NnTF \l_cbal_fibo_coef_str { + } {
+        (#3)
+      } {
+        #3
+      }
+      \cdot 2
+    }
+    \str_if_eq:nnF { #4 }{ 0 }{
+      \str_set:Nn \l_cbal_fibo_coef_str { #4 }
+ 
+      -
+      \str_if_in:NnTF \l_cbal_fibo_coef_str { + } {
+        (#4)
+      } {
+        #4
+      }
+      \cdot 3
+    }
+  }
+}
+
+
+% ----------------------- %
+
+
 \int_new:N \l_cbal_factobinom_coef_int
 \str_new:N \l_cbal_factobinom_coef_str
 
 
 \NewDocumentCommand{ \factobinom }{ m m m m m }{
-  \mathcal{C} (
+  \mathcal{C}^{
     \isnat{#1#3}{
       \int_set:Nn \l_cbal_factobinom_coef_int { #1 - #3 }
 
@@ -146,9 +236,7 @@
         }
       }
     }
-
-    ,
-    
+  } \sb {
     #2
 
     \str_if_eq:nnF { #4 }{ 0 }{
@@ -161,7 +249,7 @@
         #4
       }
     }
-  )
+  }
 }
 
 
@@ -214,6 +302,105 @@
 \ExplSyntaxOn
 
 
+% ----------------------- %
+
+
+\int_new:N \l_cbal_bell_coef_int
+\str_new:N \l_cbal_bell_coef_str
+
+
+\NewDocumentCommand{ \bell }{ m m m m m }{
+  \mathcal{B}^{
+    #1
+    
+    \str_if_eq:nnF { #3 }{ 0 }{
+      \str_set:Nn \l_cbal_bell_coef_str { #3 }
+
+      -
+      \str_if_in:NnTF \l_cbal_bell_coef_str { + } {
+        (#3)
+      } {
+        #3
+      }
+    }
+
+  } \sb {
+   
+    \isnat{#2#4}{
+      \int_set:Nn \l_cbal_bell_coef_int { #2 - #4 }
+
+      \int_use:N \l_cbal_bell_coef_int
+
+    }{ 
+      #2
+
+      \str_if_eq:nnF { #4 }{ 0 }{
+        \str_set:Nn \l_cbal_factobinom_coef_str { #4 }
+ 
+        -
+        \str_if_in:NnTF \l_cbal_factobinom_coef_str { + } {
+          (#4)
+        } {
+          #4
+        }
+      }
+    }
+  }
+}
+
+
+\ExplSyntaxOff
+
+\NewDocumentCommand{\bellintertree}{m}{
+    \begin{center}
+        \begin{forest}
+            for tree={widget}
+            %
+            [#1{a}{b}{\forestoption{level}}
+              [#1{a}{b+1}{\forestoption{level}}]
+              [#1{a+1}{b+1}{\forestoption{level}}]
+            ]
+        \end{forest}
+    \end{center}
+}
+
+\NewDocumentCommand{\belltree}{m}{
+    \begin{center}
+        \begin{forest}
+            for tree={binomial}
+            %
+            [#1{0}{0}{\forestoption{level}}
+              [#1{0}{1}{\forestoption{level}}
+                [#1{0}{2}{\forestoption{level}}
+                  [#1{1}{3}{\forestoption{level}}]
+                  [#1{2}{3}{\forestoption{level}}]
+                ]
+                [#1{1}{2}{\forestoption{level}}
+                  [#1{1}{3}{\forestoption{level}}]
+                  [#1{2}{3}{\forestoption{level}}]
+                ]
+              ]
+              [#1{1}{1}{\forestoption{level}}
+                [#1{1}{2}{\forestoption{level}}
+                  [#1{1}{3}{\forestoption{level}}]
+                  [#1{2}{3}{\forestoption{level}}]
+                ]
+                [#1{2}{2}{\forestoption{level}}
+                  [#1{2}{3}{\forestoption{level}}]
+                  [#1{3}{3}{\forestoption{level}}]
+                ]
+              ]
+            ]
+        \end{forest}
+    \end{center}
+}
+
+
+% ----------------------- %
+
+
+\ExplSyntaxOn
+
 \int_new:N \l_cbal_newton_power_int
 \int_new:N \l_cbal_newton_sub_power_str
 
@@ -253,6 +440,9 @@
 }
 
 \ExplSyntaxOff
+
+
+% ----------------------- %
 
 
 \NewDocumentCommand{\calctree}{m m m}{
@@ -334,6 +524,61 @@
             ]
         \end{forest}
     \end{center}
+}
+
+
+% ----------------------- %
+
+
+\NewDocumentCommand{\calctreethree}{m m m m}{
+    \begin{center}
+        \begin{forest}
+            for tree={widget}
+            %
+            [{#1}
+              [{#2}]
+              [{#3}]
+              [{#4}]
+            ]
+        \end{forest}
+    \end{center}
+}
+
+
+\NewDocumentCommand{\intertreethree}{m}{
+    \begin{center}
+        \begin{forest}
+            for tree={widget}
+            %
+            [#1{a}{b}{c}{\forestoption{level}}
+              [#1{a+1}{b}{c}{\forestoption{level}}]
+              [#1{a}{b+1}{c}{\forestoption{level}}]
+              [#1{a}{b}{c+1}{\forestoption{level}}]
+            ]
+        \end{forest}
+    \end{center}
+}
+
+
+\NewDocumentCommand{\explaintreethree}{ m m m m m m }{
+    \begin{multicols}{2}
+    	\itshape\centering
+    
+    	\calctreethree{#1}{#2}{#3}{#4}
+%    	$[[1=#1]][[2=#2]][[3=#3]]$
+    	
+    	\smallskip\vfill
+    	
+    	Arbre de calcul.
+    	
+    	\columnbreak
+    
+    	#5{#6}
+    	
+    	\smallskip\vfill
+    	
+    	Un calcul intermédiaire.
+    \end{multicols}
 }
 
 
@@ -427,16 +672,11 @@
 \subimport*{content/treeview}{multi}
 
 
+% ----------------------- %
 
 
+\section{La formule du binôme de Newton implique...}
 
+\subimport*{content/newton-implies}{newton-implies}
 
-
-%% ----------------------- %
-%
-%
-%\section{La formule du binôme de Newton implique...}
-%
-%\subimport*{content/newton-implies}{newton-implies}
-%
 \end{document}
