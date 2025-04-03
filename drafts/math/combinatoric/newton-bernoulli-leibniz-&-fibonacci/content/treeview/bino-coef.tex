@@ -1,14 +1,24 @@
+Notant $\mathcal{C}(n,k) = \frac{n!}{k!(n-k)!}$ si
+et $\mathcal{C}(n,k) = 0$ sinon, nous allons démontrer que $\mathcal{C}(n,k) = \binom{n}{k}$.
+
 XXXX
 
-\calctree{\binom{n}{k}}{\binom{n-1}{k}}{\binom{n-1}{k-1}}
 
-
-
-YYY
-
-\intertree{\fibo{k}}
+\explaintree{\mathcal{C}(n,k)}{\mathcal{C}(n-1,k)}{\mathcal{C}(n-1,k-1)}%
+            {\factobinomintertree}{\factobinom{n}{k}}
 
 
 YYY
 
-\binotree{\fibo{3}}
+\factobinotree{\factobinom{3}{k}}
+
+
+% ----------------------- %
+
+
+Passons à l'identité $\binom{2n}{n} = \binosum{\binom{n}{k}}$ que nous allons démontrer sous la forme équivalente  $\mathcal{C}(2n,n) = \binosum{\mathcal{C}(n,k)}$.
+
+YYY
+
+\factobinotree{\factobinom{6}{3}}
+

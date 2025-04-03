@@ -29,11 +29,16 @@ for tree={binomial}
 \end{forest}
 \end{center}
 
-Dans la version générale à $n$ niveaux de cet arbre, $\binom{n}{k}$ est le nombre de chemins avec exactement $k$ succès.%
-\footnote{
-    Nous n'utiliserons pas dans ce document la formule factorielle de $\binom{n}{k}$.
-}
-Notant $X$ la variable aléatoire comptant le nombre de succès, ainsi que $q = p-1$, il est immédiat que 
+\begin{defi}
+    $\binom{n}{k}$ désigne le nombre de chemins avec exactement $k$ succès dans la version générale à $n$ niveaux de l'arbre précédent.
+    %
+	Dans cette section, nous n'utiliserons
+	ni la définition combinatoire de $\binom{n}{k}$ via les sous-ensembles à $k$ éléments,
+	ni la formule factorielle de $\binom{n}{k}$.
+\end{defi}
+
+
+Notant $X$ la variable aléatoire comptant le nombre de succès, ainsi que $q = 1 - p$, il est immédiat que nous avons
 $\proba{X = j} =\binom{n}{j} p^j q^{n-j}$,
 soit de façon équivalente 
 $\proba{X = j} = \binosum{p^k q^{n-k}} \delta_{jk}$.
@@ -42,14 +47,8 @@ $\proba{X = j} = \binosum{p^k q^{n-k}} \delta_{jk}$.
 
 Nous pouvons calculer les probabilités aux feuilles de l'arbre via le mini-arbre de calcul $\setproba{T}_{c}$ suivant dans lequel un choix de chemin vers le bas, soit un déplacement vers un succès, implique de multiplier la valeur $p^i q^j$ par $p$, et sinon de multiplier par $q$.
 
-
-\calctree{x}{p x}{q x}
-
-
-
-
-
-\intertree{\pqprob}
+\explaintree{x}{p x}{q x}%
+            {\intertree}{\pqprob}
 
 Si l'on part de la racine de la valeur $1$ pour construire un arbre binaire complet via les règles de calcul de $\setproba{T}_{c}$, nous retrouvons $\proba{X = j} = \binosum{p^k q^{n-k}} \delta_{jk}$ de façon combinatoire, voir ci-dessous, mais surtout via une méthode généralisable à d'autres contextes comme nous allons le constater.
 

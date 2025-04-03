@@ -25,10 +25,25 @@
   }
 }
 
-\NewDocumentCommand{\binosum}{m O{n} O{k}}{\dsum_{#3=0}^{#2} \binom{n}{k} #1}
+\NewDocumentCommand{\binosum}{m O{n} O{k}}{\dsum_{#3=0}^{#2} \binom{#2}{#3} #1}
 
 
 \ExplSyntaxOn
+
+% Source for \isnat: https://tex.stackexchange.com/q/725606/6880
+\NewDocumentCommand{\isnat}{>{\TrimSpaces} m m m}{
+  \is_nat:eTF{#1}{#2}{#3}
+}
+
+\regex_new:N  \is_stack_nat_regex 
+\regex_set:Nn \is_stack_nat_regex{\A\s*[\d]+\s*\Z}
+
+\cs_new:Nn \is_nat:nTF{
+  \regex_match:NnTF \is_stack_nat_regex{#1}{#2}{#3}
+}
+
+\cs_generate_variant:Nn \is_nat:nTF{eTF}
+
 
 \NewDocumentCommand{ \pqprob }{ m m m }{
   \str_if_eq:nnTF {#1#2} {00} {
@@ -47,6 +62,7 @@
     {q^{#2}}
   }
 }
+
 
 \NewDocumentCommand{ \prodder }{ m m m }{
   \str_if_eq:nnTF {#1} {0} {
@@ -67,7 +83,6 @@
 \str_new:N \l_cbal_fibo_max_ind_str
 \str_new:N \l_cbal_fibo_coef_str
 
-
 \NewDocumentCommand{ \fibo }{ m m m m }{
   \isnat{#1}{
     \int_set:Nn \l_cbal_fibo_max_ind_int { 2*#1 }
@@ -76,7 +91,7 @@
     \str_set:Nn \l_cbal_fibo_max_ind_str { #1 }
   }
       
-  F\sb{
+  F \sb {
     \str_use:N \l_cbal_fibo_max_ind_str
 
     \str_if_eq:nnF { #2 }{ 0 }{
@@ -105,19 +120,91 @@
 }
 
 
-% Source for \isnat: https://tex.stackexchange.com/q/725606/6880
-\NewDocumentCommand{\isnat}{>{\TrimSpaces} m m m}{
-  \is_nat:eTF{#1}{#2}{#3}
+%\int_new:N \l_cbal_factobinom_max_ind_int
+%\str_new:N \l_cbal_factobinom_max_ind_str
+\str_new:N \l_cbal_factobinom_coef_str
+
+
+\NewDocumentCommand{ \factobinom }{ m m m m m }{
+  \mathcal{C} (
+    #1
+
+    \str_if_eq:nnF { #3 }{ 0 }{
+      \str_set:Nn \l_cbal_factobinom_coef_str { #3 }
+ 
+      -
+      \str_if_in:NnTF \l_cbal_factobinom_coef_str { + } {
+        (#3)
+      } {
+        #3
+      }
+    }
+    
+    ,
+    
+    #2
+
+    \str_if_eq:nnF { #4 }{ 0 }{
+      \str_set:Nn \l_cbal_factobinom_coef_str { #4 }
+ 
+      -
+      \str_if_in:NnTF \l_cbal_factobinom_coef_str { + } {
+        (#4)
+      } {
+        #4
+      }
+    }
+  )
 }
 
-\regex_new:N  \is_stack_nat_regex 
-\regex_set:Nn \is_stack_nat_regex{\A\s*[\d]+\s*\Z}
 
-\cs_new:Nn \is_nat:nTF{
-  \regex_match:NnTF \is_stack_nat_regex{#1}{#2}{#3}
+\ExplSyntaxOff
+
+\NewDocumentCommand{\factobinomintertree}{m}{
+    \begin{center}
+        \begin{forest}
+            for tree={widget}
+            %
+            [$#1{a}{b}{\forestoption{level}}$
+              [$#1{a+1}{b}{\forestoption{level}}$]
+              [$#1{a+1}{b+1}{\forestoption{level}}$]
+            ]
+        \end{forest}
+    \end{center}
 }
 
-\cs_generate_variant:Nn \is_nat:nTF{eTF}
+\NewDocumentCommand{\factobinotree}{m}{
+    \begin{center}
+        \begin{forest}
+            for tree={binomial}
+            %
+            [$#1{0}{0}{\forestoption{level}}$
+              [$#1{1}{0}{\forestoption{level}}$
+                [$#1{2}{0}{\forestoption{level}}$
+                  [$#1{3}{0}{\forestoption{level}}$]
+                  [$#1{3}{1}{\forestoption{level}}$]
+                ]
+                [$#1{2}{1}{\forestoption{level}}$
+                  [$#1{3}{1}{\forestoption{level}}$]
+                  [$#1{3}{2}{\forestoption{level}}$]
+                ]
+              ]
+              [$#1{1}{1}{\forestoption{level}}$
+                [$#1{2}{1}{\forestoption{level}}$
+                  [$#1{3}{1}{\forestoption{level}}$]
+                  [$#1{3}{2}{\forestoption{level}}$]
+                ]
+                [$#1{2}{2}{\forestoption{level}}$
+                  [$#1{3}{2}{\forestoption{level}}$]
+                  [$#1{3}{3}{\forestoption{level}}$]
+                ]
+              ]
+            ]
+        \end{forest}
+    \end{center}
+}
+
+\ExplSyntaxOn
 
 
 \int_new:N \l_cbal_newton_power_int
@@ -139,90 +226,107 @@
   }
   
   \int_set:Nn \l_cbal_newton_sub_power_str {#4}
+ 
+  \isnat{#1}{
+    \int_set:Nn \l_cbal_newton_power_int {
+      #1 - \int_use:N \l_cbal_newton_sub_power_str
+    }
 
-%    \str_if_eq:nnTF {#1} {3} { 
-%    
-    \isnat{#1}{
-      \int_set:Nn \l_cbal_newton_power_int {
-        #1 - \int_use:N \l_cbal_newton_sub_power_str
-      }
-      
-      \int_compare:nNnF \l_cbal_newton_power_int = 0 {
-        (x+y)^{\int_use:N \l_cbal_newton_power_int}
-      }
-    }{
-      (x+y)^{
-        #1
-        \int_compare:nNnF \l_cbal_newton_sub_power_str = 0 {
-          - \int_use:N \l_cbal_newton_sub_power_str
-        }
+    \int_compare:nNnF \l_cbal_newton_power_int = 0 {
+      (x+y)^{\int_use:N \l_cbal_newton_power_int}
+    }
+  }{
+    (x+y)^{
+      #1
+      \int_compare:nNnF \l_cbal_newton_sub_power_str = 0 {
+        - \int_use:N \l_cbal_newton_sub_power_str
       }
     }
+  }
 }
-
 
 \ExplSyntaxOff
 
 
-
-
 \NewDocumentCommand{\calctree}{m m m}{
-\begin{center}
-\begin{forest}
-for tree={widget}
-%
-[$#1$
-  [$#2$]
-  [$#3$]
-]
-\end{forest}
-\end{center}
+    \begin{center}
+        \begin{forest}
+            for tree={widget}
+            %
+            [{$#1$}
+              [{$#2$}]
+              [{$#3$}]
+            ]
+        \end{forest}
+    \end{center}
 }
 
 
 \NewDocumentCommand{\intertree}{m}{
-\begin{center}
-\begin{forest}
-for tree={widget}
-%
-[$#1{a}{b}{\forestoption{level}}$
-  [$#1{a}{b+1}{\forestoption{level}}$]
-  [$#1{a+1}{b}{\forestoption{level}}$]
-]
-\end{forest}
-\end{center}
+    \begin{center}
+        \begin{forest}
+            for tree={widget}
+            %
+            [$#1{a}{b}{\forestoption{level}}$
+              [$#1{a}{b+1}{\forestoption{level}}$]
+              [$#1{a+1}{b}{\forestoption{level}}$]
+            ]
+        \end{forest}
+    \end{center}
+}
+
+
+\NewDocumentCommand{\explaintree}{ m m m m m }{
+    \begin{multicols}{2}
+    	\itshape\centering
+    
+    	\calctree{#1}{#2}{#3}
+%    	$[[1=#1]][[2=#2]][[3=#3]]$
+    	
+    	\smallskip\vfill
+    	
+    	Arbre de calcul.
+    	
+    	\columnbreak
+    
+    	#4{#5}
+    	
+    	\smallskip\vfill
+    	
+    	Un calcul intermédiaire.
+    \end{multicols}
 }
 
 
 \NewDocumentCommand{\binotree}{m}{
-\begin{center}
-\begin{forest}
-for tree={binomial}
-%
-[$#1{0}{0}{\forestoption{level}}$
-  [$#1{1}{0}{\forestoption{level}}$
-    [$#1{2}{0}{\forestoption{level}}$
-      [$#1{3}{0}{\forestoption{level}}$]
-      [$#1{2}{1}{\forestoption{level}}$]
-    ]
-    [$#1{1}{1}{\forestoption{level}}$
-      [$#1{2}{1}{\forestoption{level}}$]
-      [$#1{1}{2}{\forestoption{level}}$]
-    ]
-  ]
-  [$#1{0}{1}{\forestoption{level}}$
-    [$#1{1}{1}{\forestoption{level}}$
-      [$#1{2}{1}{\forestoption{level}}$]
-      [$#1{1}{2}{\forestoption{level}}$]
-    ]
-    [$#1{0}{2}{\forestoption{level}}$
-      [$#1{1}{2}{\forestoption{level}}$]
-      [$#1{0}{3}{\forestoption{level}}$]
-    ]
-  ]
-]
-\end{forest}
-\end{center}
+    \begin{center}
+        \begin{forest}
+            for tree={binomial}
+            %
+            [$#1{0}{0}{\forestoption{level}}$
+              [$#1{1}{0}{\forestoption{level}}$
+                [$#1{2}{0}{\forestoption{level}}$
+                  [$#1{3}{0}{\forestoption{level}}$]
+                  [$#1{2}{1}{\forestoption{level}}$]
+                ]
+                [$#1{1}{1}{\forestoption{level}}$
+                  [$#1{2}{1}{\forestoption{level}}$]
+                  [$#1{1}{2}{\forestoption{level}}$]
+                ]
+              ]
+              [$#1{0}{1}{\forestoption{level}}$
+                [$#1{1}{1}{\forestoption{level}}$
+                  [$#1{2}{1}{\forestoption{level}}$]
+                  [$#1{1}{2}{\forestoption{level}}$]
+                ]
+                [$#1{0}{2}{\forestoption{level}}$
+                  [$#1{1}{2}{\forestoption{level}}$]
+                  [$#1{0}{3}{\forestoption{level}}$]
+                ]
+              ]
+            ]
+        \end{forest}
+    \end{center}
 }
 
 
@@ -286,7 +390,7 @@ for tree={binomial}
 \subimport*{content/treeview}{bino-law}
 
 
-\subsection{Droit au binôme de Newton}
+\subsection{En route directement vers le binôme de Newton}
 
 \subimport*{content/treeview}{newton}
 
@@ -301,7 +405,7 @@ for tree={binomial}
 \subimport*{content/treeview}{fibonacci}
 
 
-\subsection{Les coefficients binomiaux imitent Fibonacci}
+\subsection{Avec des coefficients binomiaux}
 
 \subimport*{content/treeview}{bino-coef}
 
@@ -311,7 +415,9 @@ for tree={binomial}
 \subimport*{content/treeview}{bell}
 
 
+\subsection{Généraliser aux coefficients multimoniaux}
 
+\subimport*{content/treeview}{multi}
 
 
 
