@@ -9,13 +9,13 @@
 
 \forestset{
   binomial/.style={
-    grow=east, % Orientation horizontale
-    parent anchor=east,
-    child anchor=west,
-    l sep=18pt, % Espacement vertical
-    s sep=5pt, % Espacement horizontal
-    edge={thick}, % Épaisseur des lignes
-    anchor=west,
+    math content,
+    sn edges,
+    grow'  = 0,
+    l sep  = 18pt,
+    s sep  = 5pt,
+    anchor = parent,
+    edge   = {thick},
     tier/.option=level
   },
   widget/.style={
@@ -121,25 +121,32 @@
 
 
 %\int_new:N \l_cbal_factobinom_max_ind_int
-%\str_new:N \l_cbal_factobinom_max_ind_str
+\int_new:N \l_cbal_factobinom_coef_int
 \str_new:N \l_cbal_factobinom_coef_str
 
 
 \NewDocumentCommand{ \factobinom }{ m m m m m }{
   \mathcal{C} (
-    #1
+    \isnat{#1#3}{
+      \int_set:Nn \l_cbal_factobinom_coef_int { #1 - #3 }
 
-    \str_if_eq:nnF { #3 }{ 0 }{
-      \str_set:Nn \l_cbal_factobinom_coef_str { #3 }
- 
-      -
-      \str_if_in:NnTF \l_cbal_factobinom_coef_str { + } {
-        (#3)
-      } {
-        #3
+      \int_use:N \l_cbal_factobinom_coef_int
+
+    }{
+      #1
+      
+      \str_if_eq:nnF { #3 }{ 0 }{
+        \str_set:Nn \l_cbal_factobinom_coef_str { #3 }
+
+        -
+        \str_if_in:NnTF \l_cbal_factobinom_coef_str { + } {
+          (#3)
+        } {
+          #3
+        }
       }
     }
-    
+
     ,
     
     #2
@@ -165,9 +172,9 @@
         \begin{forest}
             for tree={widget}
             %
-            [$#1{a}{b}{\forestoption{level}}$
-              [$#1{a+1}{b}{\forestoption{level}}$]
-              [$#1{a+1}{b+1}{\forestoption{level}}$]
+            [#1{a}{b}{\forestoption{level}}
+              [#1{a+1}{b+1}{\forestoption{level}}]
+              [#1{a+1}{b}{\forestoption{level}}]
             ]
         \end{forest}
     \end{center}
@@ -178,25 +185,25 @@
         \begin{forest}
             for tree={binomial}
             %
-            [$#1{0}{0}{\forestoption{level}}$
-              [$#1{1}{0}{\forestoption{level}}$
-                [$#1{2}{0}{\forestoption{level}}$
-                  [$#1{3}{0}{\forestoption{level}}$]
-                  [$#1{3}{1}{\forestoption{level}}$]
+            [#1{0}{0}{\forestoption{level}}
+              [#1{1}{0}{\forestoption{level}}
+                [#1{2}{0}{\forestoption{level}}
+                  [#1{3}{0}{\forestoption{level}}]
+                  [#1{3}{1}{\forestoption{level}}]
                 ]
-                [$#1{2}{1}{\forestoption{level}}$
-                  [$#1{3}{1}{\forestoption{level}}$]
-                  [$#1{3}{2}{\forestoption{level}}$]
+                [#1{2}{1}{\forestoption{level}}
+                  [#1{3}{1}{\forestoption{level}}]
+                  [#1{3}{2}{\forestoption{level}}]
                 ]
               ]
-              [$#1{1}{1}{\forestoption{level}}$
-                [$#1{2}{1}{\forestoption{level}}$
-                  [$#1{3}{1}{\forestoption{level}}$]
-                  [$#1{3}{2}{\forestoption{level}}$]
+              [#1{1}{1}{\forestoption{level}}
+                [#1{2}{1}{\forestoption{level}}
+                  [#1{3}{1}{\forestoption{level}}]
+                  [#1{3}{2}{\forestoption{level}}]
                 ]
-                [$#1{2}{2}{\forestoption{level}}$
-                  [$#1{3}{2}{\forestoption{level}}$]
-                  [$#1{3}{3}{\forestoption{level}}$]
+                [#1{2}{2}{\forestoption{level}}
+                  [#1{3}{2}{\forestoption{level}}]
+                  [#1{3}{3}{\forestoption{level}}]
                 ]
               ]
             ]
@@ -253,9 +260,9 @@
         \begin{forest}
             for tree={widget}
             %
-            [{$#1$}
-              [{$#2$}]
-              [{$#3$}]
+            [{#1}
+              [{#2}]
+              [{#3}]
             ]
         \end{forest}
     \end{center}
@@ -267,9 +274,9 @@
         \begin{forest}
             for tree={widget}
             %
-            [$#1{a}{b}{\forestoption{level}}$
-              [$#1{a}{b+1}{\forestoption{level}}$]
-              [$#1{a+1}{b}{\forestoption{level}}$]
+            [#1{a}{b}{\forestoption{level}}
+              [#1{a+1}{b}{\forestoption{level}}]
+              [#1{a}{b+1}{\forestoption{level}}]
             ]
         \end{forest}
     \end{center}
@@ -303,25 +310,25 @@
         \begin{forest}
             for tree={binomial}
             %
-            [$#1{0}{0}{\forestoption{level}}$
-              [$#1{1}{0}{\forestoption{level}}$
-                [$#1{2}{0}{\forestoption{level}}$
-                  [$#1{3}{0}{\forestoption{level}}$]
-                  [$#1{2}{1}{\forestoption{level}}$]
+            [#1{0}{0}{\forestoption{level}}
+              [#1{1}{0}{\forestoption{level}}
+                [#1{2}{0}{\forestoption{level}}
+                  [#1{3}{0}{\forestoption{level}}]
+                  [#1{2}{1}{\forestoption{level}}]
                 ]
-                [$#1{1}{1}{\forestoption{level}}$
-                  [$#1{2}{1}{\forestoption{level}}$]
-                  [$#1{1}{2}{\forestoption{level}}$]
+                [#1{1}{1}{\forestoption{level}}
+                  [#1{2}{1}{\forestoption{level}}]
+                  [#1{1}{2}{\forestoption{level}}]
                 ]
               ]
-              [$#1{0}{1}{\forestoption{level}}$
-                [$#1{1}{1}{\forestoption{level}}$
-                  [$#1{2}{1}{\forestoption{level}}$]
-                  [$#1{1}{2}{\forestoption{level}}$]
+              [#1{0}{1}{\forestoption{level}}
+                [#1{1}{1}{\forestoption{level}}
+                  [#1{2}{1}{\forestoption{level}}]
+                  [#1{1}{2}{\forestoption{level}}]
                 ]
-                [$#1{0}{2}{\forestoption{level}}$
-                  [$#1{1}{2}{\forestoption{level}}$]
-                  [$#1{0}{3}{\forestoption{level}}$]
+                [#1{0}{2}{\forestoption{level}}
+                  [#1{1}{2}{\forestoption{level}}]
+                  [#1{0}{3}{\forestoption{level}}]
                 ]
               ]
             ]
@@ -423,8 +430,8 @@
 
 
 
-%
-%
+
+
 %% ----------------------- %
 %
 %
