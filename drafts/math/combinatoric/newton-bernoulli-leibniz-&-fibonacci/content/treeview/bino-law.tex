@@ -38,18 +38,20 @@ for tree = {binomial}
 \end{defi}
 
 
-Notant $X$ la variable aléatoire comptant le nombre de succès, ainsi que $q = 1 - p$, il est immédiat que nous avons
+Notant $X$ la variable aléatoire comptant le nombre de succès, ainsi que $q = 1 - p$, expliquons pourquoi nous avons
 $\proba{X = j} =\binom{n}{j} p^j q^{n-j}$,
 soit de façon équivalente 
 $\proba{X = j} = \binosum{p^k q^{n-k}} \delta_{jk}$.
-
-\smallskip
-
-Nous pouvons calculer les probabilités aux feuilles de l'arbre via le mini-arbre de calcul $\setproba{T}_{c}$ suivant dans lequel un choix de chemin vers le bas, soit un déplacement vers un succès, implique de multiplier la valeur $p^i q^j$ par $p$, et sinon de multiplier par $q$.
+%
+Pour cela, calculons les probabilités aux feuilles d'un nouvel arbre via le mini-arbre de calcul suivant dans lequel un choix de chemin vers le bas, soit vers un succès, implique de multiplier la probabilité en cours par $p$, et sinon il faut la multiplier par $q$.
 
 \explaintree{x}{p x}{q x}%
             {\intertree}{\pqprob}
 
-Si l'on part de la racine de la valeur $1$ pour construire un arbre binaire complet via les règles de calcul de $\setproba{T}_{c}$, nous retrouvons $\proba{X = j} = \binosum{p^k q^{n-k}} \delta_{jk}$ de façon combinatoire, voir ci-dessous, mais surtout via une méthode généralisable à d'autres contextes comme nous allons le constater.
+Si l'on part de la racine avec la valeur $1$ pour construire un arbre binaire complet via la règle de calcul, nous obtenons $\proba{X = j} = \binosum{p^k q^{n-k}} \delta_{jk}$ de façon combinatoire.
 
 \binotree{\pqprob}
+
+
+La méthode que nous venons de présenter est généralisable à d'autres contextes comme nous allons le constater dans la suite.
+ 

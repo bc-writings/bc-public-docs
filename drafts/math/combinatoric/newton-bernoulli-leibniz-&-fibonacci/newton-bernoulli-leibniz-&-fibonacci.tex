@@ -270,6 +270,8 @@
 
 \NewDocumentCommand{\factobinotree}{m}{
     \begin{center}
+    	\itshape\centering
+    
         \begin{forest}
             for tree={binomial}
             %
@@ -296,6 +298,8 @@
               ]
             ]
         \end{forest}
+        
+        Un exemple de calcul.
     \end{center}
 }
 
@@ -366,6 +370,8 @@
 
 \NewDocumentCommand{\belltree}{m}{
     \begin{center}
+    	\itshape\centering
+    
         \begin{forest}
             for tree={binomial}
             %
@@ -392,6 +398,8 @@
               ]
             ]
         \end{forest}
+        
+        Un exemple de calcul.
     \end{center}
 }
 
@@ -497,6 +505,7 @@
 
 \NewDocumentCommand{\binotree}{m}{
     \begin{center}
+        \itshape\centering
         \begin{forest}
             for tree={binomial}
             %
@@ -523,6 +532,8 @@
               ]
             ]
         \end{forest}
+        
+        Un exemple de calcul.
     \end{center}
 }
 
@@ -642,41 +653,41 @@
 \subimport*{content/treeview}{bino-law}
 
 
-\subsection{En route directement vers le binôme de Newton}
-
-\subimport*{content/treeview}{newton}
-
-
-\subsection{Leibniz sans effort}
-
-\subimport*{content/treeview}{leibniz}
-
-
-\subsection{Une petite astuce pour Fibonacci}
-
-\subimport*{content/treeview}{fibonacci}
-
-
-\subsection{Avec des coefficients binomiaux}
-
-\subimport*{content/treeview}{bino-coef}
-
-
-\subsection{Bell sonne la fin du jeu}
-
-\subimport*{content/treeview}{bell}
-
-
-\subsection{Généraliser aux coefficients multimoniaux}
-
-\subimport*{content/treeview}{multi}
-
-
-% ----------------------- %
-
-
-\section{La formule du binôme de Newton implique...}
-
-\subimport*{content/newton-implies}{newton-implies}
-
+%\subsection{En route directement vers le binôme de Newton}
+%
+%\subimport*{content/treeview}{newton}
+%
+%
+%\subsection{Leibniz sans effort}
+%
+%\subimport*{content/treeview}{leibniz}
+%
+%
+%\subsection{Une petite astuce pour Fibonacci}
+%
+%\subimport*{content/treeview}{fibonacci}
+%
+%
+%\subsection{Avec des coefficients binomiaux}
+%
+%\subimport*{content/treeview}{bino-coef}
+%
+%
+%\subsection{Bell sonne la fin du jeu}
+%
+%\subimport*{content/treeview}{bell}
+%
+%
+%\subsection{Généraliser aux coefficients multimoniaux}
+%
+%\subimport*{content/treeview}{multi}
+%
+%
+%% ----------------------- %
+%
+%
+%\section{La formule du binôme de Newton implique...}
+%
+%\subimport*{content/newton-implies}{newton-implies}
+%
 \end{document}
