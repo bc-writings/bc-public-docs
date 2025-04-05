@@ -1,9 +1,11 @@
-XXXX
+Pour développer $(x + y)^n$, la brique de base est la distribution indiquée dans l'arbre de calcul ci-dessous à gauche, ceci nous donnant des calculs intermédiaires comme celui montré ci-dessous à droite.
 
-\explaintree{(x + y)^k}{x (x + y)^{k-1}}{y (x + y)^{k-1}}%
+\explaintree{(x + y)f(x ; y)}{x f(x ; y)}{y f(x ; y)}%
             {\intertree}{\devnew{k}}
 
-
-YYY
+En considérant un arbre binaire de niveau de profondeur $n$, et avec pour racine l'expression $(x + y)^n$, l'application répétée de la règle de calcul donne la formule du binôme de Newton
+$(x + y)^n = \binosum{x^k y^{n-k}}$.
+%
+Voici un exemple de calcul avec $n=3$.
 
 \binotree{\devnew{3}}

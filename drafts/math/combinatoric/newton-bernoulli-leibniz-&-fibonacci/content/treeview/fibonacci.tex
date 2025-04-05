@@ -1,10 +1,15 @@
-XXXX
+?????
+Pour la formule de dérivation de Liebniz, comme la dérivation est une fonctionnelle linéaire, la brique de base est la classique formule de dérivation d'un produit, voir ci-dessous à gauche. Les calculs intermédiaires sont de la forme indiquée ci-dessous à droite.
 
 \explaintree{F_{k}}{F_{k-1}}{F_{k-2}}%
             {\intertree}{\fibo{k}}
 
 
-YYY
+????
+En considérant un arbre binaire de niveau de profondeur $n$, et avec pour racine la fonction produit $f g$, l'application répétée de la règle de calcul donne la formule de dérivation de Liebniz 
+$(fg)^{(n)}(x) = \binosum{f^{(k)}(x) g^{(n-k)}(x)}$.
+%
+Voici un exemple de calcul avec $n=3$.
 
 \binotree{\fibo{3}}
 

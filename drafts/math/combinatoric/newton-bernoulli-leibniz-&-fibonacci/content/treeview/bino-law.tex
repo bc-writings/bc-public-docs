@@ -1,4 +1,4 @@
-Lorsque l'on présente la loi binomiale, il est courant d'utiliser un arbre de probabilité comme le suivant où $S$ désigne un succès et $E$ un échec, un succès ayant une probabilité $p$ de se réaliser (ici nous avons un niveau de profondeur de $3$).
+Lorsque l'on présente la loi binomiale, il est courant d'utiliser un arbre de probabilité comme le suivant où $S$ désigne un succès et $E$ un échec, un succès ayant une probabilité $p$ de se réaliser (ici nous avons $3$ niveaux de profondeur).
 
 \begin{center}
 \begin{forest}
@@ -30,28 +30,37 @@ for tree = {binomial}
 \end{center}
 
 \begin{defi}
-    $\binom{n}{k}$ désigne le nombre de chemins avec exactement $k$ succès dans la version générale à $n$ niveaux de l'arbre précédent.
-    %
-	Dans cette section, nous n'utiliserons
-	ni la définition combinatoire de $\binom{n}{k}$ via les sous-ensembles à $k$ éléments,
-	ni la formule factorielle de $\binom{n}{k}$.
+    $\binom{n}{k}$ désigne le nombre de chemins avec exactement $k$ succès dans la version générale à $n$ niveaux de profondeur de l'arbre précédent.
 \end{defi}
 
 
-Notant $X$ la variable aléatoire comptant le nombre de succès, ainsi que $q = 1 - p$, expliquons pourquoi nous avons
-$\proba{X = j} =\binom{n}{j} p^j q^{n-j}$,
-soit de façon équivalente 
-$\proba{X = j} = \binosum{p^k q^{n-k}} \delta_{jk}$.
+\begin{remark}
+    Dans le début de ce document, nous n'utiliserons 
+    ni la définition combinatoire de $\binom{n}{k}$ via les sous-ensembles à $k$ éléments,
+	ni la formule factorielle de $\binom{n}{k}$.
+\end{remark}
+
+
+Notons $X$ la variable aléatoire comptant le nombre de succès, ainsi que $q = 1 - p$.
 %
-Pour cela, calculons les probabilités aux feuilles d'un nouvel arbre via le mini-arbre de calcul suivant dans lequel un choix de chemin vers le bas, soit vers un succès, implique de multiplier la probabilité en cours par $p$, et sinon il faut la multiplier par $q$.
+Pour justifier que 
+$\proba{X = j} =\binom{n}{j} p^j q^{n-j}$,
+soit
+$\proba{X = j} = \binosum{p^k q^{n-k}} \delta_{jk}$,
+nous allons nous concentrer sur les bifurcations lors du parcours de l'arbre de gauche à droite.
+L'arbre de calcul ci-dessous à gauche traduit que si l'on va vers un succès, la probabilité en cours est multipliée par $p$, et sinon c'est $q$ qui est appliqué.
+Ceci nous donne des calculs intermédiaires à chaque bifurcation comme montré ci-dessous à droite. 
 
 \explaintree{x}{p x}{q x}%
             {\intertree}{\pqprob}
 
-Si l'on part de la racine avec la valeur $1$ pour construire un arbre binaire complet via la règle de calcul, nous obtenons $\proba{X = j} = \binosum{p^k q^{n-k}} \delta_{jk}$ de façon combinatoire.
+Considérons maintenant un arbre binaire de niveau de profondeur $n$.
+En partant de la racine, à gauche, avec la valeur $1$, l'application de la règle de calcul donne 
+$\proba{X = j} = \binosum{p^k q^{n-k}} \delta_{jk}$.
+%
+Voici un exemple de calcul avec $n=3$.
 
 \binotree{\pqprob}
 
-
-La méthode que nous venons de présenter est généralisable à d'autres contextes comme nous allons le constater dans la suite.
+La méthode que nous venons de présenter est généralisable à d'autres contextes comme nous allons le constater dans la suite de ce document.
  
