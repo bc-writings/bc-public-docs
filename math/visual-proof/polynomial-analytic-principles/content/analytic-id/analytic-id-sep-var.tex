@@ -6,20 +6,15 @@ le dessin suivant nous donne
 $\cos(\alpha + \beta) = \cos \alpha \cos \beta - \sin \alpha \sin \beta$
 et
 $\sin(\alpha + \beta) = \cos \alpha \sin \beta + \sin \alpha \cos \beta$.%
-%\footnote{
-%    Cette démonstration est très utile pour un cours pré universitaire.
-%}
+\footnote{
+    Cette démonstration est très utile pour un cours pré universitaire.
+}
+Nous allons voir comment passer à $(\alpha ; \beta) \in \CC^2$.
+
 
 \begin{center}
 	\includegraphics[scale=.7]{add-trigo-formulas.png}
 \end{center}
-
-Le \reffact{sep-isolated-zero} ci-dessous, qui généralise le \reffact{isolated-zero}, implique la validité des formules trigonométriques précédentes sur $\CC^2$ tout entier en choisissant
-$f_1(\alpha ; \beta) = \cos(\alpha + \beta) - \cos \alpha \cos \beta + \sin \alpha \sin \beta$
-et
-$f_2(\alpha ; \beta) = \sin(\alpha + \beta) - \cos \alpha \sin \beta - \sin \alpha \cos \beta$
-qui s'annulent sur $\intervalO{0}{\frac{\pi}{4}}^2$.
-Nous voilà sauvés!
 
 
 % ----------- %
@@ -32,8 +27,8 @@ Nous voilà sauvés!
     et
     $k \in \ZintervalC{1}{n}$,
     nous nommerons \focus{k\ieme\ restriction de $f$} relativement à $(z_1 ; ... ; z_{k-1} ; z_{k+1} ; ... ; z_n) \in \CC^{n-1}$ 
-    la fonction $f_{k , z_i}$ définie sur $\CC$ par
-    $f_{k , z_i}(z) = f(z_1 ; ... ; z_{k-1} ; z ; z_{k+1} ; ... ; z_n)$.
+    la fonction $f_{k , z_{\small\bullet}}$ définie sur $\CC$ par
+    $f_{k , z_{\small\bullet}}(z) = f(z_1 ; ... ; z_{k-1} ; z ; z_{k+1} ; ... ; z_n)$.
 \end{defi}
 
 
@@ -42,7 +37,7 @@ Nous voilà sauvés!
     %
     Une fonction $f: \CC^n \rightarrow \CC$ sera dite \focus{séparablement analytique} sur $\CC^n$,
     si $\forall k \in \ZintervalC{1}{n}$,
-    toutes ses k\iemes\ restrictions $f_{k , z_i}$ sont analytiques.
+    toutes ses k\iemes\ restrictions $f_{k , z_{\small\bullet}}$ sont analytiques.
 \end{defi}
 
 
@@ -85,34 +80,41 @@ Nous voilà sauvés!
 		Soit $f$ une fonction séparablement analytique à $(n + 1)$ variables vérifiant les conditions de la propriété $\setproba{P}(n + 1)$
 		avec
 		$\dprod_{k=1}^{n+1} \setgeo*{E}{k}$ l'ensemble sur lequel $f$ est nulle.
-		
-		\vspace{-6pt}
-		\begin{enumerate}
-		    \item Pour $\omega \in \setgeo*{E}{n+1}$ fixé,
-		    en posant
-		    $f_\omega: (z_1 ; ... ; z_n) \in \CC^n \mapsto f(z_1 ; ... ; z_n ; \omega) \in \CC$, 
-		    nous avons $f_\omega$ validant $\setproba{P}(n)$.
-
-
-		    \item Donc, pour $z_1$ , ... , $z_n$ des complexes quelconques,
-		    posant $\ell(z) = f(z_1 ; ... ; z_n ; z)$,
-		    nous avons $\ell$ vérifiant $\setproba{P}(1)$.
-
-
-		    \item Finalement,
-		    $\forall (z_1 ; ... ; z_n ; z) \in  \CC^{n+1}$,
-		    $f(z_1 ; ... ; z_n ; z) = 0$.
-		\end{enumerate}
+		%
+		Pour $\omega \in \setgeo*{E}{n+1}$,
+		en posant
+		$f_\omega: (z_1 ; ... ; z_n) \in \CC^n \mapsto f(z_1 ; ... ; z_n ; \omega) \in \CC$,
+		nous avons $f_\omega$ validant $\setproba{P}(n)$.
+		%
+		Donc, $\forall (z_1 ; ... ; z_n) \in \CC^n$,
+		posant $\ell(z) = f(z_1 ; ... ; z_n ; z)$,
+		nous obtenons $\ell$ vérifiant $\setproba{P}(1)$.
+		%
+		Finalement,
+		$f(z_1 ; ... ; z_n ; z)$ est nulle sur $\CC^{n+1}$.
 	\end{itemize}
 
-	\null\vspace{-6.5ex}
+	\null\vspace{-6ex}
 \end{proof}
 
 
 % ----------- %
 
 
-\newpage
+%\newpage
+\begin{example}
+    Le \reffact{sep-isolated-zero} implique la validité des formules trigonométriques d'addition sur $\CC^2$ tout entier en considérant les fonctions
+    $f_1(\alpha ; \beta) = \cos(\alpha + \beta) - \cos \alpha \cos \beta + \sin \alpha \sin \beta$
+    et
+    $f_2(\alpha ; \beta) = \sin(\alpha + \beta) - \cos \alpha \sin \beta - \sin \alpha \cos \beta$
+    qui s'annulent sur $\intervalO{0}{\frac{\pi}{4}}^2$.
+\end{example}
+
+
+% ----------- %
+
+
+%\newpage
 \begin{example}
     L'implication
     $\big[
@@ -154,6 +156,8 @@ Nous voilà sauvés!
     \begin{center}
     	\includegraphics[scale=.75]{sum-tan-prod.png}
     \end{center}
+    
+%    \newpage
     
     Voici comment arriver à une généralisation pour
     $(\alpha ; \beta ; \gamma) \in \big( \CC - \frac{\pi}{2} \ZZ \big)^3$.

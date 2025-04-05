@@ -14,25 +14,18 @@ Malheureusement, cette démonstration n'est valable que pour $a > 0$ et $b > 0$ 
 
 
 Comment passer à $(a + b)^2 = a^2 + b^2 + 2 ab$ pour $a$ et $b$ deux réels de signes quelconques ?
-Classiquement, nous faisons une vérification via un calcul algébrique.
+Classiquement, une vérification est faite via un calcul algébrique.
 %
 En résumé, nous conjecturons géométriquement, puis nous validons algébriquement.
 %
 Bien que rigoureuse, la démarche précédente est peu satisfaisante, car elle balaye d'un revers de main l'approche géométrique, dont le rôle est réduit à la découverte d'une formule.
 Si nous considérons le dessin ci-après, il est dommage de devoir faire du calcul algébrique pour valider $(a + b + c)^2 = a^2 + b^2 + c^2 + 2 ab + 2 ac + 2 bc$ pour $a$, $b$ et $c$ des réels de signes quelconques.
 Ce serait bien de pouvoir passer directement à l'identité pour $a$, $b$ et $c$ de signes quelconques.
+Nous allons voir que cela est possible
 
 \begin{center}
 	\includegraphics[scale = .7]{(a+b+c)^2.png}
 \end{center}
-
-Le \reffact{poly-nullity-pos}, donné un peu plus bas, rend licite le passage des formules géométriques contraintes précédentes au cas général en faisant les choix suivants de fonctions polynomiales.
-%
-\begin{itemize}[label=\small\textbullet]
-	\item $p_1(a ; b) = (a + b)^2 - a^2 - b^2 - 2 ab$
-
-	\item $p_2(a ; b ; c) = (a + b + c)^2 - a^2 - b^2 - c^2 - 2 ab - 2 ac - 2 bc$
-\end{itemize}
 
 
 % ----------- %
@@ -47,6 +40,7 @@ Le \reffact{poly-nullity-pos}, donné un peu plus bas, rend licite le passage de
 \end{preli}
 
 
+\newpage
 \begin{proof}
 	Posant $p(x) = \dsum_{k=0}^{n} a_k x^k$ avec $a_n \neq 0$ par hypothèse, nous avons:
 	
@@ -76,7 +70,7 @@ Le \reffact{poly-nullity-pos}, donné un peu plus bas, rend licite le passage de
 \begin{proof}
 	Raisonnons par récurrence sur $n \in \NNs$ pour démontrer la validité de la propriété $\setproba{P}(n)$ définie par
 	\emph{\og 
-		Pour toute fonction polynomiale réelle $p: \RR^n \rightarrow \RR$,
+		Pour toute fonction polynomiale $p: \RR^n \rightarrow \RR$,
 		si $p$ s'annule sur $\big( \RRsp \big)^n$,
 		alors $p$ s'annule sur $\RR^n$ tout entier. 
 	\fg}\kern2pt.
@@ -84,14 +78,14 @@ Le \reffact{poly-nullity-pos}, donné un peu plus bas, rend licite le passage de
 	\begin{itemize}[label=\small\textbullet]
 		\item \textbf{Cas de base.}
 		%
-		$\setproba{P}(1)$ signifie qu'une fonction polynomiale réelle à une variable s'annulant sur $\RRsp$ est identiquement nulle sur $\RR$ tout entier.
+		$\setproba{P}(1)$ signifie qu'une fonction polynomiale à une variable s'annulant sur $\RRsp$ est identiquement nulle sur $\RR$ tout entier.
 		%
 		Or, selon le \refpreli{poly-finite-zeros}, un polynôme réel non nul n'a qu'un nombre fini de racines, donc $\setproba{P}(1)$ est validée.
 
 
 		\item \textbf{Hérédité.}
 		%
-		Supposons $\setproba{P}(n)$ valide pour un naturel $n$ quelconque.
+		Supposons $\setproba{P}(n)$ valide pour $n \in \NNs$.
 		Soit $p$ une fonction polynomiale à $(n + 1)$ variables vérifiant les conditions de la propriété $\setproba{P}(n + 1)$.
 		%
 		\begin{enumerate}
@@ -113,7 +107,7 @@ Le \reffact{poly-nullity-pos}, donné un peu plus bas, rend licite le passage de
 
 
 		    \item Finalement,
-		    $\forall (x_1 ; ... ; x_n : x) \in \RR^{n+1}$,
+		    $\forall (x_1 ; ... ; x_n ; x) \in \RR^{n+1}$,
 		    $p(x_1 ; ... ; x_n ; x) = 0$.
 		    Autrement dit, nous avons déduit la validité de $\setproba{P}(n+1)$ à partir de celle de $\setproba{P}(n)$.
 		\end{enumerate}
@@ -132,7 +126,19 @@ Le \reffact{poly-nullity-pos}, donné un peu plus bas, rend licite le passage de
 
 
 \begin{example}
-	En utilisant une approche géométrique semblable à celle présentée plus haut, il devient évident, et rigoureux maintenant, que $\forall n \in \NNs$, $\forall (a_1 ; ... ; a_n) \in \RR^n$, nous avons:
+    Si nous reprenons les deux dessins initiaux, le \reffact{poly-nullity-pos} précédent rend licite le passage des formules géométriques contraintes au cas général en faisant les choix suivants de fonctions polynomiales.
+    %
+    \begin{itemize}[label=\small\textbullet]
+    	\item $p_1(a ; b) = (a + b)^2 - a^2 - b^2 - 2 ab$
+    
+    	\item $p_2(a ; b ; c) = (a + b + c)^2 - a^2 - b^2 - c^2 - 2 ab - 2 ac - 2 bc$
+    \end{itemize}
+\end{example}
+% ----------- %
+
+
+\begin{example}
+	En utilisant une approche géométrique semblable à celle présentée plus haut avec une diagonale de carrés, il devient évident, et rigoureux maintenant, que $\forall n \in \NNs$, $\forall (a_1 ; ... ; a_n) \in \RR^n$, nous avons:
     %
     \[
     	\big( \dsum_{k=1}^{n}a_k \big)^2
@@ -181,8 +187,7 @@ Cela est rendu possible par le \reffact{poly-nullity-interval} suivant.
 
 \begin{fact} \label{poly-nullity-interval}
 	Soit $p: \RR^n \rightarrow \RR$ une fonction polynomiale, où $n \in \NNs$.
-	Si $\setgeo{E} \subseteq \RR^n$ contient $\setgeo*{E}{1} \times \cdots \times \setgeo*{E}{n}$ où chaque $\setgeo*{E}{k} \subseteq \RR$ est infini,
-	et si $p$ s'annule sur $\setgeo{E}$,
+	Si $p$ s'annule sur $\setgeo*{E}{1} \times \cdots \times \setgeo*{E}{n}$ où chaque $\setgeo*{E}{k} \subseteq \RR$ est infini,
 	alors $p$ s'annule sur $\RR^n$ tout entier. 
 \end{fact}
 
@@ -234,8 +239,8 @@ Cela est rendu possible par le \reffact{poly-nullity-interval} suivant.
     $\widetilde{\mathtt{v}} > \mathtt{v}$,
     nous obtenons sans effort l'identité polynomiale
     $ \widetilde{\mathtt{u}} \widetilde{\mathtt{v}}
-    = \mathtt{u} \mathtt{v}
-    + \mathtt{v} ( \widetilde{\mathtt{u}} - \mathtt{u} )
+    - \mathtt{u} \mathtt{v}
+    = \mathtt{v} ( \widetilde{\mathtt{u}} - \mathtt{u} )
     + \widetilde{\mathtt{u}} ( \widetilde{\mathtt{v}} - \mathtt{v} )$
     sur $\RR^2$ tout entier.
 

@@ -45,11 +45,11 @@ Nous allons voir que cela est licite grâce au fait \ref{isolated-zero}, voir la
     et
     $+\infty = \dfrac{1}{0}$.
 
-    \smallskip
+    \newpage
     
     Ce nombre $R$ s'interprète comme suit.
     \begin{enumerate}
-        \item Si $R = 0$, la série ne converge que pour $z = 0$, et sinon elle diverge grossièrement.
+        \item Si $R = 0$, la série converge juste en $0$, et sinon elle diverge grossièrement.
 
         \item Si $R = +\infty$, la série converge sur $\CC$.
         Plus précisément, la série converge normalement sur tout disque fermé $\CdiscC{0}{r}$ tel que $r \in \RRsp$. 
@@ -137,30 +137,36 @@ Nous allons voir que cela est licite grâce au fait \ref{isolated-zero}, voir la
 
 
 \begin{example}
-	La série entière complexe $\dsum_{n=0}^{+\infty} \frac{1}{n!} z^n$ admet un rayon de convergence infini; la fonction associée est l'exponentielle complexe $\exp$.
+	La fonction exponentielle complexe $\exp$ est celle associée à la série entière complexe $\dsum_{n=0}^{+\infty} \frac{1}{n!} z^n$ qui admet un rayon de convergence infini.
 	%
 	En effet,
 	notant $\ent$ la fonction partie entière, nous avons
-	% n = 2k    ==>  n! >= k^(n - k + 1) = k^(k+1)
-	% n = 2k+1  ==>  n! >= k^(n - k + 1) = k^(2k+2)
 	$n! \geq \big( \frac{n}{2} \big)^{\ent (\frac{n}{2}) + 1} \geq \big( \frac{n}{2} \big)^{\frac{n}{2}}$,
 	puis
 	$ \ln \big( \sqrt[n]{\frac{1}{n!}} \big)
 	\leq
-	  - \frac{1}{2} \ln \big( \frac{n}{2} \big)$.
+	  - \frac{1}{2} \ln \big( \frac{n}{2} \big)$.%
+	\footnote{
+		Si $n = 2k$, alors $n! \geq k^{n - k + 1}$
+		avec $n - k + 1 = k + 1 = \ent (\frac{n}{2}) + 1$.
+		
+		\leavevmode\kern7.75pt
+		Si $n = 2k + 1$, alors $n! \geq (k + 1)^{n - k} \geq (k + \num{.5})^{n - k}$
+		avec $n - k = k + 1 = \ent (\frac{n}{2}) + 1$.
+	}
 \end{example}
 
 
 \begin{remark}
 	On peut démontrer que
-	$\exp : (\CC , {+}) \to (\CCs, {\times})$ est un morphisme de groupes, et que son noyau est du type $\ii r \ZZ$ avec $r \in \RRsp$.%
+	$\exp : (\CC , {+}) \to (\CCs, {\times})$ est un morphisme de groupes, et que son noyau est du type $r \ii \ZZ$ avec $r \in \RRsp$.%
 	\footnote{
 	    Entre autres choses, ceci nécessite de savoir que
 	    $\exp: \CC \to \CCs$ est une surjection continue ouverte,
 	    et
 	    que les sous-groupes de $\RR$ sont soit denses, soit discrets, ces derniers étant du type $a \ZZ$ avec $a \in \RRp$. 
 	}
-	Posant $\pi = \frac{r}{2}$, le noyau s'écrit $2 \ii \pi \ZZ$.
+	Posant $\pi = \frac{r}{2}$, le noyau s'écrit $2 \pi \ii \ZZ$.
 	C'est un moyen, comme un autre, de définir et construire le nombre réel $\pi$.
 \end{remark}
 
@@ -190,7 +196,7 @@ Nous allons voir que cela est licite grâce au fait \ref{isolated-zero}, voir la
     	\item $f$ est infiniment $\CC$-dérivable.%
 		\footnote{
 			L'analyse complexe étudie les fonctions $\CC$-dérivables en les nommant \focus{fonctions holomorphes}.
-			Cette théorie est ludique, riche, et très utile.
+			Cette théorie est ludique, riche, et puissante.
 		}
 
     	\item $\forall k \in \NN$,
@@ -285,7 +291,7 @@ Nous allons voir que cela est licite grâce au fait \ref{isolated-zero}, voir la
 % ----------- %
 
 
-Nous allons voir que les fonctions développables en série entière autour d'un nombre complexe $z_0$ ont le bon ton de l'être aussi localement en chaque complexe dans un voisinage de $z_0$.
+Nous allons voir que les fonctions développables en série entière autour d'un nombre complexe $z_0$ le sont aussi localement, c'est-à-dire en chaque complexe dans un voisinage de $z_0$.
 
 
 \begin{defi} \label{def-analytic}
@@ -321,7 +327,7 @@ Nous allons voir que les fonctions développables en série entière autour d'un
 
 \begin{proof}
 	Nous allons montrer que le réel $r$ de la \refdefi{def-analytic} convient.
-	Pour cela, reprenons les notations de la \refdefi{def-analytic},
+	Pour cela, reprenons les notations de cette définition,
 	puis
 	considérons $\omega \in \CdiscO{z_0}{r}$
     et
