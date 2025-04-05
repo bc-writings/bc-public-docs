@@ -16,7 +16,7 @@
     sn edges,
     grow'  = 0,
     l sep  = 30pt,
-    s sep  = -1pt,
+    s sep  = -3pt,
     anchor = parent,
     edge   = {thick},
     tier/.option=level
@@ -24,7 +24,7 @@
   widget/.style={
     binomial,
     l sep = 26pt, % Espacement vertical
-    s sep = 2pt, % Espacement horizontal
+    s sep = -1pt, % Espacement horizontal
   }
 }
 
@@ -256,16 +256,16 @@
 \ExplSyntaxOff
 
 \NewDocumentCommand{\factobinomintertree}{m}{
-    \begin{center}
-        \begin{forest}
-            for tree={widget}
-            %
-            [#1{a}{b}{\forestoption{level}}
-              [#1{a+1}{b+1}{\forestoption{level}}]
-              [#1{a+1}{b}{\forestoption{level}}]
-            ]
-        \end{forest}
-    \end{center}
+%    \begin{center}
+    \begin{forest}
+        for tree={widget}
+        %
+        [#1{a}{b}{\forestoption{level}}
+          [#1{a+1}{b+1}{\forestoption{level}}]
+          [#1{a+1}{b}{\forestoption{level}}]
+        ]
+    \end{forest}
+%    \end{center}
 }
 
 \NewDocumentCommand{\factobinotree}{m}{
@@ -356,16 +356,16 @@
 \ExplSyntaxOff
 
 \NewDocumentCommand{\bellintertree}{m}{
-    \begin{center}
-        \begin{forest}
-            for tree={widget}
-            %
-            [#1{a}{b}{\forestoption{level}}
-              [#1{a}{b+1}{\forestoption{level}}]
-              [#1{a+1}{b+1}{\forestoption{level}}]
-            ]
-        \end{forest}
-    \end{center}
+%    \begin{center}
+    \begin{forest}
+        for tree={widget}
+        %
+        [#1{a}{b}{\forestoption{level}}
+          [#1{a}{b+1}{\forestoption{level}}]
+          [#1{a+1}{b+1}{\forestoption{level}}]
+        ]
+    \end{forest}
+%    \end{center}
 }
 
 \NewDocumentCommand{\belltree}{m}{
@@ -454,41 +454,43 @@
 
 
 \NewDocumentCommand{\calctree}{m m m}{
-    \begin{center}
-        \begin{forest}
-            for tree={widget}
-            %
-            [{#1}
-              [{#2}]
-              [{#3}]
-            ]
-        \end{forest}
-    \end{center}
+%    \begin{center}
+    \begin{forest}
+        for tree={widget}
+        %
+        [{#1}
+          [{#2}]
+          [{#3}]
+        ]
+    \end{forest}
+%    \end{center}
 }
 
 
 \NewDocumentCommand{\intertree}{m}{
-    \begin{center}
-        \begin{forest}
-            for tree={widget}
-            %
-            [#1{a}{b}{\forestoption{level}}
-              [#1{a+1}{b}{\forestoption{level}}]
-              [#1{a}{b+1}{\forestoption{level}}]
-            ]
-        \end{forest}
-    \end{center}
+%    \begin{center}
+    \begin{forest}
+        for tree={widget}
+        %
+        [#1{a}{b}{\forestoption{level}}
+          [#1{a+1}{b}{\forestoption{level}}]
+          [#1{a}{b+1}{\forestoption{level}}]
+        ]
+    \end{forest}
+%    \end{center}
 }
 
 
 \NewDocumentCommand{\explaintree}{ m m m m m }{
+    \vspace{-1ex}
+    
     \begin{multicols}{2}
     	\itshape\centering
     
     	\calctree{#1}{#2}{#3}
 %    	$[[1=#1]][[2=#2]][[3=#3]]$
-    	
-    	\smallskip\vfill
+
+		\vfill
     	
     	Arbre de calcul.
     	
@@ -496,10 +498,12 @@
     
     	#4{#5}
     	
-    	\smallskip\vfill
+    	\vfill
     	
     	Un calcul intermédiaire.
     \end{multicols}
+    
+    \vspace{-1ex}
 }
 
 
@@ -542,43 +546,45 @@
 
 
 \NewDocumentCommand{\calctreethree}{m m m m}{
-    \begin{center}
-        \begin{forest}
-            for tree={widget}
-            %
-            [{#1}
-              [{#2}]
-              [{#3}]
-              [{#4}]
-            ]
-        \end{forest}
-    \end{center}
+%    \begin{center}
+    \begin{forest}
+        for tree={widget}
+        %
+        [{#1}
+          [{#2}]
+          [{#3}]
+          [{#4}]
+        ]
+    \end{forest}
+%    \end{center}
 }
 
 
 \NewDocumentCommand{\intertreethree}{m}{
-    \begin{center}
-        \begin{forest}
-            for tree={widget}
-            %
-            [#1{a}{b}{c}{\forestoption{level}}
-              [#1{a+1}{b}{c}{\forestoption{level}}]
-              [#1{a}{b+1}{c}{\forestoption{level}}]
-              [#1{a}{b}{c+1}{\forestoption{level}}]
-            ]
-        \end{forest}
-    \end{center}
+%    \begin{center}
+    \begin{forest}
+        for tree={widget}
+        %
+        [#1{a}{b}{c}{\forestoption{level}}
+          [#1{a+1}{b}{c}{\forestoption{level}}]
+          [#1{a}{b+1}{c}{\forestoption{level}}]
+          [#1{a}{b}{c+1}{\forestoption{level}}]
+        ]
+    \end{forest}
+%    \end{center}
 }
 
 
 \NewDocumentCommand{\explaintreethree}{ m m m m m m }{
+    \vspace{-1ex}
+    
     \begin{multicols}{2}
     	\itshape\centering
     
     	\calctreethree{#1}{#2}{#3}{#4}
 %    	$[[1=#1]][[2=#2]][[3=#3]]$
     	
-    	\smallskip\vfill
+		\vfill
     	
     	Arbre de calcul.
     	
@@ -586,10 +592,12 @@
     
     	#5{#6}
     	
-    	\smallskip\vfill
+    	\vfill
     	
     	Un calcul intermédiaire.
     \end{multicols}
+    
+    \vspace{-1ex}
 }
 
 
@@ -672,7 +680,7 @@
 %
 %\subimport*{content/treeview}{bino-coef}
 %
-%
+
 %\subsection{Bell sonne la fin du jeu}
 %
 %\subimport*{content/treeview}{bell}

@@ -1,17 +1,22 @@
-?????
-Pour la formule de dérivation de Liebniz, comme la dérivation est une fonctionnelle linéaire, la brique de base est la classique formule de dérivation d'un produit, voir ci-dessous à gauche. Les calculs intermédiaires sont de la forme indiquée ci-dessous à droite.
+Pour la suite de Fibonacci, la règle de calcul est évidemment donnée par la relation de récurrence $F_{i} = F_{i-1} + F_{i-2}$, et pour les calculs intermédiaires, nous faisons apparaître ce qui a été soustrait à l'indice.
 
-\explaintree{F_{k}}{F_{k-1}}{F_{k-2}}%
-            {\intertree}{\fibo{k}}
+\explaintree{F_{i}}{F_{i-1}}{F_{i-2}}%
+            {\intertree}{\fibo{i}}
 
-
-????
-En considérant un arbre binaire de niveau de profondeur $n$, et avec pour racine la fonction produit $f g$, l'application répétée de la règle de calcul donne la formule de dérivation de Liebniz 
-$(fg)^{(n)}(x) = \binosum{f^{(k)}(x) g^{(n-k)}(x)}$.
-%
-Voici un exemple de calcul avec $n=3$.
+Pour valider $F_{2n} = \binosum{F_k}$, nous considérons un arbre binaire de niveau de profondeur $n$, et avec pour racine le terme $F_{2n}$. Ainsi, pour $n=3$, nous obtenons l'arbre suivant.
 
 \binotree{\fibo{3}}
 
+Aux feuilles de l'arbre, tout à droite, nous avons les termes 
+$F_{2n - k\cdot1 - (n-k)\cdot2} = F_k$
+pour $k \in \ZintervalC{0}{n}$,
+donc
+$F_{2n} = \binosum{F_k}$ est validée.
 
-génarlisable à $F_{n+m}$
+\begin{remark}
+	Plus généralement, nous avons
+	$F_{m+2n}= \binosum{F_{m+k}}$
+	par simple décalage de tous les indices, cette opération étant compatible avec notre méthode de construction.
+\end{remark}
+
+.
