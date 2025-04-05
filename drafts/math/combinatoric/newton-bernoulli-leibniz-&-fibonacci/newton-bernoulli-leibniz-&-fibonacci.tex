@@ -34,6 +34,9 @@
 
 \NewDocumentCommand{\binosum}{m O{n} O{k}}{\dsum_{#3=0}^{#2} \binom{#2}{#3} #1}
 
+\NewDocumentCommand{\cnp}{O{n} O{p}}{\mathcal{C}^{#1}_{#2}}
+\NewDocumentCommand{\combi}{O{n} O{p}}{\mathsf{C}(#1 ; #2)}
+
 
 % ----------------------- %
 
@@ -216,7 +219,7 @@
 
 
 \NewDocumentCommand{ \factobinom }{ m m m m m }{
-  \mathcal{C}^{
+  \cnp[
     \isnat{#1#3}{
       \int_set:Nn \l_cbal_factobinom_coef_int { #1 - #3 }
 
@@ -236,7 +239,7 @@
         }
       }
     }
-  } \sb {
+  ][
     #2
 
     \str_if_eq:nnF { #4 }{ 0 }{
@@ -249,7 +252,7 @@
         #4
       }
     }
-  }
+  ]
 }
 
 
@@ -261,8 +264,8 @@
         for tree={widget}
         %
         [#1{a}{b}{\forestoption{level}}
-          [#1{a+1}{b+1}{\forestoption{level}}]
           [#1{a+1}{b}{\forestoption{level}}]
+          [#1{a+1}{b+1}{\forestoption{level}}]
         ]
     \end{forest}
 %    \end{center}
@@ -676,10 +679,10 @@
 \subimport*{content/treeview}{fibonacci}
 
 
-%\subsection{Avec des coefficients binomiaux}
-%
-%\subimport*{content/treeview}{bino-coef}
-%
+\subsection{Avec des coefficients binomiaux}
+
+\subimport*{content/treeview}{bino-coef}
+
 
 %\subsection{Bell sonne la fin du jeu}
 %
