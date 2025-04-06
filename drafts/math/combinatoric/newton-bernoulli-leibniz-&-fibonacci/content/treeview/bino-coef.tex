@@ -19,7 +19,7 @@ Ainsi, pour $n=3$ et $p \in \ZintervalC{0}{3}$, nous obtenons l'arbre suivant o�
 
 Nous obtenons donc
 $\cnp = \binosum{\cnp[0][p-k]}$.
-Donc pour $p \in \ZintervalC{0}{n}$, la somme de droite se réduit à $\binom{n}{p} \cnp[0][0]$, d'où $\cnp = \binom{n}{p}$ comme annoncé.
+Or, pour $p \in \ZintervalC{0}{n}$, la somme de droite se réduit à $\binom{n}{p} \cnp[0][0]$, d'où $\cnp = \binom{n}{p}$ comme annoncé.
 
 
 % ----------------------- %
@@ -51,8 +51,8 @@ comme souhaité.
 	$\binom{2n}{n} = \binosum{\binom{n}{n-k}}$
 	est un cas particulier de la formule de Van der Monde qui est
 	$\binom{m + n}{p} = \dsum_{k=0}^p \binom{m}{k} \binom{n}{p-k}$
-	pour $(m ; n) \in \NN^2$ et $p \in \ZintervalC{0}{n + m}$.
-	Voir la fin de la remarque précédente pour voir comment découvrir
+	pour $(m ; n) \in \NN^2$ et $p \in \ZintervalC{0}{\min(n ; m)}$.
+	Comme à la fin de la remarque précédente, il est aisé de découvrir que
 	$\combi[m + n][p] = \dsum_{k=0}^p \combi[m][k] \combi[n][p-k]$. 
 \end{remark}
 

@@ -37,6 +37,8 @@
 \NewDocumentCommand{\cnp}{O{n} O{p}}{\mathcal{C}^{#1}_{#2}}
 \NewDocumentCommand{\combi}{O{n} O{p}}{\mathsf{C}(#1 ; #2)}
 
+\NewDocumentCommand{\tabell}{O{n} O{p}}{\mathcal{B}^{#1}_{#2}}
+
 
 % ----------------------- %
 
@@ -317,7 +319,7 @@
 
 
 \NewDocumentCommand{ \bell }{ m m m m m }{
-  \mathcal{B}^{
+  \tabell[
     #1
     
     \str_if_eq:nnF { #3 }{ 0 }{
@@ -331,7 +333,7 @@
       }
     }
 
-  } \sb {
+  ][
    
     \isnat{#2#4}{
       \int_set:Nn \l_cbal_bell_coef_int { #2 - #4 }
@@ -352,7 +354,7 @@
         }
       }
     }
-  }
+  ]
 }
 
 
@@ -609,7 +611,7 @@
 
 \title{BROUILLON -- Newton, Bernoulli, Leibniz, Fibonacci et Bell}
 \author{Christophe BAL}
-\date{2 Avril 2025 - 5 Avril 2025}
+\date{2 Avril 2025 - 6 Avril 2025}
 
 \maketitle
 
@@ -684,11 +686,11 @@
 \subimport*{content/treeview}{bino-coef}
 
 
-%\subsection{Bell sonne la fin du jeu}
-%
-%\subimport*{content/treeview}{bell}
-%
-%
+\subsection{Bell sonne la fin du jeu}
+
+\subimport*{content/treeview}{bell}
+
+
 %\subsection{Généraliser aux coefficients multimoniaux}
 %
 %\subimport*{content/treeview}{multi}
