@@ -1,30 +1,40 @@
-Pour finir notre liste de cas d'application, nous allons expliquer pourquoi $B_{n+1} = \binosum{B_k}$ où $B_p$ désigne le nombre de façons de partitionner un ensemble de $p$ éléments en sous-ensembles non vides.
+Pour $i \in \NNs$, notons $B_i$ le nombre de façons de partitionner un ensemble de $i$ éléments, et posons $B_0 = 1$ par convention.
 
 XXXX
+
+????
+
+Pour finir notre liste de cas d'application, nous allons expliquer pourquoi $B_{n+1} = \binosum{B_k}$ où $B_p$ désigne le nombre de façons de partitionner un ensemble de $p$ éléments en sous-ensembles non vides.
 
 $B_n = \tabell[n][0] = \tabell[n-1][n-1]$
 si
 $\tabell = \tabell[n][p-1] + \tabell[n-1][p-1]$
 avec
-$\tabell[0][0] = \tabell[1][0] = 1$
+$\tabell[0][0] = 1$
 et
 $\tabell = 0$
 si ???.
 
 situtaion similaire aux coefficients binomiaux 
 
+????
 
 XXXX
 
 
+Comme les relations de récurrence vérifiées par $(\tabell)$ ressemblent à celles de la suite $(\cnp)$,
+il devient évident de procéder comme suit.
+
 \explaintree{\tabell}{\tabell[n][p-1]}{\tabell[n-1][p-1]}%
             {\bellintertree}{\bell{n}{k}}
 
-
-YYY
+L'arbre binaire à considérer doit avoir $\tabell[n][n]$ pour racine comme dans l'exemple suivant où $n = 3$.
 
 \belltree{\bell{3}{3}}
 
-
-
-$\mathcal{C}^{2n}_n = \binosum{\mathcal{C}^n_{n-k}}$
+Nous arrivons à
+$\tabell[n][n] = \binosum{\tabell[n-k][0]}$
+qui équivaut à
+$B_{n+1} = \binosum{B_{n-k}}$.
+Or, $\binom{n}{n-k} = \binom{n}{k}$, donc nous avons bien 
+$B_{n+1} = \binosum{B_k}$.
