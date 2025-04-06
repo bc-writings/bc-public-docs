@@ -20,15 +20,12 @@ Ainsi, pour $n=3$ et $p \in \ZintervalC{0}{3}$, nous obtenons l'arbre suivant o�
 Nous obtenons donc
 $\cnp = \binosum{\cnp[0][p-k]}$.
 Or, pour $p \in \ZintervalC{0}{n}$, la somme de droite se réduit à $\binom{n}{p} \cnp[0][0]$, d'où $\cnp = \binom{n}{p}$ comme annoncé.
-
-
-% ----------------------- %
-
-
-Nous pouvons maintenant passer à l'identité
-$\binom{2n}{n} = \binosum{\binom{n}{k}}$ que nous allons démontrer sous la forme équivalente
-$\mathcal{C}^{2n}_n = \binosum{\mathcal{C}^n_{n-k}}$.
-L'idée consiste simplement à considérer une arbre avec pour racine le terme $\cnp[2n][n]$ pour obtenir
+%
+Dès lors, l'identité
+$\binom{2n}{n} = \binosum{\binom{n}{k}}$,
+soit de façon équivalente
+$\mathcal{C}^{2n}_n = \binosum{\mathcal{C}^n_{n-k}}$,
+se démontre en considérant un arbre de racine $\cnp[2n][n]$ qui donne
 $\cnp[2n][n] = \binosum{\cnp[2n - n][n-k]} = \binosum{\cnp[n][n-k]}$
 comme souhaité.
 
@@ -41,7 +38,7 @@ comme souhaité.
 	Comme pour $\cnp$, nous avons alors $\combi = \binom{n}{p}$ si $n \in \NN$ et $p \in \ZintervalC{0}{n}$.
 	%
 	Une fois ceci démontré, il est très facile de deviner que 
-	$\combi[2n][n] = \dsum_{k=0}^{n} \combi[n][k] \combi[n][n-k]$
+	$\combi[2n][n] = \sum_{k=0}^{n} \combi[n][k] \combi[n][n-k]$
 	en partageant $\setgeo{E}$ en deux sous-ensembles particuliers disjoints de cardinal $n$, choisis et fixés arbitrairement.
 \end{remark}
 
@@ -50,10 +47,11 @@ comme souhaité.
 	L'identité 
 	$\binom{2n}{n} = \binosum{\binom{n}{n-k}}$
 	est un cas particulier de la formule de Van der Monde qui est
-	$\binom{m + n}{p} = \dsum_{k=0}^p \binom{m}{k} \binom{n}{p-k}$
+	$\binom{m + n}{p} = \sum_{k=0}^p \binom{m}{k} \binom{n}{p-k}$
 	pour $(m ; n) \in \NN^2$ et $p \in \ZintervalC{0}{\min(n ; m)}$.
-	Comme à la fin de la remarque précédente, il est aisé de découvrir que
-	$\combi[m + n][p] = \dsum_{k=0}^p \combi[m][k] \combi[n][p-k]$. 
+	Comme à la fin de la remarque précédente, la découverte de
+	$\combi[m + n][p] = \sum_{k=0}^p \combi[m][k] \combi[n][p-k]$
+	est aisée. 
 \end{remark}
 
 

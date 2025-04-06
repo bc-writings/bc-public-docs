@@ -32,7 +32,7 @@
 % ----------------------- %
 
 
-\NewDocumentCommand{\binosum}{m O{n} O{k}}{\dsum_{#3=0}^{#2} \binom{#2}{#3} #1}
+\NewDocumentCommand{\binosum}{m O{n} O{k}}{\sum_{#3=0}^{#2} \binom{#2}{#3} #1}
 
 \NewDocumentCommand{\cnp}{O{n} O{p}}{\mathcal{C}^{#1}_{#2}}
 \NewDocumentCommand{\combi}{O{n} O{p}}{\mathsf{C}(#1 ; #2)}
@@ -666,7 +666,7 @@
 \subimport*{content/treeview}{bino-law}
 
 
-\subsection{En route directement vers le binôme de Newton}
+\subsection{Directement vers le binôme de Newton}
 
 \subimport*{content/treeview}{newton}
 
