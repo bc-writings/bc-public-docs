@@ -1,19 +1,25 @@
 Pour $i \in \NNs$, notons $B_i$ le nombre de façons de partitionner un ensemble de $i$ éléments, et posons $B_0 = 1$ par convention.
-Pour calculer récursivement $B_i$, nous allons suivre les idées présentes dans l'article
+Pour calculer récursivement $B_i$, nous allons reprendre des idées présentes dans l'article
 \emph{\og The largest singletons of set partitions \fg}
-de Yidong Sun et Xiaojuan Wu:
-voir
-\url{https://doi.org/10.1016/j.ejc.2010.10.011}
-sur le site \href{https://www.sciencedirect.com/}{ScienceDirect}.
+de Yidong Sun et Xiaojuan Wu.%
+    \footnote{
+    	Voir
+	\url{https://doi.org/10.1016/j.ejc.2010.10.011}
+	sur le site \href{https://www.sciencedirect.com/}{ScienceDirect}.
+}
 %
 \begin{itemize}
     \item Pour $(n ; p) \in \NN^2$, notons $\tabell[n][p]$ le nombre de partitions de $\ZintervalC{1}{n+1}$ contenant le singleton $\setgene{p+1}$, et aucun singleton $\setgene{k}$ tel que $k > p+1$.
-    De façon abusive, dans ce type de situation, nous dirons que $\setgene{p+1}$ est le plus grand singleton.
+    De façon abusive, dans ce type de situation, nous dirons que $\setgene{p+1}$ est le plus grand singleton.%
+    \footnote{
+        L’idée consiste à s’appuyer sur l’élément le plus simple qu’une partition puisse contenir : le singleton.
+        Pour restreindre le nombre de cas à analyser, on choisit, arbitrairement, de se focaliser sur les singletons maximaux.
+    }
 
 
     \item Clairement, $B_n = \tabell[n][n]$.
     En effet,
-    l'existence du singleton maximal $\setgene{n+1}$ dans une partition de $\ZintervalC{1}{n+1}$ permet, en ignorant $\setgene{n+1}$, d'obtenir une partition de $\ZintervalC{1}{n}$. Cette construction est réversible, et bijective.
+    l'existence du singleton maximal $\setgene{n+1}$ dans une partition de $\ZintervalC{1}{n+1}$ permet, en ignorant $\setgene{n+1}$, d'obtenir une partition de $\ZintervalC{1}{n}$. Cette construction est réversible, donc bijective.
 
 
     \item Considérons une partition $\pi$ de $\ZintervalC{1}{n+1}$ ayant $\setgene{p+1}$ comme singleton maximal.
@@ -42,16 +48,17 @@ sur le site \href{https://www.sciencedirect.com/}{ScienceDirect}.
     $\tabell = \tabell[n][p-1] + \tabell[n-1][p-1]$.
 
 
-    \item Considérons une partition $\pi$ de $\ZintervalC{1}{n+1}$ ayant $\setgene{n+1}$ comme singleton maximal. Nous pouvons faire les constructions suivantes.
+    \item Considérons une partition $\pi$ de $\ZintervalC{1}{n+1}$ ayant $\setgene{n+1}$ comme singleton maximal.
+    Nous pouvons faire les constructions suivantes.
     %
     \begin{enumerate}
-        \item 
+        \item XXXX
 
 
-        \item 
+        \item XXXX
     \end{enumerate}
     %
-    Les procédés ci-dessus étant réversibles, par bijection, nous avons:
+    La réversibilité des constructions ci-dessus nous donne:
     $\tabell[n][n] = \tabell[n+1][1]$.
 \end{itemize}
 
