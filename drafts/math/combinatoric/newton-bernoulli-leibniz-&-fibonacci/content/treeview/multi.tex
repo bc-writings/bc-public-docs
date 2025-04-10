@@ -1,14 +1,22 @@
-XXX
+La méthode peut s'adapter aux cas d'un arbre ternaire comme dans la situation suivante qui permet d'aboutir à la formule de Liebniz pour trois fonctions
+$(fgh)^{(n)} = \trinosum{f^{(k_1)} g^{(k_2)} h^{(k_3)}}$
+où
+$\binom{n}{k_1\,k_2\,k_3}$ compte le nombre de chemins avec
+$k_1$ déplacements vers le haut,
+$k_2$ déplacements vers le milieu,
+et
+$k_3$ déplacements vers le bas.
 
-
-\explaintreethree{u v}{u^{\,\prime} v w}{u v^{\,\prime} w}{u v w^{\,\prime}}%
+\explaintreethree{u v w}{u^{\,\prime} v w}{u v^{\,\prime} w}{u v w^{\,\prime}}%
                  {\intertreethree}{\prodderthree}
 
 
-
-XXX
-
-attention au piège car l'astuce de Fibonnaci ne se génarlise pas 
+Par contre, si la suite $L$ est telle que $L_{i} = L_{i-1} + L_{i-2} + L_{i-3}$, ce qui suit ne sera pas aussi pertinent que ce que nous avions obtenu pour la suite de Fibonacci:
+le problème ici est qu'aboutir à 
+$ L_{3n - k_1\cdot1 - k_2\cdot2 - k_3\cdot3}
+= L_{3n - k_1 - 2 k_2 - 3(n - k_1 - k_2)}
+= L_{2 k_1 - k_2}$,
+est peu intéressant.
 
 \explaintreethree{L_k}{L_{k-1}}{L_{k-2}}{L_{k-3}}%
                  {\intertreethree}{\fibothree{k}}
