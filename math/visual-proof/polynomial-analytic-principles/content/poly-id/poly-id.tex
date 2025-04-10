@@ -13,13 +13,13 @@ Malheureusement, cette démonstration n'est valable que pour $a > 0$ et $b > 0$ 
 \end{center}
 
 
-Comment passer à $(a + b)^2 = a^2 + b^2 + 2 ab$ pour $a$ et $b$ deux réels de signes quelconques ?
+Comment passer à $(a + b)^2 = a^2 + b^2 + 2 ab$ pour $a$ et $b$ deux complexes de signes quelconques ?
 Classiquement, une vérification est faite via un calcul algébrique.
 %
 En résumé, nous conjecturons géométriquement, puis nous validons algébriquement.
 %
 Bien que rigoureuse, la démarche précédente est peu satisfaisante, car elle balaye d'un revers de main l'approche géométrique, dont le rôle est réduit à la découverte d'une formule.
-Si nous considérons le dessin ci-après, il est dommage de devoir faire du calcul algébrique pour valider $(a + b + c)^2 = a^2 + b^2 + c^2 + 2 ab + 2 ac + 2 bc$ pour $a$, $b$ et $c$ des réels de signes quelconques.
+Si nous considérons le dessin ci-après, il est dommage de devoir faire du calcul algébrique pour valider $(a + b + c)^2 = a^2 + b^2 + c^2 + 2 ab + 2 ac + 2 bc$ pour $a$, $b$ et $c$ des complexes de signes quelconques.
 Ce serait bien de pouvoir passer directement à l'identité pour $a$, $b$ et $c$ de signes quelconques.
 Nous allons voir que cela est possible
 
@@ -32,8 +32,8 @@ Nous allons voir que cela est possible
 
 
 \begin{preli} \label{poly-finite-zeros}
-	Si $p: \RR \rightarrow \RR$ est une fonction polynomiale de degré $n \in \NNs$,
-	alors $\forall \lambda \in \RR$,
+	Si $p: \CC \rightarrow \CC$ est une fonction polynomiale de degré $n \in \NNs$,
+	alors $\forall \lambda \in \CC$,
 	il existe une fonction polynomiale $q(x)$ de degré $(n-1)$ vérifiant
 	$p(x) - p(\lambda) = (x - \lambda) q(x)$.
 	Ceci implique que $p$ ne peut pas avoir plus de $n$ zéros.
@@ -42,14 +42,14 @@ Nous allons voir que cela est possible
 
 \newpage
 \begin{proof}
-	Posant $p(x) = \dsum_{k=0}^{n} a_k x^k$ avec $a_n \neq 0$ par hypothèse, nous avons:
+	Posant $p(x) = \sum_{k=0}^{n} a_k x^k$ avec $a_n \neq 0$ par hypothèse, nous avons:
 	
 	\begin{stepcalc}[style=sar]
 	    p(x) - p(\lambda)
 	\explnext{}
 	    \dsum_{k=0}^{n} a_k (x^k - \lambda^k)
 	\explnext{}
-	    \dsum_{k=1}^{n} a_k (x - \lambda) \big( \dsum_{i=0}^{k-1} x^i \lambda^{k-1-i} \big)
+	    \dsum_{k=1}^{n} a_k (x - \lambda) \big( \sum_{i=0}^{k-1} x^i \lambda^{k-1-i} \big)
 	\explnext{}
 	    (x - \lambda) \dsum_{k=1}^{n} \dsum_{i=0}^{k-1} a_k x^i \lambda^{k-1-i} 
 	\end{stepcalc}
@@ -62,25 +62,25 @@ Nous allons voir que cela est possible
 
 
 \begin{fact} \label{poly-nullity-pos}
-	Soit $p: \RR^n \rightarrow \RR$ une fonction polynomiale, où $n \in \NNs$.
-	Si $p$ s'annule sur $\big( \RRsp \big)^n$, alors $p$ s'annule sur $\RR^n$ tout entier. 
+	Soit $p: \CC^n \rightarrow \CC$ une fonction polynomiale, où $n \in \NNs$.
+	Si $p$ s'annule sur $\big( \RRsp \big)^n$, alors $p$ s'annule sur $\CC^n$ tout entier. 
 \end{fact}
 
 
 \begin{proof}
 	Raisonnons par récurrence sur $n \in \NNs$ pour démontrer la validité de la propriété $\setproba{P}(n)$ définie par
 	\emph{\og 
-		Pour toute fonction polynomiale $p: \RR^n \rightarrow \RR$,
+		Pour toute fonction polynomiale $p: \CC^n \rightarrow \CC$,
 		si $p$ s'annule sur $\big( \RRsp \big)^n$,
-		alors $p$ s'annule sur $\RR^n$ tout entier. 
+		alors $p$ s'annule sur $\CC^n$ tout entier. 
 	\fg}\kern2pt.
 	%
 	\begin{itemize}[label=\small\textbullet]
 		\item \textbf{Cas de base.}
 		%
-		$\setproba{P}(1)$ signifie qu'une fonction polynomiale à une variable s'annulant sur $\RRsp$ est identiquement nulle sur $\RR$ tout entier.
+		$\setproba{P}(1)$ signifie qu'une fonction polynomiale à une variable s'annulant sur $\RRsp$ est identiquement nulle sur $\CC$ tout entier.
 		%
-		Or, selon le \refpreli{poly-finite-zeros}, un polynôme réel non nul n'a qu'un nombre fini de racines, donc $\setproba{P}(1)$ est validée.
+		Or, selon le \refpreli{poly-finite-zeros}, un polynôme complexe non nul n'a qu'un nombre fini de racines, donc $\setproba{P}(1)$ est validée.
 
 
 		\item \textbf{Hérédité.}
@@ -93,21 +93,21 @@ Nous allons voir que cela est possible
 		    posons $p_\alpha(x_1 ; ... ; x_n) = p(x_1 ; ... ; x_n ; \alpha)$.
 		    Nous savons que $p_\alpha$ vérifie les conditions de la propriété $\setproba{P}(n)$,
 		    donc par hypothèse de récurrence, nous avons:
-		    $\forall (x_1 ; ... ; x_n) \in \RR^n$,
+		    $\forall (x_1 ; ... ; x_n) \in \CC^n$,
 		    $p_\alpha(x_1 ; ... ; x_n) = 0$,
 		    soit $p(x_1 ; ... ; x_n ; \alpha) = 0$.
 
 
-		    \item Pour $x_1$ , ... , $x_n$ des réels quelconques,
+		    \item Pour $x_1$ , ... , $x_n$ des complexes quelconques,
 		    posons $\ell(x) = p(x_1 ; ... ; x_n ; x)$.
 		    Le point précédent montre que $\ell$ vérifie $\setproba{P}(1)$, donc, d'après le cas de base,
-		    $\forall x \in \RR$,
+		    $\forall x \in \CC$,
 		    $\ell(x) = 0$,
 		    soit $p(x_1 ; ... ; x_n ; x) = 0$.
 
 
 		    \item Finalement,
-		    $\forall (x_1 ; ... ; x_n ; x) \in \RR^{n+1}$,
+		    $\forall (x_1 ; ... ; x_n ; x) \in \CC^{n+1}$,
 		    $p(x_1 ; ... ; x_n ; x) = 0$.
 		    Autrement dit, nous avons déduit la validité de $\setproba{P}(n+1)$ à partir de celle de $\setproba{P}(n)$.
 		\end{enumerate}
@@ -138,7 +138,7 @@ Nous allons voir que cela est possible
 
 
 \begin{example}
-	En utilisant une approche géométrique semblable à celle présentée plus haut avec une diagonale de carrés, il devient évident, et rigoureux maintenant, que $\forall n \in \NNs$, $\forall (a_1 ; ... ; a_n) \in \RR^n$, nous avons:
+	En utilisant une approche géométrique semblable à celle présentée plus haut avec une diagonale de carrés, il devient évident, et rigoureux maintenant, que $\forall n \in \NNs$, $\forall (a_1 ; ... ; a_n) \in \CC^n$, nous avons:
     %
     \[
     	\big( \dsum_{k=1}^{n}a_k \big)^2
@@ -154,7 +154,7 @@ Nous allons voir que cela est possible
 
 
 \begin{example}
-	Nous laissons le soin au lecteur de vérifier à l'aide d'un cube, le solide géométrique, la validité de l'identité $(a + b)^3 = a^3 + 3 a^2 b + 3 a b^2 + b^3$ pour tous réels $a$ et $b$.
+	Nous laissons le soin au lecteur de vérifier à l'aide d'un cube, le solide géométrique, la validité de l'identité $(a + b)^3 = a^3 + 3 a^2 b + 3 a b^2 + b^3$ sur $\CC^2$.
 \end{example}
 
 
@@ -179,16 +179,16 @@ Le \reffact{poly-nullity-pos} ne peut pas s'appliquer au calcul géométrique é
 \end{stepcalc}
 \smallskip
 
-Peut-on tout de même déduire du calcul géométrique précédent la validité, pour tous les réels $a$ et $b$, de l'identité $(a - b)^2 = a^2 + b^2 - 2ab$?
+Peut-on tout de même déduire du calcul géométrique précédent la validité sur $\CC^2$ de l'identité $(a - b)^2 = a^2 + b^2 - 2ab$?
 Cela est rendu possible par le \reffact{poly-nullity-interval} suivant. 
 
 
 \medskip
 
 \begin{fact} \label{poly-nullity-interval}
-	Soit $p: \RR^n \rightarrow \RR$ une fonction polynomiale, où $n \in \NNs$.
-	Si $p$ s'annule sur $\setgeo*{E}{1} \times \cdots \times \setgeo*{E}{n}$ où chaque $\setgeo*{E}{k} \subseteq \RR$ est infini,
-	alors $p$ s'annule sur $\RR^n$ tout entier. 
+	Soit $p: \CC^n \rightarrow \CC$ une fonction polynomiale, où $n \in \NNs$.
+	Si $p$ s'annule sur $\setgeo*{E}{1} \times \cdots \times \setgeo*{E}{n}$ où chaque $\setgeo*{E}{k} \subseteq \CC$ est infini,
+	alors $p$ s'annule sur $\CC^n$ tout entier. 
 \end{fact}
 
 
@@ -225,7 +225,7 @@ Cela est rendu possible par le \reffact{poly-nullity-interval} suivant.
 	puis,
 	en appliquant le \reffact{poly-nullity-interval} au polynôme $p(a ; b) = a^2 - b^2 - (a+b)(a-b)$,
 	nous avons:
-	$\forall (a ; b) \in \RR^2$, $a^2 - b^2 = (a+b)(a-b)$.
+	$\forall (a ; b) \in \CC^2$, $a^2 - b^2 = (a+b)(a-b)$.
 \end{example}
 
 
@@ -242,7 +242,7 @@ Cela est rendu possible par le \reffact{poly-nullity-interval} suivant.
     - \mathtt{u} \mathtt{v}
     = \mathtt{v} ( \widetilde{\mathtt{u}} - \mathtt{u} )
     + \widetilde{\mathtt{u}} ( \widetilde{\mathtt{v}} - \mathtt{v} )$
-    sur $\RR^2$ tout entier.
+    sur $\CC^2$ tout entier.
 
 	\begin{center}
 		\includegraphics[scale=.75]{proder.png}

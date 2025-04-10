@@ -35,17 +35,18 @@ Nous allons voir que cela est licite grâce au fait \ref{isolated-zero}, voir la
 
 
 \begin{preli} \label{conv-ray}
-    Le rayon de convergence $R$ de la série entière complexe $\dsum_{n=0}^{+\infty} a_n z^n$ est défini par la formule de Hadamard%
+    Le rayon de convergence $R$ de la série entière complexe $\sum_{n=0}^{+\infty} a_n z^n$ est défini par la formule de Hadamard%
     \footnote{
     	La démonstration va révéler le côté \focus{naturel} de la formule de Hadamard.
     }
-    $\displaystyle \frac{1}{R} = \limsup_{n \to +\infty} \big( \sqrt[n]{\abs{a_n}} \big)$
+    $\frac{1}{R} = \displaystyle\limsup_{n \to +\infty} \big( \sqrt[n]{\abs{a_n}} \big)$
     avec les conventions
-    $0 = \dfrac{1}{+\infty}$
+    $0 = \frac{1}{+\infty}$
     et
-    $+\infty = \dfrac{1}{0}$.
-
-    \newpage
+    $+\infty = \frac{1}{0}$.
+    
+    \smallskip
+%    \newpage
     
     Ce nombre $R$ s'interprète comme suit.
     \begin{enumerate}
@@ -102,11 +103,11 @@ Nous allons voir que cela est licite grâce au fait \ref{isolated-zero}, voir la
         \item La justification du comportement pathologique sur le cercle $\Ccircle{0}{R}$ se fait via des contre-exemples. Nous pouvons citer les exemples classiques suivants.
         %
         \begin{enumerate}[label=(\alph*)]
-	        \item $\dsum_{n=0}^{+\infty} z^n$, 
+	        \item $\sum_{n=0}^{+\infty} z^n$, 
 	        de rayon de convergence $1$, 
 	        diverge grossièrement sur $\Ccircle{0}{1}$.
 
-	        \item $\dsum_{n=0}^{+\infty} \frac{1}{n^2} z^n$, 
+	        \item $\sum_{n=0}^{+\infty} \frac{1}{n^2} z^n$, 
 	        de rayon de convergence $1$,
 	        puisque 
 	        $ \ln \big( \sqrt[n]{\frac{1}{n^2}} \big)
@@ -118,7 +119,7 @@ Nous allons voir que cela est licite grâce au fait \ref{isolated-zero}, voir la
 	        %
 	        Cette série entière converge normalement sur $\Ccircle{0}{1}$.
 
-	        \item $\dsum_{n=0}^{+\infty}  \frac{1}{n} z^n$, 
+	        \item $\sum_{n=0}^{+\infty}  \frac{1}{n} z^n$, 
 	        de rayon de convergence $1$,
 	        puisque 
 	        $ \ln \big( \sqrt[n]{\frac{1}{n}} \big)
@@ -137,7 +138,7 @@ Nous allons voir que cela est licite grâce au fait \ref{isolated-zero}, voir la
 
 
 \begin{example}
-	La fonction exponentielle complexe $\exp$ est celle associée à la série entière complexe $\dsum_{n=0}^{+\infty} \frac{1}{n!} z^n$ qui admet un rayon de convergence infini.
+	La fonction exponentielle complexe $\exp$ est celle associée à la série entière complexe $\sum_{n=0}^{+\infty} \frac{1}{n!} z^n$ qui admet un rayon de convergence infini.
 	%
 	En effet,
 	notant $\ent$ la fonction partie entière, nous avons
@@ -177,9 +178,9 @@ Nous allons voir que cela est licite grâce au fait \ref{isolated-zero}, voir la
     et
     $\sin z = \frac{\exp(\ii z) - \exp(- \ii z)}{2 \ii}$,
     c'est-à-dire via
-    $\cos z = \dsum_{n=0}^{+\infty} \frac{(-1)^n}{(2n)!} z^{2n}$
+    $\cos z = \sum_{n=0}^{+\infty} \frac{(-1)^n}{(2n)!} z^{2n}$
     et
-    $\sin z = \dsum_{n=0}^{+\infty} \frac{(-1)^n}{(2n+ 1)!} z^{2n+1}$.
+    $\sin z = \sum_{n=0}^{+\infty} \frac{(-1)^n}{(2n+ 1)!} z^{2n+1}$.
     La remarque précédente donne la $2 \pi$-périodicité des fonctions complexes $\cos$ et $\sin$.
 \end{example}
 
@@ -187,10 +188,12 @@ Nous allons voir que cela est licite grâce au fait \ref{isolated-zero}, voir la
 % ----------- %
 
 
+\newpage
+
 \begin{preli} \label{der-power-serie}
-    Soit une série entière complexe $\dsum_{n=0}^{+\infty} a_n z^n$ de rayon de convergence $R \neq 0$.
+    Soit une série entière complexe $\sum_{n=0}^{+\infty} a_n z^n$ de rayon de convergence $R \neq 0$.
     %
-    La fonction $f: z \in \CdiscO{0}{R} \mapsto \dsum_{n=0}^{+\infty} a_n z^n \in \CC$ vérifie les propriétés suivantes.
+    La fonction $f: z \in \CdiscO{0}{R} \mapsto \sum_{n=0}^{+\infty} a_n z^n \in \CC$ vérifie les propriétés suivantes.
     %
     \begin{enumerate}
     	\item $f$ est infiniment $\CC$-dérivable.%
@@ -200,23 +203,26 @@ Nous allons voir que cela est licite grâce au fait \ref{isolated-zero}, voir la
 		}
 
     	\item $\forall k \in \NN$,
-		la série entière $\dsum_{n = k}^{+\infty} \dfrac{n!}{(n-k)!} a_n z^{n - k}$ admet $R$ pour rayon de convergence.
+		la série entière $\sum_{n = k}^{+\infty} \frac{n!}{(n-k)!} a_n z^{n - k}$ admet $R$ pour rayon de convergence.
 
     	\item $\forall k \in \NN$, $\forall z \in \CdiscO{0}{R}$,
-		$\der[e]{f}{z}{k}(z) = \dsum_{n = k}^{+\infty} \dfrac{n!}{(n-k)!} a_n z^{n - k}$.
+		$\der[e]{f}{z}{k}(z) = \sum_{n = k}^{+\infty} \frac{n!}{(n-k)!} a_n z^{n - k}$.
 
     	\item \label{a_n-value}
-		$\forall n \in \NN$,  $a_n = \dfrac{\der[e]{f}{z}{n}(0)}{n!}$.
+		$\forall n \in \NN$,  $a_n = \frac{\der[e]{f}{z}{n}(0)}{n!}$.
     \end{enumerate}
 \end{preli}
 
 
 \begin{proof}
 	Le résultat \ref{a_n-value} étant aisée à déduire, une récurrence immédiate à faire montre qu'il suffit de démontrer que
-	$\forall z \in \CdiscO{0}{R}$,
-	$ \limit{\big( \frac{f(z) - f(z_0)}{z - z_0} \big)}%
-	        {z}{z_0 | z \in \CdiscO{0}{R}}
-	= \dsum_{n = 1}^{+\infty} n a_n z^{n - 1}$.
+	$\forall z \in \CdiscO{0}{R}$, nous avons:
+	%
+	\[
+    	  \limit{\big( \frac{f(z) - f(z_0)}{z - z_0} \big)}%
+    	        {z}{z_0 | z \in \CdiscO{0}{R}}
+    	= \sum_{n = 1}^{+\infty} n a_n z^{n - 1}
+	\]
 	%
 	\begin{itemize}
 		\item
@@ -224,17 +230,16 @@ Nous allons voir que cela est licite grâce au fait \ref{isolated-zero}, voir la
 		= \frac{\ln n}{n} + \ln \big( \sqrt[n]{\abs{a_n}} \big)$
 		donne que
 		$R$ est le rayon de convergence de
-		$\dsum_{n = 1}^{+\infty} n a_n z^{n - 1}$.
-		On peut donc définir la fonction $g: z \in \CdiscO{0}{R} \mapsto \dsum_{n = 1}^{+\infty} n a_n z^{n - 1} \in \CC$.
+		$\sum_{n = 1}^{+\infty} n a_n z^{n - 1}$.
+		On peut donc définir la fonction $g: z \in \CdiscO{0}{R} \mapsto \sum_{n = 1}^{+\infty} n a_n z^{n - 1} \in \CC$.
 
 
 		\item Pour $(z , z_0) \in \CdiscO{0}{R}^2$ et $k \in \NNs$, nous introduisons les notations suivantes.
         %
         \begin{enumerate}[label=(\alph*)]
-	        \item $f_k(z) = \dsum_{n = 0}^{k} a_n z^n$.
-
-	        \item $g_k(z) = \dsum_{n = 1}^{k} n a_n z^{n-1}$,
-	        cette fonction étant clairement la $\CC$-dérivée de $f_k(z)$.
+	        \item $f_k(z) = \sum_{n = 0}^{k} a_n z^n$
+	        et
+	        $g_k(z) = \sum_{n = 1}^{k} n a_n z^{n-1}$ la $\CC$-dérivée de $f_k(z)$.
 
 	        \item $T_k(z) =
 			\begin{cases}
@@ -270,18 +275,18 @@ Nous allons voir que cela est licite grâce au fait \ref{isolated-zero}, voir la
 
 
 \begin{remark} \label{der-power-serie-gene}
-	Une relecture des preuves des \refprelis{conv-ray} et \ref{der-power-serie} donnent que pour toute série entière complexe $\dsum_{n=0}^{+\infty} a_n z^n$ de rayon de convergence $R$ non nul,
+	Une relecture des preuves des \refprelis{conv-ray} et \ref{der-power-serie} donnent que pour toute série entière complexe $\sum_{n=0}^{+\infty} a_n z^n$ de rayon de convergence $R$ non nul,
 	et tout nombre complexe $z_0$,
-	la fonction $f: z \in \CdiscO{z_0}{R} \mapsto \dsum_{n=0}^{+\infty} a_n (z - z_0)^n \in \CC$ vérifie les propriétés suivantes.
+	la fonction $f: z \in \CdiscO{z_0}{R} \mapsto \sum_{n=0}^{+\infty} a_n (z - z_0)^n \in \CC$ vérifie les propriétés suivantes.
     %
     \begin{enumerate}
     	\item $f$ est infiniment $\CC$-dérivable.
 
     	\item $\forall k \in \NN$,
-		la série $\dsum_{n = k}^{+\infty} \frac{n!}{(n-k)!} a_n (z - z_0)^{n - k}$ admet $R$ pour rayon de convergence.
+		la série $\sum_{n = k}^{+\infty} \frac{n!}{(n-k)!} a_n (z - z_0)^{n - k}$ admet $R$ pour rayon de convergence.
 
     	\item $\forall k \in \NN$, $\forall z \in \CdiscO{z_0}{R}$,
-		$\der[e]{f}{z}{k}(z) = \dsum_{n = k}^{+\infty} \frac{n!}{(n-k)!} a_n (z - z_0)^{n - k}$.
+		$\der[e]{f}{z}{k}(z) = \sum_{n = k}^{+\infty} \frac{n!}{(n-k)!} a_n (z - z_0)^{n - k}$.
 
     	\item $\forall n \in \NN$, $a_n = \frac{\der[e]{f}{z}{n}(z_0)}{n!}$.
     \end{enumerate}
@@ -299,11 +304,11 @@ Nous allons voir que les fonctions développables en série entière autour d'un
 	%
 	Une fonction $f: \Omega \rightarrow \CC$ est dite analytique en $z_0 \in \Omega$, 
 	s'il existe
-	une série entière $\dsum_{n = 0}^{+\infty} a_n z^n$
+	une série entière $\sum_{n = 0}^{+\infty} a_n z^n$
 	de rayon de convergence $R > 0$
 	et
 	un réel $r \in \intervalOC{0}{R}$ tels qu'on ait
-	$f(z) = \dsum_{n = 0}^{+\infty} a_n (z - z_0)^n$
+	$f(z) = \sum_{n = 0}^{+\infty} a_n (z - z_0)^n$
 	dans le disque ouvert $\CdiscO{z_0}{r} \subseteq \Omega$.
 
 	\smallskip
@@ -335,12 +340,12 @@ Nous allons voir que les fonctions développables en série entière autour d'un
 	%
 	\begin{itemize}
 		\item Formellement,
-		$f(z) = \dsum_{n = 0}^{+\infty} \frac{\der[e]{f}{z}{n}(\omega)}{n!} (z - \omega)^n$
+		$f(z) = \sum_{n = 0}^{+\infty} \frac{\der[e]{f}{z}{n}(\omega)}{n!} (z - \omega)^n$
 		et
-		$\der[e]{f}{z}{n}(\omega) = \dsum_{k = n}^{+\infty} \frac{k!}{(k-n)!} a_k \omega^{k - n}$
+		$\der[e]{f}{z}{n}(\omega) = \sum_{k = n}^{+\infty} \frac{k!}{(k-n)!} a_k \omega^{k - n}$
 		conduisent à étudier
-		$ \dsum_{n = 0}^{+\infty} \dsum_{k = n}^{+\infty} \frac{k!}{n! (k-n)!} a_k \omega^{k - n} (z - \omega)^n
-		= \dsum_{n = 0}^{+\infty} \dsum_{q = 0}^{+\infty} \frac{(n+q)!}{n! q!} a_{n+q} \omega^q (z - \omega)^n$.
+		$ \sum_{n = 0}^{+\infty} \sum_{k = n}^{+\infty} \frac{k!}{n! (k-n)!} a_k \omega^{k - n} (z - \omega)^n
+		= \sum_{n = 0}^{+\infty} \sum_{q = 0}^{+\infty} \frac{(n+q)!}{n! q!} a_{n+q} \omega^q (z - \omega)^n$.
 	
 
 		\item Soit $F \subset \NN^2$ un ensemble fini.
@@ -348,12 +353,11 @@ Nous allons voir que les fonctions développables en série entière autour d'un
 		Introduisons les notations suivantes.
 		%
 		\begin{enumerate}
-			\item $\sigma_F(z ; \omega) = \dsum_{(n,q) \in F} \alpha_{n,q}(z ; \omega)$
+			\item $\sigma_F(z ; \omega) = \sum_{(n,q) \in F} \alpha_{n,q}(z ; \omega)$
 			où
 			$\alpha_{n,q}(z ; \omega) = \frac{(n+q)!}{n! q!} a_{n+q} \omega^q (z - \omega)^n$.
 
-			\vspace{-7pt}
-			\item $\mu(z) = \dsum_{n = 0}^{+\infty} \abs{a_n} z^n$ admet $R$ pour rayon de convergence.
+			\item $\mu(z) = \sum_{n = 0}^{+\infty} \abs{a_n} z^n$ admet $R$ pour rayon de convergence.
 
 			\item $N = \max \big\{ n + q \,,\, (n,q) \in F \big\}$.
 		\end{enumerate}
@@ -379,16 +383,16 @@ Nous allons voir que les fonctions développables en série entière autour d'un
 		\noindent
 		En imposant $r + \rho < R$, c'est-à-dire $\rho < R - r$, ce qui est possible, 
 		pour tout sous-ensemble fini $F$ de $\NN^2$, nous avons
-		$\dsum_{(n,q) \in F} \abs{\alpha_{n,q}(z ; \omega)} \leq \mu(r + \rho) < +\infty$.
+		$\sum_{(n,q) \in F} \abs{\alpha_{n,q}(z ; \omega)} \leq \mu(r + \rho) < +\infty$.
 		
 		\noindent
 		Ainsi,
-		$\dsum_{(n,q) \in \NN^2} \alpha_{n,q}(z ; \omega)$
+		$\sum_{(n,q) \in \NN^2} \alpha_{n,q}(z ; \omega)$
 		est absolument, donc commutativement, convergente.
 	
 
 		\item Pour $z \in \CdiscO{\omega}{\rho} \subseteq \CdiscO{z_0}{r}$, où $0 < \rho < R - r$, ce qui suit nous donne, comme souhaité,
-		$f(z) = \dsum_{n = 0}^{+\infty} \frac{\der[e]{f}{z}{n}(\omega)}{n!} (z - \omega)^n$.
+		$f(z) = \sum_{n = 0}^{+\infty} \frac{\der[e]{f}{z}{n}(\omega)}{n!} (z - \omega)^n$.
 
         \begin{multicols}{2}
         	\setlength{\columnseprule}{.75pt}
@@ -419,9 +423,9 @@ Nous allons voir que les fonctions développables en série entière autour d'un
         		\explnext{}
         			\dsum_{n = 0}^{+\infty} \dsum_{k = n}^{+\infty} \binom{k}{k-n} a_{k} \omega^{k-n} (z - \omega)^n
         		\explnext{}
-        			\dsum_{n = 0}^{+\infty} \frac{1}{n!} (z - \omega)^n \big( \dsum_{k = n}^{+\infty} \frac{k!}{(k-n)!} a_{k} \omega^{k-n} \big) 
+        			\dsum_{n = 0}^{+\infty} \dfrac{1}{n!} (z - \omega)^n \big( \dsum_{k = n}^{+\infty} \frac{k!}{(k-n)!} a_{k} \omega^{k-n} \big) 
         		\explnext{}
-        			\dsum_{n = 0}^{+\infty} \frac{\der[e]{f}{z}{n}(\omega)}{n!} (z - \omega)^n
+        			\dsum_{n = 0}^{+\infty} \dfrac{\der[e]{f}{z}{n}(\omega)}{n!} (z - \omega)^n
         		\end{stepcalc}
     		\end{enumerate}
 	\end{multicols}
@@ -459,7 +463,7 @@ Passons au résultat essentiel de cette section qui va permettre de valider nos 
 	Par hypothèse, 
 	$\forall \omega \in \Omega$, il existe un disque ouvert non vide $\CdiscO{\omega}{r} \subseteq \Omega$ tel que 
 	$\forall z \in \CdiscO{\omega}{r}$, 
-	$f(z) = \dsum_{n = 0}^{+\infty} \frac{\der[e]{f}{z}{n}(\omega)}{n!} (z - \omega)^n$.
+	$f(z) = \sum_{n = 0}^{+\infty} \frac{\der[e]{f}{z}{n}(\omega)}{n!} (z - \omega)^n$.
 	%
 	Ceci implique l'égalité des deux ensembles suivants.
 	%
@@ -481,10 +485,10 @@ Passons au résultat essentiel de cette section qui va permettre de valider nos 
 	et
 	$\der[e]{f}{z}{p}(\alpha) \neq 0$.
 	Ceci permet d'écrire
-	$f(z) = (z - \alpha)^p \dsum_{n = p}^{+\infty} a_n (z - \alpha)^{n - p}$
+	$f(z) = (z - \alpha)^p \sum_{n = p}^{+\infty} a_n (z - \alpha)^{n - p}$
 	sur un disque ouvert non vide $\CdiscO{\alpha}{\rho} \subseteq \Omega$,
 	avec $a_p = \frac{\der[e]{f}{z}{p}(\alpha)}{p!} \neq 0$.
-	Posant $g(z) = \dsum_{n = p}^{+\infty} a_n (z - \alpha)^{n - p}$, nous obtenons une fonction continue sur $\CdiscO{\alpha}{\rho}$, et vérifiant $g(\alpha) \neq 0$.
+	Posant $g(z) = \sum_{n = p}^{+\infty} a_n (z - \alpha)^{n - p}$, nous obtenons une fonction continue sur $\CdiscO{\alpha}{\rho}$, et vérifiant $g(\alpha) \neq 0$.
 	Comme $f(z) = (z - \alpha)^p g(z)$, il devient clair qu'il existe $r > 0$ tel que
 	$\CdiscO{\alpha}{r} \subseteq \CdiscO{\alpha}{\rho}$
 	et
@@ -519,7 +523,7 @@ Passons au résultat essentiel de cette section qui va permettre de valider nos 
     L'identité sympathique
     $ \sin \big( (2n+1) \alpha \big)
     = \sin \alpha
-    + 2 \sin \alpha \dsum_{k=1}^{n} \cos ( 2k \alpha )$,
+    + 2 \sin \alpha \sum_{k=1}^{n} \cos ( 2k \alpha )$,
     valable pour $(n ; \alpha) \in \NNs \times \CC$,
     est obtenue, relativement naturellement, via les dessins suivants avec la contrainte géométrique $0 < (2n +1) \alpha \leq \frac{\pi}{2}$.
 	
