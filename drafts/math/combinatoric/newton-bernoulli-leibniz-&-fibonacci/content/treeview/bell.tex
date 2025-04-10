@@ -17,28 +17,44 @@ de Yidong Sun et Xiaojuan Wu.%
     }
 
 
-    \item $\tabell[n][n] = B_n$,
-    car l'existence du singleton maximal $\setgene{n+1}$ dans une partition de $\ZintervalC{1}{n+1}$ permet, en ignorant $\setgene{n+1}$, d'obtenir une partition de $\ZintervalC{1}{n}$.
+    \item Notons que $\tabell[n][n] = B_n$.
+    En effet,
+    l'existence du singleton maximal $\setgene{n+1}$ dans une partition de $\ZintervalC{1}{n+1}$ permet, en ignorant $\setgene{n+1}$, d'obtenir une partition de $\ZintervalC{1}{n}$.
     %
     Cette construction est réversible, donc bijective.
 
 
-    \item Que pouvons-nous dire de $\tabell[n][1]$ lorsque $n \in \NNs$?
+    \item Le cas intéressant de $\tabell[n][0]$ est abordé dans la remarque \ref{val-bell-n-0} plus bas (nous n'aurons pas besoin de $\tabell[n][0]$ pour notre introduction aux nombres de Bell).
+
+
+    \item Que pouvons-nous dire de $\tabell[n][1]$ lorsque $n \in \NN_{>2}$?
     Considérons une partition $\pi$ de $\ZintervalC{1}{n+1}$ ayant $\setgene{2}$ comme singleton maximal.
     Deux cas se présentent à nous.
     %
     \begin{enumerate}
     	\item \textbf{\boldmath Cas 1: $\setgene{1}$ fait partie de $\pi$.}
         %
-        XXXX
+        En ignorant $1$ et $2$,
+        et
+        en remplaçant chaque naturel $k \in \ZintervalC{3}{n+1}$ par $k-2 \in \ZintervalC{1}{n-1}$,
+        nous obtenons une partition $\pi'$ de $\ZintervalC{1}{n-1}$ sans aucun singleton.
+
 
     	\item \textbf{\boldmath Cas 2: $\setgene{1}$ est absent de $\pi$.}
         %
-        XXXX
+        Dans ce cas, $\setgene{2}$ est l'unique singleton de $\pi$.
+        En ignorant $2$,
+        en transformant l'ensemble $\setgene{1 ; k_1 ; \dots ; k_s}$ de $\pi$ en $\setgene{k_1} \sqcup \dots \sqcup \setgene{k_s}$,
+        et
+        en remplaçant chaque naturel $k \in \ZintervalC{3}{n+1}$ par $k-2 \in \ZintervalC{1}{n-1}$,
+        nous obtenons une partition $\pi'$ de $\ZintervalC{1}{n-1}$ avec pour singletons $\setgene{k_1}$ , \dots\ , $\setgene{k_s}$
+        (on peut voir $1$ comme un marqueur de singletons).
     \end{enumerate}
     %
-    Les procédés ci-dessus étant réversibles, par bijection, nous avons:
-    $\tabell[n][1] = \tabell[n-1][n-1]$ lorsque $n \in \NNs$.
+    Les procédés ci-dessus étant réversibles, par bijection, nous obtenons:
+    $\tabell[n][1] = B_{n-1}$ lorsque $n \in \NN_{>2}$.
+    %
+    Comme $\tabell[1][1] = 1$ et $B_0 = 1$, l'identité est valable sur $\NNs$.
 
 
     \item Plus généralement, considérons une partition $\pi$ de $\ZintervalC{1}{n+1}$ ayant $\setgene{p+1}$ comme singleton maximal.
@@ -52,7 +68,7 @@ de Yidong Sun et Xiaojuan Wu.%
         en remplaçant chaque naturel $k \in \ZintervalC{p+2}{n+1}$ par $k-1 \in \ZintervalC{p+1}{n}$,
         nous obtenons une partition $\pi'$ de $\ZintervalC{1}{n}$ ayant $\setgene{p}$ comme singleton maximal.
         %
-        Ces dernières partitions sont au nombre de $\tabell[n-1][p-1]$.
+%        Ces dernières partitions sont au nombre de $\tabell[n-1][p-1]$.
 
 
         \item \textbf{\boldmath Cas 2: $\setgene{p}$ est absent de $\pi$.}
@@ -60,11 +76,11 @@ de Yidong Sun et Xiaojuan Wu.%
         En échangeant $p$ et $(p+1)$,
         nous obtenons une partition $\pi'$ de $\ZintervalC{1}{n+1}$ ayant $\setgene{p}$ comme singleton maximal. 
         %
-        Ces dernières partitions sont au nombre de $\tabell[n+1][p-1]$.
+%        Ces dernières partitions sont au nombre de $\tabell[n+1][p-1]$.
     \end{enumerate}
     %
     Les procédés ci-dessus étant réversibles, par bijection, nous avons:
-    $\tabell = \tabell[n][p-1] + \tabell[n-1][p-1]$.
+    $\tabell = \tabell[n-1][p-1] +  \tabell[n][p-1]$.
 \end{itemize}
 
 
@@ -93,7 +109,7 @@ Comme $\binom{n}{n-k} = \binom{n}{k}$, nous avons bien
 $B_{n+1} = \binosum{B_k}$.
 
 
-\begin{remark}
+\begin{remark} \label{val-bell-n-0}
     $\tabell[n][0]$ est le nombre de partitions de $\ZintervalC{1}{n}$ sans singleton.
     En effet,
     si $\setgene{1}$ est le singleton maximal d'une partition de $\ZintervalC{1}{n+1}$,
