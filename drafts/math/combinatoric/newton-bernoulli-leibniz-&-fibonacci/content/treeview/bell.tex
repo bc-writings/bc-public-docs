@@ -17,16 +17,35 @@ de Yidong Sun et Xiaojuan Wu.%
     }
 
 
-    \item Clairement, $B_n = \tabell[n][n]$.
-    En effet,
-    l'existence du singleton maximal $\setgene{n+1}$ dans une partition de $\ZintervalC{1}{n+1}$ permet, en ignorant $\setgene{n+1}$, d'obtenir une partition de $\ZintervalC{1}{n}$. Cette construction est réversible, donc bijective.
+    \item $\tabell[n][n] = B_n$,
+    car l'existence du singleton maximal $\setgene{n+1}$ dans une partition de $\ZintervalC{1}{n+1}$ permet, en ignorant $\setgene{n+1}$, d'obtenir une partition de $\ZintervalC{1}{n}$.
+    %
+    Cette construction est réversible, donc bijective.
 
 
-    \item Considérons une partition $\pi$ de $\ZintervalC{1}{n+1}$ ayant $\setgene{p+1}$ comme singleton maximal.
+    \item Que pouvons-nous dire de $\tabell[n][1]$ lorsque $n \in \NNs$?
+    Considérons une partition $\pi$ de $\ZintervalC{1}{n+1}$ ayant $\setgene{2}$ comme singleton maximal.
     Deux cas se présentent à nous.
     %
     \begin{enumerate}
-        \item \textbf{\boldmath Cas 1 : $\setgene{p}$ fait partie de $\pi$.}
+    	\item \textbf{\boldmath Cas 1: $\setgene{1}$ fait partie de $\pi$.}
+        %
+        XXXX
+
+    	\item \textbf{\boldmath Cas 2: $\setgene{1}$ est absent de $\pi$.}
+        %
+        XXXX
+    \end{enumerate}
+    %
+    Les procédés ci-dessus étant réversibles, par bijection, nous avons:
+    $\tabell[n][1] = \tabell[n-1][n-1]$ lorsque $n \in \NNs$.
+
+
+    \item Plus généralement, considérons une partition $\pi$ de $\ZintervalC{1}{n+1}$ ayant $\setgene{p+1}$ comme singleton maximal.
+    Deux cas se présentent à nous.
+    %
+    \begin{enumerate}
+        \item \textbf{\boldmath Cas 1: $\setgene{p}$ fait partie de $\pi$.}
         %
         En ignorant $\setgene{p+1}$, 
         et
@@ -36,7 +55,7 @@ de Yidong Sun et Xiaojuan Wu.%
         Ces dernières partitions sont au nombre de $\tabell[n-1][p-1]$.
 
 
-        \item \textbf{\boldmath Cas 2 : $\setgene{p}$ est absent de $\pi$.}
+        \item \textbf{\boldmath Cas 2: $\setgene{p}$ est absent de $\pi$.}
         %
         En échangeant $p$ et $(p+1)$,
         nous obtenons une partition $\pi'$ de $\ZintervalC{1}{n+1}$ ayant $\setgene{p}$ comme singleton maximal. 
@@ -46,20 +65,6 @@ de Yidong Sun et Xiaojuan Wu.%
     %
     Les procédés ci-dessus étant réversibles, par bijection, nous avons:
     $\tabell = \tabell[n][p-1] + \tabell[n-1][p-1]$.
-
-
-    \item Considérons une partition $\pi$ de $\ZintervalC{1}{n+1}$ ayant $\setgene{n+1}$ comme singleton maximal.
-    Nous pouvons faire les constructions suivantes.
-    %
-    \begin{enumerate}
-        \item XXXX
-
-
-        \item XXXX
-    \end{enumerate}
-    %
-    La réversibilité des constructions ci-dessus nous donne:
-    $\tabell[n][n] = \tabell[n+1][1]$.
 \end{itemize}
 
 
@@ -86,3 +91,16 @@ qui équivaut à
 $B_{n+1} = \binosum{B_{n-k}}$.
 Comme $\binom{n}{n-k} = \binom{n}{k}$, nous avons bien 
 $B_{n+1} = \binosum{B_k}$.
+
+
+\begin{remark}
+    $\tabell[n][0]$ est le nombre de partitions de $\ZintervalC{1}{n}$ sans singleton.
+    En effet,
+    si $\setgene{1}$ est le singleton maximal d'une partition de $\ZintervalC{1}{n+1}$,
+    alors
+    en ignorant $\setgene{1}$, 
+    et
+    en remplaçant chaque naturel $k \in \ZintervalC{2}{n+1}$ par $k-1 \in \ZintervalC{1}{n}$, nous obtenons une partition de $\ZintervalC{1}{n}$ sans singleton.
+    %
+    Cette construction est réversible, donc bijective.
+\end{remark}
