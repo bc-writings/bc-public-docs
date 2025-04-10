@@ -9,10 +9,35 @@ Dans cette section, nous changeons de point de vue: nous allons partir du fait t
 	alors
 	$\forall (a, b) \in \setalge{A}^2$,
 	$\forall n \in \NN$,
-	$(a + b)^n = \binosum{a^k b^{n-k}}$. 
+	$(a + b)^n = \cnpsum{a^k b^{n-k}}$.%
+	\footnote{
+        Rappelons que $\cnp$ est défini sur $\ZZ^2$ par
+        $\cnp = \frac{n!}{k!(n-k)!}$ si $n \in \NN$ et $p \in \ZintervalC{0}{n}$,
+        et
+        $\cnp = 0$ dans les autres cas,
+        mais aussi que nous savons que $\cnp = \cnp[n-1][p] + \cnp[n-1][p-1]$.
+	}
 \end{fact}
 
 
 \begin{proof}
-    XXXX
+    Notant $(a + b)^n = \sum_{k=0}^{n} c(n,k) a^k b^{n-k}$, nous avons:
+    
+    \begin{stepcalc}[style=ar*]
+    	\dsum_{k=0}^{n+1} c(n+1,k) a^k b^{n+1-k}
+	\explnext{}
+    	(a + b)^{n+1}
+	\explnext{}
+    	a (a + b)^n + b (a + b)^n
+	\explnext{}
+    	  \dsum_{k=0}^{n} c(n,k) a^{k+1} b^{n-k}
+		+ \dsum_{k=0}^{n} c(n,k) a^k b^{n+1-k}
+	\explnext{}
+    	  c(n,n) a^{n+1}
+		+ \dsum_{k=1}^{n} \big( c(n,k-1) + c(n,k) \big) a^k b^{n+1-k}
+		+ c(n,0) b^{n+1}
+    \end{stepcalc}
+    
+
+	XXXX
 \end{proof}
