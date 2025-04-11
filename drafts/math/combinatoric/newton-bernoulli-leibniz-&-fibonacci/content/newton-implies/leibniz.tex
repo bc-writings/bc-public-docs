@@ -1,1 +1,68 @@
-XXXX
+Comme nous souhaitons dériver autant de fois que nécessaire, cet opération de dérivation étant linaire, et que de plus nous considérons deux fonctions, il est naturel d'introduire les objets suivants.
+%
+\begin{itemize}
+	\item $\pi: (x,y) \in \RR^2 \mapsto f(x) g(y) \in \RR$. Ceci permet de distinguer les fonctions $f$ et $g$.
+
+	\item $\setgeo{C}^{\infty}(\RR^2 , \RR)$ désigne l'ensemble des fonctions infiniment dérivable de $\RR^2$ dans $\RR$.%
+	\footnote{
+		Si besoin, il est possible de modifier cet ensemble tant que cela n'enfreint pas le théorème de Schwarz qui va être essentiel pour la suite.
+	}
+
+	\item $\setalge{A} = \Endo \big( \setgeo{C}^{\infty}(\RR^2 , \RR) \big)$ est l'ensemble des endomorphismes linéaires de $\setgeo{C}^{\infty}(\RR^2 , \RR)$.
+	On munit $\setalge{A}$ de l'addition $+$ point par point, et de la composition $\circ$ comme produit.
+
+	\item $\pderope[sf]{x}{1} \in \setalge{A}$ et $\pderope[sf]{y}{1} \in \setalge{A}$ sont les dérivations partielles relativement aux première et deuxième coordonnées respectivement. 
+\end{itemize}
+
+
+Pour utiliser le \reffact{bino-id-a-b}, nous devons avoir $\pderope[sf]{x}{1} \circ \pderope[sf]{y}{1} = \pderope[sf]{y}{1} \circ \pderope[sf]{x}{1}$. Le théorème de Schwarz nous dit que c'est bien le cas sur $\setgeo{C}^{\infty}(\RR^2 , \RR)$.
+%
+Nous obtenons alors
+$\big( \pderope[sf]{x}{1} + \pderope[sf]{y}{1} \big)^n = \cnpsum{ \pderope[sf]{x^k}{k} \circ \pderope[sf]{y^{n-k}}{n-k}}$
+selon la formule du binôme de Newton.
+%
+Il nous reste à revenir dans le monde des fonctions à une seule variable. Pour ce faire, notons $\diago \in \setalge{A}$ qui à $h \in \setgeo{C}^{\infty}(\RR^2 , \RR)$ associe $\diago(h)$ définie sur $\RR^2$ par $\diago(h)(x,y) = h(x, x)$.
+%
+Nous avons la propriété de commutativité essentielle suivante.
+%
+\begin{itemize}
+	\item
+	\begin{stepcalc}[style=sar]
+		\big( \pderope[f]{x}{1} + \pderope[f]{y}{1} \big) \circ \diago(\pi)(x,y)
+	\explnext{}
+		\big( \pderope[f]{x}{1} + \pderope[f]{y}{1} \big) \big( f(x)g(x) \big)
+	\explnext{}
+		(f g)^{\,\prime}(x)
+	\explnext{}
+		f^{\,\prime}(x) g(x) + f(x) g^{\,\prime}(x)
+	\end{stepcalc}
+
+
+	\item
+	\begin{stepcalc}[style=sar]
+		\diago \circ \big( \pderope[f]{x}{1} + \pderope[f]{y}{1} \big) (\pi)(x,y)
+	\explnext{}
+		\diago \circ \big( \pderope[f]{x}{1} + \pderope[f]{y}{1} \big) \big( f(x)g(y) \big)
+	\explnext{}
+		\diago \big(f^{\,\prime}(x) g(y) + f(x) g^{\,\prime}(y) \big)
+	\explnext{}
+		f^{\,\prime}(x) g(x) + f(x) g^{\,\prime}(x)
+	\end{stepcalc}
+\end{itemize}
+
+
+La conclusion se fait alors via les calculs ci-après.
+
+\begin{stepcalc}[style=ar*]
+	(fg)^{(n)} (x)
+\explnext{}
+    \big( \pderope[f]{x}{1} + \pderope[f]{y}{1} \big)^n \circ \diago(\pi)(x,y)
+\explnext*{$\diago$ et $\big( \pderope[f]{x}{1} + \pderope[f]{y}{1} \big)$ commuent.}{}
+    \diago \circ \big( \pderope[f]{x}{1} + \pderope[f]{y}{1} \big)^n (\pi)(x,y)
+\explnext{}
+    \diago \circ \big( \dsum_{k=0}^n \cnp[n][k] \pderope[f]{x^k}{k} \circ \pderope[f]{y^{n-k}}{n-k} \big) (\pi)(x,y)
+\explnext{}
+    \diago \circ \big( \dsum_{k=0}^n \cnp[n][k] f^k(x) g^{n-k}(y) \big)
+\explnext{}
+	\dsum_{k=0}^n \cnp[n][k] f^k(x) g^{n-k}(x)
+\end{stepcalc}

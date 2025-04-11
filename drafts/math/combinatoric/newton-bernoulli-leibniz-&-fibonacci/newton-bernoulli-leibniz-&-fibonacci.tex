@@ -698,6 +698,15 @@
 % -------------------------------- %
 
 
+\newcommand{\diago}{\operatorname{diag}}
+\newcommand{\Endo}{\operatorname{End}}
+
+
+\NewDocumentCommand{\binonewton}{m m O{n} O{k}}{(#1 + #2)^n = \binosum{#1^{#4} #2^{#3 - #4}}}
+\NewDocumentCommand{\cnpnewton}{m m O{n} O{k}}{(#1 + #2)^n = \cnpsum{#1^{#4} #2^{#3 - #4}}}
+\NewDocumentCommand{\combinewton}{m m O{n} O{k}}{(#1 + #2)^n = \combisum{#1^{#4} #2^{#3 - #4}}}
+
+
 % ------------------------------ %
 % -------  END - NEWTON  ------- %
 % ------------------------------ %

@@ -13,7 +13,7 @@ Dans cette section, nous changeons de point de vue: nous allons partir du fait t
 	%
 	Dans l'anneau des polynômes à deux variables $\setalge{A}[X, Y]$, nous avons:
 	$\forall n \in \NN$,
-	$(X + Y)^n = \cnpsum{X^k Y^{n-k}}$.%
+	$\cnpnewton{X}{Y}$.%
 	\footnote{
         Rappelons que $\cnp[n][k]$ est défini sur $\ZZ^2$ par
         $\cnp[n][k] = \frac{n!}{k!(n-k)!}$ si $n \in \NN$ et $p \in \ZintervalC{0}{n}$,
@@ -72,7 +72,7 @@ Dans cette section, nous changeons de point de vue: nous allons partir du fait t
 \begin{remark} \label{bino-id-formal-combi}
     Une autre approche pour obtenir la formule du \reffact{bino-id-formal} consiste à démontrer que
     $\forall n \in \NN$,
-	$(X + Y)^n = \combisum{X^k Y^{n-k}}$.%
+	$\combinewton{X}{Y}$.%
     \footnote{
         Rappelons que $\combi[n][k]$ le nombre de sous-ensembles à $k$ éléments d'un ensemble de cardinal $n$.
     }
@@ -94,7 +94,7 @@ Dans les applications à venir, nous allons nous appuyer sur la formule suivante
 	alors
 	$\forall (a, b) \in \setalge{A}^2$,
 	$\forall n \in \NN$,
-	$(a + b)^n = \cnpsum{a^k b^{n-k}}$.
+	$\cnpnewton{a}{b}$.
 \end{fact}
 
 
