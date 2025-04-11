@@ -1,4 +1,6 @@
-La méthode peut s'adapter aux cas d'un arbre ternaire comme dans la situation suivante qui permet d'aboutir à la formule de Liebniz pour trois fonctions
+La méthode peut s'adapter aux cas d'un arbre $n$-aire.
+%
+Par exemple, ce qui suit nous donne la formule de Liebniz pour trois fonctions:
 $(fgh)^{(n)} = \trinosum{f^{(k_1)} g^{(k_2)} h^{(k_3)}}$
 où
 $\binom{n}{k_1\,k_2\,k_3}$ compte le nombre de chemins avec
@@ -11,11 +13,20 @@ $k_3$ déplacements vers le bas.
                  {\intertreethree}{\prodderthree}
 
 
+Notant $\cnp[n][k_1\,k_2\,k_3] = \frac{n!}{k_1!k_2!k_3!}$ où $k_1+k_2+k_3 = n$, nous avons $\binom{n}{k_1\,k_2\,k_3} = \frac{n!}{k_1!k_2!k_3!}$ via ce qui suit.
+
+\explaintreethree{\cnp[n][k_1\,k_2\,k_3]}%
+                 {\cnp[n-1][(k_1-1)\,k_2\,k_3]}%
+                 {\cnp[n-1][k_1\,(k_2-1)\,k_3]}%
+                 {\cnp[n-1][k_1\,k_2\,(k_3-1)]}%
+                 {\factobinomintertreethree}{\factobinomthree{n}{k_1}{k_2}{k_3}}
+
+
 Par contre, si la suite $L$ est telle que $L_{i} = L_{i-1} + L_{i-2} + L_{i-3}$, ce qui suit ne sera pas aussi pertinent que ce que nous avions obtenu pour la suite de Fibonacci:
 le problème ici est qu'aboutir à 
 $ L_{3n - k_1\cdot1 - k_2\cdot2 - k_3\cdot3}
 = L_{3n - k_1 - 2 k_2 - 3(n - k_1 - k_2)}
-= L_{2 k_1 - k_2}$,
+= L_{2 k_1 - k_2}$
 est peu intéressant.
 
 \explaintreethree{L_k}{L_{k-1}}{L_{k-2}}{L_{k-3}}%

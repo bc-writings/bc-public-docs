@@ -4,40 +4,100 @@ Dans cette section, nous changeons de point de vue: nous allons partir du fait t
 % ----------------------- %
 
 
-\begin{fact} \label{bino-id}
-	Si $(\setalge{A}, + \times)$ un anneau commutatif (et forcément unitaire),
-	alors
-	$\forall (a, b) \in \setalge{A}^2$,
-	$\forall n \in \NN$,
-	$(a + b)^n = \cnpsum{a^k b^{n-k}}$.%
+\begin{fact} \label{bino-id-formal}
+	Soit $\setalge{A}$ un anneau, forcément unitaire,%
 	\footnote{
-        Rappelons que $\cnp$ est défini sur $\ZZ^2$ par
-        $\cnp = \frac{n!}{k!(n-k)!}$ si $n \in \NN$ et $p \in \ZintervalC{0}{n}$,
-        et
-        $\cnp = 0$ dans les autres cas,
-        mais aussi que nous savons que $\cnp = \cnp[n-1][p] + \cnp[n-1][p-1]$.
+        Il fut un temps où un anneau n'avait pas forcément un élément neutre pour le produit.
 	}
+	qui est commutatif.
+	%
+	Dans l'anneau des polynômes à deux variables $\setalge{A}[X, Y]$, nous avons:
+	$\forall n \in \NN$,
+	$(X + Y)^n = \cnpsum{X^k Y^{n-k}}$.%
+	\footnote{
+        Rappelons que $\cnp[n][k]$ est défini sur $\ZZ^2$ par
+        $\cnp[n][k] = \frac{n!}{k!(n-k)!}$ si $n \in \NN$ et $p \in \ZintervalC{0}{n}$,
+        et
+        $\cnp[n][k] = 0$ sinon.
+        Nous savons aussi que $\cnp[n][k] = \cnp[n-1][k] + \cnp[n-1][k-1]$.
+	}
+	Ceci est la formule générique du binôme de Newton.
 \end{fact}
 
 
 \begin{proof}
-    Notant $(a + b)^n = \sum_{k=0}^{n} c(n,k) a^k b^{n-k}$, nous avons:
-    
+    Notons $(X + Y)^n = \sum_{k=0}^{n} c(n,k) X^k Y^{n-k}$. Comme $\setalge{A}$ n'est pas forcément intègre, nous devons être prudent (voir la \refrem{bino-id-formal-quick} juste après). Voici une démarche possible (nous proposons une autre approche classique dans la \refrem{bino-id-formal-combi}).%
+
     \begin{stepcalc}[style=ar*]
-    	\dsum_{k=0}^{n+1} c(n+1,k) a^k b^{n+1-k}
+    	\dsum_{k=0}^{n+1} c(n+1,k) X^k Y^{n+1-k}
 	\explnext{}
-    	(a + b)^{n+1}
+		(X + Y)^{n+1}
 	\explnext{}
-    	a (a + b)^n + b (a + b)^n
+		(X + Y) \, (X + Y)^n
 	\explnext{}
-    	  \dsum_{k=0}^{n} c(n,k) a^{k+1} b^{n-k}
-		+ \dsum_{k=0}^{n} c(n,k) a^k b^{n+1-k}
+		  \dsum_{k=0}^{n} c(n,k) X^{k+1} Y^{n-k}
+		+ \dsum_{k=0}^{n} c(n,k) X^k     Y^{n+1-k}
 	\explnext{}
-    	  c(n,n) a^{n+1}
-		+ \dsum_{k=1}^{n} \big( c(n,k-1) + c(n,k) \big) a^k b^{n+1-k}
-		+ c(n,0) b^{n+1}
+		  c(n,n) X^{n+1}
+		+ \dsum_{k=1}^{n} \big( c(n,k-1) + c(n,k) \big) X^{k} Y^{n+1-k}
+		+ c(n,0) Y^{n+1}
     \end{stepcalc}
     
+    Ceci nous donne les relations suivantes.
+    %
+    \begin{enumerate}
+    	\item $c(n+1,n+1) = c(n,n)$ et $c(n+1,0) = c(n,0)$.
 
-	XXXX
+    	\item $c(n+1,k) = c(n,k) + c(n,k-1)$ pour $k \in \ZintervalC{1}{n}$.
+    \end{enumerate}
+    
+    Une récurrence permet alors d'obtenir
+    $c(n,k) = \cnp[n][k]$ pour $n \in \NN$ et $k \in \ZintervalC{0}{n}$
+\end{proof}
+
+
+\begin{remark} \label{bino-id-formal-quick}
+    Dans un anneau intègre, nous pouvons aller plus vite.
+    En effet,
+    en notant $P(X,Y) = (X + Y)^n$,
+    la dérivation formelle suivie d'une évaluation en $(0,1)$ nous donne
+    $k! \, c(n,k) = \der[sf]{P}{X}{k}(0,1) = \prod_{i=n+1-k}^{n} i$,
+    et par conséquent
+    $c(n,k) = \frac{1}{k!} \cdot \frac{n!}{(n-k)!} = \cnp[n][k]$ 
+    dans le corps des fractions de $\setalge{A}$, 
+    puis dans $\setalge{A}$ lui-même.
+\end{remark}
+
+
+\begin{remark} \label{bino-id-formal-combi}
+    Une autre approche pour obtenir la formule du \reffact{bino-id-formal} consiste à démontrer que
+    $\forall n \in \NN$,
+	$(X + Y)^n = \combisum{X^k Y^{n-k}}$.%
+    \footnote{
+        Rappelons que $\combi[n][k]$ le nombre de sous-ensembles à $k$ éléments d'un ensemble de cardinal $n$.
+    }
+    En effet,
+    écrivons 
+    $(X + Y)^n = \prod_{k=1}^{n} (X + Y)_k$ avec des indices étiquetant les parenthèses.
+    En distribuant, le nombre de $X^k Y^{n-k}$ obtenus correspond au nombre de choix de $k$ parenthèses pour $X$ parmi les $n$ disponibles, c'est-à-dire $\combi[n][k]$ fois.
+\end{remark}
+
+
+% ----------------------- %
+
+
+Dans les applications à venir, nous allons nous appuyer sur la formule suivante considérée dans différents anneaux bien choisis.
+
+
+\begin{fact} \label{bino-id-a-b}
+	Si $\setalge{A}$ est un anneau commutatif,
+	alors
+	$\forall (a, b) \in \setalge{A}^2$,
+	$\forall n \in \NN$,
+	$(a + b)^n = \cnpsum{a^k b^{n-k}}$.
+\end{fact}
+
+
+\begin{proof}
+	Il suffit d'évaluer en $(a, b)$ la formule générique du binôme de Newton.
 \end{proof}

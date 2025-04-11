@@ -39,9 +39,11 @@
 \NewDocumentCommand{\tabell}{O{n} O{p}}{\mathcal{B}^{#1}_{#2}}
 
 \NewDocumentCommand{\binosum}{m O{n} O{k}}{\sum_{#3=0}^{#2} \binom{#2}{#3} #1}
+\NewDocumentCommand{\cnpsum}{m O{n} O{k}}{\sum_{#3=0}^{#2} \cnp[#2][#3] #1}
+\NewDocumentCommand{\combisum}{m O{n} O{k}}{\sum_{#3=0}^{#2} \combi[#2][#3] #1}
+
 \NewDocumentCommand{\trinosum}{m O{n} O{k_1} O{k_2} O{k_3}}{\sum_{#3 + #4 + #5 = #2} \binom{#2}{#3\,#4\,#5} #1}
 
-\NewDocumentCommand{\cnpsum}{m O{n} O{k}}{\sum_{#3=0}^{#2} \cnp[#2][#3] #1}
 
 
 % ----------------------- %
@@ -262,7 +264,83 @@
 }
 
 
+\NewDocumentCommand{ \factobinomthree }{ m m m m m m m m m }{
+  \cnp[
+      #1
+      
+      \str_if_eq:nnF { #5 }{ 0 }{
+        \str_set:Nn \l_cbal_factobinom_coef_str { #5 }
+
+        -
+        \str_if_in:NnTF \l_cbal_factobinom_coef_str { + } {
+          (#5)
+        } {
+          #5
+        }
+      }
+  ][
+    (#2
+
+    \str_if_eq:nnF { #6 }{ 0 }{
+      \str_set:Nn \l_cbal_factobinom_coef_str { #6 }
+ 
+      -
+      \str_if_in:NnTF \l_cbal_factobinom_coef_str { + } {
+        (#6)
+      } {
+        #6
+      }
+    }
+    
+    )\,(
+    
+    #3
+
+    \str_if_eq:nnF { #7 }{ 0 }{
+      \str_set:Nn \l_cbal_factobinom_coef_str { #7 }
+ 
+      -
+      \str_if_in:NnTF \l_cbal_factobinom_coef_str { + } {
+        (#7)
+      } {
+        #7
+      }
+    }
+    
+    )\,(
+    
+    #4
+
+    \str_if_eq:nnF { #8 }{ 0 }{
+      \str_set:Nn \l_cbal_factobinom_coef_str { #8 }
+ 
+      -
+      \str_if_in:NnTF \l_cbal_factobinom_coef_str { + } {
+        (#8)
+      } {
+        #8
+      }
+    }
+    )
+  ]
+}
+
+
 \ExplSyntaxOff
+
+\NewDocumentCommand{\factobinomintertreethree}{m}{
+%    \begin{center}
+    \begin{forest}
+        for tree={widget}
+        %
+        [#1{a}{b}{c}{d}{\forestoption{level}}
+          [#1{a+1}{b+1}{c}{d}{\forestoption{level}}]
+          [#1{a+1}{b}{c+1}{d}{\forestoption{level}}]
+          [#1{a+1}{b}{c}{d+1}{\forestoption{level}}]
+        ]
+    \end{forest}
+%    \end{center}
+}
 
 \NewDocumentCommand{\factobinomintertree}{m}{
 %    \begin{center}
