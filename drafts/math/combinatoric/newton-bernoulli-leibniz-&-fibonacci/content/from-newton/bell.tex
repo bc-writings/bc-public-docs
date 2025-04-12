@@ -45,9 +45,8 @@ La formule du binôme de Newton nous donne ce qui suit.
 \explnext{}
     \dsum_{k=0}^n \combi[n][k] \mu_0^k(\mathcal{B})
 \explnext{}
-    \big( \dsum_{k=0}^n \combi[n][k] \tabell[p+k][m] \big)_{(p,m)\in\ZZ^2}
+    \big( \dsum_{k=0}^n \combi[n][k] \tabell[m][p+k] \big)_{(p,m)\in\ZZ^2}
 \end{stepcalc}
-
 
 Pour conclure,
 il suffit de choisir $p = m = 1$.
@@ -57,5 +56,43 @@ il suffit de choisir $p = m = 1$.
 
 
 \begin{remark}
-	XXXX inversion pour le fun!
+	Comme pour la suite de Fibonacci, il est aisé de produire deux nouvelles formules de récurrence.
+	%
+	Partant de $\mathcal{B} = \mu_1^1(\mathcal{B}) - \mu_0^1(\mathcal{B})$, nous menons les calculs ci-après.
+
+    \begin{stepcalc}[style=ar*]
+    	\big( \tabell[m][p] \big)_{(p,m)\in\ZZ^2}
+    \explnext{}
+        ( \mu_1^1 - \mu_0^1 )^n(\mathcal{B})
+    \explnext{}
+        \big( \dsum_{k=0}^n \combi[n][k] (-1)^{n-k} \mu_k^n \big)(\mathcal{B})
+    \explnext{}
+        \big( \dsum_{k=0}^n \combi[n][k] (-1)^{n-k} \tabell[m+n][p+k] \big)_{(p,m)\in\ZZ^2}
+    \end{stepcalc}
+    
+    Nous avons obtenu sans effort
+    $\tabell[m][p] = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} \tabell[m+n][p+k]$
+    qui nous donne par exemple
+    $\tabell[n][0] = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} \tabell[2n][k]$.
+    %
+    Nous pouvons partir de $\mu_0^1(\mathcal{B}) = \mu_1^1(\mathcal{B}) -\mathcal{B}$ comme ci-dessous.
+
+    \begin{stepcalc}[style=ar*]
+    	\big( \tabell[m+n][p] \big)_{(p,m)\in\ZZ^2}
+    \explnext{}
+        ( \mu_0^1 )^n(\mathcal{B})
+    \explnext{}
+        ( \mu_1^1 - \ident )^n(\mathcal{B})
+    \explnext{}
+        \big( \dsum_{k=0}^n \combi[n][k] (-1)^{n-k} \mu_k^k \big)(\mathcal{B})
+    \explnext{}
+        \big( \dsum_{k=0}^n \combi[n][k] (-1)^{n-k} \tabell[m+k][p+k] \big)_{(p,m)\in\ZZ^2}
+    \end{stepcalc}
+    
+    Cette fois,
+    $\tabell[m+n][p] = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} \tabell[m+k][p+k]$,
+    nous donne
+    $\tabell[n][0] = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} \tabell[k][k]$,
+    c'est-à-dire
+    $\tabell[n][0] = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} B_k$.
 \end{remark}

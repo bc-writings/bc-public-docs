@@ -59,39 +59,32 @@ Dès lors, la conclusion se fait comme suit sans souci.
     Nous allons essayer de retrouver ce résultat autrement.
     %
     Une première idée est d'utiliser
-    $F = \sigma_1(F) - \sigma_2(F)$
+    $F = \sigma_2(F) - \sigma_1(F)$
     pour conduire les calculs suivants.
     
     \begin{stepcalc}[style=ar*]
     	(F_m)_{m\in\ZZ}
     \explnext{}
-        (\sigma_1 - \sigma_2)^n(F)
+        (\sigma_2 - \sigma_1)^n(F)
     \explnext*{$\sigma_1$ et $\sigma_2$ commutent.}{}
-        \big( \dsum_{k=0}^n \combi[n][k] (-1)^{n-k} \sigma_1^k \circ \sigma_2^{n-k} \big)(F)
+        \big( \dsum_{k=0}^n \combi[n][k] (-1)^{n-k} \sigma_2^k \circ \sigma_1^{n-k} \big)(F)
+%    \explnext{}
+%        \big( \dsum_{k=0}^n \combi[n][k] (-1)^{n-k} \sigma_{2k} \circ \sigma_{n-k} \big)(F)
     \explnext{}
-        \big( \dsum_{k=0}^n \combi[n][k] (-1)^{n-k} \sigma_k \circ \sigma_{2n-2k} \big)(F)
+        \big( \dsum_{k=0}^n \combi[n][k] (-1)^{n-k} \sigma_{n + k} \big)(F)
+%    \explnext{}
+%        \dsum_{k=0}^n \combi[n][k] (-1)^{n-k} \sigma_{n + k}(F)
     \explnext{}
-        \big( \dsum_{k=0}^n \combi[n][k] (-1)^{n-k} \sigma_{2n - k} \big)(F)
-    \explnext{}
-        \dsum_{k=0}^n \combi[n][k] (-1)^{n-k} \sigma_{2n - k}(F)
-    \explnext{}
-        \big( \dsum_{k=0}^n \combi[n][k] (-1)^{n-k} F_{m+2n-k} \big)_{m\in\ZZ}
+        \big( \dsum_{k=0}^n \combi[n][k] (-1)^{n-k} F_{m+n+k} \big)_{m\in\ZZ}
     \end{stepcalc}
     
     
-    Donc,
-    $F_m = \combisum{(-1)^{n-k} F_{m+2n-k}}$,
-    ce qui se réécrit
-    $F_m = \combisum{(-1)^k F_{m+n+k}}$,
-    car
-    $\combi[n][n-k] = \combi[n][k]$.
+    Via $m = n$, nous obtenons sans effort
+    $F_n = \combisum{(-1)^{n-k} F_{2n+k}}$.
+    C'est une jolie formule, mais ce n'est pas l'inversion souhaitée.
     %
-    Le choix $m = n$ fournit
-    $F_n = \combisum{(-1)^k F_{2n+k}}$.
-    Nous obtenons une jolie formule d'inversion, mais ce n'est pas celle souhaitée.
-    %
-    Partons donc de
-    $\sigma_1(F) = F - \sigma_2(F)$
+    Partons plutôt de
+    $\sigma_1(F) = \sigma_2(F) - F$
     pour effectuer les manipulations ci-dessous.
     
     \begin{stepcalc}[style=ar*]
@@ -99,11 +92,9 @@ Dès lors, la conclusion se fait comme suit sans souci.
     \explnext{}
         (\sigma_1)^n(F)
     \explnext{}
-        (\ident - \sigma_2)^n(F)
-    \explnext*{Cette petite modification va permettre \\ d'arriver directement à notre but.}{}
-        (-1)^n (\sigma_2 - \ident)^n(F)
+        (\sigma_2 - \ident)^n(F)
     \explnext{}
-        (-1)^n  \big( \dsum_{k=0}^n \combi[n][k] (-1)^k \sigma_{2k} \big)(F)
+        \big( \dsum_{k=0}^n \combi[n][k] (-1)^{n-k} \sigma_{2k} \big)(F)
     %\explnext{}
     %    \big( \dsum_{k=0}^n \combi[n][k] (-1)^{n+k} F_{m+2k} \big)_{m\in\ZZ}
     \explnext{}
@@ -112,7 +103,7 @@ Dès lors, la conclusion se fait comme suit sans souci.
     
     
     Le choix $m = 0$ fournit
-    $F_n = \combisum{(-1)^k F_{2k}}$
+    $F_n = \combisum{(-1)^{n-k} F_{2k}}$
     qui correspond à l'utilisation de la formule d'inversion de Pascal. N'est-ce pas joli?
     Dans ce genre de situation, nous ne pouvons que tirer notre révérence devant la beauté des mathématiques.
 \end{remark}

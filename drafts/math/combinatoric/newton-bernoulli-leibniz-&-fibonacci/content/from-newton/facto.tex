@@ -1,12 +1,12 @@
 Notre objectif ici est $\binom{2n}{n} = \binosum{\binom{n}{k}}$.
 Pour l'atteindre, nous allons considérer les coefficients factoriels qui vérifient 
-$\cnp = \cnp[n-1][p] + \cnp[n-1][p-1]$ sur $\ZZ^2$,
-$\cnp[0][0] = 1$
+$\cnp[0][0] = 1$,
+$\cnp[0][p] = 0$ si $p \neq 0$
 et
-$\cnp[0][p] = 0$ si $p \neq 0$.
+$\cnp = \cnp[n-1][p] + \cnp[n-1][p-1]$ sur $\ZZ^2$.
 Reprenant les notations de la section précédente, la relation de récurrence se réécrit $\mu_1^1(\mathcal{C}) = \mu_1^0(\mathcal{C}) + \mathcal{C}$.%
 \footnote{
-	Noter la ressemblance avec $\mu_1^1(\mathcal{B}) = \mu_0^1(\mathcal{B}) + \mathcal{B}$.
+	Noter la ressemblance avec $\mu_1^1(\mathcal{C}) = \mu_1^0(\mathcal{C}) + \mathcal{C}$.
 }
 Nous aboutissons aux calculs suivants.
 
@@ -79,6 +79,24 @@ $\binom{2n}{n} = \binosum{\binom{n}{k}}$.
 
 
 \begin{remark}
-	XXXX inversion pour le fun!
-\end{remark}
+	En partant de
+	$\mathcal{C} = \mu_1^1(\mathcal{C}) - \mu_1^0(\mathcal{C})$,
+	via des calculs similaires à ceux menés pour la suite $\mathcal{B}$,
+	nous arrivons à
+    $\cnp[m][p] = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} \cnp[m+k][p+n]$
+    qui fournit la triviale identité
+    $1 = \sum_{k=0}^n (-1)^{n-k} \binom{n}{k} \binom{k}{n}$
+    via $(m,p) = (0,0)$.%
+    \footnote{
+    	L'auteur craque, mais il assume son double zéro pointé.
+	}
 
+
+    Quant au choix
+	$\mu_1^0(\mathcal{C}) = \mu_1^1(\mathcal{C}) - \mathcal{C}$,
+	il nous donne
+    $\cnp[m][p+n] = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} \cnp[m+k][p+k]$,
+    puis, par exemple, l'identité non immédiate
+    $1 = \sum_{k=0}^n (-1)^{n-k} \binom{n}{k} \binom{n+k}{k}$
+    via $(m,p) = (n,0)$.
+\end{remark}
