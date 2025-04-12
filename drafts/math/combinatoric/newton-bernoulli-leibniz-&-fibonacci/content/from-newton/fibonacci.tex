@@ -38,3 +38,81 @@ Dès lors, la conclusion se fait comme suit sans souci.
 \explnext{}
     \big( \dsum_{k=0}^n \combi[n][k] F_{m+k} \big)_{m\in\ZZ}
 \end{stepcalc}
+
+
+% ----------------------- %
+
+
+\begin{remark}
+    Un classique de la combinatoire, la formule d'inversion de Pascal,%
+    \footnote{
+    	Il existe différentes démonstrations à la fois éclairantes et élégantes de ce résultat que l'on trouve aisément sur internet. 
+    }
+    nous dit que si deux suites $a$ et $b$ vérifient
+    $b_n = \combisum{a_k}$,
+    alors
+    $a_n = \combisum{(-1)^{n-k} b_k}$.
+    %
+    En choisissant $a_n = F_n$ et $b_n = F_{2n}$,
+    nous obtenons 
+    $F_n = \combisum{(-1)^{n-k} F_{2k}}$.
+    Nous allons essayer de retrouver ce résultat autrement.
+    %
+    Une première idée est d'utiliser
+    $F = \sigma_1(F) - \sigma_2(F)$
+    pour conduire les calculs suivants.
+    
+    \begin{stepcalc}[style=ar*]
+    	(F_m)_{m\in\ZZ}
+    \explnext{}
+        (\sigma_1 - \sigma_2)^n(F)
+    \explnext*{$\sigma_1$ et $\sigma_2$ commutent.}{}
+        \big( \dsum_{k=0}^n \combi[n][k] (-1)^{n-k} \sigma_1^k \circ \sigma_2^{n-k} \big)(F)
+    \explnext{}
+        \big( \dsum_{k=0}^n \combi[n][k] (-1)^{n-k} \sigma_k \circ \sigma_{2n-2k} \big)(F)
+    \explnext{}
+        \big( \dsum_{k=0}^n \combi[n][k] (-1)^{n-k} \sigma_{2n - k} \big)(F)
+    \explnext{}
+        \dsum_{k=0}^n \combi[n][k] (-1)^{n-k} \sigma_{2n - k}(F)
+    \explnext{}
+        \big( \dsum_{k=0}^n \combi[n][k] (-1)^{n-k} F_{m+2n-k} \big)_{m\in\ZZ}
+    \end{stepcalc}
+    
+    
+    Donc,
+    $F_m = \combisum{(-1)^{n-k} F_{m+2n-k}}$,
+    ce qui se réécrit
+    $F_m = \combisum{(-1)^k F_{m+n+k}}$,
+    car
+    $\combi[n][n-k] = \combi[n][k]$.
+    %
+    Le choix $m = n$ fournit
+    $F_n = \combisum{(-1)^k F_{2n+k}}$.
+    Nous obtenons une jolie formule d'inversion, mais ce n'est pas celle souhaitée.
+    %
+    Partons donc de
+    $\sigma_1(F) = F - \sigma_2(F)$
+    pour effectuer les manipulations ci-dessous.
+    
+    \begin{stepcalc}[style=ar*]
+    	(F_{m+n})_{m\in\ZZ}
+    \explnext{}
+        (\sigma_1)^n(F)
+    \explnext{}
+        (\ident - \sigma_2)^n(F)
+    \explnext*{Cette petite modification va permettre \\ d'arriver directement à notre but.}{}
+        (-1)^n (\sigma_2 - \ident)^n(F)
+    \explnext{}
+        (-1)^n  \big( \dsum_{k=0}^n \combi[n][k] (-1)^k \sigma_{2k} \big)(F)
+    %\explnext{}
+    %    \big( \dsum_{k=0}^n \combi[n][k] (-1)^{n+k} F_{m+2k} \big)_{m\in\ZZ}
+    \explnext{}
+        \big( \dsum_{k=0}^n \combi[n][k] (-1)^{n-k} F_{m+2k} \big)_{m\in\ZZ}
+    \end{stepcalc}
+    
+    
+    Le choix $m = 0$ fournit
+    $F_n = \combisum{(-1)^k F_{2k}}$
+    qui correspond à l'utilisation de la formule d'inversion de Pascal. N'est-ce pas joli?
+    Dans ce genre de situation, nous ne pouvons que tirer notre révérence devant la beauté des mathématiques.
+\end{remark}
