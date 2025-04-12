@@ -97,9 +97,10 @@ il suffit de choisir $p = m = 1$.
     via $(m,p) = (0,0)$,
     c'est-à-dire
     $\tabell[n][0] = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} B_k$.
-    %
-    Ici aussi, nous pouvons retomber sur la formule d'inversion de Pascal, car $(m,p) = (1,1)$ fournit
+    
+    Un cas intéressant d'utilisation de la formule précédente est celui pour lequel $(m,p) = (1,1)$, car ceci fait apparaître
     $\tabell[n+1][1] = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} \tabell[k+1][k+1]$,
     soit
     $B_n = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} B_{k+1}$
+   	qui est une application de la formule d'inversion de Pascal.
 \end{remark}
