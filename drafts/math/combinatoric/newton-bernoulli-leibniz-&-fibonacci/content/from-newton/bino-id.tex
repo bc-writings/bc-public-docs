@@ -1,0 +1,43 @@
+Dans cette section, nous changeons de point de vue: nous allons partir du fait très classique suivant pour donner un éclairage différent sur les identités exhibées dans la section \ref{beautiful-id}.
+
+
+% ----------------------- %
+
+
+\begin{fact} \label{bino-id-formal}
+	Soit $\setalge{A}$ un anneau, forcément unitaire,%
+	\footnote{
+        Il fut un temps où un anneau n'avait pas forcément un élément neutre pour le produit.
+	}
+	qui est commutatif.
+	%
+	Dans l'anneau des polynômes à deux variables $\setalge{A}[X, Y]$, nous avons:
+	$\forall n \in \NN$,
+	$\combinewton{X}{Y}$.
+	Ceci est la formule générique du binôme de Newton.
+\end{fact}
+
+
+\begin{proof}
+	Il suffit d'écrire $(X + Y)^n = \prod_{k=1}^{n} (X + Y)_k$ avec des indices étiquetant les parenthèses dont les positions sont fixées dans le produit.
+    En distribuant parenthèse par parenthèse de gauche à droite, le nombre de $X^k Y^{n-k}$ obtenus correspond au nombre de choix de $k$ parenthèses, pour $X$, parmi les $n$ disponibles, ce qui donne $\combi[n][k]$ possibilités.
+\end{proof}
+
+
+% ----------------------- %
+
+
+Dans les applications à venir, nous allons nous appuyer sur la formule suivante appliquée dans différents anneaux bien choisis.
+
+
+\begin{fact} \label{bino-id-a-b}
+	Soit $\setalge{A}$ un anneau commutatif.
+	$\forall (a, b) \in \setalge{A}^2$,
+	$\forall n \in \NN$,
+	$\combinewton{a}{b}$.
+\end{fact}
+
+
+\begin{proof}
+	Il suffit d'évaluer en $(a, b)$ la formule générique du binôme de Newton.
+\end{proof}

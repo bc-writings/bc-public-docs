@@ -1,0 +1,40 @@
+Notre objectif est d'obtenir
+$F_{m+2n} = \combisum{F_{m+k}}$
+où la suite de Fibonacci $F$ vérifie la relation de récurrence $F_{i} = F_{i-1} + F_{i-2}$.
+%
+Comme pour l'identité de Leibniz, nous allons raisonner en terme d'opérateurs linéaires via les ingrédients naturels suivants.
+%
+\begin{itemize}
+	\item $\ell(\ZZ , \RR)$ désigne l'ensemble des suites réelles indexées sur $\ZZ$.%
+	\footnote{
+		Si besoin, $\RR$ peut être remplacé par un anneau commutatif de son choix.
+	}
+
+	\item $\setalge{A} = \Endo \big( \ell(\ZZ , \RR) \big)$ est l'ensemble des endomorphismes linéaires de $\ell(\ZZ , \RR)$ muni de l'addition $+$ point par point, et de la composition $\circ$ comme produit.
+
+	\item $\sigma_k \in \setalge{A}$ désigne pour $k \in \ZZ$ un opérateur de décalage d'indice qui à la suite $(u_m)_{m\in\ZZ}$ associe la suite $(u_{m+k})_{m\in\ZZ}$.%
+	\footnote{
+		En considérant $\ell(\NN , \RR)$, nous aurions eu un problème ici.
+	}
+\end{itemize}
+
+
+Prolongeons $F$ sur $\ZZsn$ en posant $F_i = 0$, de sorte que $F_{i} = F_{i-1} + F_{i-2}$ reste valable sur $\ZZ$, et se réécrit $\sigma_2(F) = \sigma_1(F) + F$.
+%
+Dès lors, la conclusion se fait comme suit sans souci.
+
+\begin{stepcalc}[style=ar*]
+	(F_{m+2n})_{m\in\ZZ}
+\explnext{}
+    \sigma_2^n(F)
+\explnext*{$\ident$ est l'application identité sur $\ell(\ZZ , \RR)$.}{}{}
+    (\sigma_1 + \ident)^n(F)
+\explnext*{$\sigma_1$ et $\ident$ commutent.}{}
+    \big( \dsum_{k=0}^n \combi[n][k] \sigma_1^k \circ \ident^{n-k} \big)(F)
+\explnext{}
+    \big( \dsum_{k=0}^n \combi[n][k] \sigma_k \big)(F)
+\explnext{}
+    \dsum_{k=0}^n \combi[n][k] \sigma_k(F)
+\explnext{}
+    \big( \dsum_{k=0}^n \combi[n][k] F_{m+k} \big)_{m\in\ZZ}
+\end{stepcalc}

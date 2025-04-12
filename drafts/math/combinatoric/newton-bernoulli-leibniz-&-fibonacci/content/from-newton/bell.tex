@@ -1,0 +1,53 @@
+Notre objectif est d'obtenir
+$B_{n+1} = \combisum{B_k}$, 
+où
+$(B_n)_{n\in\NN}$ désigne la suite des nombres de Bell.
+Indépendamment de la technique spécifique à la section \ref{bino-implies},
+nous savons que ceci équivaut à démontrer que
+$\tabell[n+1][n+1] = \combisum{\tabell[k+1][1]}$,
+où
+$\tabell[n][n] = \tabell[n+1][1] = B_n$,
+$\tabell = \tabell[n][p-1] + \tabell[n-1][p-1]$
+et
+$\tabell[1][1] = 1$,
+avec
+$\mathcal{B}$ une suite doublement indexée sur $\NN^2$.
+Inspiré par la suite de Fibonacci, nous introduisons les ingrédients suivants.
+%
+\begin{itemize}
+	\item $\ell(\ZZ^2 , \RR)$ désigne l'ensemble des suites réelles doublement indexées sur $\ZZ^2$.%
+	\footnote{
+		Ici aussi, si besoin, $\RR$ peut être remplacé par un anneau commutatif de son choix.
+	}
+
+	\item $\setalge{A} = \Endo \big( \ell(\ZZ^2 , \RR) \big)$ est l'ensemble des endomorphismes linéaires de $\ell(\ZZ^2 , \RR)$ muni de l'addition $+$ point par point, et de la composition $\circ$ comme produit.
+
+	\item $\mu_a^b \in \setalge{A}$ désigne pour $(a,b) \in \ZZ^2$ un opérateur de décalage qui à la suite $(w_p^m)_{(p,m)\in\ZZ^2}$ associe la suite $(w_{p+a}^{m+b})_{(p,m)\in\ZZ^2}$.
+\end{itemize}
+
+
+
+
+Prolongeons $\mathcal{B}$ sur $\ZZ^2 - \NN^2$ en posant $\tabell = 0$, de sorte que $\tabell = \tabell[n][p-1] + \tabell[n-1][p-1]$ reste valable sur $\ZZ^2$, et se réécrit $\mu_1^1(\mathcal{B}) = \mu_0^1(\mathcal{B}) + \mathcal{B}$.
+%
+La formule du binôme de Newton nous donne ce qui suit.
+
+\begin{stepcalc}[style=ar*]
+	\big( \tabell[m+n][p+n] \big)_{(p,m)\in\ZZ^2}
+\explnext{}
+    ( \mu_1^1 )^n(\mathcal{B})
+\explnext*{$\ident$ est l'application identité sur $\ell(\ZZ^2 , \RR)$.}{}
+    (\mu_0^1 + \ident)^n(\mathcal{B})
+\explnext*{$\mu_0^1$ et $\ident$ commutent.}{}
+    \big( \dsum_{k=0}^n \combi[n][k] (\mu_0^1)^k \circ \ident^{n-k} \big)(\mathcal{B})
+\explnext{}
+    \big( \dsum_{k=0}^n \combi[n][k] \mu_0^k \big)(\mathcal{B})
+\explnext{}
+    \dsum_{k=0}^n \combi[n][k] \mu_0^k(\mathcal{B})
+\explnext{}
+    \big( \dsum_{k=0}^n \combi[n][k] \tabell[p+k][m] \big)_{(p,m)\in\ZZ^2}
+\end{stepcalc}
+
+
+Pour conclure,
+il suffit de choisir $p = m = 1$.

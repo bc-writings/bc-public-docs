@@ -66,6 +66,23 @@
 \newcommand\hideit[1]{\textcolor{white}{#1}}
 
 
+\NewDocumentCommand{\cnp}{O{n} O{p}}{\mathcal{C}^{#1}_{#2}}
+\NewDocumentCommand{\combi}{O{n} O{p}}{\mathsf{C}(#2, #1)}
+
+\NewDocumentCommand{\tabell}{O{n} O{p}}{\mathcal{B}^{#1}_{#2}}
+
+\NewDocumentCommand{\binosum}{m O{n} O{k}}{\sum_{#3=0}^{#2} \binom{#2}{#3} #1}
+\NewDocumentCommand{\cnpsum}{m O{n} O{k}}{\sum_{#3=0}^{#2} \cnp[#2][#3] #1}
+\NewDocumentCommand{\combisum}{m O{n} O{k}}{\sum_{#3=0}^{#2} \combi[#2][#3] #1}
+
+\NewDocumentCommand{\trinosum}{m O{n} O{k_1} O{k_2} O{k_3}}{\sum_{#3 + #4 + #5 = #2} \binom{#2}{#3\,#4\,#5} #1}
+
+
+\NewDocumentCommand{\binonewton}{m m O{n} O{k}}{(#1 + #2)^n = \binosum{#1^{#4} #2^{#3 - #4}}}
+\NewDocumentCommand{\cnpnewton}{m m O{n} O{k}}{(#1 + #2)^n = \cnpsum{#1^{#4} #2^{#3 - #4}}}
+\NewDocumentCommand{\combinewton}{m m O{n} O{k}}{(#1 + #2)^n = \combisum{#1^{#4} #2^{#3 - #4}}}
+
+
 \begin{document}
 
 

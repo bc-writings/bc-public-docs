@@ -34,7 +34,7 @@
 
 
 \NewDocumentCommand{\cnp}{O{n} O{p}}{\mathcal{C}^{#1}_{#2}}
-\NewDocumentCommand{\combi}{O{n} O{p}}{\mathsf{C}(#1 ; #2)}
+\NewDocumentCommand{\combi}{O{n} O{p}}{\mathsf{C}(#2, #1)}
 
 \NewDocumentCommand{\tabell}{O{n} O{p}}{\mathcal{B}^{#1}_{#2}}
 
@@ -698,7 +698,7 @@
 % -------------------------------- %
 
 
-\newcommand{\diago}{\operatorname{diag}}
+\newcommand{\ident}{\operatorname{id}}
 \newcommand{\Endo}{\operatorname{End}}
 
 
@@ -717,7 +717,7 @@
 
 \title{BROUILLON -- Newton, Bernoulli, Leibniz, Fibonacci et Bell}
 \author{Christophe BAL}
-\date{2 Avril 2025 - 11 Avril 2025}
+\date{2 Avril 2025 - 12 Avril 2025}
 
 \maketitle
 
@@ -757,7 +757,7 @@
 
 \newpage
 
-\section{Des identités bien connues}
+\section{Des identités bien connues} \label{beautiful-id}
 
 \subimport*{content/}{intro}
 
@@ -765,9 +765,17 @@
 % ----------------------- %
 
 
-\section{La loi binomiale révèle...}
+\section{Notations différenciées}
 
-    \subsection{De l'utilité des arbres}
+\subimport*{content/}{notations}
+
+
+% ----------------------- %
+
+
+\section{La loi binomiale révèle...} \label{bino-implies}
+
+    \subsection{De l'utilité des arbres} \label{useful-trees}
     
     \subimport*{content/treeview}{bino-law}
     
@@ -787,9 +795,9 @@
     \subimport*{content/treeview}{fibonacci}
     
     
-    \subsection{Avec des coefficients binomiaux}
+    \subsection{Coefficients factoriels et binomiaux}
     
-    \subimport*{content/treeview}{bino-coef}
+    \subimport*{content/treeview}{facto}
     
     
     \subsection{Bell sonne la fin du jeu}
@@ -809,26 +817,45 @@
 
     \subsection{Un classique des identités algébriques}
     
-    \subimport*{content/newton-implies}{bino-id}
+    \subimport*{content/from-newton}{bino-id}
+
+
+%    \subsection{La loi binomiale est algébrique}
+%    
+%    \subimport*{content/from-newton}{bino-law}
     
     
     \subsection{Leibniz, le retour}
     
-    \subimport*{content/newton-implies}{leibniz}
+    \subimport*{content/from-newton}{leibniz}
     
     
     \subsection{Fibonacci via Newton}
     
-    \subimport*{content/newton-implies}{fibonacci}
+    \subimport*{content/from-newton}{fibonacci}
     
     
-    \subsection{Bell en écho de Fibonacci}
+    \subsection{Bell en écho de Fibonacci} \label{newton-fibo}
     
-    \subimport*{content/newton-implies}{bell}
+    \subimport*{content/from-newton}{bell}
+    
+    
+    \subsection{Coefficients factoriels et binomiaux}
+    
+    \subimport*{content/from-newton}{facto}
 
 
-    \subsection{La loi binomiale est algébrique}
+    \subsection{La formule d'inversion de Pascal}
     
-    \subimport*{content/newton-implies}{bino-law}
+    \subimport*{content/from-newton}{pascal-inv}
+
+
+% ----------------------- %
+
+
+\section{Sources utilisées}
+
+	\subimport*{content/}{sources}
+
 
 \end{document}

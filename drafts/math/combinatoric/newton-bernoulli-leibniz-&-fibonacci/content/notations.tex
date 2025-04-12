@@ -1,0 +1,21 @@
+Nous utiliserons les notations suivantes sans jamais employer directement l'égalité classique $\binom{n}{p} = \cnp = \combi$,
+et nous emploierons un vocabulaire non standard propre à ce document.
+%
+\begin{itemize}
+	\item \textbf{Coefficients binomiaux:}
+    %
+    $\binom{n}{k}$ désigne le nombre de chemins avec exactement $k$ succès dans un arbre binaire complet de profondeur $n$: voir la section  \ref{useful-trees}.
+
+
+	\item \textbf{Coefficients factoriels:}
+    %
+    $\cnp[n][k]$ est définie sur $\NN^2$ par
+	$\cnp[n][k] = \frac{n!}{k!(n-k)!}$ si $n \in \NN$ et $k \in \ZintervalC{0}{n}$,
+	et
+	$\cnp[n][k] = 0$ dans les autres cas.
+
+
+	\item \textbf{Coefficients combinatoires:}
+    %
+    $\combi[n][k]$ désigne le nombre de sous-ensembles à $k$ éléments d'un ensemble de cardinal $n$.
+\end{itemize}
