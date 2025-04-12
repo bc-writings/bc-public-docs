@@ -1,5 +1,8 @@
-Notre objectif ici est $\binom{2n}{n} = \binosum{\binom{n}{k}}$.
-Pour l'atteindre, nous allons considérer les coefficients factoriels qui vérifient 
+Nos objectifs ici sont
+$\binom{n}{p} = \combi[n][p] = \cnp$,
+puis
+$\binom{2n}{n} = \binosum{\binom{n}{k}}$.
+Pour les atteindre, nous allons commencer avec les coefficients factoriels qui vérifient 
 $\cnp[0][0] = 1$,
 $\cnp[0][p] = 0$ si $p \neq 0$
 et
@@ -67,11 +70,13 @@ il est aisé d'obtenir
 $\binom{n}{p} = \binom{n-1}{p} + \binom{n-1}{p-1}$
 en raisonnant juste sur des arbres binaires.
 %
-Nous pouvons donc reprendre ce qui précède pour obtenir $\binom{n}{p} = \combi[n][p] = \cnp$ via la formule du binôme de Newton.
+Nous pouvons donc reprendre ce qui précède pour obtenir $\binom{n}{p} = \combi[n][p]$ via la formule du binôme de Newton.
 %
 Finalement,
+$\binom{n}{p} = \combi[n][p] = \cnp$
+permet de réécrire
 $\cnp[2n][n] = \combisum{\cnp[n][k]}$
-se réécrit
+sous la forme
 $\binom{2n}{n} = \binosum{\binom{n}{k}}$.
 
 
