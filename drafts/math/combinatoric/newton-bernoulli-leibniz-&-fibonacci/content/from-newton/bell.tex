@@ -73,7 +73,8 @@ il suffit de choisir $p = m = 1$.
     Nous avons obtenu sans effort
     $\tabell[m][p] = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} \tabell[m+n][p+k]$
     qui nous donne par exemple
-    $\tabell[n][0] = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} \tabell[2n][k]$.
+    $\tabell[n][0] = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} \tabell[2n][k]$
+    via $(m,p) = (n,0)$.
     %
     Nous pouvons partir de $\mu_0^1(\mathcal{B}) = \mu_1^1(\mathcal{B}) -\mathcal{B}$ comme ci-dessous.
 
@@ -92,7 +93,13 @@ il suffit de choisir $p = m = 1$.
     Cette fois,
     $\tabell[m+n][p] = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} \tabell[m+k][p+k]$,
     nous donne
-    $\tabell[n][0] = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} \tabell[k][k]$,
+    $\tabell[n][0] = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} \tabell[k][k]$
+    via $(m,p) = (0,0)$,
     c'est-à-dire
     $\tabell[n][0] = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} B_k$.
+    %
+    Ici aussi, nous pouvons retomber sur la formule d'inversion de Pascal, car $(m,p) = (1,1)$ fournit
+    $\tabell[n+1][1] = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} \tabell[k+1][k+1]$,
+    soit
+    $B_n = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} B_{k+1}$
 \end{remark}
