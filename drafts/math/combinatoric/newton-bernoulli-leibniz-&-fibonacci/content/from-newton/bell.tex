@@ -14,6 +14,7 @@ avec
 $\mathcal{B}$ une suite doublement indexée sur $\NN^2$.
 Inspiré par la suite de Fibonacci, nous introduisons les ingrédients suivants.
 %
+%\newpage
 \begin{itemize}
 	\item $\ell(\ZZ^2 , \RR)$ désigne l'ensemble des suites réelles doublement indexées sur $\ZZ^2$.%
 	\footnote{
@@ -32,7 +33,7 @@ Prolongeons $\mathcal{B}$ sur $\ZZ^2 - \NN^2$ en posant $\tabell = 0$, de sorte 
 %
 La formule du binôme de Newton nous donne ce qui suit.
 
-\begin{stepcalc}[style=ar*]
+\begin{stepcalc}[style=sar]
 	\big( \tabell[m+n][p+n] \big)_{(p,m)\in\ZZ^2}
 \explnext{}
     ( \mu_1^1 )^n(\mathcal{B})
@@ -56,11 +57,11 @@ il suffit de choisir $p = m = 1$.
 
 
 \begin{remark}
-	Comme pour la suite de Fibonacci, il est aisé de produire deux nouvelles formules de récurrence.
+	Comme pour la suite de Fibonacci, il est aisé de produire de nouvelles formules de récurrence.
 	%
 	Partant de $\mathcal{B} = \mu_1^1(\mathcal{B}) - \mu_0^1(\mathcal{B})$, nous menons les calculs ci-après.
 
-    \begin{stepcalc}[style=ar*]
+    \begin{stepcalc}[style=sar]
     	\big( \tabell[m][p] \big)_{(p,m)\in\ZZ^2}
     \explnext{}
         ( \mu_1^1 - \mu_0^1 )^n(\mathcal{B})
@@ -71,14 +72,14 @@ il suffit de choisir $p = m = 1$.
     \end{stepcalc}
     
     Nous avons obtenu sans effort
-    $\tabell[m][p] = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} \tabell[m+n][p+k]$
-    qui nous donne par exemple
-    $\tabell[n][0] = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} \tabell[2n][k]$
-    via $(m,p) = (n,0)$.
+    $\tabell[m][p] = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} \tabell[m+n][p+k]$.
+%    qui nous donne par exemple
+%    $\tabell[n][0] = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} \tabell[2n][k]$
+%    via $(p,m) = (0,n)$.
     %
-    Nous pouvons partir de $\mu_0^1(\mathcal{B}) = \mu_1^1(\mathcal{B}) -\mathcal{B}$ comme ci-dessous.
+    Nous pouvons aussi partir de $\mu_0^1(\mathcal{B}) = \mu_1^1(\mathcal{B}) -\mathcal{B}$ comme ci-dessous.
 
-    \begin{stepcalc}[style=ar*]
+    \begin{stepcalc}[style=sar]
     	\big( \tabell[m+n][p] \big)_{(p,m)\in\ZZ^2}
     \explnext{}
         ( \mu_0^1 )^n(\mathcal{B})
@@ -94,13 +95,13 @@ il suffit de choisir $p = m = 1$.
     $\tabell[m+n][p] = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} \tabell[m+k][p+k]$,
     nous donne
     $\tabell[n][0] = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} \tabell[k][k]$
-    via $(m,p) = (0,0)$,
+    via $(p,m) = (0,0)$,
     c'est-à-dire
     $\tabell[n][0] = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} B_k$.
-    
-    Un cas intéressant d'utilisation de la formule précédente est celui pour lequel $(m,p) = (1,1)$, car ceci fait apparaître
+    %
+    Un autre cas d'utilisation intéressant de la formule précédente est celui pour lequel $(p,m) = (1,1)$, car ceci fait apparaître
     $\tabell[n+1][1] = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} \tabell[k+1][k+1]$,
     soit
     $B_n = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} B_{k+1}$
-   	qui est une application de la formule d'inversion de Pascal.
+   	qui est une instance de la formule d'inversion de Pascal.
 \end{remark}

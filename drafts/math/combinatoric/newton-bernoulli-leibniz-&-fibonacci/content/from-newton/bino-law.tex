@@ -1,1 +1,190 @@
-XXXX
+Nous souhaitons établir la loi binomiale sous la forme
+$\proba{X = j} = \combisum{p^k q^{n-k}} \delta_{jk}$
+où $X$ est la variable aléatoire (\va) comptant le nombre de succès.
+%
+Notons $X_i$ la \va\ comptant le nombre de succès de la i\ieme\ épreuve de Bernoulli du schéma de Bernoulli associé à $X$.
+Dès lors,
+$X = \sum_{s=1}^{n} X_s$ 
+où
+$(X_s)_{1 \leq s \leq n}$ forme une famille de \va\ indépendantes deux à deux  ayant chacune pour loi de probabilité $\proba{X_s = j} = p \delta_{1j} + q \delta_{0j}$ où $q = 1 - p$.
+Nous posons
+$\lawvar: j \in \ZZ \mapsto \proba{X = j} \in \intervalC{0}{1}$,
+de sorte que
+$\lawvar[X_s] = p \delta_{1} + q \delta_{0}$
+en notant
+$\delta_{k}(j) = \delta_{kj}$.
+A-t-on un lien entre $\lawvar$ et $\big( \lawvar[X_s] \big)_{1 \leq s \leq n}$? La réponse est oui, mais cela va nécessiter de passer par le produit de convolution.
+%
+Par exemple, avec deux épreuves, nous avons ce qui suit.
+
+\begin{stepcalc}[style=sar]
+	\lawvar(j)
+\explnext{}
+	\proba{X_1 + X_2 = j}
+\explnext{}
+	\dsum_{k=0}^{2} \proba{(X_1 = k) \cap (X_2 = j-k)}
+\explnext*{$X_1$ et $X_2$ sont des \va\ indépendantes.}{}
+	\dsum_{k=0}^{2} \proba{X_1 = k} \proba{X_2 = j-k}
+\explnext*{On écrit juste $k + m = j$ sans $(k,m) \in \ZZ^2$.}{}
+	\dsum_{k + m = j} \proba{X_1 = k} \proba{X_2 = m}
+\explnext{}
+	\dsum_{k + m = j} \lawvar[X_1](k) \lawvar[X_2](m)
+\end{stepcalc}
+
+Ceci motive la définition suivante.
+
+
+% ----------------------- %
+
+
+\begin{defi}
+	Notons $\setalge{A} = \ell_{min}(\ZZ , \RR)$ l'ensemble des suites réelles indexées sur $\ZZ$ et à support minoré.%
+	\footnote{
+		Ceci signifie que 
+		$\forall f \in \setalge{A}$, 
+		$\exists m_f \in \ZZ$ 
+		tel que
+		$\forall j \in \ZZ_{\leq m_f}$, $f(j) = 0$.
+	}
+	Pour $(f,g) \in \setalge{A}^2$,
+	nous pouvons définir $p$ sur $\ZZ$ par
+	$p(j) = \sum_{k + m = j} f(k) g(m)$
+	(cette somme est finie).%
+	\footnote{
+		$k + m = j$,
+		$f(k) = 0$ si $k \leq m_f$
+		et
+		$g(m) = 0$ si $m \leq m_g$
+		impliquent
+		$f(k) g(m) = 0$
+		si
+		$j - m_g \leq k$ et $k \leq m_f$,
+		c'est-à-dire pour un nombre fini de valeurs de $j$, et par conséquent de $m$.
+		
+	}
+	La suite $p$ est appelée \focus{produit de convolution} de $f$ et $g$,
+	et notée $f \ast g$.
+\end{defi}
+
+
+% ----------------------- %
+
+\begin{fact}
+	$\setalge{A} = \ell_{min}(\ZZ , \RR)$
+	muni de l'addition $+$ point par point, et du produit de convolution $\ast$
+	est un anneau commutatif.
+\end{fact}
+
+
+\begin{proof}
+	Nous devons juste vérifier les propriétés spécifiques au produit de convolution.
+	%
+	\begin{enumerate}
+		\item Clairement,
+		$\forall (f,g,h) \in \setalge{A}^3$, nous avons
+		$f \ast g = g \ast f$
+		et
+		$(f + g) \ast h = f \ast h + g \ast h$.
+
+
+		\item L'élément neutre $1_{\setalge{A}}$ pour $\ast$ doit vérifier:
+		$\forall j \in \ZZ$,
+		$f(j) = \sum_{k + m = j} f(k) 1_{\setalge{A}}(m)$.
+		%
+		Il est aisé de deviner que $1_{\setalge{A}} = \delta_0$ convient,
+		où $\delta_{0}(j) = \delta_{0j}$.
+
+
+		\item La validation de
+		$(f \ast g) \ast h = f \ast (g \ast h)$
+		pour
+		$(f,g,h) \in \setalge{A}^3$
+		se fait comme suit.
+
+		\begin{multicols}{2}
+        	\setlength{\columnseprule}{.75pt}
+	
+	
+    		\begin{stepcalc}[style=ar*]
+    			\big( (f \ast g) \ast h \big) (j)
+    		\explnext{}
+    			\dsum_{k + m = j} (f \ast g)(k) h(m)
+    		\explnext{}
+    			\dsum_{k + m = j} \dsum_{q + r = k} f(q) g(r) h(m)
+    		\explnext{}
+    			\dsum_{q + r + m = j} f(q) g(r) h(m)
+    		\end{stepcalc}
+	
+	
+    		\begin{stepcalc}[style=ar*]
+    			\big( f \ast (g \ast h) \big) (j)
+    		\explnext{}
+    			\dsum_{k + m = j} f(k) (g \ast h)(m)
+    		\explnext{}
+    			\dsum_{k + m = j} \dsum_{q + r = m} f(k) g(q) h(r)
+    		\explnext{}
+    			\dsum_{k + q + r = j} f(k) g(q) h(r)
+    		\end{stepcalc}
+    	\end{multicols}
+	\end{enumerate}
+	
+	\null\vspace{-8ex}
+\end{proof}
+
+
+% ----------------------- %
+
+
+L'application de la formule du binôme de Newton nous donne ce qui suit.
+
+\begin{stepcalc}[style=sar]
+	\proba{X = j}
+\explnext{}
+	\lawvar(j)
+\explnext{}
+	\lawvar[X_1 + \cdots + X_n](j)
+\explnext*{On généralise sans souci l'identité qui \\ a motivé l'introduction de la convolution.}{}
+	( \lawvar[X_1] \ast \cdots \ast \lawvar[X_n] ) (j)
+\explnext{}
+	\big( (p \delta_{1} + q \delta_{0}) \ast \cdots \ast ( p \delta_{1} + q \delta_{0}) \big) (j)
+\explnext*{La puissance est relative à $\ast$.}{}
+	( p \delta_{1} + q \delta_{0} )^n (j)
+\explnext{}
+	\big( \dsum_{k=0}^n \combi[n][k] p^k q^{n-k} \delta_{1}^k \ast \delta_{0}^{n-k} \big) (j)
+\explnext{}
+	\dsum_{k=0}^n \combi[n][k] p^k q^{n-k} \delta_{1}^k(j)
+\end{stepcalc}
+
+
+Pour conclure, nous devons simplifier $\delta_{1}^k(j)$. Une petite récurrence donne $\delta_{1}^k = \delta_k$. Nous donnons juste les deux grandes étapes du raisonnement.
+%
+\begin{itemize}
+	\item \textbf{Cas de base.}
+	%
+	 $\delta_{1}^0$ est l'identité pour $\ast$, c'est-à-dire $\delta_0$.
+
+
+	\item \textbf{Hérédité.}
+	%
+	Supposons avoir $\delta_{1}^n = \delta_n$. Nous avons alors les égalités suivantes.
+
+	\begin{stepcalc}[style=sar]
+		\delta_{1}^{n+1}(j)
+	\explnext{}
+		(\delta_{1}^{n} \ast \delta_{1})(j)
+	\explnext{}
+		(\delta_{n} \ast \delta_{1})(j)
+	\explnext{}
+		\dsum_{k + m = j} \delta_{n}(k) \delta_{1}(m)
+	\end{stepcalc}
+	
+	Dès lors,
+	$\delta_{1}^{n+1}(j) = 1$ si $j=n+1$, et $0$ sinon.
+	Ceci donne $\delta_{1}^{n+1} = \delta_{n+1}$ comme souhaité.
+\end{itemize}
+
+
+Finalement,
+$\proba{X = j} = \combisum{p^k q^{n-k}} \delta_{k}(j)$,
+soit
+$\proba{X = j} = \combisum{p^k q^{n-k}} \delta_{jk}$.

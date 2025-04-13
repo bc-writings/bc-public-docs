@@ -13,7 +13,7 @@ Reprenant les notations de la section précédente, la relation de récurrence s
 }
 Nous aboutissons aux calculs suivants.
 
-\begin{stepcalc}[style=ar*]
+\begin{stepcalc}[style=sar]
 	\big( \cnp[m+n][p+n] \big)_{(p,m)\in\ZZ^2}
 \explnext{}
     ( \mu_1^1 )^n(\mathcal{C})
@@ -40,7 +40,7 @@ sous la forme
 $\mathcal{C} = \mu_0^{-1}(\mathcal{C}) + \mu_{-1}^{-1}(\mathcal{C}$)
 afin de mener les calculs suivants.
 
-\begin{stepcalc}[style=ar*]
+\begin{stepcalc}[style=sar]
 	\big( \cnp[m][p] \big)_{(p,m)\in\ZZ^2}
 \explnext{}
     \mathcal{C}
@@ -91,7 +91,7 @@ $\binom{2n}{n} = \binosum{\binom{n}{k}}$.
     $\cnp[m][p] = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} \cnp[m+k][p+n]$
     qui fournit la triviale identité
     $1 = \sum_{k=0}^n (-1)^{n-k} \binom{n}{k} \binom{k}{n}$
-    via $(m,p) = (0,0)$.%
+    via $(p,m) = (0,0)$.%
     \footnote{
     	L'auteur craque, mais il assume son double zéro pointé.
 	}
@@ -99,9 +99,9 @@ $\binom{2n}{n} = \binosum{\binom{n}{k}}$.
 
     Quant au choix
 	$\mu_1^0(\mathcal{C}) = \mu_1^1(\mathcal{C}) - \mathcal{C}$,
-	il nous donne
+	il donne
     $\cnp[m][p+n] = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} \cnp[m+k][p+k]$,
-    puis, par exemple, l'identité non immédiate
+    puis l'identité non immédiate
     $1 = \sum_{k=0}^n (-1)^{n-k} \binom{n}{k} \binom{n+k}{k}$
-    via $(m,p) = (n,0)$.
+    via $(p,m) = (0,n)$.
 \end{remark}
