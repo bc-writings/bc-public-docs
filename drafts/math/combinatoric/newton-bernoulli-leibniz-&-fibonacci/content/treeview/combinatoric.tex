@@ -1,0 +1,80 @@
+En distinguant les sous-ensembles contenant un élément particulier $e$, choisi et fixé arbitrairement, de ceux ne le contenant pas, il est immédiat de voir que
+$\combi = \combi[n-1][p-1] + \combi[n-1][p]$ si $n \in \NNs$ et $p \in \ZintervalC{1}{n}$.
+%
+Dès lors, comme pour $\cnp$, nous avons $\combi = \binom{n}{p}$ si $n \in \NN$ et $p \in \ZintervalC{0}{n}$.
+%
+Ceci étant indiqué, nous allons proposer ici une autre approche très classique pour valider $\combi = \binom{n}{p}$. Pour cela nous allons travailler dans l'ensemble $\ZintervalC{1}{n}$ avec $p \in \ZintervalC{0}{n}$.
+Plus exactement, nous allons considérer la chaîne croissante d'ensembles
+$\emptyset \subset \setgene{1} \subset \ZintervalC{1}{2} \subset \cdots \subset \ZintervalC{1}{n}$.
+À la k\ieme\ étape, il s'agit d'ajouter, ou non, le naturel $k$ comme nouvel élément. Ceci nous mène à l'arbre suivant où $\setgeo{E} \subseteq \ZintervalC{1}{k-1}$.
+
+\begin{center}
+	\itshape\centering
+    
+    \calctree{\setgeo{E}}{\setgeo{E} \cup \setgene{k}}{\setgeo{E}}
+
+    Arbre de calcul.
+\end{center}
+
+Nous considérons alors l'arbre binaire de niveau de profondeur $n$ avec pour racine l'ensemble vide $\emptyset$.
+Ainsi, pour $n=3$, nous obtenons l'arbre suivant.
+
+\begin{center}
+    \itshape\centering
+    \begin{forest}
+        for tree={binomial}
+        %
+        [\emptyset
+          [\setgene{1}
+            [\setgene{1;2}
+              [\setgene{1;2;3}]
+              [\setgene{1;2}]
+            ]
+            [\setgene{1}
+              [\setgene{1;3}]
+              [\setgene{1}]
+            ]
+          ]
+          [\emptyset
+            [\setgene{2}
+              [\setgene{2;3}]
+              [\setgene{2}]
+            ]
+            [\emptyset
+              [\setgene{3}]
+              [\emptyset]
+            ]
+          ]
+        ]
+    \end{forest}
+
+    Un exemple de calcul.
+\end{center}
+
+Nous obtenons bien $\combi = \binom{n}{p}$ pour $p \in \ZintervalC{0}{n}$.
+
+
+% ----------------------- %
+
+
+\begin{remark}
+	Il est très facile de deviner que 
+	$\combi[2n][n] = \sum_{k=0}^{n} \combi[n][k] \combi[n][n-k]$
+	en considérant deux sous-ensembles particuliers disjoints de cardinal $n$, choisis et fixés arbitrairement.
+\end{remark}
+
+
+\begin{remark}
+	L'identité 
+	$\binom{2n}{n} = \binosum{\binom{n}{n-k}}$
+	est un cas particulier de la formule de Van der Monde, à savoir de
+	$\binom{m + n}{p} = \sum_{k=0}^p \binom{m}{k} \binom{n}{p-k}$
+	pour $(m ; n) \in \NN^2$ et $p \in \ZintervalC{0}{\min(n ; m)}$.
+	Comme à la fin de la remarque précédente, découvrir
+	$\combi[m + n][p] = \sum_{k=0}^p \combi[m][k] \combi[n][p-k]$
+	est aisé. 
+\end{remark}
+
+
+
+
