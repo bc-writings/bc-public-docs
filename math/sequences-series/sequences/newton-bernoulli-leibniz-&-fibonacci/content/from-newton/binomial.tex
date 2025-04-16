@@ -1,12 +1,12 @@
 Nous souhaitons établir la loi binomiale sous la forme
 $\proba{X = j} = \combisum{p^k q^{n-k}} \delta_{jk}$
-où $X$ est la variable aléatoire (\va) comptant le nombre de succès.
+où $X$ est la variable aléatoire (\va) comptant le nombre de succès de probabilité $p$ ($q = 1 - p$).
 %
 Notons $X_i$ la \va\ comptant le nombre de succès de la i\ieme\ épreuve de Bernoulli du schéma de Bernoulli associé à $X$.
 Dès lors,
 $X = \sum_{s=1}^{n} X_s$ 
 où
-$(X_s)_{1 \leq s \leq n}$ forme une famille de \va\ indépendantes deux à deux  ayant chacune pour loi de probabilité $\proba{X_s = j} = p \delta_{1j} + q \delta_{0j}$ où $q = 1 - p$.
+$(X_s)_{1 \leq s \leq n}$ forme une famille de \va\ indépendantes deux à deux  ayant chacune pour loi de probabilité $\proba{X_s = j} = p \delta_{1j} + q \delta_{0j}$.
 Nous posons
 $\lawvar: j \in \ZZ \mapsto \proba{X = j} \in \intervalC{0}{1}$,
 de sorte que
@@ -17,7 +17,6 @@ A-t-on un lien entre $\lawvar$ et $\big( \lawvar[X_s] \big)_{1 \leq s \leq n}$? 
 %
 Par exemple, avec deux épreuves, nous avons ce qui suit.
 
-\newpage
 
 \begin{stepcalc}[style=sar]
 	\lawvar(j)
@@ -40,7 +39,7 @@ Ceci motive la définition suivante.
 
 
 \begin{defi}
-	Notons $\setalge{A} = \ell_{min}(\ZZ , \RR)$ l'ensemble des suites réelles indexées sur $\ZZ$ et à support minoré.%
+	Notons $\setalge{A} = \ell_{+}(\ZZ , \RR)$ l'ensemble des suites réelles indexées sur $\ZZ$ et à support minoré.%
 	\footnote{
 		Ceci signifie que 
 		$\forall f \in \setalge{A}$, 
@@ -49,8 +48,8 @@ Ceci motive la définition suivante.
 		$\forall j \in \ZZ_{\leq m_f}$, $f(j) = 0$.
 	}
 	Pour $(f,g) \in \setalge{A}^2$,
-	nous pouvons définir $p$ sur $\ZZ$ par
-	$p(j) = \sum_{k + m = j} f(k) g(m)$
+	nous pouvons définir $\pi$ sur $\ZZ$ par
+	$\pi(j) = \sum_{k + m = j} f(k) g(m)$
 	(cette somme est finie).%
 	\footnote{
 		$f(k) = 0$ si $k \leq m_f$,
@@ -64,7 +63,7 @@ Ceci motive la définition suivante.
 		c'est-à-dire pour un nombre fini de valeurs de $j$, et par conséquent de $m$.
 		
 	}
-	La suite $p$ est appelée \focus{produit de convolution} de $f$ et $g$,
+	La suite $\pi$ est appelée \focus{produit de convolution} de $f$ et $g$,
 	et notée $f \ast g$.
 \end{defi}
 
@@ -72,7 +71,7 @@ Ceci motive la définition suivante.
 % ----------------------- %
 
 \begin{fact}
-	$\setalge{A} = \ell_{min}(\ZZ , \RR)$
+	$\setalge{A} = \ell_{+}(\ZZ , \RR)$
 	muni de l'addition $+$ point par point, et du produit de convolution $\ast$
 	est un anneau commutatif.
 \end{fact}
@@ -147,13 +146,19 @@ L'application de la formule du binôme de Newton nous donne ce qui suit.
 	\lawvar[X_1 + \cdots + X_n](j)
 \explnext*{On généralise sans souci l'identité qui \\ a motivé l'introduction de la convolution.}{}
 	( \lawvar[X_1] \ast \cdots \ast \lawvar[X_n] ) (j)
+\end{stepcalc}
+	
+Poursuivons notre calcul.
+
+\begin{stepcalc}[style=sar]
+	\proba{X = j}
 \explnext{}
 	\big( (p \delta_{1} + q \delta_{0}) \ast \cdots \ast ( p \delta_{1} + q \delta_{0}) \big) (j)
 \explnext*{La puissance est relative à $\ast$.}{}
 	( p \delta_{1} + q \delta_{0} )^n (j)
 \explnext{}
 	\big( \dsum_{k=0}^n \combi[n][k] p^k q^{n-k} \delta_{1}^k \ast \delta_{0}^{n-k} \big) (j)
-\explnext{}
+\explnext*{$\delta_0$ est l'élément neutre pour $\ast$.}{}
 	\dsum_{k=0}^n \combi[n][k] p^k q^{n-k} \delta_{1}^k(j)
 \end{stepcalc}
 
@@ -163,7 +168,7 @@ Pour conclure, nous devons simplifier $\delta_{1}^k(j)$. Une petite récurrence 
 \begin{itemize}
 	\item \textbf{Cas de base.}
 	%
-	 $\delta_{1}^0$ est l'identité pour $\ast$, c'est-à-dire $\delta_0$.
+	$\delta_{1}^0$ est l'élément neutre pour $\ast$, donc $\delta_{1}^0 = \delta_0$.
 
 
 	\item \textbf{Hérédité.}
@@ -171,7 +176,7 @@ Pour conclure, nous devons simplifier $\delta_{1}^k(j)$. Une petite récurrence 
 	Supposons avoir $\delta_{1}^n = \delta_n$. Nous avons alors les égalités suivantes.
 
 	\begin{stepcalc}[style=sar]
-		\delta_{1}^{n+1}(j)
+		\kern-10pt\delta_{1}^{n+1}(j)
 	\explnext{}
 		(\delta_{1}^{n} \ast \delta_{1})(j)
 	\explnext{}
@@ -180,6 +185,7 @@ Pour conclure, nous devons simplifier $\delta_{1}^k(j)$. Une petite récurrence 
 		\dsum_{k + m = j} \delta_{n}(k) \delta_{1}(m)
 	\end{stepcalc}
 	
+	\noindent
 	Dès lors,
 	$\delta_{1}^{n+1}(j) = 1$ si $j=n+1$, et $0$ sinon.
 	Ceci donne $\delta_{1}^{n+1} = \delta_{n+1}$ comme souhaité.

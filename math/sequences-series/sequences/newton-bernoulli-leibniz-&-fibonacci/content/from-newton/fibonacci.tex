@@ -12,7 +12,7 @@ Comme pour l'identité de Leibniz, nous allons raisonner en terme d'opérateurs 
 
 	\item $\setalge{A} = \Endo \big( \ell(\ZZ , \RR) \big)$ est l'ensemble des endomorphismes linéaires de $\ell(\ZZ , \RR)$ muni de l'addition $+$ point par point, et de la composition $\circ$ comme produit.
 
-	\item $\sigma_k \in \setalge{A}$ désigne pour $k \in \ZZ$ un opérateur de décalage d'indice qui à la suite $(u_m)_{m\in\ZZ}$ associe la suite $(u_{m+k})_{m\in\ZZ}$.%
+	\item $\sigma_k \in \setalge{A}$ désigne pour $k \in \ZZ$ un opérateur de décalage d'indice qui à la suite $(U_m)_{m\in\ZZ}$ associe la suite $(U_{m+k})_{m\in\ZZ}$.%
 	\footnote{
 		En considérant $\ell(\NN , \RR)$, nous aurions eu un problème ici.
 	}
@@ -46,7 +46,7 @@ Dès lors, la conclusion se fait comme suit sans souci.
 \begin{remark}
     Un classique de la combinatoire, la formule d'inversion de Pascal,%
     \footnote{
-    	Il existe différentes démonstrations à la fois éclairantes et élégantes de ce résultat que l'on trouve aisément sur internet. 
+    	Il existe différentes démonstrations à la fois éclairantes et élégantes de ce résultat que l'on trouve aisément sur le web. 
     }
     nous dit que si deux suites $a$ et $b$ vérifient
     $b_n = \combisum{a_k}$,
@@ -56,7 +56,8 @@ Dès lors, la conclusion se fait comme suit sans souci.
     En choisissant $a_n = F_n$ et $b_n = F_{2n}$,
     nous obtenons 
     $F_n = \combisum{(-1)^{n-k} F_{2k}}$.
-    Nous allons essayer de retrouver ce résultat autrement.
+    %
+    Essayons de retrouver ce résultat.
     %
     Une première idée est d'utiliser
     $F = \sigma_2(F) - \sigma_1(F)$
@@ -108,4 +109,29 @@ Dès lors, la conclusion se fait comme suit sans souci.
     \footnote{
 	    Dans ce genre de situation, nous ne pouvons que tirer notre révérence devant la beauté des mathématiques.
 	}
+\end{remark}
+
+
+% ----------------------- %
+
+
+\begin{remark}
+	La généralisation à une suite récurrente vérifiant
+	$U_{i} = p U_{i-1} + q U_{i-2}$
+	ne pose pas de difficulté via
+	$\sigma_2(U) = p \sigma_1(U) + q U$.
+	Nous obtenons par exemple $U_{2n} = \binosum{p^k q^{n-k} U_{k}}$.
+	%
+	Si $p \neq 0$, en partant de
+    $\sigma_1(U) = p^{-1}(\sigma_2(U) - q U)$,
+    nous avons
+    $U_n = \combisum{p^{-n} (-q)^{n-k} U_{2k}}$
+    via
+    $ U_{m+n}
+    = \sum_{k=0}^n \combi[n][k] p^{-n} (-q)^{n-k} U_{m+2k}$.
+    Nous retrouvons une instance de la formule d'inversion de Pascal:
+    passer via
+    $a_n = p^n q^{-n} U_{n}$
+    et
+    $b_n = q^{-n} U_{2n}$.
 \end{remark}

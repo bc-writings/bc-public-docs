@@ -1,5 +1,5 @@
 Pour $i \in \NNs$, notons $B_i$ le nombre de façons de partitionner un ensemble de $i$ éléments, et posons $B_0 = 1$ par convention.
-Pour calculer récursivement $B_i$, nous allons juste détailler des idées présentes dans l'article
+Commençons par exhiber un calcul récursif des $B_i$ en reprenant des idées présentes dans l'article
 \emph{\og The largest singletons of set partitions \fg}
 de Yidong Sun et Xiaojuan Wu.%
     \footnote{
@@ -27,7 +27,7 @@ de Yidong Sun et Xiaojuan Wu.%
     \item Le cas intéressant de $\tabell[n][0]$ est abordé dans la remarque \ref{val-bell-n-0} plus bas (nous n'aurons pas besoin de $\tabell[n][0]$ pour notre introduction aux nombres de Bell).
 
 
-    \item Que pouvons-nous dire de $\tabell[n][1]$ lorsque $n \in \NN_{>2}$?
+    \item Que pouvons-nous dire de $\tabell[n][1]$ lorsque $n \in \NN_{\geq2}$?
     Considérons une partition $\pi$ de $\ZintervalC{1}{n+1}$ ayant $\setgene{2}$ comme singleton maximal.
     Deux cas se présentent à nous.
     %
@@ -52,7 +52,7 @@ de Yidong Sun et Xiaojuan Wu.%
     \end{enumerate}
     %
     Les procédés ci-dessus étant réversibles, par bijection, nous obtenons:
-    $\tabell[n][1] = B_{n-1}$ lorsque $n \in \NN_{>2}$.
+    $\tabell[n][1] = B_{n-1}$ lorsque $n \in \NN_{\geq2}$.
     %
     Comme $\tabell[1][1] = 1$ et $B_0 = 1$, l'identité est valable sur $\NNs$.
 
@@ -94,7 +94,7 @@ $\tabell[1][1] = 1$.
 Comme les relations de récurrence vérifiées par $(\tabell)$ ressemblent à celles de la suite $(\cnp)$,
 il devient évident de procéder comme suit.
 
-\explaintree{\tabell}{\tabell[n][p-1]}{\tabell[n-1][p-1]}%
+\explaintree{\tabell}{\tabell[n-1][p-1]}{\tabell[n][p-1]}%
             {\bellintertree}{\bell{n}{k}}
 
 Prenons $\tabell[n+1][n+1] = B_{n+1}$ pour racine de l'arbre binaire comme dans l'exemple suivant où $n = 3$.
@@ -102,10 +102,10 @@ Prenons $\tabell[n+1][n+1] = B_{n+1}$ pour racine de l'arbre binaire comme dans 
 \belltree{\bell{4}{4}}
 
 Nous arrivons à
-$\tabell[n+1][n+1] = \binosum{\tabell[n+1-k][1]}$
-qui équivaut à
+$\tabell[n+1][n+1] = \binosum{\tabell[n+1-k][1]}$,
+soit
 $B_{n+1} = \binosum{B_{n-k}}$.
-Comme $\binom{n}{n-k} = \binom{n}{k}$, nous avons bien 
+Comme $\binom{n}{n-k} = \binom{n}{k}$, nous obtenons bien 
 $B_{n+1} = \binosum{B_k}$.
 
 

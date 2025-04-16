@@ -59,25 +59,7 @@ il suffit de choisir $p = m = 1$.
 \begin{remark}
 	Comme pour la suite de Fibonacci, il est aisé de produire de nouvelles formules de récurrence.
 	%
-	Partant de $\mathcal{B} = \mu_1^1(\mathcal{B}) - \mu_0^1(\mathcal{B})$, nous menons les calculs ci-après.
-
-    \begin{stepcalc}[style=sar]
-    	\big( \tabell[m][p] \big)_{(p,m)\in\ZZ^2}
-    \explnext{}
-        ( \mu_1^1 - \mu_0^1 )^n(\mathcal{B})
-    \explnext{}
-        \big( \dsum_{k=0}^n \combi[n][k] (-1)^{n-k} \mu_k^n \big)(\mathcal{B})
-    \explnext{}
-        \big( \dsum_{k=0}^n \combi[n][k] (-1)^{n-k} \tabell[m+n][p+k] \big)_{(p,m)\in\ZZ^2}
-    \end{stepcalc}
-    
-    Nous avons obtenu sans effort
-    $\tabell[m][p] = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} \tabell[m+n][p+k]$.
-%    qui nous donne par exemple
-%    $\tabell[n][0] = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} \tabell[2n][k]$
-%    via $(p,m) = (0,n)$.
-    %
-    Nous pouvons aussi partir de $\mu_0^1(\mathcal{B}) = \mu_1^1(\mathcal{B}) -\mathcal{B}$ comme ci-dessous.
+	Partons de $\mu_0^1(\mathcal{B}) = \mu_1^1(\mathcal{B}) -\mathcal{B}$.
 
     \begin{stepcalc}[style=sar]
     	\big( \tabell[m+n][p] \big)_{(p,m)\in\ZZ^2}
@@ -91,11 +73,11 @@ il suffit de choisir $p = m = 1$.
         \big( \dsum_{k=0}^n \combi[n][k] (-1)^{n-k} \tabell[m+k][p+k] \big)_{(p,m)\in\ZZ^2}
     \end{stepcalc}
     
-    Cette fois,
+    Donc
     $\tabell[m+n][p] = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} \tabell[m+k][p+k]$,
-    nous donne
+    puis
     $\tabell[n][0] = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} \tabell[k][k]$
-    via $(p,m) = (0,0)$,
+    en considérant $(p,m) = (0,0)$,
     c'est-à-dire
     $\tabell[n][0] = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} B_k$.
     %

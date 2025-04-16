@@ -3,7 +3,7 @@ Pour la suite de Fibonacci, la règle de calcul est évidemment donnée par la r
 \explaintree{F_{i}}{F_{i-1}}{F_{i-2}}%
             {\intertree}{\fibo{i}}
 
-Pour valider $F_{2n} = \binosum{F_k}$, nous considérons un arbre binaire de niveau de profondeur $n$, et avec pour racine le terme $F_{2n}$.
+Pour valider $F_{2n} = \binosum{F_k}$, nous considérons un arbre binaire de niveau de profondeur $n$, et de racine le terme $F_{2n}$.
 Ainsi, pour $n=3$, nous obtenons l'arbre suivant.
 
 \binotree{\fibo{3}}
@@ -14,9 +14,25 @@ pour $k \in \ZintervalC{0}{n}$,
 donc
 $F_{2n} = \binosum{F_k}$ est validée.
 
+
 \begin{remark}
 	Plus généralement, nous avons
 	$F_{m+2n} = \binosum{F_{m+k}}$
 	par simple décalage de tous les indices,
 	puisque cette opération est compatible avec notre méthode de construction.
+\end{remark}
+
+
+% ----------------------- %
+
+
+\begin{remark}
+	Considérons $U$ une suite récurrente linéaire d'ordre $2$,
+	c'est-à-dire telle que
+	$U_{i} = p U_{i-1} + q U_{i-2}$ avec $(p, q) \in \RR^2$.
+	En mixant les idées pour la suite de Fibonacci avec celles utilisées pour la formule du binôme de Newton, voir les arbres ci-dessous, nous obtenons sans effort
+	$U_{m+2n} = \binosum{p^k q^{n-k} U_{m+k}}$.
+
+	\explaintree{U_{i}}{p U_{i-1}}{q U_{i-2}}%
+    	        {\intertree}{\reculin{i}}-
 \end{remark}

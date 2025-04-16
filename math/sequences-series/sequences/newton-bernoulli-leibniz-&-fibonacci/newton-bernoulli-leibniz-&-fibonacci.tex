@@ -15,6 +15,10 @@
 \makeatother
 
 
+\AddToHook{env/stepcalc/before}{\smallskip}
+\AddToHook{env/stepcalc/after}{\smallskip}
+
+
 % -------------------------------------- %
 % -------  START - BINOMIAL LAW  ------- %
 % -------------------------------------- %
@@ -230,6 +234,65 @@
 % ----------------------- %
 
 
+\int_new:N \l_cbal_reculin_max_ind_int
+\str_new:N \l_cbal_reculin_max_ind_str
+\str_new:N \l_cbal_reculin_coef_str
+
+\NewDocumentCommand{ \reculin }{ m m m m }{
+  \str_case:nnF {#2} {
+    {0} {}
+    {1} {p}
+  }{
+    p^{#2}
+  }
+
+  \str_case:nnF {#3} {
+    {0} {}
+    {1} {q}
+  }{
+    q^{#3}
+  }
+
+
+  \isnat{#1}{
+    \int_set:Nn \l_cbal_reculin_max_ind_int { 2*#1 }
+    \str_set:Nx \l_cbal_reculin_max_ind_str { \int_use:N \l_cbal_reculin_max_ind_int }
+  }{
+    \str_set:Nn \l_cbal_reculin_max_ind_str { #1 }
+  }
+
+  U \sb {
+    \str_use:N \l_cbal_reculin_max_ind_str
+
+    \str_if_eq:nnF { #2 }{ 0 }{
+      \str_set:Nn \l_cbal_reculin_coef_str { #2 }
+ 
+      -
+      \str_if_in:NnTF \l_cbal_reculin_coef_str { + } {
+        (#2)
+      } {
+        #2
+      }
+      \cdot 1
+    }
+    \str_if_eq:nnF { #3 }{ 0 }{
+      \str_set:Nn \l_cbal_reculin_coef_str { #3 }
+ 
+      -
+      \str_if_in:NnTF \l_cbal_reculin_coef_str { + } {
+        (#3)
+      } {
+        #3
+      }
+      \cdot 2
+    }
+  }
+}
+
+
+% ----------------------- %
+
+
 \int_new:N \l_cbal_factobinom_coef_int
 \str_new:N \l_cbal_factobinom_coef_str
 
@@ -356,8 +419,8 @@
         for tree={widget}
         %
         [#1{a}{b}{\forestoption{level}}
-          [#1{a+1}{b}{\forestoption{level}}]
           [#1{a+1}{b+1}{\forestoption{level}}]
+          [#1{a+1}{b}{\forestoption{level}}]
         ]
     \end{forest}
 %    \end{center}
@@ -371,24 +434,24 @@
             for tree={binomial}
             %
             [#1{0}{0}{\forestoption{level}}
-              [#1{1}{0}{\forestoption{level}}
-                [#1{2}{0}{\forestoption{level}}
-                  [#1{3}{0}{\forestoption{level}}]
-                  [#1{3}{1}{\forestoption{level}}]
+              [#1{1}{1}{\forestoption{level}}
+                [#1{2}{2}{\forestoption{level}}
+                  [#1{3}{3}{\forestoption{level}}]
+                  [#1{3}{2}{\forestoption{level}}]
                 ]
                 [#1{2}{1}{\forestoption{level}}
-                  [#1{3}{1}{\forestoption{level}}]
                   [#1{3}{2}{\forestoption{level}}]
+                  [#1{3}{1}{\forestoption{level}}]
                 ]
               ]
-              [#1{1}{1}{\forestoption{level}}
+              [#1{1}{0}{\forestoption{level}}
                 [#1{2}{1}{\forestoption{level}}
+                  [#1{3}{2}{\forestoption{level}}]
                   [#1{3}{1}{\forestoption{level}}]
-                  [#1{3}{2}{\forestoption{level}}]
                 ]
-                [#1{2}{2}{\forestoption{level}}
-                  [#1{3}{2}{\forestoption{level}}]
-                  [#1{3}{3}{\forestoption{level}}]
+                [#1{2}{0}{\forestoption{level}}
+                  [#1{3}{1}{\forestoption{level}}]
+                  [#1{3}{0}{\forestoption{level}}]
                 ]
               ]
             ]
@@ -456,8 +519,8 @@
         for tree={widget}
         %
         [#1{a}{b}{\forestoption{level}}
-          [#1{a}{b+1}{\forestoption{level}}]
           [#1{a+1}{b+1}{\forestoption{level}}]
+          [#1{a}{b+1}{\forestoption{level}}]
         ]
     \end{forest}
 %    \end{center}
@@ -471,24 +534,24 @@
             for tree={binomial}
             %
             [#1{0}{0}{\forestoption{level}}
-              [#1{0}{1}{\forestoption{level}}
-                [#1{0}{2}{\forestoption{level}}
-                  [#1{0}{3}{\forestoption{level}}]
-                  [#1{1}{3}{\forestoption{level}}]
+              [#1{1}{1}{\forestoption{level}}
+                [#1{2}{2}{\forestoption{level}}
+                  [#1{3}{3}{\forestoption{level}}]
+                  [#1{2}{3}{\forestoption{level}}]
                 ]
                 [#1{1}{2}{\forestoption{level}}
-                  [#1{1}{3}{\forestoption{level}}]
                   [#1{2}{3}{\forestoption{level}}]
+                  [#1{1}{3}{\forestoption{level}}]
                 ]
               ]
-              [#1{1}{1}{\forestoption{level}}
+              [#1{0}{1}{\forestoption{level}}
                 [#1{1}{2}{\forestoption{level}}
+                  [#1{2}{3}{\forestoption{level}}]
                   [#1{1}{3}{\forestoption{level}}]
-                  [#1{2}{3}{\forestoption{level}}]
                 ]
-                [#1{2}{2}{\forestoption{level}}
-                  [#1{2}{3}{\forestoption{level}}]
-                  [#1{3}{3}{\forestoption{level}}]
+                [#1{0}{2}{\forestoption{level}}
+                  [#1{1}{3}{\forestoption{level}}]
+                  [#1{0}{3}{\forestoption{level}}]
                 ]
               ]
             ]
@@ -730,9 +793,9 @@
 \begin{document}
 
 
-\title{BROUILLON -- Newton, Bernoulli, Leibniz, Fibonacci et Bell}
+\title{Newton, Bernoulli, Leibniz, Fibonacci et Bell}
 \author{Christophe BAL}
-\date{2 Avril 2025 - 15 Avril 2025}
+\date{2 Avril 2025 - 16 Avril 2025}
 
 \maketitle
 
@@ -740,7 +803,7 @@
 	\itshape
 	Document, avec son source \LaTeX, disponible sur la page
 
-	\url{https://github.com/bc-writings/bc-public-docs/tree/main/drafts}.
+	\url{https://github.com/bc-writings/bc-public-docs/tree/main/math/sequences-series/sequences/newton-bernoulli-leibniz-&-fibonacci}.
 \end{center}
 
 
@@ -771,6 +834,18 @@
 
 
 \newpage
+
+\begin{meta-abstract*}
+	Dans ce document, via des arbres binaires complets, puis la formule du binôme de Newton, nous faisons émerger des liens naturels entre, notamment,
+	la formule du binôme de Newton,
+	celle de dérivation de Leibniz,
+	et la loi binomiale
+	qui utilisent des coefficients binomiaux $\binom{n}{k}$.
+\end{meta-abstract*}
+
+
+% ----------------------- %
+
 
 \section{Des identités bien connues} \label{beautiful-id}
 
@@ -815,7 +890,7 @@
     \subimport*{content/treeview}{factorial}
     
     
-    \subsection{Coefficients combinatoires}
+    \subsection{Une escale combinatoire}
     
     \subimport*{content/treeview}{combinatoric}
     

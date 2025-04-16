@@ -4,11 +4,12 @@ Pour cela, notons que $\cnp = \cnp[n-1][p] + \cnp[n-1][p-1]$:
 c'est facile à vérifier pour les valeurs non nulles de $\cnp$, et ensuite à généraliser aux cas restants.
 Ceci nous amène à considérer la situation suivante.
 
-\explaintree{\cnp}{\cnp[n-1][p]}{\cnp[n-1][p-1]}%
+\explaintree{\cnp}{\cnp[n-1][p-1]}{\cnp[n-1][p]}%
             {\factobinomintertree}{\factobinom{n}{p}}
 
-Nous considérons alors l'arbre binaire de niveau de profondeur $n$ avec pour racine le terme $\cnp$ doublement indexé par $n$ et $k$.
-Ainsi, pour $n=3$ et $p \in \ZintervalC{0}{3}$, nous obtenons l'arbre suivant où les feuilles sont toutes du type $\mathcal{C}^0_p$.
+Nous considérons alors l'arbre binaire de niveau de profondeur $n$, et de racine le terme $\cnp$.
+Ainsi, pour $n=3$ et $p \in \ZintervalC{0}{3}$,
+nous obtenons l'arbre suivant avec des feuilles du type $\cnp[0][k]$.
 
 \factobinotree{\factobinom{3}{p}}
 
