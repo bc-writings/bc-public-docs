@@ -9,3 +9,47 @@ $\binonewton{x}{y}$.
 Voici un exemple de calcul avec $n=3$.
 
 \binotree{\devnew{3}}
+
+
+% ----------------------- %
+
+
+\begin{remark} \label{easy-pascal-inv}
+	En anticipant $\binom{n}{p} = \cnp$, que nous verrons sous peu, nous allons fournir une preuve intuitive de la formule d'inversion de Pascal (voir le  \reffact{pascal-inv}).
+	%
+	\begin{itemize}
+		\item Nous avons
+		$(X + 1)^n = \binosum{X^k}$
+		et
+		$X^n = (X + 1 - 1)^n = \binosum{(-1)^{n-k}X^k}$
+		d'après la formule du binôme de Newton.
+		
+
+		\item Donc, la matrice de passage de
+		$\big( X^i \big)_{1 \leq i \leq n}$
+		à
+		$\big( (X + 1)^i \big)_{1 \leq i \leq n}$
+		est
+		$M = \big( \binom{j}{i} \big)_{1 \leq i, j \leq n}$,
+		et celle de
+		$\big( (X + 1)^i \big)_{1 \leq i \leq n}$
+		à
+		$\big( X^i \big)_{1 \leq i \leq n}$
+		est
+		$N = \big( (-1)^{j-i} \binom{j}{i} \big)_{1 \leq i, j \leq n}$.
+		
+
+		\item Nous venons de démontrer, sans effort, que $M^{-1} = \big( (-1)^{j-i} \binom{j}{i} \big)_{1 \leq i, j \leq n}$.
+		
+
+		\item En considérant l'endomorphisme linéaire de $\RR^n$ de matrice $M$, 
+		$b_n = \cnpsum{a_k}$ 
+		donne
+		$\big( b_i \big)_{1 \leq i \leq n} = M \, \big( a_i \big)_{1 \leq i \leq n}$.
+		%
+		Les points précédents donnent
+		$\big( a_i \big)_{1 \leq i \leq n} = M^{-1} \, \big( b_i \big)_{1 \leq i \leq n}$,
+		puis en particulier
+		$a_n = \cnpsum{(-1)^{n-k} b_k}$ comme souhaité.
+	\end{itemize}
+\end{remark}

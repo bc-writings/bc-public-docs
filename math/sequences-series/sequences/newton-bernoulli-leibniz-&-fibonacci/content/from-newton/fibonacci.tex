@@ -44,24 +44,9 @@ Dès lors, la conclusion se fait comme suit sans souci.
 
 
 \begin{remark}
-    Un classique de la combinatoire, la formule d'inversion de Pascal,%
-    \footnote{
-    	Il existe différentes démonstrations à la fois éclairantes et élégantes de ce résultat que l'on trouve aisément sur le web. 
-    }
-    nous dit que si deux suites $a$ et $b$ vérifient
-    $b_n = \combisum{a_k}$,
-    alors
-    $a_n = \combisum{(-1)^{n-k} b_k}$.
-    %
-    En choisissant $a_n = F_n$ et $b_n = F_{2n}$,
-    nous obtenons 
-    $F_n = \combisum{(-1)^{n-k} F_{2k}}$.
-    %
-    Essayons de retrouver ce résultat.
-    %
-    Une première idée est d'utiliser
-    $F = \sigma_2(F) - \sigma_1(F)$
-    pour conduire les calculs suivants.
+    En considérant
+    $F = \sigma_2(F) - \sigma_1(F)$,
+    nous pouvons conduire les calculs suivants.
     
     \begin{stepcalc}[style=sar]
     	(F_m)_{m\in\ZZ}
@@ -80,13 +65,12 @@ Dès lors, la conclusion se fait comme suit sans souci.
     \end{stepcalc}
     
     
-    Via $m = n$, nous obtenons sans effort
-    $F_n = \combisum{(-1)^{n-k} F_{2n+k}}$.
-    C'est une jolie formule, mais ce n'est pas l'inversion souhaitée.
+    Nous obtenons sans effort
+    $F_m = \dsum_{k=0}^n \combi[n][k] (-1)^{n-k} F_{m+n+k}$.
     %
-    Partons plutôt de
-    $\sigma_1(F) = \sigma_2(F) - F$
-    pour effectuer les manipulations ci-dessous.
+    En partant de
+    $\sigma_1(F) = \sigma_2(F) - F$,
+    nous arrivons aux manipulations ci-dessous.
     
     \begin{stepcalc}[style=sar]
     	(F_{m+n})_{m\in\ZZ}
@@ -105,10 +89,7 @@ Dès lors, la conclusion se fait comme suit sans souci.
     
     Le choix $m = 0$ fournit
     $F_n = \combisum{(-1)^{n-k} F_{2k}}$
-    qui correspond à l'utilisation de la formule d'inversion de Pascal. N'est-ce pas joli?%
-    \footnote{
-	    Dans ce genre de situation, nous ne pouvons que tirer notre révérence devant la beauté des mathématiques.
-	}
+    qui correspond à l'utilisation de la formule d'inversion de Pascal (voir le \reffact{pascal-inv}).
 \end{remark}
 
 
@@ -122,16 +103,11 @@ Dès lors, la conclusion se fait comme suit sans souci.
 	$\sigma_2(U) = p \sigma_1(U) + q U$.
 	Nous obtenons par exemple $U_{2n} = \binosum{p^k q^{n-k} U_{k}}$.
 	%
-	Si $p \neq 0$, en partant de
-    $\sigma_1(U) = p^{-1}(\sigma_2(U) - q U)$,
-    nous avons
+	Si $p \neq 0$ et $q \neq 0$, alors
+    $\sigma_1(U) = p^{-1}(\sigma_2(U) - q U)$
+    donne
     $U_n = \combisum{p^{-n} (-q)^{n-k} U_{2k}}$
     via
     $ U_{m+n}
     = \sum_{k=0}^n \combi[n][k] p^{-n} (-q)^{n-k} U_{m+2k}$.
-    Nous retrouvons une instance de la formule d'inversion de Pascal:
-    passer via
-    $a_n = p^n q^{-n} U_{n}$
-    et
-    $b_n = q^{-n} U_{2n}$.
 \end{remark}

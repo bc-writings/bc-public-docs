@@ -29,7 +29,10 @@ Inspiré par la suite de Fibonacci, nous introduisons les ingrédients suivants.
 
 
 
-Prolongeons $\mathcal{B}$ sur $\ZZ^2 - \NN^2$ en posant $\tabell = 0$, de sorte que $\tabell = \tabell[n][p-1] + \tabell[n-1][p-1]$ reste valable sur $\ZZ^2$, et se réécrit $\mu_1^1(\mathcal{B}) = \mu_0^1(\mathcal{B}) + \mathcal{B}$.
+Prolongeons $\mathcal{B}$ sur $\ZZ^2 - \NN^2$ en posant $\tabell = 0$, de sorte que $\tabell = \tabell[n][p-1] + \tabell[n-1][p-1]$ reste valable sur $\ZZ^2$, et se réécrit $\mu_1^1(\mathcal{B}) = \mu_0^1(\mathcal{B}) + \mathcal{B}$.%
+\footnote{
+	Noter la ressemblance avec $\mu_1^1(\mathcal{C}) = \mu_1^0(\mathcal{C}) + \mathcal{C}$.
+}
 %
 La formule du binôme de Newton nous donne ce qui suit.
 
@@ -85,5 +88,5 @@ il suffit de choisir $p = m = 1$.
     $\tabell[n+1][1] = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} \tabell[k+1][k+1]$,
     soit
     $B_n = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} B_{k+1}$
-   	qui est une instance de la formule d'inversion de Pascal.
+   	qui est une instance de la formule d'inversion de Pascal (voir le \reffact{pascal-inv}).
 \end{remark}

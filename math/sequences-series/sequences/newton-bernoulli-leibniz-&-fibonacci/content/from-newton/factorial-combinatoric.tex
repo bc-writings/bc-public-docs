@@ -7,10 +7,7 @@ $\cnp[0][0] = 1$,
 $\cnp[0][p] = 0$ si $p \neq 0$
 et
 $\cnp = \cnp[n-1][p] + \cnp[n-1][p-1]$ sur $\ZZ^2$.
-Reprenant les notations de la section précédente, la relation de récurrence se réécrit $\mu_1^1(\mathcal{C}) = \mu_1^0(\mathcal{C}) + \mathcal{C}$.%
-\footnote{
-	Noter la ressemblance avec $\mu_1^1(\mathcal{B}) = \mu_0^1(\mathcal{B}) + \mathcal{B}$.
-}
+Reprenant les notations de la section précédente, la relation de récurrence se réécrit $\mu_1^1(\mathcal{C}) = \mu_1^0(\mathcal{C}) + \mathcal{C}$.
 Nous aboutissons aux calculs suivants.
 
 \begin{stepcalc}[style=sar]
@@ -52,6 +49,12 @@ afin de mener les calculs suivants.
     \big( \dsum_{k=0}^n \combi[n][k] (\mu_{-1}^{-1})^k \circ (\mu_0^{-1})^{n-k} \big)(\mathcal{C})
 \explnext{}
     \big( \dsum_{k=0}^n \combi[n][k] \mu_{-k}^{-k} \circ \mu_0^{-n + k} \big)(\mathcal{C})
+\end{stepcalc}
+
+Continuons nos calculs.
+
+\begin{stepcalc}[style=sar]
+	\big( \cnp[m][p] \big)_{(p,m)\in\ZZ^2}
 \explnext{}
     \big( \dsum_{k=0}^n \combi[n][k] \mu_{-k}^{-n} \big)(\mathcal{C})
 \explnext{}
