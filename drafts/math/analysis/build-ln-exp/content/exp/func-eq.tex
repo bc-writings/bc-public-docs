@@ -1,0 +1,19 @@
+\begin{fact}
+	$\forall (a;b) \in \big( \RR \big)^2$,
+	$\exp(a + b) = \exp a \cdot \exp b$.
+\end{fact}
+
+
+\begin{proof}
+	L'injectivité de $\ln$ et les calculs suivants permettent de conclure.
+	
+	\begin{stepcalc}[style=ar*]
+		\ln \big( \exp(a + b) \,\big)
+	\explnext*{Définition de la fonction $\exp$.}{}
+		a + b
+	\explnext*{Définition de la fonction $\exp$.}{}
+		\ln(\exp a) + \ln(\exp b)
+	\explnext*{Équation fonctionnelle validée par la fonction $\ln$.}{}
+		\ln(\exp a \cdot \exp b)
+	\end{stepcalc}
+\end{proof}

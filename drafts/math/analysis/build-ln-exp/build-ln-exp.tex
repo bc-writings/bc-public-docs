@@ -1,0 +1,92 @@
+\documentclass[12pt]{amsart}
+
+\usepackage{bc-writings}
+
+\hypersetup{hidelinks}
+
+\begin{document}
+
+
+\title{BROUILLON -- Construction simple du logarithme et de l'exponentielle}
+\author{Christophe BAL}
+\date{18 Avril 2025}
+
+\maketitle
+
+\begin{center}
+	\itshape
+	Document, avec son source \LaTeX, disponible sur la page
+
+	\url{https://github.com/bc-writings/bc-public-docs/tree/main/drafts}.
+\end{center}
+
+
+\bigskip
+
+
+\begin{center}
+	\hrule\vspace{.3em}
+	{
+		\fontsize{1.35em}{1em}\selectfont
+		\textbf{Mentions \og légales \fg}
+	}
+
+	\vspace{0.45em}
+	\doclicenseThis
+	\hrule
+\end{center}
+
+
+\bigskip
+
+
+\setcounter{tocdepth}{2}
+\tableofcontents
+
+
+% ----------------------- %
+
+
+\newpage
+
+\begin{meta-abstract*}
+	L’objectif de ce texte est de construire la fonction $\exp$ de la manière la plus simple possible, en utilisant uniquement des notions connues d'un lycéen en 2025.
+\end{meta-abstract*}
+
+
+% ----------------------- %
+
+
+\section{Au commencement était le logarithme népérien}
+
+	\subsection{Définition intégrale}
+
+	\subimport*{content/}{ln/def}
+
+
+	\subsection{Equation fonctionnelle}
+
+	\subimport*{content/}{ln/func-eq}
+
+
+% ----------------------- %
+
+
+\section{Puis vint l'exponentielle}
+
+	\subsection{Inverser le logarithme népérien}
+
+	\subimport*{content/}{exp/def}
+
+
+	\subsection{Equation fonctionnelle}
+
+	\subimport*{content/}{exp/func-eq}
+
+
+	\subsection{Equation différentielle}
+
+	\subimport*{content/}{exp/eq-diff}
+
+
+\end{document}

@@ -56,10 +56,10 @@ $F_{2n} = \binosum{F_k}$ est validée.
     \end{center}
     
     Un arbre de racine $F_n$, et de profondeur $n$ donne la formule
-    $F_{n} = \binosum{(-1)^{n-k} F_{(n + k) - (n - k)}}$,
+    $F_{n} = \binosum{(-1)^{n-k} F_{n + k - (n - k)}}$,
     soit
     $F_{n} = \binosum{(-1)^{n-k} F_{2 k}}$.
-    Nous retombons sur la formule d'inversion de Pascal (voir le \reffact{pascal-inv}):
+    Nous retombons sur la formule d'inversion de Pascal (voir la \refrem{binom-pascal-inv}):
     choisir $a_n = F_n$ et $b_n = F_{2n}$. 
 \end{remark}
 
@@ -82,7 +82,7 @@ $F_{2n} = \binosum{F_k}$ est validée.
 	
 	Supposons $p \neq 0$ et $q \neq 0$.
 	%
-	Via  $U_{i-1} = p^{-1} U_{i} - p^{-1} q U_{i-2}$, 
+	Via  $U_{i-1} = p^{-1} \big( U_{i} - q U_{i-2} \big)$, 
 	soit $U_{i} = p^{-1} U_{i+1} - p^{-1} q U_{i-1}$,
 	il est rapide d'obtenir
 	$U_n = \binosum{p^{-n} (-q)^{n-k} U_{2k}}$ (voir ci-dessous).
