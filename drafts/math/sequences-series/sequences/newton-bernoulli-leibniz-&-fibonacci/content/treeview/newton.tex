@@ -1,0 +1,96 @@
+Pour développer $(x + y)^n$ dans un anneau commutatif (forcément unitaire), la brique de base est la distribution qui donne des calculs intermédiaires comme celui montré à droite ci-dessous où $(a;b;k) \in \NN^2 \times \NNs$.
+
+\explaintree{(x + y)f(x ; y)}{x f(x ; y)}{y f(x ; y)}%
+            {\intertree}{\devnew{k}}
+
+Dans un arbre binaire de racine $(x + y)^n$, et de profondeur $n$, la règle de calcul donne la formule du binôme de Newton
+$\binonewton{x}{y}$.
+%
+Voici un exemple avec $n=3$.
+
+\binotree{\devnew{3}}
+
+
+% ----------------------- %
+
+
+Nous allons établir un classique de la combinatoire, à savoir la formule d'inversion de Pascal que nous rencontrerons plusieurs fois dans la suite de ce document.
+
+
+\begin{fact}[Formule d'inversion de Pascal] \label{pascal-inv}
+	Pour deux suites $a$ et $b$ à valeur dans un anneau commutatif,
+	$b_n = \binosum{a_k}$ sur $\NN$
+	si, et seulement si,
+	$a_n = \binosum{(-1)^{n-k} b_k}$ sur $\NN$.
+\end{fact}
+
+
+\begin{proof}
+	Ce qui suit est très intuitif.
+	%
+	\begin{itemize}
+		\item Nous avons
+		$(X + 1)^n = \binosum{X^k}$
+		et
+		$X^n = (X + 1 - 1)^n = \binosum{(-1)^{n-k} (X+1)^k}$
+		d'après la formule du binôme de Newton.
+		
+
+		\item Donc, la matrice de passage de
+		$\big( X^i \big)_{1 \leq i \leq n}$
+		à
+		$\big( (X + 1)^i \big)_{1 \leq i \leq n}$
+		est
+		$M = \big( \binom{j}{i} \big)_{1 \leq i, j \leq n}$,
+		et celle de
+		$\big( (X + 1)^i \big)_{1 \leq i \leq n}$
+		à
+		$\big( X^i \big)_{1 \leq i \leq n}$
+		est
+		$N = \big( (-1)^{j-i} \binom{j}{i} \big)_{1 \leq i, j \leq n}$.
+		
+
+		\item Nous venons de démontrer, sans effort, que $M$ et $N$ sont inverses l'une de l'autre.
+		
+
+		\item Supposons maintenant avoir $b_n = \binosum{a_k}$  sur $\NN$.
+		Ceci donne
+		$(b_i)_{1 \leq i \leq n} = M \, (a_i)_{1 \leq i \leq n}$,
+		puis
+		$(a_i)_{1 \leq i \leq n} = M^{-1} \, (b_i)_{1 \leq i \leq n}$,
+		et en particulier
+		$a_n = \binosum{(-1)^{n-i} b_i}[n][i]$.
+		
+
+		\item La réciproque s'obtient de façon similaire via la matrice $N$.
+	\end{itemize}
+
+	\null\vspace{-6ex}
+\end{proof}
+
+
+\begin{remark}
+    Examinons ce que donne la formule d'inversion de Pascal appliquée à la formule du binôme de Newton.
+    Supposons $y$ inversible, de sorte que $\binonewton{x}{y}$ se réécrit $y^{-n}(x+y)^n = \binosum{x^k y^{-k}}$.
+    Nous obtenons alors $x^n y^{-n} = \binosum{(-1)^{n-k} y^{-k} (x+y)^k}$,
+    soit $x^n = \binosum{(- y)^{n-k} (x+y)^k}$,%
+    \footnote{
+    	Pour $y = 1$, nous retrouvons
+		$X^n = \binosum{(-1)^{n-k} (X+1)^k}$
+		évaluée en $x$.
+    }
+    via
+    $a_ n = x^n y^{-n}$
+    et
+    $b_ n = y^{-n}(x+y)^n$.
+	%
+    Nous allons retrouver cette identité juste via un arbre.
+    En effet,
+    l'égalité
+    $(x + y)f(x ; y) = x f(x ; y) + y f(x ; y)$ se réécrit $x f(x ; y) = (x + y)f(x ; y) - y f(x ; y)$.
+    Dès lors,
+    la règle suivante appliquée dans un arbre binaire de racine $x^n$, et de profondeur $n$, permet de conclure.
+    
+    \explaintree{x f(x ; y)}{(x + y)f(x ; y)}{- y f(x ; y)}%
+                {\intertree}{\invdevnew{k}}
+\end{remark}

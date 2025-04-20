@@ -13,7 +13,7 @@ de Yidong Sun et Xiaojuan Wu.%
     De façon abusive, dans ce type de situation, nous dirons que $\setgene{p+1}$ est le plus grand singleton.%
     \footnote{
         L’idée consiste à s’appuyer sur l’élément le plus simple qu’une partition puisse contenir : le singleton.
-        Pour restreindre le nombre de cas à analyser, on choisit, arbitrairement, de se focaliser sur les singletons maximaux.
+        Pour limiter les cas à analyser, il est décidé, arbitrairement, de se focaliser sur les singletons maximaux.
     }
 
 
@@ -44,7 +44,11 @@ de Yidong Sun et Xiaojuan Wu.%
         %
         Dans ce cas, $\setgene{2}$ est l'unique singleton de $\pi$.
         En ignorant $2$,
-        en transformant l'ensemble $\setgene{1 ; k_1 ; \dots ; k_s}$ de $\pi$ en $\setgene{k_1} \sqcup \dots \sqcup \setgene{k_s}$,
+        en transformant l'ensemble $\setgene{1 ; k_1 ; \dots ; k_s}$%
+        \footnote{
+        	Nécessairement, $s \geq 1$.
+        }
+        de $\pi$ en $\setgene{k_1} \sqcup \dots \sqcup \setgene{k_s}$,
         et
         en remplaçant chaque naturel $k \in \ZintervalC{3}{n+1}$ par $k-2 \in \ZintervalC{1}{n-1}$,
         nous obtenons une partition $\pi'$ de $\ZintervalC{1}{n-1}$ avec pour singletons $\setgene{k_1}$ , \dots\ , $\setgene{k_s}$
@@ -57,7 +61,7 @@ de Yidong Sun et Xiaojuan Wu.%
     Comme $\tabell[1][1] = 1$ et $B_0 = 1$, l'identité est valable sur $\NNs$.
 
 
-    \item Plus généralement, considérons une partition $\pi$ de $\ZintervalC{1}{n+1}$ ayant $\setgene{p+1}$ comme singleton maximal.
+    \item Plus généralement, pour $(n ; p) \in (\NNs)^2$, considérons une partition $\pi$ de $\ZintervalC{1}{n+1}$ ayant $\setgene{p+1}$ comme singleton maximal.
     Deux cas se présentent à nous.
     %
     \begin{enumerate}
@@ -74,7 +78,7 @@ de Yidong Sun et Xiaojuan Wu.%
         \item \textbf{\boldmath Cas 2: $\setgene{p}$ est absent de $\pi$.}
         %
         En échangeant $p$ et $(p+1)$,
-        nous obtenons une partition $\pi'$ de $\ZintervalC{1}{n+1}$ ayant $\setgene{p}$ comme singleton maximal. 
+        nous obtenons une partition $\pi'$ de $\ZintervalC{1}{n+1}$ ayant $\setgene{p}$ comme singleton maximal, puisque $(p+1)$ se retrouve maintenant dans un ensemble d'au moins deux éléments. 
         %
 %        Ces dernières partitions sont au nombre de $\tabell[n+1][p-1]$.
     \end{enumerate}
@@ -89,8 +93,7 @@ $B_n = \tabell[n][n] = \tabell[n+1][1]$
 avec
 $\tabell = \tabell[n][p-1] + \tabell[n-1][p-1]$
 et
-$\tabell[1][1] = 1$. 
-%
+$\tabell[1][1] = 1$.
 Comme les relations de récurrence vérifiées par $(\tabell)$ ressemblent à celles de la suite $(\cnp)$,
 il devient évident de procéder comme suit.
 
@@ -109,6 +112,9 @@ Comme $\binom{n}{n-k} = \binom{n}{k}$, nous obtenons bien
 $B_{n+1} = \binosum{B_k}$.
 
 
+% ----------------------- %
+
+
 \begin{remark} \label{val-bell-n-0}
     $\tabell[n][0]$ est le nombre de partitions de $\ZintervalC{1}{n}$ sans singleton.
     En effet,
@@ -119,4 +125,34 @@ $B_{n+1} = \binosum{B_k}$.
     en remplaçant chaque naturel $k \in \ZintervalC{2}{n+1}$ par $k-1 \in \ZintervalC{1}{n}$, nous obtenons une partition de $\ZintervalC{1}{n}$ sans singleton.
     %
     Cette construction est réversible, donc bijective.
+\end{remark}
+
+
+% ----------------------- %
+
+
+\begin{remark}
+	Comme $\tabell[n][p-1] = \tabell - \tabell[n-1][p-1]$,
+	soit $\tabell = \tabell[n][p+1] - \tabell[n-1][p]$,
+	nous pouvons considérer la règle suivante.
+
+    \begin{center}
+    	\itshape\centering
+    
+    	\calctree{\tabell}{\tabell[n][p+1]}{-\tabell[n-1][p]}
+    	
+    	Arbre de calcul.
+    \end{center}
+    
+    En prenant pour racine $\tabell[n+1][1]$, et pour profondeur $n$,
+	nous avons
+    $\tabell[n+1][1] = \sum_{k=0}^n \binom{n}{k} (-1)^{n-k} \tabell[k+1][k+1]$
+    qui se réécrit
+    $B_n = \sum_{k=0}^n (-1)^{n-k} \binom{n}{k} B_{k+1}$.
+	%
+	Ceci est une instance de la formule d'inversion de Pascal:
+    passer via
+    $a_n = B_n$
+    et
+    $b_n = B_{n+1}$.
 \end{remark}

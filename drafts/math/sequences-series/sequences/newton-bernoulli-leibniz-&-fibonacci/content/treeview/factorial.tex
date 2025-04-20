@@ -1,0 +1,83 @@
+Nous allons démontrer que $\cnp = \binom{n}{p}$ si $n \in \NN$ et $p \in \ZintervalC{0}{n}$,
+puis valider l'identité $\binom{2n}{n} = \binosum{\binom{n}{k}}$.
+C'est parti!
+
+
+Pour $n \in \NNs$ et $p \in \ZintervalC{1}{n}$,
+nous avons
+$\frac{n!}{p!(n-p)!}
+=\frac{(n-p)(n-1)!}{p!(n-p)!} + \frac{p(n-1)!}{p!(n-p)!}$,
+soit
+$\cnp = \cnp[n-1][p] + \cnp[n-1][p-1]$.
+Ensuite,
+si $p > n$, comme
+$\cnp = \cnp[n-1][p] = \cnp[n-1][p-1] = 0$,
+nous avons de nouveau
+$\cnp = \cnp[n-1][p] + \cnp[n-1][p-1]$.
+En résumé,
+$\cnp = \cnp[n-1][p] + \cnp[n-1][p-1]$ pour $(n;p) \in  (\NNs)^2$.%
+\footnote{
+	En raisonnant via des arbres binaires,
+	il est facile de justifier que 
+	$\binom{n}{p} = \binom{n-1}{p} + \binom{n-1}{p-1}$ sur $ (\NNs)^2$.
+	Une récurrence donne alors 
+	$\cnp = \binom{n}{p}$ sur $\NN^2$.
+	%
+	Ceci étant noté, ici, nous cherchons juste à utiliser la définition de $\binom{n}{p}$ en effectuant le moins possible de calculs, et de raisonnements.
+}
+Enfin,
+comme
+$\cnp[n][0] = \cnp[n-1][0] = 1$,
+nous pouvons poser
+$\cnp = 0$ si $p < 0$
+pour obtenir
+$\cnp = \cnp[n-1][p] + \cnp[n-1][p-1]$ sur $\NNs \times \ZZ$.
+%
+Ceci nous permet de considérer la situation suivante.
+
+\explaintree{\cnp}{\cnp[n-1][p-1]}{\cnp[n-1][p]}%
+            {\factobinomintertree}{\factobinom{n}{p}}
+
+
+Nous considérons alors l'arbre binaire de racine le terme $\cnp$, et de profondeur $n$.
+Par exemple, pour $n=3$, nous obtenons l'arbre suivant où toutes les feuilles sont du type $\cnp[0][k]$.
+
+\factobinotree{\factobinom{3}{p}}
+
+Donc,
+$\cnp = \binosum{\cnp[0][p-k]}$.
+Or, pour $p \in \ZintervalC{0}{n}$, la somme se réduit à $\binom{n}{p} \cnp[0][0]$, d'où $\cnp = \binom{n}{p}$ comme annoncé.
+%
+Ensuite,
+comme
+$\binom{2n}{n} = \binosum{\binom{n}{k}}$
+équivaut à
+$\mathcal{C}^{2n}_n = \binosum{\mathcal{C}^n_{n-k}}$,
+en considérant un arbre de racine $\cnp[2n][n]$, nous obtenons
+$\cnp[2n][n] = \binosum{\cnp[2n - n][n-k]} = \binosum{\cnp[n][n-k]}$
+comme souhaité.
+
+
+% ----------------------- %
+
+
+\begin{remark}
+	Comme $\cnp[n-1][p] = \cnp - \cnp[n-1][p-1]$,
+	soit $\cnp = \cnp[n+1][p] - \cnp[n][p-1]$,
+	nous pouvons considérer la règle suivante.
+
+    \begin{center}
+    	\itshape\centering
+    
+    	\calctree{\cnp}{\cnp[n+1][p]}{-\cnp[n][p-1]}
+    	
+    	Arbre de calcul.
+    \end{center}
+    
+    En prenant pour racine $\cnp[n][n]$, et pour profondeur $n$,
+	nous arrivons à
+    $\cnp[n][n] = \sum_{k=0}^n \binom{n}{k} (-1)^{n-k} \cnp[n+k][k]$,
+    soit
+    $1 = \sum_{k=0}^n (-1)^{n-k} \binom{n}{k} \binom{n+k}{k}$,
+    une belle identité non immédiate à découvrir.
+\end{remark}

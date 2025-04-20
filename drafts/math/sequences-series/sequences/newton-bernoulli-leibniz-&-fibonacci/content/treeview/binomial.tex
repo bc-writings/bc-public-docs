@@ -1,0 +1,70 @@
+Lorsque l'on présente la loi binomiale, il est courant d'utiliser un arbre de probabilité comme le suivant où $S$ désigne un succès et $E$ un échec, un succès ayant une probabilité $p$ de se réaliser (ici nous avons une profondeur de $3$).
+
+\begin{center}
+\begin{forest}
+for tree = {binomial}
+%
+[
+  [S
+    [S
+      [S]
+      [E]
+    ]
+    [E
+      [S]
+      [E]
+    ]
+  ]
+  [E
+    [S
+      [S]
+      [E]
+    ]
+    [E
+      [S]
+      [E]
+    ]
+  ]
+]
+\end{forest}
+\end{center}
+
+
+Notons $X$ la variable aléatoire comptant le nombre de succès, ainsi que $q = 1 - p$,
+puis concentrons-nous sur les bifurcations lors du parcours de l'arbre de gauche à droite.
+La règle de calcul à gauche ci-dessous traduit 
+qu'en allant vers un succès, la probabilité en cours est multipliée par $p$,
+et sinon c'est $q$ qui est appliqué.
+Ceci nous donne des calculs intermédiaires à chaque bifurcation comme montré à droite ci-dessous où $(a;b) \in \NN^2$. 
+
+\explaintree{x}{p x}{q x}%
+            {\intertree}{\pqprob}
+
+Soit ensuite l'arbre binaire de racine la valeur $1$, et de profondeur $n$.
+L'application de la règle de calcul donne 
+$\proba{X = j} = \binosum{p^k q^{n-k}} \delta_{jk}$,
+puisque pour obtenir $p^k q^{n-k}$, il faut bifurquer $k$ fois vers un succès, ce qui fait $\binom{n}{k}$ choix possibles.
+%
+Voici un exemple avec $n=3$.
+
+\binotree{\pqprob}
+
+
+% ----------------------- %
+
+
+Nous pouvons lire différemment l'arbre en considérant que chaque bifurcation est une somme, car $x = p x + qx$.
+Ce point de vue donne
+$\binosum{p^k q^{n-k}} = 1$,
+puis
+$\sum_{j = 0}^{n} \proba{X = j} = 1$.
+
+
+
+% ----------------------- %
+
+
+%\medskip
+%
+%La méthode que nous venons de présenter est généralisable à d'autres contextes comme nous allons le constater dans la suite.
+ 

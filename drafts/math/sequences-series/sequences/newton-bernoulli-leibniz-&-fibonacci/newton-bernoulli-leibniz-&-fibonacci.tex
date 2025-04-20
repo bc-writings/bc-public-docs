@@ -568,7 +568,7 @@
 \ExplSyntaxOn
 
 \int_new:N \l_cbal_newton_power_int
-\int_new:N \l_cbal_newton_sub_power_str
+\int_new:N \l_cbal_newton_sub_power_int
 
 \NewDocumentCommand{ \devnew }{ m m m m }{
   \str_case:nnF {#2} {
@@ -585,11 +585,11 @@
     y^{#3}
   }
   
-  \int_set:Nn \l_cbal_newton_sub_power_str {#4}
+  \int_set:Nn \l_cbal_newton_sub_power_int {#4}
  
   \isnat{#1}{
     \int_set:Nn \l_cbal_newton_power_int {
-      #1 - \int_use:N \l_cbal_newton_sub_power_str
+      #1 - \int_use:N \l_cbal_newton_sub_power_int
     }
 
     \int_compare:nNnF \l_cbal_newton_power_int = 0 {
@@ -598,8 +598,47 @@
   }{
     (x+y)^{
       #1
-      \int_compare:nNnF \l_cbal_newton_sub_power_str = 0 {
-        - \int_use:N \l_cbal_newton_sub_power_str
+      \int_compare:nNnF \l_cbal_newton_sub_power_int = 0 {
+        - \int_use:N \l_cbal_newton_sub_power_int
+      }
+    }
+  }
+}
+
+\int_new:N \l_cbal_inv_newton_power_int
+\int_new:N \l_cbal_inv_newton_sub_power_int
+
+\NewDocumentCommand{ \invdevnew }{ m m m m }{
+  \str_case:nnF {#2} {
+    {0} {}
+    {1} {(x+y)}
+  }{
+    (x+y)^{#2}
+  }
+
+  \str_case:nnF {#3} {
+    {0} {}
+    {1} {(-y)}
+  }{
+    (-y)^{#3}
+  }
+  
+
+  \int_set:Nn \l_cbal_newton_sub_power_int {#4}
+ 
+  \isnat{#1}{
+    \int_set:Nn \l_cbal_newton_power_int {
+      #1 - \int_use:N \l_cbal_newton_sub_power_int
+    }
+
+    \int_compare:nNnF \l_cbal_newton_power_int = 0 {
+      x^{\int_use:N \l_cbal_newton_power_int}
+    }
+  }{
+    x^{
+      #1
+      \int_compare:nNnF \l_cbal_newton_sub_power_int = 0 {
+        - \int_use:N \l_cbal_newton_sub_power_int
       }
     }
   }
@@ -795,7 +834,7 @@
 
 \title{Newton, Bernoulli, Leibniz, Fibonacci et Bell}
 \author{Christophe BAL}
-\date{2 Avril 2025 - 17 Avril 2025}
+\date{2 Avril 2025 - 20 Avril 2025}
 
 \maketitle
 
@@ -894,7 +933,7 @@
     \subimport*{content/treeview}{fibonacci}
     
     
-    \subsection{Bell sonne la fin du jeu}
+    \subsection{Bell sonne la fin du jeu} \label{tree-bell}
     
     \subimport*{content/treeview}{bell}
     
@@ -908,6 +947,9 @@
 
 
 \section{La formule du binôme de Newton implique...}
+
+	Dans cette section, nous repartons de zéro pour retrouver les résultats précédents via une approche algébrique.
+
 
     \subsection{Un classique des identités algébriques}
     
@@ -924,11 +966,6 @@
     \subimport*{content/from-newton}{leibniz}
     
     
-    \subsection{Coefficients factoriels et combinatoires}
-    
-    \subimport*{content/from-newton}{factorial-combinatoric}
-    
-    
     \subsection{Fibonacci via Newton}
     
     \subimport*{content/from-newton}{fibonacci}
@@ -938,6 +975,11 @@
     
     \subimport*{content/from-newton}{bell}
 
+
+    \subsection{Coefficients factoriels et combinatoires}
+    
+    \subimport*{content/from-newton}{factorial-combinatoric}
+    
 
 % ----------------------- %
 

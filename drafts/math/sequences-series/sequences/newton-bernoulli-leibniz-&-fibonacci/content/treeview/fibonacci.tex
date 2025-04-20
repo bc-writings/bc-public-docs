@@ -1,9 +1,10 @@
-Pour la suite de Fibonacci, la règle de calcul est évidemment donnée par la relation de récurrence $F_{i} = F_{i-1} + F_{i-2}$, et pour les calculs intermédiaires, nous faisons apparaître ce qui a été soustrait à l'indice.
+Pour la suite de Fibonacci, de premiers termes $F_0 = 0$ et $F_1 = 1$, la règle de calcul est évidemment donnée par la relation de récurrence $F_{i} = F_{i-1} + F_{i-2}$,%
+et pour les calculs intermédiaires, nous faisons apparaître ce qui a été soustrait à l'indice.
 
 \explaintree{F_{i}}{F_{i-1}}{F_{i-2}}%
             {\intertree}{\fibo{i}}
 
-Pour valider $F_{2n} = \binosum{F_k}$, nous considérons un arbre binaire de niveau de profondeur $n$, et de racine le terme $F_{2n}$.
+Pour valider $F_{2n} = \binosum{F_k}$, nous considérons un arbre binaire de racine le terme $F_{2n}$, et de profondeur $n$.
 Ainsi, pour $n=3$, nous obtenons l'arbre suivant.
 
 \binotree{\fibo{3}}
@@ -59,7 +60,7 @@ $F_{2n} = \binosum{F_k}$ est validée.
     $F_{n} = \binosum{(-1)^{n-k} F_{n + k - (n - k)}}$,
     soit
     $F_{n} = \binosum{(-1)^{n-k} F_{2 k}}$.
-    Nous retombons sur la formule d'inversion de Pascal (voir la \refrem{binom-pascal-inv}):
+    Nous retombons sur la formule d'inversion de Pascal:
     choisir $a_n = F_n$ et $b_n = F_{2n}$. 
 \end{remark}
 
@@ -86,6 +87,7 @@ $F_{2n} = \binosum{F_k}$ est validée.
 	soit $U_{i} = p^{-1} U_{i+1} - p^{-1} q U_{i-1}$,
 	il est rapide d'obtenir
 	$U_n = \binosum{p^{-n} (-q)^{n-k} U_{2k}}$ (voir ci-dessous).
+	%
 	Ceci est une instance de la formule d'inversion de Pascal:
     passer via
     $a_n = p^n q^{-n} U_{n}$

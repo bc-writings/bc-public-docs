@@ -11,7 +11,8 @@ $\tabell = \tabell[n][p-1] + \tabell[n-1][p-1]$
 et
 $\tabell[1][1] = 1$,
 avec
-$\mathcal{B}$ une suite doublement indexée sur $\NN^2$.
+$\mathcal{B}$ une suite doublement indexée sur $\NN^2$
+(voir page \pageref{tree-bell}).
 Inspiré par la suite de Fibonacci, nous introduisons les ingrédients suivants.
 %
 %\newpage
@@ -29,12 +30,12 @@ Inspiré par la suite de Fibonacci, nous introduisons les ingrédients suivants.
 
 
 
-Prolongeons $\mathcal{B}$ sur $\ZZ^2 - \NN^2$ en posant $\tabell = 0$, de sorte que $\tabell = \tabell[n][p-1] + \tabell[n-1][p-1]$ reste valable sur $\ZZ^2$, et se réécrit $\mu_1^1(\mathcal{B}) = \mu_0^1(\mathcal{B}) + \mathcal{B}$.%
+Prolongeons $\mathcal{B}$ sur $\ZZ^2 - \NN^2$ en posant $\tabell = 0$, de sorte que $\tabell = \tabell[n][p-1] + \tabell[n-1][p-1]$ devient valable sur $\ZZ^2$, et se réécrit $\mu_1^1(\mathcal{B}) = \mu_0^1(\mathcal{B}) + \mathcal{B}$.%
 \footnote{
 	Noter la ressemblance avec $\mu_1^1(\mathcal{C}) = \mu_1^0(\mathcal{C}) + \mathcal{C}$.
 }
 %
-La formule du binôme de Newton nous donne ce qui suit.
+La formule du binôme de Newton donne ce qui suit.
 
 \begin{stepcalc}[style=sar]
 	\big( \tabell[m+n][p+n] \big)_{(p,m)\in\ZZ^2}
@@ -46,8 +47,8 @@ La formule du binôme de Newton nous donne ce qui suit.
     \big( \dsum_{k=0}^n \combi[n][k] (\mu_0^1)^k \circ \ident^{n-k} \big)(\mathcal{B})
 \explnext{}
     \big( \dsum_{k=0}^n \combi[n][k] \mu_0^k \big)(\mathcal{B})
-\explnext{}
-    \dsum_{k=0}^n \combi[n][k] \mu_0^k(\mathcal{B})
+%\explnext{}
+%    \dsum_{k=0}^n \combi[n][k] \mu_0^k(\mathcal{B})
 \explnext{}
     \big( \dsum_{k=0}^n \combi[n][k] \tabell[m+k][p] \big)_{(p,m)\in\ZZ^2}
 \end{stepcalc}
@@ -82,11 +83,16 @@ il suffit de choisir $p = m = 1$.
     $\tabell[n][0] = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} \tabell[k][k]$
     en considérant $(p,m) = (0,0)$,
     c'est-à-dire
-    $\tabell[n][0] = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} B_k$.
+    $\tabell[n][0] = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} B_k$,
+    une formule liant le nombre de partitions sans singleton aux nombres de Bell
+    (voir la section \ref{tree-bell} page \pageref{tree-bell}).
     %
-    Un autre cas d'utilisation intéressant de la formule précédente est celui pour lequel $(p,m) = (1,1)$, car ceci fait apparaître
+    Avec $(p,m) = (1,1)$, nous obtenons
     $\tabell[n+1][1] = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} \tabell[k+1][k+1]$,
     soit
     $B_n = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} B_{k+1}$
-   	qui est une instance de la formule d'inversion de Pascal (voir le \reffact{pascal-inv}).
+   	qui est une instance de la formule d'inversion de Pascal via
+    $a_n = B_n$
+    et
+    $b_n = B_{n+1}$.
 \end{remark}

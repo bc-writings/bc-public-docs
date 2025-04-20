@@ -17,8 +17,8 @@ $\emptyset \subset \setgene{1} \subset \ZintervalC{1}{2} \subset \cdots \subset 
     Arbre de calcul.
 \end{center}
 
-Considérons alors l'arbre binaire de niveau de profondeur $n$, et de racine l'ensemble vide $\emptyset$.
-Ainsi, pour $n=3$, nous obtenons l'arbre suivant.
+Considérons alors l'arbre binaire de racine l'ensemble vide $\emptyset$, et de profondeur $n$.
+Par exemple, pour $n=3$, nous obtenons l'arbre suivant.
 
 \begin{center}
     \itshape\centering
@@ -59,21 +59,35 @@ Nous obtenons alors $\combi = \binom{n}{p}$ pour $p \in \ZintervalC{0}{n}$.
 
 
 \begin{remark}
-	Il est très facile de deviner que 
-	$\combi[2n][n] = \sum_{k=0}^{n} \combi[n][k] \combi[n][n-k]$
-	en considérant deux sous-ensembles particuliers disjoints de cardinal $n$, choisis et fixés arbitrairement.
+	Nous aurions pu adopter un point de vue dual via  la chaîne décroissante d'ensembles
+	$\ZintervalC{1}{n} \supset \ZintervalC{1}{n-1} \supset \cdots \ZintervalC{1}{2} \supset \setgene{1} \supset \emptyset$,
+	et l'arbre de calcul \focus{inversé} suivant.
+    
+    \begin{center}
+    	\itshape\centering
+        
+        \calctree{\setgeo{E}}{\setgeo{E}}{\setgeo{E} - \setgene{k}}
+    
+        Arbre de calcul.
+    \end{center}
 \end{remark}
 
 
+% ----------------------- %
+
+
 \begin{remark}
-	L'identité 
-	$\binom{2n}{n} = \binosum{\binom{n}{n-k}}$
-	est un cas particulier de la formule de Van der Monde, à savoir de
+	Il est très facile de deviner que 
+	$\combi[2n][n] = \sum_{k=0}^{n} \combi[n][k] \combi[n][n-k]$ pour $n \in \NN$
+	en considérant deux sous-ensembles particuliers disjoints de cardinal $n$, choisis et fixés arbitrairement.
+	%
+	Plus généralement,
+	la formule de Van der Monde nous dit que
 	$\binom{m + n}{p} = \sum_{k=0}^p \binom{m}{k} \binom{n}{p-k}$
 	pour $(m ; n) \in \NN^2$ et $p \in \ZintervalC{0}{\min(n ; m)}$.
-	Comme à la fin de la remarque précédente, découvrir
+	Découvrir
 	$\combi[m + n][p] = \sum_{k=0}^p \combi[m][k] \combi[n][p-k]$
-	est aisé. 
+	est immédiat en considérant deux sous-ensembles particuliers disjoints de cardinal $m$ et $n$, choisis et fixés arbitrairement.
 \end{remark}
 
 

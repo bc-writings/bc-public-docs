@@ -1,8 +1,8 @@
 Notre objectif est d'obtenir
 $F_{m+2n} = \combisum{F_{m+k}}$
-où la suite de Fibonacci $F$ vérifie la relation de récurrence $F_{i} = F_{i-1} + F_{i-2}$.
+où la suite de Fibonacci $F$ vérifie $F_0 = 0$, $F_1 = 1$ et $F_{i} = F_{i-1} + F_{i-2}$.
 %
-Comme pour l'identité de Leibniz, nous allons raisonner en terme d'opérateurs linéaires via les ingrédients naturels suivants.
+De nouveau, nous allons raisonner en terme d'opérateurs linéaires via les ingrédients naturels suivants.
 %
 \begin{itemize}
 	\item $\ell(\ZZ , \RR)$ désigne l'ensemble des suites réelles indexées sur $\ZZ$.%
@@ -33,8 +33,8 @@ Dès lors, la conclusion se fait comme suit sans souci.
     \big( \dsum_{k=0}^n \combi[n][k] \sigma_1^k \circ \ident^{n-k} \big)(F)
 \explnext{}
     \big( \dsum_{k=0}^n \combi[n][k] \sigma_k \big)(F)
-\explnext{}
-    \dsum_{k=0}^n \combi[n][k] \sigma_k(F)
+%\explnext{}
+%    \dsum_{k=0}^n \combi[n][k] \sigma_k(F)
 \explnext{}
     \big( \dsum_{k=0}^n \combi[n][k] F_{m+k} \big)_{m\in\ZZ}
 \end{stepcalc}
@@ -54,13 +54,20 @@ Dès lors, la conclusion se fait comme suit sans souci.
         (\sigma_2 - \sigma_1)^n(F)
     \explnext*{$\sigma_1$ et $\sigma_2$ commutent.}{}
         \big( \dsum_{k=0}^n \combi[n][k] (-1)^{n-k} \sigma_2^k \circ \sigma_1^{n-k} \big)(F)
+%    \end{stepcalc}
+%    	
+%    \newpage
+%    Poursuivons notre calcul.
+%    
+%    \begin{stepcalc}[style=sar]
+%    	(F_m)_{m\in\ZZ}
 %    \explnext{}
 %        \big( \dsum_{k=0}^n \combi[n][k] (-1)^{n-k} \sigma_{2k} \circ \sigma_{n-k} \big)(F)
-    \explnext{}
-        \big( \dsum_{k=0}^n \combi[n][k] (-1)^{n-k} \sigma_{n + k} \big)(F)
+%    \explnext{}
+%        \big( \dsum_{k=0}^n \combi[n][k] (-1)^{n-k} \sigma_{n + k} \big)(F)
 %    \explnext{}
 %        \dsum_{k=0}^n \combi[n][k] (-1)^{n-k} \sigma_{n + k}(F)
-    \explnext{}
+    \explnext*{$\sigma_2^k \circ \sigma_1^{n-k} = \sigma_{n+k}$}{}
         \big( \dsum_{k=0}^n \combi[n][k] (-1)^{n-k} F_{m+n+k} \big)_{m\in\ZZ}
     \end{stepcalc}
     
@@ -89,7 +96,10 @@ Dès lors, la conclusion se fait comme suit sans souci.
     
     Le choix $m = 0$ fournit
     $F_n = \combisum{(-1)^{n-k} F_{2k}}$
-    qui correspond à l'utilisation de la formule d'inversion de Pascal (voir le \reffact{pascal-inv}).
+    qui correspond à une instance de la formule d'inversion de Pascal via
+    $a_n = F_n$
+    et
+    $b_n = F_{2n}$.
 \end{remark}
 
 
@@ -100,14 +110,15 @@ Dès lors, la conclusion se fait comme suit sans souci.
 	La généralisation à une suite récurrente vérifiant
 	$U_{i} = p U_{i-1} + q U_{i-2}$
 	ne pose pas de difficulté via
-	$\sigma_2(U) = p \sigma_1(U) + q U$.
-	Nous obtenons par exemple $U_{2n} = \binosum{p^k q^{n-k} U_{k}}$.
+	$\sigma_2(U) = p \sigma_1(U) + q U$
+	qui donne, sans effort, $U_{2n} = \combisum{p^k q^{n-k} U_{k}}$.
 	%
 	Si $p \neq 0$ et $q \neq 0$, alors
     $\sigma_1(U) = p^{-1}(\sigma_2(U) - q U)$
     donne
-    $U_n = \combisum{p^{-n} (-q)^{n-k} U_{2k}}$
-    via
-    $ U_{m+n}
-    = \sum_{k=0}^n \combi[n][k] p^{-n} (-q)^{n-k} U_{m+2k}$.
+    $U_n = \combisum{p^{-n} (-q)^{n-k} U_{2k}}$,
+    une instance de la formule d'inversion de Pascal via
+    $a_n = U_n$
+    et
+    $b_n = U_{2n}$.
 \end{remark}
