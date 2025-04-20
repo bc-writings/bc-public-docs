@@ -15,15 +15,14 @@ $\cnp = \cnp[n-1][p] = \cnp[n-1][p-1] = 0$,
 nous avons de nouveau
 $\cnp = \cnp[n-1][p] + \cnp[n-1][p-1]$.
 En résumé,
-$\cnp = \cnp[n-1][p] + \cnp[n-1][p-1]$ pour $(n;p) \in  (\NNs)^2$.%
+$\cnp = \cnp[n-1][p] + \cnp[n-1][p-1]$ pour $(p;n) \in (\NNs)^2$.%
 \footnote{
-	En raisonnant via des arbres binaires,
-	il est facile de justifier que 
-	$\binom{n}{p} = \binom{n-1}{p} + \binom{n-1}{p-1}$ sur $ (\NNs)^2$.
+	$\binom{n}{p} = \binom{n-1}{p} + \binom{n-1}{p-1}$ sur $ (\NNs)^2$
+	s'obtient via des arbres binaires.
 	Une récurrence donne alors 
 	$\cnp = \binom{n}{p}$ sur $\NN^2$.
 	%
-	Ceci étant noté, ici, nous cherchons juste à utiliser la définition de $\binom{n}{p}$ en effectuant le moins possible de calculs, et de raisonnements.
+	Ceci étant noté, nous souhaitons raisonner uniquement via des arbres.
 }
 Enfin,
 comme
@@ -31,7 +30,10 @@ $\cnp[n][0] = \cnp[n-1][0] = 1$,
 nous pouvons poser
 $\cnp = 0$ si $p < 0$
 pour obtenir
-$\cnp = \cnp[n-1][p] + \cnp[n-1][p-1]$ sur $\NNs \times \ZZ$.
+$\cnp = \cnp[n-1][p] + \cnp[n-1][p-1]$ sur $\ZZ \times \NNs$.%
+\footnote{
+	Prolonger $\cnp = \cnp[n-1][p] + \cnp[n-1][p-1]$ sur $\ZZ^2$ est plus problématique, car $\cnp[0][0] = \cnp[-1][0] + \cnp[-1][-1]$ a deux degrés de liberté.
+}
 %
 Ceci nous permet de considérer la situation suivante.
 

@@ -7,7 +7,7 @@ nous savons que ceci équivaut à démontrer que
 $\tabell[n+1][n+1] = \combisum{\tabell[k+1][1]}$,
 où
 $\tabell[n][n] = \tabell[n+1][1] = B_n$,
-$\tabell = \tabell[n][p-1] + \tabell[n-1][p-1]$
+$\tabell[n+1][p+1] = \tabell[n+1][p] + \tabell$ sur $\NN^2$,
 et
 $\tabell[1][1] = 1$,
 avec
@@ -17,31 +17,25 @@ Inspiré par la suite de Fibonacci, nous introduisons les ingrédients suivants.
 %
 %\newpage
 \begin{itemize}
-	\item $\ell(\ZZ^2 , \RR)$ désigne l'ensemble des suites réelles doublement indexées sur $\ZZ^2$.%
+	\item $\ell(\NN^2 , \RR)$ désigne l'ensemble des suites réelles doublement indexées sur $\ZZ^2$.%
 	\footnote{
 		Ici aussi, si besoin, $\RR$ peut être remplacé par un anneau commutatif de son choix.
 	}
 
-	\item $\setalge{A} = \Endo \big( \ell(\ZZ^2 , \RR) \big)$ est l'ensemble des endomorphismes linéaires de $\ell(\ZZ^2 , \RR)$ muni de l'addition $+$ point par point, et de la composition $\circ$ comme produit.
+	\item $\setalge{A} = \Endo \big( \ell(\NN^2 , \RR) \big)$ est l'ensemble des endomorphismes linéaires de $\ell(\NN^2 , \RR)$ muni de l'addition $+$ point par point, et de la composition $\circ$ comme produit.
 
-	\item $\mu_a^b \in \setalge{A}$ désigne pour $(a,b) \in \ZZ^2$ un opérateur de décalage qui à la suite $(w_p^m)_{(p,m)\in\ZZ^2}$ associe la suite $(w_{p+a}^{m+b})_{(p,m)\in\ZZ^2}$.
+	\item Pour $(a,b) \in \NN^2$, $\mu_a^b \in \setalge{A}$ désigne un opérateur partiel de décalage qui à la suite $(w_p^m)_{(p,m) \in \NN^2}$ associe la suite $(w_{p+a}^{m+b})_{(p,m) \in \NN^2}$.
 \end{itemize}
 
 
-
-
-Prolongeons $\mathcal{B}$ sur $\ZZ^2 - \NN^2$ en posant $\tabell = 0$, de sorte que $\tabell = \tabell[n][p-1] + \tabell[n-1][p-1]$ devient valable sur $\ZZ^2$, et se réécrit $\mu_1^1(\mathcal{B}) = \mu_0^1(\mathcal{B}) + \mathcal{B}$.%
-\footnote{
-	Noter la ressemblance avec $\mu_1^1(\mathcal{C}) = \mu_1^0(\mathcal{C}) + \mathcal{C}$.
-}
-%
-La formule du binôme de Newton donne ce qui suit.
+La formule de récurrence se réécrit $\mu_1^1(\mathcal{B}) = \mu_0^1(\mathcal{B}) + \mathcal{B}$,
+puis, via le binôme de Newton, nous obtenons ce qui suit.
 
 \begin{stepcalc}[style=sar]
-	\big( \tabell[m+n][p+n] \big)_{(p,m)\in\ZZ^2}
+	\big( \tabell[m+n][p+n] \big)_{(p,m) \in \NN^2}
 \explnext{}
     ( \mu_1^1 )^n(\mathcal{B})
-\explnext*{$\ident$ est l'application identité sur $\ell(\ZZ^2 , \RR)$.}{}
+\explnext*{$\ident$ est l'application identité sur $\ell(\NN^2 , \RR)$.}{}
     (\mu_0^1 + \ident)^n(\mathcal{B})
 \explnext*{$\mu_0^1$ et $\ident$ commutent.}{}
     \big( \dsum_{k=0}^n \combi[n][k] (\mu_0^1)^k \circ \ident^{n-k} \big)(\mathcal{B})
@@ -50,7 +44,7 @@ La formule du binôme de Newton donne ce qui suit.
 %\explnext{}
 %    \dsum_{k=0}^n \combi[n][k] \mu_0^k(\mathcal{B})
 \explnext{}
-    \big( \dsum_{k=0}^n \combi[n][k] \tabell[m+k][p] \big)_{(p,m)\in\ZZ^2}
+    \big( \dsum_{k=0}^n \combi[n][k] \tabell[m+k][p] \big)_{(p,m) \in \NN^2}
 \end{stepcalc}
 
 Pour conclure,
@@ -66,7 +60,7 @@ il suffit de choisir $p = m = 1$.
 	Partons de $\mu_0^1(\mathcal{B}) = \mu_1^1(\mathcal{B}) -\mathcal{B}$.
 
     \begin{stepcalc}[style=sar]
-    	\big( \tabell[m+n][p] \big)_{(p,m)\in\ZZ^2}
+    	\big( \tabell[m+n][p] \big)_{(p,m) \in \NN^2}
     \explnext{}
         ( \mu_0^1 )^n(\mathcal{B})
     \explnext{}
@@ -74,7 +68,7 @@ il suffit de choisir $p = m = 1$.
     \explnext{}
         \big( \dsum_{k=0}^n \combi[n][k] (-1)^{n-k} \mu_k^k \big)(\mathcal{B})
     \explnext{}
-        \big( \dsum_{k=0}^n \combi[n][k] (-1)^{n-k} \tabell[m+k][p+k] \big)_{(p,m)\in\ZZ^2}
+        \big( \dsum_{k=0}^n \combi[n][k] (-1)^{n-k} \tabell[m+k][p+k] \big)_{(p,m) \in \NN^2}
     \end{stepcalc}
     
     Donc
