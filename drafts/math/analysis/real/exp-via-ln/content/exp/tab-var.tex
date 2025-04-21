@@ -1,0 +1,19 @@
+\begin{fact} \label{ln-tab-var}
+	La fonction $\exp$ admet le tableau de variations suivant.
+	%
+	\begin{center}
+        \begin{tikzpicture}
+            \tkzTabInit{
+            	$x$      / 1 , 
+				$\exp x$  / 1.5
+			}{$0$, $+\infty$}
+
+            \tkzTabVar{-/ {\small$0$}, +/ {\small$+\infty$}}
+        \end{tikzpicture}
+	\end{center}
+\end{fact}
+
+
+\begin{proof}
+	Il suffit de combiner les \reffacts{exp-sym-ln} et \ref{ln-tab-var}.
+\end{proof}

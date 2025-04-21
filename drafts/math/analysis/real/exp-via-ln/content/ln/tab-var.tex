@@ -1,0 +1,19 @@
+\begin{fact} \label{ln-rab-var}
+	La fonction $\ln$ admet le tableau de variations suivant.
+	%
+	\begin{center}
+        \begin{tikzpicture}
+            \tkzTabInit{
+            	$x$      / 1 , 
+				$\ln x$  / 1.5
+			}{$0$, $+\infty$}
+
+            \tkzTabVar{D-/ {\small$-\infty$}, +/ {\small$+\infty$}}
+        \end{tikzpicture}
+	\end{center}
+\end{fact}
+
+
+\begin{proof}
+	Grâce au fait \reffact{ln-mono}, il nous reste juste à calculer les limites.
+\end{proof}
