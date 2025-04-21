@@ -1,6 +1,6 @@
 \begin{fact}
 	$\forall c \in \RR$,
-	$\exists! x \in \RRsp$ tel que 
+	$\exists\kern1pt! x \in \RRsp$ tel que 
 	$\ln x = c$.
 \end{fact}
 
@@ -10,7 +10,7 @@
 
 \begin{defi}
 	$\forall c \in \RR$, 
-	l'unique solution de $\ln x = c$ est noté $\exp c$.
+	l'unique solution de $\ln x = c$ est notée $\exp c$.
 	%
 	On définit ainsi sur $\RR$ une fonction $\exp$ nommée \focus{exponentielle}.
 \end{defi}
@@ -40,10 +40,22 @@
 \begin{fact}
 	Soient $\setproba{L}$ et $\setproba{E}$ les représentations graphiques respectives des fonctions $\ln$ et $\exp$.
 	%
-	Les courbes $\setproba{L}$ et $\setproba{E}$ sont symétriques orthogonalement par rapport à la 1\iere\ bissectrice $\Delta: y = x$.
+	Les courbes $\setproba{L}$ et $\setproba{E}$ sont symétriques par rapport à la 1\iere\ bissectrice $\Delta: y = x$.
 \end{fact}
 
 
-\begin{proof}	
-	XXXX
+\begin{proof}
+	Considérons $A(a;\exp a) \in \setproba{E}$.
+	Notons $b = \exp a$, nous savons que $a = \ln b$.
+	Ceci amène à considérer $B(b;\ln b) \in \setproba{L}$,
+	c'est-à-dire $B(\exp a;a)$.
+	%
+	Or,
+	$A(x_A;y_A)$ et $B(y_A;x_A)$ sont symétriques par rapport à $\Delta$ (coordonnées d'un milieu, et critère d'orthogonalité).
+	Il ne faut pas oublier de considérer $B(b;\ln b) \in \setproba{L}$, mais cela se traite de façon similaire.
+
+
+	\begin{center}
+		\includegraphics[scale=.85]{content/exp/graph.png}
+	\end{center}
 \end{proof}
