@@ -4,6 +4,15 @@
 
 \hypersetup{hidelinks}
 
+
+\AddToHook{env/stepcalc/before}{\smallskip}
+\AddToHook{env/stepcalc/after}{\smallskip}
+
+
+\newcommand{\rdc}{relation de Chalses intégrale}
+\newcommand{\tvi}{TVI}
+
+
 \begin{document}
 
 
@@ -50,8 +59,34 @@
 \newpage
 
 \begin{meta-abstract*}
-	L’objectif de ce texte est de construire la fonction $\exp$ de la manière la plus simple possible, en utilisant uniquement des notions connues d'un lycéen en 2025.
+	Ce texte construit les fonctions $\ln$, logarithme népérien, et $\exp$, exponentielle, le plus simplement possible en utilisant juste des notions connues d'un lycéen scientifique en 2025.
 \end{meta-abstract*}
+
+
+% ----------------------- %
+
+
+\section{Ingrédients utilisés}
+
+Dans ce document,
+nous supposons connues les notions
+de fonctions monotones,
+de dérivabilité,
+de continuité,
+et
+d'intégrale d'une fonction réelle continue.
+%
+Dans les sous-sections suivantes, où $I \subseteq \RR$ désignera toujours un intervalle, nous donnons des faits que nous utiliserons sans les redémontrer.
+
+
+	\subsection{Une once d'analyse réelle}
+
+	\subimport*{content/}{facts-used/ana}
+
+
+	\subsection{Un iota de calcul intégral}
+
+	\subimport*{content/}{facts-used/int}
 
 
 % ----------------------- %
@@ -87,6 +122,5 @@
 	\subsection{Equation différentielle}
 
 	\subimport*{content/}{exp/eq-diff}
-
 
 \end{document}

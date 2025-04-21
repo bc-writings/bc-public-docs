@@ -6,12 +6,94 @@
 % ----------------------- %
 
 
+\begin{fact} \label{ln-mono}
+	La fonction $\ln$ est strictement croissante sur $\RRsp$.
+\end{fact}
+
+
+\begin{proof}
+	Soit $(a;b) \in \RRsp$ tel que $b > a$. Ce qui suit permet de conclure.
+	
+	\begin{stepcalc}[style=sar]
+		\ln b - \ln a
+	\explnext{}
+		\integrate*{\frac1t}{t}{1}{b} - \integrate*{\frac1t}{t}{1}{a}
+	\explnext*{Voir le \reffact{int-dir}.}{}
+		\integrate*{\frac1t}{t}{a}{1} + \integrate*{\frac1t}{t}{1}{b}
+	\explnext*{Voir le \reffact{int-rdc}.}{}
+		\integrate*{\frac1t}{t}{a}{b}
+	\explnext*[>]{Voir le \reffact{int-pos}.}{}
+		0
+	\end{stepcalc}
+	
+	\null
+	\vspace{-4ex}
+\end{proof}
+
+
+% ----------------------- %
+
+
 \begin{fact}
 	$\forall x \in \RRsp$,
 	$\sder{\ln}{1} x = \frac1x$.
 	%
 	En particulier,
-	la fonction $\ln$ est strictement croissante sur $\RRsp$,
-	et
-	sa représentation graphique n'admet aucune tangente horizontale.
+	la représentation graphique $\setproba{L}$ de la fonction $\ln$ n'admet aucune tangente horizontale.
 \end{fact}
+
+
+\begin{proof}
+	Seule l'identité $\sder{\ln}{1} x = \frac1x$ demande à être justifiée.
+	%
+	Bien que cela soit une instance du théorème fondamental de l'analyse, nous allons le démontrer à la main, car ici cela ne pose aucune difficulté.%
+	\footnote{
+		Ce qui suit s'adapte sans effeort à toute fonction monotone.
+	}
+	%
+	Considérons donc le taux d'accroissement $T(h) = \frac{\ln(a+h) - \ln a}{h}$ où $a > 0$ est fixé,
+	et
+	$h \in \intervalO{-a}{a} - \setgene{0}$ variable.
+	%
+	Commençons par le petit calcul suivant.
+
+	\begin{stepcalc}[style=sar]
+		T(h)
+	\explnext{}
+		\dfrac{1}{h} \Big(
+			\dintegrate*{\frac1t}{t}{1}{a+h} - \dintegrate*{\frac1t}{t}{1}{a}
+		\Big)
+	\explnext*{Voir les \reffacts{int-dir} et \ref{int-rdc}.}{}
+		\dfrac{1}{h} \dintegrate*{\frac1t}{t}{a}{a+h}
+	\end{stepcalc}
+	
+	Nous avons ensuite les implications logiques suivantes lorsque $h > 0$.
+	
+	\begin{stepcalc}[style=ar*, ope=\implies]
+		\big[\,
+			\text{$x \in \RRsp \mapsto \dfrac1x \in \RRsp$ est strictement décroissance}
+		\,\big]
+	\explnext{}
+		\forall x \in \intervalC{a}{a+h},
+		\dfrac{1}{a+h} \leq \dfrac1x \leq \dfrac1a
+	\explnext*{Voir le \reffact{int-mono} ($a+h > a$, car $h >0$).}{}
+		     \dintegrate*{\dfrac{1}{a+h}}{t}{a}{a+h}
+		\leq \dintegrate*{\dfrac1t}      {t}{a}{a+h}
+		\leq \dintegrate*{\dfrac1a}      {t}{a}{a+h}
+	\explnext{}
+	    \dfrac{h}{a+h} \leq h T(h) \leq \dfrac{h}{a}
+	\explnext*{$h > 0$}{}
+		\dfrac{1}{a+h} \leq T(h)\leq \dfrac{1}{a}
+	\end{stepcalc}
+	
+	Via le théorème des gendarmes, voir le \reffact{lim-cops}, nous obtenons:
+	$\limit{T(h)}{h}{0^+} = \frac1a$.
+
+	Lorsque $h < 0$, nous obtenons:
+	$\dfrac{1}{a} \leq T(h) \leq \dfrac{1}{a+h}$,
+	puis
+	$\limit{T(h)}{h}{0^-} = \frac1a$.
+	
+	Finalement,
+	$\limit{T(h)}{h}{0} = \frac1a$, ce qui achève la démonstration.
+\end{proof}

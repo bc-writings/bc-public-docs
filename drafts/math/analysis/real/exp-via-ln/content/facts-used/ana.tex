@@ -1,0 +1,36 @@
+\begin{fact}[Théorème des gendarmes, ou du sandwich] \label{lim-cops}
+	Soient
+	$f: I \to \RR$,
+	$g: I \to \RR$,
+	et
+	$h: I \to \RR$
+	trois fonctions telles que
+	$f(x) \leq g(x) \leq h(x)$ sur $I$,
+	ainsi que
+	$a \in I$.
+	%
+	Nous avons l'implication logique suivante.
+	%
+	\[
+		\big[\,
+			\text{$\exists \ell \in \RR$ tel que
+			      $\limit{f(x)}{x}{a | x \in I} = \ell$,
+			      et
+			      $\limit{h(x)}{x}{a | x \in I} = \ell$}
+		\,\big]
+		\implies
+		\limit{g(x)}{x}{a | x \in I} = \ell
+	\]
+\end{fact}
+
+
+% ----------------------- %
+
+
+\begin{fact}[TVI, ou théorème des valeurs intérmédiaires] \label{tvi}
+	Soit
+	$f: I \to \RR$ une fonction continue.
+	%
+	L'ensemble $f[I] = \setgene{f(x) \text{ pour } x \in I}$ est un intervalle ($f[I]$ est l'ensemble des images par $f$ des réels appartenant à $I$).
+\end{fact}
+

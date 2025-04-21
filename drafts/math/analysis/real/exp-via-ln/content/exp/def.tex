@@ -1,16 +1,28 @@
 \begin{fact}
-	$\forall c \in \RR$,
-	$\exists\kern1pt! x \in \RRsp$ tel que 
-	$\ln x = c$.
+	$\forall q \in \RR$,
+	$\exists\kern1pt! p \in \RRsp$ tel que 
+	$\ln p = q$.
 \end{fact}
+
+
+\begin{proof}
+	L'unicité découlant de la stricte croissance de la fonction $\ln$, voir le \reffact{ln-mono}, il reste à établir l'existence d'une solution de $\ln x = q$ pour $q \in \RR$ fixé.
+	
+	
+	
+	XXXX
+	
+	le \tvi, voir le \reffact{tvi}.
+	
+\end{proof}
 
 
 % ----------------------- %
 
 
 \begin{defi}
-	$\forall c \in \RR$, 
-	l'unique solution de $\ln x = c$ est notée $\exp c$.
+	$\forall q \in \RR$, 
+	l'unique solution de $\ln x = q$ est notée $\exp q$.
 	%
 	On définit ainsi sur $\RR$ une fonction $\exp$ nommée \focus{exponentielle}.
 \end{defi}
@@ -51,8 +63,12 @@
 	c'est-à-dire $B(\exp a;a)$.
 	%
 	Or,
-	$A(x_A;y_A)$ et $B(y_A;x_A)$ sont symétriques par rapport à $\Delta$ (coordonnées d'un milieu, et critère d'orthogonalité).
-	Il ne faut pas oublier de considérer $B(b;\ln b) \in \setproba{L}$, mais cela se traite de façon similaire.
+	$A(x_A;y_A)$ et $B(y_A;x_A)$ sont symétriques par rapport à $\Delta$ (coordonnées d'un milieu, et critère d'orthogonalité).%
+	\footnote{
+		De façon plus élémentaire, nous pourrions raisonner via les triangles visibles sur le graphique en justifiant qu'ils sont tous carrés.
+	}
+	Réciproquement, il faut considérer $B(b;\ln b) \in \setproba{L}$.
+	Ceci se traite de façon similaire.
 
 
 	\begin{center}
