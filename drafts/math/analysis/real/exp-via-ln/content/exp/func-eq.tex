@@ -11,11 +11,14 @@
 		\ln \big( \exp(a + b) \,\big)
 	\explnext*{Définition de la fonction $\exp$.}{}
 		a + b
-	\explnext*{Définition de la fonction $\exp$.}{}
+	\explnext*{Idem.}{}
 		\ln(\exp a) + \ln(\exp b)
-	\explnext*{Équation fonctionnelle validée par la fonction $\ln$.}{}
+	\explnext*{Équation fonctionnelle de la fonction $\ln$.}{}
 		\ln(\exp a \cdot \exp b)
 	\end{stepcalc}
+
+	\null
+	\vspace{-4ex}
 \end{proof}
 
 
@@ -35,10 +38,10 @@
 	Deux méthodes s'offrent à nous.
 	
 	\smallskip
-	\textbf{Méthode 1.} En utilisant le \reffact{ln-id}.
+	\textbf{Méthode 1.} En utilisant le \reffact{ln-id} (identités vérifiées par $\ln$).
 	%
 	\begin{itemize}
-		\item $\ln(A^n) = n \ln A$ appliquée à $A = \exp a$ donne
+		\item $\ln(\alpha^n) = n \ln \alpha$ appliquée à $\alpha = \exp a$ donne
 		$\ln(\,(\exp a)^n\,) = n \ln(\exp a) = n a$.
 		Une application de $\exp$ donne
 		$\exp\big( \ln(\,(\exp a)^n\,) \big) = \exp(n a)$,
@@ -46,7 +49,7 @@
 		$(\exp a)^n = \exp(n a)$.
 
 
-		\item $\ln(\frac1A) = - \ln A$ appliquée à $A = \exp a$ donne
+		\item $\ln(\frac{1}{\alpha}) = - \ln \alpha$ appliquée à $\alpha = \exp a$ donne
 		$\ln(\frac{1}{\exp a}) = - \ln(\exp a) = - a$.
 		Une application de $\exp$ donne
 		$\exp\big( \ln(\frac{1}{\exp a}) \big) = \exp(- a)$,
@@ -64,4 +67,7 @@
 
 		\item Pour l'identité $(\exp a)^n = \exp(n a)$, une récurrence donne le résultat sur $\NN$, puis le passage à $\ZZn$ se fait via $(\exp a)^{-n} = \frac{1}{(\exp a)^n}$.
 	\end{itemize}
+	
+	\null
+	\vspace{-5ex}
 \end{proof}

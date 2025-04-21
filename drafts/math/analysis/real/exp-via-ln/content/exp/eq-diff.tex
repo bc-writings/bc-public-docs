@@ -15,18 +15,22 @@
 	Par symétrie, nous avons
 	$B(\exp a ; a) \in \setproba{L}$ et $N(\exp(a+h) ; a+h) \in \setproba{L}$.
 	
-	Examinons si le taux d'accroissement $\frac{\exp(a+h) - \exp a}{h}$ admet une limite en $0$.
-	Ce quotient est la pente $m(AM)$ de la droite $(AM)$,
+	Soit $T(h) = \frac{\exp(a+h) - \exp a}{h}$.
+	Ce taux d'accroissement est la pente $m(AM)$ de la droite $(AM)$,
 	or $m(AM) = \frac{1}{m(BN)}$.
 	%
 	En raisonnant sur $\setproba{L}$, faire tendre $h$ vers $0$ n'est possible que si $x(N)$ tend vers $x(B)$.
-	Comme $\ln$ est dérivable en $x(B)$, nous obtenons $\limit{(m(BN))}{h}{0} = \der{\ln}{x}{1}(x(B)) = \frac{1}{\exp a}$.
-	%
+	Comme $\ln$ est dérivable en $x(B)$, nous obtenons $\limit{m(BN)}{h}{0} = \der{\ln}{x}{1}(x(B)) = \frac{1}{\exp a}$.
+	
+
 	Finalement,
-	$\limit{(\frac{\exp(a+h) - \exp a}{h})}{h}{0} = \exp a$
+	$\limit{T(h)}{h}{0} = \exp a$
 	comme souhaité.
 
 	\begin{center}
 		\includegraphics[scale=.85]{content/exp/eq-diff.png}
 	\end{center}
+	
+	\null
+	\vspace{-6.5ex}
 \end{proof}
