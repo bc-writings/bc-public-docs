@@ -66,7 +66,7 @@
 	$f(x) = \ln(a x) - \ln a - \ln x$.
 	%
 	La seule possibilité qui s'offre à nous est de dériver:
-	$\der{f}{x}{1}(x) = a \times \frac{1}{a x} - \frac1x = 0$.
+	$\der{f}{x}{1}(x) = a \cdot \frac{1}{a x} - \frac1x = 0$.
 	%
 	Or,
 	une fonction de dérivée nulle sur un intervalle $I$ est forcément constante sur $I$,
@@ -80,3 +80,21 @@
 \qed
 }
 
+
+% ----------------------- %
+
+
+\begin{fact} \label{ln-id}
+	$\forall (a;n) \in \RRsp \times \ZZ$,
+	nous avons
+	$\ln(a^n) = n \ln a$,
+	et
+	$\ln(\frac1a) = - \ln a$.
+\end{fact}
+
+
+\begin{proof}
+	De $\ln(a \cdot \frac1a) = \ln a + \ln(\frac1a)$, nous déduisons $\ln(\frac1a) = - \ln a$.
+	%
+	Quant à l'identité $\ln(a^n) = n \ln a$, une récurrence donne le résultat sur $\NN$, puis $\ln(a^{-n}) = -\ln(a^n)$ permet de passer à $\ZZn$.
+\end{proof}

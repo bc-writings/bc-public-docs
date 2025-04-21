@@ -1,5 +1,5 @@
 \begin{fact}
-	$\forall (a;b) \in \big( \RR \big)^2$,
+	$\forall (a;b) \in \RR^2$,
 	$\exp(a + b) = \exp a \cdot \exp b$.
 \end{fact}
 
@@ -16,4 +16,52 @@
 	\explnext*{Équation fonctionnelle validée par la fonction $\ln$.}{}
 		\ln(\exp a \cdot \exp b)
 	\end{stepcalc}
+\end{proof}
+
+
+% ----------------------- %
+
+
+\begin{fact} \label{exp-id}
+	$\forall (a;n) \in \RRsp \times \ZZ$,
+	nous avons
+	$(\exp a)^n = \exp(n a)$,
+	et
+	$\frac{1}{\exp a} = \exp(- a)$.
+\end{fact}
+
+
+\begin{proof}
+	Deux méthodes s'offrent à nous.
+	
+	\smallskip
+	\textbf{Méthode 1.} En utilisant le \reffact{ln-id}.
+	%
+	\begin{itemize}
+		\item $\ln(A^n) = n \ln A$ appliquée à $A = \exp a$ donne
+		$\ln(\,(\exp a)^n\,) = n \ln(\exp a) = n a$.
+		Une application de $\exp$ donne
+		$\exp\big( \ln(\,(\exp a)^n\,) \big) = \exp(n a)$,
+		soit
+		$(\exp a)^n = \exp(n a)$.
+
+
+		\item $\ln(\frac1A) = - \ln A$ appliquée à $A = \exp a$ donne
+		$\ln(\frac{1}{\exp a}) = - \ln(\exp a) = - a$.
+		Une application de $\exp$ donne
+		$\exp\big( \ln(\frac{1}{\exp a}) \big) = \exp(- a)$,
+		soit
+		$\frac{1}{\exp a} = \exp(- a)$.		
+	\end{itemize}
+
+	
+	\smallskip
+	\textbf{Méthode 2.} Sans passer via le \reffact{ln-id}.
+	%
+	\begin{itemize}
+		\item De $\exp(a - a) = \exp a \cdot \exp(- a)$, nous déduisons $\frac{1}{\exp a} = \exp(- a)$.
+
+
+		\item Pour l'identité $(\exp a)^n = \exp(n a)$, une récurrence donne le résultat sur $\NN$, puis le passage à $\ZZn$ se fait via $(\exp a)^{-n} = \frac{1}{(\exp a)^n}$.
+	\end{itemize}
 \end{proof}
