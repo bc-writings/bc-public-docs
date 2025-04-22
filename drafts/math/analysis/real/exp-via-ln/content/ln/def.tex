@@ -8,7 +8,7 @@
 % ----------------------- %
 
 
-\begin{fact} \label{ln-mono}
+\begin{fact}[Monotonie sans dérivée] \label{ln-mono}
 	La fonction $\ln$ est strictement croissante sur $\RRsp$.
 \end{fact}
 
@@ -36,28 +36,25 @@
 % ----------------------- %
 
 
-\begin{fact}
+\begin{fact} \label{ln-der}
 	$\forall x \in \RRsp$,
-	$\sder{\ln}{1} x = \frac1x$.
-	%
-	En particulier,
-	la représentation graphique $\setproba{L}$ de la fonction $\ln$ n'admet aucune tangente horizontale.
+	$\sder{\ln}{1} x = \frac1x$
+	(ceci redonne la stricte croissance de $\ln$).
 \end{fact}
 
 
 \begin{proof}
-	Seule l'identité $\sder{\ln}{1} x = \frac1x$ demande à être justifiée.
-	%
-	Bien que cela soit une instance du théorème fondamental de l'analyse, nous allons le démontrer à la main, car ici cela ne pose aucune difficulté.%
+	Un argument massif est l'emploi du théorème fondamental de l'analyse.
+	Il se trouve que nous pouvons démontrer $\sder{\ln}{1} x = \frac1x$ à la main.%
 	\footnote{
-		Ce qui suit s'adapte sans effeort à toute fonction monotone.
+		Ce qui suit s'adapte sans effort à toute fonction monotone, et s'élargit ensuite en une preuve du théorème fondamental de l'analyse.
 	}
 	%
-	Considérons donc le taux d'accroissement $T(h) = \frac{\ln(a+h) - \ln a}{h}$ où $a > 0$ est fixé,
+	Pour cela, considérons le taux d'accroissement $T(h) = \frac{\ln(a+h) - \ln a}{h}$ où $a > 0$ est fixé,
 	et
-	$h \in \intervalO{-a}{a} - \setgene{0}$ variable.
-	%
-	Commençons par le petit calcul suivant.
+	$h \in \intervalO{-a}{a} - \setgene{0}$ variable,
+	puis
+	faisons le petit calcul suivant.
 
 	\begin{stepcalc}[style=sar]
 		T(h)
@@ -92,7 +89,7 @@
 	$\limit{T(h)}{h}{0^+} = \frac1a$.
 
 	Lorsque $h < 0$, nous obtenons:
-	$\dfrac{1}{a} \leq T(h) \leq \dfrac{1}{a+h}$,
+	$\frac{1}{a} \leq T(h) \leq \frac{1}{a+h}$,
 	puis
 	$\limit{T(h)}{h}{0^-} = \frac1a$.
 	
