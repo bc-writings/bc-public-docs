@@ -1,3 +1,0 @@
-module = "pkg"
-
-sourcefiles={"*.sty"}

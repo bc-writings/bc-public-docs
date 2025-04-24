@@ -1,3 +1,0 @@
-Bezos_TipsAndTricksForTitlesec[doNotPrint]
-titlesec[doNotPrint]
-titlesecex[doNotPrint]

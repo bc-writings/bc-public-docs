@@ -1,3 +1,0 @@
-pgfmanual
-pgfplots
-tikz-qtree-manual

@@ -1,5 +1,0 @@
-background
-DOCpas-diagtext
-graphicxbox
-watermark
-xwatermark-guide

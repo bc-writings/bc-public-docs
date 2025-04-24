@@ -1,6 +1,0 @@
-bclogo
-crbox-doc
-fancybox-doc
-hf-tikz [for formulas]
-mdframed
-tcolorbox

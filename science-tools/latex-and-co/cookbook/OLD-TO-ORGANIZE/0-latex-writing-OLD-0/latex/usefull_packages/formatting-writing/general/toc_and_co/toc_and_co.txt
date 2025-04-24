@@ -1,5 +1,0 @@
-tableof
-appendix
-etoc
-nomencl
-tableof

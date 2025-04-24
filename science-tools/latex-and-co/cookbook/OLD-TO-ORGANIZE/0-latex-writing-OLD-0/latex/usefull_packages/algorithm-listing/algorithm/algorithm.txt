@@ -1,3 +1,0 @@
-algorithm2e
-algorithmicx
-clrscode3e

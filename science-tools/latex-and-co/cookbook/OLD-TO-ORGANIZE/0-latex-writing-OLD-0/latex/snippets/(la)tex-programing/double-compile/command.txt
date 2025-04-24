@@ -1,1 +1,0 @@
-pdflatex -jobname "compile-1" "\RequirePackage{etoolbox}\newbool{test}\setbool{test}{true}\input{test}" && pdflatex -jobname "compile-2" "\RequirePackage{etoolbox}\newbool{test}\setbool{test}{false}\input{test}"

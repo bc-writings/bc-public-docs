@@ -1,1 +1,0 @@
-pandoc test.md -s --mathml -o test.html

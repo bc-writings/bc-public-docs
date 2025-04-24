@@ -1,1 +1,0 @@
-latex test.tex && latex test.tex && latex test.tex && dvisvgm --no-fonts test.dvi &&  rm test.dvi &&  latexmk -c test.tex

@@ -1,5 +1,0 @@
-fancyslides
-beamer
-Lecturer
-ocgx
-powerdot

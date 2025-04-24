@@ -1,2 +1,0 @@
-flipbook-doc
-flipbook-ex

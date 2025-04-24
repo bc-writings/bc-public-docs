@@ -1,3 +1,0 @@
-drawstack
-flowchart
-pgf-umlcd-manual

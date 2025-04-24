@@ -1,8 +1,0 @@
-breqn
-empheq
-hf-tikz
-nccmath
-resizegather
-scalerel
-systeme_doc_fr
-tkz-linknodes-screen

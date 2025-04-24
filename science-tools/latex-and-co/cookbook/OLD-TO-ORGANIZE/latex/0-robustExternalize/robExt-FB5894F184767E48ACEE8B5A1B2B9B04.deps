@@ -1,3 +1,0 @@
-command,wget "http://placekitten.com/400/303" -O "__ROBEXT_OUTPUT_PDF__-tmp" && mv "__ROBEXT_OUTPUT_PDF__-tmp" "__ROBEXT_OUTPUT_PDF__"
-68B329DA9893E34099C7D8AD5CB9C940,
-

@@ -1,8 +1,0 @@
-%% fonte de la TI telechargeable en ttf sur ti.com
-
-\ProvidesFile{uti82statsfr.fd}[fontes de la TI82fr]
-
-\DeclareFontFamily{U}{ti82statsfr}{}
-\DeclareFontShape{U}{ti82statsfr}{m}{n}{<-> ti82statsfr}{}
-
-\endinput

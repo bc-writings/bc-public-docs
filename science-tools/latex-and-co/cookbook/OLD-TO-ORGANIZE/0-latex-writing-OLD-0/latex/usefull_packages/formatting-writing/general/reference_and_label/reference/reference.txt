@@ -1,5 +1,0 @@
-autonum [usefull for equations !]
-cleveref
-fancylabel
-varioref [printed]
-xr

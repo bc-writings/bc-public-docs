@@ -1,8 +1,0 @@
-caption-eng
-copyrightbox
-easyfig
-float
-floatrow
-subfig
-subfigure
-trivfloat

@@ -1,5 +1,0 @@
-docbmat
-docvariations
-tablor
-tabvar
-tkz-tab-screen

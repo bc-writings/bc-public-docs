@@ -1,6 +1,0 @@
-bigfoot
-endnotes
-footmisc
-ftnright
-manyfoot
-nccfoots

@@ -1,7 +1,0 @@
-battleship
-diagram
-epsdice
-games-doc
-havannah
-labyrinth
-logicpuzzle

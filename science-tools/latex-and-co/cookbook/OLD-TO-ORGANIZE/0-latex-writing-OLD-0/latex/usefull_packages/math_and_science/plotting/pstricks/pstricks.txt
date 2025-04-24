@@ -1,4 +1,0 @@
-auto-pst-pdf
-pst-node
-pstool
-pstricks-add-doc
