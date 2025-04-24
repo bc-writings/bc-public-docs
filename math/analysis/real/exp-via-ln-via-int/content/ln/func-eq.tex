@@ -10,7 +10,7 @@
 	(voit le \reffact{int-rdc}).
 	%
 	Analysons $\setproba{I}_{\,a}^{\,ab} = \integrate*{\frac1t}{t}{a}{ab}$.
-	Pour cela, notons $\setproba{L}$ la représentation graphique  de $\ln$.
+	Pour cela, consisérons la situation graphique suivante où $1 < a < b$.
 	
 	\begin{center}
 		\includegraphics[scale=.5]{content/ln/func-eq-1.png}
@@ -35,8 +35,12 @@
 		\includegraphics[scale=.5]{content/ln/func-eq-3.png}
 	\end{center}
 	
-	Nous venons de justifier que $\setproba{I}_{\,a}^{\,ab} = \integrate*{\frac{1}{t}}{t}{1}{b}$,
-	d'où $\ln(a b) = \ln a + \ln b$ comme annoncé.
+	Nous venons de justifier que 
+	$\setproba{I}_{\,a}^{\,ab} = \integrate*{\frac{1}{t}}{t}{1}{b}$,
+	soit
+	$\ln(a b) = \ln a + \ln b$,
+	lorsque $1 < a < b$.
+	La généralisation à $0 < a \leq b$ ne pose aucune difficulté.
 \end{proof}
 
 
@@ -96,5 +100,5 @@
 \begin{proof}
 	De $\ln(a \cdot \frac1a) = \ln a + \ln(\frac1a)$, nous déduisons $\ln(\frac1a) = - \ln a$.
 	%
-	Quant à l'identité $\ln(a^n) = n \ln a$, une récurrence donne le résultat sur $\NN$, puis $\ln(a^{-n}) = -\ln(a^n)$ permet de passer à $\ZZn$.
+	Quant à l'identité $\ln(a^n) = n \ln a$, une récurrence donne le résultat sur $\NN$, puis $\ln(a^{-n}) = -\ln(a^n)$ permet d'élargir à $\ZZsn$.
 \end{proof}
