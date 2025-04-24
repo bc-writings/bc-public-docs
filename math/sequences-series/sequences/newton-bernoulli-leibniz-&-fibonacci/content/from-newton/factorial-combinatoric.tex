@@ -34,6 +34,7 @@ En choisissant $(p,m) = (0,n)$,
 nous obtenons
 $\cnp[2n][n] = \combisum{\cnp[n][k]}$.
 
+\smallskip
 
 Justifions maintenant que $\cnp = \combi[n][p]$ pour $n \in \NN$ et $p \in \ZintervalC{0}{n}$.%
 \footnote{
@@ -67,12 +68,13 @@ $\cnp[m+n][p+n-q] = \combisum{ \cnp[m][p+k-q]}$.
 %
 Considérant $p \in \ZintervalC{0}{n}$, puis choisissant $q = n$ et $m = 0$, nous obtenons
 $\cnp = \combisum{ \cnp[0][p+k-n]}$.
-Comme $\cnp[0][p+k-n] = 0$ si $p+k-n \neq 0$, et $1$ sinon, nous arrivons à
-$\cnp = \combi[n][n-p] \cnp[0][0] = \combi$
-comme souhaité.%
-\footnote{
-	$\combi[n][n-p] = \combi$ est immédiat à obtenir en associant un sous-ensemble à son complémentaire.
-}
+Comme $\cnp[0][p+k-n] = 1$ si $p+k-n = 0$, et $0$ sinon, nous arrivons à
+$\cnp = \combi[n][n-p] \cnp[0][0]$,
+soit
+$\cnp = \combi[n][n-p]$,
+puis
+$\cnp = \combi$
+comme souhaité.
 
 Ensuite,
 il est aisé d'obtenir

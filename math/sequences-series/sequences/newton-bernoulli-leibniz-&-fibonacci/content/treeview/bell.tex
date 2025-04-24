@@ -89,18 +89,20 @@ de Yidong Sun et Xiaojuan Wu.%
 
 
 En résumé,
-$B_n = \tabell[n][n] = \tabell[n+1][1]$
-avec
-$\tabell = \tabell[n][p-1] + \tabell[n-1][p-1]$
+$B_n = \tabell[n][n] = \tabell[n+1][1]$ sur $\NN$,
+ainsi que
+$\tabell[1][1] = 1$,
 et
-$\tabell[1][1] = 1$.
+$\tabell = \tabell[n][p-1] + \tabell[n-1][p-1]$ sur $(\NNs)^2$.
+%
 Comme les relations de récurrence vérifiées par $(\tabell)$ ressemblent à celles de la suite $(\cnp)$,
 il devient évident de procéder comme suit.
 
 \explaintree{\tabell}{\tabell[n-1][p-1]}{\tabell[n][p-1]}%
             {\bellintertree}{\bell{n}{k}}
 
-Prenons $\tabell[n+1][n+1] = B_{n+1}$ pour racine de l'arbre binaire comme dans l'exemple suivant où $n = 3$.
+Prenons $\tabell[n+1][n+1] = B_{n+1}$ pour racine de l'arbre binaire comme dans l'exemple suivant avec $n = 3$,
+où toutes les feuilles sont du type $\tabell[k][1]$ .
 
 \belltree{\bell{4}{4}}
 
@@ -124,7 +126,7 @@ $B_{n+1} = \binosum{B_k}$.
     et
     en remplaçant chaque naturel $k \in \ZintervalC{2}{n+1}$ par $k-1 \in \ZintervalC{1}{n}$, nous obtenons une partition de $\ZintervalC{1}{n}$ sans singleton.
     %
-    Cette construction est réversible, donc bijective.
+    Il ne reste plus qu'à noter que cette construction est réversible, donc bijective.
 \end{remark}
 
 
@@ -154,4 +156,11 @@ $B_{n+1} = \binosum{B_k}$.
     $a_n = B_n$
     et
     $b_n = B_{n+1}$.
+    %
+    Avec la racine $\tabell[n][0]$,
+	nous arrivons à
+    $\tabell[n][0] = \sum_{k=0}^n \binom{n}{k} (-1)^{n-k} \tabell[k][k]$,
+    soit
+    $\tabell[n][0] = \sum_{k=0}^n (-1)^{n-k} \binom{n}{k} B_{k}$,
+    une relation liant les nombres de Bell aux nombres de partitions sans singleton.
 \end{remark}

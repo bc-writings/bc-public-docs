@@ -1,4 +1,4 @@
-Notre objectif est d'obtenir
+Démontrons que
 $B_{n+1} = \combisum{B_k}$, 
 où
 $(B_n)_{n\in\NN}$ désigne la suite des nombres de Bell.
@@ -6,18 +6,17 @@ Indépendamment de la technique spécifique à la section \ref{bino-implies},
 nous savons que ceci équivaut à démontrer que
 $\tabell[n+1][n+1] = \combisum{\tabell[k+1][1]}$,
 où
-$\tabell[n][n] = \tabell[n+1][1] = B_n$,
-$\tabell[n+1][p+1] = \tabell[n+1][p] + \tabell$ sur $\NN^2$,
-et
+$\tabell[n][n] = \tabell[n+1][1] = B_n$ sur $\NN$,
+ainsi que
 $\tabell[1][1] = 1$,
-avec
-$\mathcal{B}$ une suite doublement indexée sur $\NN^2$
+et
+$\tabell[n+1][p+1] = \tabell[n+1][p] + \tabell$ sur $\NN^2$
 (voir page \pageref{tree-bell}).
 Inspiré par la suite de Fibonacci, nous introduisons les ingrédients suivants.
 %
 %\newpage
 \begin{itemize}
-	\item $\ell(\NN^2 , \RR)$ désigne l'ensemble des suites réelles doublement indexées sur $\ZZ^2$.%
+	\item $\ell(\NN^2 , \RR)$ désigne l'ensemble des suites réelles doublement indexées sur $\NN^2$.%
 	\footnote{
 		Ici aussi, si besoin, $\RR$ peut être remplacé par un anneau commutatif de son choix.
 	}
@@ -48,7 +47,9 @@ puis, via le binôme de Newton, nous obtenons ce qui suit.
 \end{stepcalc}
 
 Pour conclure,
-il suffit de choisir $p = m = 1$.
+le choix $p = m = 1$ donne
+$\tabell[n+1][n+1] = \dsum_{k=0}^n \combi[n][k] \tabell[k+1][1]$
+comme souhaité.
 
 
 % ----------------------- %
@@ -71,22 +72,24 @@ il suffit de choisir $p = m = 1$.
         \big( \dsum_{k=0}^n \combi[n][k] (-1)^{n-k} \tabell[m+k][p+k] \big)_{(p,m) \in \NN^2}
     \end{stepcalc}
     
-    Donc
-    $\tabell[m+n][p] = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} \tabell[m+k][p+k]$,
-    puis
-    $\tabell[n][0] = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} \tabell[k][k]$
-    en considérant $(p,m) = (0,0)$,
-    c'est-à-dire
-    $\tabell[n][0] = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} B_k$,
-    une formule liant le nombre de partitions sans singleton aux nombres de Bell
-    (voir la section \ref{tree-bell} page \pageref{tree-bell}).
+    Nous obtenons facilement
+    $\tabell[m+n][p] = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} \tabell[m+k][p+k]$.
     %
-    Avec $(p,m) = (1,1)$, nous obtenons
+    Avec $(p,m) = (1,1)$, nous arrivons à
     $\tabell[n+1][1] = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} \tabell[k+1][k+1]$,
-    soit
-    $B_n = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} B_{k+1}$
-   	qui est une instance de la formule d'inversion de Pascal via
+    qui correspond à
+    $B_n = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} B_{k+1}$,
+    soit la formule d'inversion de Pascal pour
     $a_n = B_n$
     et
     $b_n = B_{n+1}$.
+    %
+    Tandis que $(p,m) = (0,0)$ fournit
+    $\tabell[n][0] = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} \tabell[k][k]$,
+    soit
+    $\tabell[n][0] = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} B_k$
+    qui lie le nombre de partitions sans singleton aux nombres de Bell
+    (voir la section \ref{tree-bell} page \pageref{tree-bell}).
+
+    
 \end{remark}

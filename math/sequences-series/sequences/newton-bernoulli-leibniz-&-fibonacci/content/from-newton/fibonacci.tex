@@ -1,6 +1,6 @@
-Notre objectif est d'obtenir
+Passons à
 $F_{m+2n} = \combisum{F_{m+k}}$
-où la suite de Fibonacci $F$ vérifie $F_0 = 0$, $F_1 = 1$ et $F_{i} = F_{i-1} + F_{i-2}$.
+où la suite de Fibonacci $F$ vérifie $F_0 = F_1 = 1$ et $F_{i} = F_{i-1} + F_{i-2}$.
 %
 De nouveau, nous allons raisonner en terme d'opérateurs linéaires via les ingrédients naturels suivants.
 %
@@ -73,11 +73,13 @@ Dès lors, la conclusion se fait comme suit sans souci.
     
     
     Nous obtenons sans effort
-    $F_m = \dsum_{k=0}^n \combi[n][k] (-1)^{n-k} F_{m+n+k}$.
+    $F_m = \dsum_{k=0}^n \combi[n][k] (-1)^{n-k} F_{m+n+k}$,
+    d'où, via $m = 0$, la jolie identité
+    $1 = \dsum_{k=0}^n \combi[n][k] (-1)^{n-k} F_{n+k}$.
     %
     En partant de
     $\sigma_1(F) = \sigma_2(F) - F$,
-    nous arrivons aux manipulations ci-dessous.
+    nous obtenons ce qui suit.
     
     \begin{stepcalc}[style=sar]
     	(F_{m+n})_{m\in \NN}
@@ -94,7 +96,7 @@ Dès lors, la conclusion se fait comme suit sans souci.
     \end{stepcalc}
     
     
-    Le choix $m = 0$ fournit
+    Le choix $m = 0$ fournit ici
     $F_n = \combisum{(-1)^{n-k} F_{2k}}$
     qui correspond à une instance de la formule d'inversion de Pascal via
     $a_n = F_n$

@@ -57,10 +57,10 @@ Ceci motive la définition suivante.
 		et
 		$k + m = j$
 		impliquent
-		$f(k) g(m) = 0$
-		si
-		$j - m_g \leq k$ et $k \leq m_f$,
-		c'est-à-dire pour un nombre fini de valeurs de $j$, et par conséquent de $m$.
+		$f(k) g(m) \neq 0$
+		uniquement si
+		$k < j - m_g$ et $k > m_f$,
+		c'est-à-dire pour un nombre fini de valeurs de $k$, et par conséquent de $m$.
 		
 	}
 	La suite $\pi$ est appelée \focus{produit de convolution} de $f$ et $g$,
@@ -72,7 +72,7 @@ Ceci motive la définition suivante.
 
 \begin{fact}
 	$\setalge{A} = \ell_{\small m}(\ZZ , \RR)$
-	muni de l'addition $+$ point par point, et du produit de convolution $\ast$
+	muni de l'addition $+$ indice par indice, et du produit de convolution $\ast$
 	est un anneau commutatif.
 \end{fact}
 
@@ -86,14 +86,6 @@ Ceci motive la définition suivante.
 		$f \ast g = g \ast f$
 		et
 		$(f + g) \ast h = f \ast h + g \ast h$.
-
-
-		\item L'élément neutre $1_{\setalge{A}}$ pour $\ast$ doit vérifier:
-		$\forall j \in \ZZ$,
-		$f(j) = \sum_{k + m = j} f(k) 1_{\setalge{A}}(m)$.
-		%
-		Il est aisé de deviner que $1_{\setalge{A}} = \delta_0$ convient
-		(rappelons que $\delta_{0}(j) = \delta_{0j}$).
 
 
 		\item La validation de
@@ -127,9 +119,17 @@ Ceci motive la définition suivante.
     			\dsum_{k + q + r = j} f(k) g(q) h(r)
     		\end{stepcalc}
     	\end{multicols}
+
+
+		\item L'élément neutre $1_{\setalge{A}}$ pour $\ast$ doit vérifier:
+		$\forall (f, j) \in \setalge{A} \times \ZZ$,
+		$f(j) = \sum_{k + m = j} f(k) 1_{\setalge{A}}(m)$.
+		%
+		Il est aisé de deviner que $1_{\setalge{A}} = \delta_0$ convient
+		(rappelons que $\delta_{0}(j) = \delta_{0j}$).
 	\end{enumerate}
 
-	\null\vspace{-8ex}
+	\null\vspace{-6ex}
 \end{proof}
 
 
@@ -146,12 +146,12 @@ L'application de la formule du binôme de Newton nous donne ce qui suit.
 	\lawvar[X_1 + \cdots + X_n](j)
 \explnext*{On généralise sans souci l'identité qui \\ a motivé l'introduction de la convolution.}{}
 	( \lawvar[X_1] \ast \cdots \ast \lawvar[X_n] ) (j)
-\end{stepcalc}
-	
-Poursuivons notre calcul.
-
-\begin{stepcalc}[style=sar]
-	\proba{X = j}
+%\end{stepcalc}
+%	
+%Poursuivons notre calcul.
+%
+%\begin{stepcalc}[style=sar]
+%	\proba{X = j}
 \explnext{}
 	\big( (p \delta_{1} + q \delta_{0}) \ast \cdots \ast ( p \delta_{1} + q \delta_{0}) \big) (j)
 \explnext*{La puissance est relative à $\ast$.}{}

@@ -20,7 +20,7 @@ il est naturel d'introduire les objets suivants.
 \end{itemize}
 
 
-Pour utiliser le \reffact{bino-id-a-b}, nous devons avoir $\pderope[sf]{x}{1} \circ \pderope[sf]{y}{1} = \pderope[sf]{y}{1} \circ \pderope[sf]{x}{1}$. Le théorème de Schwarz nous dit que c'est bien le cas sur $\setgeo{C}^{\infty}(\RR^2 , \RR)$.
+Pour utiliser le \reffact{bino-id-a-b}, nous devons avoir $\pderope[sf]{x}{1} \circ \pderope[sf]{y}{1} = \pderope[sf]{y}{1} \circ \pderope[sf]{x}{1}$. C'est bien le cas d'après le théorème de Schwarz, valable sur $\setgeo{C}^{\infty}(\RR^2 , \RR)$.
 %
 Nous obtenons alors
 $\big( \pderope[sf]{x}{1} + \pderope[sf]{y}{1} \big)^n = \combisum{ \pderope[sf]{x^k}{k} \circ \pderope[sf]{y^{n-k}}{n-k}}$
@@ -59,11 +59,20 @@ La conclusion se fait alors via les calculs ci-dessous.
 \explnext{}
     \big( \pderope[f]{x}{1} + \pderope[f]{y}{1} \big)^n \big( f(x) g(x) \big)
 \explnext{}
-    \big( \pderope[f]{x}{1} + \pderope[f]{y}{1} \big)^n \circ \Lambda(\pi)(x,y)
+    \Big[
+    	\big( \pderope[f]{x}{1} + \pderope[f]{y}{1} \big)^n \circ \Lambda
+	\Big]
+	(\pi)(x,y)
 \explnext*{$\Lambda$ et $\big( \pderope[f]{x}{1} + \pderope[f]{y}{1} \big)$ commutent.}{}
-    \Lambda \circ \big( \pderope[f]{x}{1} + \pderope[f]{y}{1} \big)^n (\pi)(x,y)
+    \Big[
+    	\Lambda \circ \big( \pderope[f]{x}{1} + \pderope[f]{y}{1} \big)^n
+	\Big]
+	(\pi)(x,y)
 \explnext{}
-    \Lambda \circ \big( \dsum_{k=0}^n \combi[n][k] \pderope[f]{x^k}{k} \circ \pderope[f]{y^{n-k}}{n-k} \big) \big( f(x) g(y) \big)
+    \Big[
+    	\Lambda \circ \big( \dsum_{k=0}^n \combi[n][k] \pderope[f]{x^k}{k} \circ \pderope[f]{y^{n-k}}{n-k} \big)
+	\Big]
+	\big( f(x) g(y) \big)
 %\end{stepcalc}
 %
 %Le calcul se finit comme suit.

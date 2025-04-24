@@ -4,10 +4,10 @@ $\combi = \combi[n-1][p-1] + \combi[n-1][p]$ si $n \in \NNs$ et $p \in \Zinterva
 Dès lors, comme pour $\cnp$, nous avons $\combi = \binom{n}{p}$ si $n \in \NN$ et $p \in \ZintervalC{0}{n}$.
 %
 Ceci étant indiqué, nous allons proposer une autre approche très classique pour valider $\combi = \binom{n}{p}$.
-Pour cela, travaillons dans l'ensemble $\ZintervalC{1}{n}$ avec $p \in \ZintervalC{0}{n}$.
-Plus exactement, nous allons considérer la chaîne croissante d'ensembles
+Pour cela, travaillons dans $\ZintervalC{1}{n}$ avec $p \in \ZintervalC{0}{n}$,
+puis considérons la chaîne croissante d'ensembles
 $\emptyset \subset \setgene{1} \subset \ZintervalC{1}{2} \subset \cdots \subset \ZintervalC{1}{n}$.
-À la k\ieme\ étape, il s'agit d'ajouter, ou non, le naturel $k$ comme nouvel élément. Ceci nous mène à l'arbre suivant où $\setgeo{E} \subseteq \ZintervalC{1}{k-1}$.
+À la k\ieme\ étape, nous choisissons d'ajouter, ou non, le naturel $k$ comme nouvel élément. Ceci nous mène à l'arbre suivant pour $\setgeo{E} \subseteq \ZintervalC{1}{k-1}$.
 
 \begin{center}
 	\itshape\centering

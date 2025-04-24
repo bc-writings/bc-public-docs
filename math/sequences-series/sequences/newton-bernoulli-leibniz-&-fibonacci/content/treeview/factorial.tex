@@ -1,6 +1,7 @@
-Nous allons démontrer que $\cnp = \binom{n}{p}$ si $n \in \NN$ et $p \in \ZintervalC{0}{n}$,
-puis valider l'identité $\binom{2n}{n} = \binosum{\binom{n}{k}}$.
-C'est parti!
+Passons à la démonstration de 
+l'identité $\binom{2n}{n} = \binosum{\binom{n}{k}}$
+que nous obtiendrons après avoir justifié que
+$\cnp = \binom{n}{p}$ si $n \in \NN$ et $p \in \ZintervalC{0}{n}$.
 
 
 Pour $n \in \NNs$ et $p \in \ZintervalC{1}{n}$,
@@ -50,14 +51,12 @@ Donc,
 $\cnp = \binosum{\cnp[0][p-k]}$.
 Or, pour $p \in \ZintervalC{0}{n}$, la somme se réduit à $\binom{n}{p} \cnp[0][0]$, d'où $\cnp = \binom{n}{p}$ comme annoncé.
 %
-Ensuite,
-comme
+Avec un arbre de racine $\cnp[2n][n]$, nous obtenons
+$\cnp[2n][n] = \binosum{\cnp[2n - n][n-k]}$,
+c'est-à-dire
 $\binom{2n}{n} = \binosum{\binom{n}{k}}$
-équivaut à
-$\mathcal{C}^{2n}_n = \binosum{\mathcal{C}^n_{n-k}}$,
-en considérant un arbre de racine $\cnp[2n][n]$, nous obtenons
-$\cnp[2n][n] = \binosum{\cnp[2n - n][n-k]} = \binosum{\cnp[n][n-k]}$
-comme souhaité.
+via
+$\binom{n}{p} = \binom{n}{n - p} = \cnp[n][n-p]$.
 
 
 % ----------------------- %

@@ -1,5 +1,6 @@
-Pour la suite de Fibonacci, de premiers termes $F_0 = 0$ et $F_1 = 1$, la règle de calcul est évidemment donnée par la relation de récurrence $F_{i} = F_{i-1} + F_{i-2}$,
-et pour les calculs intermédiaires, nous faisons apparaître ce qui a été soustrait à l'indice.
+Pour la suite de Fibonacci, de premiers termes $F_0 = F_1 = 1$, la règle de calcul est donnée par la relation de récurrence $F_{i} = F_{i-1} + F_{i-2}$.
+%
+Pour les calculs intermédiaires, nous faisons apparaître ce qui a été soustrait à l'indice.
 
 \explaintree{F_{i}}{F_{i-1}}{F_{i-2}}%
             {\intertree}{\fibo{i}}
@@ -9,11 +10,11 @@ Ainsi, pour $n=3$, nous obtenons l'arbre suivant.
 
 \binotree{\fibo{3}}
 
-Aux feuilles de l'arbre, tout à droite, nous avons les termes 
+Comme aux feuilles de l'arbre, nous avons les termes 
 $F_{2n - k\cdot1 - (n-k)\cdot2} = F_k$
 pour $k \in \ZintervalC{0}{n}$,
-donc
-$F_{2n} = \binosum{F_k}$ est validée.
+nous validons l'identité
+$F_{2n} = \binosum{F_k}$.
 
 
 \begin{remark}
@@ -28,7 +29,7 @@ $F_{2n} = \binosum{F_k}$ est validée.
 
 
 \begin{remark}
-	Examinons ce que donne la relation de récurrence modifiée $F_{i-2} = F_{i} - F_{i-1}$, soit aussi $F_i = F_{i+2} - F_{i+1}$.
+	Examinons ce que donne la relation de récurrence modifiée $F_{i-2} = F_{i} - F_{i-1}$, soit $F_i = F_{i+2} - F_{i+1}$.
 	La règle de calcul devient la suivante.
 
     \begin{center}
@@ -46,7 +47,7 @@ $F_{2n} = \binosum{F_k}$ est validée.
     Plus généralement,
     $F_{m} = \binosum{(-1)^{n-k} F_{m + n + k}}$.
     %
-    Quant à l'autre modification $F_{i-1} = F_{i} - F_{i-2}$, soit aussi $F_i = F_{i+1} - F_{i-1}$, elle donne la règle de calcul ci-dessous.
+    Quant à l'autre modification $F_{i-1} = F_{i} - F_{i-2}$, soit $F_i = F_{i+1} - F_{i-1}$ qui donne la règle de calcul ci-dessous.
 
     \begin{center}
     	\itshape\centering
