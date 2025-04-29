@@ -1,0 +1,24 @@
+Traditionnellement, nous étudions les variations de la fonction
+$A(x) = x f(x) = \frac{7 x - x^2}{x + 2}$, via sa dérivée
+$\sder{A}{1}(x) = \frac{- x^2 - 4 x + 14}{(x + 2)^2}$.
+%
+Le signe du trinôme $T(x) = - x^2 - 4 x + 14$ ne pose aucune difficulté, et amène au tableau de variations suivant.
+
+\begin{center}
+	\begin{tikzpicture}
+                \tkzTabInit[espcl=2.5]{
+                	$x$              / 1    ,
+    				$T(x)$           / 1.25 ,
+    				$\sder{A}{1}(x)$ / 1    ,
+    				$A(x)$           / 1.5
+    			}{$0$, $3 \sqrt{2} - 2$, $7$}
+    
+                \tkzTabLine{ t , + , z , - , }
+                \tkzTabLine{ t , + , z , - , }
+
+                \tkzTabVar{-/ , +/, -/ }
+	\end{tikzpicture}
+\end{center}
+
+Finalement,
+$A(x)$ est maximale uniquement lorsque $x_M = 3 \sqrt{2} - 2$.

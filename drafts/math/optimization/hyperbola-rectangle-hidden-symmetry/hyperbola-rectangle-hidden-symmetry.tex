@@ -1,0 +1,90 @@
+\documentclass[12pt]{amsart}
+
+\usepackage{bc-writings}
+
+\hypersetup{hidelinks}
+
+
+%\AddToHook{env/stepcalc/before}{\smallskip}
+%\AddToHook{env/stepcalc/after}{\smallskip}
+
+
+\DeclareMathOperator{\area}{Aire}
+
+
+\begin{document}
+
+
+\title{BROUILLON -- Optimisation basique sans dériver... Quoique!}
+\author{Christophe BAL}
+\date{28 Avril 2025 - 29 Avril 2025}
+
+\maketitle
+
+\begin{center}
+	\itshape
+	Document, avec son source \LaTeX, disponible sur la page
+
+	\url{https://github.com/bc-writings/bc-public-docs/tree/main/drafts}.
+%	\url{https://github.com/bc-writings/bc-public-docs/tree/main/math/analysis/real/exp-via-ln-via-int}.
+\end{center}
+
+
+\bigskip
+
+
+\begin{center}
+	\hrule\vspace{.3em}
+	{
+		\fontsize{1.35em}{1em}\selectfont
+		\textbf{Mentions \og légales \fg}
+	}
+
+	\vspace{0.45em}
+	\doclicenseThis
+	\hrule
+\end{center}
+
+
+\bigskip
+
+
+\setcounter{tocdepth}{2}
+\tableofcontents
+
+
+% ----------------------- %
+
+
+\newpage
+
+%\begin{meta-abstract*}
+%	XXXXX
+%\end{meta-abstract*}
+
+
+% ----------------------- %
+
+
+\section{Un problème d'optimisation de niveau pré-bac}
+
+\subimport*{content/goal}{goal.tex}
+
+
+
+% ----------------------- %
+
+
+\section{La classique méthode via la dérivation}
+
+\subimport*{content/der-sol}{der-sol.tex}
+
+
+% ----------------------- %
+
+
+\section{Sans dériver, c'est possible!}
+
+\subimport*{content/geo-sol}{geo-sol.tex}
+
+\end{document}
