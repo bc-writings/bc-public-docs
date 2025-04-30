@@ -11,6 +11,7 @@ Il suffit de considérer la fonction $g$ définie sur $\intervalC{0}{\num{3.5}}$
 
 La calcul suivant démontre que $\setgeo*{C}{g}: y = g(x)$ est bien symétrique rapport à $\setgeo{D}$.
 
+\smallskip
 \begin{stepcalc}[style=sar]
 	g\big( g(x) \big)
 \explnext{}
@@ -23,6 +24,11 @@ La calcul suivant démontre que $\setgeo*{C}{g}: y = g(x)$ est bien symétrique 
 \explnext{}
 	x
 \end{stepcalc}
+\smallskip
+
+
+% ----------------------- %
+
 
 Cette propriété de symétrie nous permet de deviner le rôle essentiel de
 $\gamma = \num{1.5} \sqrt{2} - 1$, % -1 + 3/sqrt(2)
@@ -33,7 +39,7 @@ $\frac{7-2x}{2x+2} = x$,
 soit
 $2 x^2 + 4 x - 7 = 0$.
 %
-Notons alors $\setgeo{A}(x) = x g(x)$ pour $x \in \intervalC{0}{\num{3.5}}$
+Notons alors $\setgeo{A}(x) = x g(x)$ pour $x \in \intervalC{0}{\num{3.5}}$.
 Nous allons démontrer, sans dériver, la croissance stricte de $\setgeo{A}$ sur $\intervalC{0}{\gamma}$, et par conséquent sa décroissance stricte sur $\intervalC{\gamma}{\num{3.5}}$ par raison de symétrie.
 %
 Considérons donc $a$ et $b$ deux réels tels que $0 \leq a < b \leq \gamma$, puis observons le schéma suivant.
@@ -67,7 +73,8 @@ Nous voilà partis pour un peu de calcul...
 
 	\item Le point précédent nous amène aux calculs suivants.
 
-	\noindent\kern-8pt\begin{stepcalc}[style=ar*]
+	\smallskip
+	\noindent\kern-12pt\begin{stepcalc}[style=ar*]
 		\dfrac{2(a+1)(b+1)}{b - a} \big( 
 			  a \big( g(a) - g(b) \big) 
 			- (b - a) g(b) 

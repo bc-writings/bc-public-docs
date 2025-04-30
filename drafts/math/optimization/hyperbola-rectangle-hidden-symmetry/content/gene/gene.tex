@@ -1,4 +1,4 @@
-Considérons la fonction homographique $f$ définie sur $\intervalC{0}{- \frac{\beta}{\alpha}}$ par $f(x) = \frac{- \alpha x + \beta}{x + \delta}$ où l'on suppose $(\alpha ; \beta ; \delta) \in (\RRsp)^3$ en utilisant des paramètres positifs comme en Physique.%
+Considérons la fonction homographique $f$ définie sur $\intervalC{0}{\frac{\beta}{\alpha}}$ par $f(x) = \frac{- \alpha x + \beta}{x + \delta}$ où l'on suppose $(\alpha ; \beta ; \delta) \in (\RRsp)^3$ en utilisant des paramètres positifs comme en Physique.%
 \footnote{
 	Ces contraintes permettent d'obtenir la situation graphique proposée juste après.
 }
@@ -11,6 +11,10 @@ Considérons $M$ un point sur $\setgeo*{C}{f}: y = f(x)$, et le rectangle $MNOP$
 	\includegraphics[scale=.67]{goal.png}
 \end{center}
 
+
+% ----------------------- %
+
+
 Pour minimiser le nombre de paramètres utilisés,
 commençons par appliquer une dilatation horizontale de coefficient $\frac{\alpha}{\beta}$,
 ce qui donne 
@@ -19,13 +23,13 @@ $g(x) = f( \frac{\beta}{\alpha} x )
       = \alpha \cdot \frac{1 - x}{\mu + x}$
 en notant $\mu = \frac{\alpha \delta}{\beta}$.
 Par confort,
-appliquons ensuite une dilatation verticale de coefficient $\frac{1}{\alpha}$,
+appliquons ensuite une dilatation verticale de coefficient $\frac{1}{\alpha} > 0$,
 ce qui fournit 
 $h(x) = \frac{1 - x}{\mu + x}$.
 %
-Nous arrivons au problème de minimisation de
+Nous arrivons au problème de maximisation de
 $\setgeo{A}(x) = x h(x) = \frac{x - x^2}{x + \mu}$
-pour $x \in \intervalC{0}{1}$.
+sur $\intervalC{0}{1}$.
 
 \begin{stepcalc}[style=sar]
 	\sder{\setgeo{A}}{1}(x)
@@ -35,9 +39,12 @@ pour $x \in \intervalC{0}{1}$.
 	\dfrac{- x^2 - 2 \mu x + \mu}{(x + \mu)^2}
 \end{stepcalc}
 
+\smallskip
+
 Nous sommes amener à étudier le signe du trinôme
 $T(x) = - x^2 - 2 \mu x + \mu$.
 
+\smallskip
 \begin{stepcalc}[style=sar]
 	\Delta
 \explnext{}
@@ -45,6 +52,7 @@ $T(x) = - x^2 - 2 \mu x + \mu$.
 \explnext{}
 	4 \mu (\mu + 1)
 \end{stepcalc}
+\smallskip
 
 Comme $\mu > 0$, nous avons deux racines
 $r_1 = - \mu - \sqrt{\mu (\mu + 1)}$
@@ -79,12 +87,16 @@ $\area(MNOP)$ est maximale uniquement lorsque
 $x_M = \frac{\beta}{\alpha} r_2$,
 c'est-à-dire pour % \mu = \frac{\alpha \delta}{\beta}
 $x_M = \sqrt{\delta (\delta + \frac{\beta}{\alpha})} - \delta$
-en revenant aux données initiales.
+en revenant aux données initiales, car $\frac{\beta}{\alpha} \mu = \delta$.
+
+
+% ----------------------- %
 
 
 \begin{remark}
 	Les calculs suivants montrent la concavité de $\setgeo{A}$, et donc de l'aire du rectangle initialement étudié.
 
+	\smallskip
 	\begin{stepcalc}[style=sar]
     	\sder{\setgeo{A}}{2}(x)
     \explnext{}
@@ -95,3 +107,11 @@ en revenant aux données initiales.
     	\dfrac{- 2 \mu (\mu + 1)}{(x + \mu)^3}
     \end{stepcalc}
 \end{remark}
+
+
+% ----------------------- %
+
+
+%\begin{remark}
+%	XXX
+%\end{remark}
