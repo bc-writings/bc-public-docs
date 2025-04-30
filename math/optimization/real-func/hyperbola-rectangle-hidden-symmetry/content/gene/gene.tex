@@ -112,6 +112,68 @@ en revenant aux données initiales, car $\frac{\beta}{\alpha} \mu = \delta$.
 % ----------------------- %
 
 
-%\begin{remark}
-%	XXX
-%\end{remark}
+\begin{remark}
+	Juste par amusement, reprenons l'idée de symétrisation du problème pour ne pas employer de dérivée.
+	%
+	\begin{itemize}
+		\item Travaillons avec $k(x) = \mu h(x) = \mu \cdot \frac{1 - x}{x + \mu}$ sur $\intervalC{0}{1}$.
+
+
+		\item Le calcul suivant démontre que $\setgeo*{C}{k}: y = k(x)$ est bien symétrique rapport à $\setgeo{D}: y = x$.
+
+        \smallskip
+        \noindent\kern-8pt\begin{stepcalc}[style=sar]
+        	k\big( k(x) \big)
+        \explnext{}
+        	     \mu
+	     		 \Big( 1 - \mu \cdot \dfrac{1 - x}{x + \mu} \Big)
+        	\div \Big( \mu \cdot \dfrac{1 - x}{x + \mu} + \mu \Big)
+        \explnext{}
+        	\dfrac{ x + \mu - \mu (1 - x) }{ 1 - x + x + \mu }
+        \explnext{}
+        	\dfrac{(1 + \mu) x}{1 + \mu}
+        \explnext{}
+        	x
+        \end{stepcalc}
+
+
+		\item L'intersection de $\setgeo*{C}{k}$ et $\setgeo{D}$ se fait en $\gamma = - \mu + \sqrt{\mu (\mu + 1)}$ l'unique solution sur $\intervalC{0}{1}$ de
+		$k(x) = x$,
+		c'est-à-dire de 
+		$\mu (1 - x) = x^2 + \mu x$,
+		soit
+		$- x^2 - 2 \mu x + \mu = 0$.
+
+
+		\item Comme dans la section \ref{exa-geo}, nous devons démontrer que $a \big( k(a) - k(b) \big) < (b - a) k(b)$ si $0 \leq a < b \leq \gamma$.
+
+
+		\item 
+    	\begin{stepcalc}[style=sar]
+    		\dfrac{1}{\mu} \big( k(a) - k(b) \big)
+    	\explnext{}
+    		\dfrac{1 - a}{a + \mu} - \dfrac{1 - b}{b + \mu}
+    	\explnext{}
+%    		b + \mu - ab - \mu a - a - \mu + ab + \mu b
+    		\dfrac{(1 + \mu)(b - a)}{(a + \mu)(b + \mu)}
+    	\end{stepcalc}
+
+
+		\item
+		\begin{stepcalc}[style=ar*]
+    		\dfrac{(a + \mu)(b + \mu)}{\mu (b - a)}
+			\big(
+				a \big( k(a) - k(b) \big) - (b - a) k(b)
+			\big)
+    	\explnext{}
+			(1 + \mu) a - (1 - b)(a + \mu)
+    	\explnext{}
+    		\mu a + ab + \mu b - \mu
+    	\end{stepcalc}
+
+
+		\item Nous arrivons à
+		$\mu a + ab + \mu b - \mu < b^2 + 2 \mu b - \mu$
+		qui permet de conclure.
+	\end{itemize}
+\end{remark}
