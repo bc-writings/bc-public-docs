@@ -1,9 +1,0 @@
-this::
-    date = 2024-11-07
-
-
-=============================================
-Relation obtenue en superposant deux symboles
-=============================================
-
-Le titre suffit. Pas besoin d'en dire plus !
