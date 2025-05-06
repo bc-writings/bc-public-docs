@@ -1,23 +1,23 @@
 %%%
-% Le travail est fait par les fonctions ''Anp'', ''Cnp'' et aussi
+% Le travail est fait par les fonctions ''Apn'', ''Cpn'' et aussi
 % ''writefloat2int'' présentes dans le fichier ''main.lua''.
 %
 % note::
 %     Pour imprimer des valeurs flottantes renvoyés par \lua sans
-%     partie décimale, les macros ''\Anp'' et ''\Cnp''ont besoin
+%     partie décimale, les macros ''\Apn'' et ''\Cpn''ont besoin
 %     de la fonction ''writefloat2int''.
 %%%
 
 %%%
 % Importation du fichier ''main.lua'' contenant les deux fonctions
-% ''Anp'' et ''Cnp'', ainsi que la fonction ''writefloat2int''.
+% ''Apn'' et ''Cpn'', ainsi que la fonction ''writefloat2int''.
 %%%
 \directlua{dofile('main.lua')}
 
 %%%
 % prototype::
-%     #1 : le "naturel" n du nombre d'arrangements de p parmi n.
-%     #2 : le "naturel" p du nombre d'arrangements de p parmi n.
+%     #1 : le "naturel" p du nombre d'arrangements de p parmi n.
+%     #2 : le "naturel" n du nombre d'arrangements de p parmi n.
 %%%
 \NewDocumentCommand{ \Apn }{ m m }{%
   \directlua{writefloat2int(Apn(#1, #2))}%
@@ -25,8 +25,8 @@
 
 %%%
 % prototype::
-%     #1 : le "naturel" n du nombre de combinaisons de p parmi n.
-%     #2 : le "naturel" p du nombre de combinaisons de p parmi n.
+%     #1 : le "naturel" p du nombre de combinaisons de p parmi n.
+%     #2 : le "naturel" n du nombre de combinaisons de p parmi n.
 %%%
 \NewDocumentCommand{ \Cpn }{ m m }{%
   \directlua{writefloat2int(Cpn(#1, #2))}%

@@ -20,15 +20,15 @@
 %     #1 : le "naturel" n pour le nombre de combinaisons de p parmi n.
 %     #2 : le "naturel" p pour le nombre de combinaisons de p parmi n.
 %%%
-\NewDocumentCommand{ \binCnp }{m m}{%
-  \directlua{tex.sprint(binCnp(#1, #2))}%
+\NewDocumentCommand{ \binCpn }{m m}{%
+  \directlua{tex.sprint(binCpn(#1, #2))}%
 }
 
 %%%
 % Nous créons un style \tikz paramétré par une \coul.
 %%%
 \tikzset{
-  cnp/.style n args={1}{
+  cpn/.style n args={1}{
     draw,
     rectangle,
     minimum size = 2.3em,
@@ -50,13 +50,13 @@
       \pgfmathsetmacro\pshift{0.5 * \n}
 
       \foreach \p in {0,...,\n} {
-        \ifthenelse{\binCnp{\n}{\p} = 1}{
+        \ifthenelse{\binCpn{\p}{\n} = 1}{
           \colorlet{col}{#1}
         }{
           \colorlet{col}{#2}
         }
 
-        \draw (\p - \pshift, 6 - \n) node[cnp = col] {};
+        \draw (\p - \pshift, 6 - \n) node[cpn = col] {};
       }
     }
   \end{tikzpicture}

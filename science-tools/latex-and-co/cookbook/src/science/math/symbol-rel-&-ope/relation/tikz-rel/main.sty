@@ -1,15 +1,28 @@
-% Sources.
-%     * https://tex.stackexchange.com/a/621737/6880
-%     * https://tex.stackexchange.com/a/685974/6880
+%%%
+% refs::
+%     + https://tex.stackexchange.com/a/621737/6880
+%     + https://tex.stackexchange.com/a/685974/6880
+%%%
 
+%%%
+% XXXX
+%%%
 \usepackage{scalerel}
 
+%%%
+% \tikz et la bibliothèque ''decorations'' vont permettre le tracé
+% d'un zigzag sans effort.
+%%%
 \usepackage{tikz}
 \usetikzlibrary{decorations.pathmorphing}
 
+%%%
+% Nous stockons notre dessin dans un boîte \latex que nous mettrons
+% à la bonne dimension lors de son emploi dans le texte.
+%%%
 \newsavebox{\mytikzrel@box}
 \sbox{\mytikzrel@box}{%
-  \raisebox{.3ex}{%
+  \raisebox{.3ex}{
     \begin{tikzpicture}
       \draw[
         <->,
@@ -27,4 +40,14 @@
   }%
 }
 
-\newcommand{\mytikzrel}{\mathrel{\scalerel*{\usebox{\mytikzrel@box}}{\iff}}}
+%%%
+% L'astuce employée pour obtenir un symbole s'adaptant à la taille
+% du style mathématique en cours est de redimensionner notre dessin
+% \tikz en fonction du symbole \iff qui lui respecte le style
+% mathématique en cours.
+%%%
+\newcommand{\mytikzrel}{%
+  \mathrel{%
+    \scalerel*{\usebox{\mytikzrel@box}}{\iff}%
+  }%
+}
