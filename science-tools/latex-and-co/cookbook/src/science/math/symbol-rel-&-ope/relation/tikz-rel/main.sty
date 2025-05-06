@@ -1,0 +1,30 @@
+% Sources.
+%     * https://tex.stackexchange.com/a/621737/6880
+%     * https://tex.stackexchange.com/a/685974/6880
+
+\usepackage{scalerel}
+
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathmorphing}
+
+\newsavebox{\mytikzrel@box}
+\sbox{\mytikzrel@box}{%
+  \raisebox{.3ex}{%
+    \begin{tikzpicture}
+      \draw[
+        <->,
+        line cap = round,
+        decorate,
+        decoration = {
+          zigzag,
+          segment length = 1.7,
+          amplitude      = .8,
+          pre length     = 2pt,
+          post length    = 2pt
+        }
+      ] (0,0) -- (.3,0);
+    \end{tikzpicture}%
+  }%
+}
+
+\newcommand{\mytikzrel}{\mathrel{\scalerel*{\usebox{\mytikzrel@box}}{\iff}}}
