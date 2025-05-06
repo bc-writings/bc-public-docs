@@ -6,4 +6,4 @@ this::
 Passer des options non traitées d'une \cls à une autre
 ======================================================
 
-Nous proposons ici une méthode pour récupérer des clés destinées une \cls maison, puis ensuite passer les options non traitées à une autre \cls.
+Nous proposons ici une méthode pour récupérer des clés destinées à une \cls maison, puis ensuite passer les options non traitées à une autre \cls.

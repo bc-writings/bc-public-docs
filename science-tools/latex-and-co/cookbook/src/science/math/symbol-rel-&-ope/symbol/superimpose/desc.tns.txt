@@ -6,4 +6,4 @@ this::
 Symbole obtenu en superposant deux symboles
 ===========================================
 
-// Le titre suffit. Pas besoin d'en dire plus !
+Le titre suffit. Pas besoin d'en dire plus !

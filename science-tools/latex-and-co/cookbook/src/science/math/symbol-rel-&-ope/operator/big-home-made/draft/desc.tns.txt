@@ -2,12 +2,12 @@ this::
     date = 2025-05-06
 
 
-==============================================
-Une première version, mais avec un gros défaut
-==============================================
+============================================
+Une \1ière version, mais avec un gros défaut
+============================================
 
-Voici une méthode simple à comprendre, mais qui malheureusement place le symbole un peu trop au-dessus de la ligne d'écriture. De plus, l'emploi de ''\Huge'' en mode \math est illégal bien que permettant ici d'avoir un rendu acceptable : ceci apparaît dans le fichier ext::"log" comme nous l'indique clairement la très pratique commande term::''texlogsieve''.
-De plus, cette solution ne rpend pas en compte les différentes tailles suivant le contexte mathématique d'utilisation.
+Voici une méthode simple à comprendre, mais qui malheureusement place le symbole un peu trop au-dessus de la ligne d'écriture. De plus, l'emploi de ''\Huge'' en mode \math est illégal bien que permettant ici d'avoir un rendu acceptable : ceci apparaît dans le fichier ext::''log'' comme nous l'indique clairement la très pratique commande term::''texlogsieve'' (voir ci-après).
+De plus, cette solution ne prend pas en compte les différentes tailles suivant le contexte mathématique d'utilisation.
 
 term::
     > texlogsieve main.log
