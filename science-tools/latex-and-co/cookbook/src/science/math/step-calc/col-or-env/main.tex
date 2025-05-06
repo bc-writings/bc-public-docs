@@ -1,11 +1,29 @@
-\documentclass[border=3pt]{standalone}
+\documentclass[varwidth, border = 3pt]{standalone}
 
 \usepackage{main}
 
+\usepackage{amsmath}
+
 \begin{document}
 
-$A \myeq B$         ,
-$X^{A \myeq B}$     ,
-$X^{Y^{A \myeq B}}$
+\[
+    \renewcommand{\arraystretch}{1.2}%
+    \begin{array}{lll}
+          \textbf{Style}
+        & \verb#A \myeq B#
+        \\ \hline
+          \verb!\displaystyle!
+        & \displaystyle A \myeq B
+        \\
+          \verb!\textstyle!
+        & \textstyle A \myeq B
+        \\
+          \verb!\scriptstyle!
+        & \scriptstyle A \myeq B
+        \\
+          \verb!\scriptscriptstyle!
+        & \scriptscriptstyle A \myeq B
+    \end{array}
+\]
 
 \end{document}

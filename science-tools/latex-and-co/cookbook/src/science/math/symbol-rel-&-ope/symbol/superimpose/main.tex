@@ -1,9 +1,29 @@
-\documentclass[border=3pt]{standalone}
+\documentclass[varwidth, border = {3pt 3pt 60pt 3pt}]{standalone}
 
 \usepackage{main}
 
+\usepackage{amsmath}
+
 \begin{document}
 
-$A \mysymb + B^\mysymb$
+\[
+    \renewcommand{\arraystretch}{1.2}%
+    \begin{array}{lll}
+          \textbf{Style}
+        & \verb#A \mysymb C#
+        \\ \hline
+          \verb!\displaystyle!
+        & \displaystyle A \mysymb C
+        \\
+          \verb!\textstyle!
+        & \textstyle A \mysymb C
+        \\
+          \verb!\scriptstyle!
+        & \scriptstyle A \mysymb C
+        \\
+          \verb!\scriptscriptstyle!
+        & \scriptscriptstyle A \mysymb C
+    \end{array}
+\]
 
 \end{document}

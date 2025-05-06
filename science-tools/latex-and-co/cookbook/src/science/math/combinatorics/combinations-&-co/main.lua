@@ -1,23 +1,23 @@
 -----
 -- Combinaison.
 -----
-function Cnp(n, p)
+function Cpn(p, n)
     if (p == 0 or p == n) then
         return 1
     end
 
-    return n * Cnp(n - 1, p - 1) / p
+    return n * Cpn(p - 1, n - 1) / p
 end
 
 -----
 -- Arrangement.
 -----
-function Anp(n, p)
+function Apn(p, n)
     if p == 0 then
         return 1
     end
 
-    return (n - p + 1) * Anp(n, p - 1)
+    return (n - p + 1) * Apn(p - 1, n)
 end
 
 -----

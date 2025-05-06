@@ -13,6 +13,6 @@
 % La macro ''\divmodtex'' passe la main à la fonction ''divmod2tex''
 % du fichier ''main.lua'' .
 %%%
-\NewDocumentCommand{\divmodtex}{mm}{
-  \directlua{divmod2tex(#1 ,#2)}
+\NewDocumentCommand{\divmodtex}{mm}{%
+  \directlua{divmod2tex(#1 ,#2)}%
 }

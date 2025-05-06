@@ -1,11 +1,29 @@
-\documentclass[border=3pt]{standalone}
+\documentclass[varwidth, border = 3pt]{standalone}
 
 \usepackage{main}
 
+\usepackage{amsmath}
+
 \begin{document}
 
-   $A \mytikzrel B$
-vs $\Sigma_{A \mytikzrel B}$
-vs $\Sigma^{\Pi_{A \mytikzrel B}}$
+\[
+    \renewcommand{\arraystretch}{1.2}%
+    \begin{array}{lll}
+          \textbf{Style}
+        & \verb#A \mytikzrel B#
+        \\ \hline
+          \verb!\displaystyle!
+        & \displaystyle A \mytikzrel B
+        \\
+          \verb!\textstyle!
+        & \textstyle A \mytikzrel B
+        \\
+          \verb!\scriptstyle!
+        & \scriptstyle A \mytikzrel B
+        \\
+          \verb!\scriptscriptstyle!
+        & \scriptscriptstyle A \mytikzrel B
+    \end{array}
+\]
 
 \end{document}

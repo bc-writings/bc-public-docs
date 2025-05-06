@@ -10,7 +10,7 @@
 
 \begin{tikzpicture}[
   scale = 0.8,
-  cnp/.style = {
+  cpn/.style = {
     rectangle, draw,
     minimum size = 2em,
     fill         = gray!20,
@@ -19,7 +19,7 @@
   \foreach \n in {0,...,\nmax} {
     \pgfmathsetmacro\pshift{0.5 * \n}
     \foreach \p in {0,...,\n} {
-      \draw (\p - \pshift, 6 - \n) node[cnp] { \Cnp{\n}{\p} };
+      \draw (\p - \pshift, 6 - \n) node[cpn] { \Cpn{\p}{\n} };
     }
   }
 \end{tikzpicture}
