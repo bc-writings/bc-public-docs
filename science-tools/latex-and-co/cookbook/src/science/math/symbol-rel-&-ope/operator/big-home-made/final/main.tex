@@ -1,19 +1,52 @@
-\documentclass[border=3pt]{standalone}
+\documentclass[varwidth, border = 8pt]{standalone}
 
 \usepackage{main}
 
+\usepackage{amsmath}
+
+\newcommand\exasep{\kern3pt | \kern3pt}
+
+\newcommand\sumexa{\sum_{i = 0}^{9} s_i}
+\newcommand\astexa{\bigast_{i = 0}^{9} a_i}
+\newcommand\compoexa{\bigcompo_{i = 0}^{9} c_k}
+
 \begin{document}
 
-% DEBUG pour voir les boîtes LaTeX.
+%%%%
+% UTILE: voir les boîtes LaTeX.
+%
 % {\setlength{\fboxsep}{0pt}\fbox{$\circ$}\fbox{$\lcirc$}\fbox{$*$}\fbox{$\ast$}}
+%%%%
 
-$\displaystyle
- \sum_{i = 0}^{9}      s_i +
- \bigast_{i = 0}^{9}   s_i +
- \bigcompo_{i = 0}^{9} s_i$
-vs
-$\sum_{i = 0}^{9}      s_i +
- \bigast_{i = 0}^{9}   s_i +
- \bigcompo_{i = 0}^{9} s_i$
+Mode étendu:
+$\displaystyle \sumexa \exasep \astexa \exasep \compoexa$
+
+Mode en ligne:
+$\astexa \exasep \sumexa \exasep \compoexa$.
+
+\[
+    \renewcommand{\arraystretch}{1.2}%
+    \begin{array}{lll}
+          \textbf{Style}
+        & \verb#\bigast_{i = 0}^{9} s_i#
+        & \verb#\bigcompo_{k = 1}^{5} f_k#
+        \\ \hline
+          \verb!\displaystyle!
+        & \displaystyle \astexa
+        & \displaystyle \compoexa
+        \\
+          \verb!\textstyle!
+        & \textstyle \astexa
+        & \textstyle \compoexa
+        \\
+          \verb!\scriptstyle!
+        & \scriptstyle \astexa
+        & \scriptstyle \compoexa
+        \\
+          \verb!\scriptscriptstyle!
+        & \scriptscriptstyle \astexa
+        & \scriptscriptstyle \compoexa
+    \end{array}
+\]
 
 \end{document}

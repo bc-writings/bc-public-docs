@@ -1,0 +1,12 @@
+%%%
+% refs::
+%     + https://tex.stackexchange.com/a/663550/6880
+%%%
+
+%%%
+% La macro ''\mkern'' permet de définir des espaces insécables
+% en mode mathématique. Les réglages se font au doigt mouillé.
+%%%
+\newcommand{\myeq}{%
+  \mathrel{{=}\mkern-9.5mu{\cdot}\mkern4mu}%
+}

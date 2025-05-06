@@ -1,12 +1,46 @@
-\documentclass[border=3pt]{standalone}
+\documentclass[varwidth, border = 8pt]{standalone}
 
 \usepackage{main}
 
+\usepackage{amsmath}
+
+\newcommand\exasep{\kern3pt | \kern3pt}
+
+\newcommand\limexa{\lim_{k = 0}^{m} \ell_k}
+\newcommand\xtrexa{\xtr_{k = 0}^{m} \ell_k}
+\newcommand\extexa{\exterior_{k = 0}^{m} \ell_k}
+
 \begin{document}
 
-$\displaystyle
- \xtr_{i = 1}^{n} X_i         \quad
- \exterior_{k = 0}^{m} \ell_k \quad
- \lim_{p = 0}^{w} q_p$
+Mode étendu:
+$\displaystyle \limexa \exasep \extexa \exasep \xtrexa$
+
+Mode en ligne:
+$\limexa \exasep \extexa \exasep \xtrexa$.
+
+\[
+    \renewcommand{\arraystretch}{1.2}%
+    \begin{array}{lll}
+          \textbf{Style}
+        & \verb#\exterior_{k = 0}^{m} \ell_k#
+        & \verb#\xtr_{k = 0}^{m} \ell_k#
+        \\ \hline
+          \verb!\displaystyle!
+        & \displaystyle \extexa
+        & \displaystyle \xtrexa
+        \\
+          \verb!\textstyle!
+        & \textstyle \extexa
+        & \textstyle \xtrexa
+        \\
+          \verb!\scriptstyle!
+        & \scriptstyle \extexa
+        & \scriptstyle \xtrexa
+        \\
+          \verb!\scriptscriptstyle!
+        & \scriptscriptstyle \extexa
+        & \scriptscriptstyle \xtrexa
+    \end{array}
+\]
 
 \end{document}
