@@ -5,7 +5,8 @@
 %%%
 
 %%%
-% XXXX
+% Le \pack ''scalerel'' va servir à redimensionner le symbole en
+% fonction du contexte d'utilisation, du style de \mef \math.
 %%%
 \usepackage{scalerel}
 
@@ -20,10 +21,10 @@
 % Nous stockons notre dessin dans un boîte \latex que nous mettrons
 % à la bonne dimension lors de son emploi dans le texte.
 %%%
-\newsavebox{\mytikzrel@box}
-\sbox{\mytikzrel@box}{%
-  \raisebox{.3ex}{
-    \begin{tikzpicture}
+\newsavebox{\box@mytikzrel}
+\sbox{\box@mytikzrel}{%
+  \raisebox{.3ex}{%
+    \begin{tikzpicture}[baseline]
       \draw[
         <->,
         line cap = round,
@@ -48,6 +49,6 @@
 %%%
 \newcommand{\mytikzrel}{%
   \mathrel{%
-    \scalerel*{\usebox{\mytikzrel@box}}{\iff}%
+    \scalerel*{\usebox{\box@mytikzrel}}{\iff}%
   }%
 }
