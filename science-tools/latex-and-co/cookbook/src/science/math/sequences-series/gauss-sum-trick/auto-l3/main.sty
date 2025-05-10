@@ -28,9 +28,9 @@
 %%%
 \NewDocumentCommand{ \nub }{ s m }{
   \IfBooleanTF { #1 }{
-    \cookbook_nub_val:n {#2}
+    \cookbook_nub_val:n { #2 }
   }{
-    \cookbook_nub_deco:n {#2}
+    \cookbook_nub_deco:n { #2 }
   }
 }
 
@@ -66,7 +66,7 @@
 % Variables utilisées pour décorer une somme à la Gauss.
 %%%
 \int_new:N  \g_cookbook_nub_label_id_int
-\int_set:Nn \g_cookbook_nub_label_id_int {0}
+\int_set:Nn \g_cookbook_nub_label_id_int { 0 }
 
 \int_new:N  \l_cookbook_nub_last_label_id_int
 
@@ -85,7 +85,7 @@
 \cs_set:Npn \cookbook_nub_deco:n #1 {
   \clist_set:Nn
     \l_cookbook_nub_terms_clist
-    {#1}
+    { #1 }
 
   \seq_set_from_clist:NN
     \l_cookbook_nub_terms_seq
@@ -109,8 +109,8 @@
       \int_incr:N \l_cookbook_nub_this_pos_int
 
       \int_compare:nNnTF
-          {\int_use:N \l_cookbook_nub_this_pos_int}
-        < {\int_use:N \l_cookbook_nub_mid_term_pos_int}
+          { \int_use:N \l_cookbook_nub_this_pos_int }
+        < { \int_use:N \l_cookbook_nub_mid_term_pos_int }
 % Un crochet commence ici, car nous n'avons pas dépassé la position
 % "milieu" des termes à traiter.
       {
@@ -124,13 +124,13 @@
 
         \int_set:Nn
           \l_cookbook_nub_last_label_id_int
-          { 1 + \int_use:N \g_cookbook_nub_label_id_int}
+          { 1 + \int_use:N \g_cookbook_nub_label_id_int }
 % Un autre terme dans un crochet en cours avec éventuellement une fin
 % de décoration à faire (penser au cas de trois termes isolés au milieu).
       }{
         \int_compare:nNnTF
-            {\int_use:N \l_cookbook_nub_this_pos_int}
-          = {\int_use:N \l_cookbook_nub_mid_term_pos_int}
+            { \int_use:N \l_cookbook_nub_this_pos_int }
+          = { \int_use:N \l_cookbook_nub_mid_term_pos_int }
         {}{
           +
         }

@@ -26,6 +26,6 @@
 %     Une chaîne "verbatim" côté \latex correspond à une chaîne littéral
 %     côté \lua, donc il faut encadrer ''#1'' par des doubles crochets.
 %%%
-\NewDocumentCommand{\calc}{v}{
+\NewDocumentCommand{ \calc }{ v }{
   \directlua{calc([[#1]])}
 }

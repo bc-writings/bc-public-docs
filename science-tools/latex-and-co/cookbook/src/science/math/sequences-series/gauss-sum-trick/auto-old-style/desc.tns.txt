@@ -1,5 +1,5 @@
 this::
-    date = 2025-05-05
+    date = 2025-05-10
 
 
 ====================================
@@ -33,7 +33,3 @@ Nous proposons ici une version permettant une saisie ne nécessitant aucun régl
         i) Via le nombre d'appels imbriqués, il est direct de donner le décalage vertical relatif à une macro ''\nub'' utilisée.
 
         i) Grâce au fichier path::''aux'' créé et utilisé par la compilation \tex, le décalage vertical maximal peut être "mémorisé" pour la prochaine compilation qui produira la \deco attendue.
-
-
-warning::
-    Le code proposé possède une grosse limitation. Laquelle ?

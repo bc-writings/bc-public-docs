@@ -1,9 +1,27 @@
 this::
-    date = 2025-05-07
+    date = 2025-05-10
+
+
+abrev::
+    desc = desc.tns.txt
 
 
 =======================
 Des calculs côte à côte
 =======================
 
-La macro ''orsteps'' permet une saisie intuitive de calculs faits en parallèle, et présenté dans des colonnes contigües. La difficulté à surmontrer est de permettre une saisie de chaque calcul, et ensuite de les présenter côte à côte alignés les uns par rapport aux autres (ceci n'est pas possible via l'\env ''multicols'' du \pack ''multicol''). Le langage \l3 rend ceci relativemnt aisé à faire.
+Notre objectif est de faciliter la saisie de calculs présentés en parallèle comme dans l'exemple suivant
+((
+    Typiquement, ceci est utile pour résoudre des équations produits.
+))
+
+pdf::
+    ---
+    title = Rendu souhaité.
+    path  = ./final/main.pdf
+    ---
+
+
+content::
+    ./draft/\desc
+    ./final/\desc

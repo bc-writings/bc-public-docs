@@ -1,9 +1,9 @@
 this::
-    date = 2024-11-07
+    date = 2025-05-10
 
 
 =============================================
 Relation obtenue en superposant deux symboles
 =============================================
 
-Le titre suffit. Pas besoin d'en dire plus !
+Le titre dit tout, pas besoin d'en rajouter !

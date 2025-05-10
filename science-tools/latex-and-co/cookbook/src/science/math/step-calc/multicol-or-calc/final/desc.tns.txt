@@ -1,0 +1,18 @@
+this::
+    date = 2025-05-10 ????
+
+
+====================
+Une saisie naturelle
+====================
+
+
+????
+
+La macro ''orsteps'' permet une saisie intuitive de calculs faits en parallèle, et présenté dans des colonnes contigües. La difficulté à surmontrer est de permettre une saisie de chaque calcul, et ensuite de les présenter côte à côte alignés les uns par rapport aux autres (ceci n'est pas possible via l'\env ''multicols'' du \pack ''multicol''). Le langage \l3 rend ceci relativemnt aisé à faire.
+
+
+
+
+note::
+    Le code vient directement de cf::''cette réponse en ligne ; https://tex.stackexchange.com/a/593148/6880''. Nous avons juste remplacé l'usage de l'environnement ''array'' par celui de ''tabularray'' qui gère très bien les espacements dans le cadre mathématique.

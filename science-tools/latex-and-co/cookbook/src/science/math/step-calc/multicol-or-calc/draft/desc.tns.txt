@@ -1,0 +1,14 @@
+this::
+    date = 2025-05-10
+
+
+============
+Une esquisse
+============
+
+Nous allons faire appel à l'\env ''tblr'' du \pack ''tabularray'' qui gère proprement les tableaux avec du contenu \math
+((
+    L'\env array gère mal des cellules contenant des fractions en mode ''displaystyle''.
+)).
+La méthode proposée ici possède un gros inconvénient : nous ne pouvons pas saisir chaque série de calculs l'une après l'autre.
+L'\obj de la section suivante est de coder un \env permettant une saisie naturelle du contenu à présenter côte à côte.

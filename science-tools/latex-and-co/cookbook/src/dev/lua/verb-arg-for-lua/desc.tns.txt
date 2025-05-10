@@ -1,12 +1,14 @@
 this::
-    date = 2024-11-10
+    date = 2025-05-10
 
 
 ==================================================
 Utiliser le caractère ''%'' dans l'\arg d'une \cmd
 ==================================================
 
-Notre objectif est simple : en tapant ''\calc{27 % 12}'', l'utilisateur doit obtenir `3` qui est le reste de la \div euclidienne de `27` par `12`. Nous devons faire face à un problème, à savoir l'utilisation du caractère de mise en commentaire de \latex comme un caractère "normal". Pour arriver à nos fins, nous utilisons ''\NewDocumentCommand{\calc}{v}{...}'' afin de récupérer tous les caractères, même des ''%'', qui se situent entre les accolades.
+Notre objectif est simple : en tapant ''\calc{27 % 12}'', l'utilisateur doit obtenir `3` qui est le reste de la \div euclidienne de `27` par `12`.
+Ceci va nous demander d'autoriser l'utilisation du caractère de mise en commentaire de \latex comme un caractère "normal".
+Pour arriver à nos fins, nous utilisons ''\NewDocumentCommand{\calc}{v}{...}'' afin de récupérer tous les caractères saisies par l'utilisateur, même des ''%'', qui se situent entre les accolades.
 
 
 note::
