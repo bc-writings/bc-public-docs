@@ -24,10 +24,11 @@ Cas simple pour voir où nous allons.
 \begin{tblrtikzabove}
     \foreach \col in {1,...,3} {
         \node at (1-\col.base east) [
-            fill        = white,
             anchor      = base,
             text height = \baselineskip
         ] {ou};
+        \draw ([xshift=.5\pgflinewidth, yshift=-2pt]1-\col.base east)
+           -- ([xshift=.5\pgflinewidth, yshift=-2pt]1-\col.south east);
     }
 \end{tblrtikzabove}
 
@@ -35,9 +36,9 @@ Cas simple pour voir où nous allons.
 % Nous n'avons besoin que des lignes verticales de la 2ième ligne
 % à l'avant-dernière (X, Y, Z font \ref aux trois dernières lignes
 % verticales).
-    vline{2-Y},
+    vline{2-Y} = {2-Z}{solid},
 % Il est aisé de régler l'espacement autour des lignes verticales.
-    colsep = 1.1em,
+    colsep = 1.2em,
 % Nous indiquons que toutes les cellules sont "mathématiques".
     cells  = {mode = math}
 }
@@ -47,19 +48,20 @@ Cas simple pour voir où nous allons.
 \end{tblr}
 
 
-Cas utile, mais atypique, justifiant la solution retenue.
+Cas utile atypique, mais justifiant la solution retenue.
 
 \begin{tblrtikzabove}
-    \node at (1-1.base east) [
-        fill        = white,
-        anchor      = base,
-        text height = \baselineskip
+  \node at (1-1.base east) [
+      anchor      = base,
+      text height = \baselineskip
     ] {ou};
+    \draw ([xshift=.5\pgflinewidth, yshift=-2pt]1-1.base east) 
+       -- ([xshift=.5\pgflinewidth, yshift=-2pt]1-1.south east);
 \end{tblrtikzabove}
 
 \begin{tblr}{
-    vline{2-Y},
-    colsep = 1.1em,
+    vline{2-Y} = {2-Z}{solid},
+    colsep = 1.2em,
     cells  = {mode = math}
 }
     \begin{WithArrows}[
