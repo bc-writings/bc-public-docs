@@ -1,43 +1,81 @@
 \documentclass[varwidth, border = 3pt]{standalone}
 
-% Nous allons utiliser la macro ''\dfrac'' pour tester le rendu en
-% situation critique.
+% Nous allons utiliser la macro ''\dfrac'' pour stresser le rendu.
 \usepackage{amsmath}
+
+% Pour un cas à prendre en compte dans un contexte très pédagogique.
+\usepackage{witharrows}
 
 % L'environnement ''tblr'' de ''tabularray'' facilite notre travail.
 \usepackage{tabularray}
 
-% La bibliothèque ''tikz'' spécifique à ''tabularray'' facilite l'ajout
-% de matériel \tikz relativement aux cellules d'un tableau.
+% La bibliothèque ''tikz'', spécifique à ''tabularray'', permet
+% l'ajout de matériel \tikz relativement aux cellules d'un tableau.
 \UseTblrLibrary{tikz}
 
 \begin{document}
 
-% Le bon placement du texte "ou" se trouve le post suivant.
+Cas simple pour voir où nous allons.
+
+% La clé du bon placement du texte "ou" via ''anchor = base'' et
+% ''text height = \baselineskip'' se trouve dans le post suivant.
+%
 % https://tex.stackexchange.com/a/742419/6880
 \begin{tblrtikzabove}
-  \foreach \col in {1,...,2} {
-    \node at (1-\col.base east) [
-      fill        = white, 
-      anchor      = base, 
-      text height = \baselineskip
-    ] {ou};
-  }
+    \foreach \col in {1,...,3} {
+        \node at (1-\col.base east) [
+            fill        = white,
+            anchor      = base,
+            text height = \baselineskip
+        ] {ou};
+    }
 \end{tblrtikzabove}
 
 \begin{tblr}{
 % Nous n'avons besoin que des lignes verticales de la 2ième ligne
 % à l'avant-dernière (X, Y, Z font \ref aux trois dernières lignes
 % verticales).
-	vline{2-Y},
+    vline{2-Y},
 % Il est aisé de régler l'espacement autour des lignes verticales.
-	colsep = 1.1em,
-% Nous indiquons que toutes les cellules son "mathématiques".
+    colsep = 1.1em,
+% Nous indiquons que toutes les cellules sont "mathématiques".
     cells  = {mode = math}
 }
-	x^2 - 2 = 0     &  4 x + \dfrac{3}{4} = 0  &  A  \\
-	x^2 = 2         &  4 x = - \dfrac{3}{4}          \\
-	x = \pm \sqrt2  &  x = - \dfrac{3}{16}
+    x^2 - 2 = 0    & 4 x + \dfrac{3}{4} = 0 & A_{d_{e_{f}}} & G^{h} \\
+    x^2 = 2        & 4 x = - \dfrac{3}{4}                           \\
+    x = \pm \sqrt2 & x = - \dfrac{3}{16}
+\end{tblr}
+
+
+Cas utile, mais atypique, justifiant la solution retenue.
+
+\begin{tblrtikzabove}
+    \node at (1-1.base east) [
+        fill        = white,
+        anchor      = base,
+        text height = \baselineskip
+    ] {ou};
+\end{tblrtikzabove}
+
+\begin{tblr}{
+    vline{2-Y},
+    colsep = 1.1em,
+    cells  = {mode = math}
+}
+    \begin{WithArrows}[
+% Sans ''right-overlap = false'', les flèches décoratives ne
+% seraient pas prises en compte dans la boîte \latex créée par
+% l'\env ''WithArrows'' (c'est généralement ce que l'on veut,
+% mais ici ceci donnerait une \mef fausse).
+        right-overlap = false,
+        format        = l
+    ]
+        f(x)   \ge g(x)   \Arrow{S1} \\
+        f(x)^2 \ge g(x)^2 \Arrow{S2} \\
+        f(x)^2 - g(x)^2 \ge 0
+    \end{WithArrows}
+    &
+    Utile!
 \end{tblr}
 
 \end{document}

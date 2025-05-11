@@ -1,5 +1,5 @@
 this::
-    date = 2025-05-10
+    date = 2025-05-11
 
 
 ============
@@ -9,6 +9,10 @@ Une esquisse
 Nous allons faire appel à l'\env ''tblr'' du \pack ''tabularray'' qui gère proprement les tableaux avec du contenu \math
 ((
     L'\env array gère mal des cellules contenant des fractions en mode ''displaystyle''.
+)),
+et de façon très simple les lignes de démarcation du tableau.
+La méthode proposée ici possède un gros inconvénient à l'usage : nous ne pouvons pas saisir chaque série de calculs l'une après l'autre
+((
+    Imaginons que nous devions ajouter une ligne manquante pour l'une des série de calculs, mais pas pour les autres.
 )).
-La méthode proposée ici possède un gros inconvénient : nous ne pouvons pas saisir chaque série de calculs l'une après l'autre.
-L'\obj de la section suivante est de coder un \env permettant une saisie naturelle du contenu à présenter côte à côte.
+L'\obj de la section suivante est d'obtenir un \env permettant une saisie naturelle du contenu à présenter côte à côte.
