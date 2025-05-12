@@ -3,34 +3,21 @@
 %     + https://tex.stackexchange.com/a/593148/6880
 %%%
 
-%%%
-% Utilisons des \dfrac pour mettre à l'épreuve la mise en forme.
-%%%
+
 \usepackage{amsmath}
 
-%%%
-% Grâce au \pack ''tabularay'', nous n'aurons aucun réglage spécifique
-% à faire pour obtenir un tableau \math bien mis en forme.
-%%%
-\usepackage{tabularray}
+\usepackage{array}
+
 
 \ExplSyntaxOn
 
-%%%
-% prototype::
-%     #1 : XXX
-%%%
-\NewDocumentCommand{ \orsteps }{ m }{
+\NewDocumentCommand{\orsteps}{m}{
   \group_begin:
     \setlength{\arraycolsep}{2em}
     \cookbook_orsteps:n { #1 }
   \group_end:
 }
 
-
-%%%
-% XXX
-%%%
 \cs_generate_variant:Nn \seq_set_split:Nnn { c }
 \cs_generate_variant:Nn \seq_map_indexed_inline:Nn { c }
 
@@ -42,98 +29,77 @@
 \seq_new:c { l_cookbook_orsteps_col_1_seq }
 \seq_new:c { l_cookbook_orsteps_col_2_seq }
 \seq_new:c { l_cookbook_orsteps_col_3_seq }
-
 % and three rows
 \seq_new:c { l_cookbook_orsteps_row_1_seq }
 \seq_new:c { l_cookbook_orsteps_row_2_seq }
 \seq_new:c { l_cookbook_orsteps_row_3_seq }
 
 
-%%%
-% prototype::
-%     #1 : XXX
-%%%
 \cs_new_protected:Nn \cookbook_orsteps:n {
   \seq_set_split:Nnn \l_cookbook_orsteps_lines_seq { --- } { #1 }
 
-  \int_set:Nn
-    \l_cookbook_orsteps_cols_int
-    { \seq_count:N \l_cookbook_orsteps_lines_seq }
+  \int_set:Nn \l_cookbook_orsteps_cols_int {
+    \seq_count:N \l_cookbook_orsteps_lines_seq
+  }
 
   \int_zero:N \l_cookbook_orsteps_rows_int
 
-  % get the column data
+% get the column data
   \seq_map_indexed_inline:Nn \l_cookbook_orsteps_lines_seq {
-    \seq_clear_new:c { l_cookbook_orsteps_col_##1_seq }
+    \seq_clear_new:c   { l_cookbook_orsteps_col_##1_seq }
     \seq_set_split:cnn { l_cookbook_orsteps_col_##1_seq } { \\ } { ##2 }
+
     \int_set:Nn \l_cookbook_orsteps_rows_int {
-      \int_max:nn
-        { \l_cookbook_orsteps_rows_int }
-        { \seq_count:c { l_cookbook_orsteps_col_##1_seq } }
+      \int_max:nn { \l_cookbook_orsteps_rows_int } {
+        \seq_count:c { l_cookbook_orsteps_col_##1_seq }
+      }
     }
   }
 
-  % now transpose
+% now transpose
   \int_step_inline:nn { \l_cookbook_orsteps_rows_int } {
     \seq_clear_new:c { l_cookbook_orsteps_row_##1_seq }
+
     \int_step_inline:nn { \l_cookbook_orsteps_cols_int } {
-      \seq_put_right:cx { l_cookbook_orsteps_row_##1_seq }
-       {
+      \seq_put_right:cx { l_cookbook_orsteps_row_##1_seq } {
         \seq_item:cn { l_cookbook_orsteps_col_####1_seq } { ##1 }
-       }
+      }
     }
   }
 
-  % and build the array
+% and build the array
   \__cookbook_orsteps_makerow_first:
-    % \begin{array}{ l *{ \int_eval:n { \l_cookbook_orsteps_cols_int - 1 } } { |l } }
-    \begin{tblr}{
-      vline{2-Y}, % lignes horizontales et verticales
-      colsep = 10pt,  % espacement entre colonnes
-      cells = {mode=math} % toutes les cellules en mode math
-    }
-      % \tl_use:N \l_tmpa_tl
-      % \\
-      \int_step_function:nnN
-        { 2 }{ \l_cookbook_orsteps_rows_int }
-        \__cookbook_orsteps_makerow:n
-    \end{tblr}
-%     \end{array}
+
+  \begin{array}{
+    c *{ \int_eval:n { \l_cookbook_orsteps_cols_int - 1 } } { |c }
+  }
+
+    \tl_use:N \l_tmpa_tl \\
+
+    \int_step_function:nnN { 2 } { \l_cookbook_orsteps_rows_int }
+
+    \__cookbook_orsteps_makerow:n
+  \end{array}
 }
 
-%%%
-% prototype::
-%     action : XXX
-%%%
+
 \cs_new_protected:Nn \__cookbook_orsteps_makerow_first: {
   \tl_clear:N \l_tmpa_tl
   \seq_map_indexed_inline:cn { l_cookbook_orsteps_row_1_seq } {
-    \int_compare:nTF
-      { ##1 < \seq_count:c { l_cookbook_orsteps_row_1_seq } }
-      {
-        \tl_put_right:Nn
-          \l_tmpa_tl
-          { \multicolumn{1}{c!{\__cookbook_orsteps_or:}}{##2} & }
-      }
-      { \tl_put_right:Nn \l_tmpa_tl { ##2 } }
+    \int_compare:nTF { ##1 < \seq_count:c { l_cookbook_orsteps_row_1_seq } } {
+      \tl_put_right:Nn \l_tmpa_tl { \multicolumn{1}{c!{\__cookbook_orsteps_or:}}{##2} & }
+    } {
+      \tl_put_right:Nn \l_tmpa_tl { ##2 }
+    }
   }
 }
 
-%%%
-% prototype::
-%     action : XXX
-%%%
 \cs_new_protected:Nn \__cookbook_orsteps_or: {
   \makebox[0pt]{\makebox[2\arraycolsep]{~or~}}
 }
 
-%%%
-% prototype::
-%     action : XXX
-%%%
 \cs_new_protected:Nn \__cookbook_orsteps_makerow:n {
-  \seq_use:cn { l_cookbook_orsteps_row_#1_seq } { & }
-  \\
+  \seq_use:cn { l_cookbook_orsteps_row_#1_seq } { & } \\
 }
 
 \ExplSyntaxOff

@@ -1,46 +1,71 @@
 \documentclass[varwidth, border = 3pt]{standalone}
 
+%%%
 % Nous allons utiliser la macro ''\dfrac'' pour stresser le rendu.
+%%%
 \usepackage{amsmath}
 
-% Pour un cas à prendre en compte dans un contexte très pédagogique.
+%%%
+% L'environnement ''WithArrows'' va permettre de tester un cas à
+% prendre en compte pour les usages pédagogiques.
+%%%
 \usepackage{witharrows}
 
+%%%
 % L'environnement ''tblr'' de ''tabularray'' facilite notre travail.
+%%%
 \usepackage{tabularray}
 
+%%%
 % La bibliothèque ''tikz'', spécifique à ''tabularray'', permet
 % l'ajout de matériel \tikz relativement aux cellules d'un tableau.
+%%%
 \UseTblrLibrary{tikz}
 
 \begin{document}
 
 Cas simple pour voir où nous allons.
 
+%%%
 % La clé du bon placement du texte "ou" via ''anchor = base'' et
 % ''text height = \baselineskip'' se trouve dans le post suivant.
 %
-% https://tex.stackexchange.com/a/742419/6880
+%     + https://tex.stackexchange.com/a/742419/6880
+%%%
 \begin{tblrtikzabove}
     \foreach \col in {1,...,3} {
         \node at (1-\col.base east) [
             anchor      = base,
             text height = \baselineskip
         ] {ou};
+%%%
+% Nous complétons le trait vertical tracé par ''tblr'' à partir de
+% la 2ième ligne du tableau.
+%
+% note::
+%      La macro ''\pgflinewidth'' donne la largeur du noeud contenant
+%      le texte "ou".
+%%%
         \draw ([xshift=.5\pgflinewidth, yshift=-2pt]1-\col.base east)
-           -- ([xshift=.5\pgflinewidth, yshift=-2pt]1-\col.south east);
+           -- ([xshift=.5\pgflinewidth]1-\col.south east);
     }
 \end{tblrtikzabove}
 
 \begin{tblr}{
-% Nous n'avons besoin que des lignes verticales de la 2ième ligne
-% à l'avant-dernière (X, Y, Z font \ref aux trois dernières lignes
-% verticales).
+%%%
+% Nous n'avons besoin que des lignes verticales de la \2ieme colonne
+% à l'avant-dernière, et ceci en commençant le tracé à partir de la 
+% \2ieme ligne (Y, Z font \ref aux deux dernières lignes).
+%%%
     vline{2-Y} = {2-Z}{solid},
+%%%
 % Il est aisé de régler l'espacement autour des lignes verticales.
+%%%
     colsep = 1.2em,
+%%%
 % Nous indiquons que toutes les cellules sont "mathématiques".
-    cells  = {mode = math}
+%%%
+    cells = {mode = math}
 }
     x^2 - 2 = 0    & 4 x + \dfrac{3}{4} = 0 & A_{d_{e_{f}}} & G^{h} \\
     x^2 = 2        & 4 x = - \dfrac{3}{4}                           \\
@@ -51,12 +76,13 @@ Cas simple pour voir où nous allons.
 Cas utile atypique, mais justifiant la solution retenue.
 
 \begin{tblrtikzabove}
-  \node at (1-1.base east) [
-      anchor      = base,
-      text height = \baselineskip
+    \node at (1-1.base east) [
+        anchor      = base,
+        text height = \baselineskip
     ] {ou};
-    \draw ([xshift=.5\pgflinewidth, yshift=-2pt]1-1.base east) 
-       -- ([xshift=.5\pgflinewidth, yshift=-2pt]1-1.south east);
+    %
+    \draw ([xshift=.5\pgflinewidth, yshift=-2pt]1-1.base east)
+       -- ([xshift=.5\pgflinewidth]1-1.south east);
 \end{tblrtikzabove}
 
 \begin{tblr}{
@@ -65,19 +91,21 @@ Cas utile atypique, mais justifiant la solution retenue.
     cells  = {mode = math}
 }
     \begin{WithArrows}[
+%%%
 % Sans ''right-overlap = false'', les flèches décoratives ne
-% seraient pas prises en compte dans la boîte \latex créée par
+% seraient pas prises en compte par la boîte \latex créée par
 % l'\env ''WithArrows'' (c'est généralement ce que l'on veut,
-% mais ici ceci donnerait une \mef fausse).
+% mais ici ceci donnerait une \mef incorrecte).
+%%%
         right-overlap = false,
         format        = l
     ]
-        f(x)   \ge g(x)   \Arrow{S1} \\
-        f(x)^2 \ge g(x)^2 \Arrow{S2} \\
+        f(x) \ge g(x)     \Arrow{E1} \\
+        f(x)^2 \ge g(x)^2 \Arrow{E2} \\
         f(x)^2 - g(x)^2 \ge 0
     \end{WithArrows}
     &
-    Utile!
+    \text{Utile.}
 \end{tblr}
 
 \end{document}
