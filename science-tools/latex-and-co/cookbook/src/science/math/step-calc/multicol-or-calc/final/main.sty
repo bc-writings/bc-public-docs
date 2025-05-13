@@ -58,11 +58,10 @@
     \l_cookbook_orsteps_cols_int
     { \seq_count:N \l_cookbook_orsteps_blocks_seq }
 
-% Nombre de lignes et construction des colonnes finales.
-  \int_zero:N \l_cookbook_orsteps_rows_int
-
 %%%
-% XXXX
+% Nous construisons maintenant chacune des colonnes du contenu
+% "utilisateur", tout en calculant le nombre de lignes pour la
+% mise en forme qu'il faudra utiliser.
 %
 % note::
 %     ''\seq_map_indexed_inline'' applique une fonction anonyme,
@@ -70,6 +69,8 @@
 %     l'\arg ''##1'' donnant la position, et ''##2'' l'\elt en
 %     cours.
 %%%
+  \int_zero:N \l_cookbook_orsteps_rows_int
+
   \seq_map_indexed_inline:Nn \l_cookbook_orsteps_blocks_seq {
     \seq_clear_new:c { l_cookbook_orsteps_col_##1_seq }
 
@@ -86,7 +87,7 @@
   }
 
 %%%
-% XXXX
+% Nous passons aux lignes pour le contenu mis en forme.
 %
 % note::
 %     ''\int_step_inline'' est une boucle de type "pour" allant
@@ -97,6 +98,11 @@
     \seq_clear_new:c { l_cookbook_orsteps_row_##1_seq }
 
     \int_step_inline:nn { \l_cookbook_orsteps_cols_int } {
+%%%
+% warning::
+%     Nous devons utiliser ''\seq_put_right:cx'' car ''tblr'' va
+%     partiellemnt développer le contenu que nous avons fabriqué.
+%%%
       \seq_put_right:cx
         { l_cookbook_orsteps_row_##1_seq }
         { \seq_item:cn { l_cookbook_orsteps_col_####1_seq } { ##1 } }
@@ -114,11 +120,19 @@
     }
   }
 
+%%%
+% L'ajout des textes "ou" est délégué à la macro ''\@orsteps@deco''
+% car les espaces sont "ignorés" ici.
+%%%
   \int_decr:N \l_cookbook_orsteps_cols_int
-
   \@orsteps@deco{\int_use:N \l_cookbook_orsteps_cols_int}
 
-  \begin{tblr}[expand+=\l_cookbook_orsteps_tblr_tl]{
+%%%
+% Nous indiquons à l'\env ''tblr'' de développer le contenu de
+% ''\l_cookbook_orsteps_tblr_tl'' via le réglage optionnel
+% ''expand = \l_cookbook_orsteps_tblr_tl''.
+%%%
+  \begin{tblr}[expand = \l_cookbook_orsteps_tblr_tl]{
       vline{2-Y} = {2-Z}{solid},
       colsep     = 1.2em,
       cells      = {mode = math}
@@ -131,7 +145,8 @@
 
 
 %%%
-%
+% prototype::
+%     #1 : le nombre de texte "ou" à ajouter.
 %%%
 \NewDocumentCommand{\@orsteps@deco}{m}{
   \begin{tblrtikzabove}
