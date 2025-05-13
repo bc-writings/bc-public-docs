@@ -1,9 +1,10 @@
 this::
-    date = 2025-05-06
+    date = 2025-05-10
 
 
 ======================================
 Combinaisons et triangle de Sierpinsky
 ======================================
 
-Un classique \math : si dans un triangle de Pascal, les valeurs paires sont coloriées d'une même couleur, et les impaires avec une autre couleur, une version "discrète" du triangle de Sierpinsky apparaît. Obtenir ceci via \lua et \tikz est très aisée.
+Un classique \math : si dans un triangle de Pascal, les valeurs paires sont coloriées d'une même couleur, et les impaires d'une autre, nous voyons apparaître une version "discrète" du triangle de Sierpinsky.
+Obtenir ceci via \lua et \tikz est très aisée.

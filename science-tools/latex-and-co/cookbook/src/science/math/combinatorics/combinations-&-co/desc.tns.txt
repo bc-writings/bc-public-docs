@@ -1,9 +1,9 @@
 this::
-    date = 2025-06-06
+    date = 2025-05-10
 
 
 ============================
 Combinaisons et arrangements
 ============================
 
-Grâce à \lua, il est aisé de proposer deux macros ''\Cpn'' et ''\Apn'' pour calculer respectivement des combinaisons et des arrangements. Nous en profitons au passage pour tracer le triangle de Pascal sur `10` niveaux, comme il est nommé en France.
+Grâce à \lua, il est aisé de proposer deux macros ''\Cpn'' et ''\Apn'' calculant respectivement des combinaisons et des arrangements. Nous en profitons au passage pour tracer le triangle de Pascal sur `10` niveaux.

@@ -1,16 +1,30 @@
-% Sources.
-%     * https://tex.stackexchange.com/a/621737/6880
-%     * https://tex.stackexchange.com/a/685974/6880
+%%%
+% refs::
+%     + https://tex.stackexchange.com/a/621737/6880
+%     + https://tex.stackexchange.com/a/685974/6880
+%%%
 
+%%%
+% Le \pack ''scalerel'' va servir à redimensionner le symbole en
+% fonction du contexte d'utilisation, du style de \mef \math.
+%%%
 \usepackage{scalerel}
 
+%%%
+% \tikz et la bibliothèque ''decorations'' vont permettre le tracé
+% d'un zigzag sans effort.
+%%%
 \usepackage{tikz}
 \usetikzlibrary{decorations.pathmorphing}
 
-\newsavebox{\mytikzrel@box}
-\sbox{\mytikzrel@box}{%
+%%%
+% Nous stockons notre dessin dans un boîte \latex que nous mettrons
+% à la bonne dimension lors de son emploi dans le texte.
+%%%
+\newsavebox{\box@mytikzrel}
+\sbox{\box@mytikzrel}{%
   \raisebox{.3ex}{%
-    \begin{tikzpicture}
+    \begin{tikzpicture}[baseline]
       \draw[
         <->,
         line cap = round,
@@ -27,4 +41,18 @@
   }%
 }
 
-\newcommand{\mytikzrel}{\mathrel{\scalerel*{\usebox{\mytikzrel@box}}{\iff}}}
+%%%
+% L'astuce employée pour obtenir un symbole s'adaptant à la taille
+% du style mathématique en cours est de redimensionner notre dessin
+% \tikz en fonction du symbole \iff qui lui respecte le style
+% mathématique en cours.
+%
+% note::
+%     La version étoilée de ''\scalerel'' tient compte du \ctx \math
+%     d'utilisation.
+%%%
+\newcommand{\mytikzrel}{%
+  \mathrel{%
+    \scalerel*{\usebox{\box@mytikzrel}}{\iff}%
+  }%
+}

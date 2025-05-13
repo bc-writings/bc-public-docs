@@ -1,17 +1,15 @@
 this::
-    date = 2024-11-15
+    date = 2025-05-10
 
 
 ==============================
 Une solution "professionnelle"
 ==============================
 
-Dans cette recette assez technique, les espacements superflus et les placements disgracieux ont disparu. Le code est directement proposé dans cf::''cette réponse en ligne ; https://tex.stackexchange.com/a/730684/6880''.
+Dans cette recette assez technique, les espacements superflus et les placements disgracieux ont disparu.
 
 
 note::
-    Pour comprendre le code, il suffit de faire appel à la commande term::''latexdef'' pour obtenir les \defs des macros \tex-niques employées, puis de laisser marcher la boîte à neurones.
-
-
-note::
-    Via \l3, il est aisé de modifier le code proposé ici pour créer à la chaîne de "gros \opes", mais ceci est une autre histoire que nous ne conterons pas ici.
+    Le code est directement proposé dans cf::''cette réponse en ligne ; https://tex.stackexchange.com/a/730684/6880''.
+    Pour comprendre les instructions utilisées, il suffit de faire appel à la commande term::''latexdef'' pour obtenir les \defs des macros \tex-niques employées, puis de laisser marcher la boîte à neurones.
+    Enfin, via \l3, il est aisé de modifier le code proposé ici pour créer à la chaîne de "gros \opes", mais ceci est une autre histoire que nous ne conterons pas ici.

@@ -1,0 +1,27 @@
+this::
+    date = 2025-05-10
+
+
+abrev::
+    desc = desc.tns.txt
+
+
+=======================
+Des calculs côte à côte
+=======================
+
+Notre objectif est de faciliter la saisie de calculs présentés en parallèle comme dans l'exemple suivant
+((
+    Typiquement, ceci est utile pour résoudre des équations produits.
+)).
+
+pdf::
+    ---
+    title = Rendu souhaité.
+    path  = ./final/main.pdf
+    ---
+
+
+content::
+    ./draft/\desc
+    ./final/\desc

@@ -1,12 +1,13 @@
 this::
-    date = 2024-11-10
+    date = 2025-05-10
 
 
 ==============================
 Une version aux petits oignons
 ==============================
 
-Finissons en proposant une macro permettant de juste taper ''\nub{1, 2, 3, 4}'' ou ''\nub{1, 2,..., 100}'', et qui de plus peut calculer le résultat de la somme décorée. Pour arriver à nos fins, nous avons utiliser le \lang \l3, mais aussi la boucle ''\foreach'' de ''pgf''.
+Finissons en proposant une macro permettant de ne taper que ''\nub{1, 2, 3, 4}'' ou ''\nub{1, 2,..., 100}'', et qui de plus peut calculer le résultat de la somme.
+Pour arriver à nos fins, nous avons utiliser le \lang \l3, mais aussi la boucle ''\foreach'' de ''pgf''.
 
 
 caution::

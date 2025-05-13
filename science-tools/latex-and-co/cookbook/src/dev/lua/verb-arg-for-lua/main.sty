@@ -15,13 +15,17 @@
 \directlua{dofile('main.lua')}
 
 %%%
-% La \spec ''v'' dans ''\NewDocumentCommand'' demande de lire l'\arg
-% entre deux accolades de façon "verbatim".
+% prototype::
+%     #1 : un contenu à analyser tel que tapé.
+%
+% note::
+%     La \spec ''v'' dans ''\NewDocumentCommand'' demande de lire l'\arg
+%     entre deux accolades de façon "verbatim".
 %
 % caution::
 %     Une chaîne "verbatim" côté \latex correspond à une chaîne littéral
 %     côté \lua, donc il faut encadrer ''#1'' par des doubles crochets.
 %%%
-\NewDocumentCommand{\calc}{v}{
+\NewDocumentCommand{ \calc }{ v }{
   \directlua{calc([[#1]])}
 }

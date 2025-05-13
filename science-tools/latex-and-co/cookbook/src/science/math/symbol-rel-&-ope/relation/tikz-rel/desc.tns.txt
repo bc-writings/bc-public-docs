@@ -1,9 +1,9 @@
 this::
-    date = 2025-05-06
+    date = 2025-05-10
 
 
 ===========================
 Relation dessinée par \tikz
 ===========================
 
-Avec un symbole basique, il n'est pas trop compliqué, mais pas immédiat non plus, de dessiner un nouveau symbole avec \tikz pour un usage mathématique. La \tech employée se comprend aisément, et ne mérite aucune explication.
+Le titre dit tout, pas besoin d'en rajouter !

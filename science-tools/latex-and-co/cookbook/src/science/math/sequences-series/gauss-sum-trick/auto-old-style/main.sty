@@ -112,8 +112,7 @@
 % maximal lors de la prochaine compilation.
     \immediate\write\@auxout{%
       \string\gdef\string%
-        \nub@depth@\alph{nub@label@cnter}%
-                 {\arabic{nub@depth@draw}}%%
+        \nub@depth@\alph{nub@label@cnter}{\arabic{nub@depth@draw}}%
     }
 % On remet à zéro pour les prochaines sommes à la Gauss de la compilation
 % en cours.

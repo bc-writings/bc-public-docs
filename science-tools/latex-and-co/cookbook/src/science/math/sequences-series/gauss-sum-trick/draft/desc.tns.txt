@@ -1,5 +1,5 @@
 this::
-    date = 2024-11-03
+    date = 2025-05-10
 
 
 ============================
@@ -11,3 +11,7 @@ Cette recette s'appuie sur \tikz et sa bibliothèque ''tikzmark'' pour décorer 
 
 caution::
     La méthode proposée demande de faire tous les réglages à la main. Nous verrons dans les recettes suivantes comment éviter ceci.
+
+
+note::
+    Le code est directement proposé dans cf::''cette réponse en ligne ; https://tex.stackexchange.com/a/730033''.

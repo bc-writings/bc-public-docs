@@ -1,0 +1,162 @@
+%%%
+% refs::
+%     + https://tex.stackexchange.com/a/593148/6880
+%     + https://tex.stackexchange.com/a/742419/6880
+%%%
+
+%%%
+% L'environnement ''tblr'' de ''tabularray'' facilite notre travail.
+%%%
+\usepackage{tabularray}
+
+%%%
+% La bibliothèque ''tikz'', spécifique à ''tabularray'', permet
+% l'ajout de matériel \tikz relativement aux cellules d'un tableau.
+%%%
+\UseTblrLibrary{tikz}
+
+
+\ExplSyntaxOn
+
+%%%
+% prototype::
+%     #1 : le contenu tapé bloc par bloc par l'utilisateur en
+%          utilisant ''---'' pour séparer les blocs, et ''\\''
+%          pour les lignes de calcul dans un bloc donné.
+%%%
+\NewDocumentEnvironment{ orsteps }{ b }{
+  \cookbook_orsteps:n { #1 }
+}{}
+
+%%%
+% Nous créons des versions "alternatives" de primitives \l3
+% afin de les utiliser via des noms de \vars à la ''csname''.
+%%%
+\cs_generate_variant:Nn \seq_set_split:Nnn { c }
+\cs_generate_variant:Nn \seq_map_indexed_inline:Nn { c }
+
+%%%
+% Pour la mise en forme finale.
+%%%
+\seq_new:N \l_cookbook_orsteps_blocks_seq
+\int_new:N \l_cookbook_orsteps_cols_int
+\int_new:N \l_cookbook_orsteps_rows_int
+\tl_new:N  \l_cookbook_orsteps_tblr_tl
+
+%%%
+% prototype::
+%     :see: env.orsteps
+%%%
+\cs_new_protected:Nn \cookbook_orsteps:n {
+% Nombre de colonnes.
+  \seq_set_split:Nnn
+    \l_cookbook_orsteps_blocks_seq
+    { --- }
+    { #1 }
+
+  \int_set:Nn
+    \l_cookbook_orsteps_cols_int
+    { \seq_count:N \l_cookbook_orsteps_blocks_seq }
+
+%%%
+% Nous construisons maintenant chacune des colonnes du contenu
+% "utilisateur", tout en calculant le nombre de lignes pour la
+% mise en forme qu'il faudra utiliser.
+%
+% note::
+%     ''\seq_map_indexed_inline'' applique une fonction anonyme,
+%     ou en ligne, à toutes les entrées d'une liste donnée avec
+%     l'\arg ''##1'' donnant la position, et ''##2'' l'\elt en
+%     cours.
+%%%
+  \int_zero:N \l_cookbook_orsteps_rows_int
+
+  \seq_map_indexed_inline:Nn \l_cookbook_orsteps_blocks_seq {
+    \seq_clear_new:c { l_cookbook_orsteps_col_##1_seq }
+
+    \seq_set_split:cnn
+      { l_cookbook_orsteps_col_##1_seq }
+      { \\ }
+      { ##2 }
+
+    \int_set:Nn \l_cookbook_orsteps_rows_int {
+      \int_max:nn
+        { \l_cookbook_orsteps_rows_int }
+        { \seq_count:c { l_cookbook_orsteps_col_##1_seq } }
+    }
+  }
+
+%%%
+% Nous passons aux lignes pour le contenu mis en forme.
+%
+% note::
+%     ''\int_step_inline'' est une boucle de type "pour" allant
+%     ici de `0` à la valeur de ''\l_cookbook_orsteps_rows_int''.
+%     La variable de boucle étant accessible via ''##1''.
+%%%
+  \int_step_inline:nn { \l_cookbook_orsteps_rows_int } {
+    \seq_clear_new:c { l_cookbook_orsteps_row_##1_seq }
+
+    \int_step_inline:nn { \l_cookbook_orsteps_cols_int } {
+%%%
+% warning::
+%     Nous devons utiliser ''\seq_put_right:cx'' car ''tblr'' va
+%     partiellemnt développer le contenu que nous avons fabriqué.
+%%%
+      \seq_put_right:cx
+        { l_cookbook_orsteps_row_##1_seq }
+        { \seq_item:cn { l_cookbook_orsteps_col_####1_seq } { ##1 } }
+    }
+  }
+
+%%%
+% Mise en forme via l'\env ''tblr'' proposé par ''tabularray''.
+%%%
+  \tl_clear:N \l_cookbook_orsteps_tblr_tl
+
+  \int_step_inline:nn { \l_cookbook_orsteps_rows_int } {
+    \tl_put_right:Nx \l_cookbook_orsteps_tblr_tl {
+      \seq_use:cn { l_cookbook_orsteps_row_##1_seq } { & } \\
+    }
+  }
+
+%%%
+% L'ajout des textes "ou" est délégué à la macro ''\@orsteps@deco''
+% car les espaces sont "ignorés" ici.
+%%%
+  \int_decr:N \l_cookbook_orsteps_cols_int
+  \@orsteps@deco{\int_use:N \l_cookbook_orsteps_cols_int}
+
+%%%
+% Nous indiquons à l'\env ''tblr'' de développer le contenu de
+% ''\l_cookbook_orsteps_tblr_tl'' via le réglage optionnel
+% ''expand = \l_cookbook_orsteps_tblr_tl''.
+%%%
+  \begin{tblr}[expand = \l_cookbook_orsteps_tblr_tl]{
+      vline{2-Y} = {2-Z}{solid},
+      colsep     = 1.2em,
+      cells      = {mode = math}
+  }
+    \l_cookbook_orsteps_tblr_tl
+  \end{tblr}
+}
+
+\ExplSyntaxOff
+
+
+%%%
+% prototype::
+%     #1 : le nombre de texte "ou" à ajouter.
+%%%
+\NewDocumentCommand{\@orsteps@deco}{m}{
+  \begin{tblrtikzabove}
+    \foreach \col in {1,...,#1} {
+      \node at (1-\col.base east) [
+        anchor      = base,
+        text height = \baselineskip
+      ] {ou};
+      \draw ([xshift = .5\pgflinewidth, yshift = -2pt] 1-\col.base east)
+         -- ([xshift = .5\pgflinewidth] 1-\col.south east);
+    }
+  \end{tblrtikzabove}
+}

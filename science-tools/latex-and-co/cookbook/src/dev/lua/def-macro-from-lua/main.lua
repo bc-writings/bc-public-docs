@@ -1,5 +1,5 @@
 -----
--- Division eucidienne.
+-- Division eucidienne (à petits pas).
 -----
 function divmod(a, b)
     local q = 0

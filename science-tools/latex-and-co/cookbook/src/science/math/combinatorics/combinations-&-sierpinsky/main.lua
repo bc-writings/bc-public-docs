@@ -9,7 +9,7 @@ MEMO_BIN_CNP = {}
 -----
 -- Combinaison modulo 2.
 -----
-function binCnp(n, p)
+function binCpn(p, n)
     if (p == 0 or p == n) then
         return 1
     end
@@ -21,8 +21,8 @@ function binCnp(n, p)
         return MEMO_BIN_CNP[n][p]
     end
 
-    a = binCnp(n - 1, p)
-    b = binCnp(n - 1, p - 1)
+    a = binCpn(p    , n - 1)
+    b = binCpn(p - 1, n - 1)
 
     if a == b then
         val = 0
