@@ -1,10 +1,15 @@
-\documentclass[border = 3pt]{standalone}
+\documentclass[varwidth, border = 3pt]{standalone}
 
 \usepackage{main}
 
+\usepackage{amsmath}
+\usepackage{witharrows}
+
 \begin{document}
 
-$\orsteps{
+Cas simple à valider.
+
+\begin{orsteps}
     x^2 - 2 = 0      \\
     x^2 = 2          \\
     x = \pm \sqrt{2}
@@ -15,6 +20,26 @@ $\orsteps{
     ---
     x - 3 = 0 \\
     x = 3
-}$
+\end{orsteps}
+
+
+Cas utile atypique à valider.
+
+% Nous devons "cacher" les ''\\'' de ''WithArrows'' aux yeux
+% de ''orsteps''.
+\newcommand\br{\\}
+
+\begin{orsteps}
+    \begin{WithArrows}[
+        right-overlap = false,
+        format        = l
+    ]
+        f(x) \ge g(x)         \Arrow{E1} \br
+        f(x)^2 \ge g(x)^2     \Arrow{E2} \br
+        f(x)^2 - g(x)^2 \ge 0
+    \end{WithArrows}
+    ---
+    \text{Utile.}
+\end{orsteps}
 
 \end{document}

@@ -1,12 +1,12 @@
 this::
-    date = 2025-05-10
+    date = 2025-05-13
 
 
 ====================================
 Une version plus humainement amicale
 ====================================
 
-Nous proposons ici une version permettant une saisie ne nécessitant aucun réglage à la main. Voici la démarche suivie.
+Nous proposons ici une version permettant une saisie ne nécessitant aucun réglage à la main. Par simple amusement, nous avons codé cette solution sans \l3. Voici la démarche suivie.
 
     1) Nous partons de la macro ''\nub'' de la \1ere recette vue dans cf::''?/draft/\desc'' pour en faire une version interne ''\internal@nub'' qui attend \ttes les \infos nécessaires au tracé d'une \deco, à l'exception de la longueur ''\unitht'' qui a été renommée ''\nubunitht'', et reste modifiable facilement par l'utilisateur.
 

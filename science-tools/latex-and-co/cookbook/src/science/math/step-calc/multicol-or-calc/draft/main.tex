@@ -33,7 +33,7 @@ Cas simple pour voir où nous allons.
 %     + https://tex.stackexchange.com/a/742419/6880
 %%%
 \begin{tblrtikzabove}
-    \foreach \col in {1,...,3} {
+    \foreach \col in {1,...,2} {
         \node at (1-\col.base east) [
             anchor      = base,
             text height = \baselineskip
@@ -46,15 +46,15 @@ Cas simple pour voir où nous allons.
 %      La macro ''\pgflinewidth'' donne la largeur du noeud contenant
 %      le texte "ou".
 %%%
-        \draw ([xshift=.5\pgflinewidth, yshift=-2pt]1-\col.base east)
-           -- ([xshift=.5\pgflinewidth]1-\col.south east);
+        \draw ([xshift = .5\pgflinewidth, yshift = -2pt] 1-\col.base east)
+           -- ([xshift = .5\pgflinewidth] 1-\col.south east);
     }
 \end{tblrtikzabove}
 
 \begin{tblr}{
 %%%
 % Nous n'avons besoin que des lignes verticales de la \2ieme colonne
-% à l'avant-dernière, et ceci en commençant le tracé à partir de la 
+% à l'avant-dernière, et ceci en commençant le tracé à partir de la
 % \2ieme ligne (Y, Z font \ref aux deux dernières lignes).
 %%%
     vline{2-Y} = {2-Z}{solid},
@@ -67,8 +67,8 @@ Cas simple pour voir où nous allons.
 %%%
     cells = {mode = math}
 }
-    x^2 - 2 = 0    & 4 x + \dfrac{3}{4} = 0 & A_{d_{e_{f}}} & G^{h} \\
-    x^2 = 2        & 4 x = - \dfrac{3}{4}                           \\
+    x^2 - 2 = 0    & 4 x + \dfrac{3}{4} = 0 & x^4 + 7 = 0        \\
+    x^2 = 2        & 4 x = - \dfrac{3}{4}   & \text{Impossible!} \\
     x = \pm \sqrt2 & x = - \dfrac{3}{16}
 \end{tblr}
 
@@ -81,8 +81,8 @@ Cas utile atypique, mais justifiant la solution retenue.
         text height = \baselineskip
     ] {ou};
     %
-    \draw ([xshift=.5\pgflinewidth, yshift=-2pt]1-1.base east)
-       -- ([xshift=.5\pgflinewidth]1-1.south east);
+    \draw ([xshift = .5\pgflinewidth, yshift = -2pt] 1-1.base east)
+       -- ([xshift = .5\pgflinewidth] 1-1.south east);
 \end{tblrtikzabove}
 
 \begin{tblr}{
@@ -100,8 +100,8 @@ Cas utile atypique, mais justifiant la solution retenue.
         right-overlap = false,
         format        = l
     ]
-        f(x) \ge g(x)     \Arrow{E1} \\
-        f(x)^2 \ge g(x)^2 \Arrow{E2} \\
+        f(x) \ge g(x)         \Arrow{E1} \\
+        f(x)^2 \ge g(x)^2     \Arrow{E2} \\
         f(x)^2 - g(x)^2 \ge 0
     \end{WithArrows}
     &
