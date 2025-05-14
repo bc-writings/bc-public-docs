@@ -6,4 +6,4 @@ this::
 Dessiner un intervalle
 ======================
 
-XXXX
+Le titre dit tout, pas besoin d'en rajouter !

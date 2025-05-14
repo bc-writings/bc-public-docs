@@ -1,0 +1,72 @@
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+
+\NewDocumentCommand{ \drawinter }{ O{-5} O{5} m m m }{
+  \begin{tikzpicture}
+    \draw[green!50!black, <->, line width=1pt]
+        (#3, .7) -- (#4, .7);
+
+    \pgfmathparse{(#3 + #4)/2}
+    \let\@inter@pos\pgfmathresult
+
+    \pgfmathparse{#4 - #3}
+    \let\@inter@mid@dist\pgfmathresult
+
+    \draw (\@inter@pos, .7)
+      node[above, green!50!black] {$\pgfmathprintnumber{\@inter@mid@dist}$};
+
+    \draw[green!50!black, <->, line width=1pt]
+      (#4, .7) -- (#5, .7);
+
+    \pgfmathparse{(#4 + #5)/2}
+    \let\@inter@pos\pgfmathresult
+
+    \pgfmathparse{#5 - #4}
+    \let\@inter@mid@dist\pgfmathresult
+
+    \draw (\@inter@pos, .7)
+      node[above, green!50!black] {$\pgfmathprintnumber{\@inter@mid@dist}$};
+
+    \fill[green!50!black, opacity=.2]
+      (#3, -.3) rectangle (#5, .3);
+
+    \pgfmathparse{#3 - 2.3}
+    \let\@inter@start\pgfmathresult
+
+    \pgfmathparse{#5 + 2.6}
+    \let\@inter@end\pgfmathresult
+
+    \draw[>={Latex[width=4mm]},->, line width=1pt]
+      (\@inter@start, 0) -- (\@inter@end, 0);
+
+    \pgfmathparse{floor(#3 - 2)}
+    \let\@inter@start@axe\pgfmathresult
+
+    \pgfmathparse{ceil(#5 + 2)}
+    \let\@inter@end@axe\pgfmathresult
+
+    \foreach \x in {\@inter@start@axe,...,\@inter@end@axe} {
+      \draw (\x, -.3)
+        node [below] {$\pgfmathprintnumber{\x}$};
+
+      \draw [very thick]
+        (\x, -.2) -- (\x, .2);
+    }
+
+    \foreach \x in {#3,#4,#5} {
+      \draw [green!50!black] (\x, -.3)
+        node [below] {$\pgfmathprintnumber{\x}$};
+
+      \draw [very thick, green!50!black]
+        (\x, -.2) -- (\x, .2);
+    }
+
+    \draw[
+        > = {
+          Bracket[width=7mm, line width=2pt, length=1.5mm]
+        },
+        <->,
+        green!50!black
+    ] ([xshift = -1pt] #3, 0) -- ([xshift = 1pt] #5, 0);
+\end{tikzpicture}
+}
