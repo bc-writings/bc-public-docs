@@ -1,17 +1,33 @@
+%%%
+% XXX
+%%%
 \usepackage{tikz}
+
+%%%
+% La bibliothèque ''arrows.meta'', spécifique à ''tikz'', XXX
+%%%
 \usetikzlibrary{arrows.meta}
 
 \NewDocumentCommand{ \drawinter }{ O{-5} O{5} m m m }{
   \begin{tikzpicture}
+%%%
+% XXX
+%%%
     \draw[green!50!black, <->, line width=1pt]
-        (#3, .7) -- (#4, .7);
+      (#3, .7) -- (#4, .7);
 
+%%%
+% XXX
+%%%
     \pgfmathparse{(#3 + #4)/2}
     \let\@inter@pos\pgfmathresult
 
     \pgfmathparse{#4 - #3}
     \let\@inter@mid@dist\pgfmathresult
 
+%%%
+% XXX
+%%%
     \draw (\@inter@pos, .7)
       node[above, green!50!black] {$\pgfmathprintnumber{\@inter@mid@dist}$};
 
@@ -27,17 +43,23 @@
     \draw (\@inter@pos, .7)
       node[above, green!50!black] {$\pgfmathprintnumber{\@inter@mid@dist}$};
 
+%%%
+% XXX
+%%%
     \fill[green!50!black, opacity=.2]
       (#3, -.3) rectangle (#5, .3);
 
+%%%
+% XXX
+%%%
     \pgfmathparse{#3 - 2.3}
-    \let\@inter@start\pgfmathresult
+    \let\@inter@start@axe\pgfmathresult
 
     \pgfmathparse{#5 + 2.6}
-    \let\@inter@end\pgfmathresult
+    \let\@inter@end@axe\pgfmathresult
 
     \draw[>={Latex[width=4mm]},->, line width=1pt]
-      (\@inter@start, 0) -- (\@inter@end, 0);
+      (\@inter@start@axe, 0) -- (\@inter@end@axe, 0);
 
     \pgfmathparse{floor(#3 - 2)}
     \let\@inter@start@axe\pgfmathresult
@@ -46,21 +68,19 @@
     \let\@inter@end@axe\pgfmathresult
 
     \foreach \x in {\@inter@start@axe,...,\@inter@end@axe} {
-      \draw (\x, -.3)
-        node [below] {$\pgfmathprintnumber{\x}$};
-
-      \draw [very thick]
-        (\x, -.2) -- (\x, .2);
+      \@add@tock@label{\x}
     }
 
+%%%
+% XXX
+%%%
     \foreach \x in {#3,#4,#5} {
-      \draw [green!50!black] (\x, -.3)
-        node [below] {$\pgfmathprintnumber{\x}$};
-
-      \draw [very thick, green!50!black]
-        (\x, -.2) -- (\x, .2);
+      \@add@tock@label[green!50!black]{\x}
     }
 
+%%%
+% XXX
+%%%
     \draw[
         > = {
           Bracket[width=7mm, line width=2pt, length=1.5mm]
@@ -68,5 +88,17 @@
         <->,
         green!50!black
     ] ([xshift = -1pt] #3, 0) -- ([xshift = 1pt] #5, 0);
-\end{tikzpicture}
+  \end{tikzpicture}
+}
+
+%%%
+% prototype::
+%     #1 : XXX
+%%%
+\NewDocumentCommand{ \@add@tock@label }{ O{black} m }{
+  \draw [#1] (#2, -.3)
+    node [below] {$\pgfmathprintnumber{#2}$};
+
+  \draw [very thick, #1]
+    (#2, -.2) -- (#2, .2);
 }

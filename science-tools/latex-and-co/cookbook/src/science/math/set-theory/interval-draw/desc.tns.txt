@@ -1,9 +1,12 @@
 this::
-    date = 2025-05-14
+    date = 2025-05-???
 
 
 ======================
 Dessiner un intervalle
 ======================
 
-Le titre dit tout, pas besoin d'en rajouter !
+La version proposée se concentre juste sur le tracé, et non sur la proposition d'une macro ergonomique, car ceci demande de prendre en compte beaucoup de situations particulières
+((
+    XXXX
+)).
