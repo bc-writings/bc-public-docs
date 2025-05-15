@@ -1,42 +1,50 @@
 %%%
-% XXX
+% Traçons avec le verbeux, mais tellement sympathique, \tikz.
 %%%
 \usepackage{tikz}
 
 %%%
-% La bibliothèque ''arrows.meta'', spécifique à ''tikz'', XXX
+% La bibliothèque ''arrows.meta'', spécifique à \tikz, propose
+% différentes pointes de flèches.
 %%%
 \usetikzlibrary{arrows.meta}
 
 %%%
 % prototype::
-%     #1 : XXX
-%     #2 : XXX
-%     #3 : XXX
+%     #1 : borne inférieure de l'intervalle.
+%     #2 : borne supérieure de l'intervalle.
 %%%
-\NewDocumentCommand{ \drawinter }{ m m m }{
+\NewDocumentCommand{ \drawinter }{ m m }{
   \begin{tikzpicture}
 %%%
-% XXX
-% \pgfmathparse et \pgfmathresult
-% \pgfmathprintnumber
+% Dessin des diamètres de l'intervalle.
+%
+% note::
+%     Nous utilisons ''\pgfmathparse'' pour délguer certains calculs
+%     à \pgf qui va mettre le résultat dans le registre, ou mémoire
+%     volatile, ''\pgfmathresult''.
+%     Nous avons aussi besoin de ''\pgfmathprintnumber'' pour éviter
+%     d'afficher des zéros inutiles à droite.
 %%%
-    \@add@deco@dist[green!50!black]{#1}{#2}
-    \@add@deco@dist[green!50!black]{#2}{#3}
+    \pgfmathparse{(#1 + #2)/2}
+    \let\@inter@middle\pgfmathresult
+
+    \@add@deco@dist[green!50!black]{#1}{\@inter@middle}
+    \@add@deco@dist[green!50!black]{\@inter@middle}{#2}
 
 %%%
-% XXX
+% La zonne couverte par l'intervalle (sans les crochets).
 %%%
     \fill[green!50!black, opacity = .2]
-      (#1, -.3) rectangle (#3, .3);
+      (#1, -.3) rectangle (#2, .3);
 
 %%%
-% XXX
+% Ajout de la droite graduée.
 %%%
     \pgfmathparse{#1 - 2.3}
     \let\@inter@start@axe\pgfmathresult
 
-    \pgfmathparse{#3 + 2.6}
+    \pgfmathparse{#2 + 2.6}
     \let\@inter@end@axe\pgfmathresult
 
     \draw[> = {Latex[width = 4mm]}, ->, line width = 1pt]
@@ -45,7 +53,7 @@
     \pgfmathparse{floor(#1 - 2)}
     \let\@inter@start@axe\pgfmathresult
 
-    \pgfmathparse{ceil(#3 + 2)}
+    \pgfmathparse{ceil(#2 + 2)}
     \let\@inter@end@axe\pgfmathresult
 
     \foreach \x in {\@inter@start@axe,...,\@inter@end@axe} {
@@ -53,47 +61,53 @@
     }
 
 %%%
-% XXX
+% Ajout des bornes et du centre de l'intervalle.
 %%%
-    \foreach \x in {#1,#2,#3} {
-      \@add@deco@label[green!50!black]{\x}
+    \foreach \x in {#1,\@inter@middle,#2} {
+      \@add@deco@label[green!50!black][1.2]{\x}[\footnotesize]
     }
 
 %%%
-% XXX
+% Nous ajoutons en dernier les crochets.
 %%%
     \draw[
         > = {
-          Bracket[width = 7mm, line width = 2pt, length = 1.5mm]
+          Bracket[
+            width      = 7mm,  % Hauteur du crochet
+            line width = 2pt,  % Épaisseur du trait.
+            length     = 1.5mm % Profondeur du crochet.
+          ]
         },
         <->,
         green!50!black
-    ] ([xshift = -1pt] #1, 0) -- ([xshift = 1pt] #3, 0);
+    ] ([xshift = -1pt] #1, 0) -- ([xshift = 1pt] #2, 0);
   \end{tikzpicture}
 }
 
 %%%
 % prototype::
-%     #1 : XXX
-%     #2 : XXX
+%     #1 : couleur du texte.
+%     #2 : placement vertical.
+%     #3 : valeur et abscisse.
+%     #4 : taille du texte.
 %%%
-\NewDocumentCommand{ \@add@deco@label }{ O{black} m }{
-  \draw [#1] (#2, -.3)
-    node [below] {$\pgfmathprintnumber{#2}$};
+\NewDocumentCommand{ \@add@deco@label }{ O{black} O{-.3} m O{\normalsize} }{
+  \draw [#1] (#3, #2)
+    node [below] {#4$\pgfmathprintnumber{#3}$};
 
   \draw [very thick, #1]
-    (#2, -.2) -- (#2, .2);
+    (#3, -.2) -- (#3, .2);
 }
 
 %%%
 % prototype::
-%     #1 : XXX
-%     #2 : XXX
-%     #3 : XXX
+%     #1 : couleur du texte.
+%     #2 : début de la double flèche.
+%     #3 : fin de la double flèche.
 %%%
 \NewDocumentCommand{ \@add@deco@dist }{ O{black} m m }{
   \draw[#1, <->, line width = 1pt]
-  (#2, .7) -- (#3, .7);
+  (#2, .6) -- (#3, .6);
 
   \pgfmathparse{(#2 + #3)/2}
   \let\@inter@pos\pgfmathresult
@@ -101,6 +115,6 @@
   \pgfmathparse{#3 - #2}
   \let\@inter@mid@dist\pgfmathresult
 
-  \draw (\@inter@pos, .7)
-    node[above, green!50!black] {$\pgfmathprintnumber{\@inter@mid@dist}$};
+  \draw (\@inter@pos, .6)
+    node[above, green!50!black] {\footnotesize $\pgfmathprintnumber{\@inter@mid@dist}$};
 }
