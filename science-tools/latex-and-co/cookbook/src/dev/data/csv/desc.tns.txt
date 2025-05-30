@@ -1,0 +1,27 @@
+this::
+    date = 2025-05-29
+
+
+==================================
+Lecture simplifié de fichiers \csv
+==================================
+
+Considérons le fichier \csv suivant.
+
+csv::
+    ---
+    title = Les données brutes.
+    path  = ./data.csv
+    ---
+
+
+Nous allons voir comment obtenir le résultat suivant.
+
+pdf::
+    ---
+    title = Rendu souhaité.
+    path  = ./main.pdf
+    ---
+
+
+La méthod retenue est une lecture complète du fichier \csv pour construire une version

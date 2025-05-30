@@ -1,15 +1,3 @@
-
-\documentclass[varwidth, border = 3pt]{standalone}
-
-\usepackage{main}
-
-\usepackage{tabularray}
-
-%%%
-% Pour la gestion des unités.
-%%%
-\usepackage{siunitx}
-
 \ExplSyntaxOn
 
 \cs_set:Npn \cookbook_csv_demo_start {
@@ -27,18 +15,15 @@
     \else:
         #1 &
     \fi:
-    
+
     //
 }
 
 \ExplSyntaxOff
 
-
-\begin{document}
-
 \ExplSyntaxOn
 
-\ior_new:N \g_cookbook_csv_data_ior 
+\ior_new:N \g_cookbook_csv_data_ior
 
 \int_new:N   \l_cookbook_csv_num_row_int
 \clist_new:N \l_cookbook_csv_row_clist
@@ -48,8 +33,8 @@
 
 \tl_clear:N \l_cookbook_material_tl
 
-\ior_open:Nn 
-  \g_cookbook_csv_data_ior 
+\ior_open:Nn
+  \g_cookbook_csv_data_ior
   { data.csv }
 
 \tl_put_right:No
@@ -62,7 +47,7 @@
 
 \ior_map_inline:Nn \g_cookbook_csv_data_ior {
   \int_incr:N \l_cookbook_csv_num_row_int
-  
+
   \clist_clear:N \l_cookbook_csv_row_clist
   \clist_set:Nn  \l_cookbook_csv_row_clist {#1}
 
@@ -84,6 +69,3 @@
 \tl_show:N \l_cookbook_material_tl
 
 \ExplSyntaxOff
-
-
-\end{document}
