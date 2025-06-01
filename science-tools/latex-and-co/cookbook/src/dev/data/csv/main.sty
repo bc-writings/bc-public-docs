@@ -1,28 +1,5 @@
 \ExplSyntaxOn
 
-\cs_set:Npn \cookbook_csv_demo_start {
-    \begin{tblr}
-}
-
-\cs_set:Npn \cookbook_csv_demo_end {
-    \end{tblr}
-}
-
-\cs_set:Npn \cookbook_csv_demo:NN #1 #2 {
-    \if_int_compare:w #1 = 1
-        #1 &
-
-    \else:
-        #1 &
-    \fi:
-
-    //
-}
-
-\ExplSyntaxOff
-
-\ExplSyntaxOn
-
 \ior_new:N \g_cookbook_csv_data_ior
 
 \int_new:N   \l_cookbook_csv_num_row_int
@@ -37,12 +14,6 @@
   \g_cookbook_csv_data_ior
   { data.csv }
 
-\tl_put_right:No
-  \l_cookbook_material_tl
-  {\cookbook_csv_demo_start}
-
-
-
 \int_zero:N \l_cookbook_csv_num_row_int
 
 \ior_map_inline:Nn \g_cookbook_csv_data_ior {
@@ -51,21 +22,11 @@
   \clist_clear:N \l_cookbook_csv_row_clist
   \clist_set:Nn  \l_cookbook_csv_row_clist {#1}
 
-\tl_put_right:No
-  \l_cookbook_material_tl
-  {
-    \cookbook_csv_demo:NN
-      \l_cookbook_csv_num_row_int
-      \l_cookbook_csv_row_clist
-  }
+%  \clist_show:N \l_cookbook_csv_row_clist
 }
-
-\tl_put_right:No
-  \l_cookbook_material_tl
-  { \cookbook_csv_demo_end }
 
 \ior_close:N \g_cookbook_csv_data_ior
 
-\tl_show:N \l_cookbook_material_tl
+
 
 \ExplSyntaxOff

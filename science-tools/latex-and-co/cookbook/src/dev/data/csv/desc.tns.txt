@@ -25,4 +25,5 @@ pdf::
 
 
 note::
-    Nous avons choisi de lire complètement le fichier \csv pour construire un stockage en interne des données, celles-ci étant rendues accessibles à l'utilisateur final via des macros simples à employer.
+    L'idée de cette recette est de tout faire à la main sans faire appel à un \pack dédié.
+    Le choix \tech retenu est de lire complètement le fichier \csv pour construire un stockage en interne des données, puis de rendre les données accessibles à l'utilisateur final via des macros simples à employer.
