@@ -1,10 +1,10 @@
 this::
-    date = 2025-05-29
+    date = 2025-06-01
 
 
-==================================
-Lecture simplifié de fichiers \csv
-==================================
+==============================
+Usage basique de fichiers \csv
+==============================
 
 Considérons le fichier \csv suivant.
 
@@ -15,7 +15,7 @@ csv::
     ---
 
 
-Nous allons voir comment obtenir le résultat suivant.
+Nous allons voir comment utiliser les données précédentes pour produire le résultat suivant.
 
 pdf::
     ---
@@ -24,4 +24,5 @@ pdf::
     ---
 
 
-La méthod retenue est une lecture complète du fichier \csv pour construire une version
+note::
+    Nous avons choisi de lire complètement le fichier \csv pour construire un stockage en interne des données, celles-ci étant rendues accessibles à l'utilisateur final via des macros simples à employer.
