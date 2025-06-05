@@ -1,0 +1,44 @@
+
+\documentclass[varwidth, border = 3pt]{standalone}
+
+\usepackage{main}
+
+%%%
+% XXX
+%%%
+\usepackage{ifthen}
+
+%%%
+% XXX
+%%%
+\usepackage{tikz}
+
+
+%%%
+% La bibliothèque ''siunitx'', spécifique à ''tabularray'', va gérer
+% les mesures et les unités.
+%%%
+\UseTblrLibrary{siunitx}
+
+
+\begin{document}
+
+\csvread{MON_ID}{../data.csv}
+
+Il y a \csvdim{MON_ID}{rows} lignes et \csvdim{MON_ID}{cols} colonnes.
+
+Contenu de la colonne "\csvdata{MON_ID}{1}{1}": %
+\foreach \j in {2,...,\csvdim{MON_ID}{rows}}{%
+   [\csvdata{MON_ID}{\j}{1}]%
+   \ifthenelse{\j < \csvdim{MON_ID}{rows}}{, }{.}%
+}
+
+\csvtblr{MON_ID}{
+    vline{2-Y}   = {solid},
+    hline{2-Y}   = {solid},
+    cell{2-Z}{2} = {mode = math},
+    cell{2-Z}{3} = {cmd = \num},
+    cell{2-Z}{4} = {cmd = \unit}
+}
+
+\end{document}

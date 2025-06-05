@@ -79,12 +79,12 @@
   \int_set:Nn \l_cookbook_csv_num_row_int { 1 }
 
   \bool_while_do:nn {
-    \int_compare_p:nNn { \int_use:N \l_cookbook_csv_num_row_int } < { \use:c { #1-nbrows } + 1 }
+    \int_compare_p:nNn { \l_cookbook_csv_num_row_int } < { \use:c { #1-nbrows } + 1 }
   }{
     \int_set:Nn \l_cookbook_csv_num_col_int { 1 }
 
     \bool_while_do:nn {
-      \int_compare_p:nNn { \int_use:N \l_cookbook_csv_num_col_int } < { \use:c { #1-nbcols } + 1 }
+      \int_compare_p:nNn { \l_cookbook_csv_num_col_int } < { \use:c { #1-nbcols } + 1 }
     }{
       \tl_put_right:Ne \l_cookbook_csv_tblr_tl {
         \use:c {
@@ -96,14 +96,14 @@
         }
       }
 
-      \int_compare:nNnT { \int_use:N \l_cookbook_csv_num_col_int } < { \use:c { #1-nbcols } } {
+      \int_compare:nNnT { \l_cookbook_csv_num_col_int } < { \use:c { #1-nbcols } } {
         \tl_put_right:Nn \l_cookbook_csv_tblr_tl { & }
       }
 
       \int_incr:N \l_cookbook_csv_num_col_int
     }
 
-    \int_compare:nNnT { \int_use:N \l_cookbook_csv_num_row_int } < { \use:c { #1-nbrows } } {
+    \int_compare:nNnT { \l_cookbook_csv_num_row_int } < { \use:c { #1-nbrows } } {
       \tl_put_right:Nn \l_cookbook_csv_tblr_tl { \\ }
     }
 

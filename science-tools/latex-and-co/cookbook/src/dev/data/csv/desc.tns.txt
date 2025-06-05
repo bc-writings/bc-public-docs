@@ -2,6 +2,10 @@ this::
     date = 2025-06-05
 
 
+abrev::
+    desc = desc.tns.txt
+
+
 ==============================
 Usage basique de fichiers \csv
 ==============================
@@ -20,10 +24,10 @@ Nous allons voir comment utiliser le fichier précédent afin de produire le ré
 pdf::
     ---
     title = Rendu souhaité.
-    path  = ./main.pdf
+    path  = ./csname/main-table.pdf
     ---
 
 
-note::
-    L'idée de cette recette est de tout faire à la main sans utiliser de \pack dédié.
-    Le choix \tech retenu est de lire complètement le fichier \csv pour construire un stockage en interne des données, puis de rendre les données accessibles à l'utilisateur final via des macros simples à employer.
+content::
+    ./csname/\desc
+    ./proplist/\desc
