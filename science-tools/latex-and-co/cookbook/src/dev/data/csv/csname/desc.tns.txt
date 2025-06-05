@@ -1,12 +1,16 @@
 this::
-    date = 2025-06-05
+    date = 2025-06-XXXX
 
 
-==============================
-FFFF
-==============================
+=====================================
+Jouons avec les séquences de contrôle
+=====================================
 
 XXXX
 
 L'idée de cette recette est de tout faire à la main sans utiliser de \pack dédié.
     Le choix \tech retenu est de lire complètement le fichier \csv pour construire un stockage en interne des données, puis de rendre les données accessibles à l'utilisateur final via des macros simples à employer.
+
+
+warning::
+    Comme me l'a indiqué l'utilisateur egreg sur \stacktex

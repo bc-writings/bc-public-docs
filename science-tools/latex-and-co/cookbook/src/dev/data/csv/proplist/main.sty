@@ -1,0 +1,158 @@
+%%%
+% L'environnement ''tblr'' de ''tabularray'' est employé pour fabriquer
+% le tableau attendu.
+%%%
+\usepackage{tabularray}
+
+
+\ExplSyntaxOn
+
+
+%%%
+% prototype::
+%     #1 : identifiant pour les données.
+%     #2 : chemin relatif du fichier \csv.
+%
+%     :action: construction de macros ''<#1>.i-j'' pour accéder à la donnée
+%              de la ligne `i` et de la colonne `j`, la ligne `0` étant celle
+%              des étiquettes.
+%%%
+\NewDocumentCommand{ \csvread }{ m m } {
+  \cookbook_csv_read:nn { #1 } { #2 }
+}
+
+
+%%%
+% prototype::
+%     #1 : identifiant pour les données.
+%     #2 : numéro de la ligne de la donnée souhaitée.
+%     #3 : numéro de la colonne de la donnée souhaitée.
+%
+%     :return: XXXX
+%%%
+\NewDocumentCommand{ \csvdata }{ m m m } {
+  \use:c { #1-#2.#3 }
+}
+
+
+%%%
+% prototype::
+%     #1 : identifiant pour les données.
+%     #2 : row ou cols.
+%
+%     :return: XXXX
+%%%
+\NewDocumentCommand{ \csvdim }{ m m } {
+  \use:c { #1-nb#2 }
+}
+
+
+%%%
+% prototype::
+%     #1 : identifiant pour les données.
+%
+%     :action: XXXX
+%%%
+\NewDocumentCommand{ \csvtblr }{ m m } {
+  \cookbook_csv_tblr:nn { #1 }{ #2 }
+}
+
+
+%%%
+% XXX
+%%%
+\ior_new:N \g_cookbook_csv_data_ior
+
+\int_new:N   \l_cookbook_csv_num_row_int
+\int_new:N   \l_cookbook_csv_num_col_int
+\clist_new:N \l_cookbook_csv_row_clist
+
+
+%%%
+% prototype::
+%     :see: macro.csvtblr
+%%%
+\tl_new:N \l_cookbook_csv_tblr_tl
+
+\cs_new_protected:Npn \cookbook_csv_tblr:nn #1#2 {
+  \tl_clear:N \l_cookbook_csv_tblr_tl
+  \int_set:Nn \l_cookbook_csv_num_row_int { 1 }
+
+  \bool_while_do:nn {
+    \int_compare_p:nNn { \l_cookbook_csv_num_row_int } < { \use:c { #1-nbrows } + 1 }
+  }{
+    \int_set:Nn \l_cookbook_csv_num_col_int { 1 }
+
+    \bool_while_do:nn {
+      \int_compare_p:nNn { \l_cookbook_csv_num_col_int } < { \use:c { #1-nbcols } + 1 }
+    }{
+      \tl_put_right:Ne \l_cookbook_csv_tblr_tl {
+        \use:c {
+          #1
+          -
+          \int_use:N \l_cookbook_csv_num_row_int
+          .
+          \int_use:N \l_cookbook_csv_num_col_int
+        }
+      }
+
+      \int_compare:nNnT { \l_cookbook_csv_num_col_int } < { \use:c { #1-nbcols } } {
+        \tl_put_right:Nn \l_cookbook_csv_tblr_tl { & }
+      }
+
+      \int_incr:N \l_cookbook_csv_num_col_int
+    }
+
+    \int_compare:nNnT { \l_cookbook_csv_num_row_int } < { \use:c { #1-nbrows } } {
+      \tl_put_right:Nn \l_cookbook_csv_tblr_tl { \\ }
+    }
+
+    \int_incr:N \l_cookbook_csv_num_row_int
+  }
+
+  % \tl_show:N \l_cookbook_csv_tblr_tl
+
+  \begin{tblr}[expand = \l_cookbook_csv_tblr_tl]{ #2 }
+	\l_cookbook_csv_tblr_tl
+  \end{tblr}
+}
+
+
+
+%%%
+% prototype::
+%     :see: macro.csvread
+%%%
+\cs_new:Npn \cookbook_csv_read:nn #1#2 {
+  \ior_open:Nn \g_cookbook_csv_data_ior { #2 }
+
+  \int_zero:N \l_cookbook_csv_num_row_int
+
+  \ior_map_inline:Nn \g_cookbook_csv_data_ior {
+    \int_incr:N \l_cookbook_csv_num_row_int
+
+    \clist_clear:N \l_cookbook_csv_row_clist
+    \clist_set:Nn  \l_cookbook_csv_row_clist {##1}
+
+    \int_zero:N \l_cookbook_csv_num_col_int
+
+    \clist_map_inline:Nn \l_cookbook_csv_row_clist {
+      \int_incr:N \l_cookbook_csv_num_col_int
+
+      \cs_gset:cpn {
+        #1
+        -
+        \int_use:N \l_cookbook_csv_num_row_int
+        .
+        \int_use:N \l_cookbook_csv_num_col_int
+      } { ####1 }
+    }
+  }
+
+  \cs_gset:cpx { #1-nbrows } { \int_use:N \l_cookbook_csv_num_row_int }
+  \cs_gset:cpx { #1-nbcols } { \int_use:N \l_cookbook_csv_num_col_int }
+
+  \ior_close:N \g_cookbook_csv_data_ior
+}
+
+\ExplSyntaxOff
