@@ -1,5 +1,5 @@
 this::
-    date = 2025-06-01
+    date = 2025-06-05
 
 
 ==============================
@@ -15,7 +15,7 @@ csv::
     ---
 
 
-Nous allons voir comment utiliser les données précédentes pour produire le résultat suivant.
+Nous allons voir comment utiliser le fichier précédent afin de produire le résultat ci-après.
 
 pdf::
     ---
