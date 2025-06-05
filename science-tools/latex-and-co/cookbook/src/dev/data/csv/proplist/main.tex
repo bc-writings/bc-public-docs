@@ -1,18 +1,13 @@
-
 \documentclass[varwidth, border = 3pt]{standalone}
 
 \usepackage{main}
 
 %%%
-% XXX
+% Les \packs ''ifthen'' et ''tikz'' vont nous fournir les macros ''\foreach''
+% et ''\ifthenelse'' d'emploi aisé.
 %%%
 \usepackage{ifthen}
-
-%%%
-% XXX
-%%%
 \usepackage{tikz}
-
 
 %%%
 % La bibliothèque ''siunitx'', spécifique à ''tabularray'', va gérer
@@ -20,18 +15,21 @@
 %%%
 \UseTblrLibrary{siunitx}
 
-
 \begin{document}
 
 \csvread{MON_ID}{../data.csv}
 
 Il y a \csvdim{MON_ID}{rows} lignes et \csvdim{MON_ID}{cols} colonnes.
 
-Contenu de la colonne "\csvdata{MON_ID}{1}{1}": %
-\foreach \j in {2,...,\csvdim{MON_ID}{rows}}{%
-   [\csvdata{MON_ID}{\j}{1}]%
-   \ifthenelse{\j < \csvdim{MON_ID}{rows}}{, }{.}%
-}
+La colonne "\csvdata{MON_ID}{1}{1}" possède le contenu suivant.
+
+\bgroup
+    \tiny
+    \foreach \j in {2,...,\csvdim{MON_ID}{rows}}{%
+        \fbox{\csvdata{MON_ID}{\j}{1}}%
+        \ifthenelse{\j < \csvdim{MON_ID}{rows}}{ + }{}%
+    }
+\egroup
 
 \csvtblr{MON_ID}{
     vline{2-Y}   = {solid},

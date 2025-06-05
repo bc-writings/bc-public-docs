@@ -28,6 +28,9 @@ pdf::
     ---
 
 
+Nous proposons deux solutions pratiquement identiques, mais usant de deux approches différentes: l'une, ancienne; s'appuie sur des \vars nommées dynamiquement, et l'autre plus \l3 compatible vis des associations de clés nommées dynamiquement et de \vals.
+
+
 content::
     ./csname/\desc
     ./proplist/\desc

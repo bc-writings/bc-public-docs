@@ -23,11 +23,13 @@ Il y a \csvdim{MON_ID}{rows} lignes et \csvdim{MON_ID}{cols} colonnes.
 
 La colonne "\csvdata{MON_ID}{1}{1}" possède le contenu suivant.
 
-{\tiny
-\foreach \j in {2,...,\csvdim{MON_ID}{rows}}{%
-   \fbox{\csvdata{MON_ID}{\j}{1}}%
-   \ifthenelse{\j < \csvdim{MON_ID}{rows}}{ + }{}%
-}}
+\bgroup
+    \tiny
+    \foreach \j in {2,...,\csvdim{MON_ID}{rows}}{%
+        \fbox{\csvdata{MON_ID}{\j}{1}}%
+        \ifthenelse{\j < \csvdim{MON_ID}{rows}}{ + }{}%
+    }
+\egroup
 
 \csvtblr{MON_ID}{
     vline{2-Y}   = {solid},
