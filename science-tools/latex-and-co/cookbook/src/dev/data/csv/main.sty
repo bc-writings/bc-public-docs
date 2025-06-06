@@ -4,9 +4,7 @@
 %%%
 \usepackage{tabularray}
 
-
 \ExplSyntaxOn
-
 
 %%%
 % prototype::
@@ -69,6 +67,11 @@
 \prop_new:N  \l_cookbook_csv_table_prop
 \tl_new:N    \l_cookbook_csv_tblr_tl
 
+
+%%%
+% prototype::
+%     :see: macro.csvread
+%%%
 \cs_new_protected:Npn \cookbook_csv_read:nn #1#2
  {
   \prop_clear:N \l_cookbook_csv_table_prop
@@ -107,7 +110,10 @@
  }
 
 
-
+%%%
+% prototype::
+%     :see: macro.csvtblr
+%%%
 \cs_new_protected:Npn \cookbook_csv_tblr:nn #1#2
  {
   \tl_clear:N \l_cookbook_csv_tblr_tl
@@ -171,4 +177,5 @@
     \l_cookbook_csv_tblr_tl
   \end{tblr}
  }
+
 \ExplSyntaxOff
