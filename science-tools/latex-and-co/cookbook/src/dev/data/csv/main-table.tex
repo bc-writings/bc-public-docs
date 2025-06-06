@@ -2,22 +2,19 @@
 
 \usepackage{main}
 
-%%%
-% La bibliothèque ''siunitx'', spécifique à ''tabularray'', va gérer
-% les écritures scientifiques et les unités.
-%%%
 \UseTblrLibrary{siunitx}
 
 \begin{document}
 
-\csvread{MON_ID}{data.csv}
+\csvread{MON/IDÉE}{data.csv}
 
-\csvtblr{MON_ID}{
+\csvtblr{MON/IDÉE}[
     vline{2-Y}   = {solid},
     hline{2-Y}   = {solid},
+    cell{1}{1-Z} = {cmd = \bfseries},
     cell{2-Z}{2} = {mode = math},
     cell{2-Z}{3} = {cmd = \num},
     cell{2-Z}{4} = {cmd = \unit}
-}
+]
 
 \end{document}

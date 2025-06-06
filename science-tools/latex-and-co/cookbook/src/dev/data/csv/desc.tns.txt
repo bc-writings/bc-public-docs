@@ -1,9 +1,5 @@
 this::
-    date = 2025-06-05
-
-
-abrev::
-    desc = desc.tns.txt
+    date = 2025-06-07
 
 
 ==============================
@@ -24,13 +20,21 @@ Nous allons voir comment utiliser le fichier précédent afin de produire le ré
 pdf::
     ---
     title = Rendu souhaité.
-    path  = ./csname/main-table.pdf
+    path  = ./main-table.pdf
     ---
+
+
+?????
 
 
 Nous proposons deux solutions pratiquement identiques, mais usant de deux approches différentes: l'une, ancienne; s'appuie sur des \vars nommées dynamiquement, et l'autre plus \l3 compatible vis des associations de clés nommées dynamiquement et de \vals.
 
 
-content::
-    ./csname/\desc
-    ./proplist/\desc
+Comme me l'a indiqué l'utilisateur egreg sur \stacktex
+
+
+L'auteur de ces lignes, s$urement atteient du syndrôme de Stockholm
+
+L'idée de cette recette est de tout faire à la main sans utiliser de \pack dédié.
+    Le choix \tech retenu est de lire complètement le fichier \csv pour construire un stockage en interne des données, puis de rendre les données accessibles à l'utilisateur final via des macros simples à employer.
+``
