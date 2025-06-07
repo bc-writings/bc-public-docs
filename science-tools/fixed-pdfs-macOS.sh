@@ -40,6 +40,8 @@ fi
 
 function nocompile {
   open "$1"
+
+  exit 1
 }
 
 
@@ -47,23 +49,27 @@ cd "$TARGET"
 
 for f in $(find . -name '*.tex')
 do
-  if [ $(basename "$f") == "main.tex" ]
+  if [[ $(basename "$f") == main*.tex ]]
   then
     case "$f" in
       ./*/cookbook/src/**/*.tex)
         echo "-- NEW TEX FILE --"
         echo "$f"
 
-        luafile="${f%.*}.lua"
+        fdir=$(dirname "$f")
 
-        if [ -f "$TARGET/$luafile" ]
+        # luafile="${f%.*}.lua"
+        luafile="$TARGET/$fdir/main.lua"
+
+        if [[ -f "$luafile" ]]
         then
           texcmd="lualatex"
         else
           texcmd="pdflatex"
         fi
 
-        fdir=$(dirname "$f")
+        # echo "luafile = $luafile"
+        # echo "texcmd = $texcmd"
 
         cd "$TARGET/$fdir"
 

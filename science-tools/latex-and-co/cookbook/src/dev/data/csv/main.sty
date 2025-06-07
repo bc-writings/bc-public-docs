@@ -1,0 +1,195 @@
+%%%
+% L'environnement ''tblr'' de ''tabularray'' est employé pour fabriquer
+% le tableau attendu en laissant la possibilité à l'utilisateur final de
+% choisir finement la mise en forme des contenus.
+%%%
+\usepackage{tabularray}
+
+\ExplSyntaxOn
+
+%%%
+% prototype::
+%     #1 : identifiant pour les données.
+%     #2 : chemin relatif du fichier \csv.
+%
+%     :action: construction d'associations de clés ''<#1>.i-j'' pour
+%              accéder à la donnée en ligne `i` et colonne `j`, la
+%              ligne `0` étant celle des étiquettes, mais aussi des
+%              associations de clés ''#1-nbrows'' et ''#1-nbcols''
+%              pour les dimensions de la table des données, ce qui
+%              est utile pour des itérations.
+%%%
+\NewDocumentCommand{ \csvread }{ m m } {
+  \cookbook_csv_read:nn { #1 } { #2 }
+}
+
+%%%
+% prototype::
+%     #1 : identifiant pour les données.
+%     #2 : numéro de la ligne de la donnée souhaitée.
+%     #3 : numéro de la colonne de la donnée souhaitée.
+%
+%     :return: le contenu de la cellule en ligne ''#2'' et colonne
+%              ''#3'' de la table d'identifiant ''#1''.
+%%%
+\NewDocumentCommand{ \csvdata }{ m m m } {
+  \prop_item:Ne \l_cookbook_csv_table_prop { #1-#2.#3 }
+}
+
+%%%
+% prototype::
+%     #1 : identifiant pour les données.
+%     #2 : "rows" ou "cols".
+%
+%     :return: le nombre de lignes si ''#2'' est ''rows'' de la table
+%              d'identifiant ''#1'', ou de colonnes si ''#2'' est
+%              ''cols''.
+%%%
+\NewDocumentCommand{ \csvdim }{ m m } {
+  \prop_item:Nn \l_cookbook_csv_table_prop { #1-nb#2 }
+}
+
+%%%
+% prototype::
+%     #1 : identifiant pour les données.
+%     #2 : ensemble de \specs pour mettre en forme le tableau ''tblr''
+%          contenant le données.
+%
+%     :action: création du tableau de \ttes les données en utilissant
+%              la \mef éventuelle indiquée.
+%%%
+\NewDocumentCommand{ \csvtblr }{ m O{} } {
+  \cookbook_csv_tblr:nn { #1 }{ #2 }
+}
+
+%%%
+% Les constantes utilisées par les fonctions \l3.
+%%%
+\ior_new:N \g_cookbook_csv_data_ior
+
+\int_new:N   \l_cookbook_csv_num_row_int
+\int_new:N   \l_cookbook_csv_num_row_max_int
+\int_new:N   \l_cookbook_csv_num_col_int
+\int_new:N   \l_cookbook_csv_num_col_max_int
+\clist_new:N \l_cookbook_csv_row_clist
+
+\prop_new:N \l_cookbook_csv_table_prop
+
+\tl_new:N \l_cookbook_csv_tblr_tl
+
+%%%
+% prototype::
+%     :see: macro.csvread
+%%%
+\cs_new_protected:Npn \cookbook_csv_read:nn #1#2 {
+  \ior_open:Nn \g_cookbook_csv_data_ior { #2 }
+
+  \prop_clear:N \l_cookbook_csv_table_prop
+  \int_zero:N   \l_cookbook_csv_num_row_int
+
+  \ior_map_inline:Nn \g_cookbook_csv_data_ior {
+    \int_incr:N \l_cookbook_csv_num_row_int
+
+    \clist_clear:N \l_cookbook_csv_row_clist
+    \clist_set:Nn  \l_cookbook_csv_row_clist {##1}
+
+    \int_zero:N \l_cookbook_csv_num_col_int
+
+    \clist_map_inline:Nn \l_cookbook_csv_row_clist {
+      \int_incr:N \l_cookbook_csv_num_col_int
+
+      \prop_gput:Nen \l_cookbook_csv_table_prop {
+        #1
+        -
+        \int_use:N \l_cookbook_csv_num_row_int
+        .
+        \int_use:N \l_cookbook_csv_num_col_int
+      } { ####1 }
+    }
+  }
+
+  \prop_gput:Nne
+    \l_cookbook_csv_table_prop
+    { #1-nbrows }
+    { \int_use:N \l_cookbook_csv_num_row_int }
+
+  \prop_gput:Nne
+    \l_cookbook_csv_table_prop
+    { #1-nbcols }
+    { \int_use:N \l_cookbook_csv_num_col_int }
+
+  \ior_close:N \g_cookbook_csv_data_ior
+}
+
+%%%
+% prototype::
+%     :see: macro.csvtblr
+%%%
+\cs_new_protected:Npn \cookbook_csv_tblr:nn #1#2 {
+  \tl_clear:N \l_cookbook_csv_tblr_tl
+  \int_set:Nn \l_cookbook_csv_num_row_int { 1 }
+
+  \int_set:Nn \l_cookbook_csv_num_row_max_int {
+    \prop_item:Nn \l_cookbook_csv_table_prop { #1-nbrows }
+  }
+  \int_set:Nn \l_cookbook_csv_num_col_max_int {
+    \prop_item:Nn \l_cookbook_csv_table_prop { #1-nbcols }
+  }
+
+  \bool_while_do:nn {
+    \int_compare_p:nNn
+      { \l_cookbook_csv_num_row_int }
+      <
+      { \l_cookbook_csv_num_row_max_int + 1 }
+  }{
+    \int_set:Nn \l_cookbook_csv_num_col_int { 1 }
+
+    \bool_while_do:nn {
+      \int_compare_p:nNn
+        { \l_cookbook_csv_num_col_int }
+        <
+        { \l_cookbook_csv_num_col_max_int + 1 }
+    }{
+      \tl_put_right:Ne \l_cookbook_csv_tblr_tl {
+        \prop_item:Ne \l_cookbook_csv_table_prop {
+          #1
+          -
+          \int_use:N \l_cookbook_csv_num_row_int
+          .
+          \int_use:N \l_cookbook_csv_num_col_int
+        }
+      }
+
+      \int_compare:nNnT
+        { \l_cookbook_csv_num_col_int }
+        <
+        { \l_cookbook_csv_num_col_max_int }
+        {
+          \tl_put_right:Nn \l_cookbook_csv_tblr_tl { & }
+        }
+
+      \int_incr:N \l_cookbook_csv_num_col_int
+    }
+
+    \int_compare:nNnT
+      { \l_cookbook_csv_num_row_int }
+      <
+      { \l_cookbook_csv_num_row_max_int }
+      {
+        \tl_put_right:Nn \l_cookbook_csv_tblr_tl { \\ }
+      }
+
+    \int_incr:N \l_cookbook_csv_num_row_int
+  }
+
+% DEBUGGING
+%   \tl_show:N \l_cookbook_csv_tblr_tl
+
+% Nous devons développer le contenu de ''\l_cookbook_csv_tblr_tl'',
+% car l'\env ''tblr'' ne le fait pas.
+  \exp_args:NnnV \begin{tblr}{#2}
+    \l_cookbook_csv_tblr_tl
+  \end{tblr}
+}
+
+\ExplSyntaxOff

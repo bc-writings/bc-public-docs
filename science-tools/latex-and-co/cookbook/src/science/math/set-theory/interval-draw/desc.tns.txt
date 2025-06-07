@@ -8,5 +8,5 @@ Dessiner un intervalle fermé et borné
 
 Le titre disant tout, nous indiquons juste que la version proposée se concentre uniquement sur le tracé sans proposer une macro ergonomique
 ((
-    Par exemple, l'utilisateur devrait pouvoir choisir les formules pour les bornes, le centre et le diamètre de l'intervalle, d'afficher ou nons tous les nombres de la graduation...
+    Par exemple, l'utilisateur devrait pouvoir choisir les textes pour les bornes, le centre et le diamètre de l'intervalle, d'afficher ou non tous les nombres de la graduation...
 )).

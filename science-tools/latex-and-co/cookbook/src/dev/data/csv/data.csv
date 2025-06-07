@@ -1,0 +1,5 @@
+Nom                        , Symbole , Valeur          , Unité
+Vitesse de la lumière      , c       , 299792458       , m / s
+Constante de Planck        , \hbar   , 6.62607015e-34  , J s
+Constante gravitationnelle , G       , 6.67430e-11     , m^3 / kg / s^2
+Charge élémentaire         , e       , 1.602176634e-19 , C

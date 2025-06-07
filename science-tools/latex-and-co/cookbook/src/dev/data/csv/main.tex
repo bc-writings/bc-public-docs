@@ -1,0 +1,43 @@
+\documentclass[varwidth, border = 3pt]{standalone}
+
+\usepackage{main}
+
+%%%
+% Les \packs ''ifthen'' et ''tikz'' vont nous fournir les macros
+% ''\foreach'' et ''\ifthenelse'' d'emploi aisé.
+%%%
+\usepackage{ifthen}
+\usepackage{tikz}
+
+%%%
+% La bibliothèque ''siunitx'', spécifique à ''tabularray'', va gérer
+% les mesures et les unités.
+%%%
+\UseTblrLibrary{siunitx}
+
+\begin{document}
+
+\csvread{MON/IDÉE}{data.csv}
+
+Il y a \csvdim{MON/IDÉE}{rows} lignes et \csvdim{MON/IDÉE}{cols} colonnes.
+
+La colonne "\csvdata{MON/IDÉE}{1}{1}" possède le contenu suivant.
+
+\bgroup
+    \tiny
+    \foreach \nbrow in {2,...,\csvdim{MON/IDÉE}{rows}}{%
+        \fbox{\csvdata{MON/IDÉE}{\nbrow}{1}}%
+        \ifthenelse{\nbrow < \csvdim{MON/IDÉE}{rows}}{ + }{}%
+    }
+\egroup
+
+\csvtblr{MON/IDÉE}[
+    vline{2-Y}   = {solid},
+    hline{2-Y}   = {solid},
+    cell{1}{1-Z} = {cmd = \bfseries},
+    cell{2-Z}{2} = {mode = math},
+    cell{2-Z}{3} = {cmd = {\num[locale = FR]}},
+    cell{2-Z}{4} = {cmd = \unit}
+]
+
+\end{document}
