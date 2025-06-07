@@ -36,11 +36,12 @@
   \llap{ % Cette macro crée un contenu dans une boîte de largeur
          % nulle du point de vue de LaTeX.
     \begin{tikzpicture}[baseline = (current bounding box.north)]
-      \draw (pic cs:a\nubpre#1)            % Trait vertical à partir
-              --++ (0,\nubvoffset*\unitht) % de la marque du début.
-              -|                           % Une ligne en forme de "L"
-            (pic cs:b\nubpre#1);           % inversé jusqu'à la marque
-                                           % de la fin.
+      \draw[rounded corners = 2pt]
+        (pic cs:a\nubpre#1)            % Trait vertical à partir
+          --++ (0,\nubvoffset*\unitht) % de la marque du début.
+          -|                           % Une ligne en forme de "L"
+        (pic cs:b\nubpre#1);           % inversé jusqu'à la marque
+                                       % de la fin.
     \end{tikzpicture}%
   }%
 }

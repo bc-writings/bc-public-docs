@@ -56,7 +56,7 @@
   \foreach \k in {#1} {
     \int_gset:Nn
       \g_cookbook_nub_val_int
-      {\k + \int_use:N \g_cookbook_nub_val_int}
+      { \k + \g_cookbook_nub_val_int }
   }
 
   \int_use:N \g_cookbook_nub_val_int
@@ -97,7 +97,8 @@
 
   \int_set:Nn
     \l_cookbook_nub_mid_term_pos_int
-    { \int_eval:n {1 + \int_use:N \l_cookbook_nub_terms_size_int} / 2 }
+    % { \int_eval:n {1 + \int_use:N \l_cookbook_nub_terms_size_int} / 2 }
+    { (1 + \l_cookbook_nub_terms_size_int) / 2 }
 
   \int_set:Nn
     \l_cookbook_nub_this_pos_int
@@ -108,9 +109,9 @@
     {
       \int_incr:N \l_cookbook_nub_this_pos_int
 
-      \int_compare:nNnTF
-          { \int_use:N \l_cookbook_nub_this_pos_int }
-        < { \int_use:N \l_cookbook_nub_mid_term_pos_int }
+      \int_compare:nTF {
+        \l_cookbook_nub_this_pos_int < \l_cookbook_nub_mid_term_pos_int
+      }
 % Un crochet commence ici, car nous n'avons pas dépassé la position
 % "milieu" des termes à traiter.
       {
@@ -124,14 +125,13 @@
 
         \int_set:Nn
           \l_cookbook_nub_last_label_id_int
-          { 1 + \int_use:N \g_cookbook_nub_label_id_int }
+          { 1 + \g_cookbook_nub_label_id_int }
 % Un autre terme dans un crochet en cours avec éventuellement une fin
 % de décoration à faire (penser au cas de trois termes isolés au milieu).
       }{
-        \int_compare:nNnTF
-            { \int_use:N \l_cookbook_nub_this_pos_int }
-          = { \int_use:N \l_cookbook_nub_mid_term_pos_int }
-        {}{
+        \int_compare:nTF {
+          \l_cookbook_nub_this_pos_int = \l_cookbook_nub_mid_term_pos_int
+        }{}{
           +
         }
 
@@ -140,11 +140,10 @@
 % La fin d'un crochet ? On doit tenir compte du cas de trois termes
 % isolés au milieu
         \bool_if:nT {
-          \int_if_even_p:n { \int_use:N \l_cookbook_nub_terms_size_int }
+          \int_if_even_p:n { \l_cookbook_nub_terms_size_int }
           ||
           \int_compare_p:n {
-               \int_use:N \l_cookbook_nub_this_pos_int
-            != \int_use:N \l_cookbook_nub_mid_term_pos_int
+            \l_cookbook_nub_this_pos_int != \l_cookbook_nub_mid_term_pos_int
           }
         }{
           \int_decr:N \l_cookbook_nub_last_label_id_int
@@ -159,9 +158,7 @@
             { \int_use:N \l_cookbook_nub_last_label_id_int }
             {
               \int_eval:n {
-                  1
-                + \int_use:N \g_cookbook_nub_label_id_int
-                - \int_use:N \l_cookbook_nub_last_label_id_int
+                1 + \g_cookbook_nub_label_id_int - \l_cookbook_nub_last_label_id_int
               }
             }
         }%
@@ -196,10 +193,10 @@
 \NewDocumentCommand{ \nub@add@deco }{ m m }{
   \llap{%
     \begin{tikzpicture}[baseline = (current bounding box.north)]
-      \draw (pic cs:nub@start@#1)
-              --++ (0, (- #2 * \nubunitht)
-              -|
-            (pic cs:nub@end@#1);
+      \draw[rounded corners = 2pt]
+        (pic cs:nub@start@#1)
+          --++ (0, (- #2 * \nubunitht) -|
+        (pic cs:nub@end@#1);
     \end{tikzpicture}%
   }
 }

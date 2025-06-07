@@ -11,8 +11,3 @@ latex-and-co - TODO
 > ---------------------------- <
 
 binary tree : besoin d'avoir des cercles identiques même si contenu différents
-
-
-> ---------------------------- <
-
-gaussian trick v2 : on gard la sol l3 mais avec en plus la somme indiqué sous la déco la plus basse, et on arondit les angles droits
