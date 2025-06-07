@@ -68,9 +68,9 @@
 \ior_new:N \g_cookbook_csv_data_ior
 
 \int_new:N   \l_cookbook_csv_num_row_int
-\int_new:N   \l_cookbook_csv_max_num_row_int
+\int_new:N   \l_cookbook_csv_num_row_max_int
 \int_new:N   \l_cookbook_csv_num_col_int
-\int_new:N   \l_cookbook_csv_max_num_col_int
+\int_new:N   \l_cookbook_csv_num_col_max_int
 \clist_new:N \l_cookbook_csv_row_clist
 
 \prop_new:N \l_cookbook_csv_table_prop
@@ -129,10 +129,10 @@
   \tl_clear:N \l_cookbook_csv_tblr_tl
   \int_set:Nn \l_cookbook_csv_num_row_int { 1 }
 
-  \int_set:Nn \l_cookbook_csv_max_num_row_int {
+  \int_set:Nn \l_cookbook_csv_num_row_max_int {
     \prop_item:Nn \l_cookbook_csv_table_prop { #1-nbrows }
   }
-  \int_set:Nn \l_cookbook_csv_max_num_col_int {
+  \int_set:Nn \l_cookbook_csv_num_col_max_int {
     \prop_item:Nn \l_cookbook_csv_table_prop { #1-nbcols }
   }
 
@@ -140,7 +140,7 @@
     \int_compare_p:nNn
       { \l_cookbook_csv_num_row_int }
       <
-      { \l_cookbook_csv_max_num_row_int + 1 }
+      { \l_cookbook_csv_num_row_max_int + 1 }
   }{
     \int_set:Nn \l_cookbook_csv_num_col_int { 1 }
 
@@ -148,7 +148,7 @@
       \int_compare_p:nNn
         { \l_cookbook_csv_num_col_int }
         <
-        { \l_cookbook_csv_max_num_col_int + 1 }
+        { \l_cookbook_csv_num_col_max_int + 1 }
     }{
       \tl_put_right:Ne \l_cookbook_csv_tblr_tl {
         \prop_item:Ne \l_cookbook_csv_table_prop {
@@ -163,7 +163,7 @@
       \int_compare:nNnT
         { \l_cookbook_csv_num_col_int }
         <
-        { \l_cookbook_csv_max_num_col_int }
+        { \l_cookbook_csv_num_col_max_int }
         {
           \tl_put_right:Nn \l_cookbook_csv_tblr_tl { & }
         }
@@ -174,7 +174,7 @@
     \int_compare:nNnT
       { \l_cookbook_csv_num_row_int }
       <
-      { \l_cookbook_csv_max_num_row_int }
+      { \l_cookbook_csv_num_row_max_int }
       {
         \tl_put_right:Nn \l_cookbook_csv_tblr_tl { \\ }
       }
