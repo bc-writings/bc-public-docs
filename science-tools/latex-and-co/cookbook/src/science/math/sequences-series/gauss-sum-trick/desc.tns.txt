@@ -15,7 +15,7 @@ Nous allons voir comment décorer une somme d'entiers consécutifs, ou en progre
 pdf::
     ---
     title = Rendu souhaité.
-    path  = ./automation-l3/main.pdf
+    path  = ./auto-l3/main.pdf
     ---
 
 

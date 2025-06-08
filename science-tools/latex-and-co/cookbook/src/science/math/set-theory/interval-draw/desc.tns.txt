@@ -1,12 +1,13 @@
 this::
-    date = 2025-05-15
+    date = 2025-06-08
 
 
 =====================================
 Dessiner un intervalle fermé et borné
 =====================================
 
-Le titre disant tout, nous indiquons juste que la version proposée se concentre uniquement sur le tracé sans proposer une macro ergonomique
+Le titre disant tout, nous indiquons juste que la version proposée se concentre uniquement sur le tracé sans proposer une macro complète et ergonomique
 ((
     Par exemple, l'utilisateur devrait pouvoir choisir les textes pour les bornes, le centre et le diamètre de l'intervalle, d'afficher ou non tous les nombres de la graduation...
+    De plus, il reste à gérer certains cas problématiques comme le montre le fichier \tex illustrant cette recette.
 )).
