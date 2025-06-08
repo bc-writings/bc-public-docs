@@ -195,7 +195,7 @@
     \begin{tikzpicture}[baseline = (current bounding box.north)]
       \draw[rounded corners = 2pt]
         (pic cs:nub@start@#1)
-          --++ (0, (- #2 * \nubunitht) -|
+          -- ++(0, (- #2 * \nubunitht) -|
         (pic cs:nub@end@#1);
     \end{tikzpicture}%
   }

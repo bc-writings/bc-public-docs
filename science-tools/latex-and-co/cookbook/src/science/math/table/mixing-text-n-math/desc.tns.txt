@@ -1,0 +1,15 @@
+this::
+    date = 2025-06-08
+
+
+==================================
+\Tab décrivant des formules \maths
+==================================
+
+Nous allons montrer comment obtenir le \tab suivant: le \pack ''tabularray' va nous permettre de faire ceci sans trop d'efforts.
+
+pdf::
+    ---
+    title = Rendu souhaité.
+    path  = ./main.pdf
+    ---

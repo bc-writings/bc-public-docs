@@ -43,7 +43,7 @@
     \begin{tikzpicture}[baseline = (current bounding box.north)]
       \draw[rounded corners = 2pt]
         (pic cs:nubstart#1#3)
-          --++ (0,\nubvoffset*\nubunitht) -|
+          -- ++(0,\nubvoffset*\nubunitht) -|
         (pic cs:nubend#1#3);
     \end{tikzpicture}%
   }%
