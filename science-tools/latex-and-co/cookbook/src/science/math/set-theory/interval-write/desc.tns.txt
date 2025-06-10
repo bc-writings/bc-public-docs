@@ -1,0 +1,14 @@
+this::
+    date = 2025-06-10 ????
+
+
+=====================
+Taper des intervalles
+=====================
+
+https://tex.stackexchange.com/a/745985/6880
+
+
+egreg
+
+????
