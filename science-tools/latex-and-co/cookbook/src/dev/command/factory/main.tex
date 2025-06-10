@@ -1,0 +1,33 @@
+\documentclass[varwidth, border = 3pt]{standalone}
+
+\usepackage{main}
+
+%%%
+% Nous allons utiliser les macros ''\mathbb'' et ''\mathfrak'' proposées
+% par ''amsfonts''.
+%%%
+\usepackage{amsfonts}
+
+\makeabbrev{\mathbb}  {#1#1}{N, Q, Z}
+\makeabbrev{\mathfrak}{f#1} {A, B, C}
+
+\makeabbrev{\mathbf} {b#1}{D, E, F}
+\makeabbrev{\mathcal}{c#1}{I, J, K}
+\makeabbrev{\mathsf} {s#1}{M, N, O}
+\makeabbrev{\mathtt} {t#1}{P, Q, R}
+
+\begin{document}
+
+$\NN - \QQ - \ZZ$
+
+$\fA - \fB - \fC$
+
+$\bD - \bE - \bF$
+
+$\cI - \cJ - \cK$
+
+$\sM - \sN - \sO$
+
+$\tP - \tQ - \tR$
+
+\end{document}

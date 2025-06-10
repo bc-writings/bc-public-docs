@@ -1,0 +1,50 @@
+%%%
+% src::
+%     kind   = journal
+%     title  = TUGboat
+%     vol    = 39:1
+%     year   = 2018
+%     author = Enrico, Gregorio
+%     extra  = See the section "Symbol abbreviation macro sets",
+%              page 58.
+%%%
+
+\ExplSyntaxOn
+
+%%%
+% prototype::
+%     #1 : la macro à utiliser pour mettre en forme une lettre.
+%     #2 : le schéma de nommage de la macro à créer.
+%     #3 : une liste de lettres séparées par des virgules.
+%
+%     :action: imaginons que les arguments soient, dans l'ordre,
+%              ''\mathbf'', ''b#1'' et ''A, X''. Dans ce cas,
+%              les macros ''\bA'' et ''\bX'' seront créées comme
+%              alias de ''\mathbf{A}'' et ''\mathbf{X}''.
+%%%
+\NewDocumentCommand{ \makeabbrev }{m m m} {
+    \cookbook_make_abbrev:nnn { #1 } { #2 } { #3 }
+}
+
+%%%
+% prototype::
+%     :see: cmd.makeabbrev
+%%%
+\cs_new_protected:Nn \cookbook_make_abbrev:nnn {
+    \clist_map_inline:nn { #3 } {
+%%%
+% Expliquons le fonctionnement du code très concis qui suit.
+%
+%     + Ici, ''##1'' correspond à l'une des lettres fournies par
+%       l'utilisateur (règle de doublement du hastag ''#'' pour
+%       les \args de sous-\foncs).
+%
+%     + Si l'utilisateur a fourni ''b#1'' comme \2e \arg à la macro
+%       ''\makeabbrev'', \latex l'aura transformé automatiquement en
+%       ''b##1'', et c'est là que se situte l'astuce.
+%%%
+        \cs_new_protected:cpn { #2 } { #1 { ##1 } }
+    }
+}
+
+\ExplSyntaxOff
