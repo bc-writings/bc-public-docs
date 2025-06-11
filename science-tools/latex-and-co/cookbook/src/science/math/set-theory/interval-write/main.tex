@@ -1,6 +1,11 @@
-\documentclass{article}
+\documentclass[varwidth, border = 3pt]{standalone}
 
 \usepackage{main}
+
+%%%
+% Nous allons utiliser la macro ''\dfrac'' proposée par ''amsmath''.
+%%%
+\usepackage{amsmath}
 
 \begin{document}
 
@@ -9,6 +14,7 @@ Standard typesetting of intervals
 
 $\interval{a,b}$\quad
 $\interval[big]{a,b}$\quad
+$\interval[Big]{\dfrac{1}{2},\dfrac{2}{3}}$\quad
 $\interval[auto]{\dfrac{1}{2},\dfrac{2}{3}}$
 
 $\interval[c]{a,b}$
@@ -32,6 +38,7 @@ Perverse (aka French) typesetting of intervals
 
 $\interval{a,b}$\quad
 $\interval[big]{a,b}$\quad
+$\interval[Big]{\dfrac{1}{2},\dfrac{2}{3}}$\quad
 $\interval[auto]{\dfrac{1}{2},\dfrac{2}{3}}$
 
 $\interval[c]{a,b}$
