@@ -81,7 +81,7 @@
 % prototype::
 %     :see: cmd.csvread
 %%%
-\cs_new_protected:Npn \cookbook_csv_read:nn #1#2 {
+\cs_new_protected:Nn \cookbook_csv_read:nn {
   \ior_open:Nn \g_cookbook_csv_data_ior { #2 }
 
   \prop_clear:N \l_cookbook_csv_table_prop
@@ -125,7 +125,7 @@
 % prototype::
 %     :see: cmd.csvtblr
 %%%
-\cs_new_protected:Npn \cookbook_csv_tblr:nn #1#2 {
+\cs_new_protected:Nn \cookbook_csv_tblr:nn {
   \tl_clear:N \l_cookbook_csv_tblr_tl
   \int_set:Nn \l_cookbook_csv_num_row_int { 1 }
 

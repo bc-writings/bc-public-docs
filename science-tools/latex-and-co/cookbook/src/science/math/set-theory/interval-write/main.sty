@@ -1,95 +1,137 @@
 %%%
 % src::
 %     url    = https://tex.stackexchange.com/a/745985/6880
-%     author = egreg
+%     author = cookbook
 %%%
 
+%%%
+% Le \pack ''mleftright'' fournit les commandes ''\mleft'' et ''\mright''
+% pour obtenir des délimiteurs élastiques avec de bons espacements, car
+% ils sont de type ''\mathopen'' et ''\mathclose''.
+%%%
 \usepackage{mleftright}
 
 \ExplSyntaxOn
 
-\NewDocumentCommand{\interval}{O{}>{\SplitArgument{1}{,}}m}
- {
-  \egreg_interval:nnn {#1} #2
- }
-\NewDocumentCommand{\intervalsetup}{m}
- {
-  \keys_set:nn { egreg/interval } {#1}
- }
+%%%
+% XXXX
+%%%
+\NewDocumentCommand{ \interval }{ O{}>{\SplitArgument{1}{,}} m }{
+  \cookbook_interval:nnn {#1} #2
+}
 
-\tl_new:N \l__egreg_interval_left_tl
-\tl_new:N \l__egreg_interval_right_tl
-\tl_new:N \l__egreg_interval_ldel_tl
-\tl_new:N \l__egreg_interval_rdel_tl
-\tl_new:N \l__egreg_interval_sep_tl
-\bool_new:N \l__egreg_interval_auto_bool
+%%%
+% XXXX
+%%%
+\NewDocumentCommand{ \intervalsetup }{ m }{
+  \keys_set:nn { cookbook/interval } {#1}
+}
 
-\keys_define:nn { egreg/interval }
- {
-  standard .code:n = \__egreg_interval_standard: ,
-  french   .code:n = \__egreg_interval_perverse: ,
-  perverse .code:n = \__egreg_interval_perverse: ,
-  big      .code:n = \tl_set:Nn \l__egreg_interval_size_tl {\big} ,
-  Big      .code:n = \tl_set:Nn \l__egreg_interval_size_tl {\Big} ,
-  bigg     .code:n = \tl_set:Nn \l__egreg_interval_size_tl {\bigg} ,
-  Bigg     .code:n = \tl_set:Nn \l__egreg_interval_size_tl {\Bigg} ,
-  auto     .code:n = \bool_set_true:N \l__egreg_interval_auto_bool ,
-  c        .code:n = \__egreg_interval:nn {2} {2},
-  cc       .code:n = \__egreg_interval:nn {2} {2},
-  o        .code:n = \__egreg_interval:nn {1} {1},
-  oo       .code:n = \__egreg_interval:nn {1} {1},
-  co       .code:n = \__egreg_interval:nn {2} {1},
-  oc       .code:n = \__egreg_interval:nn {1} {2},
-  sep      .code:n =
-   \tl_set:Ne \l__egreg_interval_sep_tl
-    {
-     \str_case:nn {#1} {{,}{,}{..}{\mkern2mu.\mkern2mu.\mkern2mu}}
-    } ,
- }
+%%%
+% XXXX
+%%%
+\tl_new:N   \l__cookbook_interval_left_tl
+\tl_new:N   \l__cookbook_interval_right_tl
+\tl_new:N   \l__cookbook_interval_ldel_tl
+\tl_new:N   \l__cookbook_interval_rdel_tl
+\tl_new:N   \l__cookbook_interval_sep_tl
+\bool_new:N \l__cookbook_interval_auto_bool
 
-\cs_new_protected:Nn \__egreg_interval_standard:
- {
-  \tl_set:Nn \l__egreg_interval_left_tl { ([ }
-  \tl_set:Nn \l__egreg_interval_right_tl { )] }
- }
-\__egreg_interval_standard: % initialize
+%%%
+% XXXX
+%%%
+\keys_define:nn { cookbook/interval } {
+  standard .code:n = \__cookbook_interval_standard: ,
+  french   .code:n = \__cookbook_interval_perverse: ,
 
-\cs_new_protected:Nn \__egreg_interval_perverse:
- {
-  \tl_set:Nn \l__egreg_interval_left_tl { ][ }
-  \tl_set:Nn \l__egreg_interval_right_tl { [] }
- }
+  big  .code:n = \tl_set:Nn \l__cookbook_interval_size_tl {\big} ,
+  Big  .code:n = \tl_set:Nn \l__cookbook_interval_size_tl {\Big} ,
+  bigg .code:n = \tl_set:Nn \l__cookbook_interval_size_tl {\bigg} ,
+  Bigg .code:n = \tl_set:Nn \l__cookbook_interval_size_tl {\Bigg} ,
+  auto .code:n = \bool_set_true:N \l__cookbook_interval_auto_bool ,
 
-\cs_new_protected:Nn \__egreg_interval:nn
- {
-  \tl_set:Ne \l__egreg_interval_ldel_tl { \tl_item:Nn \l__egreg_interval_left_tl {#1} }
-  \tl_set:Ne \l__egreg_interval_rdel_tl { \tl_item:Nn \l__egreg_interval_right_tl {#2} }
- }
+  c  .code:n = \__cookbook_interval:nn {2} {2},
+  cc .code:n = \__cookbook_interval:nn {2} {2},
+  o  .code:n = \__cookbook_interval:nn {1} {1},
+  oo .code:n = \__cookbook_interval:nn {1} {1},
+  co .code:n = \__cookbook_interval:nn {2} {1},
+  oc .code:n = \__cookbook_interval:nn {1} {2},
 
-\cs_new_protected:Nn \egreg_interval:nnn
- {
+  sep .code:n = \tl_set:Ne \l__cookbook_interval_sep_tl {
+    \str_case:nn {#1} {
+      {,}{,}
+      {..}{\mkern2mu.\mkern2mu.\mkern2mu}
+    }
+  } ,
+}
+
+%%%
+% XXXX
+%%%
+\cs_new_protected:Nn \__cookbook_interval_standard: {
+  \tl_set:Nn \l__cookbook_interval_left_tl { ([ }
+  \tl_set:Nn \l__cookbook_interval_right_tl { )] }
+}
+
+%%%
+% XXXX
+%%%
+\__cookbook_interval_standard: % initialize
+
+%%%
+% XXXX
+%%%
+\cs_new_protected:Nn \__cookbook_interval_perverse: {
+  \tl_set:Nn \l__cookbook_interval_left_tl { ][ }
+  \tl_set:Nn \l__cookbook_interval_right_tl { [] }
+}
+
+%%%
+% XXXX
+%%%
+\cs_new_protected:Nn \__cookbook_interval:nn {
+  \tl_set:Ne \l__cookbook_interval_ldel_tl { \tl_item:Nn \l__cookbook_interval_left_tl {#1} }
+  \tl_set:Ne \l__cookbook_interval_rdel_tl { \tl_item:Nn \l__cookbook_interval_right_tl {#2} }
+}
+
+%%%
+% XXXX
+%%%
+\cs_new_protected:Nn \cookbook_interval:nnn {
   \group_begin:
-  \bool_set_false:N \l__egreg_interval_auto_bool
-  \tl_set:Nn \l__egreg_interval_size_tl {}
-  \keys_set:nn { egreg/interval } { o, sep={,}, #1 }
-  \bool_if:NTF \l__egreg_interval_auto_bool
-   {
-    \mleft\l__egreg_interval_ldel_tl
+
+  \bool_set_false:N \l__cookbook_interval_auto_bool
+  \tl_set:Nn        \l__cookbook_interval_size_tl {}
+
+  \keys_set:nn
+    { cookbook/interval }
+    {
+      o,
+      sep = { , },
+      #1
    }
-   {
-    \mathopen{ \l__egreg_interval_size_tl \l__egreg_interval_ldel_tl }
-   }
-   \str_if_eq:nnTF {#2} {-} { -\infty } {#2}
-   \l__egreg_interval_sep_tl
-   \str_case:nnF {#3} { {-}{\infty} {+}{+\infty} } {#3}
-  \bool_if:NTF \l__egreg_interval_auto_bool
-   {
-    \mright\l__egreg_interval_rdel_tl
-   }
-   {
-    \mathclose{ \l__egreg_interval_size_tl \l__egreg_interval_rdel_tl }
-   }
+
+  \bool_if:NTF \l__cookbook_interval_auto_bool {
+    \mleft\l__cookbook_interval_ldel_tl
+  }{
+    \mathopen{ \l__cookbook_interval_size_tl \l__cookbook_interval_ldel_tl }
+  }
+
+  \str_if_eq:nnTF {#2} {-} { -\infty } {#2}
+  \l__cookbook_interval_sep_tl
+
+  \str_case:nnF {#3} {
+    {-}{\infty}
+    {+}{+\infty}
+  } {#3}
+
+  \bool_if:NTF \l__cookbook_interval_auto_bool {
+    \mright\l__cookbook_interval_rdel_tl
+  }{
+    \mathclose{ \l__cookbook_interval_size_tl \l__cookbook_interval_rdel_tl }
+  }
+
   \group_end:
- }
+}
 
 \ExplSyntaxOff

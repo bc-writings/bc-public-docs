@@ -1,14 +1,9 @@
 this::
-    date = 2025-06-????
+    date = 2025-06-12
 
 
 =====================
 Taper des intervalles
 =====================
 
-https://tex.stackexchange.com/a/745985/6880
-
-
-egreg
-
-????
+Nous allons voir comment rédiger aisément des intervales avec soit la convention "anglo-saxone" avec des parenthèses, ou celle "française" avec des crochets. Les lignes de code viennent majoritairement de cf::''cette discussion en ligne ; https://tex.stackexchange.com/a/745985/6880''.
