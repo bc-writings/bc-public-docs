@@ -37,7 +37,7 @@
 %%%
 % warning::
 %     L'emploi d'une boucle ''\foreach'' du package ''pgf''  dans la
-%     fonction ''\cookbook_nub_val:n'' simplifie le travail, mais ceci
+%     fonction ''\cookbook_nub_val:nn'' simplifie le travail, mais ceci
 %     impose de travailler avec une variable de portée globale
 %     (techniquement, les boucles ''\foreach'' travaillent dans un
 %     groupe). Bien que cela ne soit pas logique d'utiliser une variable
@@ -50,7 +50,7 @@
 %     #1 : le contenu à calculer, celui-ci étant indiqué en respectant
 %          la syntaxe ''\foreach'' de ''pgf''.
 %%%
-\cs_set:Npn \cookbook_nub_val:n #1 {
+\cs_set:Nn \cookbook_nub_val:n {
   \int_gset:Nn \g_cookbook_nub_val_int { 0 }
 
   \foreach \k in {#1} {
@@ -82,7 +82,7 @@
 % prototype::
 %     #1 : le contenu à décorer.
 %%%
-\cs_set:Npn \cookbook_nub_deco:n #1 {
+\cs_set:Nn \cookbook_nub_deco:n {
   \clist_set:Nn
     \l_cookbook_nub_terms_clist
     { #1 }
