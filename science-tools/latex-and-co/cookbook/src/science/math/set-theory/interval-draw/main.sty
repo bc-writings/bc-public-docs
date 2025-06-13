@@ -71,15 +71,15 @@
 % Nous ajoutons en dernier les crochets.
 %%%
     \draw[
-        > = {
-          Bracket[
-            width      = 7mm,  % Hauteur du crochet
-            line width = 2pt,  % Épaisseur du trait.
-            length     = 1.5mm % Profondeur du crochet.
-          ]
-        },
-        <->,
-        green!50!black
+      > = {
+        Bracket[
+          width      = 7mm,  % Hauteur du crochet
+          line width = 2pt,  % Épaisseur du trait.
+          length     = 1.5mm % Profondeur du crochet.
+        ]
+      },
+      <->,
+      green!50!black
     ] ([xshift = -1pt] #1, 0) -- ([xshift = 1pt] #2, 0);
   \end{tikzpicture}
 }

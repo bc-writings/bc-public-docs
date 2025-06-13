@@ -7,52 +7,56 @@
 %%%
 \usepackage{amsmath}
 
+%%%
+% XXX
+%%%
+\usepackage{multicol}
+
+\newcommand\example{
+    $\interval{a, b}$
+    \quad
+    $\interval[big]{a, b}$
+
+    $\interval{\dfrac{1}{2}, \dfrac{2}{3}}$
+    \quad
+    $\interval[Big]{\dfrac{1}{2}, \dfrac{2}{3}}$
+    \quad
+    $\interval[auto]{\dfrac{1}{2}, \dfrac{2}{3}}$
+
+    $\interval[c]{a, b}$
+    \quad
+    $\interval[oc]{-oo, b}$
+    \quad
+    $\interval[o]{a, oo}$
+    \quad
+    $\interval{a, +oo}$
+
+    $\interval{-oo, oo}$
+    \quad
+    $\interval{-oo, +oo}$
+
+    $\interval{1, 2} \cup \interval[co]{2, 3} = \interval{1, 3}$
+
+    $\interval[c, sep=;]{a, b}$
+    \quad
+    $\interval[oc, sep=..]{a, b}$
+    \quad
+    $\interval[oc, sep=..]{-oo, +oo}$
+}
+
 \begin{document}
 
-\section*{Standard}
-Standard typesetting of intervals
+\begin{multicols}{2}
+    \paragraph{Standard typesetting}
+    \leavevmode
 
-$\interval{a,b}$\quad
-$\interval[big]{a,b}$\quad
-$\interval[Big]{\dfrac{1}{2},\dfrac{2}{3}}$\quad
-$\interval[auto]{\dfrac{1}{2},\dfrac{2}{3}}$
+    \example
 
-$\interval[c]{a,b}$
+    \paragraph{French typesetting}
+    \leavevmode
 
-$\interval[cc,sep=..]{a,b}$
-
-$\interval[oc]{-,b}$
-
-$\interval[oo]{a,-}$\qquad
-$\interval[oo]{a,+}$
-
-$\interval[o]{-,-}$\qquad
-$\interval[o]{-,+}$
-
-$\interval{1,2}\cup\interval[co]{2,3}=\interval[oo]{1,3}$
-
-\section*{French}
-French typesetting of intervals
-
-\intervalsetup{french}
-
-$\interval{a,b}$\quad
-$\interval[big]{a,b}$\quad
-$\interval[Big]{\dfrac{1}{2},\dfrac{2}{3}}$\quad
-$\interval[auto]{\dfrac{1}{2},\dfrac{2}{3}}$
-
-$\interval[c]{a,b}$
-
-$\interval[cc,sep=..]{a,b}$
-
-$\interval[oc]{-,b}$
-
-$\interval[oo]{a,-}$\qquad
-$\interval[oo]{a,+}$
-
-$\interval[o]{-,-}$\qquad
-$\interval[o]{-,+}$
-
-$\interval{1,2}\cup\interval[co]{2,3}=\interval[oo]{1,3}$
+    \intervalsetup{french}
+    \example
+\end{multicols}
 
 \end{document}

@@ -23,7 +23,7 @@
 %              alias de ''\mathbf{A}'' et ''\mathbf{X}''.
 %%%
 \NewDocumentCommand{ \makeabbrev }{m m m} {
-    \cookbook_make_abbrev:nnn { #1 } { #2 } { #3 }
+  \cookbook_make_abbrev:nnn { #1 } { #2 } { #3 }
 }
 
 %%%
@@ -31,7 +31,7 @@
 %     :see: cmd.makeabbrev
 %%%
 \cs_new_protected:Nn \cookbook_make_abbrev:nnn {
-    \clist_map_inline:nn { #3 } {
+  \clist_map_inline:nn { #3 } {
 %%%
 % Expliquons le fonctionnement du code très concis qui suit.
 %
@@ -40,11 +40,17 @@
 %       les \args de sous-\foncs).
 %
 %     + Si l'utilisateur a fourni ''b#1'' comme \2e \arg à la macro
-%       ''\makeabbrev'', \latex l'aura transformé automatiquement en
-%       ''b##1'', et c'est là que se situte l'astuce.
+%       ''\makeabbrev'', \latex l'aura transformé automatiquement
+%       en ''b##1'', et c'est là que se situte l'astuce.
+%
+%
+% warning::
+%     Dans ''\cs_new_protected:cpn {...} {...}'', l'emploi de ''p'',
+%     avec ''{...} {...}'' sans ''#n'' entre les deux accolades,
+%     permet de fabriquer une macro sans argument.
 %%%
-        \cs_new_protected:cpn { #2 } { #1 { ##1 } }
-    }
+    \cs_new_protected:cpn { #2 } { #1 { ##1 } }
+  }
 }
 
 \ExplSyntaxOff

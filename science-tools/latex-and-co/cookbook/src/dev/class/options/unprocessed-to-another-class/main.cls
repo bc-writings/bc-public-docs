@@ -4,15 +4,14 @@
 %     + https://tex.stackexchange.com/a/729913/6880
 %%%
 
-\ExplSyntaxOn
-
 %%%
 % Voici la carte d'identité de notre classe.
 %%
-\ProvidesExplClass{ main }
-                  { 2024-11-01 }
-                  { 0.0.0 }
-                  { Passing unprocessed options to another class }
+\ProvidesExplClass
+  { main }
+  { 2024-11-01 }
+  { 0.0.0 }
+  { Passing unprocessed options to another class }
 
 %%%
 % L'option de classe sera stockée dans la macro ''\selectedoptions''.
@@ -65,5 +64,3 @@
 % Nous pouvons maintenant charger la classe ''article''.
 %%
 \LoadClass{ article }
-
-\ExplSyntaxOff

@@ -6,4 +6,4 @@ this::
 Taper des intervalles
 =====================
 
-Nous allons voir comment rédiger aisément des intervales avec soit la convention "anglo-saxone" avec des parenthèses, ou celle "française" avec des crochets. Les lignes de code viennent majoritairement de cf::''cette discussion en ligne ; https://tex.stackexchange.com/a/745985/6880''.
+Nous allons voir comment rédiger aisément des intervalles respectant soit la convention "anglo-saxone" avec des parenthèses, soit celle "française" avec des crochets. Les lignes de code viennent majoritairement de cf::''ce post en ligne ; https://tex.stackexchange.com/a/745985/6880'' rédigé par l'excellent egreg.
