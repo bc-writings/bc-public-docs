@@ -1,0 +1,13 @@
+this::
+    date = 2025-06-15
+
+
+==============================
+Des réglages aux petis oignons
+==============================
+
+Finissons avec une \sol permettant de choisir soit la conventions "anglo-saxone" avec des parenthèses, soit celle "française" avec des crochets.
+Les lignes de code viennent majoritairement de cf::''ce post en ligne ; https://tex.stackexchange.com/a/745985/6880'' rédigé par l'excellent egreg
+((
+    Nous avons fait quelques \modifs mineures.
+)).

@@ -1,0 +1,12 @@
+this::
+    date = 2025-06-15
+
+
+=========================
+Une version "clé en main"
+=========================
+
+Cette \1ere version est faussement efficace, car il n'est pas possible de changer la taille des crochets, et l'espacement autour du séparateur de bornes n'est pas correct. Dans ce ca, pourquoi est-elle proposée ? Ceci permet d'incister sur une règle de saisie importante : toujours proposer une solution modifiable pour répondre à d'autres usages
+((
+    Nous verrons comment faire ceci dans cf::''../international/\desc''.
+)).

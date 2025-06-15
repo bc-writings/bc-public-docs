@@ -1,9 +1,18 @@
 this::
-    date = 2025-06-12
+    date = 2025-06-15
+
+
+abrev::
+    desc = desc.tns.txt
 
 
 =====================
 Taper des intervalles
 =====================
 
-Nous allons voir comment rédiger aisément des intervalles respectant soit la convention "anglo-saxone" avec des parenthèses, soit celle "française" avec des crochets. Les lignes de code viennent majoritairement de cf::''ce post en ligne ; https://tex.stackexchange.com/a/745985/6880'' rédigé par l'excellent egreg.
+Nous allons examiner trois méthodes de saisie d'ntervale permettant d'écrire des intervalles à la française comme dans `[a,b[`.
+
+content::
+    ./ibrackets/\desc
+    ./mathtools/\desc
+    ./international/\desc

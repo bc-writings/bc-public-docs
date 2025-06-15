@@ -1,0 +1,41 @@
+\documentclass[varwidth, border = 3pt]{standalone}
+
+\usepackage{main}
+
+\begin{document}
+
+$\intervalO{a, b}$
+\quad
+$\intervalO[big]{a, b}$
+
+$\intervalO{\dfrac{1}{2}, \dfrac{2}{3}}$
+\quad
+$\intervalO[Big]{\dfrac{1}{2}, \dfrac{2}{3}}$
+\quad
+$\intervalO*{\dfrac{1}{2}, \dfrac{2}{3}}$
+
+$\intervalC{a, b}$
+\quad
+$\intervalOC{-\infty, b}$
+\quad
+$\intervalO{a, \infty}$
+\quad
+$\intervalO{a, +\infty}$
+
+$\intervalO{-\infty, \infty}$
+\quad
+$\intervalO{-\infty, +\infty}$
+
+$\intervalC{a ; b}$
+\quad
+$\intervalOC{a .. b}$
+\quad
+$\intervalO{-\infty .. +\infty}$
+
+$\intervalO{1, 2} \cup \intervalCO{2, 3} = \intervalO{1, 3}$
+
+$]1, 2[ \cup [2, 3[ = ]1, 3[$
+
+Un test hors intervalle : $a = b \, [p]$
+
+\end{document}

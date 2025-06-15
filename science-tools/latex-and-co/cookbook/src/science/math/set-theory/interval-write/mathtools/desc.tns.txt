@@ -1,0 +1,10 @@
+this::
+    date = 2025-06-15
+
+
+=========================
+Une version "clé en main"
+=========================
+
+Plus efficace que ''ibrackets'', nous avons le package ''mathtools'' qui propose ''\DeclarePairedDelimiter'' permettant de créer des macros pour encadrer du contenu entre deux délimiteurs de tailles modifiables soit via un \arg optionnel indiquant une taille fixe comme ''Big'', soit en étirant automatiquement les délimiteurs via la version étoilée de la macro créée par ''\DeclarePairedDelimiter''.
+Malheureusement, bien que puissante, cette approche ne permet pas de choisir le style d'intervalles entre les conventions française et anglo-saxone. La dernière recette qui suit s'attaque à ce \pb avec brio.
