@@ -7,4 +7,4 @@ Une version "clé en main"
 =========================
 
 Plus efficace que ''ibrackets'', nous avons le package ''mathtools'' qui propose ''\DeclarePairedDelimiter'' permettant de créer des macros pour encadrer du contenu entre deux délimiteurs de tailles modifiables soit via un \arg optionnel indiquant une taille fixe comme ''Big'', soit en étirant automatiquement les délimiteurs via la version étoilée de la macro créée par ''\DeclarePairedDelimiter''.
-Malheureusement, bien que puissante, cette approche ne permet pas de choisir entre les conventions française `intervalO(a,b)` et anglo-saxone `intervalO(a,b)[locale = en]`. La dernière recette qui suit s'attaque à ce \pb avec brio.
+Malheureusement, bien que puissante, cette approche ne permet pas de choisir entre les conventions française `intervalO(a,b) union intervalCO(c,d)` et anglo-saxone `intervalO[locale = en](a,b) union intervalCO[locale = en](c,d)`. La dernière recette qui suit s'attaque à ce \pb avec brio.
