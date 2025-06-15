@@ -10,7 +10,7 @@ abrev::
 Taper des intervalles
 =====================
 
-Nous allons examiner trois méthodes de saisie d'ntervale permettant d'écrire des intervalles à la française comme dans `[a,b[`.
+Nous allons examiner trois méthodes de saisie d'ntervale permettant d'écrire des intervalles à la française comme dans `intervalO(a,b)`.
 
 content::
     ./ibrackets/\desc
