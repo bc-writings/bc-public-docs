@@ -10,7 +10,10 @@
 \usepackage{amsmath}
 
 %%%
-% Par sécurité, ???
+% Comme ''\DeclareRobustCommand'' ne vérifie pas si la macro à créer
+% existe déjà. Pour cette raison, il faut ajouter les lignes suivantes
+% qui, le cas échéant, nous indiqueront que la macro ''\apart'' ne peut
+% pas être redéfinie.
 %%%
 \newcommand{\apart}{}
 

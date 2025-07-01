@@ -2,9 +2,9 @@ this::
     date = 2025-07-01
 
 
-====================================================
-Extraire juste un symbole d'une police de caractères
-====================================================
+==============================================
+Extraire un symbole d'une police de caractères
+==============================================
 
 Nous allons voir comment utiliser un unique symbole extrait d'une police de caractères. Le processus n'est pas compliqué une fois les étapes de recherche suivantes connues.
 

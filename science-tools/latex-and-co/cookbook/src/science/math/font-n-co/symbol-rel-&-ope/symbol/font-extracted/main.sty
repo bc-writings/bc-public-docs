@@ -1,6 +1,7 @@
 %%%
 % src::
-%     urls = https://tex.stackexchange.com/a/747041/6880
+%     urls = https://tex.stackexchange.com/a/747041/6880 ,
+%            https://tex.stackexchange.com/q/56299/6880
 %%%
 
 %%%
@@ -21,3 +22,15 @@
 % proposé par ''mathabx''.
 %%%
 \DeclareMathSymbol{\varhash}{\mathrel}{mathb}{"23}
+
+
+%%%
+% Voici un autre exemple d'utilisation des \techs précédentes au cas
+% du \pack ''mathpazo''.
+%
+% tip::
+%     Sous \unix, la \cmd term::''kpsewhere mathpazo.sty'' donne accès
+%     au fichier source du \pack ''mathpazo''.
+%%%
+\DeclareSymbolFont{PazoBB}{U}{fplmbb}{m}{n}
+\DeclareMathSymbol{\unity}{\mathord}{PazoBB}{"31}

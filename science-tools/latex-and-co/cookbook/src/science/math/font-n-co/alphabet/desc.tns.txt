@@ -1,0 +1,22 @@
+this::
+    date = 2025-07-01
+
+
+=================================
+Un nouvel "alphabet" mathématique
+=================================
+
+\latex propose des \mefs \maths spéciales via, par exemple, les macros ''\mathcal'' et ''\mathsf'' qui utilisent des "alphabets" \maths spécifiques. Créer son propre alphabet est très simple, comme nous allons le voir . Le plus fastidieux est la récupération des bons \params. Dans notre cas, nous avons consulté cf::''le catalogue de polices \tex ; https://tug.org/FontCatalogue'' en ligne, et choisi la police "Teen Spirit"
+((
+    Grunge revival...
+)):
+voir cf::''https://tug.org/FontCatalogue/ralphsmithsformalscript/''.
+Le site utilisé nous indique d'employer le \pack ``emerald`` dont le code \src nous permet de savoir comment déclarer l'alphabet.
+
+
+tip::
+    La \tech proposée permet de redéfinir un alphabet existant, et c'est là sa vraie utilité.
+
+
+warning::
+    Créer un nouvel alphabet mathématique n’est pas compliqué, mais il ne faut pas en abuser : les compilateurs basés sur \tex, comme \pdflatex, travaillent avec un maximum de `16` alphabets distincts.
