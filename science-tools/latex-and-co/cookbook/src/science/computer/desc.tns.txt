@@ -1,0 +1,10 @@
+abrev::
+    desc = desc.tns.txt
+
+
+======
+\cs_fr
+======
+
+content::
+    ./automata/\desc

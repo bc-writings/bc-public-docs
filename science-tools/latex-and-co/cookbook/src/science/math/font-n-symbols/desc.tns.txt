@@ -1,0 +1,11 @@
+abrev::
+    desc = desc.tns.txt
+
+
+===================================================
+Jouer avec les polices de caratères et les symboles
+===================================================
+
+content::
+    ./alphabet/\desc
+    ./symbol-rel-&-ope/\desc

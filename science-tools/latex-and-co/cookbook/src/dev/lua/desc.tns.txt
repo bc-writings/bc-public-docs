@@ -1,0 +1,11 @@
+abrev::
+    desc = desc.tns.txt
+
+
+========================
+\lua à portée de main...
+========================
+
+content::
+    ./def-macro-from-lua/\desc
+    ./verb-arg-for-lua/\desc
