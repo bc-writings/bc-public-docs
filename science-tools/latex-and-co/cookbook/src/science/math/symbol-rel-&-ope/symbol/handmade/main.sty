@@ -1,0 +1,54 @@
+%%%
+% src::
+%     urls = https://tex.stackexchange.com/a/747032/6880
+%%%
+
+%%%
+% Nous allons utiliser la macro ''\mspace'' du \pack ''amsmath'' pour
+% gérer l'espacement en mode \math.
+%%%
+\usepackage{amsmath}
+
+%%%
+% Par sécurité, ???
+%%%
+\newcommand{\apart}{}
+
+%%%
+% prototype::
+%     :action: the new symbol.
+%
+% note::
+%     ''\mathpalette'' impose l'emploi d'une macro mangeant deux
+%     arguments. Dans notre cas, nous utilisons ''\relax''.
+%%%
+\DeclareRobustCommand%
+  {\apart}%
+  {\mathrel{\vphantom{/}\mathpalette\apart@\relax}}
+
+%%%
+% prototype::
+%     #1 : le style mathématique géré par la macro ''\mathpalette''.
+%     #2 : un \2nd éventuel argument imposé par ''\mathpalette''.
+%
+% Pour l'emploi de ''\ooalign'', se reporter à la recette de simple
+% superposition. Les nouveautés ici sont les suivantes.
+%
+%     1) ''\m@th'' est un alias pour ''\mathsurround=0pt'' qui retire
+%     tout espacement avant et après un matériel mathématique.
+%
+%     2) ''\hidewidth'' retire tout espacement avant et après le matériel
+%     d'une "ligne" de ''\ooalign''. Ceci permet de bien centrer les
+%     éléments superposés.
+%
+%     3) ''\hphantom'' crée un espace horizontal vide, de même largeur que
+%     son argument, mais sans rien afficher.
+%%%
+\NewDocumentCommand{\apart@}{ m m }{%
+  \ooalign{%
+    \hidewidth$\m@th#1\mspace{-0.5mu}%
+    {\not}\mspace{4mu}{\not}%
+    \hphantom{=}$\hidewidth\cr
+    $\m@th#1=$\cr
+  }%
+}

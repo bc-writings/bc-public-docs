@@ -1,0 +1,11 @@
+abrev::
+    desc = desc.tns.txt
+
+
+=======================
+Les intervalles réelles
+=======================
+
+content::
+    ./write/\desc
+    ./draw/\desc

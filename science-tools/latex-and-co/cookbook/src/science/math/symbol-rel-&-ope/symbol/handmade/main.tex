@@ -5,10 +5,10 @@
 \usepackage{amsmath} % Nécessaire pour le tableau testant les styles.
 
 \newcommand{\test}%
-           {A \mysymb B}
+           {a \equiv b \apart c \neq d}
 
 \newcommand{\verbtest}%
-           {A \mathmacro{mysymb} B}
+           {a \mathmacro{equiv} b \mathmacro{apart} c \mathmacro{neq} d}
 
 % Une factorisation visible du code...
 \NewDocumentCommand{\mathmacro}{m}{\;\backslash#1\;}
@@ -36,6 +36,10 @@
 }
 
 \begin{document}
+
+$\test$
+
+$a \equiv b = c \neq d$
 
 \testmathstyle
 

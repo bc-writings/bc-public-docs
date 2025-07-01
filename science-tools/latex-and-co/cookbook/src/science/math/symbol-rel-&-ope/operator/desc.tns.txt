@@ -1,0 +1,11 @@
+abrev::
+    desc = desc.tns.txt
+
+
+======================
+De nouveaux opérateurs
+======================
+
+content::
+    ./lim-like-build-via-prop-liste/\desc
+    ./big-home-made/\desc

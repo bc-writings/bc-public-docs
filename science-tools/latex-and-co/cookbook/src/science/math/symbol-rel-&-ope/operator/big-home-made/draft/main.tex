@@ -2,13 +2,51 @@
 
 \usepackage{main}
 
-\usepackage{amsmath}
+\usepackage{amsmath} % Nécessaire pour le tableau testant les styles.
 
 \newcommand\exasep{\kern3pt | \kern3pt}
 
 \newcommand\sumexa{\sum_{i = 0}^{9} s_i}
 \newcommand\astexa{\bigast_{i = 0}^{9} a_i}
-\newcommand\compoexa{\bigcompo_{i = 0}^{9} c_k}
+\newcommand\compoexa{\bigcompo_{i = 0}^{9} c_i}
+
+\newcommand{\test}{\astexa}
+\newcommand{\verbtest}%
+           {\mathmacro{bigast}\_\{i = 0\}\text{\textasciicircum}\{9\} \, a\_i}
+
+\newcommand{\testbis}{\compoexa}
+\newcommand{\verbtestbis}%
+           {\mathmacro{bigcompo}\_\{i = 0\}\text{\textasciicircum}\{9\} \, c\_i}
+
+% Une factorisation visible du code...
+\NewDocumentCommand{\mathmacro}{m}{\;\backslash#1}%\;}
+
+\newcommand{\testmathstyle}{
+    \[
+        \renewcommand{\arraystretch}{1.2}%
+        \begin{array}{lll}
+              \textbf{Style}
+            & \mathtt{\verbtest}
+            & \mathtt{\verbtestbis}
+            \\ \hline
+              \mathtt{\backslash displaystyle}
+            & \displaystyle \test
+            & \displaystyle \testbis
+            \\
+              \mathtt{\backslash textstyle}
+            & \textstyle \test
+            & \textstyle \testbis
+            \\
+              \mathtt{\backslash scriptstyle}
+            & \scriptstyle \test
+            & \scriptstyle \testbis
+            \\
+              \mathtt{\backslash scriptscriptstyle}
+            & \scriptscriptstyle \test
+            & \scriptscriptstyle \testbis
+        \end{array}
+    \]
+}
 
 \begin{document}
 
@@ -18,29 +56,6 @@ $\displaystyle \sumexa \exasep \astexa \exasep \compoexa$
 Mode en ligne:
 $\sumexa \exasep \astexa \exasep \compoexa$.
 
-\[
-    \renewcommand{\arraystretch}{1.2}%
-    \begin{array}{lll}
-          \textbf{Style}
-        & \verb#\bigast_{i = 0}^{9} s_i#
-        & \verb#\bigcompo_{k = 1}^{5} f_k#
-        \\ \hline
-          \verb!\displaystyle!
-        & \displaystyle \astexa
-        & \displaystyle \compoexa
-        \\
-          \verb!\textstyle!
-        & \textstyle \astexa
-        & \textstyle \compoexa
-        \\
-          \verb!\scriptstyle!
-        & \scriptstyle \astexa
-        & \scriptstyle \compoexa
-        \\
-          \verb!\scriptscriptstyle!
-        & \scriptscriptstyle \astexa
-        & \scriptscriptstyle \compoexa
-    \end{array}
-\]
+\testmathstyle
 
 \end{document}

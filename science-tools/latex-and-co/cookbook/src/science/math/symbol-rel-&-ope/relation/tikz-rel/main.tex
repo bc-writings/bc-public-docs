@@ -2,28 +2,41 @@
 
 \usepackage{main}
 
-\usepackage{amsmath}
+\usepackage{amsmath} % Nécessaire pour le tableau testant les styles.
+
+\newcommand{\test}%
+           {A \mytikzrel B}
+
+\newcommand{\verbtest}%
+           {A \mathmacro{mytikzrel} B}
+
+% Une factorisation visible du code...
+\NewDocumentCommand{\mathmacro}{m}{\;\backslash#1\;}
+
+\newcommand{\testmathstyle}{
+    \[
+        \renewcommand{\arraystretch}{1.2}%
+        \begin{array}{lll}
+              \textbf{Style}
+            & \mathtt{\verbtest}
+            \\ \hline
+              \mathtt{\backslash displaystyle}
+            & \displaystyle \test
+            \\
+              \mathtt{\backslash textstyle}
+            & \textstyle \test
+            \\
+              \mathtt{\backslash scriptstyle}
+            & \scriptstyle \test
+            \\
+              \mathtt{\backslash scriptscriptstyle}
+            & \scriptscriptstyle \test
+        \end{array}
+    \]
+}
 
 \begin{document}
 
-\[
-    \renewcommand{\arraystretch}{1.2}%
-    \begin{array}{lll}
-          \textbf{Style}
-        & \verb#A \mytikzrel B#
-        \\ \hline
-          \verb!\displaystyle!
-        & \displaystyle A \mytikzrel B
-        \\
-          \verb!\textstyle!
-        & \textstyle A \mytikzrel B
-        \\
-          \verb!\scriptstyle!
-        & \scriptstyle A \mytikzrel B
-        \\
-          \verb!\scriptscriptstyle!
-        & \scriptscriptstyle A \mytikzrel B
-    \end{array}
-\]
+\testmathstyle
 
 \end{document}

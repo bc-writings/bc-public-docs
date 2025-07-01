@@ -3,7 +3,7 @@ this::
 
 
 ========================================================
-Symbole obtenu par simple superposition de deux symboles
+Symbole obtenu par superposition "fine" de deux symboles
 ========================================================
 
 Le titre dit tout, pas besoin d'en rajouter !

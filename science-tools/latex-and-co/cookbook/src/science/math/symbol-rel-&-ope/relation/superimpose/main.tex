@@ -2,28 +2,41 @@
 
 \usepackage{main}
 
-\usepackage{amsmath}
+\usepackage{amsmath} % Nécessaire pour le tableau testant les styles.
+
+\newcommand{\test}%
+           {A \myeq B}
+
+\newcommand{\verbtest}%
+           {A \mathmacro{myeq} B}
+
+% Une factorisation visible du code...
+\NewDocumentCommand{\mathmacro}{m}{\;\backslash#1\;}
+
+\newcommand{\testmathstyle}{
+    \[
+        \renewcommand{\arraystretch}{1.2}%
+        \begin{array}{lll}
+              \textbf{Style}
+            & \mathtt{\verbtest}
+            \\ \hline
+              \mathtt{\backslash displaystyle}
+            & \displaystyle \test
+            \\
+              \mathtt{\backslash textstyle}
+            & \textstyle \test
+            \\
+              \mathtt{\backslash scriptstyle}
+            & \scriptstyle \test
+            \\
+              \mathtt{\backslash scriptscriptstyle}
+            & \scriptscriptstyle \test
+        \end{array}
+    \]
+}
 
 \begin{document}
 
-\[
-    \renewcommand{\arraystretch}{1.2}%
-    \begin{array}{lll}
-          \textbf{Style}
-        & \verb#A \myeq B#
-        \\ \hline
-          \verb!\displaystyle!
-        & \displaystyle A \myeq B
-        \\
-          \verb!\textstyle!
-        & \textstyle A \myeq B
-        \\
-          \verb!\scriptstyle!
-        & \scriptstyle A \myeq B
-        \\
-          \verb!\scriptscriptstyle!
-        & \scriptscriptstyle A \myeq B
-    \end{array}
-\]
+\testmathstyle
 
 \end{document}

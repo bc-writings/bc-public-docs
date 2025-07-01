@@ -1,0 +1,19 @@
+this::
+    date = 2025-07-01
+
+
+====================================================
+Extraire juste un symbole d'une police de caractères
+====================================================
+
+Nous allons voir comment utiliser un unique symbole extrait d'une police de caractères. Le processus n'est pas compliqué une fois les étapes de recherche suivantes connues.
+
+    1) Il nous faut un package gérant une police de caractères nous plaisant. Dans cette recette, le \pack ''mathabx'' est celui retenu.
+
+    1) Au début du code source de path::''mathabx.sty'', nous devons copier certaines lignes très techniques de déclaration de la police de caractères : voir celles au début du fichier ext::''sty'' de cette recette.
+
+    1) Pour finir, nous devons obtenir le code hexadécimal du carcatère nous intéressant. La \doc du \pack ''mathabx'' nous donne cette \info : voir la section "Mathabx font tables" du fichier path::''mathtest.pdf'' proposé par ''mathabx''. Parfois, il faudra mener l'enquête directement dans le code source du \pack retenu.
+
+
+note::
+    En \tex, un nombre commençant par une guillement double indique un codage hexadécimal : par exemple, '"23' indique le code hexadécimal `hexa(23) = val(hexa(23))`.

@@ -1,0 +1,23 @@
+%%%
+% src::
+%     urls = https://tex.stackexchange.com/a/747041/6880
+%%%
+
+%%%
+% Lignes de déclaration de la police de caractères venant directement
+% du code source du package ''mathabx''.
+%%%
+\DeclareFontFamily{U}{mathb}{\hyphenchar\font45}
+\DeclareFontShape{U}{mathb}{m}{n}{
+ <5> <6> <7> <8> <9> <10> gen * mathb
+    <10.95> mathb10 <12> <14.4> <17.28> <20.74> <24.88> mathb12
+   }{}
+\DeclareSymbolFont{mathb}{U}{mathb}{m}{n}
+\DeclareFontSubstitution{U}{mathb}{m}{n}
+
+%%%
+% Le code hexadécimal ''"23'' du cractère utilisé est fourni dans
+% la section "Mathabx font tables" du fichier path::''mathtest.pdf''
+% proposé par ''mathabx''.
+%%%
+\DeclareMathSymbol{\varhash}{\mathrel}{mathb}{"23}
