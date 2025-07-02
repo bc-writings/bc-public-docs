@@ -8,16 +8,15 @@
 
 %%%
 % prototype::
-%     #1 :
-%     #2 :
-%     #3 :
+%     #1 : XXX
+%     #2 : XXX
+%     #3 : XXX
 %
-%     :action:
+%     :action: XXX
 %%%
 \NewDocumentCommand{ \DeclareAcronymOperator }{ s O{#3} m }{
   \cs_if_exist:cTF { #2 }{
-    \msg_error:nne { db/operator }
-      { command-already-defined }
+    \msg_error:nne { db/operator }{ command-already-defined }
       { \exp_not:c {#2} }
   }{
     \IfBooleanTF { #1 }{
@@ -29,14 +28,12 @@
 }
 
 %%%
-%
+% XXX
 %%%
-\msg_new:nnnn { db/operator }
-  { command-already-defined }
+\msg_new:nnnn { db/operator }{ command-already-defined }
   {
     Command ~ #1 ~ already ~defined, ~
-    '\token_to_str:N \DeclareAcronymOperator' ~
-    ignored
+    '\token_to_str:N \DeclareAcronymOperator' ~ ignored
   }
   {
     The ~ command ~ #1 ~ has ~ already ~ a ~ meaning. ~
@@ -45,12 +42,12 @@
 
 %%%
 % prototype::
-%     #1 :
-%     #2 :
-%     #3 :
-%     #4 :
+%     #1 : XXX
+%     #2 : XXX
+%     #3 : XXX
+%     #4 : XXX
 %
-%     :action:
+%     :action: XXX
 %%%
 \cs_new_protected:Nn \db_operator:nnnn {
   \exp_args:Nc \NewDocumentCommand{ #2 }{}{
@@ -59,7 +56,7 @@
 }
 
 %%%
-%
+% XXX
 %%%
 \cs_generate_variant:Nn \db_operator:nnnn {nnne}
 
