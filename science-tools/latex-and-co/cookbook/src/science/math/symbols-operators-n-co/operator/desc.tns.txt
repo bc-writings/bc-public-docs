@@ -7,5 +7,5 @@ De nouveaux opérateurs
 ======================
 
 content::
-    ./lim-like-build-via-prop-liste/\desc
-    ./big-home-made/\desc
+    ./big-factory/\desc
+    ./big-handmade/\desc

@@ -8,4 +8,6 @@ Jouer avec les polices de caratères et les symboles
 
 content::
     ./font-alphabet/\desc
-    ./symbol-rel-&-ope/\desc
+    ./symbol/\desc
+    ./relation/\desc
+    ./operator/\desc
