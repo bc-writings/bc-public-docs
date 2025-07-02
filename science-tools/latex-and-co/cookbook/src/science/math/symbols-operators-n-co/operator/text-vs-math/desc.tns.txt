@@ -1,0 +1,14 @@
+this::
+    date = 2025-07-02
+
+
+============================================================
+Une fonction pour les \maths, mais un acronyme pour le texte
+============================================================
+
+Nous allons voir comment faire en sorte qu'une macro comme ''\pgcd'' donne "PGCD" en mode textuel, et `pgcd(a,b)` en mode mathématique.
+
+
+note::
+    La \sol proposée est celle donnée dans cf::''ce post ; https://tex.stackexchange.com/a/742337/6880'' par le bien avisé egreg.
+    Le code proposé est un peu \tech, mais nous l'avons suffisamment commenté pour le rendre très digeste comme dans toute bonne recette qui se respecte.

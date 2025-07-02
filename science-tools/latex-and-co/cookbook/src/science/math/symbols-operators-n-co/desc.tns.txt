@@ -2,9 +2,9 @@ abrev::
     desc = desc.tns.txt
 
 
-===================================================
-Jouer avec les polices de caratères et les symboles
-===================================================
+=================================================
+De nouveaux opérateurs, de nouvelles fonctions...
+=================================================
 
 content::
     ./font-alphabet/\desc

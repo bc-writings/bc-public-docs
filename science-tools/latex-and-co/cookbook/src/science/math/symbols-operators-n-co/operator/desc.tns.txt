@@ -8,4 +8,5 @@ De nouveaux opérateurs
 
 content::
     ./big-factory/\desc
+    ./text-vs-math/\desc
     ./big-handmade/\desc

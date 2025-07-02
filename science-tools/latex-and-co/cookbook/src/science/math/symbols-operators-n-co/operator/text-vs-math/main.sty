@@ -1,0 +1,66 @@
+%%%
+% src::
+%     url = https://tex.stackexchange.com/a/742337/6880
+%%%
+\usepackage{amsmath}
+
+\ExplSyntaxOn
+
+%%%
+% prototype::
+%     #1 :
+%     #2 :
+%     #3 :
+%
+%     :action:
+%%%
+\NewDocumentCommand{ \DeclareAcronymOperator }{ s O{#3} m }{
+  \cs_if_exist:cTF { #2 }{
+    \msg_error:nne { db/operator }
+      { command-already-defined }
+      { \exp_not:c {#2} }
+  }{
+    \IfBooleanTF { #1 }{
+      \db_operator:nnne { * }{ #2 }{ #3 }{ \text_uppercase:n {#3} }
+    }{
+      \db_operator:nnne {   }{ #2 }{ #3 }{ \text_uppercase:n {#3} }
+    }
+  }
+}
+
+%%%
+%
+%%%
+\msg_new:nnnn { db/operator }
+  { command-already-defined }
+  {
+    Command ~ #1 ~ already ~defined, ~
+    '\token_to_str:N \DeclareAcronymOperator' ~
+    ignored
+  }
+  {
+    The ~ command ~ #1 ~ has ~ already ~ a ~ meaning. ~
+    Use ~ the ~optional ~ argument.
+  }
+
+%%%
+% prototype::
+%     #1 :
+%     #2 :
+%     #3 :
+%     #4 :
+%
+%     :action:
+%%%
+\cs_new_protected:Nn \db_operator:nnnn {
+  \exp_args:Nc \NewDocumentCommand{ #2 }{}{
+    \mode_if_math:TF { \operatorname#1{#3} } {#4}
+  }
+}
+
+%%%
+%
+%%%
+\cs_generate_variant:Nn \db_operator:nnnn {nnne}
+
+\ExplSyntaxOff

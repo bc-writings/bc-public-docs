@@ -1,17 +1,20 @@
 %%%
-% La macro ''\DeclareMathAlphabet'' attend les arguments suivants après
-% le nom retenu pour l'alphabet.
+% La macro ''\DeclareMathAlphabet'' attend les arguments suivants
+% après le nom choisi pour l'alphabet (il est autprisé d'utiliser
+% un nom existant afin de redéfinir un alphabet).
 %
-%     1) \Arg 1 est l'encodage. Ici, c'est ''U'', car l'encodage est
-%     inconnu (nous utilisons une police "non standard").
+%     1) \Arg 1 est l'encodage.
+%     Ici, ''U'' indique un encodage inconnu (nous utilisons une
+%     police "non standard").
 %
-%     1) \Arg 2 code la famille de glyphes utilisés. Ici, c'est
-%     ''rsfso'' pour "Ralph Smith’s Formal Script".
+%     1) \Arg 2 code la famille de glyphes utilisés.
+%     Ici, ''rsfso'' correspond à "Ralph Smith’s Formal Script".
 %
-%    1) \Arg 3 est l'épaisseur des glyphes. Ici, c'est ''m'' pour
-%    "medium", soit une épaisseur normale.
+%     1) \Arg 3 est l'épaisseur des glyphes.
+%     Ici, ''m'' signifie "medium", soit une épaisseur normale.
 %
-%    1) \Arg 4 est la forme des glyphes. ici, c'est ''n'' pour "normal",
-%    soit non italique.
+%     1) \Arg 4 est la forme des glyphes.
+%     ici, c'est ''n'' indique une forme "normale", c'est-à-dire
+%     droite, ou non-italique.
 %%%
 \DeclareMathAlphabet{\mathperso}{U}{rsfso}{m}{n}
