@@ -2,23 +2,76 @@
 % src::
 %     url = https://tex.stackexchange.com/a/742337/6880
 %%%
+
+%%%
+% Nous allons utiliser la macro ''\operatorname'', et sa version
+% étoilée qui sont fournis par le \pack ''amsmath''.
+%%%
 \usepackage{amsmath}
 
 \ExplSyntaxOn
 
 %%%
-% prototype::
-%     #1 : XXX
-%     #2 : XXX
-%     #3 : XXX
+% Nous définissons un message d'erreur pour indiquer l'utilisateur
+% que la macro qu'il souhaite créer existe déjà.
 %
-%     :action: XXX
+% note::
+%     Remarquer l'emploi de ''#1'' qui permet d'avoir un message
+%     ayant des \params. Dans notre cas, l'\arg utilisé sera le nom
+%     de la macro non créable.
+%%%
+\msg_new:nnnn { db/operator }{ command-already-defined }
+%%%
+% Nous commençons par le premier texte indiqué à l'utilisateur.
+%%%
+  {
+    Command ~ #1 ~ already ~defined, ~
+    '\token_to_str:N \DeclareAcronymOperator' ~ ignored
+  }
+%%%
+% Nous continuons avec le texte d'aide complémentaire affiché en cas
+% de demande d'aide de la part de l'utilisateur lors d'une compilation
+% en mode interactif.
+%%%
+{
+    The ~ command ~ #1 ~ has ~ already ~ a ~ meaning. ~
+    Use ~ the ~optional ~ argument.
+  }
+
+%%%
+% prototype::
+%     #1 : cet \arg est un booléen, géré par \latex, qui permet de
+%          savoir la version étoilée de ''\DeclareAcronymOperator''
+%          a été employée.
+%     #2 : cet \arg permet de choisir le nom de la macro construite.
+%     #3 : le texte de l'opérateur \math et acronyme à créer.
+%
+%     :action: création d'une macro qui sera un opérateur en mode
+%              \math, et un acronyme en mode texte.
+%              Par défaut, le texte fourni en \arg sera celui de
+%              l'opérateur, et sa version majuscule correspondra à
+%              l'acronyme.
+%
+% note::
+%     Dans la \sign ''s O{#3} m'', l'emploi de ''O{#3}'' indique que
+%     l'\arg a pour valeur par défaut celle de l'\arg obligatoire.
+%     N'est ce pas joli ?
 %%%
 \NewDocumentCommand{ \DeclareAcronymOperator }{ s O{#3} m }{
   \cs_if_exist:cTF { #2 }{
+%%%
+% Si la macro existe, en anglais "if the command sequence exists",
+% nous renvoyons le message d'erreur défini plus haut.
+%%%
     \msg_error:nne { db/operator }{ command-already-defined }
       { \exp_not:c {#2} }
   }{
+%%%
+% La macro ''\operatorname'' crée un opérateur de type "fonction",
+% tandis que la macro ''\operatorname*'' fabrique un "grand opérateur"
+% comme les classiques ''\sum'' et ''\prod''. Notre macro reproduit
+% ce fonctionnement.
+%%%
     \IfBooleanTF { #1 }{
       \db_operator:nnne { * }{ #2 }{ #3 }{ \text_uppercase:n {#3} }
     }{
@@ -28,26 +81,19 @@
 }
 
 %%%
-% XXX
-%%%
-\msg_new:nnnn { db/operator }{ command-already-defined }
-  {
-    Command ~ #1 ~ already ~defined, ~
-    '\token_to_str:N \DeclareAcronymOperator' ~ ignored
-  }
-  {
-    The ~ command ~ #1 ~ has ~ already ~ a ~ meaning. ~
-    Use ~ the ~optional ~ argument.
-  }
-
-%%%
 % prototype::
-%     #1 : XXX
-%     #2 : XXX
-%     #3 : XXX
-%     #4 : XXX
+%     #1 : le caractère ''*'' ou rien pour l'emploi ou non de la
+%          version étoilée de ''\operatorname''.
+%     #2 : le nom de la macro à créer.
+%     #3 : le nom de la \fonc ou du grand opérateur en mode \math.
+%     #4 : le texte de l'acronyme (la mise en majuscule doit être
+%          traité en amont).
 %
-%     :action: XXX
+%     :action: :see: macro.DeclareAcronymOperator
+%
+% note::
+%     Noter combien il est aisé de savoir si l'on est ou non en mode
+%     \math via ''\mode_if_math:TF''.
 %%%
 \cs_new_protected:Nn \db_operator:nnnn {
   \exp_args:Nc \NewDocumentCommand{ #2 }{}{
@@ -56,7 +102,9 @@
 }
 
 %%%
-% XXX
+% Pour des raisons \techs, l'acronyme doit être développable. C'est
+% pour cette raison qu'une version alternative ''\db_operator:nnne''
+% est créée (c'est le dernier \arg qui doit être développable).
 %%%
 \cs_generate_variant:Nn \db_operator:nnnn {nnne}
 
