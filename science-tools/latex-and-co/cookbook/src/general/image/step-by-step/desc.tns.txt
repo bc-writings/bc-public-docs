@@ -6,4 +6,4 @@ this::
 Des images explicatives pas à pas
 =================================
 
-Pour faciliter la compréhension, il est parfois préférable de décomposer les explications visuelles en une série d'étapes illustrées. Nous allons découvrir comment insérer ces images séquentiellement en \latex tout en les agençant ligne par ligne dans un tableau à deux colonnes.
+Pour faciliter la compréhension, il est parfois préférable de décomposer les explications visuelles en une série d'étapes illustrées. Nous allons découvrir comment insérer ces images séquentiellement en \latex tout en les agençant ligne par ligne dans un tableau à plusieurs colonnes, les images s'adaptant aux dimensions des colonnes.

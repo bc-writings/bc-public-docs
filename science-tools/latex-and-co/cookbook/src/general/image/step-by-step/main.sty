@@ -1,15 +1,16 @@
 %%%
-% TODO
+% La mise en page est gérée snas effort par l'\env ''tcbitemize''
+% de la bibliothèque ''raster'' du \pack ''tcolorbox''.
 %%%
 \usepackage{tcolorbox}
-
-%%%
-% TODO
-%%%
 \tcbuselibrary{raster}
 
 %%%
-% TODO
+% prototype::
+%     #1 : des réglages destinés à l'\env ``tcbitemize'' fourni
+%          par la bibliothèque ''raster''
+%     #2 : un préfixe commun aux chemins des images.
+%     #3 : la liste des suffixes identifiant les images.
 %%%
 \NewDocumentCommand{\stepbystep}{O{} m m}{
   \begin{tcbitemize}[#1]
@@ -20,7 +21,9 @@
 \ExplSyntaxOn
 
 %%%
-% TODO
+% prototype::
+%     :see: cmd.stepbystep.arg.#2 ,
+%           cmd.stepbystep.arg.#3
 %%%
 \cs_set:Nn \cookbook_tcbitem:nn {
   \clist_map_inline:nn {#2} {
@@ -29,7 +32,8 @@
 }
 
 %%%
-% TODO
+% prototype::
+%     :see: l3.cookbook_tcbitem:nn
 %%%
 \cs_new_eq:NN \cookbook@tcbitem \cookbook_tcbitem:nn
 
