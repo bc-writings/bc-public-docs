@@ -1,0 +1,36 @@
+%%%
+% TODO
+%%%
+\usepackage{tcolorbox}
+
+%%%
+% TODO
+%%%
+\tcbuselibrary{raster}
+
+%%%
+% TODO
+%%%
+\NewDocumentCommand{\stepbystep}{O{} m m}{
+  \begin{tcbitemize}[#1]
+    \cookbook@tcbitem{#2}{#3}
+  \end{tcbitemize}
+}
+
+\ExplSyntaxOn
+
+%%%
+% TODO
+%%%
+\cs_set:Nn \cookbook_tcbitem:nn {
+  \clist_map_inline:nn {#2} {
+    \tcbitem \includegraphics[width=\textwidth]{#1##1}
+  }
+}
+
+%%%
+% TODO
+%%%
+\cs_new_eq:NN \cookbook@tcbitem \cookbook_tcbitem:nn
+
+\ExplSyntaxOff

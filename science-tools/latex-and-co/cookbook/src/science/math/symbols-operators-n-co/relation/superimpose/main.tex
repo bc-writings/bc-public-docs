@@ -2,15 +2,21 @@
 
 \usepackage{main}
 
-\usepackage{amsmath} % Nécessaire pour le tableau testant les styles.
+%%%
+% Le chargement suivant est nécessaire pour un bon rendu du tableau
+% testant les styles.
+%%%
+\usepackage{amsmath}
 
+%%%
+% Une factorisation du code.
+%%%
 \newcommand{\test}%
            {A \myeq B}
 
 \newcommand{\verbtest}%
            {A \mathmacro{myeq} B}
 
-% Une factorisation visible du code...
 \NewDocumentCommand{\mathmacro}{m}{\;\backslash#1\;}
 
 \newcommand{\testmathstyle}{

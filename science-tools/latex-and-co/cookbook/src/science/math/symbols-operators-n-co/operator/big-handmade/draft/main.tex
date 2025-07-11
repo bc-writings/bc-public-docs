@@ -2,8 +2,15 @@
 
 \usepackage{main}
 
-\usepackage{amsmath} % Nécessaire pour le tableau testant les styles.
+%%%
+% Le chargement suivant est nécessaire pour un bon rendu du tableau
+% testant les styles.
+%%%
+\usepackage{amsmath}
 
+%%%
+% Une factorisation du code.
+%%%
 \newcommand\exasep{\kern3pt | \kern3pt}
 
 \newcommand\sumexa{\sum_{i = 0}^{9} s_i}
@@ -18,7 +25,6 @@
 \newcommand{\verbtestbis}%
            {\mathmacro{bigcompo}\_\{i = 0\}\text{\textasciicircum}\{9\} \, c\_i}
 
-% Une factorisation visible du code...
 \NewDocumentCommand{\mathmacro}{m}{\;\backslash#1}%\;}
 
 \newcommand{\testmathstyle}{
