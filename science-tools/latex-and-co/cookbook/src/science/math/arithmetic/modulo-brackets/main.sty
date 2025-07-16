@@ -1,0 +1,7 @@
+%%%
+% ''\DeclareRobustCommand'' devient inutile avec ''\NewDocumentCommand''.
+%%%
+\NewDocumentCommand{ \brmod }{ m }{\brod{{\operator@font mod}\mkern6mu#1}}
+
+\NewDocumentCommand{ \brod }{ m }{\allowbreak
+  \if@display\mkern18mu\else\mkern8mu\fi[#1]}

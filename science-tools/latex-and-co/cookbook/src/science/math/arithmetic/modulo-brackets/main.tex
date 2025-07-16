@@ -1,0 +1,34 @@
+\documentclass[varwidth, border=3pt]{standalone}
+
+\usepackage{main}
+
+%%%
+% Nous utilisions les macros ''\pod'' et ''\substack'' de ''amsmaths''.
+%%%
+\usepackage{amsmath}
+
+
+%%%
+% Pour simplifier la rédaction des tests.
+%%%
+\NewDocumentCommand{ \test }{ m m }{
+    $a \equiv b + c #1{n}$
+    et
+    $a \equiv b + c #2{n}$
+
+    $\displaystyle\sum_{\substack{p \le x \\ p \equiv 1 #1{4}}} f(p)$
+    et
+    $\displaystyle\sum_{\substack{p \le x \\ p \equiv 1 #2{4}}} f(p)$
+}
+
+\begin{document}
+
+\subsection*{amsmath}
+
+\test{\pmod}{\pod}
+
+\subsection*{Notre proposition}
+
+\test{\brmod}{\brod}
+
+\end{document}
