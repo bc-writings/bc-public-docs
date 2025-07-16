@@ -1,0 +1,9 @@
+this::
+    date = 2025-07-16
+
+
+=====================
+Des boîtes cliquables
+=====================
+
+Via le package \tcolorbox, il est très simple de créer des boîtes, avec ou sans titre, qui pointent vers un lien externe (une URL) ou interne (une ancre).

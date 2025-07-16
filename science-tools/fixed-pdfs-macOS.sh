@@ -51,8 +51,7 @@ for f in $(find . -name '*.tex')
 do
   if [[ $(basename "$f") == main*.tex ]]
   then
-    case "$f" in
-      ./*/cookbook/src/**/*.tex)
+    case "$f" in ./cookbook/src/**/*.tex)
         echo "-- NEW TEX FILE --"
         echo "$f"
 

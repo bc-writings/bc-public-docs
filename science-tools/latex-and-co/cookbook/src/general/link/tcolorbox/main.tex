@@ -1,0 +1,62 @@
+\documentclass[varwidth, border = 3pt]{standalone}
+
+%%%
+% La gestion des liens dans un PDF se fait en coulisse par
+% le \pack ''hyperref''.
+%%%
+\usepackage{hyperref}
+
+%%%
+% Les boîtes sont de la responsabilité du \pack ''tcolorbox''.
+% Par contre, nous devons la bibliothèque ''skins'' pour créer
+% des liens externs ou internes.
+%%%
+\usepackage{tcolorbox}
+\tcbuselibrary{skins}
+
+\begin{document}
+
+Voilà une fonctionnalité bien utile.
+
+%%%
+% Sans l'option ''enhanced'', nous n'avons pas fonctionalités de
+% type "lien".
+%
+% Notons que bien que les exemples ci-dessous n'utilisent que
+% l'\arg ''hyperurl'', il existe aussi les \args suivants.
+%
+%     + ''label'' définit une ancre interne.
+%     + ''hyperlink'' permet de pointer vers une ancre interne.
+%     + ''hyperref'' est une variante plus générale de hyperlink
+%       (voir la \doc de ''tcolorbox'' pour en savoir plus).
+%     + ''hyperurl*'' permet de définir des options hyperref pour
+%       le lien externe : par exemple, on peut indiquer sur quelle
+%       page ouvrir un PDF.
+%%%
+\begin{tcolorbox}[
+    enhanced,
+    title    = Une boîte pointant vers l'extérieur,
+    hyperurl = https://www.latex-project.org/news/2023/03/17/TLC3/,
+]
+    Cliquer moi, vous saurez d'où vient cet exemple.
+\end{tcolorbox}
+
+Par exemple, on peut utiliser une boîte cliquable pour proposer une version en ligne d'un code informatique. Et sans cadre, ni rondeur ? Pas de souci.
+
+\begin{tcolorbox}[
+    enhanced,
+    sharp corners,
+    notitle,
+    hyperurl = https://www.latex-project.org/news/2023/03/17/TLC3/,
+    colback  = blue!20,
+    colframe = blue!20,
+    boxrule  = 0pt,
+    top      = 0pt,
+    bottom   = 0pt,
+    left     = 0pt,
+    right    = 0pt,
+]
+    Cliquer moi, pour vérifier que vous savez d'où vient cet exemple.
+\end{tcolorbox}
+
+\end{document}
