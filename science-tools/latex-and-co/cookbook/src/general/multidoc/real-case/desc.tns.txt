@@ -1,12 +1,12 @@
 this::
-    date = 2025-05-23  ???
+    date = 2025-07-23
 
 
-=================
-Rédaction humaine
-=================
+===================================
+\Redac humaine, la fausse bone idée
+===================================
 
-Lorsque les différents sous-contenus sont tapés par un humain, il n'est plus acceptable de nommes les dossiers en les nuémrortant juste. Il est prépéfréable dans ce cas d'uutiliser une structure de dosseir comme la suivante.
+Lorsque les différents sous-contenus sont tapés par un humain, il n'est plus acceptable de nommer les fichiers via des entiers naturels. Une \1ere \sol consiste à utiliser une \struc de dossier comme la suivante.
 
 path::
     + content
@@ -15,10 +15,9 @@ path::
         - 03-end.tex
 
 
-XXX
-
-
+Avec ce choix, via le \pack ''l3sys-query'', il n'est pas dur d'obtenir une importation séquentielle respectant les préfixes numérotés.
 
 
 note::
-    Dans le \docu maître, aucune \maj ne sera à faire.
+    Dans le \docu maître, aucune \maj ne sera à faire en cas de \chgt du contenu du dossier path::''content''.
+    Par contre, en cas d'ajout d'un fichier entre deux autres, il faudra mettre à jour toutes les numérotations après le \docu ajouté. La dernière section qui suit propose ce que nous pensons être la seule bonne \sol.

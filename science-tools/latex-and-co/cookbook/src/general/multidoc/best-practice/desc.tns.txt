@@ -1,0 +1,35 @@
+this::
+    date = 2025-07-23
+
+
+===================================
+\Redac humaine, la vraie bonne idée
+===================================
+
+Comme renuméroter des fichiers suite à l'ajout de nouveaux \docus est vite ingrat, nous proposons de procéder comme suit avec des noms non numérotés, mais explicites, de fichiers
+((
+    Dans notre cas, les noms ont été choisis pour valider la \demo \tech.
+)).
+
+path::
+    + content
+        - start.tex
+        - middle.tex
+        - end.tex
+
+
+Cette recette explique comment coder une petite fonction \l3 permettant d'indiquer les contenus comme suit.
+
+latex::
+    \easyimport{
+        start,
+        middle,
+        end
+    }{
+        \par
+        \input{content/#1}
+    }
+
+
+note::
+    L'ordre et l'ajout de fichiers correspondent \resp^t à l'ajout d'une \nelle donnée et à la \modif de l'ordre des données dans le \1er \arg de ''\easyimport''. Difficile de faire plus efficace !

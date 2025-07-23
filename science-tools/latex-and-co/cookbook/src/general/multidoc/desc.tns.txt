@@ -1,5 +1,5 @@
 this::
-    date = 2025-05-23
+    date = 2025-07-23
 
 
 abrev::
@@ -11,9 +11,16 @@ Importer du contenu de façon massive
 ====================================
 
 Lors de la rédaction de \docus conséquents, il devient vite nécessaire de passer via des fichiers "isolés" pour par exemple utiliser un fichier par chapitre d'un livre (ou plus).
-Nous allons voir comment rendre ce type de méthodologie efficiente au jour le jour en considérant deux scénarios différents: le premier correspond à une fabrication (semi) automatisée des contenus, le second étant celui d'un rédacteur humain.
+Nous allons voir comment rendre ce type de méthodologie efficace au jour le jour en considérant trois scénarios différents.
+
+    1) Le \1er scénario correspond à une fabrication (semi) automatisée des contenus.
+
+    1) Le \2e scénario est celui d'un rédacteur humain gérant les noms de fichiers.
+
+    1) Le dernier scénario présente une méthode robuste aux \modifs.
 
 
 content::
     ./batch-mode/\desc
     ./real-case/\desc
+    ./best-practice/\desc

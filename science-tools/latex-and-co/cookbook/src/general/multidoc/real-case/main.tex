@@ -1,14 +1,38 @@
-% Source: https://tex.stackexchange.com/a/748476
+%%%
+% src::
+%     url = https://tex.stackexchange.com/a/748476
+%%%
 
 \documentclass[varwidth, border = 3pt]{standalone}
 
+%%%
+% Le bien nommé \pack ''l3sys-query'' permet d'interagir avec le \syst
+% de fichier du \os_fr via les macros ''\QueryWorkingDirectory'',
+% ''\QueryFilesTF'' et ''\QueryFiles''. Seule la dernière est utilisée
+% dans cette recette.
+%%%
 \usepackage{l3sys-query}
 
 \begin{document}
 
 \section*{Contenu importé via un motif de recherche}
 
-\QueryFiles[sort = name,pattern]{content/^[0-9]+.*tex}{
+%%%
+% Donnons des explications détaillés des lignes de code qui suivent.
+%
+%     1) ''sort = name, pattern'' se comprend aisément : les fichiers
+%     capturés sont ordonnés suivant leur nom, et un motif est utilisé
+%     pour la capture des bons fichiers.
+%
+%     1) ''content/^[0-9]+.*tex'' est un motif \glob à la saveur \lua.
+%     Ici on recherche dans le dossier path::''content/'' les fichiers
+%     dont le nom commencent par une suite de chiffres.
+%
+%     1) Le \2eme \arg obligatoire est un code dans lequel ''#1'' fait
+%     \ref au chemin d'un fichier capturé, le code étant appliqué
+%     séquentiellement autant de fois que nécessaire.
+%%%
+\QueryFiles[sort = name, pattern]{content/^[0-9]+.*tex}{
     \par
     \input{#1}
 }

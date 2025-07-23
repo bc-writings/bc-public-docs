@@ -1,0 +1,30 @@
+\documentclass[varwidth, border = 3pt]{standalone}
+
+\usepackage{main}
+
+\begin{document}
+
+\section*{Contenu importé via une liste CSV}
+
+\easyimport{
+    start,
+    middle,
+    end,
+}{
+    \par
+    \input{content/#1}
+}
+
+
+\section*{Modifions l'ordre d'importation}
+
+\easyimport{
+    end,
+    start,
+    middle,
+}{
+    \par
+    \input{content/#1}
+}
+
+\end{document}

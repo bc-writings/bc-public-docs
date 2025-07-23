@@ -1,0 +1,42 @@
+\ExplSyntaxOn
+
+%%%
+% Nous utilisons une variable de type \csv, \cad de \vals séparées
+% par des virgules, pour la liste ordonnée des fichiers à importer.
+%
+% note::
+%     ''lof'' est pour "list of files" soit "liste de fichiers" en
+%     anglais.
+%%%
+\clist_new:N \l_cookbook_lof_clist
+
+%%%
+% prototype::
+%     #1 : les fichires séparés par des virgules.
+%     #2 : un code à un \arg.
+%
+%     :action: le code donné en \2e \arg est appliqué à chaque donnée
+%              extraite de la liste.
+%%%
+\cs_new_protected:Nn \cookbook_easy_import:nn {
+%%%
+% Nous initialisons la liste de valeurs en laissant le soin à \l3
+% de séparer les données suivant les virgules, tout en retirant
+% les espaces au début et à la fin de chaque contenu.
+%%%
+    \clist_set:Nn \l_cookbook_lof_clist {#1}
+
+%%%
+% Via un style de \prog fonctionnel, nous appliquons à chaque donnée
+% de la liste le code qui a été fourni en \2e \arg.
+%%%
+    \clist_map_inline:Nn \l_cookbook_lof_clist { #2 }
+}
+
+%%%
+% Pour un usage hors \ctx \l3, nous créons l'alias ''\easyimport'' de
+% ''\cookbook_easy_import:nn''.
+%%%
+\cs_set_eq:NN \easyimport \cookbook_easy_import:nn
+
+\ExplSyntaxOff
