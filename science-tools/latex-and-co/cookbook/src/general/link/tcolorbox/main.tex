@@ -9,10 +9,12 @@
 %%%
 % Les boîtes sont de la responsabilité du \pack ''tcolorbox''.
 % Par contre, nous devons la bibliothèque ''skins'' pour créer
-% des liens externs ou internes.
+% des liens externs ou internes. 
+% Quant à la bibliothèque ''minted'', elle est juste là pour
+% proposer un code \python en exemple.
 %%%
 \usepackage{tcolorbox}
-\tcbuselibrary{skins}
+\tcbuselibrary{minted, skins}
 
 \begin{document}
 
@@ -41,21 +43,31 @@ Voilà une fonctionnalité bien utile.
     Cliquer moi, vous saurez d'où vient le code utilisé.
 \end{tcolorbox}
 
-Ceci permet de proposer une version en ligne d'un code informatique difficilement copiable dans un PDF. Et sans cadre, ni rondeur ? Pas de souci.
+Ceci permet de proposer une version en ligne d'un code informatique difficilement copiable dans un PDF. Ai-je bien entendu ? Vous souhaitez aussi ne pas avoir de cadre, ni de rondeur ! Aucun souci.
 
-\begin{tcolorbox}[
+\begin{tcblisting}{
     enhanced,
+    hyperurl = https://fr.wikipedia.org/wiki/Python_(langage)\#Programmation_fonctionnelle,
+%%%
+% Réglages pour le code Python.
+%%%
+    listing engine=minted,
+    minted style=colorful,
+    minted language=python,
+    listing only,
+%%%
+% Configurations pour la mise en forme.
+%%%
     sharp corners,
-    notitle,
-    hyperurl = https://www.latex-project.org/news/2023/03/17/TLC3/,
     colback  = orange!20,
     boxrule  = 0pt,
     top      = 0pt,
     bottom   = 0pt,
     left     = 0pt,
     right    = 0pt,
-]
-    Cliquer moi, pour vérifier que vous savez d'où vient cet exemple.
-\end{tcolorbox}
+}
+liste = [x**2 for x in range(10)]
+# liste = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+\end{tcblisting}
 
 \end{document}

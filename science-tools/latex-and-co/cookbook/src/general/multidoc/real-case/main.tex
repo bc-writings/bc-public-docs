@@ -1,0 +1,16 @@
+% Source: https://tex.stackexchange.com/a/748476
+
+\documentclass[varwidth, border = 3pt]{standalone}
+
+\usepackage{l3sys-query}
+
+\begin{document}
+
+\section*{Contenu importé via un motif de recherche}
+
+\QueryFiles[sort = name,pattern]{content/^[0-9]+.*tex}{
+    \par
+    \input{#1}
+}
+
+\end{document}

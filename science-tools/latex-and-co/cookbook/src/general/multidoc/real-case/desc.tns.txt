@@ -1,0 +1,24 @@
+this::
+    date = 2025-05-23  ???
+
+
+=================
+Rédaction humaine
+=================
+
+Lorsque les différents sous-contenus sont tapés par un humain, il n'est plus acceptable de nommes les dossiers en les nuémrortant juste. Il est prépéfréable dans ce cas d'uutiliser une structure de dosseir comme la suivante.
+
+path::
+    + content
+        - 01-start.tex
+        - 02-middle.tex
+        - 03-end.tex
+
+
+XXX
+
+
+
+
+note::
+    Dans le \docu maître, aucune \maj ne sera à faire.

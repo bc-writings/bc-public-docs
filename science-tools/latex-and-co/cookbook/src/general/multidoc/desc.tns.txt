@@ -1,0 +1,19 @@
+this::
+    date = 2025-05-23
+
+
+abrev::
+    desc = desc.tns.txt
+
+
+====================================
+Importer du contenu de façon massive
+====================================
+
+Lors de la rédaction de \docus conséquents, il devient vite nécessaire de passer via des fichiers "isolés" pour par exemple utiliser un fichier par chapitre d'un livre (ou plus).
+Nous allons voir comment rendre ce type de méthodologie efficiente au jour le jour en considérant deux scénarios différents: le premier correspond à une fabrication (semi) automatisée des contenus, le second étant celui d'un rédacteur humain.
+
+
+content::
+    ./batch-mode/\desc
+    ./real-case/\desc
