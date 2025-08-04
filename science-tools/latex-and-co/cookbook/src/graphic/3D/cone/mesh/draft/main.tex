@@ -1,0 +1,131 @@
+%%%
+% src::
+%     url = https://tex.stackexchange.com/a/749039
+%%%
+
+\documentclass[varwidth, border = 3pt]{standalone}
+
+%%%
+% Des couleurs nommées faciles d'emploi via le package ''xcolor''!
+%%%
+\usepackage[svgnames]{xcolor}
+
+%%%
+% La bibliothèque ''luadraw'' allie une facilité d’utilisation à
+% un rendu particulièrement soigné.
+%%%
+\usepackage[3d]{luadraw}
+
+\begin{document}
+
+\section*{1st point of view}
+
+\begin{luadraw}{name = wire-cone-1}
+------
+-- Définition de la zone graphique.
+--
+--     1) La fenêtre ''window'' est une objet 2D relatife au plan
+--     de projection calculé par latex::''luadraw''.
+--
+--     1) ''viewdir'' permet de définir les deux angles de vue (en
+--     degrés) pour la projection orthographique.
+--
+--     1) ''size'' impose les dimensions en cm dans le document.
+------
+    local graphzone = graph3d:new{
+        window  = {-1.5, 7, -2.5, 2.5},
+        viewdir = {290, 60},
+        size    = {10, 10}
+    }
+------
+-- Nous utilisons des jointures arrondies pour les segments.
+------
+    graphzone:Linejoin("round")
+------
+-- Un cône s'obtient par rotation d'une droite autour d'une axe.
+-- Le terme mathématique employé pour cette droite, qui peut
+-- aussi être une courbe "quelconque", est "génératrice" de la
+-- surface de révolution.
+------
+    local genecurve = function(t)
+        return M(t, 2 - t/2, 0)
+    end
+------
+-- La fonction ''rotcurve'' construit une surface de révolution
+-- à partir d'une génératrice et d'un axe de rotation. Voici
+-- comment est employée ''rotcurve''.
+--
+--     1) ''genecurve, -0.2, 6.5'' indique d'employer le graphe
+--     de la courbe paramétrique pour `t \in [-0.2 .. 6.5]'.
+--
+--     1) Vient ensuite ''{Origin, -vecI}'' qui définit l'axe de
+--     rotation par un point et un vecteur de l'espace. Le signe
+--     moins présent ici n'est pas une faute de frappe, il permet
+--     d'indiquer l'intérieur de la surface.
+--
+--     1) À ce stade des explications, vous aurez sûrement deviné
+--     que ''0, 360'' indique les angles de départ et d'arrivée
+--     pour les rotations de la génératrice.
+--
+--     1) Pour finir, il est possible de fournir, via un tableau,
+--     des arguments optionnels. Ici, ''grid = {25, 36}'' permet
+--     de modifier le paramétrage par défaut du maillage utilisé
+--     pour le tracé final de la surface de révolution. Pour bien
+--     saisir ce qu'il se passe, testez ce que donne le réglage
+--     ''grid = {2, 5}''.
+------
+    local cone = rotcurve(
+        genecurve, -0.2, 6.5,
+        {Origin, -vecI},
+        0, 360,
+        {grid = {25, 36}})
+------
+-- Le tracé du cône se fait via la méthode ''Dfacet''.
+------
+    graphzone:Dfacet(
+   	    cone,
+        {color    = "orange",
+		 contrast = 0.5})
+    graphzone:Show()
+\end{luadraw}
+
+
+\section*{2nd point of view}
+
+\begin{luadraw}{name = wire-cone-2}
+------
+-- Modification des angles et de la fenêtre de vue.
+------
+    local graphzone = graph3d:new{
+        window  = {-1.5, 7, -2.5, 3.5},
+        viewdir = {240, 60},
+        size    = {10, 10}
+    }
+------
+-- Aucun changement dans la suite.
+--
+-- note::
+--     Une factorisation du code est proposé dans la recette
+--     suivante.
+------
+    graphzone:Linejoin("round")
+
+    local genecurve = function(t)
+        return M(t, 2 - t/2, 0)
+    end
+
+    local cone = rotcurve(
+        genecurve,
+        -0.2, 6.5,
+        {Origin, -vecI},
+        0, 360,
+        {grid = {25, 36}})
+
+    graphzone:Dfacet(
+        cone,
+        {color    = "orange",
+		 contrast = 0.5})
+    graphzone:Show()
+\end{luadraw}
+
+\end{document}

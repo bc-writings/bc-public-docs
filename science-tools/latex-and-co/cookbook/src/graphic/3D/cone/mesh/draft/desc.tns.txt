@@ -1,0 +1,9 @@
+this::
+    date = 2025-08-04
+
+
+====================================================
+Une première version explicative, mais non optimisée
+====================================================
+
+Commençons par prendre nos aises en faisant les choses les mains dans la boue.

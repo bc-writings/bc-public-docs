@@ -1,0 +1,11 @@
+abrev::
+    desc = desc.tns.txt
+
+
+==============================
+Des cônes à prendre au sérieux
+==============================
+
+content::
+    ./mesh/\desc
+    ./plane-section/\desc

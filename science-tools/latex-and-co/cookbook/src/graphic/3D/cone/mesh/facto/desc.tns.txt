@@ -1,0 +1,9 @@
+this::
+    date = 2025-08-04 ????
+
+
+=============
+Beau et court
+=============
+
+Nous proposons une factorisation du code tout en laissant les \envs \luadraw dans le fichier \tex.

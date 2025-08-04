@@ -1,0 +1,11 @@
+abrev::
+    desc = desc.tns.txt
+
+
+=========================
+Sections planes d'un cône
+=========================
+
+content::
+    ./gray/\desc
+    ./color/\desc
