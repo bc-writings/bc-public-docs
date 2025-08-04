@@ -1,6 +1,6 @@
 %%%
 % src::
-%     url = https://tex.stackexchange.com/a/749201/6880
+%     url = https://tex.stackexchange.com/a/749237/6880
 %%%
 
 %%%
@@ -15,6 +15,44 @@
 \usepackage{adjustbox}
 
 %%%
+% Les couleurs par défaut de l'enveloppe et des traits.
+%%%
+\definecolor{env-init-col}{RGB}{255, 207, 0}
+\definecolor{line-init-col}{RGB}{0, 0, 0}
+
+%%%
+% La macro ''\kval'' donne la valeur associée à une clé \pgf.
+%%%
+\NewExpandableDocumentCommand{ \kval }{ m }{%
+  \pgfkeysvalueof{/tikz/env-icon/#1}%
+}
+
+%%%
+% Réglage général de certaines clés.
+%%%
+\tikzset{
+%%%
+% Il faut étendre la portée des clés afin que l'utilisateur puisse
+% modifier leur valeur.
+%%%
+  env-icon/.search also = {/tikz, /pgf},
+%%%
+% Création de clés associés à env-icon.
+%
+% note::
+%     L'emploi de ''env-icon/.cd'' fait changer de contexte, ceci
+%     nous évitant de taper à chaque fois le contexte ''env-icon/''.
+%%%
+  env-icon/.cd,
+    line-width/.initial    = 3pt,
+    line-color/.initial    = line-init-col,
+    corner-radius/.initial = 8pt,
+    dot-radius/.initial    = 7pt,
+    env-color/.initial     = env-init-col,
+    seal-color/.initial    = env-init-col,
+}
+
+%%%
 % La partie pénible de la recette est la création de l'icône
 % au format vectoriel.
 %%%
@@ -22,64 +60,66 @@
 %%%
 % Création de différents styles.
 %%%
-env/.style = {
-    rounded corners = 6pt,
-    fill            = orange!50!yellow!100
+  pre-common/.style = {
+    draw       = \kval{line-color},
+    line width = \kval{line-width}
   },
-  opn/.style = {
-    rounded corners,
-    line width = 3pt
+  full-common/.style = {
+    pre-common,
+    rounded corners = \kval{corner-radius}
   },
-  sll/.style = {
-    draw       = black,
-    fill       = orange!50!yellow!100,
-    line width = 3pt
+  env/.style = {
+    full-common,
+    fill = \kval{env-color}
   },
-  txt/.style = {
-    anchor = south west,text=white,
-    font   = {\sffamily\Huge},
-    scale  = 2
+  flap/.style = {pre-common},
+  seal-line/.style = {
+    pre-common,
+    fill = \kval{seal-color}
   },
   dot/.style = {
     circle,
-    inner sep = 8pt,
-    draw      = black,
-    fill      = black
+    inner sep = \kval{dot-radius},
+    draw      = \kval{line-color},
+    fill      = \kval{line-color}
   },
 %%%
 % Notre icône sous forme de ''pic'' \tikz.
 %%%
-  PEC/.pic={
-% Fond noir.
-    \draw[fill=black]
-      (0, 0) rectangle (10, 4.4);
-% L'envelope.
+  PEC/.pic = {
+% L'enveloppe.
     \draw[env]
-      (0.9, 1) rectangle (4.2,3.4);
-    \draw[opn]
+      (0.9, 1  ) rectangle (4.2, 3.4);
+    \draw[flap]
       (0.9, 2.8) -- (2.6, 1.7) -- (4.3, 2.8);
 % Le sceau officiel.
-    \draw[sll]
-      (3.6,1.4) coordinate (A)
+    \draw[seal-line]
+      (3.6, 1.4) coordinate (A)
       arc[
         start angle = 250,
         end angle   = -70,
         radius      = 8mm
       ]
-      -- ++(0, -.6)
-      -- ++(-.25, +.2)
-      -- ++(-.25,-.2)
+      -- ++( 0, -.6)
+      -- ++(-.25, .2)
+      -- ++(-.25, -.2)
       -- cycle;
-    \node[dot] at ([shift=(70:.8)]A) {};
-% Texte officiel.
-    \node[txt] at (5.2,1.5) {PEC};
+    \node [dot] at ([shift = (70:.8)]A) {};
   },
 }
 
+
 %%%
-% La création d'un glyphe à partir du ''pic'' \tikz se fait sans
-% souci grâce à la macro ''\adjustbox''.
+% prototype::
+%     #1 : des options au format "clé-valeur". Voir le premier
+%          ''\tikzset'' pour savoir ce qui est disponible.
 %%%
-\newcommand\iconpec{%
-  \adjustbox{height=1ex}{\tikz{\pic {PEC};}}%
+\NewDocumentCommand{ \iconpec }{ O{} }{%
+  \adjustbox{height=1.8ex}{%
+    \tikzset{
+      env-icon/.search also = {/tikz, /pgf},
+      env-icon/.cd, #1
+    }%
+    \tikz{\pic{PEC};}%
+  }%
 }

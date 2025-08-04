@@ -7,3 +7,7 @@ Créer des glyphes \tikz
 =======================
 
 Cette recette illustre l’utilisation d’un ''pic'' \tikz pour concevoir des icônes sous forme de caractères.
+
+
+note::
+    Cette recette montre quelques réglages intéressants liés aux clés \pgf qui permettent de modifier certaines options graphiques.

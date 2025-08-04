@@ -35,10 +35,10 @@
 --     1) Pour le cône du haut, non intersecté par le plan, il
 --     est inutile de calculer son "couvercle".
 ------
-    local cone_1 = cone(
+    local cone_up = cone(
         Origin, 4*vecK, 3, 35,
         true)
-    local cone_2 = cone(
+    local cone_down = cone(
         Origin, -4*vecK, 3, 35,
         true)
 ------
@@ -46,13 +46,15 @@
 -- d'une parabole).
 ------
     local plane   = {M(0, 0, -3), -12*vecJ + 9*vecK}
-    local section = graphzone:Intersection3d(cone_2, plane)
+    local section = graphzone:Intersection3d(cone_down, plane)
 ------
 -- XXX
 -- La méthode g:Classifyfacet(F) où F est une liste de facettes ou bien un polyèdre, renvoie deux listes de facettes, la première est la liste des facettes visibles, et la suivante, la liste des facettes non visibles.
+-- La fonction cutpoly(P,plane,close) permet de découper le polyèdre P avec le plan plane (table du type {A}, n où A est un point du plan et $n$ un vecteur normal au plan). La fonction renvoie 3 choses : la partie située dans le demi-espace contenant le vecteur $n$ (sous forme d'un polyèdre), suivie de la partie située dans l'autre demi-espace (toujours sous forme d'un polyèdre), suivie de la section sous forme d'une facette orientée par $-n$. Lorsque l'argument facultatif close vaut true, la section est ajoutée aux deux polyèdres résultants, ce qui a pour effet de les refermer (false par défaut).
+-- Remarque : lorsque le polyèdre P n'est pas convexe, le résultat de la section n'est pas toujours correct.
 -- La fonction cutfacet(F,plane,close) fait la même chose que la fonction précédente sauf que F est une liste de facettes (pas un polyèdre), et que cette fonction renvoie des listes de facettes et non pas des polyèdres. Cette fonction a été utilisée dans l'exemple des courbes de niveau à la figure 10 .
 ------
-    local V      = graphzone:Classifyfacet(cone_2)
+    local V      = graphzone:Classifyfacet(cone_down)
     local V1, V2 = cutfacet(V, plane)
 ------
 -- Partie du cône du bas sous le plan.
