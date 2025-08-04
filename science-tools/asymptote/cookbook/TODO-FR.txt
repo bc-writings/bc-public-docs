@@ -1,1 +1,2 @@
 ??
+asy cubic-root-gaph -tex pdflatex

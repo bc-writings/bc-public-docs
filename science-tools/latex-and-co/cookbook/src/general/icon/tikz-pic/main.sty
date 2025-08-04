@@ -1,0 +1,85 @@
+%%%
+% src::
+%     url = https://tex.stackexchange.com/a/749201/6880
+%%%
+
+%%%
+% Notre boîte à outils pour des dessins vectoriels.
+%%%
+\usepackage{tikz}
+
+%%%
+% La macro ''\adjustbox'' du package éponyme permet d'adapter
+% facilement les dimensions d'un matériel typrographique.
+%%%
+\usepackage{adjustbox}
+
+%%%
+% La partie pénible de la recette est la création de l'icône
+% au format vectoriel.
+%%%
+\tikzset{
+%%%
+% Création de différents styles.
+%%%
+env/.style = {
+    rounded corners = 6pt,
+    fill            = orange!50!yellow!100
+  },
+  opn/.style = {
+    rounded corners,
+    line width = 3pt
+  },
+  sll/.style = {
+    draw       = black,
+    fill       = orange!50!yellow!100,
+    line width = 3pt
+  },
+  txt/.style = {
+    anchor = south west,text=white,
+    font   = {\sffamily\Huge},
+    scale  = 2
+  },
+  dot/.style = {
+    circle,
+    inner sep = 8pt,
+    draw      = black,
+    fill      = black
+  },
+%%%
+% Notre icône sous forme de ''pic'' \tikz.
+%%%
+  PEC/.pic={
+% Fond noir.
+    \draw[fill=black]
+      (0, 0) rectangle (10, 4.4);
+% L'envelope.
+    \draw[env]
+      (0.9, 1) rectangle (4.2,3.4);
+    \draw[opn]
+      (0.9, 2.8) -- (2.6, 1.7) -- (4.3, 2.8);
+% Le sceau officiel.
+    \draw[sll]
+      (3.6,1.4) coordinate (A)
+      arc[
+        start angle = 250,
+        end angle   = -70,
+        radius      = 8mm
+      ]
+      -- ++(0, -.6)
+      -- ++(-.25, +.2)
+      -- ++(-.25,-.2)
+      -- cycle;
+    \node[dot] at ([shift=(70:.8)]A) {};
+% Texte officiel.
+    \node[txt] at (5.2,1.5) {PEC};
+  },
+}
+
+%%%
+% La création d'un glyphe à partir du ''pic'' \tikz se fait sans
+% souci grâce à la macro ''\adjustbox''.
+%%%
+\newcommand\iconpec{%
+  \adjustbox{height=1ex}{\tikz{\pic {PEC};}}%
+}
