@@ -37,10 +37,12 @@
         viewdir = {290, 60},
         size    = {10, 10}
     }
+
 ------
 -- Nous utilisons des jointures arrondies pour les segments.
 ------
     graphzone:Linejoin("round")
+
 ------
 -- Un cône s'obtient par rotation d'une droite autour d'une axe.
 -- Le terme mathématique employé pour cette droite, qui peut
@@ -50,6 +52,7 @@
     local genecurve = function(t)
         return M(t, 2 - t/2, 0)
     end
+
 ------
 -- La fonction ''rotcurve'' construit une surface de révolution
 -- à partir d'une génératrice et d'un axe de rotation. Voici
@@ -79,6 +82,7 @@
         {Origin, -vecI},
         0, 360,
         {grid = {25, 36}})
+
 ------
 -- Le tracé de la surface de révolution doit fait via la méthode
 -- ''Dfacet''.
@@ -87,6 +91,7 @@
    	    cone,
         {color    = "orange",
 		 contrast = 0.5})
+
 ------
 -- Et le merveilleux se révèle au monde.
 ------
@@ -105,6 +110,7 @@
         viewdir = {240, 60},
         size    = {10, 10}
     }
+
 ------
 -- Aucun changement dans la suite du code.
 --

@@ -12,6 +12,16 @@
 
 \begin{luadraw}{name = cone-section-section}
 ------
+-- Quelques variables bien nommées pour un usage local.
+------
+    local vec_cone  = 4*vecK
+    local radius    = 3
+    local plane     = {M(0, 0, -3), -12*vecJ + 9*vecK}
+    local vec_plane = 3*vecJ + vec_cone
+    local pdim_1    = 12
+    local pdim_2    = 9
+
+------
 -- Définition de la zone graphique.
 ------
     local graphzone = graph3d:new{
@@ -19,101 +29,131 @@
         viewdir = {5, 60},
         size    = {10, 10}
     }
+
 ------
 -- Réglages liés aux lignes.
 ------
-    graphzone:Linejoin("round")
     Hiddenlinestyle = "dashed"
+    graphzone:Linejoin("round")
     graphzone:Lineoptions(solid, "black", 16)
+
 ------
 -- Création de deux polyèdres coniques ouverts pour les raisons
 -- suivantes.
 --
 --     1) Nous ne souhaitons pas visualiser l'intersection sur
---     le fond du cône du bas
+--     le fond du cône du bas.
 --
 --     1) Pour le cône du haut, non intersecté par le plan, il
 --     est inutile de calculer son "couvercle".
 ------
     local cone_up = cone(
-        Origin, 4*vecK, 3, 35,
+        Origin, vec_cone, radius,
+        35,
         true)
     local cone_down = cone(
-        Origin, -4*vecK, 3, 35,
+        Origin, -vec_cone, radius,
+        35,
         true)
+
 ------
 -- Calcul de l'unique section plane (nous sommes dans le cas
 -- d'une parabole).
 ------
     local plane   = {M(0, 0, -3), -12*vecJ + 9*vecK}
     local section = graphzone:Intersection3d(cone_down, plane)
+
 ------
--- XXX
--- La méthode g:Classifyfacet(F) où F est une liste de facettes ou bien un polyèdre, renvoie deux listes de facettes, la première est la liste des facettes visibles, et la suivante, la liste des facettes non visibles.
--- La fonction cutpoly(P,plane,close) permet de découper le polyèdre P avec le plan plane (table du type {A}, n où A est un point du plan et $n$ un vecteur normal au plan). La fonction renvoie 3 choses : la partie située dans le demi-espace contenant le vecteur $n$ (sous forme d'un polyèdre), suivie de la partie située dans l'autre demi-espace (toujours sous forme d'un polyèdre), suivie de la section sous forme d'une facette orientée par $-n$. Lorsque l'argument facultatif close vaut true, la section est ajoutée aux deux polyèdres résultants, ce qui a pour effet de les refermer (false par défaut).
--- Remarque : lorsque le polyèdre P n'est pas convexe, le résultat de la section n'est pas toujours correct.
--- La fonction cutfacet(F,plane,close) fait la même chose que la fonction précédente sauf que F est une liste de facettes (pas un polyèdre), et que cette fonction renvoie des listes de facettes et non pas des polyèdres. Cette fonction a été utilisée dans l'exemple des courbes de niveau à la figure 10 .
+-- La variable ''cfacet'' contient la liste des facettes visibles,
+-- et celle des facettes cachées. À parit-r de cette variable,
+-- nous obtenons ''cfacet_up'' et ''cfacet_down'' qui sont deux
+-- listes de facettes construites comme suit.
+--
+--     1) ''cfacet_up'' est la liste des facettes situées dans
+--     le demi-espace dirigé par le vecteur normal du plan, soit
+--     ''-12*vecJ + 9*vecK'' dans notre cas.
+--
+--     1) ''cfacet_down'' est la liste des facettes situées dans
+--     l’autre demi-espace.
 ------
-    local V      = graphzone:Classifyfacet(cone_down)
-    local V1, V2 = cutfacet(V, plane)
+    local cfacet                 = graphzone:Classifyfacet(cone_down)
+    local cfacet_up, cfacet_down = cutfacet(cfacet, plane)
+
 ------
 -- Partie du cône du bas sous le plan.
 ------
     graphzone:Dpolyline3d(
-        border(V2),
+        border(cfacet_down),
         "left color = white, right color = ForestGreen")
+
 ------
--- Le plan de coupe.
+-- Le plan de coupe est obtenu via les paramètres de construction
+-- suivants.
+--
+--     1) En premier vient la modélisation du plan par un
+--     point `A` et un vecteur normal `vect(N)`.
+--
+--     1) Ensuite, nous fournissons un vecteur `vect(U)` non
+--     nul "appartenant" au plan (en toute rigoureux, `vect(U)`
+--     doit appartenir au plan directeur du plan affine).
+--
+--     1) Le plan est matérialisé par le parallélogramme `P` qui
+--     est construit comme suit.
+--
+--         * `vect(n)` et `vect(u)` sont les normalisés de
+--         `vect(N)` et `vect(U)`.
+--
+--         * `vect(v) = prodvect(vect(n) , vect(u))` définit un
+--         vecteur normalisé.
+--
+--         * `P` est alors centré sur `A`, l'un de ses côtés est
+--         `pdim_1 vect(u)`, et l'autre est `pdim_2 vect(v)`.
 ------
     graphzone:Dplane(
-        plane, 3*vecJ + 4*vecK, 12, 9, 5,
+        plane,
+        vec_plane, pdim_1, pdim_2,
         "Navy, fill = blue!75!black!45, fill opacity = .9")
+
 ------
 -- Partie du cône du bas au-dessus du plan.
 ------
     graphzone:Dpolyline3d(
-        border(V1),
+        border(cfacet_up),
         "left color = white, right color = gray")
+
 ------
 -- Le cône au-dessus.
 ------
     graphzone:Dcone(
-        Origin, 4*vecK, 3,
+        Origin, vec_cone, 3,
         {color = "orange"})
+
 ------
 -- La ligne polygonale de la section.
 ------
     graphzone:Dedges(
         section,
-        {hidden = true,color = "red",width = 12})
+        {hidden = true, color = "red", width = 12})
+
 ------
--- Tous les traits à venir sont en pointillés : nous entrons
--- du côté obscur du graphisme 3D...
+-- Tous les traits à venir sont en pointillés : nous entrons du
+-- côté obscur du graphisme 3D...
 ------
     graphzone:Linestyle(Hiddenlinestyle)
+
 ------
--- Ajout à la main du bord caché du plan via les paramètres
--- suivants.
---
---     1) En premier vient la modélisation du plan par un point
---     et un vecteur normal.
---
---     1) Ensuite,
---
---     1)
---
---     1)
--- L'argument V doit être un vecteur non nul du plan {P}, {L}_1 et {L}_2 sont deux longueurs. La méthode construit un parallélogramme centré sur A , dont un côté est.... L'argument mode indique les bords à tracer :
--- Par défaut le mode vaut 5 .
+-- Ajout à la main du bord caché du plan.
 ------
     graphzone:Dplane(
-        plane, 3*vecJ + 4*vecK,
-        12, 9,
+        plane,
+        vec_plane, pdim_1, pdim_2,
         "Navy")
+
 ------
 -- Ajout à la main du bord caché du cône du bas.
 ------
-    graphzone:Dcone(Origin, -4*vecK, 3)
+    graphzone:Dcone(Origin, -vec_cone, 3)
+
 ------
 -- Et le merveilleux se révèle au monde.
 ------
