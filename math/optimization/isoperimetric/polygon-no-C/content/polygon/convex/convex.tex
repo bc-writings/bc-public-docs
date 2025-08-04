@@ -6,35 +6,35 @@ Nous allons utiliser une définition simple de la convexité pour les \ngones, e
 
 
 \begin{defi} \label{ncycle-def}
-	Un \ncycle\ $\setproba{L} = A_1 A_2 \cdots A_n$ est dit \focus{convexe} si  l'une des alternatives suivantes a lieu.
+    Un \ncycle\ $\setproba{L} = A_1 A_2 \cdots A_n$ est dit \focus{convexe} si  l'une des alternatives suivantes a lieu.
     %
-	\begin{itemize}
-		\item $\forall (i, k) \in \ZintervalC{1}{n}^2$,
-		$\det \big( \vect{\primeit{A}_i \primeit{A}_{i+1}}, \vect{\primeit{A}_i \primeit{A}_k} \big) \geq 0$.
+    \begin{itemize}
+        \item $\forall (i, k) \in \ZintervalC{1}{n}^2$,
+        $\det \big( \vect{\primeit{A}_i \primeit{A}_{i+1}}, \vect{\primeit{A}_i \primeit{A}_k} \big) \geq 0$.
 
-		\item $\forall (i, k) \in \ZintervalC{1}{n}^2$,
-		$\det \big( \vect{\primeit{A}_i \primeit{A}_{i+1}}, \vect{\primeit{A}_i \primeit{A}_k} \big) \leq 0$.
+        \item $\forall (i, k) \in \ZintervalC{1}{n}^2$,
+        $\det \big( \vect{\primeit{A}_i \primeit{A}_{i+1}}, \vect{\primeit{A}_i \primeit{A}_k} \big) \leq 0$.
     \end{itemize}
-	
-	Autrement dit, $\setproba{L} = A_1 A_2 \cdots A_n$ est convexe si l'une des alternatives suivantes a lieu.
-    %
-	\begin{itemize}
-		\item $\forall (i, k) \in \ZintervalC{1}{n}^2$,
-		$\primeit{A}_i \primeit{A}_{i+1} \primeit{A}_k$ est soit dégénéré, soit  orienté positivement.
 
-		\item $\forall (i, k) \in \ZintervalC{1}{n}^2$,
-		$\primeit{A}_i \primeit{A}_{i+1} \primeit{A}_k$ est soit dégénéré, soit  orienté négativement.
+    Autrement dit, $\setproba{L} = A_1 A_2 \cdots A_n$ est convexe si l'une des alternatives suivantes a lieu.
+    %
+    \begin{itemize}
+        \item $\forall (i, k) \in \ZintervalC{1}{n}^2$,
+        $\primeit{A}_i \primeit{A}_{i+1} \primeit{A}_k$ est soit dégénéré, soit  orienté positivement.
+
+        \item $\forall (i, k) \in \ZintervalC{1}{n}^2$,
+        $\primeit{A}_i \primeit{A}_{i+1} \primeit{A}_k$ est soit dégénéré, soit  orienté négativement.
     \end{itemize}
 \end{defi}
 
 
 \begin{remark}
-    Voici des exemples pour clarifier le vocabulaire.	
-    
+    Voici des exemples pour clarifier le vocabulaire.
+
     \begin{center}
-    	\includegraphics[scale=.3]{degenerated-ncycles.png}
+        \includegraphics[scale=.3]{degenerated-ncycles.png}
     \end{center}
-    
+
     Le \xcycle{7} non dégénéré $ABCDEFG$ n'est pas convexe, à cause, par exemple, des triangles d'orientations opposées $FGE$ et $FGC$.%
     \footnote{
         $ABCDEFG$ n'est pas un \xgone{7}, car les trois sommets consécutifs $F$, $G$ et $A$ sont alignés.
@@ -68,45 +68,45 @@ Nous allons utiliser une définition simple de la convexité pour les \ngones, e
 
 
 \begin{proof}
-	Le cas des \xgones{3}, c'est-à-dire des triangles non dégénérés, est immédiat.
-	Considérons donc $n \geq 4$.
-	Comme trois sommets consécutifs de $\setproba{P}$ ne sont jamais alignés, nous avons l'une des deux configurations suivantes dans le plan orienté. 
-    
+    Le cas des \xgones{3}, c'est-à-dire des triangles non dégénérés, est immédiat.
+    Considérons donc $n \geq 4$.
+    Comme trois sommets consécutifs de $\setproba{P}$ ne sont jamais alignés, nous avons l'une des deux configurations suivantes dans le plan orienté.
+
     \begin{multicols}{2}
         \small\itshape\centering
-       	\includegraphics[scale=.4]{det-sign-1.png}
-    	    
-    	\smallskip
+           \includegraphics[scale=.4]{det-sign-1.png}
+
+        \smallskip
         Cas positif.
-        
+
         \includegraphics[scale=.4]{det-sign-2.png}
-    	    
-    	\smallskip
+
+        \smallskip
         Cas négatif.
     \end{multicols}
 
 
     Par symétrie, nous pouvons juste considérer le cas positif.
-	%
-	Dès lors,
-	$\vect{\primeit{A}_1 \primeit{A}_3} = \vect{\primeit{A}_1 \primeit{A}_2} + \vect{\primeit{A}_2 \primeit{A}_3}$
-	et
-	$\det \big( \vect{\primeit{A}_1 \primeit{A}_2}, \vect{\primeit{A}_1 \primeit{A}_3} \big) > 0$
+    %
+    Dès lors,
+    $\vect{\primeit{A}_1 \primeit{A}_3} = \vect{\primeit{A}_1 \primeit{A}_2} + \vect{\primeit{A}_2 \primeit{A}_3}$
+    et
+    $\det \big( \vect{\primeit{A}_1 \primeit{A}_2}, \vect{\primeit{A}_1 \primeit{A}_3} \big) > 0$
     nous donnent
-	$\det \big( \vect{\primeit{A}_2 \primeit{A}_3}, \vect{\primeit{A}_2 \primeit{A}_1} \big) > 0$.
-	Or, $A_2$, $A_3$ et $A_4$ ne sont pas alignés, et de plus $A_1$ et $A_4$ sont du même côté de la droite $(A_2 A_3)$, au sens large,
-	donc nous avons
-	$\det \big( \vect{\primeit{A}_2 \primeit{A}_3}, \vect{\primeit{A}_2 \primeit{A}_4} \big) > 0$.
-	%
-	En continuant de proche en proche, nous arrivons à
-	$\det \big( \vect{\primeit{A}_i \primeit{A}_{i+1}}, \vect{\primeit{A}_i \primeit{A}_{i+2}} \big) > 0$
-	pour $i \in \ZintervalC{1}{n}$ quelconque.
-	%
-	Comme tous les sommets de $\setproba{P}$ sont du même côté de la droite $( \primeit{A}_i \primeit{A}_{i+1} )$, ou sur elle,
-	nous obtenons alors
-	$\det \big( \vect{\primeit{A}_i \primeit{A}_{i+1}}, \vect{\primeit{A}_i \primeit{A}_k} \big) \geq 0$
-	pour $(i, k) \in \ZintervalC{1}{n}^2$.
-	Ceci établit la convexité de $\setproba{P}$.
+    $\det \big( \vect{\primeit{A}_2 \primeit{A}_3}, \vect{\primeit{A}_2 \primeit{A}_1} \big) > 0$.
+    Or, $A_2$, $A_3$ et $A_4$ ne sont pas alignés, et de plus $A_1$ et $A_4$ sont du même côté de la droite $(A_2 A_3)$, au sens large,
+    donc nous avons
+    $\det \big( \vect{\primeit{A}_2 \primeit{A}_3}, \vect{\primeit{A}_2 \primeit{A}_4} \big) > 0$.
+    %
+    En continuant de proche en proche, nous arrivons à
+    $\det \big( \vect{\primeit{A}_i \primeit{A}_{i+1}}, \vect{\primeit{A}_i \primeit{A}_{i+2}} \big) > 0$
+    pour $i \in \ZintervalC{1}{n}$ quelconque.
+    %
+    Comme tous les sommets de $\setproba{P}$ sont du même côté de la droite $( \primeit{A}_i \primeit{A}_{i+1} )$, ou sur elle,
+    nous obtenons alors
+    $\det \big( \vect{\primeit{A}_i \primeit{A}_{i+1}}, \vect{\primeit{A}_i \primeit{A}_k} \big) \geq 0$
+    pour $(i, k) \in \ZintervalC{1}{n}^2$.
+    Ceci établit la convexité de $\setproba{P}$.
 \end{proof}
 
 
@@ -116,5 +116,5 @@ Nous allons utiliser une définition simple de la convexité pour les \ngones, e
 \begin{remark}
     La définition standard d'un \ngone\ convexe $\setproba{P}$ dit qu'il doit être tel que pour toute paire de points $M$ et $N$ de la surface fermée bornée $\setproba{S}$ créée par $\setproba{P}$, le segment $[MN]$ est dans cette surface.
     Grâce au fait \ref{same-hyperplane} précédent, la surface $\setproba{S}$ peut se définir comme étant l'ensemble des points $M$ du même côté de la droite $( \primeit{A}_i \primeit{A}_{i+1} )$ que le sommet $\primeit{A}_{i+2}$.
-    Il devient facile de démontrer que notre définition de la convexité implique celle usuelle. 
+    Il devient facile de démontrer que notre définition de la convexité implique celle usuelle.
 \end{remark}

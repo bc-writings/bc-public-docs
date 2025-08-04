@@ -22,7 +22,7 @@
 \usepackage[
     type={CC},
     modifier={by-nc-sa},
-	version={4.0},
+    version={4.0},
 ]{doclicense}
 
 \newcommand\floor[1]{\left\lfloor #1 \right\rfloor}
@@ -52,9 +52,9 @@
 
 
 \DefineVerbatimEnvironment{rawcode}%
-	{Verbatim}%
-	{tabsize=4,%
-	 frame=lines, framerule=0.3mm, framesep=2.5mm}
+    {Verbatim}%
+    {tabsize=4,%
+     frame=lines, framerule=0.3mm, framesep=2.5mm}
 
 
 
@@ -67,10 +67,10 @@
 \maketitle
 
 \begin{center}
-	\itshape
-	Document, avec son source \LaTeX, disponible sur la page
+    \itshape
+    Document, avec son source \LaTeX, disponible sur la page
 
-	\url{https://github.com/bc-writings/bc-public-docs/tree/main/math/analysis/real/sign-der-var-func-via-int}.
+    \url{https://github.com/bc-writings/bc-public-docs/tree/main/math/analysis/real/sign-der-var-func-via-int}.
 \end{center}
 
 
@@ -78,15 +78,15 @@
 
 
 \begin{center}
-	\hrule\vspace{.3em}
-	{
-		\fontsize{1.35em}{1em}\selectfont
-		\textbf{Mentions \og légales \fg}
-	}
+    \hrule\vspace{.3em}
+    {
+        \fontsize{1.35em}{1em}\selectfont
+        \textbf{Mentions \og légales \fg}
+    }
 
-	\vspace{0.45em}
-	\doclicenseThis
-	\hrule
+    \vspace{0.45em}
+    \doclicenseThis
+    \hrule
 \end{center}
 
 
@@ -97,15 +97,15 @@ Voici un classique de l'analyse.
 
 
 \begin{fact}
-	Pour toute fonction $f$ définie et dérivable sur un intervalle non trivial $\intervalC{a}{b}$,
-	si $\sder{f}{1} > 0$ sur $\intervalC{a}{b}$,
-	alors $f$ est strictement croissante sur $\intervalC{a}{b}$.
+    Pour toute fonction $f$ définie et dérivable sur un intervalle non trivial $\intervalC{a}{b}$,
+    si $\sder{f}{1} > 0$ sur $\intervalC{a}{b}$,
+    alors $f$ est strictement croissante sur $\intervalC{a}{b}$.
 \end{fact}
 
 La preuve standard de ce résultat passe par le célèbre théorème de Rolle appliqué à la fonction $g(x) = f(x) - \frac{f(a) - f(b)}{a - b} \cdot (x - a) - f(a)$ qui peut sembler un peu magique.%
 \footnote{
-	Pour $x \in \intervalC{a}{b}$ , $g(x)$ mesure l'écart entre la courbe $\setgeo*{C}{f}$ et la corde $(AB) : y = \frac{f(a) - f(b)}{a - b} \cdot (x - a) + f(a)$ où $A(a ; f(a)) \in \setgeo*{C}{f}$ et $B(b ; f(b)) \in \setgeo*{C}{f}$ .
-	Or cet écart est nul en $a$ et $b$, donc la fonction $g$ n'est pas si magique que cela...
+    Pour $x \in \intervalC{a}{b}$ , $g(x)$ mesure l'écart entre la courbe $\setgeo*{C}{f}$ et la corde $(AB) : y = \frac{f(a) - f(b)}{a - b} \cdot (x - a) + f(a)$ où $A(a ; f(a)) \in \setgeo*{C}{f}$ et $B(b ; f(b)) \in \setgeo*{C}{f}$ .
+    Or cet écart est nul en $a$ et $b$, donc la fonction $g$ n'est pas si magique que cela...
 }
 
 
@@ -116,26 +116,26 @@ Il se trouve que l'on peut démontrer \emph{\og plus simplement \fg} le résulta
 
 
 \begin{fact}
-	Pour toute fonction $f$ définie et dérivable sur un intervalle non trivial $\intervalC{a}{b}$,
-	si \textbf{$\sder{f}{1}$ est continue},%
-	\footnote{
-		On rencontre tout le temps cette situation en pré-bac.
-	}
-	sur $\intervalC{a}{b}$ avec $\sder{f}{1} > 0$ sur $\intervalC{a}{b}$,
-	alors $f$ est strictement croissante sur l'intervalle $\intervalC{a}{b}$.
+    Pour toute fonction $f$ définie et dérivable sur un intervalle non trivial $\intervalC{a}{b}$,
+    si \textbf{$\sder{f}{1}$ est continue},%
+    \footnote{
+        On rencontre tout le temps cette situation en pré-bac.
+    }
+    sur $\intervalC{a}{b}$ avec $\sder{f}{1} > 0$ sur $\intervalC{a}{b}$,
+    alors $f$ est strictement croissante sur l'intervalle $\intervalC{a}{b}$.
 \end{fact}
 
 La démonstration de ce résultat peut se faire via la stricte positivité de l'intégrale sur $\RR$ et l'identité $f(b) - f(a) = \int_a^b \sder{f}{1}(x) \dd{x}$. Argument-massue, mais efficace!
 
 
 \begin{remark*}
-	Il est vrai que le calcul intégral n'est pas simple à définir proprement.
-	%
-	D'un autre côté, le théorème de Rolle s'appuie sur un résultat topologique puissant qui affirme que l'image continue d'un compact est un compact, mais aussi sur le fait que l'intervalle $\intervalC{a}{b}$ est compact. Là aussi, c'est du massif!
-	%
-	D'un point d'un point de vue universitaire, ce qui est affirmé dans ce document est peu pertinent.
-	%
-	Par contre, un lycéen a accès très facilement à un ensemble de résultats intuitifs de base sur les intégrales. Dans ce contexte, l'approche ci-dessus semble tout à fait éclairante.
+    Il est vrai que le calcul intégral n'est pas simple à définir proprement.
+    %
+    D'un autre côté, le théorème de Rolle s'appuie sur un résultat topologique puissant qui affirme que l'image continue d'un compact est un compact, mais aussi sur le fait que l'intervalle $\intervalC{a}{b}$ est compact. Là aussi, c'est du massif!
+    %
+    D'un point d'un point de vue universitaire, ce qui est affirmé dans ce document est peu pertinent.
+    %
+    Par contre, un lycéen a accès très facilement à un ensemble de résultats intuitifs de base sur les intégrales. Dans ce contexte, l'approche ci-dessus semble tout à fait éclairante.
 \end{remark*}
 
 \end{document}

@@ -1,6 +1,6 @@
 Considérons la fonction homographique $f$ définie sur $\intervalC{0}{\frac{\beta}{\alpha}}$ par $f(x) = \frac{- \alpha x + \beta}{x + \delta}$ où l'on suppose $(\alpha ; \beta ; \delta) \in (\RRsp)^3$ en utilisant des paramètres positifs comme en Physique.%
 \footnote{
-	Ces contraintes permettent d'obtenir la situation graphique proposée juste après.
+    Ces contraintes permettent d'obtenir la situation graphique proposée juste après.
 }
 %
 Considérons $M$ un point sur $\setgeo*{C}{f}: y = f(x)$, et le rectangle $MNOP$ comme ci-dessous. Est-il possible de placer $M$ tel que $\area(MNOP)$ soit maximale?
@@ -8,7 +8,7 @@ Considérons $M$ un point sur $\setgeo*{C}{f}: y = f(x)$, et le rectangle $MNOP$
 \smallskip
 
 \begin{center}
-	\includegraphics[scale=.67]{goal.png}
+    \includegraphics[scale=.67]{goal.png}
 \end{center}
 
 
@@ -17,14 +17,14 @@ Considérons $M$ un point sur $\setgeo*{C}{f}: y = f(x)$, et le rectangle $MNOP$
 
 Pour minimiser le nombre de paramètres utilisés,
 commençons par appliquer une dilatation horizontale de coefficient $\frac{\alpha}{\beta}$,
-ce qui donne 
-$g(x) = f( \frac{\beta}{\alpha} x ) 
+ce qui donne
+$g(x) = f( \frac{\beta}{\alpha} x )
       = \frac{\beta(1 - x)}{\delta + \frac{\beta}{\alpha} x}
       = \alpha \cdot \frac{1 - x}{\mu + x}$
 en notant $\mu = \frac{\alpha \delta}{\beta}$.
 Par confort,
 appliquons ensuite une dilatation verticale de coefficient $\frac{1}{\alpha} > 0$,
-ce qui fournit 
+ce qui fournit
 $h(x) = \frac{1 - x}{\mu + x}$.
 %
 Nous arrivons au problème de maximisation de
@@ -32,11 +32,11 @@ $\setgeo{A}(x) = x h(x) = \frac{x - x^2}{x + \mu}$
 sur $\intervalC{0}{1}$.
 
 \begin{stepcalc}[style=sar]
-	\sder{\setgeo{A}}{1}(x)
+    \sder{\setgeo{A}}{1}(x)
 \explnext{}
-	\dfrac{(1 - 2 x)(x + \mu) - (x - x^2)}{(x + \mu)^2}
+    \dfrac{(1 - 2 x)(x + \mu) - (x - x^2)}{(x + \mu)^2}
 \explnext{}
-	\dfrac{- x^2 - 2 \mu x + \mu}{(x + \mu)^2}
+    \dfrac{- x^2 - 2 \mu x + \mu}{(x + \mu)^2}
 \end{stepcalc}
 
 \smallskip
@@ -46,11 +46,11 @@ $T(x) = - x^2 - 2 \mu x + \mu$.
 
 \smallskip
 \begin{stepcalc}[style=sar]
-	\Delta
+    \Delta
 \explnext{}
-	4 \mu^2 + 4 \mu
+    4 \mu^2 + 4 \mu
 \explnext{}
-	4 \mu (\mu + 1)
+    4 \mu (\mu + 1)
 \end{stepcalc}
 \smallskip
 
@@ -66,24 +66,24 @@ puis
 le tableau de variations suivant.
 %
 \begin{center}
-	\begin{tikzpicture}
+    \begin{tikzpicture}
                 \tkzTabInit[espcl=2.5]{
-                	$x$                       / 1    ,
-    				$T(x)$                    / 1.25 ,
-    				$\sder{\setgeo{A}}{1}(x)$ / 1    ,
-    				$\setgeo{A}(x)$           / 1.5
-    			}{$0$, $r_2$, $1$}
-    
+                    $x$                       / 1    ,
+                    $T(x)$                    / 1.25 ,
+                    $\sder{\setgeo{A}}{1}(x)$ / 1    ,
+                    $\setgeo{A}(x)$           / 1.5
+                }{$0$, $r_2$, $1$}
+
                 \tkzTabLine{ t , + , z , - , }
                 \tkzTabLine{ t , + , z , - , }
 
                 \tkzTabVar{-/ , +/, -/ }
-	\end{tikzpicture}
+    \end{tikzpicture}
 \end{center}
 
 
 Finalement,
-$\area(MNOP)$ est maximale uniquement lorsque 
+$\area(MNOP)$ est maximale uniquement lorsque
 $x_M = \frac{\beta}{\alpha} r_2$,
 c'est-à-dire pour % \mu = \frac{\alpha \delta}{\beta}
 $x_M = \sqrt{\delta (\delta + \frac{\beta}{\alpha})} - \delta$
@@ -94,17 +94,17 @@ en revenant aux données initiales, car $\frac{\beta}{\alpha} \mu = \delta$.
 
 
 \begin{remark}
-	Les calculs suivants montrent la concavité de $\setgeo{A}$, et donc de l'aire du rectangle initialement étudié.
+    Les calculs suivants montrent la concavité de $\setgeo{A}$, et donc de l'aire du rectangle initialement étudié.
 
-	\smallskip
-	\begin{stepcalc}[style=sar]
-    	\sder{\setgeo{A}}{2}(x)
+    \smallskip
+    \begin{stepcalc}[style=sar]
+        \sder{\setgeo{A}}{2}(x)
     \explnext{}
-    	\dfrac{-2(x + \mu) \cdot (x + \mu)^2 - (- x^2 - 2 \mu x + \mu) \cdot 2(x + \mu) }{(x + \mu)^4}
+        \dfrac{-2(x + \mu) \cdot (x + \mu)^2 - (- x^2 - 2 \mu x + \mu) \cdot 2(x + \mu) }{(x + \mu)^4}
     \explnext{}
-    	\dfrac{- 2 x^2 - 4 \mu x - 2 \mu^2 + 2 x^2 + 4 \mu x - 2 \mu}{(x + \mu)^3}
+        \dfrac{- 2 x^2 - 4 \mu x - 2 \mu^2 + 2 x^2 + 4 \mu x - 2 \mu}{(x + \mu)^3}
     \explnext{}
-    	\dfrac{- 2 \mu (\mu + 1)}{(x + \mu)^3}
+        \dfrac{- 2 \mu (\mu + 1)}{(x + \mu)^3}
     \end{stepcalc}
 \end{remark}
 
@@ -113,67 +113,67 @@ en revenant aux données initiales, car $\frac{\beta}{\alpha} \mu = \delta$.
 
 
 \begin{remark}
-	Juste par amusement, reprenons l'idée de symétrisation du problème pour ne pas employer de dérivée.
-	%
-	\begin{itemize}
-		\item Travaillons avec $k(x) = \mu h(x) = \mu \cdot \frac{1 - x}{x + \mu}$ sur $\intervalC{0}{1}$.
+    Juste par amusement, reprenons l'idée de symétrisation du problème pour ne pas employer de dérivée.
+    %
+    \begin{itemize}
+        \item Travaillons avec $k(x) = \mu h(x) = \mu \cdot \frac{1 - x}{x + \mu}$ sur $\intervalC{0}{1}$.
 
 
-		\item Le calcul suivant démontre que $\setgeo*{C}{k}: y = k(x)$ est bien symétrique rapport à $\setgeo{D}: y = x$.
+        \item Le calcul suivant démontre que $\setgeo*{C}{k}: y = k(x)$ est bien symétrique rapport à $\setgeo{D}: y = x$.
 
         \smallskip
         \noindent\kern-8pt\begin{stepcalc}[style=sar]
-        	k\big( k(x) \big)
+            k\big( k(x) \big)
         \explnext{}
-        	     \mu
-	     		 \Big( 1 - \mu \cdot \dfrac{1 - x}{x + \mu} \Big)
-        	\div \Big( \mu \cdot \dfrac{1 - x}{x + \mu} + \mu \Big)
+                 \mu
+                  \Big( 1 - \mu \cdot \dfrac{1 - x}{x + \mu} \Big)
+            \div \Big( \mu \cdot \dfrac{1 - x}{x + \mu} + \mu \Big)
         \explnext{}
-        	\dfrac{ x + \mu - \mu (1 - x) }{ 1 - x + x + \mu }
+            \dfrac{ x + \mu - \mu (1 - x) }{ 1 - x + x + \mu }
         \explnext{}
-        	\dfrac{(1 + \mu) x}{1 + \mu}
+            \dfrac{(1 + \mu) x}{1 + \mu}
         \explnext{}
-        	x
+            x
         \end{stepcalc}
 
 
-		\item L'intersection de $\setgeo*{C}{k}$ et $\setgeo{D}$ se fait en $\gamma = - \mu + \sqrt{\mu (\mu + 1)}$ l'unique solution sur $\intervalC{0}{1}$ de
-		$k(x) = x$,
-		c'est-à-dire de 
-		$\mu (1 - x) = x^2 + \mu x$,
-		soit
-		$- x^2 - 2 \mu x + \mu = 0$.
+        \item L'intersection de $\setgeo*{C}{k}$ et $\setgeo{D}$ se fait en $\gamma = - \mu + \sqrt{\mu (\mu + 1)}$ l'unique solution sur $\intervalC{0}{1}$ de
+        $k(x) = x$,
+        c'est-à-dire de
+        $\mu (1 - x) = x^2 + \mu x$,
+        soit
+        $- x^2 - 2 \mu x + \mu = 0$.
 
 
-		\item Comme dans la section \ref{exa-geo}, nous devons démontrer que $a \big( k(a) - k(b) \big) < (b - a) k(b)$ si $0 \leq a < b \leq \gamma$.
+        \item Comme dans la section \ref{exa-geo}, nous devons démontrer que $a \big( k(a) - k(b) \big) < (b - a) k(b)$ si $0 \leq a < b \leq \gamma$.
 
 
-		\item 
-    	\begin{stepcalc}[style=sar]
-    		\dfrac{1}{\mu} \big( k(a) - k(b) \big)
-    	\explnext{}
-    		\dfrac{1 - a}{a + \mu} - \dfrac{1 - b}{b + \mu}
-    	\explnext{}
-%    		b + \mu - ab - \mu a - a - \mu + ab + \mu b
-    		\dfrac{(1 + \mu)(b - a)}{(a + \mu)(b + \mu)}
-    	\end{stepcalc}
+        \item
+        \begin{stepcalc}[style=sar]
+            \dfrac{1}{\mu} \big( k(a) - k(b) \big)
+        \explnext{}
+            \dfrac{1 - a}{a + \mu} - \dfrac{1 - b}{b + \mu}
+        \explnext{}
+%            b + \mu - ab - \mu a - a - \mu + ab + \mu b
+            \dfrac{(1 + \mu)(b - a)}{(a + \mu)(b + \mu)}
+        \end{stepcalc}
 
 
-		\item
-		\begin{stepcalc}[style=ar*]
-    		\dfrac{(a + \mu)(b + \mu)}{\mu (b - a)}
-			\big(
-				a \big( k(a) - k(b) \big) - (b - a) k(b)
-			\big)
-    	\explnext{}
-			(1 + \mu) a - (1 - b)(a + \mu)
-    	\explnext{}
-    		\mu a + ab + \mu b - \mu
-    	\end{stepcalc}
+        \item
+        \begin{stepcalc}[style=ar*]
+            \dfrac{(a + \mu)(b + \mu)}{\mu (b - a)}
+            \big(
+                a \big( k(a) - k(b) \big) - (b - a) k(b)
+            \big)
+        \explnext{}
+            (1 + \mu) a - (1 - b)(a + \mu)
+        \explnext{}
+            \mu a + ab + \mu b - \mu
+        \end{stepcalc}
 
 
-		\item Nous arrivons à
-		$\mu a + ab + \mu b - \mu < b^2 + 2 \mu b - \mu$
-		qui permet de conclure.
-	\end{itemize}
+        \item Nous arrivons à
+        $\mu a + ab + \mu b - \mu < b^2 + 2 \mu b - \mu$
+        qui permet de conclure.
+    \end{itemize}
 \end{remark}

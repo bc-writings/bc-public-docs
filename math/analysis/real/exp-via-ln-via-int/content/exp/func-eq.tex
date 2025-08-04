@@ -1,24 +1,24 @@
 \begin{fact}
-	$\forall (a;b) \in \RR^2$,
-	$\exp(a + b) = \exp a \cdot \exp b$.
+    $\forall (a;b) \in \RR^2$,
+    $\exp(a + b) = \exp a \cdot \exp b$.
 \end{fact}
 
 
 \begin{proof}
-	L'injectivité de $\ln$ et les calculs suivants permettent de conclure.
-	
-	\begin{stepcalc}[style=ar*]
-		\ln \big( \exp(a + b) \,\big)
-	\explnext*{Définition de la fonction $\exp$.}{}
-		a + b
-	\explnext*{Idem.}{}
-		\ln(\exp a) + \ln(\exp b)
-	\explnext*{Équation fonctionnelle de la fonction $\ln$.}{}
-		\ln(\exp a \cdot \exp b)
-	\end{stepcalc}
+    L'injectivité de $\ln$ et les calculs suivants permettent de conclure.
 
-	\null
-	\vspace{-4ex}
+    \begin{stepcalc}[style=ar*]
+        \ln \big( \exp(a + b) \,\big)
+    \explnext*{Définition de la fonction $\exp$.}{}
+        a + b
+    \explnext*{Idem.}{}
+        \ln(\exp a) + \ln(\exp b)
+    \explnext*{Équation fonctionnelle de la fonction $\ln$.}{}
+        \ln(\exp a \cdot \exp b)
+    \end{stepcalc}
+
+    \null
+    \vspace{-4ex}
 \end{proof}
 
 
@@ -26,50 +26,50 @@
 
 
 \begin{fact} \label{exp-id}
-	$\forall (a;n) \in \RRsp \times \ZZ$,
-	nous avons
-	$(\exp a)^n = \exp(n a)$,
-	et
-	$\frac{1}{\exp a} = \exp(- a)$.
+    $\forall (a;n) \in \RRsp \times \ZZ$,
+    nous avons
+    $(\exp a)^n = \exp(n a)$,
+    et
+    $\frac{1}{\exp a} = \exp(- a)$.
 \end{fact}
 
 
 \begin{proof}
-	Deux méthodes s'offrent à nous.
-	
-	\smallskip
-	\textbf{Méthode 1.} En utilisant le \reffact{ln-id} (identités vérifiées par $\ln$).
-	%
-	\begin{itemize}
-		\item $\ln(\alpha^n) = n \ln \alpha$ appliquée à $\alpha = \exp a$ donne
-		$\ln(\,(\exp a)^n\,) = n \ln(\exp a) = n a$.
-		Ensuite,
-		une application de $\exp$ donne
-		$\exp\big( \ln(\,(\exp a)^n\,) \big) = \exp(n a)$,
-		soit
-		$(\exp a)^n = \exp(n a)$.
+    Deux méthodes s'offrent à nous.
+
+    \smallskip
+    \textbf{Méthode 1.} En utilisant le \reffact{ln-id} (identités vérifiées par $\ln$).
+    %
+    \begin{itemize}
+        \item $\ln(\alpha^n) = n \ln \alpha$ appliquée à $\alpha = \exp a$ donne
+        $\ln(\,(\exp a)^n\,) = n \ln(\exp a) = n a$.
+        Ensuite,
+        une application de $\exp$ donne
+        $\exp\big( \ln(\,(\exp a)^n\,) \big) = \exp(n a)$,
+        soit
+        $(\exp a)^n = \exp(n a)$.
 
 
-		\item $\ln(\frac{1}{\alpha}) = - \ln \alpha$ appliquée à $\alpha = \exp a$ donne
-		$\ln(\frac{1}{\exp a}) = - \ln(\exp a) = - a$.
-		Ensuite,
-		une application de $\exp$ donne
-		$\exp\big( \ln(\frac{1}{\exp a}) \big) = \exp(- a)$,
-		soit
-		$\frac{1}{\exp a} = \exp(- a)$.		
-	\end{itemize}
-
-	
-	\smallskip
-	\textbf{Méthode 2.} Sans passer via le \reffact{ln-id}.
-	%
-	\begin{itemize}
-		\item De $\exp(a - a) = \exp a \cdot \exp(- a)$, nous déduisons $\frac{1}{\exp a} = \exp(- a)$.
+        \item $\ln(\frac{1}{\alpha}) = - \ln \alpha$ appliquée à $\alpha = \exp a$ donne
+        $\ln(\frac{1}{\exp a}) = - \ln(\exp a) = - a$.
+        Ensuite,
+        une application de $\exp$ donne
+        $\exp\big( \ln(\frac{1}{\exp a}) \big) = \exp(- a)$,
+        soit
+        $\frac{1}{\exp a} = \exp(- a)$.
+    \end{itemize}
 
 
-		\item Pour l'identité $(\exp a)^n = \exp(n a)$, une récurrence donne le résultat sur $\NN$, puis le passage à $\ZZn$ se fait via $(\exp a)^{-n} = \frac{1}{(\exp a)^n}$.
-	\end{itemize}
-	
-	\null
-	\vspace{-5ex}
+    \smallskip
+    \textbf{Méthode 2.} Sans passer via le \reffact{ln-id}.
+    %
+    \begin{itemize}
+        \item De $\exp(a - a) = \exp a \cdot \exp(- a)$, nous déduisons $\frac{1}{\exp a} = \exp(- a)$.
+
+
+        \item Pour l'identité $(\exp a)^n = \exp(n a)$, une récurrence donne le résultat sur $\NN$, puis le passage à $\ZZn$ se fait via $(\exp a)^{-n} = \frac{1}{(\exp a)^n}$.
+    \end{itemize}
+
+    \null
+    \vspace{-5ex}
 \end{proof}

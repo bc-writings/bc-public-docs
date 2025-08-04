@@ -1,7 +1,7 @@
 \begin{defi}
-	Le \focus{logarithme népérien} est la fonction $\ln$ définie sur $\RRsp$ par $\ln x = \integrate*{\frac1t}{t}{1}{x}$.
-	%
-	Notons que $\ln 1 = 0$.
+    Le \focus{logarithme népérien} est la fonction $\ln$ définie sur $\RRsp$ par $\ln x = \integrate*{\frac1t}{t}{1}{x}$.
+    %
+    Notons que $\ln 1 = 0$.
 \end{defi}
 
 
@@ -9,27 +9,27 @@
 
 
 \begin{fact}[Monotonie sans dérivée] \label{ln-mono}
-	La fonction $\ln$ est strictement croissante sur $\RRsp$.
+    La fonction $\ln$ est strictement croissante sur $\RRsp$.
 \end{fact}
 
 
 \begin{proof}
-	Soit $(a;b) \in ( \RRsp )^2$ tel que $b > a$. Ce qui suit permet de conclure.
-	
-	\begin{stepcalc}[style=sar]
-		\ln b - \ln a
-	\explnext{}
-		\integrate*{\frac1t}{t}{1}{b} - \integrate*{\frac1t}{t}{1}{a}
-	\explnext*{Voir le \reffact{int-dir}.}{}
-		\integrate*{\frac1t}{t}{a}{1} + \integrate*{\frac1t}{t}{1}{b}
-	\explnext*{Voir le \reffact{int-rdc}.}{}
-		\integrate*{\frac1t}{t}{a}{b}
-	\explnext*[>]{Voir le \reffact{int-pos}.}{}
-		0
-	\end{stepcalc}
-	
-	\null
-	\vspace{-4ex}
+    Soit $(a;b) \in ( \RRsp )^2$ tel que $b > a$. Ce qui suit permet de conclure.
+
+    \begin{stepcalc}[style=sar]
+        \ln b - \ln a
+    \explnext{}
+        \integrate*{\frac1t}{t}{1}{b} - \integrate*{\frac1t}{t}{1}{a}
+    \explnext*{Voir le \reffact{int-dir}.}{}
+        \integrate*{\frac1t}{t}{a}{1} + \integrate*{\frac1t}{t}{1}{b}
+    \explnext*{Voir le \reffact{int-rdc}.}{}
+        \integrate*{\frac1t}{t}{a}{b}
+    \explnext*[>]{Voir le \reffact{int-pos}.}{}
+        0
+    \end{stepcalc}
+
+    \null
+    \vspace{-4ex}
 \end{proof}
 
 
@@ -37,62 +37,62 @@
 
 
 \begin{fact} \label{ln-der}
-	$\forall x \in \RRsp$,
-	$\sder{\ln}{1} x = \frac1x$
-	(ceci redonne la stricte croissance de $\ln$).
+    $\forall x \in \RRsp$,
+    $\sder{\ln}{1} x = \frac1x$
+    (ceci redonne la stricte croissance de $\ln$).
 \end{fact}
 
 
 \begin{proof}
-	Un argument massif est l'emploi du théorème fondamental de l'analyse.
-	Il se trouve que nous pouvons démontrer $\sder{\ln}{1} x = \frac1x$ à la main.%
-	\footnote{
-		Ce qui suit s'adapte sans effort à toute fonction monotone, et s'élargit ensuite en une preuve du théorème fondamental de l'analyse.
-	}
-	%
-	Pour cela, considérons le taux d'accroissement $T(h) = \frac{\ln(a+h) - \ln a}{h}$ où $a > 0$ est fixé,
-	et
-	$h \in \intervalO{-a}{a} - \setgene{0}$ variable,
-	puis
-	faisons le petit calcul suivant.
+    Un argument massif est l'emploi du théorème fondamental de l'analyse.
+    Il se trouve que nous pouvons démontrer $\sder{\ln}{1} x = \frac1x$ à la main.%
+    \footnote{
+        Ce qui suit s'adapte sans effort à toute fonction monotone, et s'élargit ensuite en une preuve du théorème fondamental de l'analyse.
+    }
+    %
+    Pour cela, considérons le taux d'accroissement $T(h) = \frac{\ln(a+h) - \ln a}{h}$ où $a > 0$ est fixé,
+    et
+    $h \in \intervalO{-a}{a} - \setgene{0}$ variable,
+    puis
+    faisons le petit calcul suivant.
 
-	\begin{stepcalc}[style=sar]
-		T(h)
-	\explnext{}
-		\dfrac{1}{h} \Big(
-			\dintegrate*{\frac1t}{t}{1}{a+h} - \dintegrate*{\frac1t}{t}{1}{a}
-		\Big)
-	\explnext*{Voir les \reffacts{int-dir} et \ref{int-rdc}.}{}
-		\dfrac{1}{h} \dintegrate*{\frac1t}{t}{a}{a+h}
-	\end{stepcalc}
-	
-	Nous avons ensuite les implications logiques suivantes lorsque $h > 0$.
-	
-	\begin{stepcalc}[style=ar*, ope=\implies]
-		\big[\,
-			\text{$x \in \RRsp \mapsto \dfrac1x \in \RRsp$ est strictement décroissante}
-		\,\big]
-	\explnext{}
-		\forall x \in \intervalC{a}{a+h},
-		\dfrac{1}{a+h} \leq \dfrac1x \leq \dfrac1a
-	\explnext*{Voir le \reffact{int-mono} ($a+h > a$, car $h >0$).}{}
-		     \dintegrate*{\dfrac{1}{a+h}}{t}{a}{a+h}
-		\leq \dintegrate*{\dfrac1t}      {t}{a}{a+h}
-		\leq \dintegrate*{\dfrac1a}      {t}{a}{a+h}
-	\explnext{}
-	    \dfrac{h}{a+h} \leq h T(h) \leq \dfrac{h}{a}
-	\explnext*{$h > 0$}{}
-		\dfrac{1}{a+h} \leq T(h)\leq \dfrac{1}{a}
-	\end{stepcalc}
-	
-	Via le théorème des gendarmes, voir le \reffact{lim-cops}, nous obtenons:
-	$\limit{T(h)}{h}{0^+} = \frac1a$.
+    \begin{stepcalc}[style=sar]
+        T(h)
+    \explnext{}
+        \dfrac{1}{h} \Big(
+            \dintegrate*{\frac1t}{t}{1}{a+h} - \dintegrate*{\frac1t}{t}{1}{a}
+        \Big)
+    \explnext*{Voir les \reffacts{int-dir} et \ref{int-rdc}.}{}
+        \dfrac{1}{h} \dintegrate*{\frac1t}{t}{a}{a+h}
+    \end{stepcalc}
 
-	Lorsque $h < 0$, nous obtenons:
-	$\frac{1}{a} \leq T(h) \leq \frac{1}{a+h}$,
-	puis
-	$\limit{T(h)}{h}{0^-} = \frac1a$.
-	
-	Finalement,
-	$\limit{T(h)}{h}{0} = \frac1a$, ce qui achève la démonstration.
+    Nous avons ensuite les implications logiques suivantes lorsque $h > 0$.
+
+    \begin{stepcalc}[style=ar*, ope=\implies]
+        \big[\,
+            \text{$x \in \RRsp \mapsto \dfrac1x \in \RRsp$ est strictement décroissante}
+        \,\big]
+    \explnext{}
+        \forall x \in \intervalC{a}{a+h},
+        \dfrac{1}{a+h} \leq \dfrac1x \leq \dfrac1a
+    \explnext*{Voir le \reffact{int-mono} ($a+h > a$, car $h >0$).}{}
+             \dintegrate*{\dfrac{1}{a+h}}{t}{a}{a+h}
+        \leq \dintegrate*{\dfrac1t}      {t}{a}{a+h}
+        \leq \dintegrate*{\dfrac1a}      {t}{a}{a+h}
+    \explnext{}
+        \dfrac{h}{a+h} \leq h T(h) \leq \dfrac{h}{a}
+    \explnext*{$h > 0$}{}
+        \dfrac{1}{a+h} \leq T(h)\leq \dfrac{1}{a}
+    \end{stepcalc}
+
+    Via le théorème des gendarmes, voir le \reffact{lim-cops}, nous obtenons:
+    $\limit{T(h)}{h}{0^+} = \frac1a$.
+
+    Lorsque $h < 0$, nous obtenons:
+    $\frac{1}{a} \leq T(h) \leq \frac{1}{a+h}$,
+    puis
+    $\limit{T(h)}{h}{0^-} = \frac1a$.
+
+    Finalement,
+    $\limit{T(h)}{h}{0} = \frac1a$, ce qui achève la démonstration.
 \end{proof}

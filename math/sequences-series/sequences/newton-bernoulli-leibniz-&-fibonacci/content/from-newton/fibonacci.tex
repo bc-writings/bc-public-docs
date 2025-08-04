@@ -5,17 +5,17 @@ où la suite de Fibonacci $F$ vérifie $F_0 = F_1 = 1$ et $F_{i} = F_{i-1} + F_{
 De nouveau, nous allons raisonner en terme d'opérateurs linéaires via les ingrédients naturels suivants.
 %
 \begin{itemize}
-	\item $\ell(\NN , \RR)$ désigne l'ensemble des suites réelles.%
-	\footnote{
-		Si besoin, $\RR$ peut être remplacé par un anneau commutatif de son choix.
-	}
+    \item $\ell(\NN , \RR)$ désigne l'ensemble des suites réelles.%
+    \footnote{
+        Si besoin, $\RR$ peut être remplacé par un anneau commutatif de son choix.
+    }
 
-	\item $\setalge{A} = \Endo \big( \ell(\NN , \RR) \big)$ est l'ensemble des endomorphismes linéaires de $\ell(\NN , \RR)$ muni de l'addition $+$ point par point, et de la composition $\circ$ comme produit.
+    \item $\setalge{A} = \Endo \big( \ell(\NN , \RR) \big)$ est l'ensemble des endomorphismes linéaires de $\ell(\NN , \RR)$ muni de l'addition $+$ point par point, et de la composition $\circ$ comme produit.
 
-	\item Pour $k \in \NN$, $\sigma_k \in \setalge{A}$ désigne un opérateur partiel de décalage d'indice qui à la suite $(U_m)_{m \in \NN}$ associe la suite $(U_{m+k})_{m \in \NN}$.%
-	\footnote{
-		Nous perdons les termes d'indice inférieur à $k$.
-	}
+    \item Pour $k \in \NN$, $\sigma_k \in \setalge{A}$ désigne un opérateur partiel de décalage d'indice qui à la suite $(U_m)_{m \in \NN}$ associe la suite $(U_{m+k})_{m \in \NN}$.%
+    \footnote{
+        Nous perdons les termes d'indice inférieur à $k$.
+    }
 \end{itemize}
 
 
@@ -24,7 +24,7 @@ La relation de récurrence $F_{i} = F_{i-1} + F_{i-2}$ se réécrit $\sigma_2(F)
 Dès lors, la conclusion se fait comme suit sans souci.
 
 \begin{stepcalc}[style=sar]
-	(F_{m+2n})_{m\in \NN}
+    (F_{m+2n})_{m\in \NN}
 \explnext{}
     \sigma_2^n(F)
 \explnext*{$\ident$ est l'application identité sur $\ell(\NN , \RR)$.}{}{}
@@ -47,20 +47,20 @@ Dès lors, la conclusion se fait comme suit sans souci.
     En considérant
     $F = \sigma_2(F) - \sigma_1(F)$,
     nous pouvons conduire les calculs suivants.
-    
+
     \begin{stepcalc}[style=sar]
-    	(F_m)_{m\in \NN}
+        (F_m)_{m\in \NN}
     \explnext{}
         (\sigma_2 - \sigma_1)^n(F)
     \explnext*{$\sigma_1$ et $\sigma_2$ commutent.}{}
         \big( \dsum_{k=0}^n \combi[n][k] (-1)^{n-k} \sigma_2^k \circ \sigma_1^{n-k} \big)(F)
 %    \end{stepcalc}
-%    	
+%
 %    \newpage
 %    Poursuivons notre calcul.
-%    
+%
 %    \begin{stepcalc}[style=sar]
-%    	(F_m)_{m\in \NN}
+%        (F_m)_{m\in \NN}
 %    \explnext{}
 %        \big( \dsum_{k=0}^n \combi[n][k] (-1)^{n-k} \sigma_{2k} \circ \sigma_{n-k} \big)(F)
 %    \explnext{}
@@ -70,8 +70,8 @@ Dès lors, la conclusion se fait comme suit sans souci.
     \explnext*{$\sigma_2^k \circ \sigma_1^{n-k} = \sigma_{n+k}$}{}
         \big( \dsum_{k=0}^n \combi[n][k] (-1)^{n-k} F_{m+n+k} \big)_{m\in \NN}
     \end{stepcalc}
-    
-    
+
+
     Nous obtenons sans effort
     $F_m = \dsum_{k=0}^n \combi[n][k] (-1)^{n-k} F_{m+n+k}$,
     d'où, via $m = 0$, la jolie identité
@@ -80,9 +80,9 @@ Dès lors, la conclusion se fait comme suit sans souci.
     En partant de
     $\sigma_1(F) = \sigma_2(F) - F$,
     nous obtenons ce qui suit.
-    
+
     \begin{stepcalc}[style=sar]
-    	(F_{m+n})_{m\in \NN}
+        (F_{m+n})_{m\in \NN}
     \explnext{}
         (\sigma_1)^n(F)
     \explnext{}
@@ -94,8 +94,8 @@ Dès lors, la conclusion se fait comme suit sans souci.
     \explnext{}
         \big( \dsum_{k=0}^n \combi[n][k] (-1)^{n-k} F_{m+2k} \big)_{m\in \NN}
     \end{stepcalc}
-    
-    
+
+
     Le choix $m = 0$ fournit ici
     $F_n = \combisum{(-1)^{n-k} F_{2k}}$
     qui correspond à une instance de la formule d'inversion de Pascal via
@@ -109,13 +109,13 @@ Dès lors, la conclusion se fait comme suit sans souci.
 
 
 \begin{remark}
-	La généralisation à une suite récurrente vérifiant
-	$U_{i} = p U_{i-1} + q U_{i-2}$
-	ne pose pas de difficulté via
-	$\sigma_2(U) = p \sigma_1(U) + q U$
-	qui donne, sans effort, $U_{2n} = \combisum{p^k q^{n-k} U_{k}}$.
-	%
-	Si $p \neq 0$ et $q \neq 0$, alors
+    La généralisation à une suite récurrente vérifiant
+    $U_{i} = p U_{i-1} + q U_{i-2}$
+    ne pose pas de difficulté via
+    $\sigma_2(U) = p \sigma_1(U) + q U$
+    qui donne, sans effort, $U_{2n} = \combisum{p^k q^{n-k} U_{k}}$.
+    %
+    Si $p \neq 0$ et $q \neq 0$, alors
     $\sigma_1(U) = p^{-1}(\sigma_2(U) - q U)$
     donne
     $U_n = \combisum{p^{-n} (-q)^{n-k} U_{2k}}$,

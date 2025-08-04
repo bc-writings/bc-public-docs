@@ -3,9 +3,9 @@ Commençons par exhiber un calcul récursif des $B_i$ en reprenant des idées pr
 \emph{\og The largest singletons of set partitions \fg}
 de Yidong Sun et Xiaojuan Wu.%
     \footnote{
-    	Voir
-	\url{https://doi.org/10.1016/j.ejc.2010.10.011}
-	sur le site \href{https://www.sciencedirect.com/}{ScienceDirect}.
+        Voir
+    \url{https://doi.org/10.1016/j.ejc.2010.10.011}
+    sur le site \href{https://www.sciencedirect.com/}{ScienceDirect}.
 }
 %
 \begin{itemize}
@@ -32,7 +32,7 @@ de Yidong Sun et Xiaojuan Wu.%
     Deux cas se présentent à nous.
     %
     \begin{enumerate}
-    	\item \textbf{\boldmath Cas 1: $\setgene{1}$ fait partie de $\pi$.}
+        \item \textbf{\boldmath Cas 1: $\setgene{1}$ fait partie de $\pi$.}
         %
         En ignorant $1$ et $2$,
         et
@@ -40,13 +40,13 @@ de Yidong Sun et Xiaojuan Wu.%
         nous obtenons une partition $\pi'$ de $\ZintervalC{1}{n-1}$ sans aucun singleton.
 
 
-    	\item \textbf{\boldmath Cas 2: $\setgene{1}$ est absent de $\pi$.}
+        \item \textbf{\boldmath Cas 2: $\setgene{1}$ est absent de $\pi$.}
         %
         Dans ce cas, $\setgene{2}$ est l'unique singleton de $\pi$.
         En ignorant $2$,
         en transformant l'ensemble $\setgene{1 ; k_1 ; \dots ; k_s}$%
         \footnote{
-        	Nécessairement, $s \geq 1$.
+            Nécessairement, $s \geq 1$.
         }
         de $\pi$ en $\setgene{k_1} \sqcup \dots \sqcup \setgene{k_s}$,
         et
@@ -67,7 +67,7 @@ de Yidong Sun et Xiaojuan Wu.%
     \begin{enumerate}
         \item \textbf{\boldmath Cas 1: $\setgene{p}$ fait partie de $\pi$.}
         %
-        En ignorant $\setgene{p+1}$, 
+        En ignorant $\setgene{p+1}$,
         et
         en remplaçant chaque naturel $k \in \ZintervalC{p+2}{n+1}$ par $k-1 \in \ZintervalC{p+1}{n}$,
         nous obtenons une partition $\pi'$ de $\ZintervalC{1}{n}$ ayant $\setgene{p}$ comme singleton maximal.
@@ -78,7 +78,7 @@ de Yidong Sun et Xiaojuan Wu.%
         \item \textbf{\boldmath Cas 2: $\setgene{p}$ est absent de $\pi$.}
         %
         En échangeant $p$ et $(p+1)$,
-        nous obtenons une partition $\pi'$ de $\ZintervalC{1}{n+1}$ ayant $\setgene{p}$ comme singleton maximal, puisque $(p+1)$ se retrouve maintenant dans un ensemble d'au moins deux éléments. 
+        nous obtenons une partition $\pi'$ de $\ZintervalC{1}{n+1}$ ayant $\setgene{p}$ comme singleton maximal, puisque $(p+1)$ se retrouve maintenant dans un ensemble d'au moins deux éléments.
         %
 %        Ces dernières partitions sont au nombre de $\tabell[n+1][p-1]$.
     \end{enumerate}
@@ -110,7 +110,7 @@ Nous arrivons à
 $\tabell[n+1][n+1] = \binosum{\tabell[n+1-k][1]}$,
 soit
 $B_{n+1} = \binosum{B_{n-k}}$.
-Comme $\binom{n}{n-k} = \binom{n}{k}$, nous obtenons bien 
+Comme $\binom{n}{n-k} = \binom{n}{k}$, nous obtenons bien
 $B_{n+1} = \binosum{B_k}$.
 
 
@@ -122,7 +122,7 @@ $B_{n+1} = \binosum{B_k}$.
     En effet,
     si $\setgene{1}$ est le singleton maximal d'une partition de $\ZintervalC{1}{n+1}$,
     alors
-    en ignorant $\setgene{1}$, 
+    en ignorant $\setgene{1}$,
     et
     en remplaçant chaque naturel $k \in \ZintervalC{2}{n+1}$ par $k-1 \in \ZintervalC{1}{n}$, nous obtenons une partition de $\ZintervalC{1}{n}$ sans singleton.
     %
@@ -134,31 +134,31 @@ $B_{n+1} = \binosum{B_k}$.
 
 
 \begin{remark}
-	Comme $\tabell[n][p-1] = \tabell - \tabell[n-1][p-1]$,
-	soit $\tabell = \tabell[n][p+1] - \tabell[n-1][p]$,
-	nous pouvons considérer la règle suivante.
+    Comme $\tabell[n][p-1] = \tabell - \tabell[n-1][p-1]$,
+    soit $\tabell = \tabell[n][p+1] - \tabell[n-1][p]$,
+    nous pouvons considérer la règle suivante.
 
     \begin{center}
-    	\itshape\centering
-    
-    	\calctree{\tabell}{\tabell[n][p+1]}{-\tabell[n-1][p]}
-    	
-    	Arbre de calcul.
+        \itshape\centering
+
+        \calctree{\tabell}{\tabell[n][p+1]}{-\tabell[n-1][p]}
+
+        Arbre de calcul.
     \end{center}
-    
+
     En prenant pour racine $\tabell[n+1][1]$, et pour profondeur $n$,
-	nous avons
+    nous avons
     $\tabell[n+1][1] = \sum_{k=0}^n \binom{n}{k} (-1)^{n-k} \tabell[k+1][k+1]$
     qui se réécrit
     $B_n = \sum_{k=0}^n (-1)^{n-k} \binom{n}{k} B_{k+1}$.
-	%
-	Ceci est une instance de la formule d'inversion de Pascal via
+    %
+    Ceci est une instance de la formule d'inversion de Pascal via
     $a_n = B_n$
     et
     $b_n = B_{n+1}$.
     %
     Avec la racine $\tabell[n][0]$,
-	nous arrivons à
+    nous arrivons à
     $\tabell[n][0] = \sum_{k=0}^n \binom{n}{k} (-1)^{n-k} \tabell[k][k]$,
     soit
     $\tabell[n][0] = \sum_{k=0}^n (-1)^{n-k} \binom{n}{k} B_{k}$,

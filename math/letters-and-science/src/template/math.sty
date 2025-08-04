@@ -27,7 +27,7 @@
 }
 
 % Classical constants
-    
+
 \newcommand\ggamma{\ct{gamma}}
 \newcommand\ppi{\ct{pi}}
 \newcommand\ttau{\ct{tau}}
@@ -50,15 +50,15 @@
 \newcommand\probaset{\@ifstar{\@probaset@star}{\@probaset@no@star}}
 
 \newcommand\@probaset@no@star[1]{
-	\IfSubStr{,A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z,}{,#1,}{
-    	\mathcal{#1}
-	}{%
-    	\PackageError{lymath}{Command << probaset >> only accepts single upper case letters}%
-	}
+    \IfSubStr{,A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z,}{,#1,}{
+        \mathcal{#1}
+    }{%
+        \PackageError{lymath}{Command << probaset >> only accepts single upper case letters}%
+    }
 }
 
 \newcommand\@probaset@star[2]{%
-	\@probaset@no@star{#1}_{#2}
+    \@probaset@no@star{#1}_{#2}
 }
 
 % Geometric sets
@@ -74,18 +74,18 @@
 
 \newcommand\@geoset@no@star[1]{
     \IfSubStr{,A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z,}{,#1,}{
-    	\mathscr{#1}
-	}{%
+        \mathscr{#1}
+    }{%
         \IfSubStr{,a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,}{,#1,}{
-    	    \mathpzc{#1}
-	    }{%
+            \mathpzc{#1}
+        }{%
             \PackageError{lymath}{Command << fieldset >> only accepts single h, k or upper case letter}%
-    	}
-	}
+        }
+    }
 }
 
 \newcommand\@geoset@star[2]{%
-	\@geoset@no@star{#1}_{#2}
+    \@geoset@no@star{#1}_{#2}
 }
 
 % Sets for algebra
@@ -96,15 +96,15 @@
 \newcommand\algeset{\@ifstar{\@algeset@star}{\@algeset@no@star}}
 
 \newcommand\@algeset@no@star[1]{
-	\IfSubStr{,A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z,h,k,}{,#1,}{
-	    \mathds{#1}
-	}{%
-    	\PackageError{lymath}{Command << fieldset >> only accepts letters h or k alone, and upper case letters}%
-	}
+    \IfSubStr{,A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z,h,k,}{,#1,}{
+        \mathds{#1}
+    }{%
+        \PackageError{lymath}{Command << fieldset >> only accepts letters h or k alone, and upper case letters}%
+    }
 }
 
 \newcommand\@algeset@star[2]{%
-	\@algeset@no@star{#1}_{#2}
+    \@algeset@no@star{#1}_{#2}
 }
 
 % Tools for classical sets
@@ -136,7 +136,7 @@
 
 % The empty set
 \newcommand\nullset{%
-	\ensuremath{\text{\scalebox{1.2}{$\varnothing$}}}%
+    \ensuremath{\text{\scalebox{1.2}{$\varnothing$}}}%
 }
 
 % List of classical sets - START

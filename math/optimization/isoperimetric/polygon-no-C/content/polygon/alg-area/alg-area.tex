@@ -5,31 +5,31 @@ il faut se souvenir qu'un triangle $ABC$ est d'aire $\frac12 \abs{ \det \big( \v
 
 
 \begin{multicols}{2}
-	\small\itshape
+    \small\itshape
     \begin{center}
-		Calcul direct à la main.
+        Calcul direct à la main.
 
-		\smallskip
+        \smallskip
 
         \includegraphics[scale=.35]{convex-1.png}
 
-       	\smallskip
+           \smallskip
 
-		$11 = 3 \cdot 6 - \dfrac{3 \cdot 1 + 3 \cdot 2 + 3 \cdot 1 + 1 \cdot 2}{2} \vphantom{\dfrac{2^M}2}$
+        $11 = 3 \cdot 6 - \dfrac{3 \cdot 1 + 3 \cdot 2 + 3 \cdot 1 + 1 \cdot 2}{2} \vphantom{\dfrac{2^M}2}$
     \end{center}
 
-	\columnbreak
+    \columnbreak
 
     \begin{center}
-		Via le déterminant.
+        Via le déterminant.
 
-		\smallskip
+        \smallskip
 
         \includegraphics[scale=.35]{convex-2.png}
 
-       	\smallskip
+           \smallskip
 
-		$- 11 = 3 - \num{1.5} - \num{6.5} - 3 - 3 \vphantom{\dfrac{2^M}2}$
+        $- 11 = 3 - \num{1.5} - \num{6.5} - 3 - 3 \vphantom{\dfrac{2^M}2}$
     \end{center}
 \end{multicols}
 
@@ -40,7 +40,7 @@ il faut se souvenir qu'un triangle $ABC$ est d'aire $\frac12 \abs{ \det \big( \v
 \begin{fact} \label{sarea-pt-ct}
     Soit $\setproba{L} = A_1 A_2 \cdots A_n$ un \ncycle.
     La quantité
-    $\mu_1^n (\Omega ;\setproba{L}) = \dsum_{i=1}^{n} \det \big( \vect{\Omega \primeit{A}_i} , \vect{\Omega \primeit{A}_{i+1}} \big)$ 
+    $\mu_1^n (\Omega ;\setproba{L}) = \dsum_{i=1}^{n} \det \big( \vect{\Omega \primeit{A}_i} , \vect{\Omega \primeit{A}_{i+1}} \big)$
     est indépendante du point $\Omega$.
     Dans la suite, cette quantité indépendante de $\Omega$ sera notée $\mu_1^n (\setproba{L})$.
 \end{fact}
@@ -174,9 +174,9 @@ Dans le cas non-convexe, les choses se compliquent a priori, car nous ne maîtri
     Soit un \ngone\ $\setproba{P} = A_1 A_2 \cdots A_n$ tel que $A_1$, $A_2$, ..., $A_n$ soient parcourus dans le sens trigonométrique, ou anti-horaire.
     Un tel \ngone\ sera dit \focus{positif}.%
     \footnote{
-    	De façon cachée, nous utilisons le célèbre théorème de Jordan, dans sa forme polygonale.
+        De façon cachée, nous utilisons le célèbre théorème de Jordan, dans sa forme polygonale.
     }
-    Sous cette hypothèse, nous avons 
+    Sous cette hypothèse, nous avons
     $\mu(\setproba{P}) \geq 0$,
     \emph{i.e.}
     $\sarea{\setproba{P}} \geq 0$.
@@ -184,7 +184,7 @@ Dans le cas non-convexe, les choses se compliquent a priori, car nous ne maîtri
 
 
 \begin{proof}
-	Le théorème de triangulation affirme que tout \ngone\ est triangulable comme dans l'exemple suivant: ceci laisse envisager une démonstration par récurrence en retirant l'un des triangles ayant deux côtés correspondant à deux côtés consécutifs du \ngone\ (pour peu qu'un tel triangle existe toujours).
+    Le théorème de triangulation affirme que tout \ngone\ est triangulable comme dans l'exemple suivant: ceci laisse envisager une démonstration par récurrence en retirant l'un des triangles ayant deux côtés correspondant à deux côtés consécutifs du \ngone\ (pour peu qu'un tel triangle existe toujours).
 
 
     \begin{multicols}{3}
@@ -228,99 +228,99 @@ Dans le cas non-convexe, les choses se compliquent a priori, car nous ne maîtri
 
     \begin{multicols}{2}
         \small\itshape
-    	\begin{center}
-        	\includegraphics[scale=.4]{mini-ear-1.png}
+        \begin{center}
+            \includegraphics[scale=.4]{mini-ear-1.png}
 
-        	\smallskip
-       		Un \ngone\ basique.
-    	\end{center}
+            \smallskip
+               Un \ngone\ basique.
+        \end{center}
 
-    	\begin{center}
-        	\includegraphics[scale=.4]{mini-ear-2.png}
+        \begin{center}
+            \includegraphics[scale=.4]{mini-ear-2.png}
 
-        	\smallskip
-       		Juste deux oreilles disponibles.
-    	\end{center}
+            \smallskip
+               Juste deux oreilles disponibles.
+        \end{center}
     \end{multicols}
 
-	
-	Raisonnons donc par récurrence sur $n \in \NN_{\geq3}$.
 
-	\begin{itemize}
-		\item \textbf{Cas de base.}
-		Soit $ABC$ un triangle non dégénéré.
-		Dire que $A$, $B$ et $C$ sont parcourus dans le sens trigonométrique,
-		c'est savoir que $\mu(ABC) = \det \big( \vect{AB} , \vect{AC} \big) > 0$.
+    Raisonnons donc par récurrence sur $n \in \NN_{\geq3}$.
 
-
-		\item \textbf{Hérédité.}
-		Soit un \ngone\ positif $\setproba{P} = A_1 A_2 \cdots A_n$ avec $n \in \NN_{>3}$.
-		Quitte à changer l'origine de $\setproba{P}$, sans modifier le sens de parcours, nous pouvons supposer que $A_{n-1} A_n A_1$ est une oreille d'une triangulation à l'écoute de $\setproba{P}$.
+    \begin{itemize}
+        \item \textbf{Cas de base.}
+        Soit $ABC$ un triangle non dégénéré.
+        Dire que $A$, $B$ et $C$ sont parcourus dans le sens trigonométrique,
+        c'est savoir que $\mu(ABC) = \det \big( \vect{AB} , \vect{AC} \big) > 0$.
 
 
-	    \begin{multicols}{2}
-    	    \small\itshape
-    		\begin{center}
-        	\includegraphics[scale=.175]{triangulation-proof-OK.png}
-
-	        	\smallskip
-    	   		$A_{n-1} A_n A_1$ est une oreille.
-    	\end{center}
-
-	    	\begin{center}
-        	\includegraphics[scale=.175]{triangulation-proof-KO.png}
-
-        		\smallskip
-    	   		$A_{n-1} A_n A_1$ n'est pas une oreille.
-    		\end{center}
-    	\end{multicols}
+        \item \textbf{Hérédité.}
+        Soit un \ngone\ positif $\setproba{P} = A_1 A_2 \cdots A_n$ avec $n \in \NN_{>3}$.
+        Quitte à changer l'origine de $\setproba{P}$, sans modifier le sens de parcours, nous pouvons supposer que $A_{n-1} A_n A_1$ est une oreille d'une triangulation à l'écoute de $\setproba{P}$.
 
 
-		\noindent
-		Posons $\setproba{P}^{\,\prime} = A_1 \cdots A_{n-1}$ qui est positif comme $\setproba{P}$. 
-		Nous arrivons aux calculs suivants en utilisant $A_1$ comme point de calcul de $\mu(\setproba{P})$.
+        \begin{multicols}{2}
+            \small\itshape
+            \begin{center}
+            \includegraphics[scale=.175]{triangulation-proof-OK.png}
 
-		\leavevmode\kern-2em%
-		\begin{stepcalc}[style=ar*]
-			\mu(\setproba{P})
-		%
-%		\explnext{}
-%			\dsum_{j=1}^{n} \det \big( \vect{A_1 \primeit{A}_j} , \vect{A_1 \primeit{A}_{j + 1}} \big)
-%		%
-		\explnext{}
-			\dsum_{j=1}^{n} \det \big( \vect{A_1 \primeit{A}_j} , \vect{A_1 \primeit{A}_{j + 1}} \big)
-%			+
-%			\det \big( \vect{A_1 \primeit{A}_n} , \vect{A_1 \primeit{A}_{n+1}} \big)
-		%
-		\explnext*{$\primeit{A}_{n+1} = A_1$ \\
-		           $\primeit{A}_i = A_i$ pour $1 \leq i \leq n$}%
-		          {}
-%			\dsum_{j=1}^{n-1} \det \big( \vect{A_1 A_j} , \vect{A_1 A_{j + 1}} \big)
-%%			+
-%%			\det \big( \vect{A_1 A_n} , \vect{A_1 A_1} \big)
-%		%
-%		\explnext{}
-			\dsum_{j=1}^{n-2} \det \big( \vect{A_1 A_j} , \vect{A_1 A_{j + 1}} \big)
-			+
-			\det \big( \vect{A_1 A_{n-1}} , \vect{A_1 A_n} \big)
-		%
-		\explnext*{Pour $\mu(\setproba{P}^{\,\prime})$, noter que 
-		        \\ $\det \big( \vect{A_1 A_{n-1}} , \vect{A_1 A_1} \big) = 0$.}{}
-			\mu(\setproba{P}^{\,\prime})
-			+
-			\mu(A_{n-1} A_n A_1)
-		\end{stepcalc}
+                \smallskip
+                   $A_{n-1} A_n A_1$ est une oreille.
+        \end{center}
+
+            \begin{center}
+            \includegraphics[scale=.175]{triangulation-proof-KO.png}
+
+                \smallskip
+                   $A_{n-1} A_n A_1$ n'est pas une oreille.
+            \end{center}
+        \end{multicols}
 
 
-		\noindent
-		Par hypothèse de récurrence, nous savons que
-		$\mu(\setproba{P}^{\,\prime}) \geq 0$.
-		De plus, $A_{n-1} A_n A_1$ étant une oreille de $\setproba{P}$, 
-		ce \xcycle{3} est forcément positif, d'où $\mu(A_{n-1} A_n A_1) \geq 0$ d'après le cas de base.
-		Nous arrivons bien à $\mu(\setproba{P}) \geq 0$, ce qui permet de finir aisément la démonstration par récurrence.
-	\end{itemize}
-	
-	\null\vspace{-6ex}
+        \noindent
+        Posons $\setproba{P}^{\,\prime} = A_1 \cdots A_{n-1}$ qui est positif comme $\setproba{P}$.
+        Nous arrivons aux calculs suivants en utilisant $A_1$ comme point de calcul de $\mu(\setproba{P})$.
+
+        \leavevmode\kern-2em%
+        \begin{stepcalc}[style=ar*]
+            \mu(\setproba{P})
+        %
+%        \explnext{}
+%            \dsum_{j=1}^{n} \det \big( \vect{A_1 \primeit{A}_j} , \vect{A_1 \primeit{A}_{j + 1}} \big)
+%        %
+        \explnext{}
+            \dsum_{j=1}^{n} \det \big( \vect{A_1 \primeit{A}_j} , \vect{A_1 \primeit{A}_{j + 1}} \big)
+%            +
+%            \det \big( \vect{A_1 \primeit{A}_n} , \vect{A_1 \primeit{A}_{n+1}} \big)
+        %
+        \explnext*{$\primeit{A}_{n+1} = A_1$ \\
+                   $\primeit{A}_i = A_i$ pour $1 \leq i \leq n$}%
+                  {}
+%            \dsum_{j=1}^{n-1} \det \big( \vect{A_1 A_j} , \vect{A_1 A_{j + 1}} \big)
+%%            +
+%%            \det \big( \vect{A_1 A_n} , \vect{A_1 A_1} \big)
+%        %
+%        \explnext{}
+            \dsum_{j=1}^{n-2} \det \big( \vect{A_1 A_j} , \vect{A_1 A_{j + 1}} \big)
+            +
+            \det \big( \vect{A_1 A_{n-1}} , \vect{A_1 A_n} \big)
+        %
+        \explnext*{Pour $\mu(\setproba{P}^{\,\prime})$, noter que
+                \\ $\det \big( \vect{A_1 A_{n-1}} , \vect{A_1 A_1} \big) = 0$.}{}
+            \mu(\setproba{P}^{\,\prime})
+            +
+            \mu(A_{n-1} A_n A_1)
+        \end{stepcalc}
+
+
+        \noindent
+        Par hypothèse de récurrence, nous savons que
+        $\mu(\setproba{P}^{\,\prime}) \geq 0$.
+        De plus, $A_{n-1} A_n A_1$ étant une oreille de $\setproba{P}$,
+        ce \xcycle{3} est forcément positif, d'où $\mu(A_{n-1} A_n A_1) \geq 0$ d'après le cas de base.
+        Nous arrivons bien à $\mu(\setproba{P}) \geq 0$, ce qui permet de finir aisément la démonstration par récurrence.
+    \end{itemize}
+
+    \null\vspace{-6ex}
 \end{proof}
 
 
@@ -340,48 +340,48 @@ Le fait suivant nous montre que, pour les \ngones, l'aire algébrique est une ex
     Les deux points suivants permettent de faire une preuve par récurrence.
 
     \begin{itemize}
-		\item \textbf{Cas de base.}
-		L'égalité est immédiate pour les triangles non dégénérés (c'est ce qui a motivé la définition de l'aire algébrique).
+        \item \textbf{Cas de base.}
+        L'égalité est immédiate pour les triangles non dégénérés (c'est ce qui a motivé la définition de l'aire algébrique).
 
 
-		\item \textbf{Hérédité.}
-		Soit $\setproba{P} = A_1 \cdots A_n$ un \ngone\ avec $n \in \NN_{>3}$.
-		%
-		Comme $\sarea{\setproba{P}^{\mathrm{op}}} = - \sarea{\setproba{P}}$ selon le fait \ref{nline-rota-opp}, nous pouvons choisir de parcourir $\setproba{P}$ positivement, puis de nous placer dans la situation de la démonstration du fait \ref{route-direction}:
-		$A_{n-1} A_n A_1$ est une oreille positive d'une triangulation à l'écoute du \ngone\ $\setproba{P}$,
-		et
-		$\setproba{P}^{\,\prime} = A_1 \cdots A_{n-1}$ positif.
-		%
-		Nous arrivons alors aux calculs élémentaires suivants.
-		
-		\leavevmode\kern-2em%
-		\begin{stepcalc}[style=ar*]
-			\area{\setproba{P}}
-		%
-		\explnext*{$A_{n-1} A_n A_1$ est une oreille de $\setproba{P}$.}%
-		          {}
-		    \area{\setproba{P}^{\,\prime}} + \area{A_{n-1} A_n A_1}
-		%
-		\explnext*{Hypothèse de récurrence et cas de base.}%
-		          {}
-		    \frac12 \abs{\mu(\setproba{P}^{\,\prime})} + \frac12 \abs{\mu(A_{n-1} A_n A_1)}
-		%
-		\explnext*{Par positivité.}%
-		          {}
-		    \frac12 \big( \mu(\setproba{P}^{\,\prime}) + \mu(A_{n-1} A_n A_1) \big)
-		%
-		\explnext*{Comme dans la preuve du fait \ref{route-direction}.}%
-		          {}
-		    \frac12 \mu(\setproba{P})
-		%
-		\explnext*{Par positivité.}%
-		          {}
-		    \frac12 \abs{\mu(\setproba{P})}
-		\explnext{}
-		    \abs{\sarea{\setproba{P}}}
-		\end{stepcalc}
+        \item \textbf{Hérédité.}
+        Soit $\setproba{P} = A_1 \cdots A_n$ un \ngone\ avec $n \in \NN_{>3}$.
+        %
+        Comme $\sarea{\setproba{P}^{\mathrm{op}}} = - \sarea{\setproba{P}}$ selon le fait \ref{nline-rota-opp}, nous pouvons choisir de parcourir $\setproba{P}$ positivement, puis de nous placer dans la situation de la démonstration du fait \ref{route-direction}:
+        $A_{n-1} A_n A_1$ est une oreille positive d'une triangulation à l'écoute du \ngone\ $\setproba{P}$,
+        et
+        $\setproba{P}^{\,\prime} = A_1 \cdots A_{n-1}$ positif.
+        %
+        Nous arrivons alors aux calculs élémentaires suivants.
+
+        \leavevmode\kern-2em%
+        \begin{stepcalc}[style=ar*]
+            \area{\setproba{P}}
+        %
+        \explnext*{$A_{n-1} A_n A_1$ est une oreille de $\setproba{P}$.}%
+                  {}
+            \area{\setproba{P}^{\,\prime}} + \area{A_{n-1} A_n A_1}
+        %
+        \explnext*{Hypothèse de récurrence et cas de base.}%
+                  {}
+            \frac12 \abs{\mu(\setproba{P}^{\,\prime})} + \frac12 \abs{\mu(A_{n-1} A_n A_1)}
+        %
+        \explnext*{Par positivité.}%
+                  {}
+            \frac12 \big( \mu(\setproba{P}^{\,\prime}) + \mu(A_{n-1} A_n A_1) \big)
+        %
+        \explnext*{Comme dans la preuve du fait \ref{route-direction}.}%
+                  {}
+            \frac12 \mu(\setproba{P})
+        %
+        \explnext*{Par positivité.}%
+                  {}
+            \frac12 \abs{\mu(\setproba{P})}
+        \explnext{}
+            \abs{\sarea{\setproba{P}}}
+        \end{stepcalc}
     \end{itemize}
-    
+
     \null\vspace{-3.5ex}
 \end{proof}
 
@@ -393,22 +393,22 @@ Le fait suivant nous montre que, pour les \ngones, l'aire algébrique est une ex
 
 
 \begin{remark}
-	Il faut être prudent avec la notion d'aire algébrique comme le montre l'exemple suivant, obtenu avec \geogebra,%
+    Il faut être prudent avec la notion d'aire algébrique comme le montre l'exemple suivant, obtenu avec \geogebra,%
     \footnote{
-    	Quand \geogebra\ associe un nombre à un \ngone\ croisé, il calcule la valeur absolue de son aire algébrique.
+        Quand \geogebra\ associe un nombre à un \ngone\ croisé, il calcule la valeur absolue de son aire algébrique.
     }
     où le \ngone\ croisé proposé, construit via une spirale positive depuis le point $A$,%
     \footnote{
-    	En calculant l'aire algébrique avec un point \og au centre \fg, les déterminants sont tous positifs.
-    } 
+        En calculant l'aire algébrique avec un point \og au centre \fg, les déterminants sont tous positifs.
+    }
     possède une aire algébrique positive supérieure à celle de l'enveloppe convexe du \ngone. Contre-intuitif, mais normal.
-    
-    
+
+
     \begin{multicols}{2}
-    	\small\itshape\centering
-    	\includegraphics[scale=.3]{ncycle-not-opti-pb-1.png}
-    
-    	\includegraphics[scale=.3]{ncycle-not-opti-pb-2.png}
+        \small\itshape\centering
+        \includegraphics[scale=.3]{ncycle-not-opti-pb-1.png}
+
+        \includegraphics[scale=.3]{ncycle-not-opti-pb-2.png}
     \end{multicols}
 \end{remark}
 
@@ -421,14 +421,14 @@ Finissons par un théorème de continuité qui permettra de justifier l'existenc
 
 \begin{fact} \label{sarea-cont}
     Soient $n \in \NN_{\geq3}$ et
-    $\pvaxes{O | i | j}$ un repère orthonormé direct du plan. 
+    $\pvaxes{O | i | j}$ un repère orthonormé direct du plan.
     On note $\setproba{U} \subset \RR^{2n}$ l'ensemble des uplets de coordonnées $\big( x(A_1) ; y(A_1) ; \dots ; x(A_n) ; y(A_n) \big)$ où $A_1 A_2 \cdots A_n$ désigne un \ncycle,
     et $\alpha: \setproba{U} \rightarrow \RRp$ la fonction qui à un uplet de $\setproba{U}$ associe l'aire algébrique du \ncycle\ qu'il représente.
-   	%
-	Avec ces notations, la fonction $\alpha: \setproba{U} \rightarrow \RRp$ est continue.
+       %
+    Avec ces notations, la fonction $\alpha: \setproba{U} \rightarrow \RRp$ est continue.
 \end{fact}
 
 
 \begin{proof}
-	Immédiat, car nous avons une fonction polynomiale.
+    Immédiat, car nous avons une fonction polynomiale.
 \end{proof}

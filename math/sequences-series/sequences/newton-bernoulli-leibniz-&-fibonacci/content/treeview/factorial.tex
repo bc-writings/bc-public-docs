@@ -1,4 +1,4 @@
-Passons à la démonstration de 
+Passons à la démonstration de
 l'identité $\binom{2n}{n} = \binosum{\binom{n}{k}}$
 que nous obtiendrons après avoir justifié que
 $\cnp = \binom{n}{p}$ si $n \in \NN$ et $p \in \ZintervalC{0}{n}$.
@@ -18,12 +18,12 @@ $\cnp = \cnp[n-1][p] + \cnp[n-1][p-1]$.
 En résumé,
 $\cnp = \cnp[n-1][p] + \cnp[n-1][p-1]$ pour $(p;n) \in (\NNs)^2$.%
 \footnote{
-	$\binom{n}{p} = \binom{n-1}{p} + \binom{n-1}{p-1}$ sur $ (\NNs)^2$
-	s'obtient via des arbres binaires.
-	Une récurrence donne alors 
-	$\cnp = \binom{n}{p}$ sur $\NN^2$.
-	%
-	Ceci étant noté, nous souhaitons raisonner uniquement via des arbres.
+    $\binom{n}{p} = \binom{n-1}{p} + \binom{n-1}{p-1}$ sur $ (\NNs)^2$
+    s'obtient via des arbres binaires.
+    Une récurrence donne alors
+    $\cnp = \binom{n}{p}$ sur $\NN^2$.
+    %
+    Ceci étant noté, nous souhaitons raisonner uniquement via des arbres.
 }
 Enfin,
 comme
@@ -33,7 +33,7 @@ $\cnp = 0$ si $p < 0$
 pour obtenir
 $\cnp = \cnp[n-1][p] + \cnp[n-1][p-1]$ sur $\ZZ \times \NNs$.%
 \footnote{
-	Prolonger $\cnp = \cnp[n-1][p] + \cnp[n-1][p-1]$ sur $\ZZ^2$ est plus problématique, car $\cnp[0][0] = \cnp[-1][0] + \cnp[-1][-1]$ a deux degrés de liberté.
+    Prolonger $\cnp = \cnp[n-1][p] + \cnp[n-1][p-1]$ sur $\ZZ^2$ est plus problématique, car $\cnp[0][0] = \cnp[-1][0] + \cnp[-1][-1]$ a deux degrés de liberté.
 }
 %
 Ceci nous permet de considérer la situation suivante.
@@ -63,20 +63,20 @@ $\binom{n}{p} = \binom{n}{n - p} = \cnp[n][n-p]$.
 
 
 \begin{remark}
-	Comme $\cnp[n-1][p] = \cnp - \cnp[n-1][p-1]$,
-	soit $\cnp = \cnp[n+1][p] - \cnp[n][p-1]$,
-	nous pouvons considérer la règle suivante.
+    Comme $\cnp[n-1][p] = \cnp - \cnp[n-1][p-1]$,
+    soit $\cnp = \cnp[n+1][p] - \cnp[n][p-1]$,
+    nous pouvons considérer la règle suivante.
 
     \begin{center}
-    	\itshape\centering
-    
-    	\calctree{\cnp}{\cnp[n+1][p]}{-\cnp[n][p-1]}
-    	
-    	Arbre de calcul.
+        \itshape\centering
+
+        \calctree{\cnp}{\cnp[n+1][p]}{-\cnp[n][p-1]}
+
+        Arbre de calcul.
     \end{center}
-    
+
     En prenant pour racine $\cnp[n][n]$, et pour profondeur $n$,
-	nous arrivons à
+    nous arrivons à
     $\cnp[n][n] = \sum_{k=0}^n \binom{n}{k} (-1)^{n-k} \cnp[n+k][k]$,
     soit
     $1 = \sum_{k=0}^n (-1)^{n-k} \binom{n}{k} \binom{n+k}{k}$,

@@ -7,16 +7,16 @@ comme de plus nous considérons deux fonctions,
 il est naturel d'introduire les objets suivants.
 %
 \begin{itemize}
-	\item $\pi: (x,y) \in \RR^2 \mapsto f(x) g(y) \in \RR$. Ceci permet de \focus{singulariser} les fonctions $f$ et $g$.
+    \item $\pi: (x,y) \in \RR^2 \mapsto f(x) g(y) \in \RR$. Ceci permet de \focus{singulariser} les fonctions $f$ et $g$.
 
-	\item $\setgeo{C}^{\infty}(\RR^2 , \RR)$ désigne l'ensemble des fonctions infiniment dérivables de $\RR^2$ dans $\RR$.%
-	\footnote{
-		Si besoin, il est possible de modifier cet ensemble tant que cela n'enfreint pas le théorème de Schwarz qui va être essentiel pour la suite.
-	}
+    \item $\setgeo{C}^{\infty}(\RR^2 , \RR)$ désigne l'ensemble des fonctions infiniment dérivables de $\RR^2$ dans $\RR$.%
+    \footnote{
+        Si besoin, il est possible de modifier cet ensemble tant que cela n'enfreint pas le théorème de Schwarz qui va être essentiel pour la suite.
+    }
 
-	\item $\setalge{A} = \Endo \big( \setgeo{C}^{\infty}(\RR^2 , \RR) \big)$ est l'ensemble des endomorphismes linéaires de $\setgeo{C}^{\infty}(\RR^2 , \RR)$ muni de l'addition $+$ point par point, et de la composition $\circ$ comme produit.
+    \item $\setalge{A} = \Endo \big( \setgeo{C}^{\infty}(\RR^2 , \RR) \big)$ est l'ensemble des endomorphismes linéaires de $\setgeo{C}^{\infty}(\RR^2 , \RR)$ muni de l'addition $+$ point par point, et de la composition $\circ$ comme produit.
 
-	\item $\pderope[sf]{x}{1} \in \setalge{A}$ et $\pderope[sf]{y}{1} \in \setalge{A}$ sont les dérivations partielles relativement aux première et deuxième coordonnées respectivement. 
+    \item $\pderope[sf]{x}{1} \in \setalge{A}$ et $\pderope[sf]{y}{1} \in \setalge{A}$ sont les dérivations partielles relativement aux première et deuxième coordonnées respectivement.
 \end{itemize}
 
 
@@ -31,56 +31,56 @@ Il nous reste à revenir dans le monde des fonctions à une seule variable. Pour
 Nous avons la propriété de commutativité essentielle suivante.
 %
 \begin{itemize}
-	\item
-	\begin{stepcalc}[style=sar]
-		\big( \pderope[f]{x}{1} + \pderope[f]{y}{1} \big) \circ \Lambda(h)(x,y)
-	\explnext{}
-		\big( \pderope[f]{x}{1} + \pderope[f]{y}{1} \big) \big( h(x, x) \big)
-	\explnext{}
-		\pder{h}{x}{1}(x, x) + \pder{h}{y}{1}h(x, x)
-	\end{stepcalc}
+    \item
+    \begin{stepcalc}[style=sar]
+        \big( \pderope[f]{x}{1} + \pderope[f]{y}{1} \big) \circ \Lambda(h)(x,y)
+    \explnext{}
+        \big( \pderope[f]{x}{1} + \pderope[f]{y}{1} \big) \big( h(x, x) \big)
+    \explnext{}
+        \pder{h}{x}{1}(x, x) + \pder{h}{y}{1}h(x, x)
+    \end{stepcalc}
 
 
-	\item
-	\begin{stepcalc}[style=sar]
-		\Lambda \circ \big( \pderope[f]{x}{1} + \pderope[f]{y}{1} \big) \big( h(x,y) \big)
-	\explnext{}
-		\Lambda \big( \pder{h}{x}{1}(x, y) + \pder{h}{y}{1}h(x, y) \big)
-	\explnext{}
-		\pder{h}{x}{1}(x, x) + \pder{h}{y}{1}h(x, x)
-	\end{stepcalc}
+    \item
+    \begin{stepcalc}[style=sar]
+        \Lambda \circ \big( \pderope[f]{x}{1} + \pderope[f]{y}{1} \big) \big( h(x,y) \big)
+    \explnext{}
+        \Lambda \big( \pder{h}{x}{1}(x, y) + \pder{h}{y}{1}h(x, y) \big)
+    \explnext{}
+        \pder{h}{x}{1}(x, x) + \pder{h}{y}{1}h(x, x)
+    \end{stepcalc}
 \end{itemize}
 
 
 La conclusion se fait alors via les calculs ci-dessous.
 
 \begin{stepcalc}[style=sar]
-	(fg)^{(n)} (x)
+    (fg)^{(n)} (x)
 \explnext{}
     \big( \pderope[f]{x}{1} + \pderope[f]{y}{1} \big)^n \big( f(x) g(x) \big)
 \explnext{}
     \Big[
-    	\big( \pderope[f]{x}{1} + \pderope[f]{y}{1} \big)^n \circ \Lambda
-	\Big]
-	(\pi)(x,y)
+        \big( \pderope[f]{x}{1} + \pderope[f]{y}{1} \big)^n \circ \Lambda
+    \Big]
+    (\pi)(x,y)
 \explnext*{$\Lambda$ et $\big( \pderope[f]{x}{1} + \pderope[f]{y}{1} \big)$ commutent.}{}
     \Big[
-    	\Lambda \circ \big( \pderope[f]{x}{1} + \pderope[f]{y}{1} \big)^n
-	\Big]
-	(\pi)(x,y)
+        \Lambda \circ \big( \pderope[f]{x}{1} + \pderope[f]{y}{1} \big)^n
+    \Big]
+    (\pi)(x,y)
 \explnext{}
     \Big[
-    	\Lambda \circ \big( \dsum_{k=0}^n \combi[n][k] \pderope[f]{x^k}{k} \circ \pderope[f]{y^{n-k}}{n-k} \big)
-	\Big]
-	\big( f(x) g(y) \big)
+        \Lambda \circ \big( \dsum_{k=0}^n \combi[n][k] \pderope[f]{x^k}{k} \circ \pderope[f]{y^{n-k}}{n-k} \big)
+    \Big]
+    \big( f(x) g(y) \big)
 %\end{stepcalc}
 %
 %Le calcul se finit comme suit.
 %
 %\begin{stepcalc}[style=sar]
-%	(fg)^{(n)} (x)
+%    (fg)^{(n)} (x)
 \explnext{}
     \Lambda \big( \dsum_{k=0}^n \combi[n][k] f^k(x) g^{n-k}(y) \big)
 \explnext{}
-	\dsum_{k=0}^n \combi[n][k] f^k(x) g^{n-k}(x)
+    \dsum_{k=0}^n \combi[n][k] f^k(x) g^{n-k}(x)
 \end{stepcalc}

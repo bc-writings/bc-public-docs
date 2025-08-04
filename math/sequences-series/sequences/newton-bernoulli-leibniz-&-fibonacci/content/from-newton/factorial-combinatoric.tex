@@ -3,19 +3,19 @@ $\binom{n}{p} = \combi[n][p] = \cnp$,
 et
 $\binom{2n}{n} = \binosum{\binom{n}{k}}$.
 %
-Rappelons que les coefficients factoriels vérifient 
+Rappelons que les coefficients factoriels vérifient
 $\cnp[0][0] = 1$,
 $\cnp[0][p] = 0$ si $p \neq 0$
 et
 $\cnp[n+1][p+1] = \cnp[n][p+1] + \cnp[n][p]$ sur $\NN^2$.
 Reprenant les notations de la section précédente, la relation de récurrence se réécrit $\mu_1^1(\mathcal{C}) = \mu_1^0(\mathcal{C}) + \mathcal{C}$.%
 \footnote{
-	Noter la ressemblance avec $\mu_1^1(\mathcal{B}) = \mu_0^1(\mathcal{B}) + \mathcal{B}$.
+    Noter la ressemblance avec $\mu_1^1(\mathcal{B}) = \mu_0^1(\mathcal{B}) + \mathcal{B}$.
 }
 Nous aboutissons aux calculs suivants.
 
 \begin{stepcalc}[style=sar]
-	\big( \cnp[m+n][p+n] \big)_{(p,m)\in\NN^2}
+    \big( \cnp[m+n][p+n] \big)_{(p,m)\in\NN^2}
 \explnext{}
     ( \mu_1^1 )^n(\mathcal{C})
 \explnext{}
@@ -30,7 +30,7 @@ Nous aboutissons aux calculs suivants.
     \big( \dsum_{k=0}^n \combi[n][k] \cnp[m][p+k] \big)_{(p,m)\in\NN^2}
 \end{stepcalc}
 
-En choisissant $(p,m) = (0,n)$, 
+En choisissant $(p,m) = (0,n)$,
 nous obtenons
 $\cnp[2n][n] = \combisum{\cnp[n][k]}$.
 
@@ -38,12 +38,12 @@ $\cnp[2n][n] = \combisum{\cnp[n][k]}$.
 
 Justifions maintenant que $\cnp = \combi[n][p]$ pour $n \in \NN$ et $p \in \ZintervalC{0}{n}$.%
 \footnote{
-	L'efficacité commande de passer via
-	$\combi[0][0] = 1$,
-	$\combi[0][p] = 0$ si $p \neq 0$
-	et
-	$\combi[n+1][p+1] = \combi[n][p+1] + \combi[n][p]$ sur $\NN^2$, la relation de récurrence se démontrant aisément par un argument combinatoire.
-	Nous ne le faisons pas, car nous souhaitons donner un rôle central à la formule du binôme de Newton.
+    L'efficacité commande de passer via
+    $\combi[0][0] = 1$,
+    $\combi[0][p] = 0$ si $p \neq 0$
+    et
+    $\combi[n+1][p+1] = \combi[n][p+1] + \combi[n][p]$ sur $\NN^2$, la relation de récurrence se démontrant aisément par un argument combinatoire.
+    Nous ne le faisons pas, car nous souhaitons donner un rôle central à la formule du binôme de Newton.
 }
 %
 Une première idée serait de réécrire
@@ -57,7 +57,7 @@ Dans la section \ref{tree-facto} page \pageref{tree-facto}, nous avons expliqué
 %
 Fixons alors $q \in \NN$, et définissons la suite $\mathcal{D}$ sur $\NN^2$ par $\mathcal{D}_p^m = \cnp[m][p-q]$.%
 \footnote{
-	Nous créons le décalage à la source, à défaut de l'obtenir dans le but.
+    Nous créons le décalage à la source, à défaut de l'obtenir dans le but.
 }
 Comme $\mu_1^1(\mathcal{D}) = \mu_1^0(\mathcal{D}) + \mathcal{D}$,
 de nouveau,
@@ -95,25 +95,25 @@ $\binom{n}{p} = \combi[n][p] = \cnp$.
 
 
 \begin{remark}
-	En partant de
-	$\mathcal{C} = \mu_1^1(\mathcal{C}) - \mu_1^0(\mathcal{C})$,
-	via des calculs similaires à ceux ci-dessus,
-	nous arrivons à
+    En partant de
+    $\mathcal{C} = \mu_1^1(\mathcal{C}) - \mu_1^0(\mathcal{C})$,
+    via des calculs similaires à ceux ci-dessus,
+    nous arrivons à
     $\cnp[m][p] = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} \cnp[m+k][p+n]$
-    qui fournit 
+    qui fournit
     $\cnp[2n][n] = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} \cnp[2n+k][2n]$
     via $(p,m) = (n,2n)$,
     soit
     $\binom{2n}{n} = \sum_{k=0}^n (-1)^{n-k} \binom{n}{k} \binom{2n+k}{2n}$.%
     \footnote{
-		Notons que $(p,m) = (0,0)$ donne la triviale identité
-		$1 = \sum_{k=0}^n (-1)^{n-k} \binom{n}{k} \binom{k}{n}$.
-		Inutile, mais marrant!
-	}
+        Notons que $(p,m) = (0,0)$ donne la triviale identité
+        $1 = \sum_{k=0}^n (-1)^{n-k} \binom{n}{k} \binom{k}{n}$.
+        Inutile, mais marrant!
+    }
     %
     Quant au choix
-	$\mu_1^0(\mathcal{C}) = \mu_1^1(\mathcal{C}) - \mathcal{C}$,
-	il donne
+    $\mu_1^0(\mathcal{C}) = \mu_1^1(\mathcal{C}) - \mathcal{C}$,
+    il donne
     $\cnp[m][p+n] = \sum_{k=0}^n \combi[n][k] (-1)^{n-k} \cnp[m+k][p+k]$,
     et par conséquent, via $(p,m) = (0,n)$, la très jolie identité, non immédiate à découvrir,
     $1 = \sum_{k=0}^n (-1)^{n-k} \binom{n}{k} \binom{n+k}{k}$.

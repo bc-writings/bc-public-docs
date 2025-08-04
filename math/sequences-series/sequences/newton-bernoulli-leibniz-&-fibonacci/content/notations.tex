@@ -2,21 +2,21 @@ Nous utiliserons les notations suivantes sans jamais employer directement l'éga
 tout en employant le vocabulaire non standard suivant.
 %
 \begin{itemize}
-	\item \textbf{Coefficients binomiaux:}
+    \item \textbf{Coefficients binomiaux:}
     %
     pour $(n;k) \in \NN^2$,
     $\binom{n}{k}$ désigne le nombre de chemins avec $k$ succès dans un arbre binaire complet de profondeur $n$ (voir la section  \ref{useful-trees}).
 
 
-	\item \textbf{Coefficients factoriels:}
+    \item \textbf{Coefficients factoriels:}
     %
     $\cnp[n][k]$ est définie sur $\NN^2$ par
-	$\cnp[n][k] = \frac{n!}{k!(n-k)!}$ si $n \in \NN$ et $k \in \ZintervalC{0}{n}$,
-	et
-	$\cnp[n][k] = 0$ dans les autres cas.
+    $\cnp[n][k] = \frac{n!}{k!(n-k)!}$ si $n \in \NN$ et $k \in \ZintervalC{0}{n}$,
+    et
+    $\cnp[n][k] = 0$ dans les autres cas.
 
 
-	\item \textbf{Coefficients combinatoires:}
+    \item \textbf{Coefficients combinatoires:}
     %
     pour $(n;k) \in \NN^2$,
     $\combi[n][k]$ désigne le nombre de sous-ensembles à $k$ éléments d'un ensemble de cardinal $n$.
@@ -24,5 +24,5 @@ tout en employant le vocabulaire non standard suivant.
 
 Il est immédiat de voir que pour chacun de ces coefficients, lorsque $k \in \ZintervalC{0}{n}$, remplacer $k$ par $(n-k)$ ne changera pas sa valeur.%
 \footnote{
-	$\combi[n][n-k] = \combi[n][k]$ est immédiat à obtenir en associant un sous-ensemble à son complémentaire.
+    $\combi[n][n-k] = \combi[n][k]$ est immédiat à obtenir en associant un sous-ensemble à son complémentaire.
 }

@@ -10,7 +10,7 @@ Ainsi, pour $n=3$, nous obtenons l'arbre suivant.
 
 \binotree{\fibo{3}}
 
-Comme aux feuilles de l'arbre, nous avons les termes 
+Comme aux feuilles de l'arbre, nous avons les termes
 $F_{2n - k\cdot1 - (n-k)\cdot2} = F_k$
 pour $k \in \ZintervalC{0}{n}$,
 nous validons l'identité
@@ -18,10 +18,10 @@ $F_{2n} = \binosum{F_k}$.
 
 
 \begin{remark}
-	Plus généralement, nous avons
-	$F_{m+2n} = \binosum{F_{m+k}}$
-	par simple décalage de tous les indices,
-	puisque cette opération est compatible avec notre méthode de construction.
+    Plus généralement, nous avons
+    $F_{m+2n} = \binosum{F_{m+k}}$
+    par simple décalage de tous les indices,
+    puisque cette opération est compatible avec notre méthode de construction.
 \end{remark}
 
 
@@ -29,17 +29,17 @@ $F_{2n} = \binosum{F_k}$.
 
 
 \begin{remark}
-	Examinons ce que donne la relation de récurrence modifiée $F_{i-2} = F_{i} - F_{i-1}$, soit $F_i = F_{i+2} - F_{i+1}$.
-	La règle de calcul devient la suivante.
+    Examinons ce que donne la relation de récurrence modifiée $F_{i-2} = F_{i} - F_{i-1}$, soit $F_i = F_{i+2} - F_{i+1}$.
+    La règle de calcul devient la suivante.
 
     \begin{center}
-    	\itshape\centering
-        
+        \itshape\centering
+
         \calctree{F_i}{F_{i+2}}{-F_{i+1}}
-    
+
         Arbre de calcul.
     \end{center}
-    
+
     Un arbre de racine $F_0$, et de profondeur $n$ donne
     $F_{0} = \binosum{(-1)^{n-k} F_{2k + n - k}}$,
     soit la jolie formule
@@ -50,19 +50,19 @@ $F_{2n} = \binosum{F_k}$.
     Quant à l'autre modification $F_{i-1} = F_{i} - F_{i-2}$, soit $F_i = F_{i+1} - F_{i-1}$ qui donne la règle de calcul ci-dessous.
 
     \begin{center}
-    	\itshape\centering
-        
+        \itshape\centering
+
         \calctree{F_i}{F_{i+1}}{-F_{i-1}}
-    
+
         Arbre de calcul.
     \end{center}
-    
+
     Un arbre de racine $F_n$, et de profondeur $n$ donne
     $F_{n} = \binosum{(-1)^{n-k} F_{n + k - (n - k)}}$,
     soit l'identité
     $F_{n} = \binosum{(-1)^{n-k} F_{2 k}}$.
     Nous retombons sur la formule d'inversion de Pascal:
-    choisir $a_n = F_n$ et $b_n = F_{2n}$. 
+    choisir $a_n = F_n$ et $b_n = F_{2n}$.
 \end{remark}
 
 
@@ -70,36 +70,36 @@ $F_{2n} = \binosum{F_k}$.
 
 
 \begin{remark}
-	Considérons $U$ une suite récurrente linéaire d'ordre $2$,
-	c'est-à-dire telle que
-	$U_{i} = p U_{i-1} + q U_{i-2}$ avec $(p, q) \in \RR^2$.
-	En mixant les idées pour la suite de Fibonacci avec celles utilisées pour la formule du binôme de Newton, voir les arbres ci-dessous, nous obtenons sans effort
-	$U_{m+2n} = \binosum{p^k q^{n-k} U_{m+k}}$,
-	et donc
-	$U_{2n} = \binosum{p^k q^{n-k} U_{k}}$.
+    Considérons $U$ une suite récurrente linéaire d'ordre $2$,
+    c'est-à-dire telle que
+    $U_{i} = p U_{i-1} + q U_{i-2}$ avec $(p, q) \in \RR^2$.
+    En mixant les idées pour la suite de Fibonacci avec celles utilisées pour la formule du binôme de Newton, voir les arbres ci-dessous, nous obtenons sans effort
+    $U_{m+2n} = \binosum{p^k q^{n-k} U_{m+k}}$,
+    et donc
+    $U_{2n} = \binosum{p^k q^{n-k} U_{k}}$.
 
-	\explaintree{U_{i}}{p U_{i-1}}{q U_{i-2}}%
-    	        {\intertree}{\reculin{i}}
-	        
-	
-	Supposons $p \neq 0$ et $q \neq 0$.
-	%
-	Via  $U_{i-1} = p^{-1} \big( U_{i} - q U_{i-2} \big)$, 
-	soit $U_{i} = p^{-1} U_{i+1} - p^{-1} q U_{i-1}$,
-	il est rapide d'obtenir
-	$U_n = \binosum{p^{-n} (-q)^{n-k} U_{2k}}$ (voir ci-dessous).
-	%
-	Ceci est une instance de la formule d'inversion de Pascal:
-	l'astuce est de passer via
+    \explaintree{U_{i}}{p U_{i-1}}{q U_{i-2}}%
+                {\intertree}{\reculin{i}}
+
+
+    Supposons $p \neq 0$ et $q \neq 0$.
+    %
+    Via  $U_{i-1} = p^{-1} \big( U_{i} - q U_{i-2} \big)$,
+    soit $U_{i} = p^{-1} U_{i+1} - p^{-1} q U_{i-1}$,
+    il est rapide d'obtenir
+    $U_n = \binosum{p^{-n} (-q)^{n-k} U_{2k}}$ (voir ci-dessous).
+    %
+    Ceci est une instance de la formule d'inversion de Pascal:
+    l'astuce est de passer via
     $a_n = p^n q^{-n} U_{n}$
     et
     $b_n = q^{-n} U_{2n}$.
 
     \begin{center}
-    	\itshape\centering
-        
+        \itshape\centering
+
         \calctree{U_i}{p^{-1} U_{i+1}}{- p^{-1} q U_{i-1}}
-    
+
         Arbre de calcul.
     \end{center}
 \end{remark}

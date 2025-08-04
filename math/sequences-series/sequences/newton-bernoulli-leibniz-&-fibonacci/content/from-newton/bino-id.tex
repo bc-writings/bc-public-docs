@@ -5,17 +5,17 @@ Nous allons partir du fait très classique suivant pour donner un éclairage dif
 
 
 \begin{fact} \label{bino-id-formal}
-	Soit $\setalge{A}$ un anneau commutatif (forcément unitaire).
-	%
-	Dans l'anneau des polynômes à deux variables $\setalge{A}[X, Y]$, nous avons:
-	$\forall n \in \NN$,
-	$\combinewton{X}{Y}$.
-	Ceci est la formule générique du binôme de Newton.
+    Soit $\setalge{A}$ un anneau commutatif (forcément unitaire).
+    %
+    Dans l'anneau des polynômes à deux variables $\setalge{A}[X, Y]$, nous avons:
+    $\forall n \in \NN$,
+    $\combinewton{X}{Y}$.
+    Ceci est la formule générique du binôme de Newton.
 \end{fact}
 
 
 \begin{proof}
-	Il suffit d'écrire $(X + Y)^n = \prod_{k=1}^{n} (X + Y)_k$ avec des indices étiquetant les parenthèses dont les positions sont fixées dans le produit.
+    Il suffit d'écrire $(X + Y)^n = \prod_{k=1}^{n} (X + Y)_k$ avec des indices étiquetant les parenthèses dont les positions sont fixées dans le produit.
     En distribuant parenthèse par parenthèse de gauche à droite, le nombre de $X^k Y^{n-k}$ obtenus correspond au nombre de choix de $k$ parenthèses, pour $X$, parmi les $n$ disponibles, ce qui donne $\combi[n][k]$ possibilités.
 \end{proof}
 
@@ -27,15 +27,15 @@ Dans les applications à venir, nous allons nous appuyer sur la formule suivante
 
 
 \begin{fact} \label{bino-id-a-b}
-	Soit $\setalge{A}$ un anneau commutatif.
-	$\forall (a, b) \in \setalge{A}^2$,
-	$\forall n \in \NN$,
-	$\combinewton{a}{b}$.
+    Soit $\setalge{A}$ un anneau commutatif.
+    $\forall (a, b) \in \setalge{A}^2$,
+    $\forall n \in \NN$,
+    $\combinewton{a}{b}$.
 \end{fact}
 
 
 \begin{proof}
-	Il suffit d'évaluer en $(a, b)$ la formule générique du binôme de Newton.
+    Il suffit d'évaluer en $(a, b)$ la formule générique du binôme de Newton.
 \end{proof}
 
 
@@ -43,10 +43,9 @@ Dans les applications à venir, nous allons nous appuyer sur la formule suivante
 
 
 \begin{remark}
-	Notre preuve de la formule d'inversion de Pascal s'appuyait sur la formule du binôme de Newton (voir le \reffact{pascal-inv}).
-	En oubliant la section sur les arbres, nous pouvons donc justifier que pour deux suites $a$ et $b$ à valeur dans un anneau commutatif,
-	$b_n = \combisum{a_k}$ sur $\NN$
-	si, et seulement si,
-	$a_n = \combisum{(-1)^{n-k} b_k}$ sur $\NN$.
+    Notre preuve de la formule d'inversion de Pascal s'appuyait sur la formule du binôme de Newton (voir le \reffact{pascal-inv}).
+    En oubliant la section sur les arbres, nous pouvons donc justifier que pour deux suites $a$ et $b$ à valeur dans un anneau commutatif,
+    $b_n = \combisum{a_k}$ sur $\NN$
+    si, et seulement si,
+    $a_n = \combisum{(-1)^{n-k} b_k}$ sur $\NN$.
 \end{remark}
-
