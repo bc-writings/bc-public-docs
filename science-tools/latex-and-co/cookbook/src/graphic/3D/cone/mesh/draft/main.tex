@@ -24,8 +24,8 @@
 ------
 -- Définition de la zone graphique.
 --
---     1) La fenêtre ''window'' est une objet 2D relatife au plan
---     de projection calculé par latex::''luadraw''.
+--     1) La fenêtre ''window'' est un objet 2D relatif au plan de
+--     projection calculé par latex::''luadraw''.
 --
 --     1) ''viewdir'' permet de définir les deux angles de vue (en
 --     degrés) pour la projection orthographique.
@@ -80,12 +80,16 @@
         0, 360,
         {grid = {25, 36}})
 ------
--- Le tracé du cône se fait via la méthode ''Dfacet''.
+-- Le tracé de la surface de révolution doit fait via la méthode
+-- ''Dfacet''.
 ------
     graphzone:Dfacet(
    	    cone,
         {color    = "orange",
 		 contrast = 0.5})
+------
+-- Et le merveilleux se révèle au monde.
+------
     graphzone:Show()
 \end{luadraw}
 
@@ -102,11 +106,11 @@
         size    = {10, 10}
     }
 ------
--- Aucun changement dans la suite.
+-- Aucun changement dans la suite du code.
 --
 -- note::
---     Une factorisation du code est proposé dans la recette
---     suivante.
+--     Une factorisation du code est néceessaire proposé dans la
+--     recette suivante.
 ------
     graphzone:Linejoin("round")
 

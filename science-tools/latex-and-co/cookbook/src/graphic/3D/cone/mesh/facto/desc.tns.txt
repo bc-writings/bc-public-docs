@@ -1,9 +1,16 @@
 this::
-    date = 2025-08-04 ????
+    date = 2025-08-04
 
 
 =============
 Beau et court
 =============
 
-Nous proposons une factorisation du code tout en laissant les \envs \luadraw dans le fichier \tex.
+Quand des lignes de code se répètent, il est temps de se souvenir de l'acronyme anglais DRY pour "Don't Repeat Yourself", ou sa version française SEC pour "Surtout Éviter les Copies"
+((
+    Traduction française vue dans cf::''cette page ; https://bruno-orsier.developpez.com/principes/dry/'' le date::''2025-08-04''.
+)).
+Cette recette propose une solution élégante et généralisable à énormément de situations
+((
+    Il est possible d'utiliser la solution proposée pour créeer des animations, un sujet non abordé dans la présente recette allégée en fonctionnalités pour votre bien-être.
+)).

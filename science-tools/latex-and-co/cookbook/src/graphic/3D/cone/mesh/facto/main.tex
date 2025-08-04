@@ -1,0 +1,74 @@
+%%%
+% src::
+%     url = https://tex.stackexchange.com/a/749228/6880
+%%%
+
+\documentclass[varwidth, border = 3pt]{standalone}
+
+\usepackage[svgnames]{xcolor}
+\usepackage[3d]{luadraw}
+
+\begin{document}
+
+\begin{luadraw}{}
+------
+-- Les ingrédients de base.
+------
+    local graphzone = graph3d:new{
+        window = {-1.5, 7, -2.5, 3},
+        size   = {10, 10}
+    }
+
+    graphzone:Linejoin("round")
+
+    local genecurve = function(t)
+        return M(t, 2 - t/2, 0)
+    end
+
+    local cone = rotcurve(
+        genecurve, -0.2, 6.5,
+        {Origin, -vecI},
+        0, 360,
+        {grid = {25, 36}})
+
+------
+-- Ajout d'une fonction pour tracer la surface.
+------
+    local draw = function()
+        graphzone:Dfacet(
+            cone,
+            {color    = "orange",
+             contrast = 0.5})
+    end
+
+------
+-- Vue 1 construite en coulisse.
+------
+    graphzone:Setviewdir(290, 60)
+    draw()
+    graphzone:Savetofile("mesh-cone-1.tkz")
+
+------
+-- Nous devons effacer la zone graphique courante !
+------
+    graphzone.currentexport = {""}
+    graphzone.export        = graphzone.currentexport
+
+------
+-- Vue 2 construite en coulisse.
+------
+    graphzone:Setviewdir(240,60) -- second view
+    draw()
+    graphzone:Savetofile("mesh-cone-2.tkz")
+\end{luadraw}
+
+\section*{1st point of view}
+
+\input{mesh-cone-1.tkz}
+
+
+\section*{2nd point of view}
+
+\input{mesh-cone-2.tkz}
+
+\end{document}

@@ -6,4 +6,4 @@ this::
 Une première version explicative, mais non optimisée
 ====================================================
 
-Commençons par prendre nos aises en faisant les choses les mains dans la boue.
+Commençons par prendre nos aises en faisant les choses avec les mains dans la boue.

@@ -1,0 +1,121 @@
+%%%
+% src::
+%     url = https://tex.stackexchange.com/a/747734
+%%%
+
+\documentclass[varwidth, border = 3pt]{standalone}
+
+\usepackage[svgnames]{xcolor}
+\usepackage[3d]{luadraw}
+
+\begin{document}
+
+\begin{luadraw}{name = cone-section-section}
+------
+-- Définition de la zone graphique.
+------
+    local graphzone = graph3d:new{
+        window  = {-5, 5, -9, 5.5},
+        viewdir = {5, 60},
+        size    = {10, 10}
+    }
+------
+-- Réglages liés aux lignes.
+------
+    graphzone:Linejoin("round")
+    Hiddenlinestyle = "dashed"
+    graphzone:Lineoptions(solid, "black", 16)
+------
+-- Création de deux polyèdres coniques ouverts pour les raisons
+-- suivantes.
+--
+--     1) Nous ne souhaitons pas visualiser l'intersection sur
+--     le fond du cône du bas
+--
+--     1) Pour le cône du haut, non intersecté par le plan, il
+--     est inutile de calculer son "couvercle".
+------
+    local cone_1 = cone(
+        Origin, 4*vecK, 3, 35,
+        true)
+    local cone_2 = cone(
+        Origin, -4*vecK, 3, 35,
+        true)
+------
+-- Calcul de l'unique section plane (nous sommes dans le cas
+-- d'une parabole).
+------
+    local plane   = {M(0, 0, -3), -12*vecJ + 9*vecK}
+    local section = graphzone:Intersection3d(cone_2, plane)
+------
+-- XXX
+-- La méthode g:Classifyfacet(F) où F est une liste de facettes ou bien un polyèdre, renvoie deux listes de facettes, la première est la liste des facettes visibles, et la suivante, la liste des facettes non visibles.
+-- La fonction cutfacet(F,plane,close) fait la même chose que la fonction précédente sauf que F est une liste de facettes (pas un polyèdre), et que cette fonction renvoie des listes de facettes et non pas des polyèdres. Cette fonction a été utilisée dans l'exemple des courbes de niveau à la figure 10 .
+------
+    local V      = graphzone:Classifyfacet(cone_2)
+    local V1, V2 = cutfacet(V, plane)
+------
+-- Partie du cône du bas sous le plan.
+------
+    graphzone:Dpolyline3d(
+        border(V2),
+        "left color = white, right color = ForestGreen")
+------
+-- Le plan de coupe.
+------
+    graphzone:Dplane(
+        plane, 3*vecJ + 4*vecK, 12, 9, 5,
+        "Navy, fill = blue!75!black!45, fill opacity = .9")
+------
+-- Partie du cône du bas au-dessus du plan.
+------
+    graphzone:Dpolyline3d(
+        border(V1),
+        "left color = white, right color = gray")
+------
+-- Le cône au-dessus.
+------
+    graphzone:Dcone(
+        Origin, 4*vecK, 3,
+        {color = "orange"})
+------
+-- La ligne polygonale de la section.
+------
+    graphzone:Dedges(
+        section,
+        {hidden = true,color = "red",width = 12})
+------
+-- Tous les traits à venir sont en pointillés : nous entrons
+-- du côté obscur du graphisme 3D...
+------
+    graphzone:Linestyle(Hiddenlinestyle)
+------
+-- Ajout à la main du bord caché du plan via les paramètres
+-- suivants.
+--
+--     1) En premier vient la modélisation du plan par un point
+--     et un vecteur normal.
+--
+--     1) Ensuite,
+--
+--     1)
+--
+--     1)
+-- L'argument V doit être un vecteur non nul du plan {P}, {L}_1 et {L}_2 sont deux longueurs. La méthode construit un parallélogramme centré sur A , dont un côté est.... L'argument mode indique les bords à tracer :
+-- Par défaut le mode vaut 5 .
+------
+    graphzone:Dplane(
+        plane, 3*vecJ + 4*vecK,
+        12, 9,
+        "Navy")
+------
+-- Ajout à la main du bord caché du cône du bas.
+------
+    graphzone:Dcone(Origin, -4*vecK, 3)
+------
+-- Et le merveilleux se révèle au monde.
+------
+    graphzone:Show()
+\end{luadraw}
+
+\end{document}

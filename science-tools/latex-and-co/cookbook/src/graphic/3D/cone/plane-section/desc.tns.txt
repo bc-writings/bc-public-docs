@@ -7,5 +7,5 @@ Sections planes d'un cône
 =========================
 
 content::
-    ./gray/\desc
-    ./color/\desc
+    ./no-plane/\desc
+    ./plane/\desc
