@@ -55,15 +55,24 @@
     graphview:Linejoin("round")
 
 ------
--- Construction du domaine dans le plan `xOy'.
+-- Réglage du repère en mode "boîte".
+------
+    graphview:Dboxaxes3d({
+        grid      = true,
+        gridcolor = "gray",
+        fillcolor = "LightGray"
+    })
+
+------
+-- Construction du domaine dans le plan `xOy`.
 --
--- La fonction ''map'' sert à appliquer ''toPoint3d'' à chaque élémént
--- d'une liste de réels, ou de complexes, pour les convertir en point
--- 3D.
+--     1) La fonction ''map'' sert à appliquer ''toPoint3d'' à chaque
+--     élément d'une liste de réels, ou de complexes, pour les
+--     convertir en point 3D.
 --
--- Quant à la méthode ''domain3'', elle permet de définir le contour
--- délimité par les courbes des fonctions `f` et `g` avec des réglages
--- spécifiques.
+--     1) Quant à la méthode ''domain3'', elle permet de définir le
+--     contour délimité par les courbes des fonctions `f` et `g` avec
+--     des réglages expliqués en commentaires.
 ------
     local xOy_domain = map(
         toPoint3d,
@@ -72,28 +81,35 @@
             -3, 3,  -- Intervalle de défintion [-3; 3]
             50,     -- Nombre de points utilisés.
             false,  -- Pas de discontinuité.
-            0       -- ????
+            0       -- Aucune subdivision adaptative des calculs
+                    -- intérmédiaires, car ceci indique combien de
+                    -- fois, au maximum, une étape de calcul peut
+                    -- être divisée en deux (par dichotomie).
         )
     )
 
 ------
--- Construction du domaine dans le plan `P`.
+-- Construction du domaine dans le plan `P`: nous avons juste à
+-- projeter la base du cylindre dans le plan `P`.
 ------
     local P_domain = proj3dO(xOy_domain, P, vecK)
 
 ------
--- XX
+-- Construction d'une liste de faces latérales polygonales (ce choix
+-- de design améliore la compréhension de l'objet).
 --
 -- note::
 --     ''#xOy_domain'' est la taille de la liste ''xOy_domain''.
 ------
     local lateral, facet, n = {}, {}, #xOy_domain
 
-    for k = 1, n do -- to build lateral facets
-        local j = k + 1
+    for k = 1, n do
+        local j
 
         if k == n then
             j = 1
+        else
+            j = k + 1
         end
 
         facet = {
@@ -105,33 +121,33 @@
     end
 
 ------
--- XX
-------
-    graphview:Dboxaxes3d({
-        grid      = true,
-        gridcolor = "gray",
-        fillcolor = "LightGray"
-    })
-
-------
--- XX
+-- Tracé du domaine dans le plan `xOy` en hachuré et sans bordure.
 ------
     graphview:Filloptions("fdiag", "ForestGreen")
     graphview:Linestyle("noline")
     graphview:Dpolyline3d(xOy_domain, true)
 
 ------
--- XX
+-- Pour ce qui suit, nous ne remplissions plus rien, et utilisons de
+-- nouveau des traits pleins.
 ------
     graphview:Filloptions("none")
     graphview:Linestyle("solid")
+
+------
+-- Nous nous plaçons dans le plan `xOy` pour y tracer les courbes des
+-- fonctions  `f` et `g`. La technique employée est similiare à ce qui
+-- se fait avec ¨opengl: nous jouons avec des matrices de vue.
+------
     graphview:Savematrix()
-        graphview:Setmatrix(graphview:Proj3d({Origin, vecI, vecJ})) -- to draw on xy-plane
+        graphview:Setmatrix(graphview:Proj3d({Origin, vecI, vecJ}))
+
         graphview:Dcartesian(
             f,
             {x = {-2/math.sqrt(3), 2/math.sqrt(3)},
             draw_options = "line width = 0.8pt, Navy"
         })
+
         graphview:Dcartesian(
             g,
             {x={-2, 2},
@@ -140,7 +156,7 @@
     graphview:Restorematrix()
 
 ------
--- XX
+-- Tracé des faces latérales.
 ------
     graphview:Dfacet(
         lateral,
@@ -152,7 +168,7 @@
         })
 
 ------
--- XX
+-- Tracé du domaine dans le plan `P`.
 ------
     graphview:Dpolyline3d(
         P_domain,
@@ -161,13 +177,13 @@
     )
 
 ------
--- XX
+-- Pour visualiser le plan `P` dans le repère de type "boîte".
 ------
     graphview:Dpolyline3d(
         graphview:Plane2facet(P),
-        true,
+        true,   -- Pour fermer la ligne.
         "cyan"
-     ) --trace of the plane on the 3d box
+     )
 
 ------
 -- Et le merveilleux se révèle au monde.
