@@ -18,7 +18,7 @@
 
 \begin{document}
 
-\begin{luadraw}{name = 2-curves-n-1-plane}
+\begin{luadraw}{name = 2-curves-1-plane}
 ------
 -- Éléments constitutifs de notre solide.
 --
@@ -36,7 +36,7 @@
         return 3 - x^2
     end
 
--- Plan P : x + y + z - 4 = 0.
+-- Plan `P : x + y + z - 4 = 0`.
     local P = planeEqn(1, 1, 1, -4)
 
 ------
@@ -55,19 +55,38 @@
     graphview:Linejoin("round")
 
 ------
--- La fonction ''map'' sert à appliquer ''toPoint3d'' à une liste
--- de réels, ou de complexes, afin des les convertir en point 3D.
+-- Construction du domaine dans le plan `xOy'.
 --
--- ???? Quant à la méthode ''domain3'', elle permet de définir le contour délimité par les courbes des fonctions ''f'' et ''g'' avec des réglages spécifiques possibles via l'argument facultatif ''args''. Dans notre cas, Nous l'utilisons ici pour
+-- La fonction ''map'' sert à appliquer ''toPoint3d'' à chaque élémént
+-- d'une liste de réels, ou de complexes, pour les convertir en point
+-- 3D.
+--
+-- Quant à la méthode ''domain3'', elle permet de définir le contour
+-- délimité par les courbes des fonctions `f` et `g` avec des réglages
+-- spécifiques.
 ------
-
     local xOy_domain = map(
         toPoint3d,
-        domain3(f, g, -3, 3, 50, false, 0)
+        domain3(
+            f, g,   -- Deux courbes pour le domaine.
+            -3, 3,  -- Intervalle de défintion [-3; 3]
+            50,     -- Nombre de points utilisés.
+            false,  -- Pas de discontinuité.
+            0       -- ????
+        )
     )
 
-    -- domain in xy-plane
-    local P_domain = proj3dO(xOy_domain, P, vecK) -- domain projection on P plane
+------
+-- Construction du domaine dans le plan `P`.
+------
+    local P_domain = proj3dO(xOy_domain, P, vecK)
+
+------
+-- XX
+--
+-- note::
+--     ''#xOy_domain'' est la taille de la liste ''xOy_domain''.
+------
     local lateral, facet, n = {}, {}, #xOy_domain
 
     for k = 1, n do -- to build lateral facets
@@ -85,16 +104,25 @@
         table.insert(lateral, facet)
     end
 
+------
+-- XX
+------
     graphview:Dboxaxes3d({
         grid      = true,
         gridcolor = "gray",
         fillcolor = "LightGray"
     })
 
+------
+-- XX
+------
     graphview:Filloptions("fdiag", "ForestGreen")
     graphview:Linestyle("noline")
     graphview:Dpolyline3d(xOy_domain, true)
 
+------
+-- XX
+------
     graphview:Filloptions("none")
     graphview:Linestyle("solid")
     graphview:Savematrix()
@@ -111,6 +139,9 @@
         })
     graphview:Restorematrix()
 
+------
+-- XX
+------
     graphview:Dfacet(
         lateral,
         {
@@ -120,12 +151,18 @@
             opacity   = 0.3
         })
 
+------
+-- XX
+------
     graphview:Dpolyline3d(
         P_domain,
         true,
         "draw = none, fill = cyan, fill opacity = 0.8"
     )
 
+------
+-- XX
+------
     graphview:Dpolyline3d(
         graphview:Plane2facet(P),
         true,
