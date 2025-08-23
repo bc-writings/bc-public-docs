@@ -1,0 +1,65 @@
+%%%
+% src::
+%     url = https://tex.stackexchange.com/a/750101
+%%%
+
+\documentclass[border = 3pt]{standalone}
+
+\usepackage[svgnames]{xcolor}
+\usepackage{fouriernc}
+
+\usepackage[3d]{luadraw}
+
+\begin{document}
+
+\begin{luadraw}{name = integration_domain}
+------
+-- Quelques variables bien nommées pour un usage local.
+------
+    local h = function(x) return 3*x^2-1 end
+    local k = function(x) return 3-x^2 end
+    local P = planeEqn(1,1,1,-4) -- plane x+y+z-4=0
+    local D = map(toPoint3d,domain3(h,k,-3,3,50,false,0))
+
+------
+-- Définition de la zone graphique.
+------
+    local g = graph3d:new{
+        window3d = {-2, 2, -2, 3, 0, 8},
+        adjust2d = true,
+        viewdir  = {-65, 50},
+        size     = {12, 12, 0}
+    }
+
+------
+-- Réglages liés aux lignes.
+------
+    g:Linejoin("round")
+
+    -- domain in xy-plane
+    local D1 = proj3dO(D,P,vecK) -- domain projection on P plane
+    local lateral, facet, n = {}, {}, #D
+    for k =1, n do -- to build lateral facets
+        local j = k+1
+        if k == n then j = 1 end
+        facet = {D[k],D[j],D1[j],D1[k]}
+        table.insert(lateral,facet)
+    end
+    g:Dboxaxes3d({grid=true, gridcolor="gray", fillcolor="LightGray"})
+    g:Filloptions("fdiag","ForestGreen"); g:Linestyle("noline"); g:Dpolyline3d(D,true)
+    g:Filloptions("none"); g:Linestyle("solid")
+    g:Savematrix(); g:Setmatrix(g:Proj3d({Origin,vecI,vecJ})) -- to draw on xy-plane
+    g:Dcartesian(h,{x={-2/math.sqrt(3),2/math.sqrt(3)},draw_options="line width=0.8pt,Navy"})
+    g:Dcartesian(k,{x={-2,2},draw_options="line width=0.8pt,Crimson"})
+    g:Restorematrix()
+    g:Dfacet(lateral,{edgecolor="gray",edgewidth=2,color="Pink", opacity=0.3})
+    g:Dpolyline3d(D1,true,"draw=none,fill=cyan,fill opacity=0.8")
+    g:Dpolyline3d( g:Plane2facet(P),true,"cyan") --trace of the plane on the 3d box
+
+------
+-- Et le merveilleux se révèle au monde.
+------
+    g:Show()
+\end{luadraw}
+
+\end{document}
