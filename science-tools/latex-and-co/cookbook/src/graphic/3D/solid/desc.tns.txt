@@ -1,0 +1,10 @@
+abrev::
+    desc = desc.tns.txt
+
+
+===========
+Des solides
+===========
+
+content::
+    ./2-curves-1-plane/\desc

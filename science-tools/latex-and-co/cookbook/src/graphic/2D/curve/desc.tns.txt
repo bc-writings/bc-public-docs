@@ -1,0 +1,10 @@
+abrev::
+    desc = desc.tns.txt
+
+
+===========
+Des courbes
+===========
+
+content::
+    ./function-real/\desc

@@ -1,0 +1,10 @@
+abrev::
+    desc = desc.tns.txt
+
+
+=================
+Fonctions réelles
+=================
+
+content::
+    ./discontinuous/\desc

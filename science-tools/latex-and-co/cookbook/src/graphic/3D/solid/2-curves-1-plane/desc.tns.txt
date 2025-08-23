@@ -2,9 +2,9 @@ this::
     date = 2025-08-23
 
 
-=========================================
-Solide obtenu via deux courbes et un plan
-=========================================
+==========================================================
+Cylindre biseauté avec une base délimitée par deux courbes
+==========================================================
 
 Dans cette recette, nous allons obtenir un solide en deux étapes.
 
