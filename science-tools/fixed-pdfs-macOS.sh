@@ -57,24 +57,16 @@ do
 
         fdir=$(dirname "$f")
 
-        # luafile="${f%.*}.lua"
-        luafile="$TARGET/$fdir/main.lua"
-
-        if [[ -f "$luafile" ]]
+        if head -n 1 "$TARGET/$f" | grep '^% *!TEX TS-program *= *lualatex'
         then
-          texcmd="lualatex"
+            texcmd="lualatex"
         else
-          texcmd="pdflatex"
+            texcmd="pdflatex"
         fi
-
-        # echo "luafile = $luafile"
-        # echo "texcmd = $texcmd"
 
         cd "$TARGET/$fdir"
 
         SOURCE_DATE_EPOCH=0 FORCE_SOURCE_DATE=1 latexmk -quiet -pdf -pdflatex="$texcmd --interaction=nonstopmode --halt-on-error --shell-escape  %O %S" "$TARGET/$f" || nocompile "$TARGET/$f"
-
-        # latexmk -c "$TARGET/$f"
     esac
   fi
 done # for f in $(find . -name '*.tex')
