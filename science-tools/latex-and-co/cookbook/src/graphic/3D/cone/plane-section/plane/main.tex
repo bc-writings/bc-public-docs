@@ -24,7 +24,7 @@
 ------
 -- Définition de la zone graphique.
 ------
-    local graphzone = graph3d:new{
+    local graphview = graph3d:new{
         window  = {-5, 5, -9, 5.5},
         viewdir = {5, 60},
         size    = {10, 10}
@@ -34,8 +34,8 @@
 -- Réglages liés aux lignes.
 ------
     Hiddenlinestyle = "dashed"
-    graphzone:Linejoin("round")
-    graphzone:Lineoptions(solid, "black", 16)
+    graphview:Linejoin("round")
+    graphview:Lineoptions(solid, "black", 16)
 
 ------
 -- Création de deux polyèdres coniques ouverts pour les raisons
@@ -61,7 +61,7 @@
 -- d'une parabole).
 ------
     local plane   = {M(0, 0, -3), -12*vecJ + 9*vecK}
-    local section = graphzone:Intersection3d(cone_down, plane)
+    local section = graphview:Intersection3d(cone_down, plane)
 
 ------
 -- La variable ''cfacet'' contient la liste des facettes visibles,
@@ -76,13 +76,13 @@
 --     1) ''cfacet_down'' est la liste des facettes situées dans
 --     l’autre demi-espace.
 ------
-    local cfacet                 = graphzone:Classifyfacet(cone_down)
+    local cfacet                 = graphview:Classifyfacet(cone_down)
     local cfacet_up, cfacet_down = cutfacet(cfacet, plane)
 
 ------
 -- Partie du cône du bas sous le plan.
 ------
-    graphzone:Dpolyline3d(
+    graphview:Dpolyline3d(
         border(cfacet_down),
         "left color = white, right color = ForestGreen")
 
@@ -109,7 +109,7 @@
 --         * `P` est alors centré sur `A`, l'un de ses côtés est
 --         `pdim_1 vect(u)`, et l'autre est `pdim_2 vect(v)`.
 ------
-    graphzone:Dplane(
+    graphview:Dplane(
         plane,
         vec_plane, pdim_1, pdim_2,
         "Navy, fill = blue!75!black!45, fill opacity = .9")
@@ -117,21 +117,21 @@
 ------
 -- Partie du cône du bas au-dessus du plan.
 ------
-    graphzone:Dpolyline3d(
+    graphview:Dpolyline3d(
         border(cfacet_up),
         "left color = white, right color = gray")
 
 ------
 -- Le cône au-dessus.
 ------
-    graphzone:Dcone(
+    graphview:Dcone(
         Origin, vec_cone, 3,
         {color = "orange"})
 
 ------
 -- La ligne polygonale de la section.
 ------
-    graphzone:Dedges(
+    graphview:Dedges(
         section,
         {hidden = true, color = "red", width = 12})
 
@@ -139,12 +139,12 @@
 -- Tous les traits à venir sont en pointillés : nous entrons du
 -- côté obscur du graphisme 3D...
 ------
-    graphzone:Linestyle(Hiddenlinestyle)
+    graphview:Linestyle(Hiddenlinestyle)
 
 ------
 -- Ajout à la main du bord caché du plan.
 ------
-    graphzone:Dplane(
+    graphview:Dplane(
         plane,
         vec_plane, pdim_1, pdim_2,
         "Navy")
@@ -152,12 +152,12 @@
 ------
 -- Ajout à la main du bord caché du cône du bas.
 ------
-    graphzone:Dcone(Origin, -vec_cone, 3)
+    graphview:Dcone(Origin, -vec_cone, 3)
 
 ------
 -- Et le merveilleux se révèle au monde.
 ------
-    graphzone:Show()
+    graphview:Show()
 \end{luadraw}
 
 \end{document}

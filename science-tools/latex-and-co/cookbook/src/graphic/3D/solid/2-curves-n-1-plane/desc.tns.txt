@@ -1,0 +1,13 @@
+this::
+    date = 2025-08-23
+
+
+=========================================
+Solide obtenu via deux courbes et un plan
+=========================================
+
+Dans cette recette, nous allons obtenir un solide en deux étapes.
+
+    1) Construction d'un cylindre vertical dont la base est une surface délimitée par deux arcs de paraboles.
+
+    1) Tronquage du cylindre par un plan pour obtenir la forme finale du solide.

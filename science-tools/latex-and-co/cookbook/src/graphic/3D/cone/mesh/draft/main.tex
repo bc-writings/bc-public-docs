@@ -32,7 +32,7 @@
 --
 --     1) ''size'' impose les dimensions en cm dans le document.
 ------
-    local graphzone = graph3d:new{
+    local graphview = graph3d:new{
         window  = {-1.5, 7, -2.5, 2.5},
         viewdir = {290, 60},
         size    = {10, 10}
@@ -41,7 +41,7 @@
 ------
 -- Nous utilisons des jointures arrondies pour les segments.
 ------
-    graphzone:Linejoin("round")
+    graphview:Linejoin("round")
 
 ------
 -- Un cône s'obtient par rotation d'une droite autour d'une axe.
@@ -87,7 +87,7 @@
 -- Le tracé de la surface de révolution doit fait via la méthode
 -- ''Dfacet''.
 ------
-    graphzone:Dfacet(
+    graphview:Dfacet(
         cone,
         {color    = "orange",
          contrast = 0.5})
@@ -95,7 +95,7 @@
 ------
 -- Et le merveilleux se révèle au monde.
 ------
-    graphzone:Show()
+    graphview:Show()
 \end{luadraw}
 
 
@@ -105,7 +105,7 @@
 ------
 -- Modification des angles et de la fenêtre de vue.
 ------
-    local graphzone = graph3d:new{
+    local graphview = graph3d:new{
         window  = {-1.5, 7, -2.5, 3.5},
         viewdir = {240, 60},
         size    = {10, 10}
@@ -118,7 +118,7 @@
 --     Une factorisation du code est néceessaire proposé dans la
 --     recette suivante.
 ------
-    graphzone:Linejoin("round")
+    graphview:Linejoin("round")
 
     local genecurve = function(t)
         return M(t, 2 - t/2, 0)
@@ -131,11 +131,11 @@
         0, 360,
         {grid = {25, 36}})
 
-    graphzone:Dfacet(
+    graphview:Dfacet(
         cone,
         {color    = "orange",
          contrast = 0.5})
-    graphzone:Show()
+    graphview:Show()
 \end{luadraw}
 
 \end{document}

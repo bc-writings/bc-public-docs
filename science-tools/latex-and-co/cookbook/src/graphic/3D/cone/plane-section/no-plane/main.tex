@@ -41,7 +41,7 @@
 --
 --     1) ''size'' impose les dimensions en cm dans le document.
 ------
-    local graphzone = graph3d:new{
+    local graphview = graph3d:new{
         window  = {-radius - 1, radius + 1, -height - 1, height + 1},
         viewdir = {120, 60},
         size    = {12, 12}
@@ -51,8 +51,8 @@
 -- Nous utilisons des jointures arrondies pour les segments, et
 -- changeons l'épaisseur et la couleur des lignes.
 ------
-    graphzone:Linejoin("round")
-    graphzone:Lineoptions(solid, side_col, width_line)
+    graphview:Linejoin("round")
+    graphview:Lineoptions(solid, side_col, width_line)
 
 ------
 -- Nous changeons la valeur de ''Hiddenlinestyle'' qui par défaut
@@ -96,18 +96,18 @@
 -- lignes polygonales, et non des surfaces planes.
 ------
     local plane     = {M(1, 0, 0), vecI}
-    local section_1 = graphzone:Intersection3d(cone_1, plane)
-    local section_2 = graphzone:Intersection3d(cone_2, plane)
+    local section_1 = graphview:Intersection3d(cone_1, plane)
+    local section_2 = graphview:Intersection3d(cone_2, plane)
 
 ------
 -- Le tracé des solides coniques se fait indépendamment des calculs
 -- effectués ci-dessus : autrement dit, nous ne pouvons pas nous
 -- appuyer sur les variables ''cone_1'' et ''cone_2''.
 ------
-    graphzone:Dcone(
+    graphview:Dcone(
         Origin, vec_cone, radius,
         {color = cone_col})
-    graphzone:Dcone(
+    graphview:Dcone(
         Origin, -vec_cone, radius,
         {color = cone_col})
 
@@ -115,17 +115,17 @@
 -- Nous traçons les bords des sections calculées plus haut tout en
 -- affichant les lignes cachées via ''hidden = true''.
 ------
-    graphzone:Dedges(
+    graphview:Dedges(
         section_1,
         {hidden = true, color = section_col})
-    graphzone:Dedges(
+    graphview:Dedges(
         section_2,
         {hidden = true, color = section_col})
 
 ------
 -- Et le merveilleux se révèle au monde.
 ------
-    graphzone:Show()
+    graphview:Show()
 \end{luadraw}
 
 \end{document}
