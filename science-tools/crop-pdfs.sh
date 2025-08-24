@@ -37,6 +37,9 @@ fi
 # -- LET'S CROP TOGETHER -- #
 # ------------------------- #
 
+echo "-- CROPING LUADRAW PDFs --"
+echo ""
+
 cd "$TARGET"
 
 for fdir in $(find cookbook/src -name '*.tkz' -exec dirname {} \; | sort -u)
