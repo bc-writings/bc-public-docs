@@ -2,6 +2,12 @@
 latex-and-co - TODO
 ============
 
+> ---------------------------- <
+
+fichier bash pour appiquer
+
+    pdfcrop --margins '3' ....
+
 
 > ---------------------------- <
 

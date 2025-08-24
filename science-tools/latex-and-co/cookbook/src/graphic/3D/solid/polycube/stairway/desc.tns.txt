@@ -1,0 +1,13 @@
+this::
+    date = 2025-08-24
+
+
+===================
+Un escalier cubique
+===================
+
+Via des boucles lua::''for'', nous allons construire un escalier "cubique" surréaliste.
+
+
+note::
+    Pour minimiser le nombre de calculs, nous omettons volontairement les cubes internes non visibles avcele point de vue choisi.

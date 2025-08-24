@@ -7,4 +7,5 @@ Des solides
 ===========
 
 content::
+    ./polycube/\desc
     ./2-curves-1-plane/\desc

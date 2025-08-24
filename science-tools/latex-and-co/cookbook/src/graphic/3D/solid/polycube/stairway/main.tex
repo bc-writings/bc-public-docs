@@ -1,0 +1,73 @@
+% !TEX TS-program = lualatex
+
+\documentclass[border = 3pt]{standalone}
+
+%%%
+% Des couleurs nommées faciles d'emploi via le package ''xcolor''!
+%%%
+\usepackage[svgnames]{xcolor}
+
+%%%
+% La bibliothèque ''luadraw'' allie une facilité d’utilisation à
+% un rendu particulièrement soigné.
+%%%
+\usepackage[3d]{luadraw}
+
+\begin{document}
+
+\begin{luadraw}{name = stairway}
+------
+-- Définition de la zone graphique.
+------
+    local graphview = graph3d:new{
+        window3d = {-5, 5, -5, 5, -5, 5},
+        adjust2d = true,
+        viewdir  = {-35, 45}
+    }
+
+------
+-- Réglage lié aux lignes.
+------
+    graphview:Linejoin("round")
+
+------
+-- Tracé de l'escalier avec l'obligation de tracer les éléments
+-- du "plus caché" au "moins caché".
+------
+--    graphview:Dboxaxes3d()  -- En affichant le repère en mode
+                              -- "boîte", nous pouvons choisir
+                              -- le bon ordre des tracés.
+    local nb_slices = 10
+    local num_col, colors = 1, {"Crimson", "ForestGreen"}
+
+    local cube = parallelep(M(-5, -5, -5), vecI, vecJ, vecK)
+
+	nb_slices = nb_slices - 1
+
+    for i = 0, nb_slices do
+        num_col = num_col + 1
+
+        if num_col > #colors then
+            num_col = 1
+        end
+
+        for j = nb_slices, 0, -1 do
+            for k = 0, nb_slices - i do
+                if j == 0 or k == nb_slices - i then
+                    graphview:Dpoly(
+                        shift3d(cube, i*vecI + j*vecJ + k*vecK),
+                        {color = colors[num_col]})
+-- En utilisant ''mode = 4'' en plus, on voir apparaître les traits
+-- cachés en pointillés.
+                end
+            end
+        end
+    end
+
+------
+-- Et le merveilleux se révèle au monde.
+------
+    graphview:Show()
+\end{luadraw}
+
+\end{document}
