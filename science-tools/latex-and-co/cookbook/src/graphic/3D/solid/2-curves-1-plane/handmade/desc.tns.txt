@@ -2,8 +2,8 @@ this::
     date = 2025-08-24
 
 
-==========================================
-En calculant nous-même les faces latérales
-==========================================
+================================
+En calculant les faces latérales
+================================
 
-Ici, nous montrons comment calculer les faces latérales.
+Ici, nous montrons comment calculer nous-même les faces latérales.

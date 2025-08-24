@@ -2,8 +2,8 @@ this::
     date = 2025-08-24
 
 
-==========================================
-Quant \luadraw calcule les faces latérales
-==========================================
+=================================
+Sans calculer les faces latérales
+=================================
 
 Nous voyons ici comment laisser \luadraw calculer automatiquement les faces latérales.
