@@ -1,13 +1,19 @@
 this::
-    date = 2025-08-23
+    date = 2025-08-24
 
 
-==========================================================
-Cylindre biseauté avec une base délimitée par deux courbes
-==========================================================
+========================================================
+Prisme biseauté avec une base délimitée par deux courbes
+========================================================
 
-Dans cette recette, nous allons obtenir un solide en deux étapes.
+Dans cette recette, nous souhaitons obtenir le solide suivant.
 
-    1) Construction d'un cylindre vertical dont la base est une surface délimitée par deux arcs de paraboles.
+pdf::
+    file = ./shorter/main.pdf
 
-    1) Tronquage du cylindre par un plan pour obtenir la forme finale du solide.
+
+Nous présentons deux méthodes, chacune ayant son intérêt, tout en procédant selon la même approche.
+
+    1) Construction d'un prisme vertical dont la base est une surface délimitée par deux arcs de paraboles.
+
+    1) Tronquage du prisme par un plan pour obtenir la forme finale du solide.

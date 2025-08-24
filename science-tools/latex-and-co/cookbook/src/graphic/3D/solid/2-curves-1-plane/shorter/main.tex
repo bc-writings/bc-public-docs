@@ -27,9 +27,11 @@
 --     1) Deux paraboles pour la base du cylindre vertical.
 --
 --     1) Un plan pour biseauter le cylindre.
+--
+-- note::
+-- 	   Le choix `P : -x - y - z + 4 = 0` permet d'avoir le bon
+--     vecteur normal utilisé après pour construire un prisme.
 ------
-
--- Trinômes compagnons des paraboles.
     local f = function(x)
         return 3*x^2 - 1
     end
@@ -38,7 +40,6 @@
         return 3 - x^2
     end
 
--- Plan `P : x + y + z - 4 = 0`.
     local P = planeEqn(1, 1, 1, -4)
 
 ------
@@ -91,36 +92,20 @@
     )
 
 ------
--- Construction du domaine dans le plan `P`: nous avons juste à
--- projeter la base du cylindre dans le plan `P`.
-------
-    local P_domain = proj3dO(xOy_domain, P, vecK)
-
-------
--- Construction d'une liste de faces latérales polygonales (ce choix
--- de design améliore la compréhension de l'objet).
+-- Via la fonction ''prism'', nous obtenons le domaine dans le plan
+-- `P`, et la liste de faces latérales polygonales.
+--
 --
 -- note::
---     ''#xOy_domain'' est la taille de la liste ''xOy_domain''.
+-- 	   La première variable ''_'' contient les facettes du "mauvais"
+--     côte du demi-plan `P`.
 ------
-    local lateral, facet, n = {}, {}, #xOy_domain
-
-    for k = 1, n do
-        local j
-
-        if k == n then
-            j = 1
-        else
-            j = k + 1
-        end
-
-        facet = {
-            xOy_domain[k], xOy_domain[j],
-            P_domain[j]  , P_domain[k]
-        }
-
-        table.insert(lateral, facet)
-    end
+    local _, lateral, P_domain = cutfacet(
+        poly2facet(
+            prism(xOy_domain, 8*vecK, true)
+        ),
+        P
+    )
 
 ------
 -- Tracé du domaine dans le plan `xOy` en hachuré et sans bordure.
@@ -152,7 +137,7 @@
 
         graphview:Dcartesian(
             g,
-            {x={-2, 2},
+            {x = {-2, 2},
             draw_options = "line width = 0.8pt, Crimson"
         })
     graphview:Restorematrix()
@@ -194,3 +179,5 @@
 \end{luadraw}
 
 \end{document}
+
+-- domain in xy-plane
