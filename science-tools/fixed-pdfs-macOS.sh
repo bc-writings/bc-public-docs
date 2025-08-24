@@ -1,12 +1,4 @@
-# Version: 2025-05-06.science-tools
-
-
-# --------------- #
-# -- CONSTANTS -- #
-# --------------- #
-
-THISDIR=$(dirname "$0")
-WORKINGDIR=$(pwd)
+# Version: 2025-08-24.science-tools
 
 
 # ----------------------- #
@@ -43,7 +35,6 @@ function nocompile {
 
   exit 1
 }
-
 
 cd "$TARGET"
 

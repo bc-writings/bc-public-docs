@@ -9,7 +9,7 @@ Prisme biseauté avec une base délimitée par deux courbes
 Dans cette recette, nous souhaitons obtenir le solide suivant.
 
 pdf::
-    file = ./shorter/main.pdf
+    file = ./shorter/main-crop.pdf
 
 
 Nous présentons deux méthodes, chacune ayant son intérêt, tout en procédant selon la même approche.
