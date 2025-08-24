@@ -8,7 +8,7 @@ Un escalier cubique
 
 Nous allons construire un escalier "cubique" surréaliste. Cette recette demande de gérer l'ordre du tracé des cubes
 ((
-    Ne jamais oublier que \luadraw n'est pas un moteur de rendu 3D!
+    Ne jamais oublier que \luadraw n'est pas un moteur de rendu 3D !
 )).
 
 
