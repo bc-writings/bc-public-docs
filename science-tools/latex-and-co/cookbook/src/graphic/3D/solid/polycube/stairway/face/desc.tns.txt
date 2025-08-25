@@ -1,9 +1,0 @@
-this::
-    date = 2025-08-25
-
-
-==============
-Avec des faces
-==============
-
-Comme nous ne voyons jamais toutes les faces d'un seul des cubes tracés, nous pouvons faire mieux en minimisant le nombre de faces tracés. Malheureusement, cela va nous demander d'accepter une version monochrome.

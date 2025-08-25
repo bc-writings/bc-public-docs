@@ -22,4 +22,4 @@ note::
 
 content::
     ./cube/\desc
-    ./face/\desc
+    ./facet/\desc

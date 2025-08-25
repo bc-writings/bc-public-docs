@@ -36,36 +36,49 @@ local graphview = graph3d:new{
 graphview:Linejoin("round")
 
 ------
--- Tracé de l'escalier avec l'obligation de tracer les éléments
--- du "plus caché" au "moins caché".
+-- Tracé de l'escalier via des facettes visibles.
 ------
--- graphview:Dboxaxes3d()  -- En affichant le repère en mode
-                        -- "boîte", nous pouvons choisir
-                        -- le bon ordre des tracés.
+-- graphview:Dboxaxes3d()
 local num_col, colors = 0, {"ForestGreen", "Crimson"}
 
-local cube = parallelep(M(-5, -5, -5), vecI, vecJ, vecK)
+local cube        = parallelep(M(-5, -5, -5), vecI, vecJ, vecK)
+local cube_facets = graphview:Classifyfacet(cube)
+
+------
+-- La liste ''facets_n_options'' stocke les faces et les options
+-- au format ''{facets, options, facets, options, ...}''.
+-- Ceci sera ensuite mangé par ''Dmixfacet'' qui attend des ¨args
+-- sous cette forme.
+------
+local facets_n_options = {}
 
 nb_slices = nb_slices - 1
 
 for i = 0, nb_slices do
   num_col = num_col%2 + 1
 
--- Attention à l'ordre de la boucle !
   for j = nb_slices, 0, -1 do
     for k = 0, nb_slices - i do
       if j == 0 or k == nb_slices - i then
-        graphview:Dpoly(
-          shift3d(cube, i*vecI + j*vecJ + k*vecK),
+        table.insert(
+          facets_n_options,
+          shift3d(cube_facets, i*vecI + j*vecJ + k*vecK)
+        )
+
+        table.insert(
+          facets_n_options,
           {
             color = colors[num_col]
--- En utilisant ''mode = 4'' en plus, on peut faire apparaître
--- les traits cachés en pointillés.
           })
       end
     end
   end
 end
+
+-- ''table.unpack'' "déplie" les éléments d'une table en valeurs
+-- séparées. Par exemple, si ''args = {1, 2, 3}'', alors l'emploi
+-- de ''table.unpack(args)'' équivaut à la saisie de ''1, 2, 3''.
+graphview:Dmixfacet( table.unpack(facets_n_options) )
 
 ------
 -- Et le merveilleux se révèle au monde.
