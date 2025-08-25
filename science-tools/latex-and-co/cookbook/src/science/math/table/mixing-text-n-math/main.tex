@@ -39,12 +39,12 @@
 %    + Le dollar dans ''X[2,c,$]'' permet d'avoir une colonne en mode
 %      mathématique.
 %%%
-    colspec = { X[5,c] *2{ X[1,c] } X[2,c,$] *2{ X[1,c] } },
+  colspec = { X[5,c] *2{ X[1,c] } X[2,c,$] *2{ X[1,c] } },
 %%%
 % Nous voulons tous les filets du tableau.
 %%%
-    vlines,
-    hlines,
+  vlines,
+  hlines,
 %%%
 % Nous indiquons les cellules à fusionner.
 %
@@ -60,45 +60,45 @@
 %      le texte en haut (ici, ''h'' fait \ref au mot anglais "header",
 %      soit "entête").
 %%%
-    cell{1}{1} = {r = 2}{},
-    cell{1}{2} = {c = 2}{},
-    cell{1}{4} = {r = 2}{h},
-    cell{1}{5} = {c = 2}{},
+  cell{1}{1} = {r = 2}{},
+  cell{1}{2} = {c = 2}{},
+  cell{1}{4} = {r = 2}{h},
+  cell{1}{5} = {c = 2}{},
 %%%
 % Pour finir, côté \mef, nous indiquons les celulles avec un contenu
 % \math, ce qui va nous épargner la saisie de nombreux symboles ''$''.
 %%%
-    cell{3-Z}{1}   = {mode = math},
-    cell{3-Z}{Y-Z} = {mode = math},
+  cell{3-Z}{1}   = {mode = math},
+  cell{3-Z}{Y-Z} = {mode = math},
 }
-    Expression $f(x)$
-      & Polynôme &
-      & \mathrm{deg}(f(x))
-      & Monôme &
+  Expression $f(x)$
+    & Polynôme &
+    & \mathrm{deg}(f(x))
+    & Monôme &
 \\
-      & Oui & Non
-      &
-      & Degré & Coef.
+    & Oui & Non
+    &
+    & Degré & Coef.
 \\ % Testons la bonne gestion des espaces autour du texte.
-    x^6 + 24 x^2 + \dfrac{{\sqrt 2}^{2^{2^{2^{2^{2}}}}}}{5}
-      & \checked &
-      & 6
-      & 2 & 24
+  x^6 + 24 x^2 + \dfrac{{\sqrt 2}^{2^{2^{2^{2^{2}}}}}}{5}
+    & \checked &
+    & 6
+    & 2 & 24
 \\
-    \dfrac{x^3}{2} - \dfrac{5}{x^2} + \sqrt{2}
-      & & \checked
-      & \mcrossed
-      & 3 & \dfrac{1}{2}
+  \dfrac{x^3}{2} - \dfrac{5}{x^2} + \sqrt{2}
+    & & \checked
+    & \mcrossed
+    & 3 & \dfrac{1}{2}
 \\
-    \sqrt{2 + x} - e^x
-      & & \checked
-      & \mcrossed
-      & \mcrossed & \mcrossed
+  \sqrt{2 + x} - e^x
+    & & \checked
+    & \mcrossed
+    & \mcrossed & \mcrossed
 \\
-    \sqrt{2} + x - e \cdot x
-      & \checked &
-      & 1
-      & 1 & 1 - e
+  \sqrt{2} + x - e \cdot x
+    & \checked &
+    & 1
+    & 1 & 1 - e
 \end{tblr}
 
 \end{document}

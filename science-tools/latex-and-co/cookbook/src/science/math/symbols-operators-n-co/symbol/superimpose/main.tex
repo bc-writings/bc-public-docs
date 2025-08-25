@@ -17,28 +17,29 @@
 \newcommand{\verbtest}%
            {A \mathmacro{mysymb} B}
 
-\NewDocumentCommand{\mathmacro}{m}{\;\backslash#1\;}
+\NewDocumentCommand{\mathmacro}{m}%
+                   {\;\backslash#1\;}
 
 \newcommand{\testmathstyle}{
-    \[
-        \renewcommand{\arraystretch}{1.2}%
-        \begin{array}{lll}
-              \textbf{Style}
-            & \mathtt{\verbtest}
-            \\ \hline
-              \mathtt{\backslash displaystyle}
-            & \displaystyle \test
-            \\
-              \mathtt{\backslash textstyle}
-            & \textstyle \test
-            \\
-              \mathtt{\backslash scriptstyle}
-            & \scriptstyle \test
-            \\
-              \mathtt{\backslash scriptscriptstyle}
-            & \scriptscriptstyle \test
-        \end{array}
-    \]
+  \[
+    \renewcommand{\arraystretch}{1.2}%
+    \begin{array}{lll}
+        \textbf{Style}
+      & \mathtt{\verbtest}
+      \\ \hline
+        \mathtt{\backslash displaystyle}
+      & \displaystyle \test
+      \\
+        \mathtt{\backslash textstyle}
+      & \textstyle \test
+      \\
+        \mathtt{\backslash scriptstyle}
+      & \scriptstyle \test
+      \\
+        \mathtt{\backslash scriptscriptstyle}
+      & \scriptscriptstyle \test
+    \end{array}
+  \]
 }
 
 \begin{document}

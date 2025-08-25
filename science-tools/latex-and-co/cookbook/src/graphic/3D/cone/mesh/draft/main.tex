@@ -34,16 +34,16 @@
 --
 --     1) ''size'' impose les dimensions en cm dans le document.
 ------
-    local graphview = graph3d:new{
-        window  = {-1.5, 7, -2.5, 2.5},
-        viewdir = {290, 60},
-        size    = {10, 10}
-    }
+local graphview = graph3d:new{
+  window  = {-1.5, 7, -2.5, 2.5},
+  viewdir = {290, 60},
+  size    = {10, 10}
+}
 
 ------
 -- Nous utilisons des jointures arrondies pour les segments.
 ------
-    graphview:Linejoin("round")
+graphview:Linejoin("round")
 
 ------
 -- Un cône s'obtient par rotation d'une droite autour d'une axe.
@@ -51,9 +51,9 @@
 -- aussi être une courbe "quelconque", est "génératrice" de la
 -- surface de révolution.
 ------
-    local genecurve = function(t)
-        return M(t, 2 - t/2, 0)
-    end
+local genecurve = function(t)
+  return M(t, 2 - t/2, 0)
+end
 
 ------
 -- La fonction ''rotcurve'' construit une surface de révolution
@@ -79,25 +79,31 @@
 --     saisir ce qu'il se passe, testez ce que donne le réglage
 --     ''grid = {2, 5}''.
 ------
-    local cone = rotcurve(
-        genecurve, -0.2, 6.5,
-        {Origin, -vecI},
-        0, 360,
-        {grid = {25, 36}})
+local cone = rotcurve(
+  genecurve, -0.2, 6.5,
+  {
+    Origin, -vecI
+  },
+  0, 360,
+  {
+    grid = {25, 36}
+  })
 
 ------
 -- Le tracé de la surface de révolution doit fait via la méthode
 -- ''Dfacet''.
 ------
-    graphview:Dfacet(
-        cone,
-        {color    = "orange",
-         contrast = 0.5})
+graphview:Dfacet(
+  cone,
+  {
+    color  = "orange",
+    contrast = 0.5
+  })
 
 ------
 -- Et le merveilleux se révèle au monde.
 ------
-    graphview:Show()
+graphview:Show()
 \end{luadraw}
 
 
@@ -107,37 +113,44 @@
 ------
 -- Modification des angles et de la fenêtre de vue.
 ------
-    local graphview = graph3d:new{
-        window  = {-1.5, 7, -2.5, 3.5},
-        viewdir = {240, 60},
-        size    = {10, 10}
-    }
+local graphview = graph3d:new{
+  window  = {-1.5, 7, -2.5, 3.5},
+  viewdir = {240, 60},
+  size    = {10, 10}
+}
 
 ------
 -- Aucun changement dans la suite du code.
 --
 -- note::
---     Une factorisation du code est néceessaire proposé dans la
---     recette suivante.
+--     Une factorisation du code est donc possible. Ceci est proposé
+--     dans la recette suivante.
 ------
-    graphview:Linejoin("round")
+graphview:Linejoin("round")
 
-    local genecurve = function(t)
-        return M(t, 2 - t/2, 0)
-    end
+local genecurve = function(t)
+  return M(t, 2 - t/2, 0)
+end
 
-    local cone = rotcurve(
-        genecurve,
-        -0.2, 6.5,
-        {Origin, -vecI},
-        0, 360,
-        {grid = {25, 36}})
+local cone = rotcurve(
+  genecurve,
+  -0.2, 6.5,
+  {
+    Origin, -vecI
+  },
+  0, 360,
+  {
+    grid = {25, 36}
+  })
 
-    graphview:Dfacet(
-        cone,
-        {color    = "orange",
-         contrast = 0.5})
-    graphview:Show()
+graphview:Dfacet(
+  cone,
+  {
+    color  = "orange",
+    contrast = 0.5
+  })
+
+graphview:Show()
 \end{luadraw}
 
 \end{document}

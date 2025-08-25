@@ -2,7 +2,7 @@
 
 %%%
 % src::
-%     url = https://tex.stackexchange.com/a/747734
+%   url = https://tex.stackexchange.com/a/747734
 %%%
 
 \documentclass[border = 3pt]{standalone}
@@ -16,28 +16,28 @@
 ------
 -- Quelques variables bien nommées pour un usage local.
 ------
-    local vec_cone  = 4*vecK
-    local radius    = 3
-    local plane     = {M(0, 0, -3), -12*vecJ + 9*vecK}
-    local vec_plane = 3*vecJ + vec_cone
-    local pdim_1    = 12
-    local pdim_2    = 9
+local vec_cone  = 4*vecK
+local radius  = 3
+local plane   = {M(0, 0, -3), -12*vecJ + 9*vecK}
+local vec_plane = 3*vecJ + vec_cone
+local pdim_1  = 12
+local pdim_2  = 9
 
 ------
 -- Définition de la zone graphique.
 ------
-    local graphview = graph3d:new{
-        window  = {-5, 5, -9, 5.5},
-        viewdir = {5, 60},
-        size    = {10, 10}
-    }
+local graphview = graph3d:new{
+  window  = {-5, 5, -9, 5.5},
+  viewdir = {5, 60},
+  size  = {10, 10}
+}
 
 ------
 -- Réglages liés aux lignes.
 ------
-    Hiddenlinestyle = "dashed"
-    graphview:Linejoin("round")
-    graphview:Lineoptions(solid, "black", 16)
+Hiddenlinestyle = "dashed"
+graphview:Linejoin("round")
+graphview:Lineoptions(solid, "black", 16)
 
 ------
 -- Création de deux polyèdres coniques ouverts pour les raisons
@@ -49,21 +49,24 @@
 --     1) Pour le cône du haut, non intersecté par le plan, il
 --     est inutile de calculer son "couvercle".
 ------
-    local cone_up = cone(
-        Origin, vec_cone, radius,
-        35,
-        true)
-    local cone_down = cone(
-        Origin, -vec_cone, radius,
-        35,
-        true)
+local cone_up = cone(
+  Origin, vec_cone, radius,
+  35,
+  true
+)
+
+local cone_down = cone(
+  Origin, -vec_cone, radius,
+  35,
+  true
+)
 
 ------
 -- Calcul de l'unique section plane (nous sommes dans le cas
 -- d'une parabole).
 ------
-    local plane   = {M(0, 0, -3), -12*vecJ + 9*vecK}
-    local section = graphview:Intersection3d(cone_down, plane)
+local plane   = {M(0, 0, -3), -12*vecJ + 9*vecK}
+local section = graphview:Intersection3d(cone_down, plane)
 
 ------
 -- La variable ''cfacet'' contient la liste des facettes visibles,
@@ -71,22 +74,23 @@
 -- nous obtenons ''cfacet_up'' et ''cfacet_down'' qui sont deux
 -- listes de facettes construites comme suit.
 --
---     1) ''cfacet_up'' est la liste des facettes situées dans
---     le demi-espace dirigé par le vecteur normal du plan, soit
---     ''-12*vecJ + 9*vecK'' dans notre cas.
+--   1) ''cfacet_up'' est la liste des facettes situées dans
+--   le demi-espace dirigé par le vecteur normal du plan, soit
+--   ''-12*vecJ + 9*vecK'' dans notre cas.
 --
---     1) ''cfacet_down'' est la liste des facettes situées dans
---     l’autre demi-espace.
+--   1) ''cfacet_down'' est la liste des facettes situées dans
+--   l’autre demi-espace.
 ------
-    local cfacet                 = graphview:Classifyfacet(cone_down)
-    local cfacet_up, cfacet_down = cutfacet(cfacet, plane)
+local cfacet         = graphview:Classifyfacet(cone_down)
+local cfacet_up, cfacet_down = cutfacet(cfacet, plane)
 
 ------
 -- Partie du cône du bas sous le plan.
 ------
-    graphview:Dpolyline3d(
-        border(cfacet_down),
-        "left color = white, right color = ForestGreen")
+graphview:Dpolyline3d(
+  border(cfacet_down),
+  "left color = white, right color = ForestGreen"
+)
 
 ------
 -- Le plan de coupe est obtenu via les paramètres de construction
@@ -111,55 +115,62 @@
 --         * `P` est alors centré sur `A`, l'un de ses côtés est
 --         `pdim_1 vect(u)`, et l'autre est `pdim_2 vect(v)`.
 ------
-    graphview:Dplane(
-        plane,
-        vec_plane, pdim_1, pdim_2,
-        "Navy, fill = blue!75!black!45, fill opacity = .9")
+graphview:Dplane(
+  plane,
+  vec_plane, pdim_1, pdim_2,
+  "Navy, fill = blue!75!black!45, fill opacity = .9"
+)
 
 ------
 -- Partie du cône du bas au-dessus du plan.
 ------
-    graphview:Dpolyline3d(
-        border(cfacet_up),
-        "left color = white, right color = gray")
+graphview:Dpolyline3d(
+  border(cfacet_up),
+  "left color = white, right color = gray"
+)
 
 ------
 -- Le cône au-dessus.
 ------
-    graphview:Dcone(
-        Origin, vec_cone, 3,
-        {color = "orange"})
+graphview:Dcone(
+  Origin, vec_cone, 3,
+  {
+    color = "orange"
+  })
 
 ------
 -- La ligne polygonale de la section.
 ------
-    graphview:Dedges(
-        section,
-        {hidden = true, color = "red", width = 12})
+graphview:Dedges(
+  section,
+  {
+    hidden = true, color = "red", width = 12
+  })
 
 ------
 -- Tous les traits à venir sont en pointillés : nous entrons du
 -- côté obscur du graphisme 3D...
 ------
-    graphview:Linestyle(Hiddenlinestyle)
+graphview:Linestyle(Hiddenlinestyle)
 
 ------
 -- Ajout à la main du bord caché du plan.
 ------
-    graphview:Dplane(
-        plane,
-        vec_plane, pdim_1, pdim_2,
-        "Navy")
+graphview:Dplane(
+  plane,
+  vec_plane, pdim_1, pdim_2,
+  "Navy"
+)
 
 ------
 -- Ajout à la main du bord caché du cône du bas.
 ------
-    graphview:Dcone(Origin, -vec_cone, 3)
+graphview:Dcone(Origin, -vec_cone, 3)
 
 ------
 -- Et le merveilleux se révèle au monde.
 ------
-    graphview:Show()
+graphview:Show()
 \end{luadraw}
 
 \end{document}

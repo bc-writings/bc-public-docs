@@ -33,11 +33,11 @@ Cas simple pour voir où nous allons.
 %     + https://tex.stackexchange.com/a/742419/6880
 %%%
 \begin{tblrtikzabove}
-    \foreach \col in {1,...,2} {
-        \node at (1-\col.base east) [
-            anchor      = base,
-            text height = \baselineskip
-        ] {ou};
+  \foreach \col in {1,...,2} {
+    \node at (1-\col.base east) [
+      anchor      = base,
+      text height = \baselineskip
+    ] {ou};
 %%%
 % Nous complétons le trait vertical tracé par ''tblr'' à partir de
 % la 2ième ligne du tableau.
@@ -46,9 +46,9 @@ Cas simple pour voir où nous allons.
 %      La macro ''\pgflinewidth'' donne la largeur du noeud contenant
 %      le texte "ou".
 %%%
-        \draw ([xshift = .5\pgflinewidth, yshift = -2pt] 1-\col.base east)
-           -- ([xshift = .5\pgflinewidth] 1-\col.south east);
-    }
+    \draw ([xshift = .5\pgflinewidth, yshift = -2pt] 1-\col.base east)
+       -- ([xshift = .5\pgflinewidth] 1-\col.south east);
+  }
 \end{tblrtikzabove}
 
 \begin{tblr}{
@@ -57,56 +57,56 @@ Cas simple pour voir où nous allons.
 % à l'avant-dernière, et ceci en commençant le tracé à partir de la
 % \2ieme ligne (Y, Z font \ref aux deux dernières lignes).
 %%%
-    vline{2-Y} = {2-Z}{solid},
+  vline{2-Y} = {2-Z}{solid},
 %%%
 % Il est aisé de régler l'espacement autour des lignes verticales.
 %%%
-    colsep = 1.2em,
+  colsep = 1.2em,
 %%%
 % Nous indiquons que toutes les cellules sont "mathématiques".
 %%%
-    cells = {mode = math}
+  cells = {mode = math}
 }
-    x^2 - 2 = 0    & -4 x + \dfrac{3}{4} = 0 & x^4 + 7 = 0        \\
-    x^2 = 2        & -4 x = - \dfrac{3}{4}   & \text{Impossible!} \\
-    x = \pm \sqrt2 & 4 x = \dfrac{3}{4}                           \\
-                   & x = \dfrac{3}{16}
+  x^2 - 2 = 0    & -4 x + \dfrac{3}{4} = 0 & x^4 + 7 = 0        \\
+  x^2 = 2        & -4 x = - \dfrac{3}{4}   & \text{Impossible!} \\
+  x = \pm \sqrt2 & 4 x = \dfrac{3}{4}                           \\
+                 & x = \dfrac{3}{16}
 \end{tblr}
 
 
 Cas utile atypique, mais justifiant la solution retenue.
 
 \begin{tblrtikzabove}
-    \node at (1-1.base east) [
-        anchor      = base,
-        text height = \baselineskip
-    ] {ou};
-    %
-    \draw ([xshift = .5\pgflinewidth, yshift = -2pt] 1-1.base east)
-       -- ([xshift = .5\pgflinewidth] 1-1.south east);
+  \node at (1-1.base east) [
+    anchor      = base,
+    text height = \baselineskip
+  ] {ou};
+%
+  \draw ([xshift = .5\pgflinewidth, yshift = -2pt] 1-1.base east)
+     -- ([xshift = .5\pgflinewidth] 1-1.south east);
 \end{tblrtikzabove}
 
 \begin{tblr}{
-    vline{2-Y} = {2-Z}{solid},
-    colsep = 1.2em,
-    cells  = {mode = math}
+  vline{2-Y} = {2-Z}{solid},
+  colsep     = 1.2em,
+  cells      = {mode = math}
 }
-    \begin{WithArrows}[
+  \begin{WithArrows}[
 %%%
 % Sans ''right-overlap = false'', les flèches décoratives ne
 % seraient pas prises en compte par la boîte \latex créée par
 % l'\env ''WithArrows'' (c'est généralement ce que l'on veut,
 % mais ici ceci donnerait une \mef incorrecte).
 %%%
-        right-overlap = false,
-        format        = l
-    ]
-        f(x) \ge g(x)         \Arrow{E1} \\
-        f(x)^2 \ge g(x)^2     \Arrow{E2} \\
-        f(x)^2 - g(x)^2 \ge 0
-    \end{WithArrows}
-    &
-    \text{Utile.}
+    right-overlap = false,
+    format        = l
+  ]
+    f(x) \ge g(x)         \Arrow{E1} \\
+    f(x)^2 \ge g(x)^2     \Arrow{E2} \\
+    f(x)^2 - g(x)^2 \ge 0
+  \end{WithArrows}
+  &
+  \text{Utile.}
 \end{tblr}
 
 \end{document}

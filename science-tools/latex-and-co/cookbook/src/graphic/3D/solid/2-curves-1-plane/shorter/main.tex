@@ -28,43 +28,44 @@
 --
 --     1) Un plan pour biseauter le cylindre.
 --
+--
 -- note::
 -- 	   Le choix `P : -x - y - z + 4 = 0` permet d'avoir le bon
 --     vecteur normal utilisé après pour construire un prisme.
 ------
-    local f = function(x)
-        return 3*x^2 - 1
-    end
+local f = function(x)
+  return 3*x^2 - 1
+end
 
-    local g = function(x)
-        return 3 - x^2
-    end
+local g = function(x)
+  return 3 - x^2
+end
 
-    local P = planeEqn(1, 1, 1, -4)
+local P = planeEqn(1, 1, 1, -4)
 
 ------
 -- Définition de la zone graphique.
 ------
-    local graphview = graph3d:new{
-        window3d = {-2, 2, -2, 3, 0, 8},
-        adjust2d = true,
-        viewdir  = {-30, 50},
-        size     = {12, 12, 0}
-    }
+local graphview = graph3d:new{
+  window3d = {-2, 2, -2, 3, 0, 8},
+  adjust2d = true,
+  viewdir  = {-30, 50},
+  size     = {12, 12, 0}
+}
 
 ------
 -- Réglage lié aux lignes.
 ------
-    graphview:Linejoin("round")
+graphview:Linejoin("round")
 
 ------
 -- Réglage du repère en mode "boîte".
 ------
-    graphview:Dboxaxes3d({
-        grid      = true,
-        gridcolor = "gray",
-        fillcolor = "LightGray"
-    })
+graphview:Dboxaxes3d({
+  grid      = true,
+  gridcolor = "gray",
+  fillcolor = "LightGray"
+})
 
 ------
 -- Construction du domaine dans le plan `xOy`.
@@ -77,19 +78,19 @@
 --     contour délimité par les courbes des fonctions `f` et `g` avec
 --     des réglages expliqués en commentaires.
 ------
-    local xOy_domain = map(
-        toPoint3d,
-        domain3(
-            f, g,   -- Deux courbes pour le domaine.
-            -3, 3,  -- Intervalle de définition [-3; 3]
-            50,     -- Nombre de points utilisés.
-            false,  -- Pas de discontinuité.
-            0       -- Aucune subdivision adaptative des calculs
-                    -- intérmédiaires, car ceci indique combien de
-                    -- fois, au maximum, une étape de calcul peut
-                    -- être divisée en deux (par dichotomie).
-        )
-    )
+local xOy_domain = map(
+  toPoint3d,
+  domain3(
+    f, g,   -- Deux courbes pour le domaine.
+    -3, 3,  -- Intervalle de définition [-3; 3]
+    50,     -- Nombre de points utilisés.
+    false,  -- Pas de discontinuité.
+    0       -- Aucune subdivision adaptative des calculs
+            -- intérmédiaires, car ceci indique combien de
+            -- fois, au maximum, une étape de calcul peut
+            -- être divisée en deux (par dichotomie).
+  )
+)
 
 ------
 -- Via la fonction ''prism'', nous obtenons le domaine dans le plan
@@ -100,84 +101,84 @@
 -- 	   La première variable ''_'' contient les facettes du "mauvais"
 --     côte du demi-plan `P`.
 ------
-    local _, lateral, P_domain = cutfacet(
-        poly2facet(
-            prism(xOy_domain, 8*vecK, true)
-        ),
-        P
-    )
+local _, lateral, P_domain = cutfacet(
+  poly2facet(
+    prism(xOy_domain, 8*vecK, true)
+  ),
+  P
+)
 
 ------
 -- Tracé du domaine dans le plan `xOy` en hachuré et sans bordure.
 ------
-    graphview:Filloptions("fdiag", "ForestGreen")
-    graphview:Linestyle("noline")
-    graphview:Dpolyline3d(xOy_domain, true)
+graphview:Filloptions("fdiag", "ForestGreen")
+graphview:Linestyle("noline")
+graphview:Dpolyline3d(xOy_domain, true)
 
 ------
 -- Pour ce qui suit, nous ne remplissions plus rien, et utilisons de
 -- nouveau des traits pleins.
 ------
-    graphview:Filloptions("none")
-    graphview:Linestyle("solid")
+graphview:Filloptions("none")
+graphview:Linestyle("solid")
 
 ------
 -- Nous nous plaçons dans le plan `xOy` pour y tracer les courbes des
 -- fonctions  `f` et `g`. La technique employée est similiare à ce qui
 -- se fait avec ¨opengl: nous jouons avec des matrices de vue.
 ------
-    graphview:Savematrix()
-        graphview:Setmatrix(graphview:Proj3d({Origin, vecI, vecJ}))
+graphview:Savematrix()
+  graphview:Setmatrix(graphview:Proj3d({Origin, vecI, vecJ}))
 
-        graphview:Dcartesian(
-            f,
-            {x = {-2/math.sqrt(3), 2/math.sqrt(3)},
-            draw_options = "line width = 0.8pt, Navy"
-        })
+  graphview:Dcartesian(
+    f,
+    {
+      x = {-2/math.sqrt(3), 2/math.sqrt(3)},
+      draw_options = "line width = 0.8pt, Navy"
+    })
 
-        graphview:Dcartesian(
-            g,
-            {x = {-2, 2},
-            draw_options = "line width = 0.8pt, Crimson"
-        })
-    graphview:Restorematrix()
+  graphview:Dcartesian(
+    g,
+    {
+      x = {-2, 2},
+      draw_options = "line width = 0.8pt, Crimson"
+    })
+graphview:Restorematrix()
 
 ------
 -- Tracé des faces latérales.
 ------
-    graphview:Dfacet(
-        lateral,
-        {
-            edgecolor = "gray",
-            edgewidth = 2,
-            color     = "Pink",
-            opacity   = 0.3
-        })
+graphview:Dfacet(
+  lateral,
+  {
+    edgecolor = "gray",
+    edgewidth = 2,
+    color     = "Pink",
+    opacity   = 0.3
+  })
 
 ------
 -- Tracé du domaine dans le plan `P`.
 ------
-    graphview:Dpolyline3d(
-        P_domain,
-        true,
-        "draw = none, fill = cyan, fill opacity = 0.8"
-    )
+graphview:Dpolyline3d(
+  P_domain,
+  true,
+  "draw = none, fill = cyan, fill opacity = 0.8"
+)
 
 ------
 -- Pour visualiser le plan `P` dans le repère de type "boîte".
 ------
-    graphview:Dpolyline3d(
-        graphview:Plane2facet(P),
-        true,   -- Pour fermer la ligne.
-        "cyan"
-     )
+graphview:Dpolyline3d(
+  graphview:Plane2facet(P),
+  true,   -- Pour fermer la ligne.
+  "cyan"
+)
 
 ------
 -- Et le merveilleux se révèle au monde.
 ------
-    graphview:Show()
+graphview:Show()
 \end{luadraw}
 
 \end{document}
-
--- domain in xy-plane

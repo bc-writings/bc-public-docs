@@ -18,56 +18,56 @@
 %     #2 : caractère ouvrant à gauche pour tester l'écriture directe.
 %%%
 \NewDocumentCommand{ \example }{ m m }{
-    $\interval{a, b}$
-    \quad
-    $\interval[big]{a, b}$
+  $\interval{a, b}$
+  \quad
+  $\interval[big]{a, b}$
 
-    $\interval{\dfrac{1}{2}, \dfrac{2}{3}}$
-    \quad
-    $\interval[Big]{\dfrac{1}{2}, \dfrac{2}{3}}$
-    \quad
-    $\interval[auto]{\dfrac{1}{2}, \dfrac{2}{3}}$
+  $\interval{\dfrac{1}{2}, \dfrac{2}{3}}$
+  \quad
+  $\interval[Big]{\dfrac{1}{2}, \dfrac{2}{3}}$
+  \quad
+  $\interval[auto]{\dfrac{1}{2}, \dfrac{2}{3}}$
 
-    $\interval[c]{a, b}$
-    \quad
-    $\interval[oc]{-oo, b}$
-    \quad
-    $\interval[o]{a, oo}$
-    \quad
-    $\interval{a, +oo}$
+  $\interval[c]{a, b}$
+  \quad
+  $\interval[oc]{-oo, b}$
+  \quad
+  $\interval[o]{a, oo}$
+  \quad
+  $\interval{a, +oo}$
 
-    $\interval{-oo, oo}$
-    \quad
-    $\interval{-oo, +oo}$
+  $\interval{-oo, oo}$
+  \quad
+  $\interval{-oo, +oo}$
 
-    $\interval[c, sep=;]{a, b}$
-    \quad
-    $\interval[oc, sep=..]{a, b}$
-    \quad
-    $\interval[oc, sep=..]{-oo, +oo}$
+  $\interval[c, sep=;]{a, b}$
+  \quad
+  $\interval[oc, sep=..]{a, b}$
+  \quad
+  $\interval[oc, sep=..]{-oo, +oo}$
 
-    $\interval{1, 2} \cup \interval[co]{2, 3} = \interval{1, 3}$
+  $\interval{1, 2} \cup \interval[co]{2, 3} = \interval{1, 3}$
 
-    A la main :
+  A la main :
 
-    $#11, 2#2 \cup [2, 3#2 = #11, 3#2$
+  $#11, 2#2 \cup [2, 3#2 = #11, 3#2$
 
-    Un test hors intervalle : $a = b \, [p]$
+  Un test hors intervalle : $a = b \, [p]$
 }
 
 \begin{document}
 
 \begin{multicols}{2}
-    \paragraph{Standard typesetting}
-    \leavevmode
+  \paragraph{Standard typesetting}
+  \leavevmode
 
-    \example{(}{)}
+  \example{(}{)}
 
-    \paragraph{French typesetting}
-    \leavevmode
+  \paragraph{French typesetting}
+  \leavevmode
 
-    \intervalsetup{french}
-    \example{]}{[}
+  \intervalsetup{french}
+  \example{]}{[}
 \end{multicols}
 
 \end{document}

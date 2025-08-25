@@ -25,33 +25,34 @@
 \newcommand{\verbtestbis}%
            {\mathmacro{bigcompo}\_\{i = 0\}\text{\textasciicircum}\{9\} \, c\_i}
 
-\NewDocumentCommand{\mathmacro}{m}{\;\backslash#1}%\;}
+\NewDocumentCommand{\mathmacro}{m}%
+                   {\;\backslash#1}%\;}
 
 \newcommand{\testmathstyle}{
-    \[
-        \renewcommand{\arraystretch}{1.2}%
-        \begin{array}{lll}
-              \textbf{Style}
-            & \mathtt{\verbtest}
-            & \mathtt{\verbtestbis}
-            \\ \hline
-              \mathtt{\backslash displaystyle}
-            & \displaystyle \test
-            & \displaystyle \testbis
-            \\
-              \mathtt{\backslash textstyle}
-            & \textstyle \test
-            & \textstyle \testbis
-            \\
-              \mathtt{\backslash scriptstyle}
-            & \scriptstyle \test
-            & \scriptstyle \testbis
-            \\
-              \mathtt{\backslash scriptscriptstyle}
-            & \scriptscriptstyle \test
-            & \scriptscriptstyle \testbis
-        \end{array}
-    \]
+  \[
+    \renewcommand{\arraystretch}{1.2}%
+    \begin{array}{lll}
+        \textbf{Style}
+      & \mathtt{\verbtest}
+      & \mathtt{\verbtestbis}
+      \\ \hline
+        \mathtt{\backslash displaystyle}
+      & \displaystyle \test
+      & \displaystyle \testbis
+      \\
+        \mathtt{\backslash textstyle}
+      & \textstyle \test
+      & \textstyle \testbis
+      \\
+        \mathtt{\backslash scriptstyle}
+      & \scriptstyle \test
+      & \scriptstyle \testbis
+      \\
+        \mathtt{\backslash scriptscriptstyle}
+      & \scriptscriptstyle \test
+      & \scriptscriptstyle \testbis
+    \end{array}
+  \]
 }
 
 \begin{document}

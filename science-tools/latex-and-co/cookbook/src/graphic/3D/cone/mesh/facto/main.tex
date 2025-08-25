@@ -16,52 +16,58 @@
 ------
 -- Les ingrédients de base.
 ------
-    local graphview = graph3d:new{
-        window = {-1.5, 7, -2.5, 3},
-        size   = {10, 10}
-    }
+local graphview = graph3d:new{
+  window = {-1.5, 7, -2.5, 3},
+  size   = {10, 10}
+}
 
-    graphview:Linejoin("round")
+graphview:Linejoin("round")
 
-    local genecurve = function(t)
-        return M(t, 2 - t/2, 0)
-    end
+local genecurve = function(t)
+  return M(t, 2 - t/2, 0)
+end
 
-    local cone = rotcurve(
-        genecurve, -0.2, 6.5,
-        {Origin, -vecI},
-        0, 360,
-        {grid = {25, 36}})
+local cone = rotcurve(
+  genecurve, -0.2, 6.5,
+  {
+    Origin, -vecI
+  },
+  0, 360,
+  {
+    grid = {25, 36}
+  })
 
 ------
 -- Ajout d'une fonction pour tracer la surface.
 ------
-    local draw = function()
-        graphview:Dfacet(
-            cone,
-            {color    = "orange",
-             contrast = 0.5})
-    end
+local draw = function()
+  graphview:Dfacet(
+    cone,
+    {
+      color  = "orange",
+      contrast = 0.5
+    })
+end
 
 ------
 -- Vue 1 construite en coulisse.
 ------
-    graphview:Setviewdir(290, 60)
-    draw()
-    graphview:Savetofile("mesh-cone-1.tkz")
+graphview:Setviewdir(290, 60)
+draw()
+graphview:Savetofile("mesh-cone-1.tkz")
 
 ------
 -- Nous devons effacer la zone graphique courante !
 ------
-    graphview.currentexport = {""}
-    graphview.export        = graphview.currentexport
+graphview.currentexport = {""}
+graphview.export        = graphview.currentexport
 
 ------
 -- Vue 2 construite en coulisse.
 ------
-    graphview:Setviewdir(240,60) -- second view
-    draw()
-    graphview:Savetofile("mesh-cone-2.tkz")
+graphview:Setviewdir(240,60) -- second view
+draw()
+graphview:Savetofile("mesh-cone-2.tkz")
 \end{luadraw}
 
 \section*{1st point of view}

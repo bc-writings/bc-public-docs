@@ -9,7 +9,7 @@
 %%%
 % Les boîtes sont de la responsabilité du \pack ''tcolorbox''.
 % Par contre, nous devons la bibliothèque ''skins'' pour créer
-% des liens externs ou internes. 
+% des liens externs ou internes.
 % Quant à la bibliothèque ''minted'', elle est juste là pour
 % proposer un code \python en exemple.
 %%%
@@ -36,35 +36,35 @@ Voilà une fonctionnalité bien utile.
 %       page ouvrir un PDF.
 %%%
 \begin{tcolorbox}[
-    enhanced,
-    title    = Une boîte pointant vers l'extérieur,
-    hyperurl = https://www.latex-project.org/news/2023/03/17/TLC3/,
+  enhanced,
+  title    = Une boîte pointant vers l'extérieur,
+  hyperurl = https://www.latex-project.org/news/2023/03/17/TLC3/,
 ]
-    Cliquer moi, vous saurez d'où vient le code utilisé.
+  Cliquer moi, vous saurez d'où vient le code utilisé.
 \end{tcolorbox}
 
 Ceci permet de proposer une version en ligne d'un code informatique difficilement copiable dans un PDF. Ai-je bien entendu ? Vous souhaitez aussi ne pas avoir de cadre, ni de rondeur ! Aucun souci.
 
 \begin{tcblisting}{
-    enhanced,
-    hyperurl = https://fr.wikipedia.org/wiki/Python_(langage)\#Programmation_fonctionnelle,
+  enhanced,
+  hyperurl = https://fr.wikipedia.org/wiki/Python_(langage)\#Programmation_fonctionnelle,
 %%%
 % Réglages pour le code Python.
 %%%
-    listing engine=minted,
-    minted style=colorful,
-    minted language=python,
-    listing only,
+  listing engine  = minted,
+  minted style    = colorful,
+  minted language = python,
+  listing only,
 %%%
 % Configurations pour la mise en forme.
 %%%
-    sharp corners,
-    colback  = orange!20,
-    boxrule  = 0pt,
-    top      = 0pt,
-    bottom   = 0pt,
-    left     = 0pt,
-    right    = 0pt,
+  sharp corners,
+  colback  = orange!20,
+  boxrule  = 0pt,
+  top      = 0pt,
+  bottom   = 0pt,
+  left     = 0pt,
+  right    = 0pt,
 }
 liste = [x**2 for x in range(10)]
 # liste = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]

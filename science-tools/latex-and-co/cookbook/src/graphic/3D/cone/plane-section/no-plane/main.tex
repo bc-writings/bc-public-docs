@@ -24,13 +24,13 @@
 ------
 -- Quelques variables bien nommées pour un usage local.
 ------
-    local height      =  5
-    local radius      =  3
-    local vec_cone    = height*vecK
-    local width_line  =  16
-    local section_col = "red"
-    local cone_col    = "blue!50!black!75"
-    local side_col    = "blue!75!black"
+local height      =  5
+local radius      =  3
+local vec_cone    = height*vecK
+local width_line  =  16
+local section_col = "red"
+local cone_col    = "blue!50!black!75"
+local side_col    = "blue!75!black"
 
 ------
 -- Définition de la zone graphique.
@@ -43,24 +43,24 @@
 --
 --     1) ''size'' impose les dimensions en cm dans le document.
 ------
-    local graphview = graph3d:new{
-        window  = {-radius - 1, radius + 1, -height - 1, height + 1},
-        viewdir = {120, 60},
-        size    = {12, 12}
-    }
+local graphview = graph3d:new{
+  window  = {-radius - 1, radius + 1, -height - 1, height + 1},
+  viewdir = {120, 60},
+  size    = {12, 12}
+}
 
 ------
 -- Nous utilisons des jointures arrondies pour les segments, et
 -- changeons l'épaisseur et la couleur des lignes.
 ------
-    graphview:Linejoin("round")
-    graphview:Lineoptions(solid, side_col, width_line)
+graphview:Linejoin("round")
+graphview:Lineoptions(solid, side_col, width_line)
 
 ------
 -- Nous changeons la valeur de ''Hiddenlinestyle'' qui par défaut
 -- vaut ''"dotted"''.
 ------
-    Hiddenlinestyle = "dashed"
+Hiddenlinestyle = "dashed"
 
 ------
 -- Nous définissons des polyèdres de type conique pour calculer des
@@ -84,12 +84,15 @@
 --     d'ouvrir les cônes. Nous utilisons ceci dans la recette
 --     suivante.
 ------
-    local cone_1 = cone(
-        Origin, vec_cone, radius,
-        100)
-    local cone_2 = cone(
-        Origin,  -vec_cone, radius,
-        100)
+local cone_1 = cone(
+  Origin, vec_cone, radius,
+  100
+)
+
+local cone_2 = cone(
+  Origin,  -vec_cone, radius,
+  100
+)
 
 ------
 -- Le plan de coupe est modélisé par un tableau contenant un point
@@ -97,37 +100,49 @@
 -- ce "plan" avec nos deux solides coniques : nous obtenons des
 -- lignes polygonales, et non des surfaces planes.
 ------
-    local plane     = {M(1, 0, 0), vecI}
-    local section_1 = graphview:Intersection3d(cone_1, plane)
-    local section_2 = graphview:Intersection3d(cone_2, plane)
+local plane     = {M(1, 0, 0), vecI}
+local section_1 = graphview:Intersection3d(cone_1, plane)
+local section_2 = graphview:Intersection3d(cone_2, plane)
 
 ------
 -- Le tracé des solides coniques se fait indépendamment des calculs
 -- effectués ci-dessus : autrement dit, nous ne pouvons pas nous
 -- appuyer sur les variables ''cone_1'' et ''cone_2''.
 ------
-    graphview:Dcone(
-        Origin, vec_cone, radius,
-        {color = cone_col})
-    graphview:Dcone(
-        Origin, -vec_cone, radius,
-        {color = cone_col})
+graphview:Dcone(
+  Origin, vec_cone, radius,
+  {
+    color = cone_col
+  })
+
+graphview:Dcone(
+  Origin, -vec_cone, radius,
+  {
+    color = cone_col
+  })
 
 ------
 -- Nous traçons les bords des sections calculées plus haut tout en
 -- affichant les lignes cachées via ''hidden = true''.
 ------
-    graphview:Dedges(
-        section_1,
-        {hidden = true, color = section_col})
-    graphview:Dedges(
-        section_2,
-        {hidden = true, color = section_col})
+graphview:Dedges(
+  section_1,
+  {
+    hidden = true,
+    color = section_col
+  })
+
+graphview:Dedges(
+  section_2,
+  {
+    hidden = true,
+    color = section_col
+  })
 
 ------
 -- Et le merveilleux se révèle au monde.
 ------
-    graphview:Show()
+graphview:Show()
 \end{luadraw}
 
 \end{document}
