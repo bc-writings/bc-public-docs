@@ -1,16 +1,25 @@
 this::
-    date = 2025-08-24
+    date = 2025-08-25
+
+
+abrev::
+    desc = desc.tns.txt
 
 
 ===================
 Un escalier cubique
 ===================
 
-Nous allons construire un escalier "cubique" surréaliste. Cette recette demande de gérer l'ordre du tracé des cubes
-((
-    Ne jamais oublier que \luadraw n'est pas un moteur de rendu 3D !
-)).
+Nous allons construire l'escalier "cubique" surréaliste suivant.
+
+pdf::
+    file = ./cube/main-crop.pdf
 
 
 note::
-    Pour minimiser le nombre de calculs, nous omettons volontairement les cubes internes non visibles pour le point de vue choisi.
+    Pour minimiser le nombre de calculs, nous omettons volontairement l'ajout d'éléments non visibles pour le point de vue choisi.
+
+
+content::
+    ./cube/\desc
+    ./face/\desc

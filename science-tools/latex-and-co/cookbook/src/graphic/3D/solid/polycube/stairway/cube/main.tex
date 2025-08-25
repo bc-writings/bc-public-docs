@@ -17,6 +17,11 @@
 
 \begin{luadraw}{name = stairway}
 ------
+-- Nombre de marches, ou de tranches souhaité.
+------
+    local nb_slices = 10
+
+------
 -- Définition de la zone graphique.
 ------
     local graphview = graph3d:new{
@@ -37,7 +42,6 @@
 --    graphview:Dboxaxes3d()  -- En affichant le repère en mode
                               -- "boîte", nous pouvons choisir
                               -- le bon ordre des tracés.
-    local nb_slices = 10
     local num_col, colors = 1, {"Crimson", "ForestGreen"}
 
     local cube = parallelep(M(-5, -5, -5), vecI, vecJ, vecK)
