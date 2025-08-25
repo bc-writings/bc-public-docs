@@ -38,26 +38,22 @@ function nocompile {
 
 cd "$TARGET"
 
-for f in $(find . -name '*.tex')
+for f in $(find cookbook/src -name 'main*.tex')
 do
-  if [[ $(basename "$f") == main*.tex ]]
+  echo "-- NEW TEX FILE --"
+  echo "./$f"
+
+  fdir=$(dirname "$f")
+
+  cd "$TARGET/$fdir"
+
+  if head -n 1 "$TARGET/$f" | grep '^% *!TEX TS-program *= *lualatex'
   then
-    case "$f" in ./cookbook/src/**/*.tex)
-        echo "-- NEW TEX FILE --"
-        echo "$f"
+    texcmd="lualatex"
 
-        fdir=$(dirname "$f")
-
-        if head -n 1 "$TARGET/$f" | grep '^% *!TEX TS-program *= *lualatex'
-        then
-            texcmd="lualatex"
-        else
-            texcmd="pdflatex"
-        fi
-
-        cd "$TARGET/$fdir"
-
-        SOURCE_DATE_EPOCH=0 FORCE_SOURCE_DATE=1 latexmk -quiet -pdf -pdflatex="$texcmd --interaction=nonstopmode --halt-on-error --shell-escape  %O %S" "$TARGET/$f" || nocompile "$TARGET/$f"
-    esac
+  else
+    texcmd="pdflatex"
   fi
+
+  SOURCE_DATE_EPOCH=0 FORCE_SOURCE_DATE=1 latexmk -quiet -pdf -pdflatex="$texcmd --interaction=nonstopmode --halt-on-error --shell-escape  %O %S" "$TARGET/$f" || nocompile "$TARGET/$f"
 done # for f in $(find . -name '*.tex')

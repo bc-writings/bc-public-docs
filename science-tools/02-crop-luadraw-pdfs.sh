@@ -37,14 +37,14 @@ fi
 # -- LET'S CROP TOGETHER -- #
 # ------------------------- #
 
-echo "-- CROPING LUADRAW PDFs --"
+echo "-- CROPPING LUADRAW PDFs --"
 echo ""
 
 cd "$TARGET"
 
 for fdir in $(find cookbook/src -name '*.tkz' -exec dirname {} \; | sort -u)
 do
-  echo "+ $fdir"
+  echo "+ ./$fdir"
 
   cd "$TARGET/$fdir"
 
@@ -53,15 +53,16 @@ do
   oldhash=""
 
   if [[ -f "$HASH_FILE" ]]; then
-      oldhash=$(cat "$HASH_FILE")
+    oldhash=$(cat "$HASH_FILE")
   fi
 
   if [[ "$newhash" != "$oldhash" ]]
   then
-      pdfcrop --margins '3' main.pdf
+    pdfcrop --margins '3' main.pdf
 
-      echo "$newhash" > "$HASH_FILE"
+    echo "$newhash" > "$HASH_FILE"
+
   else
-      echo "  Nothing to do."
+    echo "  Nothing to do."
   fi
 done # for fdir in $(find cookbook/src -name '*.tkz' -exec dirname {} \; | sort -u)
