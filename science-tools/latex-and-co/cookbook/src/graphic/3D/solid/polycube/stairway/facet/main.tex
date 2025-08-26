@@ -36,9 +36,8 @@ local graphview = graph3d:new{
 graphview:Linejoin("round")
 
 ------
--- Tracé de l'escalier via des facettes visibles.
+-- Tracé de l'escalier via des facettes "visibles".
 ------
--- graphview:Dboxaxes3d()
 local num_col, colors = 0, {"ForestGreen", "Crimson"}
 
 local cube        = parallelep(M(-5, -5, -5), vecI, vecJ, vecK)
@@ -78,7 +77,7 @@ end
 -- ''table.unpack'' "déplie" les éléments d'une table en valeurs
 -- séparées. Par exemple, si ''args = {1, 2, 3}'', alors l'emploi
 -- de ''table.unpack(args)'' équivaut à la saisie de ''1, 2, 3''.
-graphview:Dmixfacet( table.unpack(facets_n_options) )
+graphview:Dmixfacet(table.unpack(facets_n_options))
 
 ------
 -- Et le merveilleux se révèle au monde.

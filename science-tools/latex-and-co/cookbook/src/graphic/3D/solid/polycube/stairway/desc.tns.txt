@@ -13,7 +13,7 @@ Un escalier cubique
 Nous allons construire l'escalier "cubique" surréaliste suivant.
 
 pdf::
-    file = ./cube/main-crop.pdf
+    file = ./facet/main-crop.pdf
 
 
 note::
