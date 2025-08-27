@@ -1,0 +1,12 @@
+this::
+    date = 2025-08-27
+
+
+=========================
+Deux cônes s'intersectant
+=========================
+
+Tout est dans le titre. Rien de plus à ajouter.
+
+warning::
+    Le lecteur attentif notera un petit souci avec les silouhettes des cônes.

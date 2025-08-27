@@ -1,0 +1,119 @@
+% !TEX TS-program = lualatex
+
+\documentclass[border = 3pt]{standalone}
+
+%%%
+% Des couleurs nommées faciles d'emploi via le package ''xcolor''!
+%%%
+\usepackage[svgnames]{xcolor}
+
+%%%
+% La bibliothèque ''luadraw'' allie une facilité d’utilisation à
+% un rendu particulièrement soigné.
+%%%
+\usepackage[3d]{luadraw}
+
+\begin{document}
+
+\begin{luadraw}{name = 2-cones-inter}
+------
+-- Définition de la zone graphique.
+------
+local graphview = graph3d:new{
+  window  = {-3, 5, -1, 5},
+  viewdir = {270, 65},
+  size    = {10, 10}
+}
+
+------
+-- Réglages liés aux lignes.
+------
+graphview:Linejoin("round")
+graphview:Linewidth(5)
+Hiddenlinestyle = "dashed"
+
+------
+-- Les éléments graphiques de base.
+------
+local O     = Origin
+local r1, h =  2, 4
+local r2    = r1/2
+local T     =  M(r2, 0, 0)
+
+local cone_1 = cone(Origin, h*vecK, r1, 50, true)
+local cone_2 = cone(T, h*vecK, r2, 50, true)
+
+------
+-- Nous voulons aussi voir les silouhettes des cônes.
+------
+local border_1 = border(
+  graphview:Classifyfacet(cone_1)
+)
+
+local border_2 = border(
+  graphview:Classifyfacet(cone_2)
+)
+
+------
+-- Dessinons les cônes.
+------
+graphview:Dscene3d(
+-- Les deux cônes.
+  graphview:addPoly(
+    cone_1,
+    {
+      color    = "orange",
+      contrast = 0.5
+    }),
+  graphview:addPoly(
+    cone_2,
+    {
+      color = "green"
+    }),
+-- Les bords cachés.
+  graphview:addPolyline(
+    concat(border_1, border_2),
+    {
+      width  = 4,
+      hidden = true
+    })
+)
+
+------
+-- Pour voir les cercles supérieurs des silouhettes.
+------
+graphview:Dcircle3d(Origin + h*vecK, r1, vecK)
+graphview:Dcircle3d(T + h*vecK, r2, vecK)
+
+------
+-- Ajout d'explications sur le graphique.
+------
+graphview:Dpolyline3d(
+  {
+    {M(-r1 - r2,  0,  h), M(r1 + r2,  0,  h)},
+    {M(-r1 - r2,  0,  h/3), M(r1 + r2,  0,  h/3)}
+  },
+  "dashed"
+)
+
+graphview:Dlabel3d(
+-- Étiquette no.1
+  "$L = 1$",
+  M(r1 + r2, 0, h),
+  {pos = "E"},
+-- Étiquette no.2
+  "$0 < L <1$",
+  M(r1 + r2, 0, 2*h/3),
+  {pos = "E"},
+-- Étiquette no.3
+  "$L = 0$",
+  M(r1 + r2, 0, h/3),
+  {pos = "E"})
+
+------
+-- Et le merveilleux se révèle au monde.
+------
+graphview:Show()
+\end{luadraw}
+
+\end{document}
