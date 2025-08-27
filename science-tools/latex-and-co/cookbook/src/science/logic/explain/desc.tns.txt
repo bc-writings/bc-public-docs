@@ -1,0 +1,10 @@
+abrev::
+    desc = desc.tns.txt
+
+
+==============================
+Explications d'humain à humain
+==============================
+
+content::
+    ./cyclic-implications/\desc

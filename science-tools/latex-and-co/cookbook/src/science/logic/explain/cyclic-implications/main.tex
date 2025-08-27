@@ -1,0 +1,72 @@
+\documentclass[varwidth, border = 3pt]{standalone}
+
+\usepackage{main}
+
+%%%
+% Le \pack ''amsthm'' est juste là pour avoir des \envs ''theorem''
+% et ''proof''.
+%%%
+\usepackage{amsthm}
+
+\newtheorem{theorem}{Theorem}
+
+\begin{document}
+
+\section*{Avec les étiquettes "automatiques"}
+
+\begin{theorem}
+  Bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla,
+  bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla...
+
+  \begin{equivcond}
+    \item Bli, bli, bli...
+
+    \item Blii, blii, blii...
+
+    \item Bliii, bliii, bliii...
+  \end{equivcond}
+\end{theorem}
+
+\begin{proof}
+  Une preuve en 3 étapes.
+
+  \proofimpl*{i}{ii}
+  Bli-ii, bli-ii, bli-ii...
+
+  \proofimpl*{ii}{iii}
+  Blii-iii, blii-iii, blii-iii...
+
+  \proofimpl*{iii}{i}
+  Bliii-i, bliii-i, bliii-i...
+\end{proof}
+
+
+\section*{Avec des étiquettes "maison"}
+
+\begin{theorem}
+  Bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla,
+  bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla...
+
+  \begin{equivcond}
+    \item \label{e} Ble, ble, ble...
+
+    \item \label{i} Bli, bli, bli...
+
+    \item \label{o} Blo, blo, blo...
+  \end{equivcond}
+\end{theorem}
+
+\begin{proof}
+  Une preuve en 3 étapes.
+
+  \proofimpl{e}{i}
+  Blei, blei, blei...
+
+  \proofimpl{i}{o}
+  Blio, blio, blio...
+
+  \proofimpl{o}{e}
+  Bloe, bloe, bloe...
+\end{proof}
+
+\end{document}

@@ -1,0 +1,47 @@
+%%%
+% src::
+%     url = https://tex.stackexchange.com/a/749852/6880
+%%%
+
+%%%
+% Le \pack ''amsmath'' nous fournit la macro ''\implies'' qui imprime
+% une flèche d'implication suffisamment longue.
+%%%
+\usepackage{amsmath}
+
+%%%
+% Le \pack ''enumitem'' est utilisé pour créer un \env dédié aux \props
+% équivalentes.
+%%%
+\usepackage{enumitem}
+
+\newlist{equivcond}{enumerate}{1}
+\setlist[equivcond, 1]{
+  label      = \normalfont\bfseries(\roman*),
+  ref        = (\roman*),
+  leftmargin = 3em,
+  topsep     = .75ex,
+  % partopsep  = 0pt,
+  noitemsep,
+}
+
+%%%
+% prototype::
+%     #1 : cet \arg permet de savoir si la version étoilée est utilisée,
+%          ou non.
+%     #2 : l'étiquette pour la propriété initiale de l'implication.
+%     #3 : l'étiquette pour la propriété final de l'implication.
+%%%
+\NewDocumentCommand{ \proofimpl }{ s m m }{%
+  \bgroup
+    \IfBooleanTF{#1}{%
+      \newcommand{\@@ref@@}[1]{(##1)}%
+    }{%
+      \newcommand{\@@ref@@}[1]{\ref{##1}}%
+    }
+    \boldmath%
+    $\textbf{\@@ref@@{#2}}%
+     \kern-2pt \implies \kern-3pt%
+     \textbf{\@@ref@@{#3}}$%
+  \egroup
+}
