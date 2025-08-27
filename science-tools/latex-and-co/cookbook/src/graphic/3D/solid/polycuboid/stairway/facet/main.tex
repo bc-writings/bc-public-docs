@@ -1,5 +1,10 @@
 % !TEX TS-program = lualatex
 
+%%%
+% src::
+%   url = https://github.com/pfradin/luadraw/discussions/53#discussioncomment-14207791
+%%%
+
 \documentclass[border = 3pt]{standalone}
 
 %%%
@@ -36,7 +41,7 @@ local graphview = graph3d:new{
 graphview:Linejoin("round")
 
 ------
--- Tracé de l'escalier via des facettes "visibles".
+-- Pour les facettes "visibles".
 ------
 local num_col, colors = 0, {"ForestGreen", "Crimson"}
 

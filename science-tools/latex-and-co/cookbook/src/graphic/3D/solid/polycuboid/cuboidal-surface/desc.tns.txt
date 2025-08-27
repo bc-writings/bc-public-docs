@@ -1,0 +1,9 @@
+this::
+    date = 2025-08-27
+
+
+=======================
+Une surface "cuboidale"
+=======================
+
+Nous allons voir comment construire un solide fait de pavés droits partant tous d'un sol commun, et venant s'appuyer "sous" une surface d'équation connue `z = f(x, y)`.

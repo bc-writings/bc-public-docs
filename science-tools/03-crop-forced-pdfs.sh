@@ -61,7 +61,7 @@ do
       oldhash=$(cat "$HASH_FILE")
     fi
 
-    if [[ "$newhash" != "$oldhash" ]]
+    if [[ "$newhash" != "$oldhash" || ! -f "main-crop.pdf" ]]
     then
       pdfcrop --margins '3' main.pdf
 

@@ -1,0 +1,79 @@
+% !TEX TS-program = lualatex
+
+%%%
+% src::
+%   url = https://github.com/pfradin/luadraw/discussions/55#discussioncomment-14234192
+%%%
+
+\documentclass[border = 3pt]{standalone}
+
+%%%
+% Des couleurs nommées faciles 5'emploi via le package ''xcolor''!
+%%%
+\usepackage[svgnames]{xcolor}
+
+%%%
+% La bibliothèque ''luadraw'' allie une facilité d’utilisation à
+% un rendu particulièrement soigné.
+%%%
+\usepackage[3d]{luadraw}
+
+\begin{document}
+
+\begin{luadraw}{name = cuboidal-surface}
+------
+-- Paramètres de la surface "prismoidale".
+------
+local xdim, ydim = 10, 8
+
+local large = 5 / math.max(xdim, ydim)
+local hmax  = 5
+
+local surf_height = function(x, y)
+  return hmax*(1 - 0.85*(x^2 + y^2) / (ydim^2 + xdim^2))
+end
+
+------
+-- Définition de la zone graphique.
+------
+local graphview = graph3d:new{
+  size    = {10, 10},
+  window  = {-5, 5, -5, 5},
+  viewdir = {50, 65}
+}
+
+------
+-- Réglage lié aux lignes.
+------
+graphview:Linejoin("round")
+
+------
+-- Définition et tracé des facettes "visibles".
+------
+local facets = {}
+
+for j = 1, xdim do
+  for k = 1, ydim do
+    local P = parallelep(
+      Origin,
+      large*vecI, large*vecJ, surf_height(j, k)*vecK
+    )
+
+    P = graphview:Classifyfacet(P)
+
+    insert(
+      facets,
+      shift3d(P, (j - 1)*large*vecI + (k - 1)*large*vecJ)
+    )
+  end
+end
+
+graphview:Dfacet(facets, {color = "LightBlue"})
+
+------
+-- Et le merveilleux se révèle au monde.
+------
+graphview:Show()
+\end{luadraw}
+
+\end{document}
