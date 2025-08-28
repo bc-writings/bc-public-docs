@@ -4,14 +4,14 @@
 %%%
 
 %%%
-% Le \pack ''amsmath'' nous fournit la macro ''\implies'' qui imprime
-% une flèche d'implication suffisamment longue.
+% Le \pack ''amsmath'' nous fournit la macro ''\implies'' qui
+% imprime une flèche d'implication suffisamment longue.
 %%%
 \usepackage{amsmath}
 
 %%%
-% Le \pack ''enumitem'' est utilisé pour créer un \env dédié aux \props
-% équivalentes.
+% Le \pack ''enumitem'' est utilisé pour créer un \env dédié
+% aux \props équivalentes.
 %%%
 \usepackage{enumitem}
 
@@ -27,10 +27,17 @@
 
 %%%
 % prototype::
-%     #1 : cet \arg permet de savoir si la version étoilée est utilisée,
-%          ou non.
+%     #1 : cet \arg permet de savoir si la version étoilée est
+%          utilisée, ou non.
 %     #2 : l'étiquette pour la propriété initiale de l'implication.
 %     #3 : l'étiquette pour la propriété final de l'implication.
+%
+%
+% note::
+%     Rappelons que pour les \cmds imbriquées, il faut doubler
+%     le \nbre de ''#'' pour utiliser un \arg.
+%     Ceci permet de différencier les \args "au-dessus" d'une
+%     \cmd imbriquée de ceux qui lui sont propres.
 %%%
 \NewDocumentCommand{ \proofimpl }{ s m m }{%
   \bgroup

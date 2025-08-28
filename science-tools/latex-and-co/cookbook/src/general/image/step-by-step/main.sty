@@ -24,6 +24,13 @@
 % prototype::
 %     :see: cmd.stepbystep.arg.#2 ,
 %           cmd.stepbystep.arg.#3
+%
+%
+% note::
+%     Rappelons que pour les \cmds imbriquées, il faut doubler
+%     le \nbre de ''#'' pour utiliser un \arg.
+%     Ceci permet de différencier les \args "au-dessus" d'une
+%     \cmd imbriquée de ceux qui lui sont propres.
 %%%
 \cs_set:Nn \cookbook_tcbitem:nn {
   \clist_map_inline:nn {#2} {

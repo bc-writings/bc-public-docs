@@ -36,12 +36,18 @@
 % Expliquons le fonctionnement du code très concis qui suit.
 %
 %     + Ici, ''##1'' correspond à l'une des lettres fournies par
-%       l'utilisateur (règle de doublement du hastag ''#'' pour
-%       les \args de sous-\foncs).
+%       l'utilisateur (voir la note ci-après)
 %
 %     + Si l'utilisateur a fourni ''b#1'' comme \2e \arg à la macro
 %       ''\makeabbrev'', \latex l'aura transformé automatiquement
 %       en ''b##1'', et c'est là que se situte l'astuce.
+%
+%
+% note::
+%     Rappelons que pour les \cmds imbriquées, il faut doubler
+%     le \nbre de ''#'' pour utiliser un \arg.
+%     Ceci permet de différencier les \args "au-dessus" d'une
+%     \cmd imbriquée de ceux qui lui sont propres.
 %
 %
 % warning::
