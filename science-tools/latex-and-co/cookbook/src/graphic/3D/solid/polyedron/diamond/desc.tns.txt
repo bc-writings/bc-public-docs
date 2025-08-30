@@ -1,0 +1,9 @@
+this::
+    date = 2025-08-30
+
+
+=======================
+Des diamants sur mesure
+=======================
+
+Cette recette montre le tracé de diamants obtenus en collant deux pyramides de base régulière commune ayant `n` côtés où `n` est un \param.

@@ -1,0 +1,11 @@
+abrev::
+    desc = desc.tns.txt
+
+
+=========
+Polyèdres
+=========
+
+content::
+    ./regular/\desc
+    ./diamond/\desc

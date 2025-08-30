@@ -1,0 +1,105 @@
+% !TEX TS-program = lualatex
+
+%%%
+% src::
+%   url = https://github.com/pfradin/luadraw/discussions/60
+%%%
+
+\documentclass[border = 3pt]{standalone}
+
+%%%
+% Des couleurs nommées faciles d'emploi via le package ''xcolor''!
+%%%
+\usepackage[svgnames]{xcolor}
+
+%%%
+% La bibliothèque ''luadraw'' allie une facilité d’utilisation à
+% un rendu particulièrement soigné.
+%%%
+\usepackage[3d]{luadraw}
+
+\begin{document}
+
+\begin{luadraw}{name = regular-octahedron-in-cube}
+------
+-- Usage d'une bibliotèque spécialisée dans le dessin de polyèdres
+-- réguliers convexes ou non.
+------
+require 'luadraw_polyhedrons'
+
+------
+-- Les éléments géométriques.
+------
+local c = 5
+local cube = parallelep(
+  Origin,
+  c*vecI, c*vecJ, c*vecK
+)
+
+local vect_shift = -4.5*(vecJ + vecI)
+
+------
+-- Dans ''Octaedre(C, S)'', les points ''C'' et ''S'' sont le centre
+-- et un sommet de l'octaèdre.
+------
+local octahedron_in_cube = shift3d(
+  Octaedre(Origin, c/2*vecK),
+  M(c, c, c)/2
+)
+
+------
+-- Définition de la zone graphique.
+------
+local graphview = graph3d:new{
+  window  = {-8, 8, -2, 6},
+  viewdir = {140, 70},
+  size    = {10, 10}
+}
+
+------
+-- Réglages liés aux lignes.
+------
+graphview:Linejoin("round")
+graphview:Linewidth(4)
+
+Hiddenlines     = true
+Hiddenlinestyle = "dashed"
+
+------
+-- Tracé du cube.
+------
+graphview:Dpoly(
+  cube,
+  {
+    mode  = 4,  -- Colorisation des facettes en fonction de
+                -- leur inclinaison avec les arêtes cachées.
+    color = "LightBlue"
+  })
+
+------
+-- Tracé des deux octaèdres.
+------
+graphview:Dpoly(
+  shift3d(
+    octahedron_in_cube,
+    vect_shift
+  ),
+  {
+    mode = 4,
+    color = "orange"
+  })
+
+graphview:Lineoptions("dashed")
+graphview:Dpoly(
+  octahedron_in_cube,
+  {
+    mode = 0  -- Rendu de type fil de fer.
+  })
+
+------
+-- Et le merveilleux se révèle au monde.
+------
+graphview:Show()
+\end{luadraw}
+
+\end{document}

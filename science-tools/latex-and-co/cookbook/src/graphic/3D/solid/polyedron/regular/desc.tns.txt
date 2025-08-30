@@ -1,0 +1,10 @@
+this::
+    date = 2025-08-30
+
+
+=============
+Les réguliers
+=============
+
+content::
+    ./octahedron-in-cube/\desc

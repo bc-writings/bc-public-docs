@@ -1,0 +1,105 @@
+% !TEX TS-program = lualatex
+
+%%%
+% src::
+%   url = https://github.com/pfradin/luadraw/discussions/60
+%%%
+
+\documentclass[border = 3pt]{standalone}
+
+%%%
+% Des couleurs nommées faciles d'emploi via le package ''xcolor''!
+%%%
+\usepackage[svgnames]{xcolor}
+
+%%%
+% La bibliothèque ''luadraw'' allie une facilité d’utilisation à
+% un rendu particulièrement soigné.
+%%%
+\usepackage[3d]{luadraw}
+
+\begin{document}
+
+\begin{luadraw}{name = diamond-in-sphere}
+------
+-- Une fonction permettant de tracer un diamant dont les sommets
+-- sur une sphère.
+------
+local diamond = function(
+  center,   -- Centre de la sphère.
+  vertice,  --
+  normal,
+  nb_sides
+)
+-- Construction du 1ier sommet sur l'axe de rotation.
+  local r = pt3d.abs(vertice - center)
+  normal  = pt3d.normalize(normal)
+  local S = center + r*normal
+
+-- ''2*center - S = center + (center - S)'' est le 2ième sommet
+-- sur l'axe de rotation (symétrie de centre ''center'')
+  local L = {S, vertice, 2*center - S}
+
+-- Le diamant s'obtient en faisant tourner une ligne "latérale"
+-- définie par les sommets sur l'axe de rotation et celui fourni
+-- par l'utilisateur.
+  local P = rotline(
+    L,                 -- Ligne "latérale" servant de base à la
+                       -- construction du diamand.
+    {center, normal},  -- Axe orienté de rotation.
+    0, 360,            -- De `0` à `360` degrés.
+    {nbdots = nb_sides + 1})
+
+  return facet2poly(P)
+end
+
+------
+-- Définition de la zone graphique.
+------
+local graphview = graph3d:new{
+  window  = {-5, 5, -5, 5},
+  viewdir = {30, 70},
+  size    = {10, 10}
+}
+
+------
+-- Réglages liés aux lignes.
+------
+graphview:Linejoin("round")
+graphview:Linewidth(4)
+
+Hiddenlines     = true
+Hiddenlinestyle = "dashed"
+
+------
+-- Tracé de deux diamants.
+------
+graphview:Dpoly(
+  diamond(
+    M(-4, -4, 0), M(-2, -2, 0), vecK,
+    9
+  ),
+  {
+    mode  = 4,  -- Colorisation des facettes en fonction de leur
+                -- inclinaison avec les arêtes cachées.
+    color = "orange"
+  })
+
+graphview:Dpoly(
+  diamond(
+    M(3, 3.5, 0), M(3, 3, 3), vecJ,
+    7
+  ),
+  {
+    mode  = 3,  -- Colorisation des facettes en fonction de leur
+                -- inclinaison sans les arêtes cachées.
+    color = "LightBlue"
+  })
+
+------
+-- Et le merveilleux se révèle au monde.
+------
+graphview:Show()
+\end{luadraw}
+
+\end{document}

@@ -1,0 +1,13 @@
+this::
+    date = 2025-08-30
+
+
+=====================
+Octaèdre dual du cube
+=====================
+
+Cette recette montre le tracé de l'octaèdre obtenu en utilisant les centres des faces d'un cube.
+
+
+note::
+    L'emploi du module ''luadraw_polyhedrons'' facilite grandement le travail.
