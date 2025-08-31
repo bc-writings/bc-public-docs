@@ -3,8 +3,8 @@ abrev::
 
 
 ==========================
-Via une équation explicite
+Via une équation implicite
 ==========================
 
 content::
-    ./real/\desc
+    ./tangent-lines/\desc

@@ -7,4 +7,5 @@ Des courbes
 ===========
 
 content::
-    ./function/\desc
+    ./explicit/\desc
+    ./implicit/\desc

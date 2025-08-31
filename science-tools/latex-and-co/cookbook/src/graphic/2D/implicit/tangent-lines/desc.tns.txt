@@ -1,0 +1,9 @@
+this::
+    date = 2025-08-30
+
+
+=======================================
+Équation implicite et droites tangentes
+=======================================
+
+Tout est dans le titre.

@@ -1,0 +1,117 @@
+% !TEX TS-program = lualatex
+
+%%%
+% src::
+%     url = https://tex.stackexchange.com/a/750411/6880
+%%%
+
+\documentclass[border = 3pt]{standalone}
+
+%%%
+% Des couleurs nommées faciles xOy_domain'emploi via le package ''xcolor''!
+%%%
+\usepackage[svgnames]{xcolor}
+
+%%%
+% La bibliothèque ''luadraw'' allie une facilité d’utilisation à
+% un rendu particulièrement soigné.
+%%%
+\usepackage[3d]{luadraw}
+
+\begin{document}
+
+\begin{luadraw}{name = implicit-tangent-lines}
+
+------
+-- La fonction pour l'équation implicite.
+------
+local F = function(x, y)
+  return x^2 + y^2 + x*y - 1
+end
+
+------
+-- Définition de la zone graphique.
+------
+local graphview = graph:new{
+  window = {-3, 3, -3, 3},
+  size   = {10, 10},
+}
+
+------
+-- Réglage lié aux lignes.
+------
+graphview:Linecap("round")
+
+------
+-- Tracer une "presque" tangente à une courbe d'équation implicite.
+--
+--
+-- note::
+--     Voir le code de ''tangentC'' dans le fichier
+--     path::''luadraw_lines.lua''.
+------
+local DtangentI = function(
+  f,
+  x0, y0,  -- `f(x0, y0) = 0`
+  len,
+  draw_options
+)
+  local h = 1e-6
+  local A = Z(x0, y0)
+
+  local a = (f(x0 + h, y0) - f(x0 - h, y0)) / (2*h)
+  local b = (f(x0, y0 + h) - f(x0, y0 - h)) / (2*h)
+
+  local v = Z(-b, a)
+
+  if len == nil then
+    graphview:Dline({A, v}, draw_options)
+
+  else
+    local u = len*v / cpx.abs(v) / 2
+
+    graphview:Dseg(
+      {A - u, A + u},
+      draw_options
+    )
+  end
+end
+
+------
+-- Il est temps de dessiner...
+------
+graphview:Dgradbox(
+  {
+    Z(-2, -2), Z(2, 2),
+    1, 1
+  },
+  {
+    grid  = true,
+    title = "\\textbf{Courbe d'équation implicite}"
+  })
+
+graphview:Dimplicit(
+  F,
+  {
+    draw_options = "thick"
+  })
+
+local x0 = 1/math.sqrt(3)
+local L  = solve(
+  function(t)
+    return F(x0, t)
+  end,
+  -2, 2
+)
+
+for _,  y in ipairs(L) do
+    DtangentI(F, x0, y, 2, "thick, red")
+end
+
+------
+-- Et le merveilleux se révèle au monde.
+------
+graphview:Show()
+\end{luadraw}
+
+\end{document}
