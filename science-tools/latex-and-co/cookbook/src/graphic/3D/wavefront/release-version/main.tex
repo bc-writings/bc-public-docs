@@ -1,0 +1,106 @@
+% !TEX TS-program = lualatex
+
+%%%
+% src::
+%     urls = https://github.com/pfradin/luadraw/discussions/64 ,
+%            https://fr.wikipedia.org/wiki/Dodécaèdre_régulier ,
+%            https://people.sc.fsu.edu/~jburkardt/data/obj/obj.html
+%%%
+
+\documentclass{standalone}
+
+\usepackage{xcolor}
+
+\usepackage[3d]{luadraw}
+
+\begin{document}
+
+\begin{luacode}
+function parse_obj(filename)
+  local polyedron = {}
+  local vertices  = {}
+  local facets     = {}
+
+  for line in io.lines(filename) do
+    line = line:match("^%s*(.-)%s*$")
+
+    if line ~= "" and not line:match("^#") then
+      if line:match("^v%s") then
+        local x, y, z = line:match("^v%s+([%-%d%.]+)%s+([%-%d%.]+)%s+([%-%d%.]+)")
+
+        if x and y and z then
+          table.insert(
+            vertices,
+            M(tonumber(x), tonumber(y), tonumber(z))
+          )
+        end
+
+      elseif line:match("^f%s") then
+        local face = {}
+        for idx in line:gmatch("(%d+)") do
+          table.insert(
+            face,
+            tonumber(idx)
+          )
+        end
+
+        if #face > 0 then
+          table.insert(facets, face)
+        end
+      end
+    end
+  end
+
+  polyedron.vertices = vertices
+  polyedron.facets   = facets
+
+  return polyedron
+end
+\end{luacode}
+
+
+\begin{luadraw}{name = 3D-model-obj-file}
+------
+-- Un modèle 3D via un fichier Wavefront externe.
+------
+-- DEBUG : Validation d'un icosaèdre.
+-- polyedron = parse_obj("icosahedron.obj")
+polyedron = parse_obj("teapot.obj")
+
+------
+-- Définition de la zone graphique.
+------
+local graphview = graph3d:new{
+-- DEBUG : Validation d'un icosèdre.
+--   window  = {-2.25,2.25,-2.25,2},
+  window  = {-90,90,-80,80},
+  viewdir = {-110,-20},
+  size    = {10,10},
+  margin  = {0,0,0,0}
+}
+
+------
+-- Réglages liés aux lignes.
+------
+graphview:Linejoin("round")
+
+Hiddenlines     = true
+Hiddenlinestyle = "dashed"
+
+------
+-- Tracé du modèle.
+------
+graphview:Dpoly(
+  polyedron,
+  {
+    mode  = 4,
+    color = "cyan"
+  })
+
+------
+-- Et le merveilleux se révèle au monde.
+------
+graphview:Show()
+\end{luadraw}
+
+\end{document}

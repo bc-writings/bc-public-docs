@@ -1,0 +1,27 @@
+this::
+    date = 2025-09-01
+
+
+abrev::
+    wavefront = cf::''Wavefront ;
+                      https://en.wikipedia.org/wiki/Wavefront_.obj_file''
+
+
+=========================
+Un format à la \wavefront
+=========================
+
+Le format \wavefront permet de définir des modèles 3D par leurs sommets et leurs faces, ainsi que les normales des facettes et des coordonnées de texture. Dans cette rectte, nous allons montrere comment parser une version simplifiée du format \wavefront : par exemple, le fichier suivant décrit un octaèdre régulier partiel
+((
+    Ceci évitera des calculs inutiles.
+)).
+
+wavefront::
+    ---
+    file = ./release-version/dodecahedron.obj
+    ---
+
+
+content::
+    ./alpha-version/\desc
+    ./release-version/\desc

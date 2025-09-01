@@ -9,4 +9,4 @@ Des courbes
 content::
     ./solid/\desc
     ./cone/\desc
-    ./wavefront-format/\desc
+    ./wavefront/\desc
