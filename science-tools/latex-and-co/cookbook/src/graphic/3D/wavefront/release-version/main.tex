@@ -3,7 +3,6 @@
 %%%
 % src::
 %     urls = https://github.com/pfradin/luadraw/discussions/64 ,
-%            https://fr.wikipedia.org/wiki/Dodécaèdre_régulier ,
 %            https://people.sc.fsu.edu/~jburkardt/data/obj/obj.html
 %%%
 
@@ -19,14 +18,23 @@
 function parse_obj(filename)
   local polyedron = {}
   local vertices  = {}
-  local facets     = {}
+  local facets    = {}
 
+-- Dans les ¨regexs ¨lua, ''%'' est le caractère d'échappement.
   for line in io.lines(filename) do
+-- Nettoyage des espaces finaux et initiaux : en ¨lua, ''-''
+-- est un caractère spécial pour une recherche non gourmande.
     line = line:match("^%s*(.-)%s*$")
 
+-- On ignore les lignes vides et les commentaires.
     if line ~= "" and not line:match("^#") then
+-- Cas d'un sommet.
       if line:match("^v%s") then
-        local x, y, z = line:match("^v%s+([%-%d%.]+)%s+([%-%d%.]+)%s+([%-%d%.]+)")
+-- La ¨regex suivante est fragile, mais nous nous en contenterons
+-- pour ne pas alourdir la recette.
+        local x, y, z = line:match(
+          "^v%s+([%-%d%.]+)%s+([%-%d%.]+)%s+([%-%d%.]+)"
+        )
 
         if x and y and z then
           table.insert(
@@ -35,8 +43,10 @@ function parse_obj(filename)
           )
         end
 
+-- Cas d'une face.
       elseif line:match("^f%s") then
         local face = {}
+
         for idx in line:gmatch("(%d+)") do
           table.insert(
             face,
@@ -61,7 +71,7 @@ end
 
 \begin{luadraw}{name = 3D-model-obj-file}
 ------
--- Un modèle 3D via un fichier Wavefront externe.
+-- Analyse d'un modèle 3D au format Wavefront.
 ------
 -- DEBUG : Validation d'un icosaèdre.
 -- polyedron = parse_obj("icosahedron.obj")
@@ -71,12 +81,11 @@ polyedron = parse_obj("teapot.obj")
 -- Définition de la zone graphique.
 ------
 local graphview = graph3d:new{
--- DEBUG : Validation d'un icosèdre.
---   window  = {-2.25,2.25,-2.25,2},
-  window  = {-90,90,-80,80},
-  viewdir = {-110,-20},
-  size    = {10,10},
-  margin  = {0,0,0,0}
+-- DEBUG : Validation d'un icosaèdre.
+--   window  = {-2.25, 2.25, -2.25, 2},
+  window  = {-90, 90, -80, 80},
+  viewdir = {-110, -20},
+  size    = {10, 10}
 }
 
 ------

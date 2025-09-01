@@ -8,8 +8,15 @@
 
 \documentclass{standalone}
 
+%%%
+% En couleur, c'est plus sympa !
+%%%
 \usepackage{xcolor}
 
+%%%
+% La bibliothèque ''luadraw'' allie une facilité d’utilisation à
+% un rendu particulièrement soigné.
+%%%
 \usepackage[3d]{luadraw}
 
 \begin{document}
@@ -65,10 +72,9 @@ polyedron.facets = {
 -- Définition de la zone graphique.
 ------
 local graphview = graph3d:new{
-  window  = {-2.25,2.25,-2.25,2},
-  viewdir = {5,108},
-  size    = {10,10},
-  margin  = {0,0,0,0}
+  window  = {-2.25, 2.25, -2.25, 2},
+  viewdir = {5, 108},
+  size    = {10, 10}
 }
 
 ------

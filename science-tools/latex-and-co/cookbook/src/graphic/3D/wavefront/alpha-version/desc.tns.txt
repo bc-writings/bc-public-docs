@@ -6,4 +6,4 @@ this::
 Une version alpha, cela ne fait jamais de mal
 =============================================
 
-YYY
+Commençons par examiner un code \luadraw qui simule à la main un tracé à la \wavefront. Ceci permet de voir comment passer d'un fichier \wavefront à une version dessinable par \luadraw.

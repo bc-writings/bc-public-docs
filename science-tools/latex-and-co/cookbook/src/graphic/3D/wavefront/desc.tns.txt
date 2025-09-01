@@ -7,9 +7,9 @@ abrev::
                       https://en.wikipedia.org/wiki/Wavefront_.obj_file''
 
 
-=========================
-Un format à la \wavefront
-=========================
+===========================
+Format \wavefront simplifié
+===========================
 
 Le format \wavefront permet de définir des modèles 3D par leurs sommets et leurs faces, ainsi que les normales des facettes et des coordonnées de texture. Dans cette rectte, nous allons montrere comment parser une version simplifiée du format \wavefront : par exemple, le fichier suivant décrit un octaèdre régulier partiel
 ((
