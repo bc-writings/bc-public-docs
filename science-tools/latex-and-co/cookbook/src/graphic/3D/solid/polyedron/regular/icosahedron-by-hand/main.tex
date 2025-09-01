@@ -3,7 +3,8 @@
 %%%
 % src::
 %   urls = https://tex.stackexchange.com/a/750435/6880 ,
-%          https://fr.wikipedia.org/wiki/Icosa%C3%A8dre
+%          https://fr.wikipedia.org/wiki/Icosa%C3%A8dre ,
+%          https://github.com/pfradin/luadraw/discussions/63#discussioncomment-14274453
 %%%
 
 \documentclass[border = 3pt]{standalone}
@@ -47,6 +48,21 @@ local C3 = M(-1, 0, -phi)
 local D3 = M( 1, 0, -phi)
 
 ------
+-- Lors du développement, la ligne suivante permet l'ajout automatique
+-- d'étiquettes aux sommets (en attendant que cela soit proposé
+-- nativement en mode ''debug'' par ''luadraw'').
+--
+--
+--  warning::
+--      L'ordre doit être celui de la création des points.
+------
+-- local all_pts = {
+--   A1, B1, C1, D1,
+--   A2, B2, C2, D2,
+--   A3, B3, C3, D3
+-- }
+
+------
 -- Construction de l'icosaèdre en trois parties.
 ------
 local ico_up = {
@@ -78,7 +94,7 @@ local ico_down = {
   {D1, C1, C3}
 }
 
-local ico_full = concat(ico_up, ico_middle, ico_down)
+local ico_full = facet2poly(concat(ico_up, ico_middle, ico_down))
 
 ------
 -- Définition de la zone graphique.
@@ -124,7 +140,6 @@ graphview:Dscene3d(
         hidden = true
       })
 )
-
 ------
 -- Tous les sommets sont rendus visibles (un choix de design).
 --
@@ -142,6 +157,18 @@ graphview:Dballdots3d(
   black,
   1.2
 )
+
+------
+-- Lors du développement, les lignes suivantes ajoutent des étiquettes
+-- aux sommets pour corriger d'éventuelles erreurs.
+------
+-- local labels = {}
+--
+-- for k,X in ipairs(all_pts) do
+--   insert(labels,{"$M_{"..k.."}$",X,{pos="S",dist=0.1}})
+-- end
+--
+-- graphview:Dlabel3d(table.unpack(labels))
 
 ------
 -- Et le merveilleux se révèle au monde.
