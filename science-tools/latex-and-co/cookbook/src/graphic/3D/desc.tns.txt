@@ -1,0 +1,12 @@
+abrev::
+    desc = desc.tns.txt
+
+
+===========
+Des courbes
+===========
+
+content::
+    ./solid/\desc
+    ./cone/\desc
+    ./wavefront-format/\desc

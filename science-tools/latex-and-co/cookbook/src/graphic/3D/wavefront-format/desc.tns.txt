@@ -1,0 +1,17 @@
+this::
+    date = 2025-09-01
+
+
+abrev::
+    wavefront = cf::''Wavefront ;
+                      https://en.wikipedia.org/wiki/Wavefront_.obj_file''
+
+=============
+XXX
+=============
+
+YYY
+
+
+content::
+    ./alpha-version/\desc
