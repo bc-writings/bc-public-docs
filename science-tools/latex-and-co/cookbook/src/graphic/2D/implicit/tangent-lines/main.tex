@@ -92,9 +92,14 @@ graphview:Dgradbox(
     title = "{\\boldmath $x^2 + y^4 + x y = 1$}"
   })
 
+------
+-- La valeur par défaut de ''grid'' rend visible les segments
+-- constituant la courbe, donc nous affinons la grille de calcul.
+------
 graphview:Dimplicit(
   F,
   {
+    grid         = {100, 100},
     draw_options = "thick"
   })
 
