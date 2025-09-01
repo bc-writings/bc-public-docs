@@ -8,7 +8,7 @@
 \documentclass[border = 3pt]{standalone}
 
 %%%
-% Des couleurs nommées faciles xOy_domain'emploi via le package ''xcolor''!
+% Des couleurs nommées faciles d'emploi via le package ''xcolor''!
 %%%
 \usepackage[svgnames]{xcolor}
 
@@ -23,7 +23,7 @@
 \begin{luadraw}{name = implicit-tangent-lines}
 
 ------
--- La fonction pour l'équation implicite.
+-- La fonction `F(x, y)` pour l'équation implicite `F(x, y) = 0`.
 ------
 local F = function(x, y)
   return x^2 + y^4 + x*y - 1
@@ -52,7 +52,7 @@ graphview:Linecap("round")
 ------
 local DtangentI = function(
   f,
-  x0, y0,  -- `f(x0, y0) = 0`
+  x0, y0,  -- Hypothèse: `f(x0, y0) = 0`.
   len,
   draw_options
 )
@@ -64,9 +64,11 @@ local DtangentI = function(
 
   local v = Z(-b, a)
 
+-- Tracé d'une droite.
   if len == nil then
     graphview:Dline({A, v}, draw_options)
 
+-- Tracé d'un segment.
   else
     local u = len*v / cpx.abs(v) / 2
 
@@ -87,7 +89,7 @@ graphview:Dgradbox(
   },
   {
     grid  = true,
-    title = "\\textbf{Courbe d'équation implicite}"
+    title = "\\textbf{\\boldmath $x^2 + y^4 + x y = 1$}"
   })
 
 graphview:Dimplicit(

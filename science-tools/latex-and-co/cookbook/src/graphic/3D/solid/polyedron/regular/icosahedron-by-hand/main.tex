@@ -1,0 +1,152 @@
+% !TEX TS-program = lualatex
+
+%%%
+% src::
+%   urls = https://tex.stackexchange.com/a/750435/6880 ,
+%          https://fr.wikipedia.org/wiki/Icosa%C3%A8dre
+%%%
+
+\documentclass[border = 3pt]{standalone}
+
+%%%
+% Des couleurs '"maison" pour un meilleur design.
+%%%
+\usepackage{xcolor}
+
+\colorlet{myteal}{teal!50}
+\colorlet{mymagenta}{magenta!50}
+\colorlet{mylime}{lime!50}
+
+%%%
+% La bibliothèque ''luadraw'' allie une facilité d’utilisation à
+% un rendu particulièrement soigné.
+%%%
+\usepackage[3d]{luadraw}
+
+\begin{document}
+
+\begin{luadraw}{name = icosahedron-by-hand}
+------
+-- Calcul des coordonnées des sommets.
+------
+local phi = (1 + math.sqrt(5)) / 2
+
+local A1 = M( phi, -1, 0)
+local B1 = M( phi,  1, 0)
+local C1 = M(-phi,  1, 0)
+local D1 = M(-phi, -1, 0)
+
+local A2 = M(0,  phi,  1)
+local B2 = M(0,  phi, -1)
+local C2 = M(0, -phi, -1)
+local D2 = M(0, -phi,  1)
+
+local A3 = M( 1, 0,  phi)
+local B3 = M(-1, 0,  phi)
+local C3 = M(-1, 0, -phi)
+local D3 = M( 1, 0, -phi)
+
+------
+-- Construction de l'icosaèdre en trois parties.
+------
+local ico_up = {
+  {A1, B1, A3},
+  {B3, A3, A2},
+  {A3, B3, D2},
+  {B1, A2, A3},
+  {A1, A3, D2}
+}
+
+local ico_middle = {
+  {B1, A1, D3},
+  {C1, D1, B3},
+  {B2, A2, B1},
+  {A2, B2, C1},
+  {D2, C2, A1},
+  {C2, D2, D1},
+  {A2, C1, B3},
+  {D1, D2, B3},
+  {B2, B1, D3},
+  {A1, C2, D3}
+}
+
+local ico_down = {
+  {C2, D1, C3},
+  {D3, C3, B2},
+  {C3, D3, C2},
+  {B2, C3, C1},
+  {D1, C1, C3}
+}
+
+local ico_full = concat(ico_up, ico_middle, ico_down)
+
+------
+-- Définition de la zone graphique.
+------
+local graphview = graph3d:new{
+    window  = {-2.25, 2.25, -2, 2},
+    viewdir = {5, 108},
+    size    = {10, 10},
+    margin  = {0, 0, 0, 0}
+}
+
+------
+-- Réglages liés aux lignes.
+------
+graphview:Linejoin("round")
+Hiddenlinestyle = "dashed"
+
+------
+-- Tracé "automatique".
+------
+graphview:Dscene3d(
+-- Faces colorées.
+    graphview:addFacet(
+      ico_up,
+      {
+        color = "myteal"
+      }),
+    graphview:addFacet(
+      ico_middle,
+      {
+        color = "mymagenta"
+      }),
+    graphview:addFacet(
+      ico_down,
+      {
+        color = "mylime"
+      }),
+-- Arêtes en mode cachés (un choix de design).
+    graphview:addPolyline(
+      facetedges(ico_full),
+      {
+        width = 12,
+        hidden = true
+      })
+)
+
+------
+-- Tous les sommets sont rendus visibles (un choix de design).
+--
+--
+-- note::
+--     Pour ne pas afficher les sommets cachés, il suffit de mettre
+--     la commande suivante en paramètre de `graphview:Dscene3d`.
+------
+graphview:Dballdots3d(
+  {
+    A1, B1, C1, D1,
+    A2, B2, C2, D2,
+    A3, B3, C3, D3
+  },
+  black,
+  1.2
+)
+
+------
+-- Et le merveilleux se révèle au monde.
+------
+graphview:Show()
+\end{luadraw}
+
+\end{document}

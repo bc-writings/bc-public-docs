@@ -1,0 +1,9 @@
+this::
+    date = 2025-09-01
+
+
+===========================
+Icosaèdre "tracé à la main"
+===========================
+
+Cette recette explique comment tracer un icosaèdre en calculant ses sommets. De plus, les faces du polyèdre seront colorées suivant trois niveaux différents.

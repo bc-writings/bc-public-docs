@@ -1,5 +1,5 @@
-this::
-    date = 2025-08-30
+abrev::
+    desc = desc.tns.txt
 
 
 =============
@@ -7,4 +7,5 @@ Les réguliers
 =============
 
 content::
+    ./icosahedron-by-hand/\desc
     ./octahedron-in-cube/\desc
