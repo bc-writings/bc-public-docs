@@ -25,3 +25,4 @@ wavefront::
 content::
     ./alpha-version/\desc
     ./release-version/\desc
+    ./colorful/\desc

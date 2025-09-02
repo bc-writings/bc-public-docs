@@ -1,0 +1,12 @@
+======
+\Maths
+======
+
+content::
+    ./arithmetic/\desc
+    ./combinatorics/\desc
+    ./sequences-series/\desc
+    ./set-theory/\desc
+    ./step-calc/\desc
+    ./symbols-operators-n-co/\desc
+    ./table/\desc

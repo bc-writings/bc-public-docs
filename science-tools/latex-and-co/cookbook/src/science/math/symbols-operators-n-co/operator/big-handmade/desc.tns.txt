@@ -2,10 +2,6 @@ this::
     date = 2024-11-12
 
 
-abrev::
-    desc = desc.tns.txt
-
-
 ====================================================
 Définir un opérateur maison de type "somme discrète"
 ====================================================

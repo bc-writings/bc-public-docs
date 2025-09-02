@@ -1,0 +1,8 @@
+====================
+Des graphiques tapés
+====================
+
+content::
+//    ./data/\desc
+    ./2D/\desc
+    ./3D/\desc

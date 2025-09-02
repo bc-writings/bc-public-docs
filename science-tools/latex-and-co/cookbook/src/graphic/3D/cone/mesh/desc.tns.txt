@@ -2,10 +2,6 @@ this::
     date = 2025-08-04
 
 
-abrev::
-    desc = desc.tns.txt
-
-
 =====================
 Maillage pour un cône
 =====================

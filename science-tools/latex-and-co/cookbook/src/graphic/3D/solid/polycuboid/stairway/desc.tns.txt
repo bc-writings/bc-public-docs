@@ -2,10 +2,6 @@ this::
     date = 2025-08-25
 
 
-abrev::
-    desc = desc.tns.txt
-
-
 ===================
 Un escalier cubique
 ===================

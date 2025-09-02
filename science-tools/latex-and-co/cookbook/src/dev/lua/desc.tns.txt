@@ -1,7 +1,3 @@
-abrev::
-    desc = desc.tns.txt
-
-
 ========================
 \lua à portée de main...
 ========================

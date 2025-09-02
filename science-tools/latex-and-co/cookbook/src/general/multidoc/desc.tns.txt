@@ -2,10 +2,6 @@ this::
     date = 2025-08-04
 
 
-abrev::
-    desc = desc.tns.txt
-
-
 ====================================
 Importer du contenu de façon massive
 ====================================

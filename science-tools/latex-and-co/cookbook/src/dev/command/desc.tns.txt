@@ -1,0 +1,6 @@
+=====================
+Pour les macros \cmds
+=====================
+
+content::
+    ./factory/\desc

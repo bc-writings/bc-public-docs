@@ -2,10 +2,6 @@ this::
     date = 2025-06-15
 
 
-abrev::
-    desc = desc.tns.txt
-
-
 =====================
 Taper des intervalles
 =====================

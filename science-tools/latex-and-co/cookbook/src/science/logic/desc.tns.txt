@@ -1,0 +1,6 @@
+================
+Logique formelle
+================
+
+content::
+    ./explain/\desc

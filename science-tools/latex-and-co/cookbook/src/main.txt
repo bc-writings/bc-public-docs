@@ -1,0 +1,17 @@
+about::
+    title  = Recettes pour \latex
+    author = Christophe, BAL [projetmbc@gmail.com]
+    lang   = fr
+
+    licence = cc by-nc-sa 4.0
+    out     = html | pdf
+
+
+abrev::
+    desc = desc.tns.txt
+
+
+content::
+    ./general/\desc
+    ./science/\desc
+    ./graphic/\desc

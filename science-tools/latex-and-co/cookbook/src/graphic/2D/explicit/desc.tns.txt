@@ -1,7 +1,3 @@
-abrev::
-    desc = desc.tns.txt
-
-
 ==========================
 Via une équation explicite
 ==========================

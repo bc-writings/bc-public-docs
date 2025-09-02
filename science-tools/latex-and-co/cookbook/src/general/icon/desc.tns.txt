@@ -1,0 +1,6 @@
+======================
+Des icones, des vraies
+======================
+
+content::
+    ./tikz-pic/\desc
