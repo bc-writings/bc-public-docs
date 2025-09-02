@@ -17,7 +17,7 @@
 
 \begin{luacode}
 function update_extreme_vals(a, a_min, a_max)
-  return math.min(a, a_min), math.max(a, a_min)
+  return math.min(a, a_min), math.max(a, a_max)
 end
 
 function parse_obj(file)
@@ -25,9 +25,8 @@ function parse_obj(file)
   local vertices  = {}
   local facets    = {}
 
-  local xmin, xmax = -math.huge, math.huge
-  local ymin, ymax = -math.huge, math.huge
-  local zmin, zmax = -math.huge, math.huge
+  local xmin, xmax = math.huge, -math.huge
+  local ymin, ymax = math.huge, -math.huge
 
 -- Dans les ¨regexs ¨lua, ''%'' est le caractère d'échappement.
   for line in io.lines(file) do
@@ -51,7 +50,6 @@ function parse_obj(file)
 -- Gestion des valeurs extrèmales.
           xmin, xmax = update_extreme_vals(x, xmin, xmax)
           ymin, ymax = update_extreme_vals(y, ymin, ymax)
-          zmin, zmax = update_extreme_vals(z, zmin, zmax)
 
 -- Un nouveau sommet.
           table.insert(vertices, M(x, y, z))
@@ -75,7 +73,7 @@ function parse_obj(file)
   polyedron.vertices = vertices
   polyedron.facets   = facets
 
-  return xmin, xmax, ymin, ymax, zmin, zmax, polyedron
+  return {xmin*1.2, xmax*1.2, ymin*1.2, ymax*1.2}, polyedron
 end
 \end{luacode}
 
@@ -84,17 +82,20 @@ end
 ------
 -- Analyse d'un modèle 3D au format Wavefront.
 ------
-local file = "icosahedron.obj"
+-- local file = "icosahedron.obj"
 -- local file = "truncated_icosahedron.obj"
--- local file = "teapot.obj"
+local file = "teapot.obj"
 
-local xmin, xmax, ymin, ymax, zmin, zmax, polyedron = parse_obj(file)
+local window_def, polyedron = parse_obj(file)
+
+-- Un réglage manuel s'impose pour la théière!
+window_def[3] = window_def[3] - 5
 
 ------
 -- Définition de la zone graphique.
 ------
 local graphview = graph3d:new{
-  window  = {xmin, xmax, ymin, ymax},
+  window  = window_def,
   viewdir = {-110, -20},
   size    = {10, 10}
 }
