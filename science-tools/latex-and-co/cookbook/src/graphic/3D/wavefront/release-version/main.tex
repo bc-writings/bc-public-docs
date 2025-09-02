@@ -3,7 +3,8 @@
 %%%
 % src::
 %     urls = https://github.com/pfradin/luadraw/discussions/64 ,
-%            https://people.sc.fsu.edu/~jburkardt/data/obj/obj.html
+%            https://people.sc.fsu.edu/~jburkardt/data/obj/obj.html ,
+%            https://dmccooey.com/polyhedra
 %%%
 
 \documentclass{standalone}
@@ -15,13 +16,21 @@
 \begin{document}
 
 \begin{luacode}
-function parse_obj(filename)
+function update_extreme_vals(a, a_min, a_max)
+  return math.min(a, a_min), math.max(a, a_min)
+end
+
+function parse_obj(file)
   local polyedron = {}
   local vertices  = {}
   local facets    = {}
 
+  local xmin, xmax = -math.huge, math.huge
+  local ymin, ymax = -math.huge, math.huge
+  local zmin, zmax = -math.huge, math.huge
+
 -- Dans les ¨regexs ¨lua, ''%'' est le caractère d'échappement.
-  for line in io.lines(filename) do
+  for line in io.lines(file) do
 -- Nettoyage des espaces finaux et initiaux : en ¨lua, ''-''
 -- est un caractère spécial pour une recherche non gourmande.
     line = line:match("^%s*(.-)%s*$")
@@ -30,17 +39,22 @@ function parse_obj(filename)
     if line ~= "" and not line:match("^#") then
 -- Cas d'un sommet.
       if line:match("^v%s") then
--- La ¨regex suivante est fragile, mais nous nous en contenterons
--- pour ne pas alourdir la recette.
+-- La ¨regex suivante est fragile, mais nous faisons confiance
+-- aux fichiers ext::''obj'' utilisés.
         local x, y, z = line:match(
           "^v%s+([%-%d%.]+)%s+([%-%d%.]+)%s+([%-%d%.]+)"
         )
 
         if x and y and z then
-          table.insert(
-            vertices,
-            M(tonumber(x), tonumber(y), tonumber(z))
-          )
+          x, y, z = tonumber(x), tonumber(y), tonumber(z)
+
+-- Gestion des valeurs extrèmales.
+          xmin, xmax = update_extreme_vals(x, xmin, xmax)
+          ymin, ymax = update_extreme_vals(y, ymin, ymax)
+          zmin, zmax = update_extreme_vals(z, zmin, zmax)
+
+-- Un nouveau sommet.
+          table.insert(vertices, M(x, y, z))
         end
 
 -- Cas d'une face.
@@ -48,10 +62,7 @@ function parse_obj(filename)
         local face = {}
 
         for idx in line:gmatch("(%d+)") do
-          table.insert(
-            face,
-            tonumber(idx)
-          )
+          table.insert(face, tonumber(idx))
         end
 
         if #face > 0 then
@@ -64,7 +75,7 @@ function parse_obj(filename)
   polyedron.vertices = vertices
   polyedron.facets   = facets
 
-  return polyedron
+  return xmin, xmax, ymin, ymax, zmin, zmax, polyedron
 end
 \end{luacode}
 
@@ -73,17 +84,17 @@ end
 ------
 -- Analyse d'un modèle 3D au format Wavefront.
 ------
--- DEBUG : Validation d'un icosaèdre.
--- polyedron = parse_obj("icosahedron.obj")
-polyedron = parse_obj("teapot.obj")
+local file = "icosahedron.obj"
+-- local file = "truncated_icosahedron.obj"
+-- local file = "teapot.obj"
+
+local xmin, xmax, ymin, ymax, zmin, zmax, polyedron = parse_obj(file)
 
 ------
 -- Définition de la zone graphique.
 ------
 local graphview = graph3d:new{
--- DEBUG : Validation d'un icosaèdre.
---   window  = {-2.25, 2.25, -2.25, 2},
-  window  = {-90, 90, -80, 80},
+  window  = {xmin, xmax, ymin, ymax},
   viewdir = {-110, -20},
   size    = {10, 10}
 }
