@@ -1,9 +1,9 @@
 this::
-    date = 2025-09-01
+    date = 2025-09-02
 
 
-=======================================
-Version finale, non beta et rationnelle
-=======================================
+=============================
+Un peu de couleur pour frimer
+=============================
 
-La recette "alpha" contient la partie importante du code. Pour analyser le code, il suffit de passer via des \regexs_fr, ce qui n'est pas compliqué, une fois les \regexs_fr expliquées.
+Le rendu et le code se suffisent à eux-même.
