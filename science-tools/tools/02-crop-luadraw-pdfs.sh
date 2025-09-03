@@ -57,7 +57,7 @@ do
       oldhash=$(cat "$hash_file")
     fi
 
-    if [[ "$newhash" != "$oldhash" || ! -f "$pdfile-crop.pdf" ]]
+    if [[ "$newhash" != "$oldhash" || ! -f "$fstem-crop.pdf" ]]
     then
       pdfcrop --margins '3' "$pdfile"
 
