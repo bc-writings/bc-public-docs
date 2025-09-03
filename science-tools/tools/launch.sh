@@ -76,7 +76,6 @@ do
     print_about "32m" "Launching $bashfile"
 
     bash "$bashfile" "$1"
-    # || error_exit "$THIS_DIR" "$bashfile"
 
     echo ""
 done

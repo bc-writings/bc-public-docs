@@ -1,9 +1,9 @@
 this::
-    date = 2025-09-02
+    date = 2025-09-03
 
 
-=======================================
-Version finale, non beta et rationnelle
-=======================================
+==============
+Version finale
+==============
 
-La recette "alpha" contient la partie importante du code. Pour analyser le code de fichiers ext::''obj'', il suffit de passer via des \regexs_fr, ce qui n'est pas compliqué, une fois les \regexs_fr expliquées : voir le fichier path::''main.lua''.
+YYYY
