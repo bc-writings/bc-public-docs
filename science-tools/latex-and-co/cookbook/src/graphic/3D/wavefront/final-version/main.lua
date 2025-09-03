@@ -5,6 +5,11 @@
 --    a_max : un maximum temporaire.
 --
 --    :return: voir le code, tout simplement...
+--
+--
+-- note::
+--     Cette fonction est utilisée pour calculer la boîte utile au
+--     tracé d'un polyèdre.
 ------
 function update_extreme_vals(a, a_min, a_max)
   return math.min(a, a_min), math.max(a, a_max)
@@ -15,10 +20,10 @@ end
 --    file : le chemin d'un fichier ext::''OBJ'' au format \wavefront
 --           simplifié (non gestion des textures, ni des normales).
 --
---    :return: ''{xmin, xmax, ymin, ymax, zmin, zmax}, polyhedron'' où
---             les valeurs extrêmales correspondent à celles obtenues
---             en analysant le fichier, et le polyèdre est une version
---             \luadraw du modèle 3D indiqué par le fichier.
+--    :return: ''polyhedron, {xmin, xmax, ymin, ymax, zmin, zmax}''
+--             où le polyèdre est une version \luadraw du modèle 3D
+--             indiqué par le fichier, et les valeurs extrêmales
+--             sont celles obtenues en analysant le fichier.
 ------
 function parse_wavefront(file)
   local polyhedron = {}
@@ -75,5 +80,5 @@ function parse_wavefront(file)
   polyhedron.vertices = vertices
   polyhedron.facets   = facets
 
-  return {xmin, xmax, ymin, ymax, zmin, zmax}, polyhedron
+  return polyhedron, {xmin, xmax, ymin, ymax, zmin, zmax}
 end

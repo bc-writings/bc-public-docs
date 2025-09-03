@@ -1,0 +1,63 @@
+% !TEX TS-program = lualatex
+
+%%%
+% src::
+%     urls = https://github.com/pfradin/luadraw/discussions/64 ,
+%            https://people.sc.fsu.edu/~jburkardt/data/obj/obj.html ,
+%            https://dmccooey.com/polyhedra
+%%%
+
+\documentclass{standalone}
+
+\usepackage{xcolor}
+
+\usepackage[3d]{luadraw}
+
+\directlua{dofile('main.lua')}
+
+\begin{document}
+
+\begin{luadraw}{name = triceratops}
+------
+-- Un fichier utilisant pleinement les spécifications du format
+-- Wavefront.
+------
+local file = "triceratops.obj"
+
+local polyhedron, window_def = parse_wavefront(file)
+
+------
+-- Définition de la zone graphique.
+------
+local graphview = graph3d:new{
+  window3d = window_def,
+  adjust2d = true,
+  viewdir  = {-110, -20},
+  size     = {10, 10},
+}
+
+------
+-- Réglages liés aux lignes.
+------
+graphview:Linejoin("round")
+
+Hiddenlines     = true
+Hiddenlinestyle = "dashed"
+
+------
+-- Tracé du modèle.
+------
+graphview:Dpoly(
+  polyhedron,
+  {
+    mode  = 4,
+    color = "cyan"
+  })
+
+------
+-- Et le merveilleux se révèle au monde.
+------
+graphview:Show()
+\end{luadraw}
+
+\end{document}

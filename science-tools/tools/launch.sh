@@ -75,7 +75,8 @@ find . -maxdepth 1 -type f  -name '*.sh' ! -name 'launch.sh' -print | sort | whi
 do
     print_about "32m" "Launching $bashfile"
 
-    bash "$bashfile" "$1" || error_exit "$THIS_DIR" "$bashfile"
+    bash "$bashfile" "$1"
+    # || error_exit "$THIS_DIR" "$bashfile"
 
     echo ""
 done

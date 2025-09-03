@@ -1,9 +1,0 @@
-this::
-    date = 2025-09-02
-
-
-=============================
-Un peu de couleur pour frimer
-=============================
-
-Le rendu et le code se suffisent à eux-même.
