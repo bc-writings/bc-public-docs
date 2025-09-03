@@ -6,4 +6,8 @@ this::
 Version finale
 ==============
 
-YYYY
+Dans cette version, nous allons améliorer les traitement des fichiers ext::''obj'' pour obtenir les comportements suivants.
+
+    1) Non prise en compte des lignes ne commençant pas par wavefront::''v'' ou wavefront::''f'' suivi d'un espace.
+
+    1) Les \defs des faces peuvent utilisées des sommets associés à des textures et des normales. Le cas échéant, les données supplémentaires seront ignorées.

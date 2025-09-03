@@ -6,4 +6,4 @@ this::
 Des faces colorées en fonction de leur nombre de côtés
 ======================================================
 
-Ce dernier exemple montre que la prise en compte d'une version simpifié du format \wavefront permet d'obtenir très facilement des objets colorés de façon utile.
+Ce dernier exemple montre que la prise en compte d'une version simplifiée du format \wavefront permet d'effectuer aisément des traitements particuliers sur des objets \3d.

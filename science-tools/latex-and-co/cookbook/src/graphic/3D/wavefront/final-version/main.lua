@@ -62,11 +62,14 @@ function parse_wavefront(file)
           table.insert(vertices, M(x, y, z))
         end
 
--- Cas d'une face.
+-- Cas d'une face en ignorant une éventuelle texture, et
+-- éventuellement en plus une normale.
       elseif line:match("^f%s") then
         local face = {}
 
-        for idx in line:gmatch("(%d+)") do
+-- L'astuce consiste à manger tout ce qui n'est pas un espace
+-- après une suite contigüe de chiffres décimaux.
+        for idx in line:gmatch("(%d+)[^ ]*") do
           table.insert(face, tonumber(idx))
         end
 

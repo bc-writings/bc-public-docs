@@ -24,6 +24,12 @@
 \begin{luadraw}{name = dodecahedron-fake-obj}
 ------
 -- Définition d'un dodécaèdre dans un format de type Wavefront.
+--
+--
+-- note::
+--     Pour limiter les calculs, le dodécaèdre a été définie de
+--     façon incomplète (dans la suite, nous ne pourrons pas faire
+--     ce genre d'optimisation).
 ------
 local C0 = (1 + math.sqrt(5)) / 4
 local C1 = (3 + math.sqrt(5)) / 4
