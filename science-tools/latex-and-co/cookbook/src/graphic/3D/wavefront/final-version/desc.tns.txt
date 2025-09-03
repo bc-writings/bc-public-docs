@@ -11,3 +11,11 @@ Dans cette version, nous allons améliorer les traitement des fichiers ext::''ob
     1) Non prise en compte des lignes ne commençant pas par wavefront::''v'' ou wavefront::''f'' suivi d'un espace.
 
     1) Les \defs des faces peuvent utilisées des sommets associés à des textures et des normales. Le cas échéant, les données supplémentaires seront ignorées.
+
+
+Une fois ce travail achevé, il devient facile d'obtenir le rendu suivant.
+
+pdf::
+    ---
+    path  = ./main-2-crop.pdf
+    ---

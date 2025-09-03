@@ -1,12 +1,6 @@
 # Version: 2025-08-24.science-tools
 
 
-# --------------- #
-# -- CONSTANTS -- #
-# --------------- #
-
-HASH_FILE="x-pdf-x.sha1"
-
 
 # ----------------------- #
 # -- ONE FOLDER NEEDED -- #
@@ -37,9 +31,6 @@ fi
 # -- LET'S CROP TOGETHER -- #
 # ------------------------- #
 
-echo "-- CROPPING LUADRAW PDFs --"
-echo ""
-
 cd "$TARGET"
 
 for fdir in $(find cookbook/src -name '*.tkz' -exec dirname {} \; | sort -u)
@@ -48,21 +39,32 @@ do
 
   cd "$TARGET/$fdir"
 
-  newhash=$(shasum -a 1 "main.pdf" | cut -d ' ' -f1)
+  for f in $(find . -name 'main*.tex')
+  do
+    fstem="${f#./}"
+    fstem="${fstem%.*}"
 
-  oldhash=""
+    pdfile="$fstem.pdf"
 
-  if [[ -f "$HASH_FILE" ]]; then
-    oldhash=$(cat "$HASH_FILE")
-  fi
+    newhash=$(shasum -a 1 "$pdfile" | cut -d ' ' -f1)
 
-  if [[ "$newhash" != "$oldhash" || ! -f "main-crop.pdf" ]]
-  then
-    pdfcrop --margins '3' main.pdf
+    oldhash=""
 
-    echo "$newhash" > "$HASH_FILE"
+    hash_file="x-$fstem-pdf-x.sha1"
 
-  else
-    echo "  Nothing to do."
-  fi
-done # for fdir in $(find cookbook/src -name '*.tkz' -exec dirname {} \; | sort -u)
+    if [[ -f "$hash_file" ]]
+    then
+      oldhash=$(cat "$hash_file")
+    fi
+
+    if [[ "$newhash" != "$oldhash" || ! -f "$pdfile-crop.pdf" ]]
+    then
+      pdfcrop --margins '3' "$pdfile"
+
+      echo "$newhash" > "$hash_file"
+
+    else
+      echo "  Nothing to do."
+    fi
+  done # for f in $(find . -name '*.tex')
+done   # for fdir in $(find cookbook/src -name '*.tkz' -exec dirname {} \; | sort -u)

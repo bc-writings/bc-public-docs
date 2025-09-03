@@ -37,9 +37,6 @@ fi
 # -- LET'S CROP TOGETHER -- #
 # ------------------------- #
 
-echo "-- FORCED CROPPING PDFs --"
-echo ""
-
 cd "$TARGET"
 
 for f in $(find cookbook/src -name '*.tex')
@@ -57,7 +54,8 @@ do
 
     oldhash=""
 
-    if [[ -f "$HASH_FILE" ]]; then
+    if [[ -f "$HASH_FILE" ]]
+    then
       oldhash=$(cat "$HASH_FILE")
     fi
 
