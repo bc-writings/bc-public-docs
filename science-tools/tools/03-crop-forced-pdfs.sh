@@ -39,18 +39,23 @@ fi
 
 cd "$TARGET"
 
-for f in $(find cookbook/src -name '*.tex')
+for f in $(find cookbook/src -name 'main*.tex')
 do
-  if [[ $(basename "$f") == main.tex ]] && \
-     grep -q '^[[:space:]]*%[[:space:]]*FORCE-CROP[[:space:]]*$' "$TARGET/$f"
+  if grep -q '^[[:space:]]*%[[:space:]]*FORCE-CROP[[:space:]]*$' "$TARGET/$f"
   then
     fdir=$(dirname "$f")
+
+    fstem=$(basename "$f")
+    fstem="${fstem#./}"
+    fstem="${fstem%.*}"
+
+    pdfile="$fstem.pdf"
 
     echo "+ ./$fdir"
 
     cd "$TARGET/$fdir"
 
-    newhash=$(shasum -a 1 "main.pdf" | cut -d ' ' -f1)
+    newhash=$(shasum -a 1 "$pdfile" | cut -d ' ' -f1)
 
     oldhash=""
 
@@ -59,9 +64,9 @@ do
       oldhash=$(cat "$HASH_FILE")
     fi
 
-    if [[ "$newhash" != "$oldhash" || ! -f "main-crop.pdf" ]]
+    if [[ "$newhash" != "$oldhash" || ! -f "$fstem-crop.pdf" ]]
     then
-      pdfcrop --margins '3' main.pdf
+      pdfcrop --margins '3' "$pdfile"
 
       echo "$newhash" > "$HASH_FILE"
 
