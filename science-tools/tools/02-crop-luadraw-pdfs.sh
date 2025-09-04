@@ -33,7 +33,7 @@ fi
 
 cd "$TARGET"
 
-for fdir in $(find cookbook/src -name '*.tkz' -exec dirname {} \; | sort -u)
+for fdir in $(find cookbook/src -name '*.luadraw.tkz' -exec dirname {} \; | sort -u)
 do
   echo "+ ./$fdir"
 

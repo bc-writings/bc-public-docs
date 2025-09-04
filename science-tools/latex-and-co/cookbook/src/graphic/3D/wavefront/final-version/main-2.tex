@@ -17,22 +17,13 @@
 
 \begin{document}
 
-\begin{luadraw}{name = triceratops}
+\begin{luadraw}{name = triceratops.luadraw}
 ------
 -- Analyse du fichier au format Wavefront.
 ------
 local file = "triceratops.obj"
 
 local polyhedron, window_def = parse_wavefront(file)
-
-
-
-
-
-
-
-
-
 
 
 
@@ -53,16 +44,12 @@ local graphview = graph3d:new{
 ------
 graphview:Linejoin("round")
 
-Hiddenlines     = true
-Hiddenlinestyle = "dashed"
-
 ------
 -- Tracé du modèle.
 ------
 graphview:Dpoly(
   polyhedron,
   {
-    mode  = 4,
     color = "cyan"
   })
 
