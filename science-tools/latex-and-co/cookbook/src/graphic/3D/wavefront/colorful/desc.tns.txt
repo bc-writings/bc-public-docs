@@ -1,0 +1,9 @@
+this::
+    date = 2025-09-05
+
+
+======================================
+De la couleur, en veux-tu ? En voilà !
+======================================
+
+Pour finir, voici des exemples colorés montrant que la prise en compte d'une version simplifiée du format \wavefront permet d'effectuer aisément des traitements sympathiques sur des objets \3d.

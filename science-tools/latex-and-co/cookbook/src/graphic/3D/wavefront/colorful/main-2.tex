@@ -1,12 +1,5 @@
 % !TEX TS-program = lualatex
 
-%%%
-% src::
-%     urls = https://github.com/pfradin/luadraw/discussions/64 ,
-%            https://people.sc.fsu.edu/~jburkardt/data/obj/obj.html ,
-%            https://dmccooey.com/polyhedra
-%%%
-
 \documentclass{standalone}
 
 \usepackage{xcolor}
@@ -39,9 +32,6 @@ local graphview = graph3d:new{
 -- Réglages liés aux lignes.
 ------
 graphview:Linejoin("round")
-
-Hiddenlines = true
-Hiddenlinestyle = "dashed"
 
 ------
 -- Tracé du modèle.

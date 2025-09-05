@@ -26,4 +26,4 @@ content::
     ./alpha-version/\desc
     ./pre-version/\desc
     ./final-version/\desc
-    ./color-use-ful/\desc
+    ./colorful/\desc

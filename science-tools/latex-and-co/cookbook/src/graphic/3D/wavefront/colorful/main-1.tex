@@ -1,12 +1,5 @@
 % !TEX TS-program = lualatex
 
-%%%
-% src::
-%     urls = https://github.com/pfradin/luadraw/discussions/64 ,
-%            https://people.sc.fsu.edu/~jburkardt/data/obj/obj.html ,
-%            https://dmccooey.com/polyhedra
-%%%
-
 \documentclass{standalone}
 
 \usepackage[svgnames]{xcolor}
@@ -61,21 +54,25 @@ end
 -- Tracé des faces colorées.
 ------
 graphview:Dscene3d(
+-- 4 côtés.
   graphview:addFacet(
     getfacet(polyhedron, S4),
     {
       color="Crimson"
     }),
+-- 6 côtés.
   graphview:addFacet(
     getfacet(polyhedron, S6),
     {
       color="Gold"
     }),
+-- 10 côtés.
   graphview:addFacet(
     getfacet(polyhedron, S10),
     {
       color="SteelBlue"
     }),
+-- Arêtes du polyhèdre.
   graphview:addPolyline(
     facetedges(polyhedron),
     {
