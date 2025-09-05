@@ -13,17 +13,15 @@
 
 \usepackage[3d]{luadraw}
 
-\directlua{dofile('main.lua')}
+\directlua{dofile('../final-version/main.lua')}
 
 \begin{document}
 
 \begin{luadraw}{name = triceratops.luadraw}
 ------
--- Un fichier utilisant pleinement les spécifications du format
--- Wavefront.
+-- Analyse du fichier au format Wavefront.
 ------
--- local file = "bitruncated_icosahedron.obj" -- VALIDATION DU MODÈLE SIMPLIFIÉ.
-local file = "triceratops.obj"
+local file = "../models/triceratops.obj"
 
 local polyhedron, window_def = parse_wavefront(file)
 
@@ -51,7 +49,6 @@ Hiddenlinestyle = "dashed"
 graphview:Dpoly(
   polyhedron,
   {
-    mode  = 4,
     color = "cyan"
   })
 

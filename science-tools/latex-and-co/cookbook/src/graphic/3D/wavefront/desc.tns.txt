@@ -1,5 +1,5 @@
 this::
-    date = 2025-09-01
+    date = 2025-09-04
 
 
 abrev::
@@ -11,12 +11,15 @@ abrev::
 Format \wavefront simplifié
 ===========================
 
-Le format \wavefront permet de définir des modèles 3D par leurs sommets et leurs faces, ainsi que les normales des facettes et des coordonnées de texture. Dans cette rectte, nous allons montrer comment dessiner des objets \3d à partir d'une version simplifiée du format \wavefront : par exemple, le fichier suivant décrit un icosaèdre.
+Le format \wavefront permet de définir des modèles \3d polyédriques par leurs sommets et leurs faces, ainsi que les normales des facettes et des coordonnées de texture. Par exemple, le fichier suivant décrit un icosaèdre.
 
 wavefront::
     ---
     file = ./pre-version/icosahedron.obj
     ---
+
+
+Dans cette recette, nous allons montrer comment dessiner des objets \3d à partir d'une version simplifiée du format \wavefront (non prise en compte des textures et des normales).
 
 
 content::

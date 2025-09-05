@@ -34,6 +34,11 @@ function parse_wavefront(file)
   local ymin, ymax = math.huge, -math.huge
   local zmin, zmax = math.huge, -math.huge
 
+  local pattern_decimal = "([%-%d%.e%+%-]+)"
+  local pattern_vertex  = "^v%s+" .. pattern_decimal .. "%s+"
+                                  .. pattern_decimal .. "%s+"
+                                  .. pattern_decimal
+
 -- Dans les \regexs \lua, ''%'' est le caractère d'échappement.
   for line in io.lines(file) do
 -- Nettoyage des espaces finaux et initiaux : en \lua, ''-''
@@ -44,11 +49,9 @@ function parse_wavefront(file)
     if line ~= "" and not line:match("^#") then
 -- Cas d'un sommet.
       if line:match("^v%s") then
--- La \regex suivante est fragile, mais nous faisons confiance
+-- La \regex suivante est très fragile, mais nous faisons confiance
 -- aux fichiers ext::''obj'' utilisés.
-        local x, y, z = line:match(
-          "^v%s+([%-%d%.]+)%s+([%-%d%.]+)%s+([%-%d%.]+)"
-        )
+        local x, y, z = line:match(pattern_vertex)
 
         if x and y and z then
           x, y, z = tonumber(x), tonumber(y), tonumber(z)

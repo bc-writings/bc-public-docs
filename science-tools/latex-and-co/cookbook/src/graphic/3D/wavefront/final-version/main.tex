@@ -19,15 +19,16 @@
 
 \begin{luadraw}{name = triceratops.luadraw}
 ------
--- Analyse du fichier au format Wavefront.
+-- Un fichier utilisant pleinement les spécifications du format
+-- Wavefront.
 ------
-local file = "triceratops.obj"
+local file = "../models/triceratops.obj"
+
+-- DEBUG
+-- local file = "../models/bitruncated_icosahedron.obj" -- MODÈLE SIMPLE
+-- local file = "../models/icosahedron-dirty.obj" -- ÉCRITURES MIXTES
 
 local polyhedron, window_def = parse_wavefront(file)
-
-
-
-
 
 ------
 -- Définition de la zone graphique.
@@ -44,12 +45,16 @@ local graphview = graph3d:new{
 ------
 graphview:Linejoin("round")
 
+Hiddenlines = true
+Hiddenlinestyle = "dashed"
+
 ------
 -- Tracé du modèle.
 ------
 graphview:Dpoly(
   polyhedron,
   {
+    mode  = 4,
     color = "cyan"
   })
 
