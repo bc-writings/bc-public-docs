@@ -66,12 +66,14 @@ do
 
     if [[ "$newhash" != "$oldhash" || ! -f "$fstem-crop.pdf" ]]
     then
+      echo "  Croping needed for '$fstem.tex'."
+
       pdfcrop --margins '3' "$pdfile"
 
       echo "$newhash" > "$HASH_FILE"
 
     else
-      echo "  Nothing to do."
+      echo "  Nothing to do for '$fstem.tex'."
     fi
   fi
 done # for f in $(find . -name '*.tex')

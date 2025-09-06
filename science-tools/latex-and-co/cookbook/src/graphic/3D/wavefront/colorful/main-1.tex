@@ -10,7 +10,7 @@
 
 \begin{document}
 
-\begin{luadraw}{name = bitruncated-icosahedron.luadraw}
+\begin{luadraw}{name = bitruncated-icosahedron-nb-edge-color.luadraw}
 ------
 -- Récupération du polyèdre au format Wavefront.
 ------
@@ -58,26 +58,26 @@ graphview:Dscene3d(
   graphview:addFacet(
     getfacet(polyhedron, S4),
     {
-      color="Crimson"
+      color = "Crimson"
     }),
 -- 6 côtés.
   graphview:addFacet(
     getfacet(polyhedron, S6),
     {
-      color="Gold"
+      color = "Gold"
     }),
 -- 10 côtés.
   graphview:addFacet(
     getfacet(polyhedron, S10),
     {
-      color="SteelBlue"
+      color = "SteelBlue"
     }),
--- Arêtes du polyhèdre.
+-- Arêtes du polyèdre.
   graphview:addPolyline(
     facetedges(polyhedron),
     {
-      color="Pink",
-      width = 8
+      color = "Pink",
+      width = 4
     })
 )
 

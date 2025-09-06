@@ -2,7 +2,7 @@
 
 \documentclass{standalone}
 
-\usepackage{xcolor}
+\usepackage[svgnames]{xcolor}
 
 \usepackage[3d]{luadraw}
 
@@ -10,11 +10,16 @@
 
 \begin{document}
 
-\begin{luadraw}{name = triceratops.luadraw}
+\begin{luadraw}{name = triceratops-rand-color.luadraw}
 ------
--- Analyse du fichier au format Wavefront.
+-- Un fichier utilisant pleinement les spécifications du format
+-- Wavefront.
 ------
 local file = "../models/triceratops.obj"
+
+-- DEBUG
+-- local file = "../models/bitruncated_icosahedron.obj" -- MODÈLE SIMPLE
+-- local file = "../models/icosahedron-dirty.obj" -- ÉCRITURES MIXTES
 
 local polyhedron, window_def = parse_wavefront(file)
 
@@ -34,13 +39,57 @@ local graphview = graph3d:new{
 graphview:Linejoin("round")
 
 ------
--- Tracé du modèle.
+-- Coloration aléatoire des facettes.
 ------
-graphview:Dpoly(
-  polyhedron,
-  {
-    color = "cyan"
-  })
+local edges_color   = "DarkGray"
+local facets_colors = {"Crimson", "Gold", "SteelBlue"}
+local c
+local S1, S2, S3 = {}, {}, {}
+
+math.randomseed(7)
+
+for k, f in ipairs(polyhedron.facets) do
+  c = math.random(1, 3)
+
+  if c == 1 then
+    table.insert(S1, k)
+
+  elseif c == 2 then
+    table.insert(S2, k)
+
+  elseif c == 3 then
+    table.insert(S3, k)
+  end
+end
+
+------
+-- Tracé des faces colorées.
+------
+graphview:Dscene3d(
+-- Facettes colorées aléatoirement.
+  graphview:addFacet(
+    getfacet(polyhedron, S1),
+    {
+      color = facets_colors[1]
+    }),
+  graphview:addFacet(
+    getfacet(polyhedron, S2),
+    {
+      color = facets_colors[2]
+    }),
+  graphview:addFacet(
+    getfacet(polyhedron, S3),
+    {
+      color = facets_colors[3]
+    }),
+-- Arêtes du polyèdre.
+  graphview:addPolyline(
+    facetedges(polyhedron),
+    {
+      color = edges_color,
+      width = 3
+    })
+)
 
 ------
 -- Et le merveilleux se révèle au monde.

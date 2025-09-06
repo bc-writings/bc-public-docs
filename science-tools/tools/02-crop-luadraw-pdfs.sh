@@ -58,12 +58,14 @@ do
 
     if [[ "$newhash" != "$oldhash" || ! -f "$fstem-crop.pdf" ]]
     then
+      echo "  Croping needed for '$fstem.tex'."
+
       pdfcrop --margins '3' "$pdfile"
 
       echo "$newhash" > "$hash_file"
 
     else
-      echo "  Nothing to do."
+      echo "  Nothing to do for '$fstem.tex'."
     fi
   done # for f in $(find . -name '*.tex')
 done   # for fdir in $(find cookbook/src -name '*.tkz' -exec dirname {} \; | sort -u)
