@@ -1,0 +1,54 @@
+\begin{tikzpicture}%
+\useasboundingbox (-0.5,-0.5) rectangle (7.9593540314244,9.5);%
+\begin{scope}%
+\clip (-0.5,-0.5) rectangle (7.9593540314244,9.5);%
+\pgfsetroundjoin%
+\pgfsetfillcolor{cyan!50!white!96.7!black}%
+\draw[fill] (3.6559,7.0502) -- (4.6323,4.5295) -- (1.9739,4.7459)--cycle;%
+\pgfsetfillcolor{cyan!50!white!93.09!black}%
+\draw[fill] (4.6323,4.5295) -- (3.6559,7.0502) -- (6.3143,6.2304)--cycle;%
+\pgfsetfillcolor{cyan!50!white!91.26!black}%
+\draw[fill] (1.9739,4.7459) -- (4.6323,4.5295) -- (3.5927,2.502)--cycle;%
+\pgfsetfillcolor{cyan!50!white!84.72!black}%
+\draw[fill] (6.3143,6.2304) -- (6.2752,3.4194) -- (4.6323,4.5295)--cycle;%
+\pgfsetfillcolor{cyan!50!white!83.42!black}%
+\draw[fill] (6.2752,3.4194) -- (3.5927,2.502) -- (4.6323,4.5295)--cycle;%
+\pgfsetfillcolor{cyan!50!white!70.98!black}%
+\draw[fill] (1.9739,4.7459) -- (2.013,6.5806) -- (3.6559,7.0502)--cycle;%
+\pgfsetfillcolor{cyan!50!white!60.9!black}%
+\draw[fill] (4.6954,7.498) -- (6.3143,6.2304) -- (3.6559,7.0502)--cycle;%
+\pgfsetfillcolor{cyan!50!white!54.96!black}%
+\draw[fill] (1.9739,3.7696) -- (1.9739,4.7459) -- (3.5927,2.502)--cycle;%
+\pgfsetfillcolor{cyan!50!white!26.18!black}%
+\draw[fill] (2.013,6.5806) -- (4.6954,7.498) -- (3.6559,7.0502)--cycle;%
+\pgfsetfillcolor{cyan!50!white!12.39!black}%
+\draw[fill] (6.3143,5.2541) -- (6.2752,3.4194) -- (6.3143,6.2304)--cycle;%
+\pgfsetfillcolor{cyan!12.39!black}%
+\draw[fill] (1.9739,4.7459) -- (1.9739,3.7696) -- (2.013,6.5806)--cycle;%
+\pgfsetfillcolor{cyan!26.18!black}%
+\draw[fill] (3.5927,2.502) -- (6.2752,3.4194) -- (4.6323,2.9498)--cycle;%
+\pgfsetfillcolor{cyan!54.96!black}%
+\draw[fill] (6.3143,5.2541) -- (6.3143,6.2304) -- (4.6954,7.498)--cycle;%
+\pgfsetfillcolor{cyan!60.9!black}%
+\draw[fill] (1.9739,3.7696) -- (3.5927,2.502) -- (4.6323,2.9498)--cycle;%
+\pgfsetfillcolor{cyan!70.98!black}%
+\draw[fill] (6.2752,3.4194) -- (6.3143,5.2541) -- (4.6323,2.9498)--cycle;%
+\pgfsetfillcolor{cyan!83.42!black}%
+\draw[fill] (4.6954,7.498) -- (2.013,6.5806) -- (3.6559,5.4705)--cycle;%
+\pgfsetfillcolor{cyan!84.72!black}%
+\draw[fill] (2.013,6.5806) -- (1.9739,3.7696) -- (3.6559,5.4705)--cycle;%
+\pgfsetfillcolor{cyan!91.26!black}%
+\draw[fill] (6.3143,5.2541) -- (4.6954,7.498) -- (3.6559,5.4705)--cycle;%
+\pgfsetfillcolor{cyan!93.09!black}%
+\draw[fill] (4.6323,2.9498) -- (3.6559,5.4705) -- (1.9739,3.7696)--cycle;%
+\pgfsetfillcolor{cyan!96.7!black}%
+\draw[fill] (3.6559,5.4705) -- (4.6323,2.9498) -- (6.3143,5.2541)--cycle;%
+\pgfsetfillcolor{black}%
+\pgfsetdash{{2.5pt}{2pt}}{0pt}%
+\draw[] (4.6954,7.498) -- (3.6559,7.0502) -- (4.6323,4.5295) -- (3.5927,2.502) -- (1.9739,4.7459) -- (3.6559,7.0502) -- (6.3143,6.2304) -- (6.2752,3.4194) -- (4.6323,4.5295) -- (1.9739,4.7459);%
+\draw[] (6.3143,6.2304) -- (4.6323,4.5295);%
+\draw[] (2.013,6.5806) -- (3.6559,7.0502);%
+\pgfsetdash{}{0pt}%
+\pgfsetmiterjoin%
+\end{scope}%
+\end{tikzpicture}%
