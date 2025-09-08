@@ -11,19 +11,21 @@ abrev::
 Utilisation du format \wavefront
 ================================
 
-Le format \wavefront permet de définir des modèles \3d polyédriques par leurs sommets et leurs faces, ainsi que les normales des facettes et des coordonnées de texture. Par exemple, le fichier suivant décrit un icosaèdre.
+Le format \wavefront permet de représenter des modèles \3d polyédriques à partir de leurs sommets et de leurs faces, avec la possibilité d’y associer des normales de facettes et des coordonnées de texture. Par exemple, le fichier suivant décrit un icosaèdre.
 
 wavefront::
     ---
-    file = ./pre-version/icosahedron.obj
+    file = ./models/icosahedron.obj
     ---
 
 
-Dans cette recette, nous allons montrer comment dessiner des objets \3d à partir d'une version simplifiée du format \wavefront (non prise en compte des textures et des normales).
+Depuis sa version version::''2.1'', \luadraw prend en charge une version simplifiée du format \wavefront, où les textures et les normales ne sont pas prises en compte
+((
+    L’auteur de ces lignes est également celui du petit code chargé de la prise en compte de la version simplifiée du format \wavefront.
+)).
+Comme l’exercice est instructif, nous ne proposerons pas directement la solution de \luadraw.
 
 
 content::
-    ./alpha-version/\desc
-    ./pre-version/\desc
-    ./final-version/\desc
+    ./by-hand/\desc
     ./colorful/\desc

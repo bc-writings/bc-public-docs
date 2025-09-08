@@ -1,0 +1,9 @@
+this::
+    date = 2025-09-08
+
+
+=================================================
+Les mains dans le cambouis, sans avoir lu la \doc
+=================================================
+
+Le code \luadraw proposé ici simule manuellement un tracé à la \wavefront. Cela permet de comprendre comment \luadraw passe, en coulisse, d’un fichier \wavefront à une version dessinable.

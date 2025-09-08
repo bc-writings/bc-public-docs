@@ -38,7 +38,7 @@ function nocompile {
 
 cd "$TARGET"
 
-for f in $(find cookbook/src -name 'main*.tex')
+for f in $(find cookbook/src -name 'main*.tex' | sort -u)
 do
   echo "-- NEW TEX FILE --"
   echo "./$f"
