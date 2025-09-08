@@ -12,7 +12,7 @@
 
 \begin{document}
 
-\begin{luadraw}{name = parabola-section.luadraw}
+\begin{luadraw}{name = parabola-section}
 ------
 -- Quelques variables bien nommées pour un usage local.
 ------
@@ -29,15 +29,15 @@ local pdim_2  = 9
 local graphview = graph3d:new{
   window  = {-5, 5, -9, 5.5},
   viewdir = {5, 60},
-  size  = {10, 10}
+  size    = {10, 10}
 }
 
 ------
 -- Réglages liés aux lignes.
 ------
-Hiddenlinestyle = "dashed"
-graphview:Linejoin("round")
 graphview:Lineoptions(solid, "black", 16)
+
+Hiddenlinestyle = "dashed"
 
 ------
 -- Création de deux polyèdres coniques ouverts pour les raisons

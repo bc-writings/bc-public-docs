@@ -1,0 +1,64 @@
+% !TEX TS-program = lualatex
+
+\documentclass{standalone}
+
+\usepackage[svgnames]{xcolor}
+
+\usepackage[3d]{luadraw}
+
+\directlua{dofile('../final-version/main.lua')}
+
+\begin{document}
+
+\begin{luadraw}{name = bary-color}
+------
+-- Un fichier utilisant pleinement les spécifications du format
+-- Wavefront.
+------
+local vdir = {-110, -20}
+local file = "../models/triceratops.obj"
+
+local vdir = {35, 60}
+local file = "../models/nefertiti.obj"
+
+local polyhedron, window_def = parse_wavefront(file)
+
+------
+-- Définition de la zone graphique.
+------
+local graphview = graph3d:new{
+  window3d = window_def,
+  adjust2d = true,
+  viewdir  = vdir,
+  size     = {10, 10},
+}
+
+------
+-- Coloration lié à l'inclinaison géométrique.
+------
+local spectrum = {Purple, Indigo, Blue, Green, Yellow, Orange, Red}
+local spectrum = {Blue, Green, Yellow, Orange}
+local spectrum = {Gray, SlateGray, LightSkyBlue, LightPink, Pink, LightSalmon, FireBrick}
+
+local sorted_facets = graphview:Sortpolyfacet(polyhedron)
+
+local z_min   = window_def[5]
+local delta_z = window_def[6] - z_min
+
+local G, level
+
+for _ , f in ipairs(sorted_facets) do
+  G = isobar3d(f)
+
+  level = math.abs((G.z - z_min) / delta_z)
+
+  graphview:Dpolyline3d(f,true,"fill=" .. palette(spectrum, level))
+end
+
+------
+-- Et le merveilleux se révèle au monde.
+------
+graphview:Show()
+\end{luadraw}
+
+\end{document}

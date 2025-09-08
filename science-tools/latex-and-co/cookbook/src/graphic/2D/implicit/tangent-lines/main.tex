@@ -20,7 +20,7 @@
 
 \begin{document}
 
-\begin{luadraw}{name = implicit-tangent-lines.luadraw}
+\begin{luadraw}{name = implicit-tangent-lines}
 
 ------
 -- La fonction `F(x, y)` pour l'équation implicite `F(x, y) = 0`.
@@ -36,11 +36,6 @@ local graphview = graph:new{
   window = {-3, 3, -3, 3},
   size   = {10, 10},
 }
-
-------
--- Réglage lié aux lignes.
-------
-graphview:Linecap("round")
 
 ------
 -- Tracer une "presque" tangente à une courbe d'équation implicite.

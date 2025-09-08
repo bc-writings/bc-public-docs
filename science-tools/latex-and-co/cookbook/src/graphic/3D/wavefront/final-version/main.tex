@@ -10,7 +10,7 @@
 
 \begin{document}
 
-\begin{luadraw}{name = final-version.luadraw}
+\begin{luadraw}{name = final-version}
 ------
 -- Un fichier utilisant pleinement les spécifications du format
 -- Wavefront.
@@ -19,7 +19,7 @@ local file = "../models/triceratops.obj"
 
 -- DEBUG
 -- local file = "../models/bitruncated_icosahedron.obj" -- MODÈLE SIMPLE
-local file = "../models/icosahedron-dirty.obj" -- ÉCRITURES MIXTES
+-- local file = "../models/icosahedron-dirty.obj" -- ÉCRITURES MIXTES
 
 local polyhedron, window_def = parse_wavefront(file)
 
@@ -36,9 +36,7 @@ local graphview = graph3d:new{
 ------
 -- Réglages liés aux lignes.
 ------
-graphview:Linejoin("round")
-
-Hiddenlines = true
+Hiddenlines     = true
 Hiddenlinestyle = "dashed"
 
 ------

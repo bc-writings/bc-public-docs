@@ -22,7 +22,7 @@
 
 \section*{1st point of view}
 
-\begin{luadraw}{name = mesh-cone-1.luadraw}
+\begin{luadraw}{name = mesh-cone-1}
 ------
 -- Définition de la zone graphique.
 --
@@ -39,11 +39,6 @@ local graphview = graph3d:new{
   viewdir = {290, 60},
   size    = {10, 10}
 }
-
-------
--- Nous utilisons des jointures arrondies pour les segments.
-------
-graphview:Linejoin("round")
 
 ------
 -- Un cône s'obtient par rotation d'une droite autour d'une axe.
@@ -109,7 +104,7 @@ graphview:Show()
 
 \section*{2nd point of view}
 
-\begin{luadraw}{name = mesh-cone-2.luadraw}
+\begin{luadraw}{name = mesh-cone-2}
 ------
 -- Modification des angles et de la fenêtre de vue.
 ------

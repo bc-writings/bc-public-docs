@@ -54,7 +54,7 @@ end
 ------
 graphview:Setviewdir(290, 60)
 draw()
-graphview:Savetofile("mesh-cone-1.luadraw.tkz")
+graphview:Savetofile("_luadraw/mesh-cone-1.tkz")
 
 ------
 -- Nous devons effacer la zone graphique courante !
@@ -67,16 +67,16 @@ graphview.export        = graphview.currentexport
 ------
 graphview:Setviewdir(240,60) -- second view
 draw()
-graphview:Savetofile("mesh-cone-2.luadraw.tkz")
+graphview:Savetofile("_luadraw/mesh-cone-2.tkz")
 \end{luadraw}
 
 \section*{1st point of view}
 
-\input{mesh-cone-1.luadraw.tkz}
+\input{_luadraw/mesh-cone-1.tkz}
 
 
 \section*{2nd point of view}
 
-\input{mesh-cone-2.luadraw.tkz}
+\input{_luadraw/mesh-cone-2.tkz}
 
 \end{document}

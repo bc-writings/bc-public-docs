@@ -20,7 +20,7 @@
 
 \begin{document}
 
-\begin{luadraw}{name = hyperbola-section.luadraw}
+\begin{luadraw}{name = hyperbola-section}
 ------
 -- Quelques variables bien nommées pour un usage local.
 ------
@@ -50,10 +50,8 @@ local graphview = graph3d:new{
 }
 
 ------
--- Nous utilisons des jointures arrondies pour les segments, et
--- changeons l'épaisseur et la couleur des lignes.
+-- Nous changeons l'épaisseur et la couleur des lignes.
 ------
-graphview:Linejoin("round")
 graphview:Lineoptions(solid, side_col, width_line)
 
 ------

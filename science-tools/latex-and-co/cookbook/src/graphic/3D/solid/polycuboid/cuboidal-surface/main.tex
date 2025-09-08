@@ -20,7 +20,7 @@
 
 \begin{document}
 
-\begin{luadraw}{name = cuboidal-surface.luadraw}
+\begin{luadraw}{name = cuboidal-surface}
 ------
 -- Paramètres de la surface "prismoidale".
 ------
@@ -44,11 +44,6 @@ local graphview = graph3d:new{
 --   adjust2d = true      -- Pour afficher le repère en mode "debug".
 }
 -- graphview:Dboxaxes3d() -- Pour afficher le repère en mode "debug".
-
-------
--- Réglage lié aux lignes.
-------
-graphview:Linejoin("round")
 
 ------
 -- Définition et tracé des facettes "visibles".

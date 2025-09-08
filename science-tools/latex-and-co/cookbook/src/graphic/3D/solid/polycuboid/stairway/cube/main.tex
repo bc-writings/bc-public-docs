@@ -15,7 +15,7 @@
 
 \begin{document}
 
-\begin{luadraw}{name = stairway.luadraw}
+\begin{luadraw}{name = stairway}
 ------
 -- Nombre de marches ou de tranches souhaité.
 ------
@@ -29,11 +29,6 @@ local graphview = graph3d:new{
   adjust2d = true,
   viewdir  = {-35, 45}
 }
-
-------
--- Réglage lié aux lignes.
-------
-graphview:Linejoin("round")
 
 ------
 -- Tracé de l'escalier avec l'obligation de tracer les éléments

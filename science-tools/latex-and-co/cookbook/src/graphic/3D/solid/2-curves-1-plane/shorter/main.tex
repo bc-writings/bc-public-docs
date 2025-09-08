@@ -20,7 +20,7 @@
 
 \begin{document}
 
-\begin{luadraw}{name = 2-curves-1-plane.luadraw}
+\begin{luadraw}{name = 2-curves-1-plane}
 ------
 -- Éléments constitutifs de notre solide.
 --
@@ -52,11 +52,6 @@ local graphview = graph3d:new{
   viewdir  = {-30, 50},
   size     = {12, 12, 0}
 }
-
-------
--- Réglage lié aux lignes.
-------
-graphview:Linejoin("round")
 
 ------
 -- Réglage du repère en mode "boîte".
