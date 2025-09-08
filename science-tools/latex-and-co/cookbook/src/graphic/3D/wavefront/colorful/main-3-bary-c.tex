@@ -6,9 +6,11 @@
 
 \usepackage[3d]{luadraw}
 
+\directlua{dofile('main-3-bary.lua')}
+
 \begin{document}
 
-\begin{luadraw}{name = rand-color}
+\begin{luadraw}{name = bary-color}
 ------
 -- Récupération du modèle 3D au format Wavefront.
 ------
@@ -28,24 +30,11 @@ local graphview = graph3d:new{
 }
 
 ------
--- Coloration aléatoire des facettes.
+-- Coloration liée à la côte du barycentre de la facette.
 ------
-local facet_colors = {"Purple", "Indigo", "Blue", "Green", "Yellow", "Orange", "Red"}
-local c
+local spectrum = {Gray, SlateGray, LightSkyBlue, LightPink, Pink, LightSalmon, FireBrick}
 
-local sorted_facets = graphview:Sortpolyfacet(polyhedron)
-
-math.randomseed(2025)
-
-for _, f in ipairs(sorted_facets) do
-  c = math.random(1, 7)
-
-  graphview:Dpolyline3d(
-    f,
-    true,  -- Ligne fermée.
-    "fill=" .. facet_colors[c]
-  )
-end
+draw_spectrum(polyhedron, graphview, bounding_box, spectrum)
 
 ------
 -- Et le merveilleux se révèle au monde.

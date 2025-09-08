@@ -10,12 +10,8 @@
 
 \begin{luadraw}{name = normal-angle-color}
 ------
--- Un fichier utilisant pleinement les spécifications du format
--- Wavefront.
+-- Récupération du modèle 3D au format Wavefront.
 ------
-local vdir = {-110, -20}
-local file = "../models/triceratops.obj"
-
 local vdir = {35, 60}
 local file = "../models/nefertiti.obj"
 
@@ -32,7 +28,7 @@ local graphview = graph3d:new{
 }
 
 ------
--- Coloration lié à l'inclinaison géométrique.
+-- Coloration lié à l'inclinaison "géométrique".
 ------
 local facet_colors = {"Green", "Yellow"}
 
