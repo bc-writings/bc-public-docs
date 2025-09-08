@@ -6,6 +6,8 @@
 
 \usepackage[3d]{luadraw}
 
+\directlua{dofile('main-normal-angle.lua')}
+
 \begin{document}
 
 \begin{luadraw}{name = normal-angle-color}
@@ -30,27 +32,9 @@ local graphview = graph3d:new{
 ------
 -- Coloration lié à l'inclinaison "géométrique".
 ------
-local facet_colors = {"Green", "Yellow"}
+local spectrum = {DarkOliveGreen, Green, PeachPuff, Wheat}
 
-local S = graphview:Sortpolyfacet(polyhedron) -- on trie les facettes
-
-local A, B, C
-local N, angle, color
-
-for _,f in ipairs(S) do  -- parcours des facettes triées
-  A,B,C = table.unpack(f)
-  N = pt3d.normalize(pt3d.prod(B - A, C - A))
-
-  angle = math.abs(angle3d(N, vecK) * rad)
-
-
-  if angle < 75 then
-    color = facet_colors[1]
-  else
-    color = facet_colors[2]
-  end
-  graphview:Dpolyline3d(f,true,"fill="..color)
-end
+draw_normal_angle(polyhedron, graphview, bounding_box, spectrum)
 
 ------
 -- Et le merveilleux se révèle au monde.
