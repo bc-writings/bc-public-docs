@@ -10,7 +10,7 @@
 
 \begin{document}
 
-\begin{luadraw}{name = normal-angle-color}
+\begin{luadraw}{name = normal-angle-color-b}
 ------
 -- Récupération du modèle 3D au format Wavefront.
 ------
@@ -32,15 +32,14 @@ local graphview = graph3d:new{
 ------
 -- Coloration lié à l'inclinaison "géométrique".
 ------
-local spectrum = {DarkOliveGreen, Green, PeachPuff, Wheat}
+local spectrum = {Blue, Green, Yellow, Orange}
 
-draw_normal_angle(polyhedron, graphview, bounding_box, spectrum)
+draw_normal_angle(polyhedron, graphview, spectrum)
 
 ------
 -- Et le merveilleux se révèle au monde.
 ------
 graphview:Show()
-
 \end{luadraw}
 
 \end{document}

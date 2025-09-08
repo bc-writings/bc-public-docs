@@ -1,0 +1,45 @@
+% !TEX TS-program = lualatex
+
+\documentclass{standalone}
+
+\usepackage[svgnames]{xcolor}
+
+\usepackage[3d]{luadraw}
+
+\directlua{dofile('main-normal-angle.lua')}
+
+\begin{document}
+
+\begin{luadraw}{name = normal-angle-color-a}
+------
+-- Récupération du modèle 3D au format Wavefront.
+------
+local vdir = {35, 60}
+local file = "../models/nefertiti.obj"
+
+local polyhedron, bounding_box = read_obj_file(file)
+
+------
+-- Définition de la zone graphique.
+------
+local graphview = graph3d:new{
+  window3d = bounding_box,
+  adjust2d = true,
+  viewdir  = vdir,
+  size     = {10, 10},
+}
+
+------
+-- Coloration lié à l'inclinaison "géométrique".
+------
+local spectrum = {Purple, Indigo, Blue, Green, Yellow, Orange, Red}
+
+draw_normal_angle(polyhedron, graphview, spectrum)
+
+------
+-- Et le merveilleux se révèle au monde.
+------
+graphview:Show()
+\end{luadraw}
+
+\end{document}

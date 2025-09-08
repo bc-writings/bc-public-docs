@@ -14,5 +14,4 @@ Nous présentons ici des exemples colorés qui montrent que la prise en charge d
 
     1) Coloration des faces suivant les côtes de leurs barycentres.
 
-    1) ???
-    Coloration des faces suivant l'inclinaison de leurs normales.
+    1) Coloration des faces suivant l'inclinaison de leurs normales.
