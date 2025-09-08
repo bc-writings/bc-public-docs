@@ -39,7 +39,7 @@ fi
 
 cd "$TARGET"
 
-for f in $(find cookbook/src -name 'main*.tex')
+for f in $(find cookbook/src -name 'main*.tex' | sort -u)
 do
   if grep -q '^[[:space:]]*%[[:space:]]*FORCE-CROP[[:space:]]*$' "$TARGET/$f"
   then

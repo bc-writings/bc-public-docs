@@ -32,13 +32,14 @@ fi
 
 cd "$TARGET"
 
-for fdir in $(find cookbook/src -name '*.luadraw.tkz' -exec dirname {} \; | sort -u)
+# xargs -n1 dirname permet d'appliquer diranme une seconde fois.
+for fdir in $(find cookbook/src -path '*/_luadraw/*.tkz' -exec dirname {} \; | sort -u | xargs -n1 dirname)
 do
   echo "+ ./$fdir"
 
   cd "$TARGET/$fdir"
 
-  for f in $(find . -name 'main*.tex')
+  for f in $(find . -name 'main*.tex' | sort -u)
   do
     fstem="${f#./}"
     fstem="${fstem%.*}"
@@ -68,4 +69,4 @@ do
       echo "  Nothing to do for '$fstem.tex'."
     fi
   done # for f in $(find . -name '*.tex')
-done   # for fdir in $(find cookbook/src -name '*.tkz' -exec dirname {} \; | sort -u)
+done   # for fdir in $(find cookbook/src -path '*/_luadraw/*.tkz' -exec dirname {} \; | sort -u | xargs -n1 dirname)

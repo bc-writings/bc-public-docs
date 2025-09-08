@@ -1,8 +1,8 @@
-===========
-Des courbes
-===========
+===========================
+Des surfaces et des solides
+===========================
 
 content::
     ./solid/\desc
     ./cone/\desc
-    ./wavefront/\desc
+    ./wavefront/\desc       ?????
