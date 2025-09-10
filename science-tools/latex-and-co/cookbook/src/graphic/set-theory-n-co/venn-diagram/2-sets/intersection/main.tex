@@ -4,20 +4,22 @@
 
 \usepackage{../basic/main}
 
+\directlua{dofile("../basic/main.lua")}
+
 \begin{document}
 
-\begin{luadraw}{name = basic-2-sets}
-  local i = cpx.I
-
+\begin{luadraw}{name = 2-sets-intersection}
   local A, B = set(-2,90), set(2, -90)
-  local lab_A, lab_B = "$A$", "$B$"
 
+  local lab_A, lab_B = "$A$", "$B$"
   local col_A, col_B = "Crimson", "ForestGreen"
 
   local polyline_A_inter_B = cap(path(A), path(B))
-  local lab_A_inter_B = "$A \\cap B$"
 
+  local lab_A_inter_B = "$A \\cap B$"
   local col_A_inter_B = col_A .. "!50!" .. col_B
+
+  local col_A, col_B = setcol(col_A), setcol(col_B)
 
   local graphview = graph:new{
     window = {-7.25, 7.25, -5, 5},
@@ -37,20 +39,12 @@
 
   graphview:Dpath(
     B,
-      "color = "
-    .. col_B
-    .. ", pattern color = "
-    .. col_B
-    .. ", pattern = stripes"
+    col_B .. ", pattern = stripes"
   )
 
   graphview:Dpath(
     A,
-      "color = "
-    .. col_A
-    .. ", pattern color = "
-    .. col_A
-    .. ", pattern = {stripes[size = 10pt, angle = -45]}"
+    col_A .. ", pattern = {stripes[size = 10pt, angle = -45]}"
   )
 
   graphview:Fillopacity(1)
@@ -65,9 +59,9 @@
       pos = "E"
     },
     lab_A_inter_B, 0 , {
-      node_options =  col_A_inter_B 
+      node_options =  col_A_inter_B
                    .. "!55!black, fill = "
-                   .. col_A_inter_B 
+                   .. col_A_inter_B
                    .. "!30, fill opacity = .65",
       pos = "center"
      })

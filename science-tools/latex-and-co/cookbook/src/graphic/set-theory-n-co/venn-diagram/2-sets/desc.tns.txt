@@ -3,5 +3,6 @@ Avec deux ensembles
 ===================
 
 content::
-    ./basic/\desc
-    ./intersection/\desc
+    ./basic/\desc           ??????
+    ./universe/\desc        ????
+    ./intersection/\desc    ??

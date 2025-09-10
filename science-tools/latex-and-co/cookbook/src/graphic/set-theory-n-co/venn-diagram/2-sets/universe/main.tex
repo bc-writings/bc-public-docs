@@ -2,17 +2,17 @@
 
 \documentclass{standalone}
 
-\usepackage{main}
+\usepackage{../basic/main}
 
-\directlua{dofile("main.lua")}
+\directlua{dofile("../basic/main.lua")}
 
 \begin{document}
 
 \begin{luadraw}{name = 2-sets-inside-universe}
   local A, B = set(-2,90), set(2, -90)
 
-  local lab_A, lab_B = "$A$", "$B$"
-  local col_A, col_B = setcol("Crimson"), setcol("ForestGreen")
+  local lab_A, lab_B, lab_E = "$A$", "$B$", "$E$"
+  local col_A, col_B, col_E = setcol("Crimson"), setcol("ForestGreen"), "black"
 
   local graphview = graph:new{
     window = {-7.25, 7.25, -5, 5},
@@ -20,6 +20,11 @@
   }
 
   graphview:Fillopacity(0.3)
+
+  graphview:Drectangle(
+    -6.5 + 4*i, 6.5 + 4*i, 6.5 - 4*i,
+    col_E .. ", rounded corners = 5pt"
+  )
 
   graphview:Dpath(
     B,
@@ -34,8 +39,9 @@
   graphview:Fillopacity(.75)
 
   graphview:Dlabel(
-    lab_A, -4 + 2.7*i, {node_options = col_A, pos = "W"},
-    lab_B,  4 + 2.7*i, {node_options = col_B, pos = "E"})
+    lab_A, -4   + 2.7*i, {node_options = col_A, pos = "W"},
+    lab_B,  4   + 2.7*i, {node_options = col_B, pos = "E"},
+    lab_E, -6.5 +   4*i, {node_options = col_E, pos = "NW"})
 
   graphview:Show()
 \end{luadraw}
