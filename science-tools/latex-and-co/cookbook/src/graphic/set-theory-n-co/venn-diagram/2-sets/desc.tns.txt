@@ -1,0 +1,7 @@
+===================
+Avec deux ensembles
+===================
+
+content::
+    ./basic/\desc
+    ./intersection/\desc

@@ -1,0 +1,6 @@
+==============
+\Diags de Venn
+==============
+
+content::
+    ./2-sets/\desc

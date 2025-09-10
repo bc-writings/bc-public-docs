@@ -1,0 +1,36 @@
+\usepackage[svgnames]{xcolor}
+
+\usepackage{luadraw}
+
+\usetikzlibrary{patterns.meta}
+
+% Exemple venant la documentation \tikz.
+\tikzdeclarepattern{
+  name = stripes,
+  parameters = {
+    \pgfkeysvalueof{/pgf/pattern keys/size},
+    \pgfkeysvalueof{/pgf/pattern keys/angle},
+    \pgfkeysvalueof{/pgf/pattern keys/line width},
+  },
+  bounding box = {
+    (0,-0.5*\pgfkeysvalueof{/pgf/pattern keys/line width})
+    and
+    (\pgfkeysvalueof{/pgf/pattern keys/size},
+    0.5*\pgfkeysvalueof{/pgf/pattern keys/line width})},
+  tile size = {
+    (\pgfkeysvalueof{/pgf/pattern keys/size},
+    \pgfkeysvalueof{/pgf/pattern keys/size})},
+  tile transformation = {
+    rotate = \pgfkeysvalueof{/pgf/pattern keys/angle}},
+  defaults = {
+    size/.initial       = 7.5pt,
+    angle/.initial      = 45,
+    line width/.initial = .8pt,
+  },
+  code = {
+    \draw [line width = \pgfkeysvalueof{/pgf/pattern keys/line width}]
+          (0,0)
+          --
+          (\pgfkeysvalueof{/pgf/pattern keys/size}, 0);
+}, }
+
