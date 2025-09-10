@@ -14,7 +14,7 @@
   local A = set(0,90)
 
   local lab_A, lab_A_not, lab_E = "$A$", "$\\overline{A}$", "$E$"
-  local col_A, col_A_not, col_E = "Crimson", "ForestGreen", "black"
+  local col_A, col_A_not, col_E = "blue", "red", "black"
 
   local graphview = graph:new{
     window = {-7.25, 7.25, -5, 5},
@@ -25,7 +25,7 @@
 
   graphview:Drectangle(
     -6.5 + 4*i, 6.5 + 4*i, 6.5 - 4*i,
-    col_E .. ", rounded corners = 5pt, fill = " .. col_A_not
+    col_E .. ", rounded corners = 5pt"
   )
 
   graphview:Dpath(
