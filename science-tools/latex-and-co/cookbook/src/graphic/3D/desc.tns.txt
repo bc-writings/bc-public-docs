@@ -1,6 +1,6 @@
-===========================
-Des surfaces et des solides
-===========================
+===================
+Dans l'espace usuel
+===================
 
 content::
     ./solid/\desc

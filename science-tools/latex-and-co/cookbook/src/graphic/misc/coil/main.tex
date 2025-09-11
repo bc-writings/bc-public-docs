@@ -1,0 +1,119 @@
+% !TEX TS-program = lualatex
+
+%%%
+% src::
+%     url = https://tex.stackexchange.com/a/750922/6880
+%%%
+
+\documentclass[varwidth, border = 3pt]{standalone}
+
+%%%
+% Des couleurs faciles d'emploi via le package ''xcolor''!
+%%%
+\usepackage[svgnames]{xcolor}
+
+%%%
+% La bibliothèque ''luadraw'' allie une facilité d’utilisation
+% à un rendu particulièrement soigné.
+%%%
+\usepackage[3d]{luadraw}
+
+\begin{document}
+
+\begin{luadraw}{name = 3D-coil}
+------
+-- Nos ingrédients de base.
+--
+--
+-- note::
+--     ''Mc'' attend des coordonnées cylindriques.
+------
+local cos, sin, pi = math.cos, math.sin, math.pi
+
+local helix_parametric = function(t)
+  return Mc(2, 2*t, t/4)
+end
+
+------
+-- note::
+--     Décomenter la ligne ci-dessous pour bien visualiser
+--     la construction de la bobine en trois morceaux.
+------
+local colback, colfront, coljoin = "blue", "blue", "blue"
+-- local colback, colfront, coljoin = "ForestGreen", "red", "blue"
+
+------
+-- Définition de la zone graphique.
+------
+local graphview = graph3d:new{
+  size    = {10, 10},
+  window  = {-4, 2.5, -3.5, 4},
+  margin  = {0, 0, 0, 0},
+  viewdir = {0, 70}
+}
+
+------
+-- Réglage lié aux lignes.
+------
+graphview:Linewidth(8)
+
+------
+-- Définition de la courbe représentant l'hélice.
+------
+local helix = parametric3d(
+  helix_parametric,
+  -2*pi, 3*pi + pi/2, 100,
+  false,  -- La courbe n'est pas fermée.
+  2
+)
+
+------
+-- On sépare la partie "avant" et "arrière" de l'hélice.
+------
+local u = pt3d.prod(vecK, graphview.Normal)
+
+Vi, Hi = cutpolyline3d(
+  helix,
+  plane(-5*vecK, 5*vecK, 5*vecK - u)
+)
+
+------
+-- La partie "arrière" de l'hélice.
+------
+graphview:Dpolyline3d(
+  Hi,
+  colback
+)
+
+------
+-- La partie "avant" de l'hélice.
+------
+graphview:Dpolyline3d(
+  Vi,
+     "draw = white, double = "
+  .. colfront
+  .. ", double distance = 0.8pt"
+)
+
+------
+-- Pour fermer la bobine.
+------
+local A, B = table.unpack(
+  graphview:Proj3d({
+    Mc(2, pi, 7*pi/8),
+    Mc(2, 0, -pi/2)
+  })
+)
+
+graphview:Dpath(
+  {A, A - 5, B - 5, B, "b"},
+  coljoin
+)
+
+------
+-- Et le merveilleux se révèle au monde.
+------
+graphview:Show()
+\end{luadraw}
+
+\end{document}

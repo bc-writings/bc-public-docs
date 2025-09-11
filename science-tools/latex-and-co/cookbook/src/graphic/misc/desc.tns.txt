@@ -1,0 +1,6 @@
+================
+Les inclassables
+================
+
+content::
+    ./coil/\desc
