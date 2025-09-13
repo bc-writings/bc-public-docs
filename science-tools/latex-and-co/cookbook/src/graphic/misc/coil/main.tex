@@ -36,8 +36,8 @@ end
 
 ------
 -- note::
---     Décommenter la ligne ci-dessous pour bien visualiser
---     la construction de la bobine en trois morceaux.
+--     Décommenter la ligne ci-dessous pour visualiser les trois
+--     morceaux construisant la bobine.
 ------
 local colback, colfront, coljoin = "blue", "blue", "blue"
 -- local colback, colfront, coljoin = "ForestGreen", "red", "blue"
@@ -62,13 +62,19 @@ graphview:Linewidth(8)
 ------
 local helix = parametric3d(
   helix_parametric,
-  -2*pi, 3*pi + pi/2, 100,
-  false,  -- La courbe n'est pas fermée.
-  2
+  -2*pi, 3*pi + pi/2,
+  100,
+  false,  -- La courbe n'a pas de discontinuité.
+  2       -- Nombre de fois que l’intervalle peut être coupé en
+          -- deux entre deux valeurs consécutives du paramètre.
 )
 
 ------
 -- On sépare la partie "avant" et "arrière" de l'hélice.
+--
+--
+-- note::
+--     D'où vient le plan ?   XXXXXX
 ------
 local u = pt3d.prod(vecK, graphview.Normal)
 
