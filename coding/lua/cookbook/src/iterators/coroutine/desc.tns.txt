@@ -1,14 +1,23 @@
 this::
-    date = 2025-09-14
+    date = 2025-09-15  ????
 
 
 =================
-Vie une coroutine
+Via une coroutine
 =================
 
 Une coroutine est une fonction d'un tyeYYY
 
 Une coroutine est une fonction spéciale qui peut suspendre son exécution (yield) et reprendre plus tard exactement où elle s’était arrêtée.
+
+
+
+lua::
+    ---
+    file   = ./what-is-a-coroutine.lua
+    output = yes
+    ---
+
 
 
 
