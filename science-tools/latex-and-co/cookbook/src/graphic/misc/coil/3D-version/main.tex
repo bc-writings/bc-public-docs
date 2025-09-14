@@ -74,7 +74,10 @@ local helix = parametric3d(
 --
 --
 -- note::
---     D'où vient le plan ?   XXXXXX
+--     Notons `A` la projection orthogonale de `M` un point de
+--     l’hélice sur le plan de vue. Ce point `A` est visible si
+--     `vect(AM)` a la même direction que `u` défini ci-dessous
+--     dans le code, ce vecteur étant dirigé vers l’observateur.
 ------
 local u = pt3d.prod(vecK, graphview.Normal)
 
