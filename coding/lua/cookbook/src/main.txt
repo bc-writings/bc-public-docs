@@ -1,0 +1,15 @@
+about::
+    title  = Recettes pour \lua
+    author = Christophe, BAL [projetmbc@gmail.com]
+    lang   = fr
+
+    licence = cc by-nc-sa 4.0
+    out     = html | pdf
+
+
+abrev::
+    desc = desc.tns.txt
+
+
+content::
+    ./iterators/\desc
