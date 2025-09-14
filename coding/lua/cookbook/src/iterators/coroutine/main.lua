@@ -21,6 +21,5 @@ end
 -- DEMO --
 
 for x, y, z in iter3D(2, 3, 4) do
-    print("-----")
-  print(x .. ";" .. y .. ";" .. z)
+  print(x, y, z)
 end

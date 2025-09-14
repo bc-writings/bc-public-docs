@@ -3,26 +3,9 @@ this::
 
 
 ====================================
-XXX
+D'utilité générale reconnue (ou pas)
 ====================================
 
-YYY
-
-
-Explication courte
-
-coroutine.wrap(f) transforme la fonction f en itérateur utilisable dans for.
-
-À chaque étape, la coroutine s’exécute jusqu’à un coroutine.yield(...), qui renvoie des valeurs à la boucle for.
-
-Ici, la coroutine contient deux boucles imbriquées :
-
-j monte de 0 à jmax,
-
-pour chaque j, i monte de 1 à imax.
-
-Chaque appel yield(i,j) envoie une paire de coordonnées à la boucle for.
-
-Quand la coroutine finit, la boucle for s’arrête toute seule.
-
-👉 Résultat : on obtient un parcours de toutes les coordonnées d’une grille 2D, sans avoir à gérer manuellement les indices ni écrire la mécanique d’itérateur (generator, state, init).
+content::
+    ./closure/\desc
+    ./coroutine/\desc
