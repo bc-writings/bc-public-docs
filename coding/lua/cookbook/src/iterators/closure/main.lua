@@ -42,6 +42,14 @@ end
 
 -- DEMO --
 
+local last_z = 1
+
 for x, y, z in xyz_range(2, 3, 4) do
+  if last_z ~= z then
+    print("---")
+
+    last_z = z
+  end
+
   print(x, y, z)
 end
