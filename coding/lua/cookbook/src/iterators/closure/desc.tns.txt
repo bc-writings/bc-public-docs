@@ -1,24 +1,14 @@
 this::
-    date = 2025-09-15  ????
+    date = 2025-09-15
 
 
-====================================
-XXX
-====================================
+=============================
+Tout à la main... Ou presque.
+=============================
 
-YYY
-
-
-Explication courte
-
-iter2D(imax, jmax) construit et renvoie une fonction _iter2D.
-
-À chaque appel par la boucle for, _iter2D incrémente les indices (i, j).
-
-Tant que i ≤ imax, il renvoie (i, j).
-
-Quand i dépasse, il revient à i=1 et passe à la ligne suivante (j=j+1).
-
-La boucle s’arrête quand j > jmax.
-
-👉 Résultat : la boucle for a,b in iter2D(3,5) parcourt toutes les coordonnées d’une grille 2D de largeur imax et hauteur jmax.
+La \sol présentée ici n’est pas la plus élégante, mais elle a l’avantage d’être universelle.
+Le code repose sur une fermeture
+((
+    En anglais, on parle de "closure".
+)),
+\cad une \fonc associée à l’\env dans lequel elle a été créée : dans notre cas, les  \vars ''i'', ''j'' et ''k'' dépendent de l'\env de la \fonc ''xyz_range'', donc la fermeture renvoyée peut les faire évoluer comme souhaité.

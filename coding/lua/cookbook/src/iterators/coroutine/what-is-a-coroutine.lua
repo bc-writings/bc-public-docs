@@ -1,3 +1,5 @@
+-- Définition d'une coroutine.
+
 local one_coroutine = coroutine.create(
   function ()
     for i = 1, 3 do
@@ -7,6 +9,8 @@ local one_coroutine = coroutine.create(
     end
   end
 )
+
+-- Utilsation de la coroutine.
 
 print("-- Etape 1 --")
 coroutine.resume(one_coroutine)

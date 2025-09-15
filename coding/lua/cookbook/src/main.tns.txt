@@ -6,6 +6,8 @@ about::
     licence = cc by-nc-sa 4.0
     out     = html | pdf
 
+    lexic = lua
+
 
 abrev::
     desc = desc.tns.txt

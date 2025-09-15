@@ -1,15 +1,12 @@
 this::
-    date = 2025-09-15  ????
+    date = 2025-09-15
 
 
 =================
 Via une coroutine
 =================
 
-Une coroutine est une fonction d'un tyeYYY
-
-Une coroutine est une fonction spéciale qui peut suspendre son exécution (yield) et reprendre plus tard exactement où elle s’était arrêtée.
-
+Une coroutine est une \fonc spéciale qui peut suspendre son exécution, puis la reprendre plus tard exactement où elle s’était arrêtée. Voici un exemple éclairant.
 
 
 lua::
@@ -19,22 +16,15 @@ lua::
     ---
 
 
+Voici ce qu'il faut retenir sur les coroutines \lua.
+
+    1) La création se fait via ''coroutine.create(...)'' qui attend une fonction.
+
+    1) Le point d'arrêt s'indique via ''coroutine.yield()'' qui renvoie rien ici, mais ce n'est pas une obligation. Plusieurs ''coroutine.yield()'' peuvent être utilisés si la logique du code le nécessite.
+
+    1) L'activation d'une coroutine jusqu'à un point d'arrêt se fait via ''coroutine.resume(...)'' qui attend comme \var une coroutine.
+
+    1) Lorsqu'une coroutine a fini son travail, l'apppel via ''coroutine.resume(...)'' ne lève aucune erreur.
 
 
-Explication courte
-
-coroutine.wrap(f) transforme la fonction f en itérateur utilisable dans for.
-
-À chaque étape, la coroutine s’exécute jusqu’à un coroutine.yield(...), qui renvoie des valeurs à la boucle for.
-
-Ici, la coroutine contient deux boucles imbriquées :
-
-j monte de 0 à jmax,
-
-pour chaque j, i monte de 1 à imax.
-
-Chaque appel yield(i,j) envoie une paire de coordonnées à la boucle for.
-
-Quand la coroutine finit, la boucle for s’arrête toute seule.
-
-👉 Résultat : on obtient un parcours de toutes les coordonnées d’une grille 2D, sans avoir à gérer manuellement les indices ni écrire la mécanique d’itérateur (generator, state, init).
+L'emploi d'une coroutine rend très naturelle la conception de générateurs via ''coroutine.wrap(...)'' au lieu de ''coroutine.create(...)'' afin d'obtenir une coroutine directement utilisable par la boucle ''for''.
