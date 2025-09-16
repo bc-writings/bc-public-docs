@@ -39,8 +39,8 @@ end
 --     Décommenter la ligne ci-dessous pour visualiser les trois
 --     morceaux construisant la bobine.
 ------
-local colback, colfront, coljoin = "blue", "blue", "blue"
--- local colback, colfront, coljoin = "ForestGreen", "red", "blue"
+local back_col, front_col, join_col = "blue", "blue", "blue"
+-- local back_col, front_col, join_col = "ForestGreen", "red", "blue"
 
 ------
 -- Définition de la zone graphique.
@@ -74,16 +74,27 @@ local helix = parametric3d(
 --
 --
 -- note::
---     Notons `A` la projection orthogonale de `M` un point de
---     l’hélice sur le plan de vue. Ce point `A` est visible si
---     `vect(AM)` a la même direction que `u` défini ci-dessous
---     dans le code, ce vecteur étant dirigé vers l’observateur.
+--     Le plan de coupe `ABC` est défini via `(AB)` l'axe de
+--     l'hélice, et `C` un point tel que `ABC` soit parallèle
+--     au plan de la vue, car ''graphview.Normal'' est le
+--     vecteur dirigé vers l'observateur.
+--
+--
+-- caution::
+--     L'usage de ''B + u'' au lieu de ''B - u'' change
+--     l'orientation du plan, et par conséquent échange les faces
+--     "avant" et "arrière".
 ------
 local u = pt3d.prod(vecK, graphview.Normal)
 
+-- L'usage de ''Origin'' est juste là pour rendre le code plus
+-- sémantique, autrement dit, l'usage de ''Origin'' est superflu.
+local A, B = Origin - vecK, Origin + vecK
+local C    = B - u
+
 Vi, Hi = cutpolyline3d(
   helix,
-  plane(-5*vecK, 5*vecK, 5*vecK - u)
+  plane(A, B, C)
 )
 
 ------
@@ -91,7 +102,7 @@ Vi, Hi = cutpolyline3d(
 ------
 graphview:Dpolyline3d(
   Hi,
-  colback
+  back_col
 )
 
 ------
@@ -99,24 +110,30 @@ graphview:Dpolyline3d(
 ------
 graphview:Dpolyline3d(
   Vi,
-     "draw = white, double = "
-  .. colfront
+     "draw = white, double = " .. front_col
   .. ", double distance = 0.8pt"
 )
 
 ------
 -- Pour fermer la bobine.
 ------
-local A, B = table.unpack(
+local E, F = table.unpack(
   graphview:Proj3d({
     Mc(2, pi, 7*pi/8),
     Mc(2, 0, -pi/2)
   })
 )
 
+------
+-- Les méthodes ¨2D ''path'' et ''Dpath'' utilisent un langage
+-- dédié aux tracés de lignes polygonales.
+-- Ici, nous traçons une courbe de Bézier dont les points de
+-- contrôle en coordonnées complexes sont ''E'', ''E - 5'',
+-- ''F - 5'' et ''F''.
+------
 graphview:Dpath(
-  {A, A - 5, B - 5, B, "b"},
-  coljoin
+  {E, E - 5, F - 5, F, "b"},
+  join_col
 )
 
 ------

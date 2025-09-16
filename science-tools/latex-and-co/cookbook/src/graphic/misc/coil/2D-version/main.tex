@@ -24,12 +24,44 @@
 ------
 -- Nos ingrédients de base.
 ------
-local i = cpx.I
+local i, cabs = cpx.I, cpx.abs
 
+local function coil_style(color)
+  return "draw = white, double = " .. color
+      .. ", thin, double distance = .8pt"
+end
+
+------
+-- prototype::
+--     A            : départ des spirales.
+--     B            : arrivée des spirales.
+--     r            : "rayon" d'une boucle
+--     n            : nombre de spirales.
+--     draw_options : options graphiques destinées à ¨tikz.
+--
+--     :action: tracé d'une bobine.
+------
 function graph:Dcoil(A, B, r, n, draw_options)
   local a, u = A, (B - A) / (2*n + 4)
-  local v = -r*cpx.I*u / cpx.abs(u)
+  local v    = -r*i*u / cabs(u)
 
+------
+-- La suite du code utilise la méthode ¨2D ''Dpath'' qui, comme
+-- ''path'', utilise un langage dédié aux tracés de lignes
+-- polygonales.
+-- Ici, nous définissons une courbe de Bézier dont les points
+-- de contrôle en coordonnées complexes sont ''a'', ''a'',
+-- ''a + v'' et ''a + 2*u + v''.
+--
+--
+-- note::
+--     Le ¨1er point et son point de contrôle sont identiques
+--     afin d'avoir une ¨1ere tangente portée par le segment
+--     d'extrémités le ¨1er point et le ¨2e point de contrôle.
+--     Ici, ceci permet d'avoir une tangente perpendiculaire
+--     au segment reliant le départ et l'arrivée des spirales,
+--     car ''v'' et ''B - A'' sont orthogonaux.
+------
   local front = {a, a, a + v, a + 2*u + v, "b"}
   local back  = {}
 
@@ -60,7 +92,10 @@ function graph:Dcoil(A, B, r, n, draw_options)
   self:Dpath(back, draw_options)
   self:Dpath(front, draw_options)
 
-  local w = (r + cpx.abs(B - A)/2) * v/r
+------
+-- Tracé du câble fermant la spirale.
+------
+  local w = (r + cabs(B - A)/2) * v/r
 
   self:Dpath(
     {A, A - w, B - w, B, "b"},
@@ -82,22 +117,35 @@ local graphview = graph:new{
 graphview:Linewidth(8)
 
 ------
--- Deux usages.
+-- Divers usages.
 ------
 local a, b = i, 5*i
 
 graphview:Dcoil(
-  a, b, 1,
-  8,
-  "draw = white, double = black, double distance = 0.8pt"
+  a, b,
+  .75,
+  12,
+  coil_style("Crimson")
 )
 
-a, b = -2-2*i, 4-4*i
+-- Un quart de tour direct.
+a, b = 2 + i*a, 2 + i*b
 
 graphview:Dcoil(
-  a, b, 0.75,
-  15,
-  "draw = white, double = red, double distance = 0.8pt"
+  a, b,
+  .75,
+  12,
+  coil_style("ForestGreen")
+)
+
+-- Sur la droite et penché.
+a, b = a + 5 + 3.5*i, b + 5 - .5*i
+
+graphview:Dcoil(
+  a, b,
+  1.15,
+  20,
+  coil_style("Goldenrod")
 )
 
 ------
