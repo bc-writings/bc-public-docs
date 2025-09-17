@@ -52,10 +52,10 @@ local last_z = 1
 ------
 -- Comment fonctionne ''for ... in ... do ... end'' ? Notons
 -- ''f = xyz_range(2, 3, 4)''. Cette fonction est appelée sans
--- \arg une \1ere fois par \lua qui récupère ''(1, 1, 1)'' qui
--- est affecté à ''(x, y, z)''. L'appel à ''f'' est effectué
--- jusqu'à obtenur la valuer spéciale ''nil'' qui indique de
--- sortir de la boucle ''for''.
+-- \arg une \1ere fois par \lua qui récupère ''(1, 1, 1)'',
+-- puis l'affecte à ''(x, y, z)''. L'appel à ''f'' est fait
+-- jusqu'à obtenir la valeur spéciale ''nil'' qui indique à
+-- \lua de sortir de la boucle ''for''.
 ------
 for x, y, z in xyz_range(2, 3, 4) do
   if last_z ~= z then
