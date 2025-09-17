@@ -6,4 +6,4 @@ content::
 //    ./data/\desc
     ./2D/\desc
     ./3D/\desc
-    ./set-theory-n-co/\desc   ???
+//    ./set-theory-n-co/\desc   ???

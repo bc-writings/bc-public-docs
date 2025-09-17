@@ -1,7 +1,0 @@
-==============
-\Diags de Venn
-==============
-
-content::
-    ./complementary/\desc   ????
-    ./2-sets/\desc          ??

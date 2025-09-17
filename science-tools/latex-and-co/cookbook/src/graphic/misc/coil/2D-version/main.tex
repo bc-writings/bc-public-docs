@@ -65,13 +65,20 @@ function graph:Dcoil(A, B, r, n, draw_options)
   local front = {a, a, a + v, a + 2*u + v, "b"}
   local back  = {}
 
+-- Décommenter cette ligne pour visualiser la construction.
+--  self:Dpolyline( {a,a + 2*u + v},"blue")
+
   a = a + 2*u
 
   for k = 1, n do
+-- Commmenter l'instruction suivante pour visualiser la
+-- construction.
     insert(
       back,
       {
-        a + v, "m",
+        a + v, "m", -- On déplace le début du nouveau tracé
+                    -- avec un nouveau départ pour la courbe
+                    -- de Bézier qui suit.
         a + v + 3*u, a - v + 3*u, a + u - v, "b"
       })
 
@@ -81,6 +88,9 @@ function graph:Dcoil(A, B, r, n, draw_options)
         a + u - v, "m",
         a - v - u, a - u + v, a + v + 2*u, "b"
       })
+
+-- Décommenter cette ligne pour visualiser la construction.
+--    self:Dpolyline( {a + u - v, a + v + 2*u},"blue")
 
     a = a + 2*u
   end

@@ -1,8 +1,0 @@
-===================
-Avec deux ensembles
-===================
-
-content::
-    ./basic/\desc           ??????
-    ./universe/\desc        ????
-    ./intersection/\desc    ??
