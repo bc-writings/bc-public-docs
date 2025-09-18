@@ -1,0 +1,9 @@
+this::
+    date = 2025-09-18
+
+
+=======================
+Le bricolage qui marche
+=======================
+
+L’idée consiste à commencer par tracer l’univers, puis l’\ens en blanc, et enfin une \2nde version par-dessus avec la couleur voulue. Simple, mais efficace !

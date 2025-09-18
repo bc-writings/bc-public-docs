@@ -42,28 +42,40 @@ local graphview = graph:new{
 graphview:Fillopacity(0.2)
 
 ------
--- Tracé du complémentaire de `A`.
+-- Construction du complémentaire de `A` en utilisant le langage
+-- de tracé proposé par les commandes ''path'' et ''Dpath''.
+--
+--     1) La ¨doc de ¨luadraw nous informe que ''set(...)'' est
+--     un chemin destiné aux  commandes ''path'' et ''Dpath''.
+--
+--     1) On transforme le chemin ''{S, ...}'' de `A` en
+--     ''{S, "m", ...}'' où S désigne le premier point du chemin.
+--
+--     1) On met le chemin ''{-6.5 + 4*i, ... , "cla"}'' du
+--     rectangle avant ''{S, "m", ...}''.
+--
+--     1) Lors du tracé, ''Dpath'', en lisant les instructions,
+--     trace le rectangle, puis se déplace en ''S'' pour commencer
+--     un nouveau tracé, à savoir celui de l'ensemble `A`.
+--
+--     1) Il ne reste plus qu'à utiliser la régle de remplissage
+--     latex::''even odd rule'' de ¨tikz.
 ------
+local A_bis = table.copy(A)
 
+table.insert(A_bis, 2, "m")
 
+local A_not = {
+  -6.5 + 4*i, 6.5 + 4*i, 6.5 - 4*i, -6.5 - 4*i, 0.25,
+  "cla"
+}
 
-
-local B = table.copy(A)
-
-table.insert(B, 2, "m") -- add "move" after the first point
-
-local compl = {-6.5 + 4*i, 6.5 + 4*i, 6.5 - 4*i,-6.5-4*i,0.25,"cla"} -- rectangle
-
-insert(compl,B) -- compl = outline of E + the outline of A
+insert(A_not, A_bis)
 
 graphview:Dpath(
-  compl,
-  "fill = red, even odd rule"
-) -- E is painted but not A
-
-
-
-
+  A_not,
+  col_E .. ", fill = " .. col_A_not .. ", even odd rule"
+)
 
 ------
 -- Tracé de l'ensemble `A`.

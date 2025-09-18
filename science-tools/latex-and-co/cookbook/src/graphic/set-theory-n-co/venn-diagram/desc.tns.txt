@@ -3,5 +3,5 @@
 ==============
 
 content::
-    ./complementary/\desc   ????
+    ./complementary/\desc
     ./2-sets/\desc          ??
