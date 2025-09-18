@@ -8,11 +8,11 @@
 
 \begin{document}
 
-\begin{luadraw}{name = 2-sets-inside-universe}
+\begin{luadraw}{name = 2-sets-alone}
   local A, B = set(-2,90), set(2, -90)
 
   local lab_A, lab_B = "$A$", "$B$"
-  local col_A, col_B = setcol("Crimson"), setcol("ForestGreen")
+  local col_A, col_B = SET_COL("Crimson"), SET_COL("ForestGreen")
 
   local graphview = graph:new{
     window = {-7.25, 7.25, -5, 5},

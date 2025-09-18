@@ -1,8 +1,8 @@
-===================
-Avec deux ensembles
-===================
+===============
+Avec deux \enss
+===============
 
 content::
-    ./basic/\desc           ??????
+    ./no-universe/\desc     ??????
     ./universe/\desc        ????
-    ./intersection/\desc    ??
+    ./focus-inter/\desc     ??

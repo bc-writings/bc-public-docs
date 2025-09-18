@@ -2,13 +2,13 @@
 
 \documentclass{standalone}
 
-\usepackage{../basic/main}
+\usepackage{../no-universe/main}
 
-\directlua{dofile("../basic/main.lua")}
+\directlua{dofile("../no-universe/main.lua")}
 
 \begin{document}
 
-\begin{luadraw}{name = 2-sets-intersection}
+\begin{luadraw}{name = 2-sets-focus-intersection}
   local A, B = set(-2,90), set(2, -90)
 
   local lab_A, lab_B = "$A$", "$B$"
@@ -19,7 +19,7 @@
   local lab_A_inter_B = "$A \\cap B$"
   local col_A_inter_B = col_A .. "!50!" .. col_B
 
-  local col_A, col_B = setcol(col_A), setcol(col_B)
+  local col_A, col_B = SET_COL(col_A), SET_COL(col_B)
 
   local graphview = graph:new{
     window = {-7.25, 7.25, -5, 5},
