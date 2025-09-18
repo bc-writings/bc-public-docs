@@ -1,0 +1,14 @@
+\begin{tikzpicture}[line join=round]%
+\begin{scope}%
+\clip (-0.5,-0.5) rectangle (9.5,6.7068965517241);%
+\pgfsetfillopacity{0.2}%
+\draw[black, rounded corners = 5pt, fill=red] (0.4655,5.5862) -- (8.5345,5.5862) -- (8.5345,0.6207) -- (0.4655,0.6207)--cycle;%
+\pgfsetfillopacity{1}%
+\draw[fill = white] (2.0172,3.1034) .. controls (2.0172,2.069) and (3.569,1.2118) .. (4.8103,1.2414) .. controls (6.0517,1.2709) and (6.9828,2.1872) .. (6.9828,3.1034) .. controls (6.9828,4.0197) and (6.0517,4.936) .. (4.8103,4.9655) .. controls (3.569,4.9951) and (2.0172,4.1379) .. (2.0172,3.1034);%
+\pgfsetfillopacity{0.2}%
+\draw[blue, fill = blue] (2.0172,3.1034) .. controls (2.0172,2.069) and (3.569,1.2118) .. (4.8103,1.2414) .. controls (6.0517,1.2709) and (6.9828,2.1872) .. (6.9828,3.1034) .. controls (6.9828,4.0197) and (6.0517,4.936) .. (4.8103,4.9655) .. controls (3.569,4.9951) and (2.0172,4.1379) .. (2.0172,3.1034);%
+\pgfsetfillopacity{0.75}%
+\draw[-] (4.5,3.1034) node[blue] {$A$} (6.9828,4.7793) node[right,red] {$\overline{A}$} (0.4655,5.5862) node[above left,black] {$E$};%
+\pgfsetfillopacity{1}%
+\end{scope}%
+\end{tikzpicture}%

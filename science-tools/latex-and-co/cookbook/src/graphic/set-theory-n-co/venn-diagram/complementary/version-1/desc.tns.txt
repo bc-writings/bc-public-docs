@@ -6,6 +6,4 @@ this::
 XXX
 ===================
 
-content::
-    ./complementary/\desc   ????
-    ./2-sets/\desc          ??
+YYY

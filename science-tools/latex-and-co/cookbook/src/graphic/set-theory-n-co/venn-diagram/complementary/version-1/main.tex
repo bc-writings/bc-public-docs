@@ -1,0 +1,92 @@
+% !TEX TS-program = lualatex
+
+% https://github.com/pfradin/luadraw/discussions/80#discussioncomment-14370417
+
+% !TEX TS-program = lualatex
+
+\documentclass{standalone}
+
+%%%
+% Des couleurs faciles d'emploi via le package ''xcolor''!
+%%%
+\usepackage[svgnames]{xcolor}
+
+%%%
+% La bibliothèque ''luadraw'' allie une facilité d’utilisation à
+% un rendu particulièrement soigné.
+%%%
+\usepackage{luadraw}
+
+\begin{document}
+
+\begin{luadraw}{name = complementary-set}
+------
+-- Nos ingrédients de base.
+------
+local i = cpx.I
+
+local A = set(
+  0,  -- Pour le positionnement.
+  90  -- Pour l'orientation.
+)
+
+local lab_A, lab_A_not, lab_E = "$A$", "$\\overline{A}$", "$E$"
+local col_A, col_A_not, col_E = "blue", "red", "black"
+
+------
+-- Définition de la zone graphique.
+------
+local graphview = graph:new{
+  window = {-7.25, 7.25, -5, 5},
+  size   = {10, 10}
+}
+
+------
+-- Tracé de l'univers.
+------
+graphview:Fillopacity(0.2)
+
+graphview:Drectangle(
+   -6.5 + 4*i, 6.5 + 4*i, 6.5 - 4*i,
+   col_E .. ", rounded corners = 5pt, fill=red"
+)
+
+------
+-- Tracé de l'ensemble `A`.
+--
+--
+-- note::
+--     Nous traçons une version opaque et blanche de l'ensemble
+--     `A` pour "effacer" le bleu de l'univers.
+------
+graphview:Fillopacity(1)
+
+graphview:Dpath(
+  A,
+  "fill = white"
+)
+
+graphview:Fillopacity(.2)
+
+graphview:Dpath(
+  A,
+  col_A .. ", fill = " .. col_A
+)
+
+------
+-- Ajout d'étiquettes.
+------
+graphview:Fillopacity(.75)
+
+graphview:Dlabel(
+  lab_A    , 0         , {node_options = col_A, pos = "center"},
+  lab_A_not, 4 + 2.7*i , {node_options = col_A_not, pos = "E"},
+  lab_E    , -6.5 + 4*i, {node_options = col_E, pos = "NW"})
+
+------
+-- Et le merveilleux se révèle au monde.
+------
+graphview:Show()
+\end{luadraw}
+
+\end{document}
