@@ -37,18 +37,20 @@ local graphview = graph:new{
 }
 
 ------
+-- Opacité des remplissages.
+------
+graphview:Fillopacity(0.2)
+
+------
 -- Tracé du complémentaire de `A`.
 ------
 
 
 
 
-
-graphview:Fillopacity(0.2)
-
 local B = table.copy(A)
 
-table.insert(B,2,"m") -- add "move" after the first point
+table.insert(B, 2, "m") -- add "move" after the first point
 
 local compl = {-6.5 + 4*i, 6.5 + 4*i, 6.5 - 4*i,-6.5-4*i,0.25,"cla"} -- rectangle
 
@@ -56,7 +58,7 @@ insert(compl,B) -- compl = outline of E + the outline of A
 
 graphview:Dpath(
   compl,
-  "fill=red, even odd rule"
+  "fill = red, even odd rule"
 ) -- E is painted but not A
 
 
@@ -66,7 +68,6 @@ graphview:Dpath(
 ------
 -- Tracé de l'ensemble `A`.
 ------
-
 graphview:Dpath(
   A,
   col_A .. ", fill = " .. col_A
