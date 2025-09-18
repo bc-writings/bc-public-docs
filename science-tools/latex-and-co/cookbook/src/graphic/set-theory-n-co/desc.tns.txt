@@ -3,4 +3,4 @@ Théorie des ensembles
 =====================
 
 content::
-    ./venn-diagram/\desc     ??
+    ./venn-diagram/\desc

@@ -5,9 +5,10 @@ i = cpx.I
 
 ------
 -- prototype::
---     c : JJJJ
+--     c : la couleur d'un ¨ens qui sera hachuré.
 --
---     :return: XXXX
+--     :return: les commandes ¨tikz pour colorer la frontière et
+--              les hachures du remplissage
 ------
 function SET_COL(c)
   return "color = " .. c .. ", pattern color = " .. c

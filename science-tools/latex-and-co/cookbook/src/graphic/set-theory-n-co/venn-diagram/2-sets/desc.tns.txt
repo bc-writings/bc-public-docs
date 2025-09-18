@@ -3,6 +3,6 @@ Avec deux \enss
 ===============
 
 content::
-    ./no-universe/\desc     ??????
-    ./universe/\desc        ????
-    ./focus-inter/\desc     ??
+    ./no-universe/\desc
+    ./universe/\desc
+    ./focus-inter/\desc

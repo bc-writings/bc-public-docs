@@ -1,36 +1,69 @@
+%%%
+% Des couleurs faciles d'emploi via le package ''xcolor''!
+%%%
 \usepackage[svgnames]{xcolor}
 
+%%%
+% La bibliothèque ''luadraw'' allie une facilité d’utilisation à
+% un rendu particulièrement soigné.
+%%%
 \usepackage{luadraw}
 
+%%%
+% La bibliothèque ''patterns.meta'' propre à \tikz nous permet de
+% créer nos propres hachures. Cela est verbeux, tout en étant très
+% flexible.
+%%%
 \usetikzlibrary{patterns.meta}
 
-% Exemple venant la documentation \tikz.
+%%%
+% Nous utilisons un code venant de la \doc de \tikz.
+%%%
 \tikzdeclarepattern{
+% Nom du motif.
   name = stripes,
+% Ce motif est réglable via des \args (utilisation des chemins
+% virtuels de \pgf/\tikz).
   parameters = {
     \pgfkeysvalueof{/pgf/pattern keys/size},
     \pgfkeysvalueof{/pgf/pattern keys/angle},
     \pgfkeysvalueof{/pgf/pattern keys/line width},
   },
-  bounding box = {
-    (0,-0.5*\pgfkeysvalueof{/pgf/pattern keys/line width})
-    and
-    (\pgfkeysvalueof{/pgf/pattern keys/size},
-    0.5*\pgfkeysvalueof{/pgf/pattern keys/line width})},
-  tile size = {
-    (\pgfkeysvalueof{/pgf/pattern keys/size},
-    \pgfkeysvalueof{/pgf/pattern keys/size})},
-  tile transformation = {
-    rotate = \pgfkeysvalueof{/pgf/pattern keys/angle}},
+% Les \args sont optionnels, car ils ont des \vals par défaut.
   defaults = {
     size/.initial       = 7.5pt,
     angle/.initial      = 45,
     line width/.initial = .8pt,
   },
+% Comme le motif est dessiné horizontalement, il est facile de
+% comprendre le code suivant qui définit les dimensions au format
+% ''(droite-bas) et (haut-gauche)'' d'une tuile (en anglais, on
+% parle de "tile").
+  bounding box = {
+    (
+      0,
+      -0.5 * \pgfkeysvalueof{/pgf/pattern keys/line width}
+    ) and (
+      \pgfkeysvalueof{/pgf/pattern keys/size},
+      0.5 * \pgfkeysvalueof{/pgf/pattern keys/line width}
+    )
+  },
+% Création d'une tuile "horizontale".
+  tile size = {
+    (
+      \pgfkeysvalueof{/pgf/pattern keys/size},
+      \pgfkeysvalueof{/pgf/pattern keys/size}
+    )
+  },
   code = {
-    \draw [line width = \pgfkeysvalueof{/pgf/pattern keys/line width}]
+    \draw [line width = \pgfkeysvalueof{/pgf/pattern keys/line width},
+           dashed]
           (0,0)
           --
           (\pgfkeysvalueof{/pgf/pattern keys/size}, 0);
-}, }
-
+  },
+% Rotation des tuiles formant le motif.
+  tile transformation = {
+    rotate = \pgfkeysvalueof{/pgf/pattern keys/angle}
+  }
+}

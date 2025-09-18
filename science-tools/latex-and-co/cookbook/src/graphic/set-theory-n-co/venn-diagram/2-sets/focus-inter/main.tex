@@ -9,63 +9,74 @@
 \begin{document}
 
 \begin{luadraw}{name = 2-sets-focus-intersection}
-  local A, B = set(-2,90), set(2, -90)
+------
+-- Nos ingrédients de base.
+------
+local A, B = set(-1.75,90), set(1.75, -90)
 
-  local lab_A, lab_B = "$A$", "$B$"
-  local col_A, col_B = "Crimson", "ForestGreen"
+local lab_A, lab_B = "$A$", "$B$"
+local col_A, col_B = SET_COL("Crimson"), SET_COL("ForestGreen")
 
-  local polyline_A_inter_B = cap(path(A), path(B))
+local polyline_A_inter_B = cap(path(A), path(B))
 
-  local lab_A_inter_B = "$A \\cap B$"
-  local col_A_inter_B = col_A .. "!50!" .. col_B
+local lab_A_inter_B       = "$A \\cap B$"
+local col_A_inter_B       = "blue!50!black"
 
-  local col_A, col_B = SET_COL(col_A), SET_COL(col_B)
+------
+-- Définition de la zone graphique.
+------
+local graphview = graph:new{
+  window = {-7.25, 7.25, -5, 5},
+  size   = {10, 10}
+}
 
-  local graphview = graph:new{
-    window = {-7.25, 7.25, -5, 5},
-    size   = {10, 10}
-  }
+------
+-- Tracé de `A inter B`.
+------
+graphview:Fillopacity(0.15)
 
-  graphview:Fillopacity(0.3)
+graphview:Filloptions("full")
 
-  graphview:Filloptions("full")
+graphview:Dpolyline(
+  polyline_A_inter_B,
+  true,
+  col_A_inter_B .. ", line width = 0pt")
 
-  graphview:Dpolyline(
-    polyline_A_inter_B,
-    true,
-    col_A_inter_B .. ", line width = 0.8pt")
+------
+-- Tracé des ¨enss `A` et `B`.
+------
+graphview:Fillopacity(0.3)
 
-  graphview:Fillopacity(0.3)
+graphview:Dpath(
+  B,
+  col_B .. ", pattern = stripes"
+)
 
-  graphview:Dpath(
-    B,
-    col_B .. ", pattern = stripes"
-  )
+graphview:Dpath(
+  A,
+  col_A .. ", pattern = {stripes[size = 10pt, angle = -45]}"
+)
 
-  graphview:Dpath(
-    A,
-    col_A .. ", pattern = {stripes[size = 10pt, angle = -45]}"
-  )
 
-  graphview:Fillopacity(1)
+------
+-- Ajout d'étiquettes.
+------
+graphview:Fillopacity(1)
 
-  graphview:Dlabel(
-    lab_A, -4 + 2.7*i, {
-      node_options = col_A,
-      pos = "W"
-    },
-    lab_B, 4 + 2.7*i, {
-      node_options = col_B,
-      pos = "E"
-    },
-    lab_A_inter_B, 0 , {
-      node_options = col_A_inter_B .. "!55!black,"
-                  .. "fill = " .. col_A_inter_B .. "!30,"
-                  .. "fill opacity = .65",
-      pos = "center"
-     })
+graphview:Dlabel(
+  lab_A, -4 + 2.7*i, {node_options = col_A, pos = "W"},
+  lab_B, 4 + 2.7*i, {node_options = col_B, pos = "E"},
+  lab_A_inter_B, 0 , {
+    node_options = col_A_inter_B
+                .. ", fill = " .. col_A_inter_B .. "!25,"
+                .. "fill opacity = 1",
+    pos = "center"
+  })
 
-  graphview:Show()
+------
+-- Et le merveilleux se révèle au monde.
+------
+graphview:Show()
 \end{luadraw}
 
 \end{document}

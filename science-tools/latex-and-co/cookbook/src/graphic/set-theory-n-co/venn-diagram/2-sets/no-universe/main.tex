@@ -9,35 +9,50 @@
 \begin{document}
 
 \begin{luadraw}{name = 2-sets-alone}
-  local A, B = set(-2,90), set(2, -90)
+------
+-- Nos ingrédients de base.
+------
+local A, B = set(-1.75,90), set(1.75, -90)
 
-  local lab_A, lab_B = "$A$", "$B$"
-  local col_A, col_B = SET_COL("Crimson"), SET_COL("ForestGreen")
+local lab_A, lab_B = "$A$", "$B$"
+local col_A, col_B = SET_COL("Crimson"), SET_COL("ForestGreen")
 
-  local graphview = graph:new{
-    window = {-7.25, 7.25, -5, 5},
-    size   = {10, 10}
-  }
+------
+-- Définition de la zone graphique.
+------
+local graphview = graph:new{
+  window = {-7.25, 7.25, -5, 5},
+  size   = {10, 10}
+}
 
-  graphview:Fillopacity(0.3)
+------
+-- Tracé des ¨enss `A` et `B`.
+------
+graphview:Fillopacity(0.3)
 
-  graphview:Dpath(
-    B,
-    col_B .. ", pattern = stripes"
-  )
+graphview:Dpath(
+  B,
+  col_B .. ", pattern = stripes"
+)
 
-  graphview:Dpath(
-    A,
-    col_A .. ", pattern = {stripes[size = 10pt, angle = -45]}"
-  )
+graphview:Dpath(
+  A,
+  col_A .. ", pattern = {stripes[size = 10pt, angle = -45]}"
+)
 
-  graphview:Fillopacity(.75)
+------
+-- Ajout d'étiquettes.
+------
+graphview:Fillopacity(.75)
 
-  graphview:Dlabel(
-    lab_A, -4 + 2.7*i, {node_options = col_A, pos = "W"},
-    lab_B,  4 + 2.7*i, {node_options = col_B, pos = "E"})
+graphview:Dlabel(
+  lab_A, -4 + 2.7*i, {node_options = col_A, pos = "W"},
+  lab_B,  4 + 2.7*i, {node_options = col_B, pos = "E"})
 
-  graphview:Show()
+------
+-- Et le merveilleux se révèle au monde.
+------
+graphview:Show()
 \end{luadraw}
 
 \end{document}

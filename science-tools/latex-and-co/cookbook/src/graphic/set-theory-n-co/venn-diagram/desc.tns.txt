@@ -4,4 +4,4 @@
 
 content::
     ./complementary/\desc
-    ./2-sets/\desc          ??
+    ./2-sets/\desc
