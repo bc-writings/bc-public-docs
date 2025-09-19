@@ -1,0 +1,6 @@
+===================
+XXX
+===================
+
+content::
+    ./self-intersecting-disk/\desc      ??

@@ -1,0 +1,37 @@
+% !TEX TS-program = lualatex
+
+% https://tex.stackexchange.com/a/646514/6880
+
+\documentclass{standalone}
+
+\usepackage[svgnames]{xcolor}
+\usepackage[3d]{luadraw}
+\usepackage{fouriernc}
+
+\directlua{dofile('../common-lua/spectrum.lua')}
+
+\begin{document}
+
+\begin{luadraw}{name = projective-plane-colorful}
+local spectrum = {Gray, SlateGray, LightSkyBlue, LightPink, Pink, LightSalmon}
+
+local pi, sin, cos, tanh = math.pi, math.sin, math.cos, math.tanh
+
+local projplane = surface(
+  function(u, v)
+    return M(2*(1 + cos(v))*cos(u), 2*(1 + cos(v))*sin(u), 2*sin(v)*tanh(u-pi))
+  end,
+  0, 2*pi, 0,  2*pi,
+  {50, 30})
+
+local graphview = graph3d:new{
+  size    = {12, 12},
+  viewdir = {120, 55}
+}
+
+graphview:draw_Yspectrum(projplane, spectrum)
+
+graphview:Show()
+\end{luadraw}
+
+\end{document}

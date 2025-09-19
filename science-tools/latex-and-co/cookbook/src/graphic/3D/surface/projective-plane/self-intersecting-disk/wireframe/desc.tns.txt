@@ -1,0 +1,9 @@
+===================
+Dans l'espace usuel
+===================
+
+content::
+    ./solid/\desc
+    ./cone/\desc
+    ./wavefront/\desc
+//    ./complex-func-reprs/\desc

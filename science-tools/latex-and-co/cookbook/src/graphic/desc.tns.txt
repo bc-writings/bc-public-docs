@@ -3,7 +3,7 @@ Des graphiques tapés
 ====================
 
 content::
-//    ./data/\desc
+//    ./data/\desc                    ??
     ./2D/\desc
     ./3D/\desc
     ./set-theory-n-co/\desc
