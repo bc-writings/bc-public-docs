@@ -6,4 +6,5 @@ content::
     ./solid/\desc
     ./cone/\desc
     ./wavefront/\desc
-//    ./complex-func-reprs/\desc
+    ./surface/\desc             ??
+//    ./complex-func/\desc

@@ -3,4 +3,5 @@ XXX
 ===================
 
 content::
-    ./self-intersecting-disk/\desc      ??
+    ./self-intersecting-disk/\desc                  ????
+    ./self-intersecting-disk/cross-capped-disk      ??

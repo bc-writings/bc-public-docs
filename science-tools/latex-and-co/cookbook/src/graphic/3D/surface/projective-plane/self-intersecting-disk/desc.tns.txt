@@ -3,6 +3,6 @@ XXX
 ===================
 
 content::
-    ./flat-hidden/\desc     ??????
-    ./wireframe/\desc       ????
-    ./spectrum/\desc         ??
+    ./flat-hidden/\desc         ??????
+    ./wireframe/\desc           ????
+    ./spectrum/\desc            ??
