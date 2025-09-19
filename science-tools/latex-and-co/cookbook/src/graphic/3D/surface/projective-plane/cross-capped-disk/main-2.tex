@@ -8,7 +8,7 @@
 \usepackage[3d]{luadraw}
 \usepackage{fouriernc}
 
-\directlua{dofile('../common-lua/spectrum.lua')}
+\directlua{dofile('../common/spectrum.lua')}
 
 \begin{document}
 
@@ -22,7 +22,7 @@ local projplane = surface(
     return M(2*(1 + cos(v))*cos(u), 2*(1 + cos(v))*sin(u), 2*sin(v)*tanh(u-pi))
   end,
   0, 2*pi, 0,  2*pi,
-  {50, 30})
+  {51, 30})
 
 local graphview = graph3d:new{
   size    = {12, 12},

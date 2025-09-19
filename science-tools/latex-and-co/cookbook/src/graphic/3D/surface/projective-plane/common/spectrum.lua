@@ -34,7 +34,7 @@ end
 --
 --     :action:
 ------
-function graph:draw_spectrum(surface, spectrum, dir)
+function graph3d:draw_spectrum(surface, spectrum, dir)
   local bary_bbox = get_bary_bbox(surface)
 
   local sorted_facets = self:Sortfacet(surface)
@@ -75,14 +75,14 @@ function graph:draw_spectrum(surface, spectrum, dir)
   end
 end
 
-function graph:draw_Xspectrum(surface, spectrum)
+function graph3d:draw_Xspectrum(surface, spectrum)
   self:draw_spectrum(surface, spectrum, "x")
 end
 
-function graph:draw_Yspectrum(surface, spectrum)
+function graph3d:draw_Yspectrum(surface, spectrum)
   self:draw_spectrum(surface, spectrum, "y")
 end
 
-function graph:draw_Zspectrum(surface, spectrum)
+function graph3d:draw_Zspectrum(surface, spectrum)
   self:draw_spectrum(surface, spectrum, "z")
 end
