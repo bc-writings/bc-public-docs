@@ -10,7 +10,7 @@
 
 \begin{document}
 
-\begin{luadraw}{name = projective-plane-wireframe}
+\begin{luadraw}{name = self-intersecting-disk-wireframe}
 local pi, sin, cos = math.pi, math.sin, math.cos
 
 local graphview = graph3d:new{
@@ -19,16 +19,16 @@ local graphview = graph3d:new{
 }
 
 local ProjPlane =  surface(
-  function(x, y) 
+  function(x, y)
     return Mc(3*y,2*x,3*y*math.cos(x))
-  end, 
-  0, 2*pi, 0, 1, 
+  end,
+  0, 2*pi, 0, 1,
   {150, 30})
 
 graphview:Dfacet(
-  ProjPlane, 
+  ProjPlane,
   {
-    mode=mWireFrame, 
+    mode=mWireFrame,
     color="ForestGreen"
   })
 

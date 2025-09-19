@@ -10,7 +10,7 @@
 
 \begin{document}
 
-\begin{luadraw}{name = projective-plane-colorful}
+\begin{luadraw}{name = self-intersecting-disk-flat-no-edge}
 local pi, sin, cos = math.pi, math.sin, math.cos
 
 local graphview = graph3d:new{
@@ -19,16 +19,16 @@ local graphview = graph3d:new{
 }
 
 local ProjPlane =  surface(
-  function(u, v) 
+  function(u, v)
     return M(3*v*cos(2*u), 3*v*sin(2*u), 3*v*cos(u))
-  end, 
-  0, 2*pi, 0, 1, 
+  end,
+  0, 2*pi, 0, 1,
   {150, 30})
 
 graphview:Dfacet(
-  ProjPlane, 
+  ProjPlane,
   {
-    mode=mShadedOnly, 
+    mode=mShadedOnly,
     color="ForestGreen"
   })
 
