@@ -5,6 +5,6 @@ Des graphiques tapés
 content::
     ./2D/\desc
     ./3D/\desc
-    ./data/\desc                   ??
+    ./data/\desc
     ./set-theory-n-co/\desc
     ./misc/\desc

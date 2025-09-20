@@ -6,7 +6,7 @@ this::
 Trois \infos dans le plan
 =========================
 
-Nous allons apprendre à lire un fichier \csv de trois colonnes afin de produir le graphique \2d suivant.
+Notre objectif est d'obtenir le graphique suivant : le ryon de chaque disque est égal à la moitié de la valeur csv::''z'' du fichier \csv. Rien de pénible à produire comme nous allons le constater.
 
 pdf::
     ---

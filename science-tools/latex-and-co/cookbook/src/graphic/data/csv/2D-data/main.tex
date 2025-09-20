@@ -1,66 +1,72 @@
 % !TEX TS-program = lualatex
 
-\documentclass[varwidth]{standalone}
+\documentclass{standalone}
 
+%%%
+% Des couleurs faciles d'emploi via le package ''xcolor''!
+%%%
 \usepackage[svgnames]{xcolor}
+
+%%%
+% La bibliothèque ''luadraw'' allie une facilité d’utilisation à
+% un rendu particulièrement soigné.
+%%%
 \usepackage{luadraw}
+
+%%%
+% Externalisation du travail pour des usages multiples.
+%%%
+\directlua{dofile('../common/csv.lua')}
 
 \begin{document}
 
-\begin{luacode*}
-function read_CSV(file, ignore_header)
-  local data = {}
-
-  for line in io.lines(file) do
-    if ignore_header then
-      ignore_header = false
-
-    else
-      local result = {}
-
-------
--- Usage d'expressions rationnelles pour autoriser de futures
--- améliorations techniques. Pour le moment les groupes capturés
--- sont formés de caractères autres que la virgule.
-------
-      for part in string.gmatch(line, "([^,]+)") do
-        table.insert(result, tonumber(part))
-      end
-
-      table.insert(data, result)
-    end
-  end
-
-  return data
-end
-\end{luacode*}
-
 \begin{luadraw}{name = 2D-repr-3D-CSV-data}
+------
+-- Chargeons nos données.
+------
 local data = read_CSV(
-  "data.csv",
+  "../common/basic.csv",
   true
 )
 
+------
+-- Nos ingrédients de base.
+------
 local i = cpx.I
 
 local xyR
 
+------
+-- ¨Def de la zone graphique.
+------
 local graphview = graph:new{
   window = {-7, 7, -5, 5},
 }
 
+------
+-- Ajout d'axes.
+------
 graphview:Daxes(
   {0, 1, 1},
-  {arrows="->", 
+  {arrows="->",
   grid=true})
 
+------
+-- ¨Def de la zone graphique.
+------
 graphview:Linecolor("Crimson")
 graphview:Filloptions("full", "Crimson")
- 
+
+------
+-- Traitement graphique des données.
+------
 for _, xyR in ipairs(data) do
-  graphview:Dcircle(xyR[1] + i*xyR[2], .5*xyR[3]) 
+  graphview:Dcircle(xyR[1] + i*xyR[2], .5*xyR[3])
 end
 
+------
+-- Et le merveilleux se révèle au monde.
+------
 graphview:Show()
 \end{luadraw}
 

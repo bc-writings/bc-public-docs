@@ -1,0 +1,52 @@
+% !TEX TS-program = lualatex
+
+\documentclass{standalone}
+
+\usepackage[svgnames]{xcolor}
+\usepackage[3d]{luadraw}
+
+\directlua{dofile("../common/csv.lua")}
+
+\begin{document}
+
+\begin{luadraw}{name = 3D-repr-3D-CSV-data}
+local data = read_CSV(
+  "../common/basic.csv",
+  true
+)
+
+local i = cpx.I
+
+local xyz
+
+local graphview = graph3d:new{
+  window3d = {-7, 7, -5, 5, -1, 5},
+  window   = {-9,9,-7,12},
+  viewdir = {60, 50},
+}
+
+graphview:Dboxaxes3d({
+  grid      = true,
+  gridcolor = "gray",
+  fillcolor = "lightgray"})
+
+graphview:Linecolor("Crimson")
+
+------
+-- Juste un nouvelle façon de traiter les données.
+------
+local A, B
+
+for _, xyz in ipairs(data) do
+  A = M(xyz[1], xyz[2], 0)
+  B = M(xyz[1], xyz[2], 5*xyz[3])
+
+  graphview:Dseg3d({A, B})
+
+  graphview:Dballdots3d({B}, "Crimson")
+end
+
+graphview:Show()
+\end{luadraw}
+
+\end{document}
