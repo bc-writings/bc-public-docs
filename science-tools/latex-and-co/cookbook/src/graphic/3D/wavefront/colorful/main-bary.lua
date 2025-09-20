@@ -3,16 +3,16 @@
 --     polyhedron   : un polyèdre.
 --     graphview    : la zone graphique.
 --     bounding_box : la zone de tracé utile.
---     spectrum     : une suite ordonnée de couleurs.
+--     user_palette : une liste de couleurs.
 --
 --     :action: dessin du polyèdre fourni en colorant ses facettes
 --              suivant la côte de leur barycentre.
 ------
-function draw_spectrum(
+function draw_colormap_Z_dir(
   polyhedron,
   graphview,
   bounding_box,
-  spectrum
+  user_palette
 )
   local sorted_facets = graphview:Sortpolyfacet(polyhedron)
 
@@ -22,10 +22,13 @@ function draw_spectrum(
   local G, level
 
   for _ , f in ipairs(sorted_facets) do
-    G = isobar3d(f)
-
+    G     = isobar3d(f)
     level = math.abs((G.z - z_min) / delta_z)
 
-    graphview:Dpolyline3d(f, true, "fill=" .. palette(spectrum, level))
+    graphview:Dpolyline3d(
+      f,
+      true,
+      "fill=" .. palette(user_palette, level)
+    )
   end
 end

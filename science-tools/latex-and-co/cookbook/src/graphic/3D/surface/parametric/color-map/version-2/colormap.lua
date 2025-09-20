@@ -4,7 +4,7 @@
 ------
 
 ------
--- protottype::
+-- prototype::
 --     facets : une liste de facettes.
 --
 --     :return: le ¨tab ''{xmin, xmax, ymin, ymax, zmin, zmax}''
@@ -34,7 +34,7 @@ function get_bary_bbox(facets)
 end
 
 ------
--- protottype::
+-- prototype::
 --     user_surface : une ¨surf obtenue via la ¨meth ''surface''.
 --     user_palette : une liste de couleurs utilisée pour calculer
 --                    les couleurs des facettes par interpolation
@@ -42,7 +42,9 @@ end
 --     dir          : la ¨coord des ¨barys retenue pour calculer
 --                    les couleurs des facettes.
 --                  @ dir in ["x", "y", "z"]
---     backcull     : réglé à ''true'', ce ¨param demande d'ignorer les facettes orientées à l'opposé de l'observateur, sinon toutes les facettes sonr gardées
+--     backcull     : si ce ¨param est réglé à ''true'', les faces
+--                    orientées à l'opposé de l'observateur seront
+--                    ignorées, sinon elles seront gardées.
 --                  @ type(backcull) = bool
 --
 --     :action: tracé de la ¨surf en colorant ses facettes suivant
@@ -89,7 +91,7 @@ function graph3d:draw_colormap(user_surface, user_palette, dir, backcull)
 end
 
 ------
--- protottype::
+-- prototype::
 --     :see: graph3d:draw_colormap
 --
 --     :action: appel de ''graph3d:draw_colormap'' en passant
@@ -101,7 +103,7 @@ function graph3d:draw_colormap_X(user_surface, user_palette, backcull)
 end
 
 ------
--- protottype::
+-- prototype::
 --     :see: graph3d:draw_colormap ,
 --           graph3d:draw_colormap_X
 --
@@ -112,7 +114,7 @@ function graph3d:draw_colormap_Y(user_surface, user_palette, backcull)
 end
 
 ------
--- protottype::
+-- prototype::
 --     :see: graph3d:draw_colormap ,
 --           graph3d:draw_colormap_X
 --
