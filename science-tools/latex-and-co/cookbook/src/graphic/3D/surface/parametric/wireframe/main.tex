@@ -20,7 +20,7 @@ local graphview = graph3d:new{
   viewdir = {170, 80}
 }
 
-local ProjPlane =  surface(
+local projplane =  surface(
   function(u, v)
     return M(
       3*v*cos(2*u),
@@ -39,7 +39,7 @@ local ProjPlane =  surface(
 --     1) ¨Chgt de couleur en optant pour un magenta ''"Crimson"''.
 ------
 graphview:Dfacet(
-  ProjPlane,
+  projplane,
   {
     mode  = mWireFrame,
     color = "Crimson"
