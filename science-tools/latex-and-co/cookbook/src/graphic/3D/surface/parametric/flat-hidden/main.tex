@@ -37,7 +37,7 @@ local graphview = graph3d:new{
 ------
 -- ¨Def et tracé de notre ¨surf ¨param.
 ------
-local ProjPlane =  surface(
+local projplane = surface(
   function(u, v)
     return M(
       3*v*cos(2*u),
@@ -49,7 +49,7 @@ local ProjPlane =  surface(
   {150, 30})      -- "Grille" pour le tracé.
 
 graphview:Dfacet(
-  ProjPlane,
+  projplane,
   {
     mode  = mShadedOnly,
     color = "ForestGreen"
