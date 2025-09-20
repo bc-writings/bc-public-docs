@@ -1,7 +1,0 @@
-===================
-XXX
-===================
-
-content::
-    ./self-intersecting-disk/\desc                  ????
-    ./cross-capped-disk/\desc                       ??

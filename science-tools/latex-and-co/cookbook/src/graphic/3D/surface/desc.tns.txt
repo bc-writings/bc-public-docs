@@ -3,4 +3,4 @@ Surfaces
 ========
 
 content::
-    ./projective-plane/\desc        ??
+    ./parametric/\desc        ??
