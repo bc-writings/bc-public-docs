@@ -19,5 +19,5 @@ csv::
 
 
 content::
-    ./2D-version/\desc
-    ./3D-version/\desc
+    ./3D-data-to-2D-repr/\desc
+    ./3D-data-to-3D-repr/\desc
