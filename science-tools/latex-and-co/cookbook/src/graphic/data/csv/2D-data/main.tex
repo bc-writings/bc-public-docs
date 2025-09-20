@@ -1,0 +1,67 @@
+% !TEX TS-program = lualatex
+
+\documentclass[varwidth]{standalone}
+
+\usepackage[svgnames]{xcolor}
+\usepackage{luadraw}
+
+\begin{document}
+
+\begin{luacode*}
+function read_CSV(file, ignore_header)
+  local data = {}
+
+  for line in io.lines(file) do
+    if ignore_header then
+      ignore_header = false
+
+    else
+      local result = {}
+
+------
+-- Usage d'expressions rationnelles pour autoriser de futures
+-- améliorations techniques. Pour le moment les groupes capturés
+-- sont formés de caractères autres que la virgule.
+------
+      for part in string.gmatch(line, "([^,]+)") do
+        table.insert(result, tonumber(part))
+      end
+
+      table.insert(data, result)
+    end
+  end
+
+  return data
+end
+\end{luacode*}
+
+\begin{luadraw}{name = 2D-repr-3D-CSV-data}
+local data = read_CSV(
+  "data.csv",
+  true
+)
+
+local i = cpx.I
+
+local xyR
+
+local graphview = graph:new{
+  window = {-7, 7, -5, 5},
+}
+
+graphview:Daxes(
+  {0, 1, 1},
+  {arrows="->", 
+  grid=true})
+
+graphview:Linecolor("Crimson")
+graphview:Filloptions("full", "Crimson")
+ 
+for _, xyR in ipairs(data) do
+  graphview:Dcircle(xyR[1] + i*xyR[2], .5*xyR[3]) 
+end
+
+graphview:Show()
+\end{luadraw}
+
+\end{document}

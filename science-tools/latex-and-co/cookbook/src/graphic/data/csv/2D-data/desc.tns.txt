@@ -1,0 +1,14 @@
+this::
+    date = 2025-09-20
+
+
+=========================
+Trois \infos dans le plan
+=========================
+
+Nous allons apprendre à lire un fichier \csv de trois colonnes afin de produir le graphique \2d suivant.
+
+pdf::
+    ---
+    file = main-crop.pdf
+    ---
