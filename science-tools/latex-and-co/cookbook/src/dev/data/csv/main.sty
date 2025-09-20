@@ -20,6 +20,13 @@
 %              est utile pour des itérations.
 %%%
 \NewDocumentCommand{ \csvread }{ m m } {
+% Laissons une trace du fichier analysé dans le fichier \log (ceci
+% permet, par exemple, à \latexmk de savoir qu'il doit compiler de
+% nouveau un document en cas de changements dans les fichiers de
+% données utilisés.
+  \typeout{(#1)}
+
+% C'est parti.
   \cookbook_csv_read:nn { #1 } { #2 }
 }
 
