@@ -8,12 +8,12 @@
 --     :return: un tableau de sous-tableaux représentant les
 --              données extraites ligne par ligne.
 ------
-function read_CSV(file, have_header)
+function read_CSV(file, has_header)
     local data = {}
 
     for line in io.lines(file) do
-      if have_header then
-        have_header = false
+      if has_header then
+        has_header = false
 
       else
         local result = {}
