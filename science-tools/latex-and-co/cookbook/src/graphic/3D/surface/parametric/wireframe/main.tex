@@ -1,0 +1,51 @@
+% !TEX TS-program = lualatex
+
+%%%
+% src::
+%     url = https://tex.stackexchange.com/a/646514/6880
+%%%
+
+\documentclass{standalone}
+
+\usepackage[svgnames]{xcolor}
+\usepackage[3d]{luadraw}
+
+\begin{document}
+
+\begin{luadraw}{name = param-surf-flat-no-edge}
+local pi, sin, cos = math.pi, math.sin, math.cos
+
+local graphview = graph3d:new{
+  size    = {12, 12},
+  viewdir = {170, 80}
+}
+
+local ProjPlane =  surface(
+  function(u, v)
+    return M(
+      3*v*cos(2*u),
+      3*v*sin(2*u),
+      3*v*cos(u)
+    )
+  end,
+  0, 2*pi, 0, 1,
+  {150, 30})
+
+------
+-- Deux ¨chgts faits ici.
+--
+--     1) Usage du mode ''mWireFrame'' au lieu de ''mShadedOnly''.
+--
+--     1) ¨Chgt de couleur en optant pour un magenta ''"Crimson"''.
+------
+graphview:Dfacet(
+  ProjPlane,
+  {
+    mode  = mWireFrame,
+    color = "Crimson"
+  })
+
+graphview:Show()
+\end{luadraw}
+
+\end{document}

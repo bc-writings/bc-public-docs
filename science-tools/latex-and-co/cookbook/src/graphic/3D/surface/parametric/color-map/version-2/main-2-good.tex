@@ -1,0 +1,67 @@
+% !TEX TS-program = lualatex
+
+% https://tex.stackexchange.com/a/646514/6880
+
+\documentclass{standalone}
+
+\usepackage[svgnames]{xcolor}
+\usepackage[3d]{luadraw}
+\usepackage{fouriernc}
+
+\directlua{dofile('colormap.lua')}
+
+\begin{document}
+
+\begin{luadraw}{name = param-surf-color-map-backcull-good}
+local spectrum = {Gray, SlateGray, LightSkyBlue, LightPink, Pink, LightSalmon}
+
+local pi, sin, cos, tanh = math.pi, math.sin, math.cos, math.tanh
+
+------
+-- Nous gardons juste un quart de la ¨surf, un morceau n'ayant
+-- que des faces orientées vers l'observateur.
+------
+local projplane = surface(
+  function(u, v)
+    return M(
+      2*(1 + cos(v))*cos(u),
+      2*(1 + cos(v))*sin(u),
+      2*sin(v)*tanh(u-pi)
+    )
+  end,
+  pi, 0, 0, pi,
+  {25, 15})
+
+------
+-- Le reste de la surface s'obtient via des symétries, mais en
+-- prenant garde à donner la bonne orientation aux faces visibles.
+------
+projplane = concat(
+  projplane,
+  reverse_face_orientation(
+    sym3d(
+      projplane,
+      {Origin, vecJ})
+  )
+)
+
+projplane = concat(
+  projplane,
+  reverse_face_orientation(
+    sym3d(
+      projplane,
+      {Origin, vecK})
+  )
+)
+
+local graphview = graph3d:new{
+  size    = {12, 12},
+  viewdir = {120, 55}
+}
+
+graphview:draw_colormap_Z(projplane, spectrum, true)
+
+graphview:Show()
+\end{luadraw}
+
+\end{document}

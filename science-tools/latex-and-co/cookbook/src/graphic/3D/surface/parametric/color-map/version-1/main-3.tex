@@ -1,0 +1,42 @@
+% !TEX TS-program = lualatex
+
+\documentclass{standalone}
+
+\usepackage[svgnames]{xcolor}
+\usepackage[3d]{luadraw}
+
+\directlua{dofile('colormap.lua')}
+
+\begin{document}
+
+\begin{luadraw}{name = param-surf-color-map-X-dir}
+local spectrum = {Red, Orange, Green, Blue}
+
+local pi, sin, cos = math.pi, math.sin, math.cos
+
+local projplane = surface(
+  function(u, v)
+    return M(
+      3*v*cos(2*u),
+      3*v*sin(2*u),
+      3*v*cos(u)
+    )
+  end,
+  0, 2*pi, 0, 1,
+  {50, 30})
+
+local graphview = graph3d:new{
+  size    = {12, 12},
+  viewdir = {170, 80}
+}
+
+------
+-- Un seul ¨chgt ici : usage de la méthode ''draw_colormap_X''
+-- pour colorer les facettes suivant l'¨abs de leur ¨bary.
+------
+graphview:draw_colormap_X(projplane, spectrum)
+
+graphview:Show()
+\end{luadraw}
+
+\end{document}
