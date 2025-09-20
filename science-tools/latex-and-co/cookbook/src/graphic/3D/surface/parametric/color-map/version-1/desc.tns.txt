@@ -1,0 +1,13 @@
+this::
+    date = 2025-09-20
+
+
+=================================
+Ajouter une \nelle \meth \luadraw
+=================================
+
+Commençons pianissimo en expliquant comment enrichir \luadraw avec nos propres \meths. Techniquement, nous utilisons la "\poo" proposée par \lua: lua::''graph3d:draw_colormap'' ajoute une \nelle méthode lua::''draw_colormap'' à la classe lua::''graph3d'', cette dernière étant utilisable dans le code de lua::''graph3d:draw_colormap'' via lua::''self''.
+
+
+note::
+    La surface servant d'exemple est appelée "disque auto-intersecté".

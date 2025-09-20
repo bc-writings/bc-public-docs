@@ -5,5 +5,5 @@ Dans l'espace usuel
 content::
     ./solid/\desc
     ./wavefront/\desc
-    ./surface/\desc             ??
+    ./surface/\desc
 //    ./complex-func/\desc

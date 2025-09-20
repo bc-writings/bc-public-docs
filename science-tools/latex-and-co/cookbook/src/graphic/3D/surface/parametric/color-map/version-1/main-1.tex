@@ -1,0 +1,67 @@
+% !TEX TS-program = lualatex
+
+%%%
+% src::
+%     url = https://tex.stackexchange.com/a/646514/6880
+%%%
+
+\documentclass{standalone}
+
+%%%
+% Des couleurs faciles d'emploi via le package ''xcolor''!
+%%%
+\usepackage[svgnames]{xcolor}
+
+%%%
+% La bibliothèque ''luadraw'' allie une facilité d’utilisation à
+% un rendu particulièrement soigné.
+%%%
+\usepackage[3d]{luadraw}
+
+%%%
+% Externalisation du travail pour des usages multiples.
+%%%
+\directlua{dofile('colormap.lua')}
+
+\begin{document}
+
+\begin{luadraw}{name = param-surf-color-map-Z-dir}
+------
+-- Nos ingrédients de base.
+------
+local palette = {Purple, Indigo, Blue, Green, Yellow, Orange, Red}
+
+local pi, sin, cos = math.pi, math.sin, math.cos
+
+------
+-- ¨Def de la zone graphique.
+------
+local graphview = graph3d:new{
+  size    = {12, 12},
+  viewdir = {170, 80}
+}
+
+------
+-- ¨Def et tracé de notre ¨surf ¨param en colorant les facettes
+-- suivant la côte de leur ¨bary.
+------
+local projplane = surface(
+  function(u, v)
+    return M(
+      3*v*cos(2*u),
+      3*v*sin(2*u),
+      3*v*cos(u)
+    )
+  end,
+  0, 2*pi, 0, 1,
+  {50, 30})
+
+graphview:draw_colormap_Z(projplane, palette)
+
+------
+-- Et le merveilleux se révèle au monde.
+------
+graphview:Show()
+\end{luadraw}
+
+\end{document}
