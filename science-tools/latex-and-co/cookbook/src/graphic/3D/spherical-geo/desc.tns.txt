@@ -1,6 +1,0 @@
-===================
-Géométrie sphérique
-===================
-
-content::
-    ./circle-on-sphere/\desc
