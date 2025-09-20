@@ -4,7 +4,6 @@ Dans l'espace usuel
 
 content::
     ./solid/\desc
-    ./cone/\desc
     ./wavefront/\desc
     ./surface/\desc             ??
 //    ./complex-func/\desc

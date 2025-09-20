@@ -5,4 +5,5 @@ Des solides
 content::
     ./polycube/\desc
     ./polyhedron/\desc
+    ./cone/\desc
     ./2-curves-1-plane/\desc
