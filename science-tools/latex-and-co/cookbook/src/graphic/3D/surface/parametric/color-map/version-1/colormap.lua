@@ -1,5 +1,5 @@
 ------
--- protottype::
+-- prototype::
 --     facets : une liste de facettes.
 --
 --     :return: le ¨tab ''{xmin, xmax, ymin, ymax, zmin, zmax}''
@@ -29,7 +29,7 @@ function get_bary_bbox(facets)
 end
 
 ------
--- protottype::
+-- prototype::
 --     user_surface : une ¨surf obtenue via la ¨meth ''surface''.
 --     user_palette : une liste de couleurs utilisée pour calculer
 --                    les couleurs des facettes par interpolation
@@ -82,7 +82,7 @@ function graph3d:draw_colormap(user_surface, user_palette, dir)
 end
 
 ------
--- protottype::
+-- prototype::
 --     :see: graph3d:draw_colormap
 --
 --     :action: appel de ''graph3d:draw_colormap'' en passant
@@ -94,7 +94,7 @@ function graph3d:draw_colormap_X(user_surface, user_palette)
 end
 
 ------
--- protottype::
+-- prototype::
 --     :see: graph3d:draw_colormap ,
 --           graph3d:draw_colormap_X
 --
@@ -105,7 +105,7 @@ function graph3d:draw_colormap_Y(user_surface, user_palette)
 end
 
 ------
--- protottype::
+-- prototype::
 --     :see: graph3d:draw_colormap ,
 --           graph3d:draw_colormap_X
 --

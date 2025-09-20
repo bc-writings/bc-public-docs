@@ -2,15 +2,15 @@
 -- prototype::
 --     polyhedron : un polyèdre.
 --     graphview  : la zone graphique.
---     spectrum   : une suite ordonnée de couleurs.
+--     user_palette   : une suite ordonnée de couleurs.
 --
 --     :action: dessin du polyèdre fourni en colorant ses facettes
 --              suivant leur "inclinaison".
 ------
-function draw_normal_angle(
+function draw_colormap_normal_angle(
   polyhedron,
   graphview,
-  spectrum
+  user_palette
 )
   local sorted_facets = graphview:Sortpolyfacet(polyhedron)
 
@@ -20,10 +20,9 @@ function draw_normal_angle(
   local amin, amax = math.huge, -math.huge
 
   for _ , f in ipairs(sorted_facets) do
-    A,B,C = table.unpack(f)
-    N = pt3d.normalize(pt3d.prod(B - A, C - A))
-
-    angle = angle3d(N, vecK)
+    A, B, C = table.unpack(f)
+    N       = pt3d.normalize(pt3d.prod(B - A, C - A))
+    angle   = angle3d(N, vecK)
 
     if angle > amax then
       amax = angle
@@ -35,11 +34,15 @@ function draw_normal_angle(
   end
 
   for _ , f in ipairs(sorted_facets) do
-    A,B,C = table.unpack(f)
-    N = pt3d.normalize(pt3d.prod(B - A, C - A))
+    A, B, C = table.unpack(f)
+    N       = pt3d.normalize(pt3d.prod(B - A, C - A))
 
     level = (amax - angle3d(N, vecK)) / (amax - amin)
 
-    graphview:Dpolyline3d(f, true, "fill=" .. palette(spectrum, level))
+    graphview:Dpolyline3d(
+      f,
+      true,
+      "fill=" .. palette(user_palette, level)
+    )
   end
 end
