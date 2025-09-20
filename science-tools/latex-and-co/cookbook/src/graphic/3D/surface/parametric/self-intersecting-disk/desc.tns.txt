@@ -1,8 +1,0 @@
-===================
-XXX
-===================
-
-content::
-    ./flat-hidden/\desc         ??????
-    ./wireframe/\desc           ????
-    ./spectrum/\desc            ??
