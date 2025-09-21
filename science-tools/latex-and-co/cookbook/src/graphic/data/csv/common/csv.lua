@@ -9,7 +9,7 @@
 --              données extraites ligne par ligne.
 ------
 function read_CSV(file, has_header)
--- Laissons une trace du fichier analysé dans le fichier \log (ceci
+-- Laissons une trace du fichier analysé dans le fichier \log. Ceci
 -- permet, par exemple, à \latexmk de savoir qu'il doit compiler de
 -- nouveau un document en cas de changements dans les fichiers de
 -- données utilisés.
