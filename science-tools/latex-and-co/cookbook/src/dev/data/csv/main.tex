@@ -17,21 +17,21 @@
 
 \begin{document}
 
-\csvread{MON/IDÉE}{data.csv}
+\csvread{MON/ID}{data.csv}
 
-Il y a \csvdim{MON/IDÉE}{rows} lignes et \csvdim{MON/IDÉE}{cols} colonnes.
+Il y a \csvdim{MON/ID}{rows} lignes et \csvdim{MON/ID}{cols} colonnes.
 
-La colonne "\csvdata{MON/IDÉE}{1}{1}" possède le contenu suivant.
+La colonne "\csvdata{MON/ID}{1}{1}" possède le contenu suivant.
 
 \bgroup
   \tiny
-  \foreach \nbrow in {2,...,\csvdim{MON/IDÉE}{rows}}{%
-    \fbox{\csvdata{MON/IDÉE}{\nbrow}{1}}%
-    \ifthenelse{\nbrow < \csvdim{MON/IDÉE}{rows}}{ + }{}%
+  \foreach \nbrow in {2,...,\csvdim{MON/ID}{rows}}{%
+    \fbox{\csvdata{MON/ID}{\nbrow}{1}}%
+    \ifthenelse{\nbrow < \csvdim{MON/ID}{rows}}{ + }{}%
   }
 \egroup
 
-\csvtblr{MON/IDÉE}[
+\csvtblr{MON/ID}[
   vline{2-Y}   = {solid},
   hline{2-Y}   = {solid},
   cell{1}{1-Z} = {cmd = \bfseries},

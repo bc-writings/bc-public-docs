@@ -30,13 +30,6 @@ local data = read_CSV(
 )
 
 ------
--- Nos ingrédients de base.
-------
-local i = cpx.I
-
-local xyR
-
-------
 -- ¨Def de la zone graphique.
 ------
 local graphview = graph:new{
@@ -52,7 +45,7 @@ graphview:Daxes(
   grid=true})
 
 ------
--- ¨Def de la zone graphique.
+-- Quelques réglages graphiques.
 ------
 graphview:Linecolor("Crimson")
 graphview:Filloptions("full", "Crimson")
@@ -60,6 +53,9 @@ graphview:Filloptions("full", "Crimson")
 ------
 -- Traitement graphique des données.
 ------
+local i = cpx.I
+local xyR
+
 for _, xyR in ipairs(data) do
   graphview:Dcircle(xyR[1] + i*xyR[2], .5*xyR[3])
 end
