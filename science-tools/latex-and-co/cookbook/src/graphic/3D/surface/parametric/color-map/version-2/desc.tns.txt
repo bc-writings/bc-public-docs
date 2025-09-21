@@ -20,4 +20,4 @@ Voici quelques remarques relatives aux trois exemples proposés.
 
 
 note::
-    La surface servant d'exemple est appelée "disque à double calotte".
+    La \surf servant d'exemple est appelée "disque à double calotte".

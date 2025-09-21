@@ -1,0 +1,11 @@
+this::
+    date = 2025-09-21
+
+
+=========================
+Le piège de l'orientation
+=========================
+
+L'exemple présenté ici permet de pointer du doigt le \pb de l'orientation d'une \surf. Si vous observez la \1ere \fig proposée, il peut sembler étrange d'avoir un \chgt de \coul; or, il n'y a aucne erreur, car le mode de rendu choisi utilise une \coul pour les faces orientées vers l'observateur, et une autre pour celles d'orientation opposée.
+Nous sommes ici en présence d'une \surf non orientable : ce phénomène s'oberve bien dans la \2e \fig qui ne représente qu'une partie de la \surf.
+Pour mieux comprendre ce phénomène, si vous ne le connaissez pas, imaginez vous entrain de parcourir "complètement" cette \surf, vous constaterez que vous passerez à des positions antipodiques à un moment, ou un autre.

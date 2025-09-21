@@ -1,0 +1,71 @@
+% !TEX TS-program = lualatex
+
+\documentclass{standalone}
+
+%%%
+% Des couleurs faciles d'emploi via le package ''xcolor''!
+%%%
+\usepackage[svgnames]{xcolor}
+
+%%%
+% La bibliothèque ''luadraw'' allie une facilité d’utilisation à
+% un rendu particulièrement soigné.
+%%%
+\usepackage[3d]{luadraw}
+
+\begin{document}
+
+\begin{luadraw}{name = orientation-n-box-axes}
+------
+-- Nos ingrédients de base.
+------
+local pi, sin, cos, tanh = math.pi, math.sin, math.cos, math.tanh
+
+------
+-- ¨Def de la zone graphique.
+------
+local graphview = graph3d:new{
+  window3d = {-3, 6, -4, 6, -2, 2},
+  window   = {-8, 9, -9, 8},
+  size     = {12, 12},
+  viewdir  = {210, 70}
+}
+
+------
+-- Ajout d'une repère de type "boîte ouverte" avant la surface
+-- (ne jamais oublier que ¨luadraw n'est pas un moteur de rendu
+-- ¨3d).
+------
+graphview:Dboxaxes3d({
+  grid      = true,
+  gridcolor = "gray",
+  fillcolor = "lightgray"})
+
+------
+-- ¨Def et tracé de notre ¨surf ¨param en mode unie.
+------
+local projplane = surface(
+  function(u, v)
+    return M(
+      2*(1 + cos(v))*cos(u),
+      2*(1 + cos(v))*sin(u),
+      2*sin(v)*tanh(u-pi)
+    )
+  end,
+  0, 2*pi, 0, 2*pi,
+  {25, 15})
+
+------
+-- Et le merveilleux se révèle au monde.
+------
+graphview:Dfacet(
+  projplane,
+  {
+    mode  = mShadedOnly,
+    color = "ForestGreen"
+  })
+
+graphview:Show()
+\end{luadraw}
+
+\end{document}
