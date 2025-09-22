@@ -1,0 +1,8 @@
+===========================
+Des boîtes "rectangulaires"
+===========================
+
+content::
+    ./opened-top/\desc
+    ./falling-walls/\desc
+    ./net/\desc

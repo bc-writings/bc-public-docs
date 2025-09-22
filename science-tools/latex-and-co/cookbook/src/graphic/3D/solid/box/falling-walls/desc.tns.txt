@@ -1,0 +1,9 @@
+this::
+    date = 2025-09-22
+
+
+==============================================
+Boîte sans couvercle dont les murs s'écroulent
+==============================================
+
+Quant le titre devient plus pertinent que les explications...

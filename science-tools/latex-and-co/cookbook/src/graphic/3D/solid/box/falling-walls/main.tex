@@ -1,0 +1,94 @@
+% !TEX TS-program = lualatex
+
+%%%
+% src::
+%   url = https://github.com/pfradin/luadraw/discussions/96#discussioncomment-14477291
+%%%
+
+\documentclass{standalone}
+
+%%%
+% Des couleurs faciles d'emploi via le package ''xcolor''!
+%%%
+\usepackage[svgnames]{xcolor}
+
+%%%
+% La bibliothèque ''luadraw'' allie une facilité d’utilisation à
+% un rendu particulièrement soigné.
+%%%
+\usepackage[3d]{luadraw}
+
+\begin{document}
+
+\begin{luadraw}{name = box-falling-walls}
+------
+-- ¨Def de la zone graphique.
+------
+local graphview = graph3d:new{
+  window  = {-9, 10, -3.5, 7},
+  viewdir = {195, 70},
+  size    = {12, 12}
+}
+
+------
+-- Réglages liés aux lignes.
+------
+Hiddenlines     = true
+Hiddenlinestyle = "dashed"
+
+------
+-- Les ¨elts caractéristiques de la boîte.
+------
+local a, b, h = 4, 4, 4
+
+local box = parallelep(
+  Origin,
+  a*vecI, b*vecJ, h*vecK
+)
+
+local A, B, C, D, E, F, G, H = table.unpack(box.vertices)
+
+local box_facets = poly2facet(box)
+
+------
+-- Déplacements des faces en retirant celle non voulue.
+------
+box_facets[4] = rotate3d(box_facets[4], -30, {C, C-D})
+box_facets[3] = rotate3d(box_facets[3], 30 , {A, B-A})
+box_facets[5] = rotate3d(box_facets[5], -30, {A, D-A})
+box_facets[6] = rotate3d(box_facets[6], 30 , {B, C-B})
+
+table.remove(box_facets, 2)
+
+------
+-- La boîte ouverte.
+------
+local box = shift3d(box, -2*b*vecJ)
+
+table.remove(box.facets, 2)
+
+------
+-- Tracé des ¨elts graphiques.
+------
+graphview:Dscene3d(
+  graphview:addFacet(
+    box_facets,
+    {
+      color     = "LightGray",
+      contrast  = 0.5,
+      edge      = true,
+      edgecolor = "gray"
+    })
+)
+
+graphview:Dpoly(
+  box,
+  {mode = mShadedHidden})
+
+------
+-- Et le merveilleux se révèle au monde.
+------
+graphview:Show()
+\end{luadraw}
+
+\end{document}

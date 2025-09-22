@@ -1,0 +1,9 @@
+this::
+    date = 2025-09-22
+
+
+===================================
+Une boîte avec son couvercle ouvert
+===================================
+
+Quoi de plus à ajouter ? Rien !

@@ -1,0 +1,93 @@
+% !TEX TS-program = lualatex
+
+%%%
+% src::
+%   url = https://github.com/pfradin/luadraw/discussions/96#discussioncomment-14469411
+%%%
+
+\documentclass{standalone}
+
+%%%
+% Des couleurs faciles d'emploi via le package ''xcolor''!
+%%%
+\usepackage[svgnames]{xcolor}
+
+%%%
+% La bibliothèque ''luadraw'' allie une facilité d’utilisation à
+% un rendu particulièrement soigné.
+%%%
+\usepackage[3d]{luadraw}
+
+\begin{document}
+
+\begin{luadraw}{name = box-opened-top}
+------
+-- ¨Def de la zone graphique.
+------
+local graphview = graph3d:new{
+  window  = {-6, 1.5, -1.5, 7},
+  viewdir = {165, 70},
+  size    = {8, 8}
+}
+
+------
+-- Réglages liés aux lignes.
+------
+Hiddenlines     = true
+Hiddenlinestyle = "dashed"
+
+------
+-- Les ¨elts caractéristiques de la boîte.
+------
+local a, b, h = 4, 4, 4
+
+local box = parallelep(
+  Origin,
+  a*vecI, a*vecJ, h*vecK
+)
+
+local A, B, C, D, E, F, G, H = table.unpack(box.vertices)
+
+local box_facets = poly2facet(box)
+
+------
+-- Rotation du couvercle.
+------
+box_facets[2] = rotate3d(
+  box_facets[2],
+  30,         -- Angle de rotation de 30°.
+  {F, G - F}  -- (FG) est l'axe de rotation.
+)
+
+------
+-- Tracé des ¨elts graphiques.
+------
+graphview:Dscene3d(
+  graphview:addFacet(
+    box_facets,
+    {
+      color     = "LightGray",
+      contrast  = 0.5,
+      edge      = true,
+      edgecolor = "gray"
+    })
+)
+
+------
+-- Pour voir les sommets lors du ¨dev.
+------
+-- labels = {}
+--
+-- for k, X in ipairs(box.vertices) do
+--   insert(labels, {"$M_{".. k .."}$", X, {pos = "S", dist = 0.1}})
+-- end
+--
+-- graphview:Dlabel3d(table.unpack(labels))
+
+------
+-- Et le merveilleux se révèle au monde.
+------
+graphview:Show()
+\end{luadraw}
+
+\end{document}

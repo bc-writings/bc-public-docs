@@ -6,4 +6,5 @@ content::
     ./polycube/\desc
     ./polyhedron/\desc
     ./cone/\desc
+    ./box/\desc
     ./2-curves-1-plane/\desc

@@ -1,0 +1,9 @@
+this::
+    date = 2025-09-22
+
+
+==============================
+Patron "classique" d'une boîte
+==============================
+
+Besoin d'explications ? Je ne le crois pas...
