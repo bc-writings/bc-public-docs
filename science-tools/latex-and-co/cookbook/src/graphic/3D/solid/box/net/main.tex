@@ -55,6 +55,12 @@ box_facets[3] = rotate3d(box_facets[3], 90 , {A, B-A})
 box_facets[5] = rotate3d(box_facets[5], -90, {A, D-A})
 box_facets[6] = rotate3d(box_facets[6], 90 , {B, C-B})
 
+box_facets[2] = rotate3d(box_facets[2], -90, {A, D-A})
+
+P, Q, R, S = table.unpack(box_facets[2])
+
+box_facets[2] = rotate3d(box_facets[2], -90, {P, S-P})
+
 ------
 -- Tracé des ¨elts graphiques.
 ------
@@ -74,6 +80,22 @@ local box= shift3d(box, -3*b*vecJ)
 graphview:Dpoly(
     box,
     {mode = mShadedHidden})
+
+------
+-- Pour voir les sommets lors du ¨dev.
+------
+-- labels = {
+--   "$P$", P, {pos = "S", dist = 0.1},
+--   "$Q$", Q, {pos = "S", dist = 0.1},
+--   "$R$", R, {pos = "S", dist = 0.1},
+--   "$S$", S, {pos = "S", dist = 0.1},
+-- }
+--
+-- for k, X in ipairs(box.vertices) do
+--   insert(labels, {"$M_{".. k .."}$", X, {pos = "S", dist = 0.1}})
+-- end
+--
+-- graphview:Dlabel3d(table.unpack(labels))
 
 ------
 -- Et le merveilleux se révèle au monde.
