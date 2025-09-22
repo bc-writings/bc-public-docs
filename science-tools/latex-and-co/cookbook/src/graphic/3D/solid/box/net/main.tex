@@ -33,7 +33,7 @@ local graphview = graph3d:new{
 ------
 -- Réglages liés aux lignes.
 ------
-Hiddenlines = true
+Hiddenlines     = true
 Hiddenlinestyle = "dashed"
 
 ------
@@ -45,7 +45,7 @@ local box = parallelep(Origin, a*vecI, b*vecJ, h*vecK)
 
 local A, B, C, D, E, F, G, H = table.unpack(box.vertices)
 
-local box_facets = poly2facet(box) -- conversion to facet
+local box_facets = poly2facet(box) 
 
 ------
 -- Déplacements des faces.
