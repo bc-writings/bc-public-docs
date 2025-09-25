@@ -1,0 +1,119 @@
+% !TEX TS-program = lualatex
+
+%%%
+% src::
+%     url = https://tex.stackexchange.com/a/751587/6880
+%%%
+
+\documentclass[10pt]{standalone}
+
+%%%
+% Des couleurs faciles d'emploi via le package ''xcolor''!
+%%%
+\usepackage[svgnames]{xcolor}
+
+%%%
+% La bibliothèque ''luadraw'' allie une facilité d’utilisation à
+% un rendu particulièrement soigné.
+%%%
+\usepackage[3d]{luadraw}
+
+\begin{document}
+
+\begin{luadraw}{name = gamma-modulus-surface}
+------
+-- approximation of gamma : gamma(z) = $\sum_{k=0}^{+\infty} \frac{(-1)^k}{k!(z+k)} + \int_1^{+\infty} t^{z-1}e^{-t}dt$
+------
+local gamma = function(x, y)
+  local k_facto, sign, z = 1, 1, Z(x, y)
+  local S = 1/z
+
+  for k = 1, 50 do
+    sign    = -sign
+    k_facto = k_facto*k
+
+    S = S + sign / k_facto / (z + k)
+  end
+
+  return S + int(
+    function(t)
+      return cpx.exp((z - 1)*math.log(t) - t)
+    end,
+    1, 10
+  )
+end
+
+------
+-- surface parameterization
+------
+local p = function(x, y)
+  local gz = gamma(x, y)
+
+  if gz ~=  nil then
+    return M(x, y, cpx.abs(gz))
+  end
+end
+
+------
+-- Coloration.
+------
+local rainbow = {Purple, Indigo, Blue, Green, Yellow, Orange, Red}
+
+-- position in the color palette based on the argument of gamma(x, y)
+local colorpos = function(G)
+  local gz = gamma(G.x, G.y)
+
+  if gz ~=  nil then
+    -- position in [0, 1]
+    return (cpx.arg(gz) + math.pi) / (2*math.pi)
+  end
+end
+
+------
+-- ¨Def de la zone graphique.
+------
+local graphview = graph3d:new{
+  window3d = {-4, 5, -5, 5, 0, 6},
+  adjust2d = true,
+  size     = {10, 10},
+  viewdir  = {-120, 60}
+}
+
+------
+-- Surf.
+------
+local s = surface(
+  p,
+  -4, 5, -5, 5,
+  {50, 50})
+
+-- to keep only z <=  6
+s = cutfacet(s, {6*vecK, -vecK})
+s = graphview:Sortfacet(s)
+
+------
+-- Axes sous forme de boîte.
+------
+graphview:Dboxaxes3d({
+  grid      = true,
+  gridcolor = "gray",
+  fillcolor = "LightGray"
+})
+
+
+------
+-- Tracé de la surf.
+------
+for _, f in ipairs(s) do
+  graphview:Dpolyline3d(
+    f,
+    true,
+       "very thin, fill = "
+    .. palette(rainbow, colorpos(isobar3d(f)))
+  )
+end
+
+graphview:Show()
+\end{luadraw}
+
+\end{document}

@@ -5,3 +5,4 @@ Surfaces
 content::
     ./orientation/\desc
     ./parametric/\desc
+    ./complex-func/\desc
