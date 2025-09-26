@@ -22,10 +22,13 @@
 
 \begin{luadraw}{name = gamma-modulus-surface}
 ------
--- approximation of gamma : gamma(z) = $\sum_{k=0}^{+\infty} \frac{(-1)^k}{k!(z+k)} + \int_1^{+\infty} t^{z-1}e^{-t}dt$
+-- Le ¨calc de `gamma(z)` est fait via la formule suivante :
+-- `gamma(z) = sum(k, 0, +oo, (-1)^k / {k! (z + k)}
+--           + integral(t, 1, +oo, t^{z-1} ee^{-t})`
 ------
 local gamma = function(x, y)
   local k_facto, sign, z = 1, 1, Z(x, y)
+
   local S = 1/z
 
   for k = 1, 50 do
@@ -44,27 +47,25 @@ local gamma = function(x, y)
 end
 
 ------
--- surface parameterization
+-- Paramétrisation de la ¨surf "complexe".
 ------
-local p = function(x, y)
+local gamma_modulus_pt = function(x, y)
   local gz = gamma(x, y)
 
-  if gz ~=  nil then
+  if gz ~= nil then
     return M(x, y, cpx.abs(gz))
   end
 end
 
 ------
--- Coloration.
+-- Coloration en ¨fonc de l'¨arg du complexe `gamma(z)`.
 ------
-local rainbow = {Purple, Indigo, Blue, Green, Yellow, Orange, Red}
+local spectrum = {Purple, Indigo, Blue, Green, Yellow, Orange, Red}
 
--- position in the color palette based on the argument of gamma(x, y)
-local colorpos = function(G)
+local color_coef = function(G)
   local gz = gamma(G.x, G.y)
 
   if gz ~=  nil then
-    -- position in [0, 1]
     return (cpx.arg(gz) + math.pi) / (2*math.pi)
   end
 end
@@ -80,19 +81,21 @@ local graphview = graph3d:new{
 }
 
 ------
--- Surf.
+-- ¨Def de la ¨surf contenue dans le demi-plan `z <= 6`.
 ------
-local s = surface(
-  p,
+local cplx_surf = surface(
+  gamma_modulus_pt,
   -4, 5, -5, 5,
   {50, 50})
 
--- to keep only z <=  6
-s = cutfacet(s, {6*vecK, -vecK})
-s = graphview:Sortfacet(s)
+cplx_surf = cutfacet(
+  cplx_surf,
+  {6*vecK, -vecK})
+
+cplx_surf = graphview:Sortfacet(cplx_surf)
 
 ------
--- Axes sous forme de boîte.
+-- Boîte graduée.
 ------
 graphview:Dboxaxes3d({
   grid      = true,
@@ -101,14 +104,14 @@ graphview:Dboxaxes3d({
 })
 
 ------
--- Tracé de la surf.
+-- Tracé de la ¨surf facette par facette.
 ------
-for _, f in ipairs(s) do
+for _ , facet in ipairs(cplx_surf) do
   graphview:Dpolyline3d(
-    f,
+    facet,
     true,
        "very thin, fill = "
-    .. palette(rainbow, colorpos(isobar3d(f)))
+    .. palette(spectrum, color_coef(isobar3d(facet)))
   )
 end
 
