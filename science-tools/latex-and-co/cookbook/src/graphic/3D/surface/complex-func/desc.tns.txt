@@ -1,9 +1,12 @@
 this::
-    date = 2025-09-25
+    date = 2025-09-26
 
 
 ==============================
 Représenter une \fonc complexe
 ==============================
 
-Nous allons voir comment repérsenter le module d'une fonction complexe sous la forme d'une surface (partie réelle en abscisse, partie imaginaire en ordonnée, et module en côte).
+Nous allons voir comment représenter le module d'une fonction complexe sous la forme d'une surface: partie réelle en abscisse, partie imaginaire en ordonnée, et module en côte
+((
+    Bien entendu, nous aurions pu utiliser la partie réelle ou l'imaginaire en côte.
+)).
