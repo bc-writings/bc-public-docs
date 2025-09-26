@@ -2,11 +2,9 @@ this::
     date = 2025-09-26
 
 
-==============================
-Représenter une \fonc complexe
-==============================
+===================
+La version standard
+===================
 
-Nous allons voir comment représenter le module d'une fonction complexe sous la forme d'une surface: partie réelle en abscisse, partie imaginaire en ordonnée, et module en côte
-((
-    Bien entendu, nous aurions pu utiliser la partie réelle ou l'imaginaire en côte.
-)).
+Commençons par une version colorant les facettes de la \surf en \fonc de l'\arg principal du complexe `gamma(z)` pour les complexes associés aux \barys des facettes.
+Le résultat final prend une quarentaine de secondes a été produit, car le calcul de `gamma(z)` est très coûteux.

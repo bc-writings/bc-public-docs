@@ -2,11 +2,12 @@ this::
     date = 2025-09-26
 
 
-==============================
-Représenter une \fonc complexe
-==============================
+=============================================
+Une optimisation via un léger \chgt de design
+=============================================
 
-Nous allons voir comment représenter le module d'une fonction complexe sous la forme d'une surface: partie réelle en abscisse, partie imaginaire en ordonnée, et module en côte
+Pour limiter les \calcs, il est préférable d’évaluer la \coul uniquement à partir des sommets des facettes : nous avons choisi de passer par le \min des \args des `gamma(z)` des sommets, ces valeurs devant être mémorisées lors de la construction de la \surf
 ((
-    Bien entendu, nous aurions pu utiliser la partie réelle ou l'imaginaire en côte.
+    Une \1re idée aurait été de passer via le \bary des \args, mais cette autre \sol ne donne pas un bon rendu, car elle crée des sauts excessifs de couleur.
 )).
+Une fois ces \modifs effectuées, le \tmps de calcul est réduit d’environ moitié.

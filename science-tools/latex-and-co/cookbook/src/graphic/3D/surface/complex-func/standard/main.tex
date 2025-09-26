@@ -60,7 +60,12 @@ end
 ------
 -- Coloration en ¨fonc de l'¨arg principal du complexe `gamma(z)`.
 ------
-local spectrum = {Purple, Indigo, Blue, Green, Yellow, Orange, Red}
+
+-- local spectrum = {Purple, Indigo, Blue, Green, Yellow, Orange, Red}
+-- local spectrum = {LightSkyBlue, CornflowerBlue, LightCoral, IndianRed, DarkSalmon, YellowGreen, MediumSeaGreen}
+-- local spectrum = {LightCyan, LightSkyBlue, Plum, LightCoral, LightSalmon, Khaki, PaleGreen}
+
+local spectrum = {Cyan, DodgerBlue, Magenta, Red, Orange, Gold, LimeGreen}
 
 local color_coef = function(G)
   local gz = gamma(G.x, G.y)
@@ -83,16 +88,16 @@ local graphview = graph3d:new{
 ------
 -- ¨Def de la ¨surf contenue dans le demi-plan `z <= 6`.
 ------
-local cplx_surf = surface(
+local cpx_surf = surface(
   gamma_modulus_pt,
   -4, 5, -5, 5,
   {50, 50})
 
-cplx_surf = cutfacet(
-  cplx_surf,
+cpx_surf = cutfacet(
+  cpx_surf,
   {6*vecK, -vecK})
 
-cplx_surf = graphview:Sortfacet(cplx_surf)
+cpx_surf = graphview:Sortfacet(cpx_surf)
 
 ------
 -- Boîte graduée.
@@ -106,7 +111,7 @@ graphview:Dboxaxes3d({
 ------
 -- Tracé de la ¨surf facette par facette.
 ------
-for _ , facet in ipairs(cplx_surf) do
+for _ , facet in ipairs(cpx_surf) do
   graphview:Dpolyline3d(
     facet,
     true,

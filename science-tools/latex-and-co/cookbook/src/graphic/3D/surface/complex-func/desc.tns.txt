@@ -6,7 +6,7 @@ this::
 Représenter une \fonc complexe
 ==============================
 
-Nous allons voir comment représenter le module d'une fonction complexe sous la forme d'une surface: partie réelle en abscisse, partie imaginaire en ordonnée, et module en côte
+Nous allons voir comment représenter le module d'une \fonc complexe sous la forme d'une \surf: partie réelle en abscisse, partie imaginaire en ordonnée, et module en côte
 ((
     Bien entendu, nous aurions pu utiliser la partie réelle ou l'imaginaire en côte.
 )).
