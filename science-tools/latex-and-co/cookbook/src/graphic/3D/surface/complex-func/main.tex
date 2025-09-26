@@ -24,12 +24,12 @@
 ------
 -- Le ¨calc de `gamma(z)` est fait via la formule suivante :
 -- `gamma(z) = sum(k, 0, +oo, (-1)^k / {k! (z + k)}
---           + integral(t, 1, +oo, t^{z-1} ee^{-t})`
+--           + integral(t, 1, +oo, t^{z - 1} ee^{-t})`
 ------
 local gamma = function(x, y)
   local k_facto, sign, z = 1, 1, Z(x, y)
 
-  local S = 1/z
+  local S = 1 / z
 
   for k = 1, 50 do
     sign    = -sign
@@ -58,7 +58,7 @@ local gamma_modulus_pt = function(x, y)
 end
 
 ------
--- Coloration en ¨fonc de l'¨arg du complexe `gamma(z)`.
+-- Coloration en ¨fonc de l'¨arg principal du complexe `gamma(z)`.
 ------
 local spectrum = {Purple, Indigo, Blue, Green, Yellow, Orange, Red}
 
