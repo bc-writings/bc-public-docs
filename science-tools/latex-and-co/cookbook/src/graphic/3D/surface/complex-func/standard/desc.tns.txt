@@ -10,8 +10,3 @@ Nous allons voir comment représenter le module d'une fonction complexe sous la 
 ((
     Bien entendu, nous aurions pu utiliser la partie réelle ou l'imaginaire en côte.
 )).
-
-
-content::
-    ./standard/\desc
-    ./optimized/\desc
