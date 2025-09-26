@@ -1,0 +1,9 @@
+this::
+    date = 2025-09-26
+
+
+======================
+Demi-cylindres ouverts
+======================
+
+Noter dans cette recette l'emploi d'une \fonc enrichissant l'\api de \luadraw.
