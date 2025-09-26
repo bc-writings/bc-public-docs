@@ -1,0 +1,68 @@
+% !TEX TS-program = lualatex
+
+%%%
+% src::
+%     url = https://github.com/pfradin/luadraw/discussions/105#discussioncomment-14524176
+%%%
+
+\documentclass{standalone}
+
+%%%
+% Des couleurs faciles d'emploi via le package ''xcolor''!
+%%%
+\usepackage[svgnames]{xcolor}
+
+%%%
+% La bibliothèque ''luadraw'' allie une facilité d’utilisation à
+% un rendu particulièrement soigné.
+%%%
+\usepackage[3d]{luadraw}
+
+\begin{document}
+
+\begin{luadraw}{name = gather-2-cylinders}
+------
+-- ¨Def de la zone graphique.
+------
+local graphview = graph3d:new{
+  window3d = {-1, 4, -1, 4, -1, 2},
+  size     = {10, 10},
+  viewdir  = {30, 60}
+}
+
+------
+-- Construction de notre solide.
+------
+local C1 = cylinder(Origin, 1, 3*vecI, 100, true)
+local C2 = cylinder(Origin, 1, 3*vecJ, 100, true)
+
+-- Demi-cylindres.
+C1 = cutpoly(C1, {Origin, vecJ}, true)
+C2 = cutpoly(C2, {Origin, vecI}, true)
+
+-- Quart de cylindres.
+C1 = cutpoly(C1, {Origin, vecK}, true)
+C2 = cutpoly(C2, {Origin, vecK}, true)
+
+-- Cylindres biseautés.
+C1 = cutpoly(C1, {Origin, vecI-vecJ})
+C2 = cutpoly(C2, {Origin, -vecI+vecJ})
+
+------
+-- Tracé de notre solide.
+------
+graphview:Dscene3d(
+  graphview:addWall({Origin, -vecI+vecJ}),
+  graphview:addPoly(C1, {color = "LightBlue"}),
+  graphview:addPoly(C2, {color = "LightBlue"}),
+  graphview:addPolyline(concat(border(C1), border(C2))),
+  graphview:addAxes(Origin, {arrows = 1})
+)
+
+------
+-- Et le merveilleux se révèle au monde.
+------
+graphview:Show()
+\end{luadraw}
+
+\end{document}

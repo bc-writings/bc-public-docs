@@ -1,0 +1,9 @@
+this::
+    date = 2025-09-26
+
+
+==========================================
+Un angle formé de deux quarts de cylindres
+==========================================
+
+Que dire de plus ?

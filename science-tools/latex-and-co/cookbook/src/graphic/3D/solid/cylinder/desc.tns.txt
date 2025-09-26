@@ -4,3 +4,4 @@ Des cylindres non hydriques
 
 content::
     ./opened-half-cylinder/\desc
+    ./gather-2-cylinders/\desc
