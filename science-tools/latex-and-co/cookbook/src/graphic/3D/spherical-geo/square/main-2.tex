@@ -1,0 +1,38 @@
+% !TEX TS-program = lualatex
+
+%%%
+% src::
+%     url = https://tex.stackexchange.com/a/751717/6880
+%%%
+
+\documentclass{standalone}
+
+%%%
+% Des couleurs faciles d'emploi via le package ''xcolor''!
+%%%
+\usepackage[svgnames]{xcolor}
+
+%%%
+% La bibliothèque ''luadraw'' allie une facilité d’utilisation à
+% un rendu particulièrement soigné.
+%%%
+\usepackage[3d]{luadraw}
+
+\begin{document}
+
+\begin{luadraw}{name = spherical-square-2}
+  local g = graph3d:new{window={-6,6,-6,6},viewdir={80,65},size={10,10}}
+  g:Linewidth(6); Hiddenlinestyle = "dashed";Hiddenlines = true
+ require 'luadraw_spherical'
+ local R= 5
+ local O,A,B,C,D = M(0,0,0),M(3, -4, 0), M(3, 0, -4),M(3, 4, 0),M(3, 0,4)
+ local P = {A,pt3d.prod(A-B,C-B)}
+ g:Define_sphere({center=O, radius=R})
+ g:DSfacet({A,B,C,D}, {fill="brown",fillopacity=0.6,color="blue"})
+ g:DScircle(P,{color="red"})
+ g:Dspherical()
+ g:Dlabel3d("$A$",A,{pos="W"}, "$B$",B,{pos="E"}, "$C$",C,{}, "$D$",D,{},"$O$",O,{pos="S"})
+ g:Show()
+\end{luadraw}
+
+\end{document}

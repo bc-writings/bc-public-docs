@@ -5,3 +5,4 @@
 content::
     ./triangle/\desc
     ./square/\desc
+    ./circle/\desc

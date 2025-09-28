@@ -1,0 +1,50 @@
+\begin{tikzpicture}[line join=round]%
+\begin{scope}%
+\clip (-0.5,-0.5) rectangle (9.5,9.5);%
+\pgfsetlinewidth{0.6pt}%
+\pgfsetstrokecolor{LightGray}%
+\begin{scope}%
+\clip (0,0) rectangle (9,9);%
+\draw[fill,ball color=orange] (7.0895,5.5395) .. controls (5.8882,6.9767) and (3.7726,7.1658) .. (2.3355,5.9645) .. controls (0.8983,4.7632) and (0.7092,2.6476) .. (1.9105,1.2105) .. controls (3.1118,-0.2267) and (5.2274,-0.4158) .. (6.6645,0.7855) .. controls (8.1017,1.9868) and (8.2908,4.1024) .. (7.0895,5.5395);%
+\end{scope}%
+\pgfsetstrokecolor{black}%
+\pgfsetfillopacity{0.6}%
+\pgfsetfillcolor{brown}%
+\pgfsetroundcap%
+\draw[fill] (1.6768,4.702) .. controls (1.9105,4.5846) and (2.3065,4.3911) .. (2.8235,4.1419) -- (2.8235,4.1419) .. controls (3.1711,5.2978) and (3.8049,6.207) .. (4.5,6.5465) -- (4.5,6.5465) .. controls (3.3295,6.4392) and (2.262,5.7418) .. (1.6768,4.702);%
+\draw[fill] (5.8403,3.4766) .. controls (6.8535,4.3784) and (7.3917,5.1458) .. (7.1944,5.4074) -- (7.1944,5.4074) .. controls (6.7203,6.036) and (6.0518,6.4738) .. (5.286,6.6572) -- (5.286,6.6572) .. controls (5.0373,6.7168) and (4.7721,6.6794) .. (4.5,6.5465) -- (4.5,6.5465) .. controls (5.1026,6.1045) and (5.6342,4.8869) .. (5.8403,3.4766);%
+\pgfsetstrokecolor{blue}%
+\pgfsetfillopacity{1}%
+\draw[arrows=-stealth] (3.0737,2.3288) -- (1.6473,1.2827);%
+\draw[arrows=-stealth] (7.5588,2.8872) -- (8.5784,2.7246);%
+\draw[arrows=-stealth] (4.5,6.5465) -- (4.5,7.6036);%
+\pgfsetstrokecolor{red}%
+\draw[] (1.125,3.375) .. controls (1.125,2.7344) and (2.6269,2.2207) .. (4.5,2.2207) .. controls (6.3731,2.2207) and (7.875,2.7344) .. (7.875,3.375);%
+\pgfsetstrokecolor{black}%
+\pgfsetbuttcap%
+\pgfsetdash{{2.5pt}{2pt}}{0pt}%
+\pgfsetroundcap%
+\draw[] (7.1944,5.4074) .. controls (7.0889,5.5473) and (6.7832,5.5266) .. (6.3191,5.3482) -- (6.3191,5.3482) .. controls (6.1384,6.0733) and (5.7688,6.5416) .. (5.286,6.6572) -- (5.286,6.6572) .. controls (6.0518,6.4738) and (6.7203,6.036) .. (7.1944,5.4074);%
+\pgfsetstrokecolor{blue}%
+\draw[arrows=-stealth] (4.5,3.375) -- (1.6473,1.2827);%
+\pgfsetbuttcap%
+\pgfsetdash{{2.5pt}{2pt}}{0pt}%
+\pgfsetroundcap%
+\draw[arrows=-stealth] (4.5,3.375) -- (8.5784,2.7246);%
+\pgfsetbuttcap%
+\pgfsetdash{{2.5pt}{2pt}}{0pt}%
+\pgfsetroundcap%
+\draw[arrows=-stealth] (4.5,3.375) -- (4.5,7.6036);%
+\pgfsetstrokecolor{red}%
+\pgfsetbuttcap%
+\pgfsetdash{{2.5pt}{2pt}}{0pt}%
+\pgfsetroundcap%
+\draw[] (1.125,3.375) .. controls (1.125,4.0156) and (2.6269,4.5293) .. (4.5,4.5293) .. controls (6.3731,4.5293) and (7.875,4.0156) .. (7.875,3.375);%
+\pgfsetstrokecolor{black}%
+\pgfsetbuttcap%
+\pgfsetdash{}{0pt}%
+\pgfsetfillcolor{black}%
+\draw[-] (4.5,6.5465) node[above left] {$N$} (4.5,3.375) node[below] {$O$} (1.6473,1.2827) node[below left] {$x$} (8.5784,2.7246) node[right] {$y$} (4.5,7.6036) node[above] {$z$} (1.6768,4.702) node[below] {$A$} (2.8235,4.1419) node[below] {$B$} (5.8403,3.4766) node[right] {$C$} (6.3191,5.3482) node[below] {$D$};%
+\pgfsetlinewidth{0.4pt}%
+\end{scope}%
+\end{tikzpicture}%
