@@ -15,7 +15,7 @@
 \draw[fill] (5.8403,3.4766) .. controls (6.8535,4.3784) and (7.3917,5.1458) .. (7.1944,5.4074) -- (7.1944,5.4074) .. controls (6.7203,6.036) and (6.0518,6.4738) .. (5.286,6.6572) -- (5.286,6.6572) .. controls (5.0373,6.7168) and (4.7721,6.6794) .. (4.5,6.5465) -- (4.5,6.5465) .. controls (5.1026,6.1045) and (5.6342,4.8869) .. (5.8403,3.4766);%
 \pgfsetstrokecolor{blue}%
 \pgfsetfillopacity{1}%
-\draw[arrows=-stealth] (3.0737,2.3288) -- (1.6473,1.2827);%
+\draw[arrows=-stealth] (3.0737,2.3288) -- (1.2907,1.0211);%
 \draw[arrows=-stealth] (7.5588,2.8872) -- (8.5784,2.7246);%
 \draw[arrows=-stealth] (4.5,6.5465) -- (4.5,7.6036);%
 \pgfsetstrokecolor{red}%
@@ -26,7 +26,7 @@
 \pgfsetroundcap%
 \draw[] (7.1944,5.4074) .. controls (7.0889,5.5473) and (6.7832,5.5266) .. (6.3191,5.3482) -- (6.3191,5.3482) .. controls (6.1384,6.0733) and (5.7688,6.5416) .. (5.286,6.6572) -- (5.286,6.6572) .. controls (6.0518,6.4738) and (6.7203,6.036) .. (7.1944,5.4074);%
 \pgfsetstrokecolor{blue}%
-\draw[arrows=-stealth] (4.5,3.375) -- (1.6473,1.2827);%
+\draw[arrows=-stealth] (4.5,3.375) -- (1.2907,1.0211);%
 \pgfsetbuttcap%
 \pgfsetdash{{2.5pt}{2pt}}{0pt}%
 \pgfsetroundcap%
@@ -44,7 +44,7 @@
 \pgfsetbuttcap%
 \pgfsetdash{}{0pt}%
 \pgfsetfillcolor{black}%
-\draw[-] (4.5,6.5465) node[above left] {$N$} (4.5,3.375) node[below] {$O$} (1.6473,1.2827) node[below left] {$x$} (8.5784,2.7246) node[right] {$y$} (4.5,7.6036) node[above] {$z$} (1.6768,4.702) node[below] {$A$} (2.8235,4.1419) node[below] {$B$} (5.8403,3.4766) node[right] {$C$} (6.3191,5.3482) node[below] {$D$};%
+\draw[-] (4.5,6.5465) node[above left] {$N$} (4.5,3.375) node[below] {$O$} (1.2907,1.0211) node[below left] {$x$} (8.5784,2.7246) node[right] {$y$} (4.5,7.6036) node[above] {$z$} (1.6768,4.702) node[below] {$A$} (2.8235,4.1419) node[below] {$B$} (5.8403,3.4766) node[right] {$C$} (6.3191,5.3482) node[below] {$D$};%
 \pgfsetlinewidth{0.4pt}%
 \end{scope}%
 \end{tikzpicture}%

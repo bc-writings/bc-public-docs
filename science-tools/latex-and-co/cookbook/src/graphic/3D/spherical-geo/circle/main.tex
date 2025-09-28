@@ -8,7 +8,7 @@
 \documentclass{standalone}
 
 %%%
-% Des couleurs faciles d'emploi via le package ''xcolor''!
+% Des couleurs faciles C'emploi via le package ''xcolor''!
 %%%
 \usepackage[svgnames]{xcolor}
 
@@ -20,42 +20,65 @@
 
 \begin{document}
 
-\begin{luadraw}{name=spherical-circle}
+\begin{luadraw}{name = spherical-circle}
+------
+-- Importation du module ¨luadraw dédié à la ¨geo sphérique.
+------
 require 'luadraw_spherical'
 
-local g = graph3d:new{
-  window={-4,4,-3,4},
-  viewdir={30,60},
-  size={10,10}
+------
+-- ¨Def de la zone graphique.
+------
+local graphview = graph3d:new{
+  window  = {-4, 4, -3, 4},
+  viewdir = {30, 60},
+  size    = {10, 10}
 }
 
-g:Linewidth(4)
-Hiddenlines = true
+------
+-- Réglages liés aux lignes et aux flèches.
+------
+graphview:Linewidth(4)
+Hiddenlines     = true
 Hiddenlinestyle = "dashed"
 
-local A, B, C, D = Origin, M(3,0,0), M(0,3,0), M(0,0,3)
-local I1, R1, n1 = circumcircle3d(B,C,A)
-local I, R = circumsphere(A,B,C,D)
-local T = tetra(A,B-A,C-A,D-A)
+------
+-- Nos ¨objs de ¨geo sphérique.
+------
+local O = Origin
 
--- now we use luadraw_spherical, see documentation
-g:Define_sphere({center=I, radius=R})
-g:DScircle({I1,n1})
-g:DSpolyline( facetedges(T) )
-g:Dspherical()
--- end of luadraw_spherical
+local A, B, C = M(3, 0, 0), M(0, 3, 0), M(0, 0, 3)
 
-g:Ddots3d({A, B, C, D, I, I1})
+local I1, R1, n1 = circumcircle3d(A, B, O)
+local I, R       = circumsphere(O, A, B, C)
 
-g:Dlabel3d(
-  "$A$", A, {pos="W"},
-  "$B$", B, {},
-  "$C$", C, {pos="SE"},
-  "$D$", D, {pos="E"},
-  "$I$", I, {pos="E"},
-  "$I_1$", I1, {pos="S"})
+local T = tetra(O, A-O, B-O, C-O)
 
-g:Show()
+graphview:Define_sphere({center = I, radius = R})
+
+graphview:DScircle({I1, n1})
+graphview:DSpolyline(facetedges(T))
+
+graphview:Dspherical()
+
+graphview:Ddots3d({O, A, B, C, I, I1})
+
+------
+-- Ajout d'étiquettes.
+------
+graphview:Dlabel3d(
+  "$O$", O, {pos = "W"},
+  "$A$", A, {},
+  "$B$", B, {pos = "SE"},
+  "$C$", C, {pos = "E"},
+  "$I$", I, {pos = "E"},
+  "$I_1$", I1, {pos = "S"}
+)
+
+------
+-- Et le merveilleux se révèle au monde.
+------
+graphview:Show()
 \end{luadraw}
 
 \end{document}

@@ -21,19 +21,72 @@
 \begin{document}
 
 \begin{luadraw}{name = spherical-square-1}
-  local g = graph3d:new{window={-6,6,-6,6},viewdir={190,75},size={10,10}}
-  g:Linewidth(6); Hiddenlinestyle = "dashed";Hiddenlines = true
- require 'luadraw_spherical'
- arrowBstyle = "-stealth"
- local R= 5
- local O,A,B,C,D = M(0,0,0),M(3, -4, 0), M(3, 0, -4),M(3, 4, 0),M(3, 0,4)
- local P = {A,pt3d.prod(A-B,C-B)}
- g:Define_sphere({center=O, radius=R})
- g:DSfacet({A,B,C,D}, {fill="brown",fillopacity=0.6,color="blue"})
- g:DScircle(P,{color="red"})
- g:Dspherical()
- g:Dlabel3d("$A$",A,{pos="W"}, "$B$",B,{}, "$C$",C,{pos="W"}, "$D$",D,{pos="S"},"$O$",O,{pos="S"})
- g:Show()
+------
+-- Importation du module ¨luadraw dédié à la ¨geo sphérique.
+------
+require 'luadraw_spherical'
+
+------
+-- ¨Def de la zone graphique.
+------
+local graphview = graph3d:new{
+  window  = {-6, 6, -6, 6},
+  viewdir = {190, 75},
+  size    = {10, 10}
+}
+
+------
+-- Réglages liés aux lignes et aux flèches.
+------
+graphview:Linewidth(6)
+Hiddenlinestyle = "dashed"
+Hiddenlines     = true
+
+arrowBstyle = "-stealth"
+
+------
+-- Nos ¨objs de ¨geo sphérique.
+------
+local R =  5
+
+local O = Origin
+
+local A, B = M(3, -4, 0), M(3, 0, -4)
+local C, D = M(3, 4, 0), M(3, 0, 4)
+
+local P = {A, pt3d.prod(A-B, C-B)}
+
+graphview:Define_sphere({center = O, radius = R})
+
+graphview:DSfacet(
+  {A, B, C, D},
+  {fill = "brown", fillopacity = 0.6, color = "blue"}
+)
+
+graphview:DScircle(
+  P,
+  {color = "red"}
+)
+
+-- Tracé dans notre ¨geo sphérique.
+graphview:Dspherical()
+
+------
+-- Ajout d'étiquettes.
+------
+graphview:Dlabel3d(
+-- Origine.
+  "$O$", O, {pos = "S"},
+-- Points de l'exemple.
+  "$A$", A, {pos = "W"},
+  "$B$", B, {},
+  "$C$", C, {pos = "W"},
+  "$D$", D, {pos = "S"})
+
+------
+-- Et le merveilleux se révèle au monde.
+------
+graphview:Show()
 \end{luadraw}
 
 \end{document}

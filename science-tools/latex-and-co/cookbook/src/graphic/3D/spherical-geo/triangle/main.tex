@@ -29,7 +29,7 @@ require 'luadraw_spherical'
 ------
 -- ¨Def de la zone graphique.
 ------
-local g = graph3d:new{
+local graphview = graph3d:new{
   window  = {-4, 4, -3, 5},
   viewdir = {25, 70},
   size    = {10, 10}
@@ -38,57 +38,68 @@ local g = graph3d:new{
 ------
 -- Réglages liés aux lignes et aux flèches.
 ------
-g:Linewidth(6)
+graphview:Linewidth(6)
 Hiddenlinestyle = "dashed"
 Hiddenlines     = true
 
 arrowBstyle = "-stealth"
 
 ------
--- XXX
+-- Nos ¨objs de ¨geo sphérique.
 ------
 local R =  3
-local k = R+1
+
+local k  = R + 1
+local kx = k + 2.75
+
 local O, N = Origin, sM(90, 0)
+
 local A, B = sM(-50, 60), sM(-10, 60)
-local C, D = sM(50, 70), sM(170, 70)
+local C, D = sM(50, 70) , sM(170, 70)
 
-g:Define_sphere({center = O, radius = R})
+graphview:Define_sphere({center = O, radius = R})
 
-g:DSfacet(
+graphview:DSfacet(
   {N, A, B},
   {fill = "brown", fillopacity = 0.6}
 )
 
-g:DSfacet(
+graphview:DSfacet(
   {N, C, D},
   {fill = "brown", fillopacity = 0.6}
 )
 
-g:DSpolyline(
+-- Axes du repère avec des ¨modifs au doigt mouillé pour
+-- un meilleur design (cf. `kx`).
+graphview:DSpolyline(
   {
-    {O, (k+2)*vecI},
-    {O, k*vecJ},
-    {O, k*vecK}},
+    {O, kx * vecI},
+    {O, k * vecJ},
+    {O, k * vecK}},
     {arrows = 1, width = 6, color = "blue"}
 )
 
-g:DScircle(
-  {M(0, 0, 0), vecK},
+-- Équateur.
+graphview:DScircle(
+  {O, vecK},       -- Plan du grand cercle.
   {color = "red"}
 )
 
-g:Dspherical()
+-- Tracé dans notre ¨geo sphérique.
+graphview:Dspherical()
 
 ------
 -- Ajout d'étiquettes.
 ------
-g:Dlabel3d(
+graphview:Dlabel3d(
+-- Points "cardinaux".
   "$N$", N, {pos = "NW"},
   "$O$", O, {pos = "S"},
-  "$x$", (k+2)*vecI, {pos = "SW"},
-  "$y$", k*vecJ, {pos = "E"},
-  "$z$", k*vecK, {pos = "N"},
+-- Axes.
+  "$x$", kx * vecI, {pos = "SW"},
+  "$y$", k * vecJ , {pos = "E"},
+  "$z$", k * vecK , {pos = "N"},
+-- Points de l'exemple.
   "$A$", A, {pos = "S"},
   "$B$", B, {},
   "$C$", C, {pos = "E"},
@@ -98,7 +109,7 @@ g:Dlabel3d(
 ------
 -- Et le merveilleux se révèle au monde.
 ------
-g:Show()
+graphview:Show()
 \end{luadraw}
 
 \end{document}

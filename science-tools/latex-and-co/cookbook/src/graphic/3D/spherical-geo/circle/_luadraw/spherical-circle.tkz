@@ -13,7 +13,7 @@
 \pgfsetdash{{2.5pt}{2pt}}{0pt}%
 \pgfsetroundcap%
 \draw[] (7.2962,1.7353) .. controls (7.8369,2.3398) and (7.301,3.0413) .. (6.0919,3.3117) .. controls (4.8828,3.5821) and (3.4798,3.3141) .. (2.9391,2.7096) .. controls (2.6605,2.398) and (2.6605,2.0468) .. (2.9391,1.7353);%
-\draw[] (4.5,3.375) -- (4.5,6.2978);%
+\draw[] (4.5,3.375) -- (2.8125,1.9136);%
 \pgfsetbuttcap%
 \pgfsetdash{{2.5pt}{2pt}}{0pt}%
 \pgfsetroundcap%
@@ -21,7 +21,11 @@
 \pgfsetbuttcap%
 \pgfsetdash{{2.5pt}{2pt}}{0pt}%
 \pgfsetroundcap%
-\draw[] (4.5,3.375) -- (2.8125,1.9136);%
+\draw[] (4.5,3.375) -- (4.5,6.2978);%
+\pgfsetbuttcap%
+\pgfsetdash{{2.5pt}{2pt}}{0pt}%
+\pgfsetroundcap%
+\draw[] (7.4228,2.5312) -- (4.5,3.375);%
 \pgfsetbuttcap%
 \pgfsetdash{{2.5pt}{2pt}}{0pt}%
 \pgfsetroundcap%
@@ -31,12 +35,8 @@
 \pgfsetroundcap%
 \draw[] (2.8125,1.9136) -- (7.4228,2.5312);%
 \pgfsetbuttcap%
-\pgfsetdash{{2.5pt}{2pt}}{0pt}%
-\pgfsetroundcap%
-\draw[] (7.4228,2.5312) -- (4.5,3.375);%
-\pgfsetbuttcap%
 \pgfsetdash{}{0pt}%
 \draw[mark=*,mark size=1.4pt] plot coordinates {(4.5,3.375)} plot coordinates {(2.8125,1.9136)} plot coordinates {(7.4228,2.5312)} plot coordinates {(4.5,6.2978)} plot coordinates {(5.1177,3.6838)} plot coordinates {(5.1177,2.2224)};%
-\draw[-] (4.5,3.375) node[left] {$A$} (2.8125,1.9136) node[left] {$B$} (7.4228,2.5312) node[below right] {$C$} (4.5,6.2978) node[right] {$D$} (5.1177,3.6838) node[right] {$I$} (5.1177,2.2224) node[below] {$I_1$};%
+\draw[-] (4.5,3.375) node[left] {$O$} (2.8125,1.9136) node[left] {$A$} (7.4228,2.5312) node[below right] {$B$} (4.5,6.2978) node[right] {$C$} (5.1177,3.6838) node[right] {$I$} (5.1177,2.2224) node[below] {$I_1$};%
 \end{scope}%
 \end{tikzpicture}%

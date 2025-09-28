@@ -20,7 +20,7 @@
 \pgfsetbuttcap%
 \pgfsetdash{}{0pt}%
 \pgfsetfillcolor{black}%
-\draw[-] (7.8451,4.9387) node[left] {$A$} (4.8907,2.1757) node[left] {$B$} (1.9363,5.2083) node[left] {$C$} (4.8907,7.9713) node[below] {$D$} (4.5,4.5) node[below] {$O$};%
+\draw[-] (4.5,4.5) node[below] {$O$} (7.8451,4.9387) node[left] {$A$} (4.8907,2.1757) node[left] {$B$} (1.9363,5.2083) node[left] {$C$} (4.8907,7.9713) node[below] {$D$};%
 \pgfsetlinewidth{0.4pt}%
 \end{scope}%
 \end{tikzpicture}%

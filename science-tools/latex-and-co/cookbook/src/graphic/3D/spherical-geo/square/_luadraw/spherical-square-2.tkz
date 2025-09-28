@@ -24,7 +24,7 @@
 \pgfsetbuttcap%
 \pgfsetdash{}{0pt}%
 \pgfsetfillcolor{black}%
-\draw[-] (1.7632,5.5835) node[left] {$A$} (2.2842,1.616) node[right] {$B$} (2.8051,3.0863) node[right] {$C$} (2.2842,7.0538) node[right] {$D$} (4.5,4.5) node[below] {$O$};%
+\draw[-] (4.5,4.5) node[below] {$O$} (1.7632,5.5835) node[left] {$A$} (2.2842,1.616) node[right] {$B$} (2.8051,3.0863) node[right] {$C$} (2.2842,7.0538) node[right] {$D$};%
 \pgfsetlinewidth{0.4pt}%
 \end{scope}%
 \end{tikzpicture}%
