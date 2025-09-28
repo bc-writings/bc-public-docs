@@ -29,16 +29,16 @@ local graphview = graph3d:new{
 local gamma = function(x, y)
   local k_facto, sign, z = 1, 1, Z(x, y)
 
-  local cpx_surf = 1 / z
+  local S = 1 / z
 
   for k = 1, 50 do
     sign    = -sign
     k_facto = k_facto*k
 
-    cpx_surf = cpx_surf + sign / k_facto / (z + k)
+    S = S + sign / k_facto / (z + k)
   end
 
-  return cpx_surf + int(
+  return S + int(
     function(t)
       return cpx.exp((z - 1)*math.log(t) - t)
     end,
