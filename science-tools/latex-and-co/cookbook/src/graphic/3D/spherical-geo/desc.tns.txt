@@ -1,0 +1,7 @@
+==============
+\Geo sphérique
+==============
+
+content::
+    ./triangle/\desc
+    ./square/\desc

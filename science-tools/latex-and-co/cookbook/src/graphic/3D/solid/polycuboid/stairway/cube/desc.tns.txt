@@ -1,13 +1,10 @@
 this::
-    date = 2025-08-25
+    date = 2025-09-28
 
 
-==============
-Avec des cubes
-==============
-
-Commençons naturellement par tracer des cubes.
-
+==================
+Dessiner des cubes
+==================
 
 warning::
     Nous devons de gérer l'ordre du tracé des éléments graphiques, car nous utilisons \luadraw qui n'est pas un moteur de rendu 3D !

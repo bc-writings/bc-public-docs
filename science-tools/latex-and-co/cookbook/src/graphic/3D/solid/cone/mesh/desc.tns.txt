@@ -1,12 +1,6 @@
-this::
-    date = 2025-08-04
-
-
 =====================
 Maillage pour un cône
 =====================
-
-Que dire de plus ? Observez les rendus, et les codes utilisés.
 
 content::
     ./draft/\desc

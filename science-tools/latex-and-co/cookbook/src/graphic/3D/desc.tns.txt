@@ -6,4 +6,4 @@ content::
     ./solid/\desc
     ./wavefront/\desc
     ./surface/\desc
-//    ./complex-func/\desc
+    ./spherical-geo/\desc
