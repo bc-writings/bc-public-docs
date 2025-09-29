@@ -2,13 +2,13 @@
 
 %%%
 % src::
-%     url = https://tex.stackexchange.com/a/751717/6880
+%   url = https://github.com/pfradin/luadraw/discussions/82#discussioncomment-14370152
 %%%
 
 \documentclass{standalone}
 
 %%%
-% Des couleurs faciles d'emploi via le package ''xcolor''!
+% Des couleurs faciles C'emploi via le package ''xcolor''!
 %%%
 \usepackage[svgnames]{xcolor}
 
@@ -20,7 +20,7 @@
 
 \begin{document}
 
-\begin{luadraw}{name = spherical-circle}
+\begin{luadraw}{name = circum-circle-sphere}
 ------
 -- Importation du module ¨luadraw dédié à la ¨geo sphérique.
 ------
@@ -30,51 +30,49 @@ require 'luadraw_spherical'
 -- ¨Def de la zone graphique.
 ------
 local graphview = graph3d:new{
-  window  = {-5, 5, -5, 5},
-  viewdir = {15, 70},
+  window  = {-4, 4, -3, 4},
+  viewdir = {30, 60},
   size    = {10, 10}
 }
 
 ------
 -- Réglages liés aux lignes et aux flèches.
 ------
-graphview:Linewidth(6)
+graphview:Linewidth(4)
 Hiddenlines     = true
 Hiddenlinestyle = "dashed"
 
 ------
 -- Nos ¨objs de ¨geo sphérique.
 ------
-local R = 4
 local O = Origin
 
-graphview:Define_sphere({center = O, radius = R})
+local A, B, C = M(3, 0, 0), M(0, 3, 0), M(0, 0, 3)
 
-local A = sM(-30, 20)
-local B = sM(0, 90)
-local P = {O, pt3d.prod(A, B)}
+local I1, R1, n1 = circumcircle3d(A, B, O)
+local I, R       = circumsphere(O, A, B, C)
 
-graphview:DScircle(
-  P,
-  {color = "blue"}
-)
+local T = tetra(O, A-O, B-O, C-O)
 
-graphview:DScircle(
-  {O, vecK},
-  {color = "green"}
-)
+graphview:Define_sphere({center = I, radius = R})
+
+graphview:DScircle({I1, n1})
+graphview:DSpolyline(facetedges(T))
 
 graphview:Dspherical()
 
-graphview:Ddots3d({A, B, O})
+graphview:Ddots3d({O, A, B, C, I, I1})
 
 ------
 -- Ajout d'étiquettes.
 ------
 graphview:Dlabel3d(
-  "$O$", O, {pos = "S"},
-  "$A$", A, {pos = "E"},
-  "$B$", B, {pos = "NE"}
+  "$O$", O, {pos = "W"},
+  "$A$", A, {},
+  "$B$", B, {pos = "SE"},
+  "$C$", C, {pos = "E"},
+  "$I$", I, {pos = "E"},
+  "$I_1$", I1, {pos = "S"}
 )
 
 ------

@@ -3,6 +3,7 @@
 ==============
 
 content::
+    ./circle/\desc
     ./triangle/\desc
     ./square/\desc
-    ./circle/\desc
+    ./circum-circle-sphere/\desc
