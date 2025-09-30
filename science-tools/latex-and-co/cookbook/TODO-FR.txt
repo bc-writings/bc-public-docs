@@ -5,6 +5,11 @@ latex-and-co - TODO
 
 > ---------------------------- <
 
+geo sphérique : placer def de la sphère aant les objets !!!!
+
+
+> ---------------------------- <
+
 \listfiles + texlogsieve pour avoir les packages utilisés localement
 
 

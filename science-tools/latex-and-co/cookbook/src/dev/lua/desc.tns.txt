@@ -5,3 +5,4 @@
 content::
     ./def-macro-from-lua/\desc
     ./verb-arg-for-lua/\desc
+    ./typing-verbatim/\desc

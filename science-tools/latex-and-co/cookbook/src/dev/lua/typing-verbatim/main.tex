@@ -1,0 +1,20 @@
+% !TEX TS-program = lualatex
+
+\documentclass{article}
+
+\usepackage{verbatim}
+
+\begin{document}
+
+\directlua{
+local test = {"1", "two", "***"}
+
+for i, x in ipairs(test) do
+  tex.print("\\begin{verbatim}")
+  tex.print("TEST " .. i .. ": " .. x)
+  tex.print("\\end{verbatim}")
+end
+}
+
+\end{document}
+
