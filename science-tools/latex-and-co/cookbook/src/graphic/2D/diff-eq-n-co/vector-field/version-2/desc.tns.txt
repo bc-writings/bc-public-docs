@@ -1,9 +1,9 @@
 this::
-    date = 2025-10-????????
+    date = 2025-10-01
 
 
 =====================
 Une petite améliora^o
 =====================
 
-XXXX
+Nous proposons une version plus gourmande en calculs, mais qui produit une "\surf de niveau" plus lisse, plus agréable à voir.
