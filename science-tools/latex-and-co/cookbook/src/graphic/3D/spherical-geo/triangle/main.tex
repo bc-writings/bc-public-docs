@@ -54,10 +54,10 @@ local kx = k + 2.75  -- Réglage empirique.
 
 local O, N = Origin, sM(90, 0)
 
+graphview:Define_sphere({center = O, radius = R})
+
 local A, B = sM(-50, 60), sM(-10, 60)
 local C, D = sM(50, 70) , sM(170, 70)
-
-graphview:Define_sphere({center = O, radius = R})
 
 graphview:DSfacet(
   {N, A, B},
