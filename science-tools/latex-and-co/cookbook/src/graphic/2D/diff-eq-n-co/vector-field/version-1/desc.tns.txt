@@ -6,4 +6,4 @@ this::
 \1ere tentative
 ===============
 
-Commençonspar utiliser le même maillage pour le champ de veceturs et les "\surfs de niveau".
+Voici une proposi^o qui utilise le même maillage pour le champ de vecteurs et le "\surf de niveau".
