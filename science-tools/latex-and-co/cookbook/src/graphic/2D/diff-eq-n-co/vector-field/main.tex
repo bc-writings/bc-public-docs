@@ -1,0 +1,126 @@
+% !TEX TS-program = lualatex
+
+%%%
+% src::
+%     url = https://github.com/pfradin/luadraw/discussions/111#discussioncomment-14560468
+%%%
+
+\documentclass{standalone}
+
+%%%
+% Des couleurs nommées faciles d'emploi via le package ''xcolor''!
+%%%
+\usepackage[svgnames]{xcolor}
+
+%%%
+% La bibliothèque ''luadraw'' allie une facilité d’utilisation à
+% un rendu particulièrement soigné.
+%%%
+\usepackage[3d]{luadraw}
+
+\begin{document}
+
+\begin{luadraw}{name = pretty-vector-field}
+local x1,x2,y1,y2 = -3,3,-3,3
+
+local n_vect, n_map = 20, 20
+
+local pal = {Purple,Indigo,Blue,Green,Yellow,Orange,Red}
+
+
+-- éq. diff. y'= x^2+y^2-1=f(x,y)
+local f = function(x,y)
+    return x^2+y^2-1
+end
+
+-- initial condition
+local A = Z(0,1/2)
+
+local deltaX, deltaY, long = (x2-x1)/n_vect, (y2-y1)/n_vect
+
+local long = math.min(deltaX,deltaY)-0.1
+
+local values, key = {}
+local vectors, v = {}
+
+local Min, Max = math.huge, -math.huge
+
+for i = 1, n_vect do
+    local x = x1+deltaX*(i-0.5)
+
+    for j = 1, n_vect do
+        local y = y1+deltaX*(j-0.5)
+
+        key = i.."/"..j
+
+        local img = f(x,y)
+
+        if img < Min then Min = img end
+        if img > Max then Max = img end
+
+        values[key] = img
+
+        v = Z(1,img)
+        v = v/cpx.abs(v)*long
+
+        table.insert(vectors, {Z(x,y), Z(x,y)+v} )
+    end
+end
+
+local g = graph:new{
+  window={x1-0.5,x2+0.5,y1-0.5,y2+0.5},
+  bg="",
+  size={10,10}
+}
+
+for i = 1, n_map do
+    local x = x1+deltaX*(i-1)
+
+    for j = 1, n_map do
+    local y = y1+deltaX*(j-1)
+    local color = palette(pal,(values[key]-Min)/(Max-Min))
+    key = i.."/"..j
+
+    g:Dpolyline(
+      {
+        Z(x,y),
+        Z(x+deltaX,y),
+        Z(x+deltaX,y+deltaY),
+        Z(x,y+deltaY)
+      },
+      "fill opacity=0.5,draw=none,fill="..color
+    )
+    end
+end
+
+g:Dgradbox(
+  {
+    Z(x1,y1),Z(x2,y2),
+    1,1
+  },
+  {
+    originloc=0,
+    originnum={0,0},
+    nbsubdiv={3,3}
+  }
+)
+
+g:Dpolyline(vectors, "-latex,darkgray")
+
+g:Dodesolve(
+  f,
+  A.re, A.im,
+  {
+    t={x1,x2},
+    draw_options="red,line width=0.8pt",
+    nbdots=150,
+    clip={-2.5,2.25,y1,y2}
+  }
+)
+
+g:Dlabeldot("$A$", A, {pos="S"})
+
+g:Show()
+\end{luadraw}
+
+\end{document}

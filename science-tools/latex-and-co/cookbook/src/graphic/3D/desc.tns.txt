@@ -1,6 +1,6 @@
-===================
-Dans l'espace usuel
-===================
+=============
+Dans l'espace
+=============
 
 content::
     ./solid/\desc

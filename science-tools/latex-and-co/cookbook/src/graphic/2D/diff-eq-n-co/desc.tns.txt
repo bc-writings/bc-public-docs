@@ -1,0 +1,6 @@
+======================
+Autour des \equa_diffs
+======================
+
+content::
+    ./vector-field/\desc

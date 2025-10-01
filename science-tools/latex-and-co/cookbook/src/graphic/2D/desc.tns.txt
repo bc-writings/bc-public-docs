@@ -1,7 +1,8 @@
-===========
-Des courbes
-===========
+============
+Dans le plan
+============
 
 content::
     ./explicit/\desc
     ./implicit/\desc
+    ./diff-eq-n-co/\desc
