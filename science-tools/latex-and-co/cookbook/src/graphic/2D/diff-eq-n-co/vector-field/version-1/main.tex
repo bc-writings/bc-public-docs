@@ -21,105 +21,147 @@
 \begin{document}
 
 \begin{luadraw}{name = pretty-vector-field}
-local x1,x2,y1,y2 = -3,3,-3,3
-
-local n_vect, n_map = 20, 20
-
-local pal = {Purple,Indigo,Blue,Green,Yellow,Orange,Red}
-
--- éq. diff. y'= x^2+y^2-1=f(x,y)
-local f = function(x,y)
-    return x^2+y^2-1
+------
+-- Considérons `y' = f(x, y)` où `f(x, y) = x^2 + y^2 - 1` avec
+-- la ¨cond initiale `y(0) = 1/2`.
+------
+local f = function(x, y)
+  return x^2 + y^2 - 1
 end
 
--- initial condition
-local A = Z(0,1/2)
+local A_0 = Z(0, 1/2)
 
-local deltaX, deltaY, long = (x2-x1)/n_vect, (y2-y1)/n_vect
+------
+-- Réglages liés au tracé.
+------
+local x1, x2, y1, y2 = -3, 3, -3, 3
 
-local long = math.min(deltaX,deltaY)-0.1
+local nb_cells = 20
 
-local values, key = {}
-local vectors, v = {}
+local spectrum = {Purple, Indigo, Blue, Green, Yellow, Orange, Red}
 
-local Min, Max = math.huge, -math.huge
-
-for i = 1, n_vect do
-    local x = x1+deltaX*(i-0.5)
-
-    for j = 1, n_vect do
-        local y = y1+deltaX*(j-0.5)
-
-        key = i.."/"..j
-
-        local img = f(x,y)
-
-        if img < Min then Min = img end
-        if img > Max then Max = img end
-
-        values[key] = img
-
-        v = Z(1,img)
-        v = v/cpx.abs(v)*long
-
-        table.insert(vectors, {Z(x,y), Z(x,y)+v} )
-    end
-end
-
-local g = graph:new{
-  window={x1-0.5,x2+0.5,y1-0.5,y2+0.5},
-  bg="",
-  size={10,10}
+------
+-- ¨Def de la zone graphique.
+------
+local graphview = graph:new{
+  window = {x1 - 0.5, x2 + 0.5, y1 - 0.5, y2 + 0.5},
+  bg     = "",
+  size   = {10, 10}
 }
 
-for i = 1, n_map do
-    local x = x1+deltaX*(i-1)
+------
+-- Construction du champ de ¨vects et de la "¨surf de niveau".
+------
+local delta_X = (x2 - x1) / nb_cells
+local delta_Y = (y2 - y1) / nb_cells
 
-    for j = 1, n_map do
-    local y = y1+deltaX*(j-1)
-    local color = palette(pal,(values[key]-Min)/(Max-Min))
-    key = i.."/"..j
+local vect_norm = math.min(delta_X, delta_Y) - 0.1
 
-    g:Dpolyline(
+local values = {}
+local ijkey
+
+local vectors = {}
+local v
+
+local img_min, img_max = math.huge, -math.huge
+
+for i = 1, nb_cells do
+  local x = x1 + delta_X * (i - 0.5)
+
+  for j = 1, nb_cells do
+    local y = y1 + delta_X * (j - 0.5)
+
+    ijkey = i .. "/" .. j
+
+    local img = f(x, y)
+
+    if img < img_min then
+      img_min = img
+    end
+
+    if img > img_max then
+      img_max = img
+    end
+
+    values[ijkey] = img
+
+    local v = Z(1, img)
+    v = v / cpx.abs(v) * vect_norm
+
+    table.insert(vectors, {Z(x, y), Z(x, y) + v})
+  end
+end
+
+for i = 1, nb_cells do
+  local x = x1 + delta_X * (i - 1)
+
+  for j = 1, nb_cells do
+    local y = y1 + delta_X * (j - 1)
+
+    local color = palette(
+      spectrum,
+      (values[ijkey] - img_min) / (img_max - img_min)
+    )
+
+    ijkey = i .. "/" .. j
+
+    graphview:Dpolyline(
       {
-        Z(x,y),
-        Z(x+deltaX,y),
-        Z(x+deltaX,y+deltaY),
-        Z(x,y+deltaY)
+        Z(x, y),
+        Z(x + delta_X, y),
+        Z(x + delta_X, y + delta_Y),
+        Z(x, y + delta_Y)
       },
-      "fill opacity=0.5,draw=none,fill="..color
+      "fill opacity = 0.5, draw = none, fill = "..color
     )
     end
 end
 
-g:Dgradbox(
+------
+-- Ajout d'un cadre gradué.
+------
+graphview:Dgradbox(
   {
-    Z(x1,y1),Z(x2,y2),
-    1,1
+    Z(x1, y1), Z(x2, y2),
+    1, 1
   },
   {
-    originloc=0,
-    originnum={0,0},
-    nbsubdiv={3,3}
+    originloc = 0,
+    originnum = {0, 0},
+    nbsubdiv  = {3, 3}
   }
 )
 
-g:Dpolyline(vectors, "-latex,darkgray")
+------
+-- Tracé des vecteurs.
+------
+graphview:Dpolyline(vectors, "-latex, darkgray")
 
-g:Dodesolve(
+------
+-- ¨luadraw va résoudre et tracer la ¨sol de l'¨eq_diff.
+------
+graphview:Dodesolve(
   f,
-  A.re, A.im,
+  A_0.re, A_0.im,
   {
-    t={x1,x2},
-    draw_options="red,line width=0.8pt",
-    nbdots=150,
-    clip={-2.5,2.25,y1,y2}
+    t            = {x1, x2},
+    clip         = {-2.5, 2.25, y1, y2},
+    nbdots       = 150,
+    draw_options = "Navy, line width = 1pt"
   }
 )
 
-g:Dlabeldot("$A$", A, {pos="S"})
+------
+-- Ajout du point initial.
+------
+graphview:Dlabeldot(
+  "{\\boldmath $A_0$}", A_0, {pos = "S", node_options = "Navy"}
+)
 
-g:Show()
+------
+-- Et le merveilleux se révèle au monde.
+------
+graphview:Show()
 \end{luadraw}
 
 \end{document}

@@ -6,4 +6,8 @@ this::
 \1ere tentative
 ===============
 
-Voici une proposi^o qui utilise le même maillage pour le champ de vecteurs et le "\surf de niveau".
+Voici une \propo utilisant le même maillage pour le champ de \vects et la "\surf de niveau".
+
+
+note::
+     Ce choix graphique a le grand avantage de bien visualiser la \coul associée à chaque \vect.
