@@ -1,0 +1,9 @@
+this::
+    date = 2025-10-01
+
+
+===================
+Abscisse curviligne
+===================
+
+Pour tracer des points réguliérement espacés sur une courbe, il faut passer via la notion d'abscisse curviligne. Cette recete donne un cas d'utilisation de ce concept via différentes implémentations.

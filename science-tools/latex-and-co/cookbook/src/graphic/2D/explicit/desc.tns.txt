@@ -4,3 +4,4 @@ Via une équation explicite
 
 content::
     ./discontinuous/\desc
+    ./curvilinear-abscissa\/desc
