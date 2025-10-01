@@ -29,8 +29,8 @@ local h = function(t)
 end
 
 local f = function(x)
-  if (x<1/2) or (x>1) then
-    return int(h,x,2*x)
+  if (x < 1/2) or (x > 1) then
+    return int(h, x, 2*x)
   end
 end
 
@@ -66,9 +66,8 @@ graphview:Dline(
 ------
 graphview:Daxes(
   {0, 1, 1},
-  {
-    arrows = "-stealth"
-  })
+  {arrows = "-stealth"}
+)
 
 ------
 -- Tracé de la fonction.

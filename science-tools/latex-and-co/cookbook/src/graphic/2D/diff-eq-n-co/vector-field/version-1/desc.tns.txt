@@ -1,0 +1,9 @@
+this::
+    date = 2025-10-01
+
+
+===============
+\1ere tentative
+===============
+
+Commençonspar utiliser le même maillage pour le champ de veceturs et les "\surfs de niveau".

@@ -1,3 +1,19 @@
+this::
+    date = 2025-10-01
+
+
 ======================================
 Jolie représenta^o d'un \chp de \vects
 ======================================
+
+Notre objectif est d'obtenir le rendu suivant.
+
+pdf::
+    ---
+    file = ./version-2/main-crop.pdf
+    ---
+
+
+content::
+    ./version-1/\desc
+    ./version-2/\desc
