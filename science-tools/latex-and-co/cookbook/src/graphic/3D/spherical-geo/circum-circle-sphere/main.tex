@@ -52,7 +52,7 @@ local A, B, C = M(3, 0, 0), M(0, 3, 0), M(0, 0, 3)
 local I1, R1, n1 = circumcircle3d(A, B, O)
 local I, R       = circumsphere(O, A, B, C)
 
-local T = tetra(O, A-O, B-O, C-O)
+local T = tetra(O, A - O, B - O, C - O)
 
 graphview:Define_sphere({center = I, radius = R})
 
@@ -67,9 +67,9 @@ graphview:Ddots3d({O, A, B, C, I, I1})
 -- Ajout d'étiquettes.
 ------
 graphview:Dlabel3d(
-  "$O$", O, {pos = "W"},
-  "$A$", A, {},
-  "$B$", B, {pos = "SE"},
+  "$O$", O, {pos = "NW"},
+  "$A$", A, {pos = "W"},
+  "$B$", B, {pos = "E"},
   "$C$", C, {pos = "E"},
   "$I$", I, {pos = "E"},
   "$I_1$", I1, {pos = "S"}

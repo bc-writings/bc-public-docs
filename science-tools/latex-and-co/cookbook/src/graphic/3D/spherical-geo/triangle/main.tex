@@ -36,23 +36,20 @@ local graphview = graph3d:new{
 }
 
 ------
--- Réglages liés aux lignes et aux flèches.
+-- Réglages liés aux lignes.
 ------
 graphview:Linewidth(6)
 Hiddenlinestyle = "dashed"
 Hiddenlines     = true
 
-arrowBstyle = "-stealth"
-
 ------
 -- Nos ¨objs de ¨geo sphérique.
 ------
-local R =  3
+local O, R = Origin, 3
 
-local k  = R + 1
-local kx = k + 2.75  -- Réglage empirique.
+graphview:Define_sphere({center = O, radius = R})
 
-local O, N = Origin, sM(90, 0)
+local N = sM(90, 0)
 
 graphview:Define_sphere({center = O, radius = R})
 
@@ -69,16 +66,6 @@ graphview:DSfacet(
   {fill = "brown", fillopacity = 0.6}
 )
 
--- Axes du repère avec des ¨modifs au doigt mouillé pour
--- un meilleur design (cf. `kx`).
-graphview:DSpolyline(
-  {
-    {O, kx * vecI},
-    {O, k * vecJ},
-    {O, k * vecK}},
-    {arrows = 1, width = 6, color = "blue"}
-)
-
 -- Équateur.
 graphview:DScircle(
   {O, vecK},       -- Plan du grand cercle.
@@ -93,12 +80,8 @@ graphview:Dspherical()
 ------
 graphview:Dlabel3d(
 -- Points "cardinaux".
-  "$N$", N, {pos = "NW"},
+  "$N$", N, {pos = "S"},
   "$O$", O, {pos = "S"},
--- Axes.
-  "$x$", kx * vecI, {pos = "SW"},
-  "$y$", k * vecJ , {pos = "E"},
-  "$z$", k * vecK , {pos = "N"},
 -- Points de l'exemple.
   "$A$", A, {pos = "S"},
   "$B$", B, {},

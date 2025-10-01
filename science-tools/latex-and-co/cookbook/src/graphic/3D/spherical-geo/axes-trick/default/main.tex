@@ -2,7 +2,7 @@
 
 %%%
 % src::
-%     url = https://tex.stackexchange.com/a/751813/6880
+%     url = https://tex.stackexchange.com/a/751717/6880
 %%%
 
 \documentclass{standalone}
@@ -20,7 +20,7 @@
 
 \begin{document}
 
-\begin{luadraw}{name = spherical-circle}
+\begin{luadraw}{name = spherical-default-axes}
 ------
 -- Importation du module ¨luadraw dédié à la ¨geo sphérique.
 ------
@@ -30,8 +30,8 @@ require 'luadraw_spherical'
 -- ¨Def de la zone graphique.
 ------
 local graphview = graph3d:new{
-  window  = {-5, 5, -5, 5},
-  viewdir = {15, 70},
+  window  = {-4, 4, -3, 5},
+  viewdir = {25, 70},
   size    = {10, 10}
 }
 
@@ -39,41 +39,62 @@ local graphview = graph3d:new{
 -- Réglages liés aux lignes et aux flèches.
 ------
 graphview:Linewidth(6)
-Hiddenlines     = true
 Hiddenlinestyle = "dashed"
+Hiddenlines     = true
+
+arrowBstyle = "-stealth"
 
 ------
 -- Nos ¨objs de ¨geo sphérique.
 ------
-local O, R = Origin, 4
+local O, R = Origin, 3
 
 graphview:Define_sphere({center = O, radius = R})
 
-local A = sM(-30, 20)
-local B = sM(0, 90)
-local P = {O, pt3d.prod(A, B)}
+local N, A, B = sM(90, 0), sM(-50, 60), sM(-10, 60)
 
-graphview:DScircle(
-  P,
-  {color = "blue"}
+graphview:DSfacet(
+  {N, A, B},
+  {fill = "brown", fillopacity = 0.6}
 )
 
-graphview:DScircle(
-  {O, vecK},
-  {color = "green"}
+-- Axes.
+local k      = R + 1     -- "Taille" des axes.
+local x_vect = k * vecI
+local y_vect = k * vecJ
+local z_vect = k * vecK
+
+graphview:DSpolyline(
+  {
+    {O, O + x_vect},  -- O inutiles, mais mathématiquement
+    {O, O + y_vect},  -- c'est plus correct.
+    {O, O + z_vect}
+  },
+  {arrows = 1, width = 6, color = "blue"}
 )
 
+-- Équateur.
+graphview:DScircle(
+  {O, vecK},       -- Plan du grand cercle.
+  {color = "red"}
+)
+
+-- Tracé dans notre ¨geo sphérique.
 graphview:Dspherical()
-
-graphview:Ddots3d({A, B, O})
 
 ------
 -- Ajout d'étiquettes.
 ------
 graphview:Dlabel3d(
+-- Nos axes.
   "$O$", O, {pos = "S"},
-  "$A$", A, {pos = "E"},
-  "$B$", B, {pos = "NE"}
+  "$x$", x_vect, {pos = "SW"},
+  "$y$", y_vect, {pos = "E"},
+  "$z$", z_vect, {pos = "N"},
+-- Points de l'exemple.
+  "$A$", A, {pos = "S"},
+  "$B$", B, {},
+  "$N$", N, {pos = "E"}
 )
 
 ------

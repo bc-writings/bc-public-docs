@@ -1,0 +1,7 @@
+====================
+Ajouter des axes \3d
+====================
+
+content::
+    ./default/\desc
+    ./pretty/\desc

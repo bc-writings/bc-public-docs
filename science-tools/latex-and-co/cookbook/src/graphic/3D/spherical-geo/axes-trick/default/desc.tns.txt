@@ -1,0 +1,14 @@
+this::
+    date = 2025-10-01
+
+
+=====================
+Construc^o par défaut
+=====================
+
+Le tracé \std proposé ici heurte notre cerveau
+((
+    Au moins, celui de l'auteur de ces lignes.
+))
+qui souhaite voir des flèches des axes \ttes écartées de la même façon autour du contour de la sphère.
+La recette suivante donne une \sol simple permettant de résoudre ce \pb cognitif.

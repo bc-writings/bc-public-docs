@@ -1,0 +1,85 @@
+% !TEX TS-program = lualatex
+
+%%%
+% src::
+%     url = https://github.com/pfradin/luadraw/discussions/110#discussioncomment-14559937
+%%%
+
+\documentclass{standalone}
+
+\usepackage[svgnames]{xcolor}
+\usepackage[3d]{luadraw}
+
+\begin{document}
+
+\begin{luadraw}{name = spherical-pretty-axes}
+require 'luadraw_spherical'
+
+local graphview = graph3d:new{
+  window  = {-4, 4, -3, 5},
+  viewdir = {25, 70},
+  size    = {10, 10}
+}
+
+graphview:Linewidth(6)
+Hiddenlinestyle = "dashed"
+Hiddenlines     = true
+
+arrowBstyle = "-stealth"
+
+local O, R = Origin, 3
+
+graphview:Define_sphere({center = O, radius = R})
+
+local N, A, B = sM(90, 0), sM(-50, 60), sM(-10, 60)
+
+graphview:DSfacet(
+  {N, A, B},
+  {fill = "brown", fillopacity = 0.6}
+)
+
+------
+-- XXX    veci est un vecteur directionnel de la projection de l'axe Ox et la projection du point 3D O+kx*vecI est : o+kx*veci (o est la projection de O) et sa distance à o est R+1
+------
+local function build_axe_vect(ray, vect_3d)
+  local vect_2d = graphview:Proj3d(vect_3d)
+  local k       = (ray + 1) / cpx.abs(vect_2d)
+
+  return k * vect_3d
+end
+
+local x_vect = build_axe_vect(R, vecI)
+local y_vect = build_axe_vect(R, vecJ)
+local z_vect = build_axe_vect(R, vecK)
+
+graphview:DSpolyline(
+  {
+    {O, O + x_vect},
+    {O, O + y_vect},
+    {O, O + z_vect}},
+    {arrows = 1, width = 6, color = "blue"}
+)
+
+graphview:DScircle(
+  {O, vecK},       -- Plan du grand cercle.
+  {color = "red"}
+)
+
+graphview:Dspherical()
+
+graphview:Dlabel3d(
+-- Nos axes.
+  "$O$", O, {pos = "S"},
+  "$x$", x_vect, {pos = "SW"},
+  "$y$", y_vect, {pos = "E"},
+  "$z$", z_vect, {pos = "N"},
+-- Points de l'exemple.
+  "$A$", A, {pos = "S"},
+  "$B$", B, {},
+  "$N$", N, {pos = "E"}
+)
+
+graphview:Show()
+\end{luadraw}
+
+\end{document}
