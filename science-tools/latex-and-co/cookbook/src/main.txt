@@ -15,9 +15,3 @@ content::
     ./general/\desc
     ./science/\desc
     ./graphic/\desc
-
-
-
-
--- Axes du repère avec des ¨modifs au doigt mouillé pour
--- un meilleur design (cf. `kx`).

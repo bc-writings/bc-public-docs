@@ -39,7 +39,10 @@ graphview:DSfacet(
 )
 
 ------
--- XXX    veci est un vecteur directionnel de la projection de l'axe Ox et la projection du point 3D O+kx*vecI est : o+kx*veci (o est la projection de O) et sa distance à o est R+1
+-- ''vect_2d'' est la projection de ''vect_3D'' dans le plan de
+-- la vue. Le reste du code est opérationnel, car le rayon fourni
+-- à ''Define_sphere'' est celui du dessin en ¨2D, et une ¨proj
+-- paralèle conserve les rapports de ¨long directionnelles.
 ------
 local function build_axe_vect(ray, vect_3d)
   local vect_2d = graphview:Proj3d(vect_3d)
@@ -56,8 +59,9 @@ graphview:DSpolyline(
   {
     {O, O + x_vect},
     {O, O + y_vect},
-    {O, O + z_vect}},
-    {arrows = 1, width = 6, color = "blue"}
+    {O, O + z_vect}
+  },
+  {arrows = 1, width = 6, color = "blue"}
 )
 
 graphview:DScircle(
