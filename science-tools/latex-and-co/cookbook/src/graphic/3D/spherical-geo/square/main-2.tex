@@ -29,8 +29,10 @@ require 'luadraw_spherical'
 ------
 -- ¨Def de la zone graphique.
 ------
+local O, R = Origin, 5
+
 local graphview = graph3d:new{
-  window  = {-6, 6, -6, 6},
+  window  = {-R - 1, R + 1, -R - 1, R + 1},
   viewdir = {80, 65},
   size    = {10, 10}
 }
@@ -45,16 +47,12 @@ Hiddenlines     = true
 ------
 -- Nos ¨objs de ¨geo sphérique.
 ------
-local R =  5
-
-local O = Origin
+graphview:Define_sphere({center = O, radius = R})
 
 local A, B = M(3, -4, 0), M(3, 0, -4)
 local C, D = M(3, 4, 0), M(3, 0, 4)
 
 local P = {A, pt3d.prod(A - B, C - B)}
-
-graphview:Define_sphere({center = O, radius = R})
 
 graphview:DSfacet(
   {A, B, C, D},

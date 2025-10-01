@@ -15,8 +15,10 @@
 \begin{luadraw}{name = spherical-pretty-axes}
 require 'luadraw_spherical'
 
+local O, R = Origin, 3
+
 local graphview = graph3d:new{
-  window  = {-4, 4, -3, 5},
+  window  = {-R - 1.5, R + 1.5, -R - 1.5, R + 1.5},
   viewdir = {25, 70},
   size    = {10, 10}
 }
@@ -26,8 +28,6 @@ Hiddenlinestyle = "dashed"
 Hiddenlines     = true
 
 arrowBstyle = "-stealth"
-
-local O, R = Origin, 3
 
 graphview:Define_sphere({center = O, radius = R})
 
