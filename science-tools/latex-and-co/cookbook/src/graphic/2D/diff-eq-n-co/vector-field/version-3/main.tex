@@ -40,9 +40,9 @@ local A_0 = Z(0, 1/2)
 ------
 -- Réglages liés au tracé.
 ------
-local x1, x2, y1, y2 = -3, 3, -3, 3
+local xmin, xmax, ymin, ymax = -3, 3, -3, 3
 
-local nb_divs = 20
+local nb_divs = 10  -- 20 pour publication !
 
 local spectrum = {Purple, Indigo, Blue, Green, Yellow, Orange, Red}
 
@@ -50,7 +50,7 @@ local spectrum = {Purple, Indigo, Blue, Green, Yellow, Orange, Red}
 -- ¨Def de la zone graphique.
 ------
 local graphview = graph:new{
-  window = {x1 - 0.5, x2 + 0.5, y1 - 0.5, y2 + 0.5},
+  window = {xmin - 0.5, xmax + 0.5, ymin - 0.5, ymax + 0.5},
   bg     = "",
   size   = {10, 10}
 }
@@ -58,8 +58,8 @@ local graphview = graph:new{
 ------
 -- Construction du champ de ¨vects.
 ------
-local delta_X = (x2 - x1) / nb_divs
-local delta_Y = (y2 - y1) / nb_divs
+local delta_X = (xmax - xmin) / nb_divs
+local delta_Y = (ymax - ymin) / nb_divs
 
 local vect_norm = math.min(delta_X, delta_Y) - 0.1
 
@@ -74,14 +74,17 @@ local key
 local img_min, img_max = math.huge, -math.huge
 
 
-for i = 0, nb_divs do
-  x = x1 + delta_X * i
 
-  local x1 = x + delta_X / 2
+
+for i = 0, nb_divs do
+  x = xmin + delta_X * i
+
+  local xmin = x + delta_X / 2
 
   for j = 0, nb_divs do
-    y  = y1 + delta_X * j
-    local y1 = y  + delta_Y / 2
+    y = ymin + delta_X * j
+
+    local ymin = y  + delta_Y / 2
 
     key = i .. "/" .. j
     img = f(x, y)
@@ -97,13 +100,16 @@ for i = 0, nb_divs do
     values[key] = img
 
     if i < nb_divs and j <nb_divs then
-      v = Z(1, f(x1, y1))
+      v = Z(1, f(xmin, ymin))
       v = v/cpx.abs(v)*vect_norm
 
-      table.insert(vectors, {Z(x1, y1), Z(x1, y1)+v} )
+      table.insert(vectors, {Z(xmin, ymin), Z(xmin, ymin)+v} )
     end
   end
 end
+
+
+
 
 local left_colors, right_colors = {}, {}
 
@@ -122,12 +128,14 @@ for j = 0, nb_divs do
   table.insert(right_colors, color)
 end
 
+
+
 local eps = 1e-2 -- to widen the squares a little
 
 local col_0, col_1, col_2, col_3, options
 
 for i = 0, nb_divs - 1 do
-  x = x1 + delta_X * i
+  x = xmin + delta_X * i
 
   left_colors, right_colors = right_colors, {}
 
@@ -147,7 +155,7 @@ for i = 0, nb_divs - 1 do
   end
 
   for j = 0, nb_divs - 1 do
-    y = y1 + delta_X * j
+    y = ymin + delta_X * j
 
     col_0 = left_colors[j + 1]
     col_1 = right_colors[j + 1]
@@ -173,12 +181,15 @@ for i = 0, nb_divs - 1 do
   end
 end
 
+
+
+
 ------
 -- Ajout d'un cadre gradué.
 ------
 graphview:Dgradbox(
   {
-    Z(x1, y1), Z(x2, y2),
+    Z(xmin, ymin), Z(xmax, ymax),
     1, 1
   },
   {
@@ -200,8 +211,8 @@ graphview:Dodesolve(
   f,
   A_0.re, A_0.im,
   {
-    t            = {x1, x2},
-    clip         = {-2.5, 2.25, y1, y2},
+    t            = {xmin, xmax},
+    clip         = {-2.5, 2.25, ymin, ymax},
     nbdots       = 150,
     draw_options = "Navy, line width = 1pt"
   }

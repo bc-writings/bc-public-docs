@@ -34,7 +34,7 @@ local A_0 = Z(0, 1/2)
 ------
 -- Réglages liés au tracé.
 ------
-local x1, x2, y1, y2 = -3, 3, -3, 3
+local xmin, xmax, ymin, ymax = -3, 3, -3, 3
 
 local nb_field_divs, nb_surf_divs = 20, 50
 
@@ -44,7 +44,7 @@ local spectrum = {Purple, Indigo, Blue, Green, Yellow, Orange, Red}
 -- ¨Def de la zone graphique.
 ------
 local graphview = graph:new{
-  window = {x1 - 0.5, x2 + 0.5, y1 - 0.5, y2 + 0.5},
+  window = {xmin - 0.5, xmax + 0.5, ymin - 0.5, ymax + 0.5},
   bg     = "",
   size   = {10, 10}
 }
@@ -52,8 +52,8 @@ local graphview = graph:new{
 ------
 -- Construction du champ de ¨vects.
 ------
-local delta_X = (x2 - x1) / nb_field_divs
-local delta_Y = (y2 - y1) / nb_field_divs
+local delta_X = (xmax - xmin) / nb_field_divs
+local delta_Y = (ymax - ymin) / nb_field_divs
 
 local vect_norm = math.min(delta_X, delta_Y) - 0.1
 
@@ -63,10 +63,10 @@ local v
 local x, y, img, color
 
 for i = 1, nb_field_divs do
-  local x = x1 + delta_X * (i - 0.5)
+  local x = xmin + delta_X * (i - 0.5)
 
   for j = 1, nb_field_divs do
-    y = y1 + delta_X * (j - 0.5)
+    y = ymin + delta_X * (j - 0.5)
 
     img = f(x, y)
 
@@ -80,18 +80,18 @@ end
 ------
 -- Construction de la "¨surf de niveau".
 ------
-delta_X = (x2 - x1) / nb_surf_divs
-delta_Y = (y2 - y1) / nb_surf_divs
+delta_X = (xmax - xmin) / nb_surf_divs
+delta_Y = (ymax - ymin) / nb_surf_divs
 
 local values = {}
 
 local img_min, img_max = math.huge, -math.huge
 
 for i = 1, nb_surf_divs do
-  x = x1 + delta_X * (i - 0.5)
+  x = xmin + delta_X * (i - 0.5)
 
   for j = 1, nb_surf_divs do
-    y = y1 + delta_X * (j - 0.5)
+    y = ymin + delta_X * (j - 0.5)
 
     img = f(x, y)
 
@@ -108,10 +108,10 @@ for i = 1, nb_surf_divs do
 end
 
 for i = 1, nb_surf_divs do
-  x = x1 + delta_X * (i - 1)
+  x = xmin + delta_X * (i - 1)
 
   for j = 1, nb_surf_divs do
-    y = y1 + delta_X * (j - 1)
+    y = ymin + delta_X * (j - 1)
 
     color = palette(
       spectrum,
@@ -135,7 +135,7 @@ end
 ------
 graphview:Dgradbox(
   {
-    Z(x1, y1), Z(x2, y2),
+    Z(xmin, ymin), Z(xmax, ymax),
     1, 1
   },
   {
@@ -157,8 +157,8 @@ graphview:Dodesolve(
   f,
   A_0.re, A_0.im,
   {
-    t            = {x1, x2},
-    clip         = {-2.5, 2.25, y1, y2},
+    t            = {xmin, xmax},
+    clip         = {-2.5, 2.25, ymin, ymax},
     nbdots       = 150,
     draw_options = "Navy, line width = 1pt"
   }
