@@ -1,9 +1,9 @@
 this::
-    date = 2025-10-01
+    date = 2025-10-02
 
 
 ===================
 Abscisse curviligne
 ===================
 
-Pour tracer des points réguliérement espacés sur une courbe, il faut passer via la notion d'abscisse curviligne. Cette recete donne un cas d'utilisation de ce concept via différentes implémentations.
+Pour tracer des points réguliérement espacés sur une courbe pour notre cerveau, il faut passer via la notion d'abscisse curviligne. Cette recete donne un cas d'utilisation de ce concept via différentes implémentations.
