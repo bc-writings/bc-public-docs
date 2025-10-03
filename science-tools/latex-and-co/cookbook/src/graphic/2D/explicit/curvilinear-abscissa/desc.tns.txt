@@ -1,9 +1,26 @@
 this::
-    date = 2025-10-02
+    date = 2025-10-03   ????
 
 
-===================
-Abscisse curviligne
-===================
+================
+\Absc curviligne
+================
 
-Pour tracer des points réguliérement espacés sur une courbe pour notre cerveau, il faut passer via la notion d'abscisse curviligne. Cette recete donne un cas d'utilisation de ce concept via différentes implémentations.
+Pour tracer des points réguliérement espacés sur une courbe pour notre cerveau, il faut passer via la notion d'abscisse curviligne pour parcourir toujours la même \dist sur la courbe. Cette recete donne un cas d'utilisation de ce concept via les différentes implémentations suivantes.
+
+
+[[Méthode 1]]
+Soit `c(x, y) = integral(t, x, y, sqrt(1 + f'(t))`, et `L` la \long à parcourir sur la courbe.
+Cette méthode résoud numériquement 'c(x, x_max)(x) = L'' de proche en proche : autrement dit, à partir de la \val courante de `x`, nous calculons la suivante.
+
+
+[[Méthode 2]]
+XXXX
+
+
+[[Méthode 3]]
+XXXX
+
+
+[[Méthode 4]]
+Cette méthode délègue les calculs à \tikz via l'option ''decoration''.
