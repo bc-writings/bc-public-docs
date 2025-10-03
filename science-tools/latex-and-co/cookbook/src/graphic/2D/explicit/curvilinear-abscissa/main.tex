@@ -22,6 +22,11 @@
 
 \begin{luadraw}{name = curvilinear-abscissa}
 ------
+-- ¨Long de parcours souhaitée.
+------
+local len_step = .8
+
+------
 -- Nos outils ¨maths.
 ------
 local f = function(x)
@@ -43,6 +48,21 @@ local curv_absc = function(a, x)
   )
 end
 
+local linear_interpo = function(x, x_vals, y_vals)
+  local k = 1
+  local n = #x_vals
+
+  while (k < n) and (x_vals[k] < x) do
+    k = k + 1
+  end
+
+  if k <= n then
+    local p = (x - x_vals[k - 1]) / (x_vals[k] - x_vals[k - 1])
+
+    return y_vals[k - 1] + p * (y_vals[k] - y_vals[k - 1])
+  end
+end
+
 ------
 -- ¨Def de la zone graphique.
 ------
@@ -54,18 +74,19 @@ local graphview = graph:new{
 ------
 -- Un outil de tracé.
 ------
-
 local shift_up, shift_down = Z(0, 3), Z(0, -2)
 
 local xlabel, ylabel = -3.14 - .35, 1.3
 
-local xmin, xmax, len_step = -5, 5, 0.8
+local xmin, xmax = -5, 5
 
-local x, s    = xmin, 0
+local x, s = xmin, 0
+
 local all_pts = {Z(xmin, f(xmin))}
 
 local draw_method = function(k)
--- Lignes verticales pour comparer les méthodes.
+-- Lignes verticales pour comparer les méthodes (à ne tracer
+-- qu'une seule fois).
   if k == 1 then
     for _ , z in ipairs(all_pts) do
       graphview:Dline(
@@ -93,7 +114,6 @@ local draw_method = function(k)
   )
 end
 
-
 ------
 -- Méthode 1 : nous résolvons numériquement l'équation
 -- ''curv_absc(x) = len_step'' à partir du ''x'' courant.
@@ -118,21 +138,31 @@ while x < xmax do
   end
 end
 
-local nb_method = 0
-
 -- Délocalisation "relative" du repère courant.
 graphview:Shift(shift_up)
 
-nb_method = nb_method + 1
+-- Standardisation de l'affichage.
+local nb_method = 1
+
 draw_method(nb_method)
 
-
 ------
--- Méthode 2 : nous résolvons numériquement l'¨eq_diff
--- ''y'(t) = 1 / sqrt(1 + f'(t))'' sous la ¨cond initiale
--- ''y(0) = xmin''.
+-- Méthode 2 : nous travaillons en deux temps.
+--
+--     1) Résolution numérique de l'¨eq_diff
+--     ''y'(t) = 1 / sqrt(1 + f'(t))'' sous la ¨cond initiale
+--     ''y(0) = xmin'' de `0` à `2`. Le ¨sol de cet ¨eq_diff
+--     est la fonction réciproque de l'¨absc curviligne.
+--
+--     1) Ensuite, les points régulièrement espacés sont
+--     calculés par interpolation linéaire.
+--
+--
+-- note::
+--     D'où vient le `2` de l'intervalle de l'¨eq_diff?
+--     XXXXXXXX
 ------
-local L = odesolve(
+local sol = odesolve(
   function(t, y)
     return 1 / math.sqrt(1 + num_diff_f(y, h)^2)
   end,
@@ -141,28 +171,15 @@ local L = odesolve(
   50
 )
 
-local L1, L2 = L[1], L[2]  -- L1 = values of t, L2 = values of y
+local s_vals, x_vals = sol[1], sol[2]
 
-local l = function(s) -- returns x = curv_absc^{-1}(s) using linear interpolation
-  local k = 1
-  local n = #L1
+all_pts = {Z(xmin, f(xmin))}
 
-  while (k < n) and (L1[k] < s) do
-    k = k + 1
-  end
-
-  if k <= n then
-    local u = (s - L1[k - 1]) / (L1[k] - L1[k - 1])
-
-    return L2[k - 1] + u*(L2[k] - L2[k - 1])
-  end
-end
-
-x, all_pts, s = xmin, {Z(xmin, f(xmin))}, 0
+x, s = xmin, 0
 
 while x < xmax do
   s = s + len_step
-  x = l(s)
+  x = linear_interpo(s, s_vals, x_vals)
 
   table.insert(all_pts, Z(x, f(x)))
 end
@@ -170,32 +187,48 @@ end
 graphview:Shift(shift_down)
 
 nb_method = nb_method + 1
+
 draw_method(nb_method)
 
-
 ------
--- Méthode 3 : graphical method
+-- Méthode 3 : approximation via une ligne polygonale.
+--
+--     1) Une ligne polygonale approchant la courbe permet
+--     d'obtenir une approximation de la longueur de la
+--     courbe aux sommets de la ligne.
+--
+--     1) Ensuite, les points régulièrement espacés sont
+--     calculés par interpolation linéaire.
+--
+--
+-- note::
+--     La ¨val `30` a été choisi à la main. Par exemple,
+--     `10` ne donne pas un bon résultat.
 ------
-local C = cartesian(f, xmin, xmax, 25)[1]
+local C = cartesian(f, xmin, xmax, 30)[1]
 
-L2, L1, s = {xmin}, {0}, 0 -- L2 = abscissa, L1 = length
+s_vals, x_vals = {0}, {xmin}
+
+s = 0
 
 local a, b = nil, C[1]
 
 for k = 2, #C do
-  a = b
-  b = C[k]
-  s = s + cpx.abs(b - a) -- curve length from beginning to b
+  a, b = b, C[k]
 
-  table.insert(L2, b.re)
-  table.insert(L1, s)
+  s = s + cpx.abs(b - a)
+
+  table.insert(x_vals, b.re)
+  table.insert(s_vals, s)
 end
 
-x, all_pts, s = xmin, {Z(xmin, f(xmin))}, 0
+all_pts = {Z(xmin, f(xmin))}
+
+x, s = xmin, 0
 
 while x < xmax do
   s = s + len_step
-  x = l(s)
+  x = linear_interpo(s, s_vals, x_vals)
 
   table.insert(all_pts, Z(x, f(x)))
 end
@@ -203,8 +236,8 @@ end
 graphview:Shift(shift_down)
 
 nb_method = nb_method + 1
-draw_method(nb_method)
 
+draw_method(nb_method)
 
 ------
 -- Méthode 4 : nous délèguons les calculs à ¨tikz via l'option
@@ -213,7 +246,8 @@ draw_method(nb_method)
 local dot_options = (
      "decorate,"
   .. "decoration = {markings, "
-  .. "mark = between positions 0 and 1 step 8mm"
+  .. "mark = between positions 0 and 1 step "
+  .. (10*len_step) .. "mm"
   .. "with {\\fill circle (1.8pt);}}"
 )
 
@@ -238,7 +272,6 @@ graphview:Dcartesian(
 graphview:Dlabel(
   "Ti\\emph{k}Z decorate", Z(xlabel, ylabel), {}
 )
-
 
 ------
 -- Et le merveilleux se révèle au monde.

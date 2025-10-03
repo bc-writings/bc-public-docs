@@ -10,7 +10,7 @@ Pour tracer des points réguliérement espacés sur une courbe pour notre cervea
 
 
 [[Méthode 1]]
-Soit `c(x, y) = integral(t, x, y, sqrt(1 + f'(t))`, et `L` la \long à parcourir sur la courbe.
+Soit `c(x, y) = integral(sqrt(1 + f'(t)^2), t, x, y)`, et `L` la \long à parcourir sur la courbe.
 Cette méthode résoud numériquement 'c(x, x_max)(x) = L'' de proche en proche : autrement dit, à partir de la \val courante de `x`, nous calculons la suivante.
 
 
