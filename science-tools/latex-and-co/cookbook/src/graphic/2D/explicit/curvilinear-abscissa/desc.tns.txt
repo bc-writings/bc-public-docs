@@ -1,5 +1,5 @@
 this::
-    date = 2025-10-03   ????
+    date = 2025-10-03
 
 
 ================
@@ -8,19 +8,15 @@ this::
 
 Pour tracer des points réguliérement espacés sur une courbe pour notre cerveau, il faut passer via la notion d'abscisse curviligne pour parcourir toujours la même \dist sur la courbe. Cette recete donne un cas d'utilisation de ce concept via les différentes implémentations suivantes.
 
-
 [[Méthode 1]]
 Soit `c(x, y) = integral(sqrt(1 + f'(t)^2), t, x, y)`, et `L` la \long à parcourir sur la courbe.
 Cette méthode résoud numériquement 'c(x, x_max)(x) = L'' de proche en proche : autrement dit, à partir de la \val courante de `x`, nous calculons la suivante.
 
-
 [[Méthode 2]]
-XXXX
-
+Via une \eq_diff, nous obtenons une approximation numérique de la fonction réciproque de l'\absc curviligne qui permet de calculer aisément les points souhaités via des interpolations linéaires. Malheureusement, trouver un bon réglage pour cette méthode semble délicat.
 
 [[Méthode 3]]
-XXXX
-
+Ici, une ligne polygonale approximant la courbe sert de base aux calculs de valeurs intermédiares de l'\absc curviligne. Des interpolations linéaires permettent ensuite d'obtenir de bonnes approximations des points recherchés.
 
 [[Méthode 4]]
 Cette méthode délègue les calculs à \tikz via l'option ''decoration''.
