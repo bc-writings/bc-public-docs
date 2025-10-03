@@ -151,7 +151,7 @@ draw_method(nb_method)
 --
 --     1) Résolution numérique de l'¨eq_diff
 --     ''y'(t) = 1 / sqrt(1 + f'(t))'' sous la ¨cond initiale
---     ''y(0) = xmin'' de `0` à `2`. Le ¨sol de cet ¨eq_diff
+--     ''y(0) = xmin'' de `0` à `16`. Le ¨sol de cet ¨eq_diff
 --     est la fonction réciproque de l'¨absc curviligne.
 --
 --     1) Ensuite, les points régulièrement espacés sont
@@ -159,15 +159,16 @@ draw_method(nb_method)
 --
 --
 -- note::
---     D'où vient le `2` de l'intervalle de l'¨eq_diff?
---     XXXXXXXX
+--     D'où vient le `16` de l'intervalle de l'¨eq_diff ?
+--     Un ¨calc numérique donne que la longueur totale de la
+--     courbe est d'environ `15.79`.
 ------
 local sol = odesolve(
   function(t, y)
     return 1 / math.sqrt(1 + num_diff_f(y, h)^2)
   end,
   0, xmin,
-  0, 2,
+  0, 16,
   50
 )
 
@@ -202,8 +203,10 @@ draw_method(nb_method)
 --
 --
 -- note::
---     La ¨val `30` a été choisi à la main. Par exemple,
---     `10` ne donne pas un bon résultat.
+--     La ¨val `30` a été choisie à la main (plus grande est
+--     la ¨val, meilleure sera l'approximation, mais évitons
+--     des calculs inutiles). Par contre, `10` ne donne pas
+--     un bon résultat.
 ------
 local C = cartesian(f, xmin, xmax, 30)[1]
 
