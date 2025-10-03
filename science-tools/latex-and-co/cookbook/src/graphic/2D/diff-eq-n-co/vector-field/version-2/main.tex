@@ -60,15 +60,17 @@ local vect_norm = math.min(delta_X, delta_Y) - 0.1
 local vectors = {}
 local v
 
+local x, y, img, color
+
 for i = 1, nb_field_divs do
   local x = x1 + delta_X * (i - 0.5)
 
   for j = 1, nb_field_divs do
-    local y = y1 + delta_X * (j - 0.5)
+    y = y1 + delta_X * (j - 0.5)
 
-    local img = f(x, y)
+    img = f(x, y)
 
-    local v = Z(1, img)
+    v = Z(1, img)
     v = v / cpx.abs(v) * vect_norm
 
     table.insert(vectors, {Z(x, y), Z(x, y) + v})
@@ -86,12 +88,12 @@ local values = {}
 local img_min, img_max = math.huge, -math.huge
 
 for i = 1, nb_surf_divs do
-  local x = x1 + delta_X * (i - 0.5)
+  x = x1 + delta_X * (i - 0.5)
 
   for j = 1, nb_surf_divs do
-    local y = y1 + delta_X * (j - 0.5)
+    y = y1 + delta_X * (j - 0.5)
 
-    local img = f(x, y)
+    img = f(x, y)
 
     if img < img_min then
       img_min = img
@@ -106,12 +108,12 @@ for i = 1, nb_surf_divs do
 end
 
 for i = 1, nb_surf_divs do
-  local x = x1 + delta_X * (i - 1)
+  x = x1 + delta_X * (i - 1)
 
   for j = 1, nb_surf_divs do
-    local y = y1 + delta_X * (j - 1)
+    y = y1 + delta_X * (j - 1)
 
-    local color = palette(
+    color = palette(
       spectrum,
       (values[i .. "/" .. j] - img_min) / (img_max - img_min)
     )
@@ -125,7 +127,7 @@ for i = 1, nb_surf_divs do
       },
       "fill opacity = 0.5, draw = none, fill = "..color
     )
-    end
+  end
 end
 
 ------

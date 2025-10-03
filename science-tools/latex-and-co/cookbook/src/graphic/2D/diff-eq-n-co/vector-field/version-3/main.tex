@@ -2,7 +2,7 @@
 
 %%%
 % src::
-%     url = https://github.com/pfradin/luadraw/discussions/111#discussioncomment-14560468
+%     url = https://github.com/pfradin/luadraw/discussions/111#discussioncomment-14570983
 %%%
 
 \documentclass{standalone}
@@ -18,9 +18,15 @@
 %%%
 \usepackage[3d]{luadraw}
 
+%%%
+% La bibliothèque ''shadings'' propre à \tikz nous permet d'avoir
+% facilement des dégradés colorés.
+%%%
+\usetikzlibrary{shadings}
+
 \begin{document}
 
-\begin{luadraw}{name = pretty-vector-field}
+\begin{luadraw}{name = so-cute-vector-field}
 ------
 -- Considérons `y' = f(x, y)` où `f(x, y) = x^2 + y^2 - 1` avec
 -- la ¨cond initiale `y(0) = 1/2`.
@@ -50,28 +56,34 @@ local graphview = graph:new{
 }
 
 ------
--- Construction du champ de ¨vects et de la "¨surf de niveau".
+-- Construction du champ de ¨vects.
 ------
 local delta_X = (x2 - x1) / nb_divs
 local delta_Y = (y2 - y1) / nb_divs
 
 local vect_norm = math.min(delta_X, delta_Y) - 0.1
 
-local values = {}
-
 local vectors = {}
 local v
 
 local x, y, img, color
 
+local values = {}
+local key
+
 local img_min, img_max = math.huge, -math.huge
 
-for i = 1, nb_divs do
-  x = x1 + delta_X * (i - 0.5)
 
-  for j = 1, nb_divs do
-    y = y1 + delta_X * (j - 0.5)
+for i = 0, nb_divs do
+  x = x1 + delta_X * i
 
+  local x1 = x + delta_X / 2
+
+  for j = 0, nb_divs do
+    y  = y1 + delta_X * j
+    local y1 = y  + delta_Y / 2
+
+    key = i .. "/" .. j
     img = f(x, y)
 
     if img < img_min then
@@ -82,34 +94,81 @@ for i = 1, nb_divs do
       img_max = img
     end
 
-    values[i .. "/" .. j] = img
+    values[key] = img
 
-    v = Z(1, img)
-    v = v / cpx.abs(v) * vect_norm
+    if i < nb_divs and j <nb_divs then
+      v = Z(1, f(x1, y1))
+      v = v/cpx.abs(v)*vect_norm
 
-    table.insert(vectors, {Z(x, y), Z(x, y) + v})
+      table.insert(vectors, {Z(x1, y1), Z(x1, y1)+v} )
+    end
   end
 end
 
-for i = 1, nb_divs do
-  x = x1 + delta_X * (i - 1)
+local left_colors, right_colors = {}, {}
 
-  for j = 1, nb_divs do
-    y = y1 + delta_X * (j - 1)
+for j = 0, nb_divs do
+  key = "0/" .. j
 
-    color = palette(
-      spectrum,
-      (values[i .. "/" .. j] - img_min) / (img_max - img_min)
+  color = mixcolor(
+    palette(
+        spectrum,
+        (values[key]-img_min)/(img_max-img_min),
+        true
+    ),
+    0.85, White, 0.15
+  ) -- to replace the *fill opacity = 0.5" option
+
+  table.insert(right_colors, color)
+end
+
+local eps = 1e-2 -- to widen the squares a little
+
+local col_0, col_1, col_2, col_3, options
+
+for i = 0, nb_divs - 1 do
+  x = x1 + delta_X * i
+
+  left_colors, right_colors = right_colors, {}
+
+  for j = 0, nb_divs do
+    key = i .. "/" .. j
+
+    color = mixcolor(
+      palette(
+        spectrum,
+        (values[key] - img_min) / (img_max - img_min),
+        true
+      ),
+      0.85, White, 0.15
+    )
+
+    table.insert(right_colors, color)
+  end
+
+  for j = 0, nb_divs - 1 do
+    y = y1 + delta_X * j
+
+    col_0 = left_colors[j + 1]
+    col_1 = right_colors[j + 1]
+    col_2 = right_colors[j + 2]
+    col_3 = left_colors[j + 2]
+
+    options = (
+         "upper left = " .. col_3
+      .. ", upper right = " .. col_2
+      .. ", lower left = " .. col_0
+      .. ", lower right = " .. col_1
     )
 
     graphview:Dpolyline(
       {
-        Z(x, y),
-        Z(x + delta_X, y),
-        Z(x + delta_X, y + delta_Y),
-        Z(x, y + delta_Y)
+        Z(x - eps, y - eps),
+        Z(x + delta_X + eps, y - eps),
+        Z(x + delta_X + eps, y + delta_Y + eps),
+        Z(x - eps, y + delta_Y + eps)
       },
-      "fill opacity = 0.5, draw = none, fill = "..color
+      "draw = none, fill opacity = 0.5, " .. options
     )
   end
 end
