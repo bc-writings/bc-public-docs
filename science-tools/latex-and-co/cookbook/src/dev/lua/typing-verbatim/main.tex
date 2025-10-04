@@ -7,13 +7,15 @@
 \begin{document}
 
 \directlua{
-local test = {"1", "two", "***"}
+local test = {"1", "**", "three", "++++"}
 
-for i, x in ipairs(test) do
-  tex.print("\\begin{verbatim}")
+tex.print("\\begin{verbatim}")
+
+for i, x in ipairs(test) do  
   tex.print("TEST " .. i .. ": " .. x)
-  tex.print("\\end{verbatim}")
 end
+
+tex.print("\\end{verbatim}")
 }
 
 \end{document}

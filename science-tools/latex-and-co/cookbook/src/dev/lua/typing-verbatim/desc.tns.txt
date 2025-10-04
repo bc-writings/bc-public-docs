@@ -3,5 +3,5 @@ this::
 
 
 ================================
-Produire du contenu ''varbatim''
+Produire du contenu ''verbatim''
 ================================
