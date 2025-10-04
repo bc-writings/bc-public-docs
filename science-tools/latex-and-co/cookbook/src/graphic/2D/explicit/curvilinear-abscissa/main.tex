@@ -33,16 +33,16 @@ local f = function(x)
   return math.cos(1.75*x)
 end
 
-local num_diff_f = function(x, h)
+local df = function(x)
+  local h = 1e-6
+
   return (f(x + h) - f(x - h)) / (2*h)
 end
-
-local h = 1e-6
 
 local curv_absc = function(a, x)
   return int(
     function(t)
-      return math.sqrt(1 + num_diff_f(t, h)^2)
+      return math.sqrt(1 + df(t)^2)
     end,
     a, x
   )
@@ -151,25 +151,23 @@ draw_method(nb_method)
 --
 --     1) Résolution numérique de l'¨eq_diff
 --     ''y'(t) = 1 / sqrt(1 + f'(t))'' sous la ¨cond initiale
---     ''y(0) = xmin'' de `0` à `16`. Le ¨sol de cet ¨eq_diff
---     est la fonction réciproque de l'¨absc curviligne.
+--     ''y(0) = xmin''. La ¨sol de cette ¨eq_diff est la
+--     fonction réciproque de l'¨absc curviligne.
 --
 --     1) Ensuite, les points régulièrement espacés sont
 --     calculés par interpolation linéaire.
---
---
--- note::
---     D'où vient le `16` de l'intervalle de l'¨eq_diff ?
---     Un ¨calc numérique donne que la longueur totale de la
---     courbe est d'environ `15.79`.
 ------
+local function len_f(x)
+    return math.sqrt(1 + df(x)^2)
+end
+
 local sol = odesolve(
   function(t, y)
-    return 1 / math.sqrt(1 + num_diff_f(y, h)^2)
+    return 1 / math.sqrt(1 + df(y)^2)
   end,
   0, xmin,
-  0, 16,
-  50
+  0, int(len_f, xmin, xmax),
+  20
 )
 
 local s_vals, x_vals = sol[1], sol[2]
