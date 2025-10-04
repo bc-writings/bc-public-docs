@@ -1,5 +1,5 @@
 this::
-    date = 2025-10-01
+    date = 2025-10-04
 
 
 ===============
@@ -10,4 +10,4 @@ Voici une \propo utilisant le même maillage pour le champ de \vects et la "\sur
 
 
 note::
-     Ce choix graphique a le grand avantage de bien visualiser la \coul associée à chaque \vect, et de limiter les calculs effectués.
+    Ce choix graphique permet de bien visualiser la \coul associée à chaque \vect, et de limiter les calculs effectués.

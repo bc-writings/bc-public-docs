@@ -152,7 +152,9 @@ draw_method(nb_method)
 --     1) Résolution numérique de l'¨eq_diff
 --     ''y'(t) = 1 / sqrt(1 + f'(t))'' sous la ¨cond initiale
 --     ''y(0) = xmin''. La ¨sol de cette ¨eq_diff est la
---     fonction réciproque de l'¨absc curviligne.
+--     fonction réciproque de l'¨absc curviligne, ceci permttant
+--     de comprendre que la résolution soit faite de ''0'' à
+--     ''int(math.sqrt(1 + df(x)^2), xmin, xmax)''.
 --
 --     1) Ensuite, les points régulièrement espacés sont
 --     calculés par interpolation linéaire.
