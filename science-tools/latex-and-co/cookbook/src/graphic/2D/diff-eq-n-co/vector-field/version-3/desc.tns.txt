@@ -1,0 +1,13 @@
+this::
+    date = 2025-10-04
+
+
+====================
+Efficacité via \tikz
+====================
+
+La version finale proposée ici s'appuie sur des gradients colorés calculés par \tikz, plus exactement par la bibliothèque ''shadings''. Ceci accélère la \prod d'un rendu qui devient au passage impécable.
+
+
+note::
+    Le \tps d'exécution passe d'environ `5.7 \sec` à `4 \sec`.
