@@ -3,7 +3,7 @@ this::
 
 
 ======================================
-Jolie représenta^o d'un \chp de \vects
+Ch représenta^o d'un \chp de \vects
 ======================================
 
 Notre objectif est d'obtenir le rendu suivant.
