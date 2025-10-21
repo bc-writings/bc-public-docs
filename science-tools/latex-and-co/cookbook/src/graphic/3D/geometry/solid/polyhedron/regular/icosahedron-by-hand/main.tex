@@ -107,9 +107,8 @@ local graphview = graph3d:new{
 }
 
 ------
--- Réglages liés aux lignes.
+-- Réglage lié aux lignes.
 ------
-graphview:Linejoin("round")
 Hiddenlinestyle = "dashed"
 
 ------
@@ -121,24 +120,28 @@ graphview:Dscene3d(
       ico_up,
       {
         color = "myteal"
-      }),
+      }
+    ),
     graphview:addFacet(
       ico_middle,
       {
         color = "mymagenta"
-      }),
+      }
+    ),
     graphview:addFacet(
       ico_down,
       {
         color = "mylime"
-      }),
+      }
+    ),
 -- Arêtes en mode cachés (un choix de design).
     graphview:addPolyline(
       facetedges(ico_full),
       {
         width = 12,
         hidden = true
-      })
+      }
+    )
 )
 ------
 -- Tous les sommets sont rendus visibles (un choix de design).

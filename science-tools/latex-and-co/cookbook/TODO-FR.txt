@@ -5,6 +5,17 @@ latex-and-co - TODO
 
 > ---------------------------- <
 
+luadraw
+
+    --> SURFACE: revoir les colromap car c'est plus simple depuis vesrion 2.2 : garder ce qui est eprtinannent quitte à passer via un autre mode de coloartyion
+
+    --> complex-func : dès que publié, prendre la palette SNFever
+
+    --> BlindFish : adoucir (cf surf param color map)
+
+
+> ---------------------------- <
+
 geo sphérique : placer def de la sphère aant les objets !!!!
 
 

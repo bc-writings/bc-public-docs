@@ -43,9 +43,8 @@ local graphview = graph:new{
 }
 
 ------
--- Réglages liés aux lignes.
+-- Réglage lié aux lignes.
 ------
-graphview:Linejoin("round")
 graphview:Linewidth(6)
 
 ------
@@ -78,7 +77,8 @@ graphview:Dcartesian(
     discont      = true,
     nbdiv        = 10,
     draw_options = "Crimson"
-  })
+  }
+)
 
 ------
 -- Et le merveilleux se révèle au monde.

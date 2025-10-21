@@ -46,14 +46,16 @@ local projplane = surface(
     )
   end,
   0, 2*pi, 0, 1,  -- Pavé pour le paramétrage.
-  {150, 30})      -- "Grille" pour le tracé.
+  {150, 30}       -- "Grille" pour le tracé.
+)
 
 graphview:Dfacet(
   projplane,
   {
     mode  = mShadedOnly,
     color = "ForestGreen"
-  })
+  }
+)
 
 ------
 -- Et le merveilleux se révèle au monde.

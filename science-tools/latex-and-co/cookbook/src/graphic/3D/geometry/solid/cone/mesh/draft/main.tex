@@ -74,7 +74,8 @@ local cone = rotcurve(
   0, 360,
   {
     grid = {25, 36}
-  })
+  }
+)
 
 ------
 -- Le tracé de la surface de révolution doit fait via la méthode
@@ -85,7 +86,8 @@ graphview:Dfacet(
   {
     color  = "orange",
     contrast = 0.5
-  })
+  }
+)
 
 ------
 -- Et le merveilleux se révèle au monde.
@@ -113,8 +115,6 @@ local graphview = graph3d:new{
 --     Une factorisation du code est donc possible. Ceci est proposé
 --     dans la recette suivante.
 ------
-graphview:Linejoin("round")
-
 local genecurve = function(t)
   return M(t, 2 - t/2, 0)
 end
@@ -128,14 +128,16 @@ local cone = rotcurve(
   0, 360,
   {
     grid = {25, 36}
-  })
+  }
+)
 
 graphview:Dfacet(
   cone,
   {
     color  = "orange",
     contrast = 0.5
-  })
+  }
+)
 
 graphview:Show()
 \end{luadraw}

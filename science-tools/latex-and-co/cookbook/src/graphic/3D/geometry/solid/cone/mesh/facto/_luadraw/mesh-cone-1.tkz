@@ -1,7 +1,6 @@
 \begin{tikzpicture}[line join=round]%
 \begin{scope}%
 \clip (-0.5,-0.5) rectangle (9.5,6.3235294117647);%
-\pgfsetroundjoin%
 \pgfsetfillcolor{orange!50!white!93.65!black}%
 \draw[fill] (2.0421,2.5925) -- (2.2765,2.5479) -- (2.2016,2.1844) -- (1.9619,2.2031)--cycle;%
 \pgfsetfillcolor{orange!50!white!93.6!black}%
@@ -1675,6 +1674,5 @@
 \pgfsetfillcolor{orange!93.65!black}%
 \draw[fill] (7.4326,1.5687) -- (7.6669,1.5242) -- (7.7146,1.7559) -- (7.4749,1.7746)--cycle;%
 \pgfsetfillcolor{black}%
-\pgfsetmiterjoin%
 \end{scope}%
 \end{tikzpicture}%

@@ -1,5 +1,5 @@
 this::
-    date = 2025-09-08
+    date = 2025-10-21
 
 
 ======================================
@@ -8,10 +8,9 @@ De la couleur, en veux-tu ? En voilà !
 
 Nous présentons ici des exemples colorés qui montrent que la prise en charge d’une version simplifiée du format \wavefront permet d’effectuer facilement des traitements intéressants sur des objets \3d. Voici quelques illustrations.
 
-    1) Coloration des faces d'un icosaèdre tronqué suivant leurs nombres de côtés.
 
-    1) Coloration aléatoire des faces.
-
-    1) Coloration des faces suivant les côtes de leurs barycentres.
-
-    1) Coloration des faces suivant l'inclinaison de leurs normales.
+content::
+    ./nb-edge/\desc
+    ./bary/\desc
+    ./rand/\desc
+    ./normal-angle/\desc    ??

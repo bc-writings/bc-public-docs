@@ -21,6 +21,8 @@
 \begin{document}
 
 \begin{luadraw}{name = pretty-vector-field}
+require 'luadraw_palettes'
+
 ------
 -- Considérons `y' = f(x, y)` où `f(x, y) = x^2 + y^2 - 1` avec
 -- la ¨cond initiale `y(0) = 1/2`.
@@ -38,7 +40,7 @@ local xmin, xmax, ymin, ymax = -3, 3, -3, 3
 
 local nb_divs = 20
 
-local spectrum = {Purple, Indigo, Blue, Green, Yellow, Orange, Red}
+local pal = getPal["palJet"]
 
 ------
 -- ¨Def de la zone graphique.
@@ -55,16 +57,16 @@ local graphview = graph:new{
 local delta_X = (xmax - xmin) / nb_divs
 local delta_Y = (ymax - ymin) / nb_divs
 
+local vectors = {}
+local values  = {}
+local x, y, img, v
+
 local vect_norm = math.min(delta_X, delta_Y) - 0.1
 
-local values = {}
+local key
 
-local vectors = {}
-local v
-
-local x, y, img, color
-
-local img_min, img_max = math.huge, -math.huge
+local img_min = math.huge
+local img_max = - math.huge
 
 for i = 1, nb_divs do
   x = xmin + delta_X * (i - 0.5)
@@ -72,6 +74,7 @@ for i = 1, nb_divs do
   for j = 1, nb_divs do
     y = ymin + delta_X * (j - 0.5)
 
+    key = i .. "/" .. j
     img = f(x, y)
 
     if img < img_min then
@@ -82,7 +85,7 @@ for i = 1, nb_divs do
       img_max = img
     end
 
-    values[i .. "/" .. j] = img
+    values[key] = img
 
     v = Z(1, img)
     v = v / cpx.abs(v) * vect_norm
@@ -91,6 +94,12 @@ for i = 1, nb_divs do
   end
 end
 
+
+------
+-- Construction de la "¨surf de niveau".
+------
+local color
+
 for i = 1, nb_divs do
   x = xmin + delta_X * (i - 1)
 
@@ -98,7 +107,7 @@ for i = 1, nb_divs do
     y = ymin + delta_X * (j - 1)
 
     color = palette(
-      spectrum,
+      pal,
       (values[i .. "/" .. j] - img_min) / (img_max - img_min)
     )
 

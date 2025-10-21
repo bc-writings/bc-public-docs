@@ -1,0 +1,51 @@
+% !TEX TS-program = lualatex
+
+\documentclass{standalone}
+
+\usepackage[svgnames]{xcolor}
+
+\usepackage[3d]{luadraw}
+
+\begin{document}
+
+\begin{luadraw}{name = z-bary-colmap}
+require 'luadraw_palettes'
+
+------
+-- Récupération du modèle 3D au format Wavefront.
+------
+local vdir = {35, 60}
+local file = "../../models/nefertiti.obj"
+
+local polyhedron, bounding_box = read_obj_file(file)
+
+------
+-- ¨Def de la zone graphique.
+------
+local graphview = graph3d:new{
+  window3d = bounding_box,
+  adjust2d = true,
+  viewdir  = vdir,
+  size     = {10, 10},
+}
+
+------
+-- Coloration liée à la côte du barycentre de la facette.
+------
+local pal = getPal["palBlindFish"]
+
+graphview:Dpoly(
+  polyhedron, 
+  {
+    usepalette = {pal, "z"},
+    mode       = mShadedOnly
+  }
+)
+
+------
+-- Et le merveilleux se révèle au monde.
+------
+graphview:Show()
+\end{luadraw}
+
+\end{document}

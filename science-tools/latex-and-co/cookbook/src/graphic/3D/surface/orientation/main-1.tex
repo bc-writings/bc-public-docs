@@ -39,7 +39,8 @@ local graphview = graph3d:new{
 graphview:Dboxaxes3d({
   grid      = true,
   gridcolor = "gray",
-  fillcolor = "lightgray"})
+  fillcolor = "lightgray"
+})
 
 ------
 -- ¨Def et tracé de notre ¨surf ¨param en mode monocolore.
@@ -53,14 +54,16 @@ local projplane = surface(
     )
   end,
   0, 2*pi, 0, 2*pi,
-  {51, 15})
+  {51, 15}
+)
 
 graphview:Dfacet(
   projplane,
   {
     mode  = mShadedOnly,
     color = "ForestGreen"
-  })
+  }
+)
 
 ------
 -- Et le merveilleux se révèle au monde.

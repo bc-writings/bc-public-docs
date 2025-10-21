@@ -134,21 +134,25 @@ graphview:Linestyle("solid")
 -- se fait avec ¨opengl: nous jouons avec des matrices de vue.
 ------
 graphview:Savematrix()
-  graphview:Setmatrix(graphview:Proj3d({Origin, vecI, vecJ}))
+  graphview:Setmatrix(
+    graphview:Proj3d({Origin, vecI, vecJ})
+  )
 
   graphview:Dcartesian(
     f,
     {
       x = {-2/math.sqrt(3), 2/math.sqrt(3)},
       draw_options = "line width = 0.8pt, Navy"
-    })
+    }
+  )
 
   graphview:Dcartesian(
     g,
     {
       x = {-2, 2},
       draw_options = "line width = 0.8pt, Crimson"
-    })
+    }
+  )
 graphview:Restorematrix()
 
 ------
@@ -161,7 +165,8 @@ graphview:Dfacet(
     edgewidth = 2,
     color   = "Pink",
     opacity   = 0.3
-  })
+  }
+)
 
 ------
 -- Tracé du domaine dans le plan `P`.

@@ -10,12 +10,12 @@
 \usepackage[svgnames]{xcolor}
 \usepackage[3d]{luadraw}
 
-\directlua{dofile('colormap.lua')}
-
 \begin{document}
 
 \begin{luadraw}{name = param-surf-color-map-backcull-good}
-local spectrum = {Gray, SlateGray, LightSkyBlue, LightPink, Pink, LightSalmon}
+require 'luadraw_palettes'
+
+local pal = getPal["palGnuplot"]
 
 local pi, sin, cos, tanh = math.pi, math.sin, math.cos, math.tanh
 
@@ -32,7 +32,8 @@ local projplane = surface(
     )
   end,
   pi, 0, 0, pi,
-  {25, 15})
+  {25, 15}
+)
 
 ------
 -- Le reste de la surface s'obtient via des symétries, mais en
@@ -43,7 +44,8 @@ projplane = concat(
   reverse_face_orientation(
     sym3d(
       projplane,
-      {Origin, vecJ})
+      {Origin, vecJ}
+    )
   )
 )
 
@@ -52,7 +54,8 @@ projplane = concat(
   reverse_face_orientation(
     sym3d(
       projplane,
-      {Origin, vecK})
+      {Origin, vecK}
+    )
   )
 )
 
@@ -61,7 +64,13 @@ local graphview = graph3d:new{
   viewdir = {120, 55}
 }
 
-graphview:draw_colormap_Z(projplane, spectrum, true)
+graphview:Dpoly(
+  facet2poly(projplane), 
+  {
+    usepalette = {pal, "z"},
+    mode       = mShaded
+  }
+)
 
 graphview:Show()
 \end{luadraw}

@@ -1,5 +1,5 @@
 this::
-    date = 2025-09-20
+    date = 2025-10-21
 
 
 ===================================
@@ -10,13 +10,11 @@ Nous reproduisons une belle optimisation vis-à-vis des codes \tikz produits par
 ((
     Les nouveaux codes proposés sont des adaptations directes d'une \propo de Patrick Fradin, l'auteur de \luadraw.
 )).
-Voici quelques remarques relatives aux trois exemples proposés.
+Voici quelques remarques relatives aux exemples proposés.
 
-    1) L'exemple 1 montre que notre \surf non orientable n'est pas affichée comment attendu : des faces visibes sont orientés à l'opposé de l'observateur.
+    1) L'exemple 1 montre que notre \surf non orientable n'est pas affichée comment espérés par un humain : des faces visibes sont coloriées comme des faces cachées.
 
     1) L'exemple 2 explique comment obtenir le bon tracé via quelques \modifs des \objs \maths manipulés.
-
-    1) L'exemple 3 sert à comparer les tailles des fichiers \tikz obtenus : nous passons de `195 \ko` via la \1ere version à `95 \ko` avec la \2nde version.
 
 
 note::

@@ -21,8 +21,6 @@ local graphview = graph3d:new{
   size   = {10, 10}
 }
 
-graphview:Linejoin("round")
-
 local genecurve = function(t)
   return M(t, 2 - t/2, 0)
 end
@@ -35,7 +33,8 @@ local cone = rotcurve(
   0, 360,
   {
     grid = {25, 36}
-  })
+  }
+)
 
 ------
 -- Ajout d'une fonction pour tracer la surface.
@@ -46,7 +45,8 @@ local draw = function()
     {
       color  = "orange",
       contrast = 0.5
-    })
+    }
+  )
 end
 
 ------

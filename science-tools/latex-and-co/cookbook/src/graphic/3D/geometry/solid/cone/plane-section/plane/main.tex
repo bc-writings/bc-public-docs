@@ -81,7 +81,7 @@ local section = graphview:Intersection3d(cone_down, plane)
 --   1) ''cfacet_down'' est la liste des facettes situées dans
 --   l’autre demi-espace.
 ------
-local cfacet         = graphview:Classifyfacet(cone_down)
+local cfacet                 = graphview:Classifyfacet(cone_down)
 local cfacet_up, cfacet_down = cutfacet(cfacet, plane)
 
 ------
@@ -136,7 +136,8 @@ graphview:Dcone(
   Origin, vec_cone, 3,
   {
     color = "orange"
-  })
+  }
+)
 
 ------
 -- La ligne polygonale de la section.
@@ -145,7 +146,8 @@ graphview:Dedges(
   section,
   {
     hidden = true, color = "red", width = 12
-  })
+  }
+)
 
 ------
 -- Tous les traits à venir sont en pointillés : nous entrons du

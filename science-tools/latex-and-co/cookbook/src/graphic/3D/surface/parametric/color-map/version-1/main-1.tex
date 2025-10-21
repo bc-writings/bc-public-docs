@@ -18,18 +18,15 @@
 %%%
 \usepackage[3d]{luadraw}
 
-%%%
-% Externalisation du travail pour des usages multiples.
-%%%
-\directlua{dofile('colormap.lua')}
-
 \begin{document}
 
-\begin{luadraw}{name = param-surf-color-map-Z-dir}
+\begin{luadraw}{name = param-surf-colmap-Z}
 ------
 -- Nos ingrédients de base.
 ------
-local palette = {Purple, Indigo, Blue, Green, Yellow, Orange, Red}
+require 'luadraw_palettes'
+
+local pal = getPal["palBurningGrass"]
 
 local pi, sin, cos = math.pi, math.sin, math.cos
 
@@ -54,9 +51,16 @@ local projplane = surface(
     )
   end,
   0, 2*pi, 0, 1,
-  {50, 30})
+  {50, 30}
+)
 
-graphview:draw_colormap_Z(projplane, palette)
+graphview:Dpoly(
+  facet2poly(projplane), 
+  {
+    usepalette = {pal, "z"},
+    mode       = mShaded
+  }
+)
 
 ------
 -- Et le merveilleux se révèle au monde.

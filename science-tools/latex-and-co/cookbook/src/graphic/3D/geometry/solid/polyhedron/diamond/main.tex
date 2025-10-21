@@ -48,7 +48,8 @@ local diamond = function(
                        -- construction du diamand.
     {center, normal},  -- Axe orienté de rotation.
     0, 360,            -- De `0` à `360` degrés.
-    {nbdots = nb_sides + 1})
+    {nbdots = nb_sides + 1}
+  )
 
   return facet2poly(P)
 end
@@ -82,7 +83,8 @@ graphview:Dpoly(
     mode  = 4,  -- Colorisation des facettes en fonction de leur
                 -- inclinaison avec les arêtes cachées.
     color = "orange"
-  })
+  }
+)
 
 graphview:Dpoly(
   diamond(
@@ -93,7 +95,8 @@ graphview:Dpoly(
     mode  = 3,  -- Colorisation des facettes en fonction de leur
                 -- inclinaison sans les arêtes cachées.
     color = "LightBlue"
-  })
+  }
+)
 
 ------
 -- Et le merveilleux se révèle au monde.

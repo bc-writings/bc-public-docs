@@ -13,11 +13,7 @@
 \pgfsetdash{{2.5pt}{2pt}}{0pt}%
 \pgfsetroundcap%
 \draw[] (7.2962,1.7353) .. controls (7.8369,2.3398) and (7.301,3.0413) .. (6.0919,3.3117) .. controls (4.8828,3.5821) and (3.4798,3.3141) .. (2.9391,2.7096) .. controls (2.6605,2.398) and (2.6605,2.0468) .. (2.9391,1.7353);%
-\draw[] (4.5,3.375) -- (4.5,6.2978);%
-\pgfsetbuttcap%
-\pgfsetdash{{2.5pt}{2pt}}{0pt}%
-\pgfsetroundcap%
-\draw[] (4.5,6.2978) -- (2.8125,1.9136);%
+\draw[] (7.4228,2.5312) -- (4.5,3.375);%
 \pgfsetbuttcap%
 \pgfsetdash{{2.5pt}{2pt}}{0pt}%
 \pgfsetroundcap%
@@ -25,7 +21,11 @@
 \pgfsetbuttcap%
 \pgfsetdash{{2.5pt}{2pt}}{0pt}%
 \pgfsetroundcap%
-\draw[] (7.4228,2.5312) -- (4.5,3.375);%
+\draw[] (4.5,6.2978) -- (2.8125,1.9136);%
+\pgfsetbuttcap%
+\pgfsetdash{{2.5pt}{2pt}}{0pt}%
+\pgfsetroundcap%
+\draw[] (4.5,3.375) -- (4.5,6.2978);%
 \pgfsetbuttcap%
 \pgfsetdash{{2.5pt}{2pt}}{0pt}%
 \pgfsetroundcap%

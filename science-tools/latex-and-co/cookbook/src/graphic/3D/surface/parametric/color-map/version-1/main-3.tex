@@ -5,12 +5,12 @@
 \usepackage[svgnames]{xcolor}
 \usepackage[3d]{luadraw}
 
-\directlua{dofile('colormap.lua')}
-
 \begin{document}
 
-\begin{luadraw}{name = param-surf-color-map-X-dir}
-local spectrum = {Red, Orange, Green, Blue}
+\begin{luadraw}{name = param-surf-bary-colmap-X}
+require 'luadraw_palettes'
+
+local pal = getPal["palBurningGrass"]
 
 local pi, sin, cos = math.pi, math.sin, math.cos
 
@@ -23,7 +23,8 @@ local projplane = surface(
     )
   end,
   0, 2*pi, 0, 1,
-  {50, 30})
+  {50, 30}
+)
 
 local graphview = graph3d:new{
   size    = {12, 12},
@@ -31,10 +32,15 @@ local graphview = graph3d:new{
 }
 
 ------
--- Un seul ¨chgt ici : usage de la méthode ''draw_colormap_X''
--- pour colorer les facettes suivant l'¨abs de leur ¨bary.
+-- Un seul ¨chgt ici : usage de la méthode ''"x"''.
 ------
-graphview:draw_colormap_X(projplane, spectrum)
+graphview:Dpoly(
+  facet2poly(projplane), 
+  {
+    usepalette = {pal, "x"},
+    mode       = mShaded
+  }
+)
 
 graphview:Show()
 \end{luadraw}

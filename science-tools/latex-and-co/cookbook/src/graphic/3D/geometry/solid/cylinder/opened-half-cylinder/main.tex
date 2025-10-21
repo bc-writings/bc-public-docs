@@ -75,7 +75,8 @@ function graph3d:addHalfCyl(A, r, B, n, options)
       {
         color = options.edgecolor,
         width = options.edgewidth
-      })
+      }
+    )
   )
 
   insert(
@@ -101,12 +102,14 @@ graphview:Dscene3d(
   graphview:addHalfCyl(
     M(0, -h/2, 1.5), r,
     M(0, h/2, 1.5), vecK,
-    {color = "orange"}),
+    {color = "orange"}
+  ),
 -- Un 2nd demi-cylindre.
   graphview:addHalfCyl(
     M(0, 0, -5), 1,
     M(0, 0, -1), -vecI - vecJ,
-    {color = "SteelBlue"})
+    {color = "SteelBlue"}
+  )
 )
 
 ------

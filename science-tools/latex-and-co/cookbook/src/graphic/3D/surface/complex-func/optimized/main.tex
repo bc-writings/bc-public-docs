@@ -13,6 +13,8 @@
 \begin{document}
 
 \begin{luadraw}{name = gamma-modulus-surface-optimized}
+require 'luadraw_palettes'
+
 ------
 -- ¨Def de la zone graphique.
 ------
@@ -67,7 +69,8 @@ end
 ------
 -- Coloration en ¨fonc de l'¨arg principal du complexe `gamma(z)`.
 ------
-local spectrum = {Cyan, DodgerBlue, Magenta, Red, Orange, Gold, LimeGreen}
+-- TODO: local pal = getPal["palGistRainbow"]
+local pal = {Cyan, DodgerBlue, Magenta, Red, Orange, Gold, LimeGreen}
 
 local color_coef = function(f)
   local miniarg = math.huge
@@ -93,11 +96,13 @@ end
 local cpx_surf = surface(
   gamma_modulus_pt,
   -4.25, 5, -4, 4,
-  {50, 50})
+  {50, 50}
+)
 
 cpx_surf = cutfacet(
   cpx_surf,
-  {6*vecK, -vecK})
+  {6*vecK, -vecK}
+)
 
 cpx_surf = graphview:Sortfacet(cpx_surf)
 
@@ -118,7 +123,8 @@ for _ , f in ipairs(cpx_surf) do
     f,
     true,
        "fill = "
-    .. palette(spectrum, color_coef(f)))
+    .. palette(pal, color_coef(f))
+  )
 end
 
 ------

@@ -73,7 +73,8 @@ graphview:Dpoly(
     mode  = 4,  -- Colorisation des facettes en fonction de
                 -- leur inclinaison avec les arêtes cachées.
     color = "LightBlue"
-  })
+  }
+)
 
 ------
 -- Tracé des deux octaèdres.
@@ -86,14 +87,16 @@ graphview:Dpoly(
   {
     mode = 4,
     color = "orange"
-  })
+  }
+)
 
 graphview:Lineoptions("dashed")
 graphview:Dpoly(
   octahedron_in_cube,
   {
     mode = 0  -- Rendu de type fil de fer.
-  })
+  }
+)
 
 ------
 -- Et le merveilleux se révèle au monde.

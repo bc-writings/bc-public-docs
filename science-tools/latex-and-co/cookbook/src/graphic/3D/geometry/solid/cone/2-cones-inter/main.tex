@@ -63,19 +63,22 @@ graphview:Dscene3d(
     {
       color    = "orange",
       contrast = 0.5
-    }),
+    }
+  ),
   graphview:addPoly(
     cone_2,
     {
       color = "green"
-    }),
+    }
+  ),
 -- Les bords cachés.
   graphview:addPolyline(
     concat(border_1, border_2),
     {
       width  = 4,
       hidden = true
-    })
+    }
+  )
 )
 
 ------
@@ -107,7 +110,8 @@ graphview:Dlabel3d(
 -- Étiquette no.3
   "$L = 0$",
   M(r1 + r2, 0, h/3),
-  {pos = "E"})
+  {pos = "E"}
+)
 
 ------
 -- Et le merveilleux se révèle au monde.

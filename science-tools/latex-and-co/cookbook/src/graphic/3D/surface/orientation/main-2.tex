@@ -21,7 +21,8 @@ local graphview = graph3d:new{
 graphview:Dboxaxes3d({
   grid      = true,
   gridcolor = "gray",
-  fillcolor = "lightgray"})
+  fillcolor = "lightgray"
+})
 
 ------
 -- Nous ne gardons qu'une partie de la surface.
@@ -35,14 +36,16 @@ local projplane = surface(
     )
   end,
   0, 2*pi, 0.3, pi,
-  {51, 15})
+  {51, 15}
+)
 
 graphview:Dfacet(
   projplane,
   {
     mode  = mShadedOnly,
     color = "ForestGreen"
-  })
+  }
+)
 
 graphview:Show()
 \end{luadraw}

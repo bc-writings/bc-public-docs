@@ -21,9 +21,10 @@
 \begin{document}
 
 \begin{luadraw}{name = smooth-vector-field}
+require 'luadraw_palettes'
+
 ------
--- Considérons `y' = f(x, y)` où `f(x, y) = x^2 + y^2 - 1` avec
--- la ¨cond initiale `y(0) = 1/2`.
+-- ¨Def du ¨chp.
 ------
 local f = function(x, y)
   return x^2 + y^2 - 1
@@ -38,7 +39,7 @@ local xmin, xmax, ymin, ymax = -3, 3, -3, 3
 
 local nb_field_divs, nb_surf_divs = 20, 50
 
-local spectrum = {Purple, Indigo, Blue, Green, Yellow, Orange, Red}
+local pal = getPal["palJet"]
 
 ------
 -- ¨Def de la zone graphique.
@@ -60,10 +61,10 @@ local vect_norm = math.min(delta_X, delta_Y) - 0.1
 local vectors = {}
 local v
 
-local x, y, img, color
+local x, y, img
 
 for i = 1, nb_field_divs do
-  local x = xmin + delta_X * (i - 0.5)
+  x = xmin + delta_X * (i - 0.5)
 
   for j = 1, nb_field_divs do
     y = ymin + delta_X * (j - 0.5)
@@ -84,6 +85,7 @@ delta_X = (xmax - xmin) / nb_surf_divs
 delta_Y = (ymax - ymin) / nb_surf_divs
 
 local values = {}
+local key, color
 
 local img_min, img_max = math.huge, -math.huge
 
@@ -93,6 +95,7 @@ for i = 1, nb_surf_divs do
   for j = 1, nb_surf_divs do
     y = ymin + delta_X * (j - 0.5)
 
+    key = i .. "/" .. j
     img = f(x, y)
 
     if img < img_min then
@@ -103,7 +106,7 @@ for i = 1, nb_surf_divs do
       img_max = img
     end
 
-    values[i .. "/" .. j] = img
+    values[key] = img
   end
 end
 
@@ -114,7 +117,7 @@ for i = 1, nb_surf_divs do
     y = ymin + delta_X * (j - 1)
 
     color = palette(
-      spectrum,
+      pal,
       (values[i .. "/" .. j] - img_min) / (img_max - img_min)
     )
 

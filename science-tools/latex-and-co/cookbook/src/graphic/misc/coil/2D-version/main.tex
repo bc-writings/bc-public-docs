@@ -80,14 +80,16 @@ function graph:Dcoil(A, B, r, n, draw_options)
                     -- avec un nouveau départ pour la courbe
                     -- de Bézier qui suit.
         a + 3*u + v, a + 3*u - v, a + u - v, "b"
-      })
+      }
+    )
 
     insert(
       front,
       {
         a + u - v, "m",
         a - u - v, a - u + v, a + 2*u + v, "b"
-      })
+      }
+    )
 
 -- Décommenter cette ligne pour visualiser la construction.
 --    self:Dpolyline( {a + u - v, a + 2*u + v},"blue")
@@ -97,7 +99,8 @@ function graph:Dcoil(A, B, r, n, draw_options)
 
   insert(
     front,
-    {a + 2*u + v, a + 2*u, a + 2*u, "b"})
+    {a + 2*u + v, a + 2*u, a + 2*u, "b"}
+  )
 
   self:Dpath(back, draw_options)
   self:Dpath(front, draw_options)
@@ -155,7 +158,7 @@ graphview:Dcoil(
   a, b,
   1.15,
   20,
-  coil_style("Goldenrod")
+  coil_style("orange")
 )
 
 ------

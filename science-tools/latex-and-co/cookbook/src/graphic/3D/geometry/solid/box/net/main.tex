@@ -72,14 +72,16 @@ graphview:Dscene3d(
       contrast  = 0.5,
       edge      = true,
       edgecolor = "gray"
-    })
+    }
+  )
 )
 
 local box= shift3d(box, -3*b*vecJ)
 
 graphview:Dpoly(
-    box,
-    {mode = mShadedHidden})
+  box,
+  {mode = mShadedHidden}
+)
 
 ------
 -- Pour voir les sommets lors du ¨dev.

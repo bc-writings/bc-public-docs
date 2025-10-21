@@ -2,9 +2,9 @@ this::
     date = 2025-10-01
 
 
-======================================
-Ch représenta^o d'un \chp de \vects
-======================================
+================================
+Représenta^o d'un \chp de \vects
+================================
 
 Notre objectif est d'obtenir le rendu suivant.
 

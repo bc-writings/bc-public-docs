@@ -10,12 +10,12 @@
 \usepackage[svgnames]{xcolor}
 \usepackage[3d]{luadraw}
 
-\directlua{dofile('colormap.lua')}
-
 \begin{document}
 
-\begin{luadraw}{name = param-surf-color-map-backcull-bad}
-local spectrum = {Gray, SlateGray, LightSkyBlue, LightPink, Pink, LightSalmon}
+\begin{luadraw}{name = param-surf-colmap-bad}
+require 'luadraw_palettes'
+
+local pal = getPal["palGnuplot"]
 
 local pi, sin, cos, tanh = math.pi, math.sin, math.cos, math.tanh
 
@@ -33,9 +33,17 @@ local projplane = surface(
     )
   end,
   0, 2*pi, 0,  2*pi,
-  {51, 30})
+  {51, 30}
+)
 
-graphview:draw_colormap_Z(projplane, spectrum, true)
+graphview:Dpoly(
+  facet2poly(projplane), 
+  {
+    usepalette = {pal, "z"},
+    mode       = mShadedOnly
+  }
+)
+
 
 graphview:Show()
 \end{luadraw}
