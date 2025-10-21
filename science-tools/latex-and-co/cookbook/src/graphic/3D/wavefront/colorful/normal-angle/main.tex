@@ -37,7 +37,11 @@ local graphview = graph3d:new{
 ------
 local pal = getPal["palAfmhot"]
 
-draw_colormap_normal_angle(polyhedron, graphview, pal)
+graphview:draw_colormap_normal_angle(
+  polyhedron,
+  graphview,
+  pal
+)
 
 ------
 -- Et le merveilleux se révèle au monde.

@@ -8,13 +8,15 @@ Optimiser les codes \tikz fabriqués
 
 Nous reproduisons une belle optimisation vis-à-vis des codes \tikz produits par \luadraw : l'idée consiste à ignorer les faces orientées à l'opposé de l'observateur
 ((
-    Les nouveaux codes proposés sont des adaptations directes d'une \propo de Patrick Fradin, l'auteur de \luadraw.
+    Le code correct fourni ici est une adaptation directe d'une \propo de Patrick Fradin, l'auteur de \luadraw.
 )).
 Voici quelques remarques relatives aux exemples proposés.
 
-    1) L'exemple 1 montre que notre \surf non orientable n'est pas affichée comment espérés par un humain : des faces visibes sont coloriées comme des faces cachées.
+    1) L'exemple 1 montre que notre \surf est non orientable : des faces visibles sont coloriées comme des faces cachées.
 
     1) L'exemple 2 explique comment obtenir le bon tracé via quelques \modifs des \objs \maths manipulés.
+
+    1) La \2nde \sol, en plus de fournir le rendu souhaité, diminue la taille du fichier \tikz construit en coulisse de `100 \ko`.
 
 
 note::

@@ -7,12 +7,12 @@
 --     :action: dessin du polyèdre fourni en colorant ses facettes
 --              suivant leur "inclinaison".
 ------
-function draw_colormap_normal_angle(
+function graph3d:draw_colormap_normal_angle(
   polyhedron,
   graphview,
   user_palette
 )
-  local sorted_facets = graphview:Sortpolyfacet(polyhedron)
+  local sorted_facets = self:Sortpolyfacet(polyhedron)
 
   local A, B, C
   local N, angle, level, color
@@ -39,7 +39,7 @@ function draw_colormap_normal_angle(
 
     level = (amax - angle3d(N, vecK)) / (amax - amin)
 
-    graphview:Dpolyline3d(
+    self:Dpolyline3d(
       f,
       true,
          "draw = none, fill = "

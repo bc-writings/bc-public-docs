@@ -13,4 +13,4 @@ content::
     ./nb-edge/\desc
     ./bary/\desc
     ./rand/\desc
-    ./normal-angle/\desc    ??
+    ./normal-angle/\desc
