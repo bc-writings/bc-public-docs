@@ -27,6 +27,11 @@
 --     1) Deux paraboles pour la base du cylindre vertical.
 --
 --     1) Un plan pour biseauter le cylindre.
+--
+--
+-- note::
+-- 	   Le choix `P : -x - y - z + 4 = 0` permet d'avoir le bon
+--     vecteur normal utilisé après pour construire un prisme.
 ------
 local f = function(x)
   return 3*x^2 - 1
@@ -45,7 +50,7 @@ local graphview = graph3d:new{
   window3d = {-2, 2, -2, 3, 0, 8},
   adjust2d = true,
   viewdir  = {-30, 50},
-  size   = {12, 12, 0}
+  size     = {12, 12, 0}
 }
 
 ------
@@ -83,36 +88,20 @@ local xOy_domain = map(
 )
 
 ------
--- Construction du domaine dans le plan `P`: nous avons juste à
--- projeter la base du cylindre dans le plan `P`.
-------
-local P_domain = proj3dO(xOy_domain, P, vecK)
-
-------
--- Construction d'une liste de faces latérales polygonales (ce choix
--- de design améliore la compréhension de l'objet).
+-- Via la fonction ''prism'', nous obtenons le domaine dans le plan
+-- `P`, et la liste de faces latérales polygonales.
+--
 --
 -- note::
---     ''#xOy_domain'' est la taille de la liste ''xOy_domain''.
+-- 	   La première variable ''_'' contient les facettes du "mauvais"
+--     côte du demi-plan `P`.
 ------
-local lateral, facet, n = {}, {}, #xOy_domain
-
-for k = 1, n do
-  local j
-
-  if k == n then
-    j = 1
-  else
-    j = k + 1
-  end
-
-  facet = {
-    xOy_domain[k], xOy_domain[j],
-    P_domain[j]  , P_domain[k]
-  }
-
-  table.insert(lateral, facet)
-end
+local _, lateral, P_domain = cutfacet(
+  poly2facet(
+    prism(xOy_domain, 8*vecK, true)
+  ),
+  P
+)
 
 ------
 -- Tracé du domaine dans le plan `xOy` en hachuré et sans bordure.
@@ -153,6 +142,7 @@ graphview:Savematrix()
       draw_options = "line width = 0.8pt, Crimson"
     }
   )
+
 graphview:Restorematrix()
 
 ------
@@ -163,7 +153,7 @@ graphview:Dfacet(
   {
     edgecolor = "gray",
     edgewidth = 2,
-    color   = "Pink",
+    color     = "Pink",
     opacity   = 0.3
   }
 )
@@ -187,7 +177,7 @@ graphview:Dpolyline3d(
 )
 
 ------
--- Et le merveilleux se révèle au monde.
+-- Montrons le résultat de notre oeuvre.
 ------
 graphview:Show()
 \end{luadraw}

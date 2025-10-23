@@ -3,6 +3,7 @@
 ==============
 
 content::
+    ./axes-trick/\desc
     ./circle/\desc
     ./triangle/\desc
     ./square/\desc

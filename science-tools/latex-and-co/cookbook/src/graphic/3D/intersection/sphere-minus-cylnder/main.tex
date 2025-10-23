@@ -1,0 +1,133 @@
+% !TEX TS-program = lualatex
+
+%%%
+% src::
+%     url = https://github.com/pfradin/luadraw/discussions/127#discussioncomment-14758815
+%%%
+
+\documentclass{standalone}
+
+%%%
+% Des couleurs faciles d'emploi via le package ''xcolor''!
+%%%
+\usepackage[svgnames]{xcolor}
+
+%%%
+% La bibliothèque ''luadraw'' allie une facilité d’utilisation à
+% un rendu particulièrement soigné.
+%%%
+\usepackage[3d]{luadraw}
+
+\begin{document}
+
+\begin{luadraw}{name = cylinder-extruded-into-half-sphere}
+------
+-- ¨Def de la zone graphique.
+------
+local graphview = graph3d:new{
+  bbox    = false,
+  size    = {10, 10},
+  viewdir = {30, 60}
+}
+
+local sin, cos = math.sin, math.cos
+local sqrt, pi = math.sqrt, math.pi
+
+local O, R = Origin, 4
+local A, r = R / 2*vecJ, R / 2
+
+local cyl_border = parametric3d(
+  function(t)
+    return R / 2*M(
+      cos(t),
+      1 + sin(t),
+      sqrt(2*(1 - sin(t)))
+    )
+  end,
+  pi, -pi, 100,
+  false,
+  0
+)[1] -- On garde juste la 1e composante connexe.
+
+local cyl = prism(cyl_border, -4*vecK, true)
+
+cyl = cutpoly(
+  cyl,
+  {O, vecK}
+)
+
+local outline = graphview:Outline(cyl)
+
+-- to draw the outline of the shalf sphere
+local U = O - R*graphview:ScreenX()
+local V = O + R*graphview:ScreenX()
+
+
+
+
+
+
+-- ”m” pour moveto,
+-- ”l” pour lineto,
+-- ”b” pour bézier (il faut deux points de contrôles),
+-- ”c” pour cercle (il faut un point du cercle, le centre et un vecteur normal),
+-- ”ca” pour arc de cercle (il faut 3 points, un rayon, un sens et éventuellement un vecteur normal), -- ”cl” pour close (ferme la composante courante).
+
+
+-- back sphere
+graphview:Dpath3d(
+  {
+    U, O, V, R, 1, -vecK, "ca",
+    O, U, R, 1, graphview.Normal, "ca"
+  },
+  "fill = orange!30"
+)
+
+-- back cylinder
+graphview:Dpolyline3d(
+  cyl_border,
+     "left color = blue!50,"
+  .. "right color = blue!25,"
+  .. "middle color = blue!10,"
+  .. "fill opacity = 0.8"
+)
+
+graphview:Dcircle3d(
+  A, r, vecK,
+  "fill = lightgray"
+)
+
+-- front cylinder
+graphview:Dpolyline3d(
+  outline.visible,
+  true,
+     "left color = blue!50,"
+  .. "right color = blue,"
+  .. "middle color = blue!10,"
+  .. "fill opacity = 0.9"
+)
+
+-- front sphere
+table.insert(cyl_border, 2, "m")
+table.insert(cyl_border, "l") -- hole in the sphere
+
+graphview:Dpath3d(
+  concat(
+    {
+      U, O, V, R, 1, vecK, "ca",
+      O, U, R, 1, graphview.Normal, "ca"
+    },
+    cyl_border
+  ),
+     "ball color = orange,"
+  .. "even odd rule,"
+  .. "fill opacity = 0.7"
+)
+
+------
+-- Montrons le résultat de notre oeuvre.
+------
+graphview:Show()
+\end{luadraw}
+
+\end{document}

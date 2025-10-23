@@ -1,0 +1,7 @@
+===================
+Via des intersec^os
+===================
+
+content::
+    ./sphere-minus-cylnder/\desc
+    ./2-curves-1-plane/\desc

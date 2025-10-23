@@ -35,11 +35,11 @@ local c
 
 local sorted_facets = graphview:Sortpolyfacet(polyhedron)
 
-math.randomseed(2025)
+math.randomseed(23102025)
 
 for _, f in ipairs(sorted_facets) do
   c = math.random(1, #facet_colors)
-  
+
   graphview:Dpolyline3d(
     f,
     true,  -- Ligne fermée.
@@ -48,7 +48,7 @@ for _, f in ipairs(sorted_facets) do
 end
 
 ------
--- Et le merveilleux se révèle au monde.
+-- Montrons le résultat de notre oeuvre.
 ------
 graphview:Show()
 \end{luadraw}

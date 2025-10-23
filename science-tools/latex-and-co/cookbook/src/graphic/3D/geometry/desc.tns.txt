@@ -1,0 +1,7 @@
+===========================
+En lien avec les géométries
+===========================
+
+content::
+    ./solid/\desc
+    ./spherical/\desc

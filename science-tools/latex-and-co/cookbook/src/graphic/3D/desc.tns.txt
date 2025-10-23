@@ -3,7 +3,7 @@ Dans l'espace
 =============
 
 content::
-    ./solid/\desc
-    ./wavefront/\desc
+    ./geometry/\desc
     ./surface/\desc
-    ./spherical-geo/\desc
+    ./intersection/\desc
+    ./wavefront/\desc
