@@ -39,13 +39,14 @@ local sqrt, pi = math.sqrt, math.pi
 local O, R = Origin, 4
 local A, r = R / 2 * vecJ, R / 2
 
--- Calcul non automatisé de la "trace" du cylindre sur la demi
--- sphère.
+------
+-- Calcul non automatisé de la "trace" du cylindre
 --
 -- x^2 + y^2 + z^2 = 2^2
 -- z^2 = 4 - x^2 - y^2
 -- z^2 = 4 - cos^2 t - (1 + sin t)^2
 -- z^2 = 2 - 2 sin t
+------
 local cyl_border = parametric3d(
   function(t)
     return R / 2 * M(
@@ -59,12 +60,19 @@ local cyl_border = parametric3d(
   0
 )
 
+------
 -- Comme ''parametric3d'' renvoie une liste de composantes
 -- connexes de type liste de points ¨3d, et que de plus nous
--- allons avoir besoin juste d'une liste de points ¨3d, nous
--- gardons juste la 1e composante connexe.
+-- allons juste avoir besoin d'une liste de points ¨3d, nous
+-- ne gardons que la ¨1e composante connexe.
+------
 cyl_border = cyl_border[1]
 
+------
+-- La trace du cylindre sur la demi sphère sert de base à la
+-- construction d'un prisme "généralisé" utile pour la suite
+-- du dessin.
+------
 local pseudo_cyl = prism(cyl_border, -4*vecK, true)
 
 pseudo_cyl = cutpoly(
@@ -80,14 +88,32 @@ local outline = graphview:Outline(pseudo_cyl)
 local U = O - R*graphview:ScreenX()
 local V = O + R*graphview:ScreenX()
 
+-- Décommenter les lignes suivantes pour voir où se situent
+-- les points U et V. Ceci permet de comprendre l'utilisation
+-- du vecteur ¨3d ''graphview:ScreenX()''.
+--
+-- graphview:Dlabel3d(
+--   "U", U, {pos="W", node_options="blue"},
+--   "V", V, {pos="E", node_options="blue"}
+-- )
+-- graphview:Dballdots3d({U, V}, "blue")
+
+
+
+
+
+
+
+
+
+------
+-- XXXXXXX
+--
 -- ”m” pour moveto,
 -- ”l” pour lineto,
 -- ”b” pour bézier (il faut deux points de contrôles),
 -- ”c” pour cercle (il faut un point du cercle, le centre et un vecteur normal),
 -- ”ca” pour arc de cercle (il faut 3 points, un rayon, un sens et éventuellement un vecteur normal), -- ”cl” pour close (ferme la composante courante).
-
-------
--- XXXXXXX
 ------
 -- back sphere
 graphview:Dpath3d(
