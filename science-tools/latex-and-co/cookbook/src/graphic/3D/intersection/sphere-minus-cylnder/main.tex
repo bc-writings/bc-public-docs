@@ -39,9 +39,13 @@ local sqrt, pi = math.sqrt, math.pi
 local O, R = Origin, 4
 local A, r = R / 2 * vecJ, R / 2
 
--- Nous calculons nous-même la trace du cylindre sur la demi sphère. Pour cela, nous notons que x^2 + y^2 + z^2 = 2^2 où 2 = R/2, nous donne:
--- z^2 =  4 - cos^2 t - (1 + sin t)^2
--- z^2 =  2 - 2 sin t
+-- Calcul non automatisé de la "trace" du cylindre sur la demi
+-- sphère.
+--
+-- x^2 + y^2 + z^2 = 2^2
+-- z^2 = 4 - x^2 - y^2
+-- z^2 = 4 - cos^2 t - (1 + sin t)^2
+-- z^2 = 2 - 2 sin t
 local cyl_border = parametric3d(
   function(t)
     return R / 2 * M(
@@ -55,20 +59,23 @@ local cyl_border = parametric3d(
   0
 )
 
--- On garde juste la 1e composante connexe.
+-- Comme ''parametric3d'' renvoie une liste de composantes
+-- connexes de type liste de points ¨3d, et que de plus nous
+-- allons avoir besoin juste d'une liste de points ¨3d, nous
+-- gardons juste la 1e composante connexe.
 cyl_border = cyl_border[1]
 
-local cyl = prism(cyl_border, -4*vecK, true)
+local pseudo_cyl = prism(cyl_border, -4*vecK, true)
 
-cyl = cutpoly(
-  cyl,
+pseudo_cyl = cutpoly(
+  pseudo_cyl,
   {O, vecK}
 )
 
 ------
 -- La silhouette du bout de cylindre.
 ------
-local outline = graphview:Outline(cyl)
+local outline = graphview:Outline(pseudo_cyl)
 
 local U = O - R*graphview:ScreenX()
 local V = O + R*graphview:ScreenX()
