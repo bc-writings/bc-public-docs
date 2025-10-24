@@ -30,15 +30,21 @@ local graphview = graph3d:new{
   viewdir = {30, 60}
 }
 
+------
+-- Le cylindre et son bord.
+------
 local sin, cos = math.sin, math.cos
 local sqrt, pi = math.sqrt, math.pi
 
 local O, R = Origin, 4
-local A, r = R / 2*vecJ, R / 2
+local A, r = R / 2 * vecJ, R / 2
 
+-- Nous calculons nous-même la trace du cylindre sur la demi sphère. Pour cela, nous notons que x^2 + y^2 + z^2 = 2^2 où 2 = R/2, nous donne:
+-- z^2 =  4 - cos^2 t - (1 + sin t)^2
+-- z^2 =  2 - 2 sin t
 local cyl_border = parametric3d(
   function(t)
-    return R / 2*M(
+    return R / 2 * M(
       cos(t),
       1 + sin(t),
       sqrt(2*(1 - sin(t)))
@@ -47,7 +53,10 @@ local cyl_border = parametric3d(
   pi, -pi, 100,
   false,
   0
-)[1] -- On garde juste la 1e composante connexe.
+)
+
+-- On garde juste la 1e composante connexe.
+cyl_border = cyl_border[1]
 
 local cyl = prism(cyl_border, -4*vecK, true)
 
@@ -56,16 +65,13 @@ cyl = cutpoly(
   {O, vecK}
 )
 
+------
+-- La silhouette du bout de cylindre.
+------
 local outline = graphview:Outline(cyl)
 
--- to draw the outline of the shalf sphere
 local U = O - R*graphview:ScreenX()
 local V = O + R*graphview:ScreenX()
-
-
-
-
-
 
 -- ”m” pour moveto,
 -- ”l” pour lineto,
@@ -73,7 +79,9 @@ local V = O + R*graphview:ScreenX()
 -- ”c” pour cercle (il faut un point du cercle, le centre et un vecteur normal),
 -- ”ca” pour arc de cercle (il faut 3 points, un rayon, un sens et éventuellement un vecteur normal), -- ”cl” pour close (ferme la composante courante).
 
-
+------
+-- XXXXXXX
+------
 -- back sphere
 graphview:Dpath3d(
   {
@@ -123,6 +131,11 @@ graphview:Dpath3d(
   .. "even odd rule,"
   .. "fill opacity = 0.7"
 )
+
+
+
+
+
 
 ------
 -- Montrons le résultat de notre oeuvre.
