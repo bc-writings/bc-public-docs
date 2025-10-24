@@ -1,0 +1,104 @@
+% !TEX TS-program = lualatex
+
+%%%
+% src::
+%     url = https://github.com/pfradin/luadraw/discussions/127#discussioncomment-14774246
+%%%
+
+\documentclass{standalone}
+
+\usepackage[svgnames]{xcolor}
+\usepackage[3d]{luadraw}
+
+\begin{document}
+
+\begin{luadraw}{name = cylinder-extruded-into-half-sphere}
+local graphview = graph3d:new{
+  bbox    = false,
+  size    = {10, 10},
+  viewdir = {30, 60}
+}
+
+local sin, cos = math.sin, math.cos
+local sqrt, pi = math.sqrt, math.pi
+
+local O, R = Origin, 4
+local A, r = R / 2 * vecJ, R / 2
+
+------
+-- Nous partons d'un cylindre de révolution.
+------
+local base = circle3d(A, r, vecK)
+local base = base[1]
+
+------
+-- La "trace" du cylindre est obtenu en projetant chaque point
+-- de la base sur la demi-sphère.
+------
+local cyl_border = {}
+
+for _, C in ipairs(base) do
+  table.insert(
+    cyl_border,
+    C + sqrt(R^2 - pt3d.abs2(C)) * vecK
+  )
+end
+
+------
+-- Ce qui suit est similaire au code de la recette précédente.
+------
+local cyl = prism(reverse(cyl_border), -4*vecK, true)
+
+cyl = cutpoly(cyl, {O, vecK})
+
+local cyl_visible, cyl_hidden = graphview:Classifyfacet(cyl)
+
+local U = O - R*graphview:ScreenX()
+local V = O + R*graphview:ScreenX()
+
+graphview:Dpath3d(
+  {
+    U, O, V, R, 1, -vecK, "ca",
+    O, U, R, 1, graphview.Normal, "ca"
+  },
+  "fill = Crimson!30"
+)
+
+graphview:Dpolyline3d(
+  border(cyl_hidden),
+     "left color = ForestGreen!50,"
+  .. "right color = ForestGreen!25,"
+  .. "middle color = ForestGreen!10,"
+  .. "fill opacity = 0.8"
+)
+
+graphview:Dpolyline3d(
+  border(cyl_visible),
+  true,
+     "left color = ForestGreen!50,"
+  .. "right color = ForestGreen,"
+  .. "middle color = ForestGreen!10,"
+  .. "fill opacity = 0.9"
+)
+
+table.insert(cyl_border, 2, "m")
+table.insert(cyl_border, "l")
+
+graphview:Dpath3d(
+  concat(
+    {
+      U, O, V, R, 1, vecK, "ca",
+      O, U, R, 1, graphview.Normal, "ca"
+    },
+    cyl_border
+  ),
+     "ball color = Crimson,"
+  .. "even odd rule,"
+  .. "fill opacity = 0.7,"
+  .. "line width = 0.8pt"
+)
+
+graphview:Show()
+\end{luadraw}
+
+\end{document}

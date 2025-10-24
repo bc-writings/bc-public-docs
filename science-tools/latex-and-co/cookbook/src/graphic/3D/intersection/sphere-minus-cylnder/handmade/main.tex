@@ -31,7 +31,7 @@ local graphview = graph3d:new{
 }
 
 ------
--- Le cylindre et son bord.
+-- Quelques ingrédients.
 ------
 local sin, cos = math.sin, math.cos
 local sqrt, pi = math.sqrt, math.pi
@@ -40,7 +40,7 @@ local O, R = Origin, 4
 local A, r = R / 2 * vecJ, R / 2
 
 ------
--- Calcul non automatisé de la "trace" du cylindre
+-- Calcul non automatisé de la "trace" du cylindre.
 --
 -- x^2 + y^2 + z^2 = 2^2
 -- z^2 = 4 - x^2 - y^2
@@ -75,10 +75,7 @@ cyl_border = cyl_border[1]
 ------
 local pseudo_cyl = prism(cyl_border, -4*vecK, true)
 
-pseudo_cyl = cutpoly(
-  pseudo_cyl,
-  {O, vecK}
-)
+pseudo_cyl = cutpoly(pseudo_cyl, {O, vecK})
 
 ------
 -- La silhouette du bout de cylindre.
@@ -88,69 +85,68 @@ local outline = graphview:Outline(pseudo_cyl)
 local U = O - R*graphview:ScreenX()
 local V = O + R*graphview:ScreenX()
 
--- Décommenter les lignes suivantes pour voir où se situent
--- les points U et V. Ceci permet de comprendre l'utilisation
--- du vecteur ¨3d ''graphview:ScreenX()''.
+-- Pour comprendre l'utilité de ''graphview:ScreenX()'', qui
+-- est un vecteur ¨3d, il suffit de décommenter les lignes
+-- suivantes pour rendre visibles les points U et V.
 --
 -- graphview:Dlabel3d(
---   "U", U, {pos="W", node_options="blue"},
---   "V", V, {pos="E", node_options="blue"}
+--   "U", U, {pos = "W", node_options = "ForestGreen"},
+--   "V", V, {pos = "E", node_options = "ForestGreen"}
 -- )
--- graphview:Dballdots3d({U, V}, "blue")
-
-
-
-
-
-
-
-
+-- graphview:Dballdots3d({U, V}, "ForestGreen")
 
 ------
--- XXXXXXX
---
--- ”m” pour moveto,
--- ”l” pour lineto,
--- ”b” pour bézier (il faut deux points de contrôles),
--- ”c” pour cercle (il faut un point du cercle, le centre et un vecteur normal),
--- ”ca” pour arc de cercle (il faut 3 points, un rayon, un sens et éventuellement un vecteur normal), -- ”cl” pour close (ferme la composante courante).
+-- Nous utilisons le langage spécifique à ¨luadraw pour
+-- construire deux arcs de cercle correspondant à l'arrière
+-- de la sphère.
 ------
--- back sphere
 graphview:Dpath3d(
   {
     U, O, V, R, 1, -vecK, "ca",
     O, U, R, 1, graphview.Normal, "ca"
   },
-  "fill = orange!30"
+  "fill = Crimson!30"
 )
 
--- back cylinder
+------
+-- L'arrrière de l'extrusion.
+--
+-- note::
+--     Via un dégradé ¨tikz, un "faux" effet ¨3d est obtenu.
+------
 graphview:Dpolyline3d(
   cyl_border,
-     "left color = blue!50,"
-  .. "right color = blue!25,"
-  .. "middle color = blue!10,"
+     "left color = ForestGreen!50,"
+  .. "right color = ForestGreen!25,"
+  .. "middle color = ForestGreen!10,"
   .. "fill opacity = 0.8"
 )
 
+------
+-- Le fond de l'extrusion.
+------
 graphview:Dcircle3d(
   A, r, vecK,
   "fill = lightgray"
 )
 
--- front cylinder
+------
+-- L'avant du cylindre.
+------
 graphview:Dpolyline3d(
   outline.visible,
   true,
-     "left color = blue!50,"
-  .. "right color = blue,"
-  .. "middle color = blue!10,"
+     "left color = ForestGreen!50,"
+  .. "right color = ForestGreen,"
+  .. "middle color = ForestGreen!10,"
   .. "fill opacity = 0.9"
 )
 
--- front sphere
+------
+-- L'avant de la sphère.
+------
 table.insert(cyl_border, 2, "m")
-table.insert(cyl_border, "l") -- hole in the sphere
+table.insert(cyl_border, "l") -- Trou de la sphère.
 
 graphview:Dpath3d(
   concat(
@@ -160,15 +156,10 @@ graphview:Dpath3d(
     },
     cyl_border
   ),
-     "ball color = orange,"
+     "ball color = Crimson,"
   .. "even odd rule,"
   .. "fill opacity = 0.7"
 )
-
-
-
-
-
 
 ------
 -- Montrons le résultat de notre oeuvre.
