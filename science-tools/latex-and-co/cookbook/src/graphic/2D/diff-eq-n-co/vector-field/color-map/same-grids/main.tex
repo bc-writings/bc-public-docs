@@ -20,11 +20,12 @@
 
 \begin{document}
 
-\begin{luadraw}{name = smooth-vector-field}
+\begin{luadraw}{name = vector-field-same-grids}
 require 'luadraw_palettes'
 
 ------
--- ¨Def du ¨chp.
+-- Considérons `y' = f(x, y)` où `f(x, y) = x^2 + y^2 - 1` avec
+-- la ¨cond initiale `y(0) = 1/2`.
 ------
 local f = function(x, y)
   return x^2 + y^2 - 1
@@ -37,7 +38,7 @@ local A_0 = Z(0, 1/2)
 ------
 local xmin, xmax, ymin, ymax = -3, 3, -3, 3
 
-local nb_field_divs, nb_surf_divs = 20, 50
+local nb_divs = 20
 
 local pal = getPal["palJet"]
 
@@ -51,48 +52,26 @@ local graphview = graph:new{
 }
 
 ------
--- Construction du champ de ¨vects.
+-- Construction du champ de ¨vects et de la "¨surf de niveau".
 ------
-local delta_X = (xmax - xmin) / nb_field_divs
-local delta_Y = (ymax - ymin) / nb_field_divs
+local delta_X = (xmax - xmin) / nb_divs
+local delta_Y = (ymax - ymin) / nb_divs
+
+local vectors = {}
+local values  = {}
+local x, y, img, v
 
 local vect_norm = math.min(delta_X, delta_Y) - 0.1
 
-local vectors = {}
-local v
+local key
 
-local x, y, img
+local img_min = math.huge
+local img_max = - math.huge
 
-for i = 1, nb_field_divs do
+for i = 1, nb_divs do
   x = xmin + delta_X * (i - 0.5)
 
-  for j = 1, nb_field_divs do
-    y = ymin + delta_X * (j - 0.5)
-
-    img = f(x, y)
-
-    v = Z(1, img)
-    v = v / cpx.abs(v) * vect_norm
-
-    table.insert(vectors, {Z(x, y), Z(x, y) + v})
-  end
-end
-
-------
--- Construction de la "¨surf de niveau".
-------
-delta_X = (xmax - xmin) / nb_surf_divs
-delta_Y = (ymax - ymin) / nb_surf_divs
-
-local values = {}
-local key, color
-
-local img_min, img_max = math.huge, -math.huge
-
-for i = 1, nb_surf_divs do
-  x = xmin + delta_X * (i - 0.5)
-
-  for j = 1, nb_surf_divs do
+  for j = 1, nb_divs do
     y = ymin + delta_X * (j - 0.5)
 
     key = i .. "/" .. j
@@ -107,13 +86,24 @@ for i = 1, nb_surf_divs do
     end
 
     values[key] = img
+
+    v = Z(1, img)
+    v = v / cpx.abs(v) * vect_norm
+
+    table.insert(vectors, {Z(x, y), Z(x, y) + v})
   end
 end
 
-for i = 1, nb_surf_divs do
+
+------
+-- Construction de la "¨surf de niveau".
+------
+local color
+
+for i = 1, nb_divs do
   x = xmin + delta_X * (i - 1)
 
-  for j = 1, nb_surf_divs do
+  for j = 1, nb_divs do
     y = ymin + delta_X * (j - 1)
 
     color = palette(
@@ -128,7 +118,7 @@ for i = 1, nb_surf_divs do
         Z(x + delta_X, y + delta_Y),
         Z(x, y + delta_Y)
       },
-      "fill opacity = 0.5, draw = none, fill = "..color
+      "fill opacity = 0.5, draw = none, fill = " .. color
     )
   end
 end

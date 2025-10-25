@@ -10,11 +10,11 @@ Notre objectif est d'obtenir le rendu suivant.
 
 pdf::
     ---
-    file = ./version-2/main-crop.pdf
+    file = ./smooth/main-crop.pdf
     ---
 
 
 content::
-    ./version-1/\desc
-    ./version-2/\desc
-    ./version-3/\desc
+    ./same-grids/\desc
+    ./two-grids/\desc
+    ./smooth/\desc
