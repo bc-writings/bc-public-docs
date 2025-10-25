@@ -7,29 +7,57 @@
 
 \documentclass{standalone}
 
+%%%
+% Des couleurs nommées faciles d'emploi via le package ''xcolor''!
+%%%
 \usepackage[svgnames]{xcolor}
-\usepackage{luadraw}
+
+%%%
+% La bibliothèque ''luadraw'' allie une facilité d’utilisation à
+% un rendu particulièrement soigné.
+%%%
+\usepackage[3d]{luadraw}
 
 \begin{document}
 
 \begin{luadraw}{name = 3-sets}
+------
+-- ¨Def de la zone graphique.
+------
 local graphview = graph:new{
   window = {0, 16, 0, 4},
   margin = {0, 0, 0, 0}
 }
 
+------
+-- Taille de la police des étiquettes.
+------
 graphview:Labelsize("footnotesize")
 
+------
+-- Nos ingrédients de base.
+------
 local i = cpx.I
 
-local A, B, C, U = set(i, 0), set(-2-i, 25), set(2-i, -25), {-6-6*i, 6-6*i, 6+6*i, -6+6*i, "l", "cl"}
+local U = {
+  -6 - 6*i, 6 - 6*i, 6 + 6*i, -6 + 6*i,
+  "l",
+  "cl"
+}
 
--- conversion chemin -> liste de complexes
+local A = set(i, 0)
+local B = set(-2 - i, 25)
+local C = set(2 - i, -25)
+
+-- Conversion des chemins en listes de complexes.
 local C1, C2, C3 = path(A), path(B), path(C)
 
-local draw = function(L, legend)
+------
+-- Deux fonctions de tracé pour factoriser le code.
+------
+local drawdiag = function(paths, legend)
   graphview:Dpolyline(
-    L,
+    paths,
     true,
        "draw = none,"
     .. "fill = lightgray,"
@@ -42,27 +70,30 @@ local draw = function(L, legend)
   graphview:Dpath(C)
 
   graphview:Dlabel(
-    "$U$", -6.5+6*i, {pos = "NE"},
+    "$U$", -6.5 + 6*i, {pos = "NE"},
     "$A$", 4.75*i, {pos = "N"},
-    "$B$", -4+3*i, {pos = "W"},
-    "$C$", 4+3*i, {pos = "E"},
-    legend, -6.5-6.5*i, {}
+    "$B$", -4 + 3*i, {pos = "W"},
+    "$C$", 4 + 3*i, {pos = "E"},
+    legend, -6.5 - 6.5*i, {}
   )
 end
 
 local addcase = function(
     xvpmin, xvmax, yvpmin, yvpmax,
-    sets,
+    paths,
     legend
 )
   graphview:Saveattr()
     graphview:Viewport(xvpmin, xvmax, yvpmin, yvpmax)
     graphview:Coordsystem(-7, 7, -7, 7)
 
-    draw(sets, legend)
+    drawdiag(paths, legend)
   graphview:Restoreattr()
 end
 
+------
+-- Tracé de 4 cas.
+------
 addcase(
   0, 4, 0, 4,
   {

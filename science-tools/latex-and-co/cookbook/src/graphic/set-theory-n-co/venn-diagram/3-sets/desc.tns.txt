@@ -1,3 +1,10 @@
+this::
+    date = 2025-10-25
+
+
 ================
 Avec trois \enss
 ================
+
+note::
+    Bien repérer dans le code proposé l'emploi des méthodes ''Saveattr'', ''Viewport'' et ''Restoreattr'' pour déplacer le repère dans le rendu final.
