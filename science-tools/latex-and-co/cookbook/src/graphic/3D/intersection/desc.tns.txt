@@ -3,5 +3,5 @@ Via des intersec^os
 ===================
 
 content::
-    ./sphere-minus-cylnder/\desc
+    ./sphere-minus-cylinder/\desc
     ./2-curves-1-plane/\desc
