@@ -1,0 +1,106 @@
+% !TEX TS-program = lualatex
+
+%%%
+% src::
+%   url = https://tex.stackexchange.com/a/751952/6880
+%%%
+
+\documentclass{standalone}
+
+\usepackage[svgnames]{xcolor}
+\usepackage{luadraw}
+
+\begin{document}
+
+\begin{luadraw}{name = 3-sets}
+local graphview = graph:new{
+  window = {0, 16, 0, 4},
+  margin = {0, 0, 0, 0}
+}
+
+graphview:Labelsize("footnotesize")
+
+local i = cpx.I
+
+local A, B, C, U = set(i, 0), set(-2-i, 25), set(2-i, -25), {-6-6*i, 6-6*i, 6+6*i, -6+6*i, "l", "cl"}
+
+-- conversion chemin -> liste de complexes
+local C1, C2, C3 = path(A), path(B), path(C)
+
+local draw = function(L, legend)
+  graphview:Dpolyline(
+    L,
+    true,
+       "draw = none,"
+    .. "fill = lightgray,"
+    .. "even odd rule"
+  )
+
+  graphview:Dpath(U)
+  graphview:Dpath(A)
+  graphview:Dpath(B)
+  graphview:Dpath(C)
+
+  graphview:Dlabel(
+    "$U$", -6.5+6*i, {pos = "NE"},
+    "$A$", 4.75*i, {pos = "N"},
+    "$B$", -4+3*i, {pos = "W"},
+    "$C$", 4+3*i, {pos = "E"},
+    legend, -6.5-6.5*i, {}
+  )
+end
+
+local addcase = function(
+    xvpmin, xvmax, yvpmin, yvpmax,
+    sets,
+    legend
+)
+  graphview:Saveattr()
+    graphview:Viewport(xvpmin, xvmax, yvpmin, yvpmax)
+    graphview:Coordsystem(-7, 7, -7, 7)
+
+    draw(sets, legend)
+  graphview:Restoreattr()
+end
+
+addcase(
+  0, 4, 0, 4,
+  {
+    setminus(cap(C1, C2), C3),
+    setminus(cap(C1, C3), C2),
+    setminus(cap(C3, C2), C1)
+  },
+  "a...."
+)
+
+addcase(
+  4, 8, 0, 4,
+  {
+    setminus(C1, C2),
+    setminus(C2, C1)
+  },
+  "b...."
+)
+
+addcase(
+  8, 12, 0, 4,
+  {
+    setminus(C1, cup(C2, C3)),
+    setminus(C3, cup(C1, C2))
+  },
+  "c...."
+)
+
+addcase(
+  12, 16, 0, 4,
+  concat(path(U)[1], cup(C1, cup(C2, C3))),
+  "d...."
+)
+
+------
+-- Montrons le résultat de notre oeuvre.
+------
+graphview:Show()
+\end{luadraw}
+
+\end{document}
