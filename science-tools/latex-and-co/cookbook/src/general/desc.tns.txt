@@ -3,7 +3,8 @@ D'utilité générale reconnue (ou pas)
 ====================================
 
 content::
-    ./icon/\desc
-    ./image/\desc
     ./link/\desc
-    ./multidoc/\desc
+    ./table/\desc
+    ./image/\desc
+    ./icon/\desc
+    ./big-doc/\desc

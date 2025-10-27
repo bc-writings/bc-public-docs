@@ -1,0 +1,9 @@
+this::
+    date = 2025-10-27
+
+
+==================
+Annoter un tableau
+==================
+
+Nous allons voir comment ajouter des notes de pied de tableau.
