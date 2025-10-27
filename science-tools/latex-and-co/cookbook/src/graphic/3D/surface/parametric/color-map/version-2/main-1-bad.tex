@@ -15,7 +15,7 @@
 \begin{luadraw}{name = param-surf-colmap-KO}
 require 'luadraw_palettes'
 
-local pal = getPal["palGnuplot"]
+local pal = getPal("Gnuplot")
 
 local pi, sin, cos, tanh = math.pi, math.sin, math.cos, math.tanh
 
@@ -37,7 +37,7 @@ local projplane = surface(
 )
 
 graphview:Dpoly(
-  facet2poly(projplane), 
+  facet2poly(projplane),
   {
     usepalette = {pal, "z"},
     mode       = mShadedOnly

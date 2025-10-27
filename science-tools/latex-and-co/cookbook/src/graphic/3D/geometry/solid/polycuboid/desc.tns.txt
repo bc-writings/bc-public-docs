@@ -3,5 +3,6 @@ Empilements de cubes
 ====================
 
 content::
+    ./stacked-cubes/\desc
     ./stairway/\desc
     ./cuboid-surface/\desc

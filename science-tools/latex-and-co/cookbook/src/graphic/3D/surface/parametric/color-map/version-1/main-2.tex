@@ -10,7 +10,7 @@
 \begin{luadraw}{name = param-surf-colmap-Y}
 require 'luadraw_palettes'
 
-local pal = getPal["palBurningGrass"]
+local pal = getPal("BurningGrass")
 
 local pi, sin, cos = math.pi, math.sin, math.cos
 
@@ -35,7 +35,7 @@ local graphview = graph3d:new{
 -- Un seul ¨chgt ici : usage de la méthode ''"y"''.
 ------
 graphview:Dpoly(
-  facet2poly(projplane), 
+  facet2poly(projplane),
   {
     usepalette = {pal, "y"},
     mode       = mShaded
