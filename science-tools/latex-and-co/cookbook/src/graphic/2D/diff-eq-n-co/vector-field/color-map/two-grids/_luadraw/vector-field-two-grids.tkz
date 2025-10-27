@@ -1,6 +1,5 @@
 \begin{tikzpicture}[line join=round]%
 \begin{scope}%
-\clip (-0.5,-0.5) rectangle (9.5,9.5);%
 \draw[fill opacity = 0.5, draw = none, fill = {rgb,1:red,0.5;green,0;blue,0}] (0.6429,0.6429) -- (0.7971,0.6429) -- (0.7971,0.7971) -- (0.6429,0.7971);%
 \draw[fill opacity = 0.5, draw = none, fill = {rgb,1:red,0.6797;green,0;blue,0}] (0.6429,0.7971) -- (0.7971,0.7971) -- (0.7971,0.9514) -- (0.6429,0.9514);%
 \draw[fill opacity = 0.5, draw = none, fill = {rgb,1:red,0.8382;green,0.0183;blue,0}] (0.6429,0.9514) -- (0.7971,0.9514) -- (0.7971,1.1057) -- (0.6429,1.1057);%

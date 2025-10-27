@@ -6,7 +6,7 @@
 %            https://github.com/pfradin/luadraw/discussions/129#discussioncomment-14793004
 %%%
 
-\documentclass[varwidth]{standalone}
+\documentclass[varwidth, border = 3pt]{standalone}
 
 \usepackage[svgnames]{xcolor}
 \usepackage[3d]{luadraw}
@@ -46,7 +46,7 @@ local draw = function(name, viewdir)
     local graphview = graph3d:new{
       window3d = {xmin, xmax, ymin, ymax, zmin, zmax},
       adjust2d = true,
-      viewdir = viewdir,
+      viewdir  = viewdir,
       bbox     = false,
     }
     graphview:Dfacet(

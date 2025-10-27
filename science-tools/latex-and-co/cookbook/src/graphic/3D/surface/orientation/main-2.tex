@@ -1,6 +1,6 @@
 % !TEX TS-program = lualatex
 
-\documentclass{standalone}
+\documentclass[border = 3pt]{standalone}
 
 \usepackage[svgnames]{xcolor}
 \usepackage[3d]{luadraw}
@@ -15,6 +15,7 @@ local graphview = graph3d:new{
   viewdir  = {190, 80},  -- Modifions le point de vue pour mieux
                          -- visualiser le changement d'orientation.
   adjust2d = true,
+  size     = {14, 14},
   bbox     = false
 }
 

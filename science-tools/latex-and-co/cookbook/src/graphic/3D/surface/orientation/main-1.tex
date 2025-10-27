@@ -1,6 +1,6 @@
 % !TEX TS-program = lualatex
 
-\documentclass{standalone}
+\documentclass[border = 3pt]{standalone}
 
 %%%
 % Des couleurs faciles d'emploi via le package ''xcolor''!
@@ -28,6 +28,7 @@ local graphview = graph3d:new{
   window3d = {-3, 6, -4, 6, -2, 2},
   viewdir  = {210, 70},
   adjust2d = true,
+  size     = {14, 14},
   bbox     = false
 }
 

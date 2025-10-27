@@ -1,6 +1,5 @@
 \begin{tikzpicture}[line join=round]%
 \begin{scope}%
-\clip (-0.5,-0.5) rectangle (11.5,11.5);%
 \pgfsetlinewidth{0.6pt}%
 \draw[Navy] (1.2941,0) -- (1.2941,11);%
 \draw[ForestGreen] (2.3725,0) -- (2.3725,11);%

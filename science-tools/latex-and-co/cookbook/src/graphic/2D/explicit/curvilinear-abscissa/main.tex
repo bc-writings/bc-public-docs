@@ -5,7 +5,7 @@
 %     url = https://tex.stackexchange.com/a/751726/6880
 %%%
 
-\documentclass{standalone}
+\documentclass[border = 3pt]{standalone}
 
 %%%
 % Des couleurs nommées faciles d'emploi via le package ''xcolor''!
@@ -67,8 +67,9 @@ end
 -- ¨Def de la zone graphique.
 ------
 local graphview = graph:new{
-  window = {-5.5, 5, -4.35, 4.55},
-  size   = {11.5, 11}
+  window = {-5.5, 5.5, -4.35, 4.55},
+  size   = {11.5, 11},
+  bbox   = false
 }
 
 ------
@@ -182,7 +183,9 @@ while x < xmax do
   s = s + len_step
   x = linear_interpo(s, s_vals, x_vals)
 
-  table.insert(all_pts, Z(x, f(x)))
+  if x < xmax then
+    table.insert(all_pts, Z(x, f(x)))
+  end
 end
 
 graphview:Shift(shift_down)
@@ -233,7 +236,9 @@ while x < xmax do
   s = s + len_step
   x = linear_interpo(s, s_vals, x_vals)
 
-  table.insert(all_pts, Z(x, f(x)))
+  if x < xmax then
+    table.insert(all_pts, Z(x, f(x)))
+  end
 end
 
 graphview:Shift(shift_down)

@@ -5,7 +5,7 @@
 %     url = https://tex.stackexchange.com/a/750411/6880
 %%%
 
-\documentclass{standalone}
+\documentclass[border = 3pt]{standalone}
 
 %%%
 % Des couleurs faciles d'emploi via le package ''xcolor''!
@@ -34,6 +34,7 @@ end
 local graphview = graph:new{
   window = {-3, 3, -3, 3},
   size   = {10, 10},
+  bbox   = false
 }
 
 ------

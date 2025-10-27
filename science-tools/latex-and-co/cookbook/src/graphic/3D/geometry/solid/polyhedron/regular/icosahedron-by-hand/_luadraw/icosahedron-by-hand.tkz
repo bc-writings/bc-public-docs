@@ -4,173 +4,177 @@
 \pgfsetstrokecolor{myteal!50!white!58.26!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{myteal!50!white!58.26!black}%
-\draw[fill] (4.6269,6.6954) -- (5.6756,6.1695) -- (4.7345,6.3154)--cycle;%
+\draw[fill] (6.3867,8.9007) -- (8.5954,7.793) -- (6.6133,8.1003)--cycle;%
 \pgfsetstrokecolor{myteal!50!white!63.26!black}%
 \pgfsetfillcolor{myteal!50!white!63.26!black}%
-\draw[fill] (3.6858,6.1157) -- (4.6269,6.6954) -- (4.7345,6.3154)--cycle;%
+\draw[fill] (4.4046,7.6797) -- (6.3867,8.9007) -- (6.6133,8.1003)--cycle;%
 \pgfsetstrokecolor{mymagenta!50!white!99.81!black}%
 \pgfsetfillcolor{mymagenta!50!white!99.81!black}%
-\draw[fill] (5.3826,5.2647) -- (4.1529,5.2315) -- (4.7345,6.3154)--cycle;%
+\draw[fill] (7.9784,5.8875) -- (5.3883,5.8175) -- (6.6133,8.1003)--cycle;%
 \pgfsetstrokecolor{mymagenta!50!white!58.4!black}%
 \pgfsetfillcolor{mymagenta!50!white!58.4!black}%
-\draw[fill] (5.3826,5.2647) -- (5.6756,6.1695) -- (5.6756,4.9954)--cycle;%
+\draw[fill] (7.9784,5.8875) -- (8.5954,7.793) -- (8.5954,5.3203)--cycle;%
 \pgfsetstrokecolor{mymagenta!50!white!70.38!black}%
 \pgfsetfillcolor{mymagenta!50!white!70.38!black}%
-\draw[fill] (3.6858,6.1157) -- (4.1529,5.2315) -- (3.6858,4.9416)--cycle;%
+\draw[fill] (4.4046,7.6797) -- (5.3883,5.8175) -- (4.4046,5.207)--cycle;%
 \pgfsetstrokecolor{mymagenta!50!white!85.58!black}%
 \pgfsetfillcolor{mymagenta!50!white!85.58!black}%
-\draw[fill] (4.7345,6.3154) -- (5.6756,6.1695) -- (5.3826,5.2647)--cycle;%
+\draw[fill] (6.6133,8.1003) -- (8.5954,7.793) -- (7.9784,5.8875)--cycle;%
 \pgfsetstrokecolor{mymagenta!50!white!90.23!black}%
 \pgfsetfillcolor{mymagenta!50!white!90.23!black}%
-\draw[fill] (4.1529,5.2315) -- (3.6858,6.1157) -- (4.7345,6.3154)--cycle;%
+\draw[fill] (5.3883,5.8175) -- (4.4046,7.6797) -- (6.6133,8.1003)--cycle;%
 \pgfsetstrokecolor{mylime!50!white!70.44!black}%
 \pgfsetfillcolor{mylime!50!white!70.44!black}%
-\draw[fill] (3.6858,4.9416) -- (4.1529,5.2315) -- (4.7345,4.4157)--cycle;%
+\draw[fill] (4.4046,5.207) -- (5.3883,5.8175) -- (6.6133,4.0993)--cycle;%
 \pgfsetstrokecolor{mylime!50!white!63.45!black}%
 \pgfsetfillcolor{mylime!50!white!63.45!black}%
-\draw[fill] (5.6756,4.9954) -- (4.7345,4.4157) -- (5.3826,5.2647)--cycle;%
+\draw[fill] (8.5954,5.3203) -- (6.6133,4.0993) -- (7.9784,5.8875)--cycle;%
 \pgfsetstrokecolor{mylime!50!white!90.3!black}%
 \pgfsetfillcolor{mylime!50!white!90.3!black}%
-\draw[fill] (5.3826,5.2647) -- (4.7345,4.4157) -- (4.1529,5.2315)--cycle;%
+\draw[fill] (7.9784,5.8875) -- (6.6133,4.0993) -- (5.3883,5.8175)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{1.2pt}%
 \pgfsetroundcap%
-\draw[] (3.6858,4.9416) -- (4.1529,5.2315);%
-\draw[] (4.1529,5.2315) -- (5.3826,5.2647);%
-\draw[] (4.7345,4.4157) -- (4.1529,5.2315);%
-\draw[] (4.549,5.9696) -- (4.1529,5.2315);%
-\draw[] (4.1529,5.2315) -- (3.8872,5.7345);%
-\draw[] (5.3826,5.2647) -- (4.7345,4.4157);%
-\draw[] (5.3826,5.2647) -- (5.6756,4.9954);%
-\draw[] (4.6269,6.6954) -- (4.7345,6.3154);%
-\draw[] (5.3826,5.2647) -- (4.7345,6.3154);%
-\draw[] (5.6756,6.1695) -- (5.3826,5.2647);%
-\draw[] (4.7345,6.3154) -- (5.6756,6.1695);%
-\draw[] (4.7345,6.3154) -- (4.549,5.9696);%
-\draw[] (3.6858,6.1157) -- (4.7345,6.3154);%
-\draw[] (3.8872,5.7345) -- (3.6858,6.1157);%
+\draw[] (5.3883,5.8175) -- (7.9784,5.8875);%
+\draw[] (6.6133,8.1003) -- (5.3883,5.8175);%
+\draw[] (5.3883,5.8175) -- (5.2478,6.0833);%
+\draw[] (5.5632,5.5722) -- (5.3883,5.8175);%
+\draw[] (5.2965,5.7605) -- (5.3883,5.8175);%
+\draw[] (7.9784,5.8875) -- (6.6133,8.1003);%
+\draw[] (6.3867,8.9007) -- (6.6133,8.1003);%
+\draw[] (5.2478,6.0833) -- (4.8287,6.8768);%
+\draw[] (6.6133,4.0993) -- (5.5632,5.5722);%
+\draw[] (4.7184,5.4017) -- (5.2965,5.7605);%
+\draw[] (7.9784,5.8875) -- (6.6133,4.0993);%
+\draw[] (7.9784,5.8875) -- (8.5954,5.3203);%
+\draw[] (4.4046,7.6797) -- (6.6133,8.1003);%
+\draw[] (6.6133,8.1003) -- (7.2643,7.9994);%
+\draw[] (4.8287,6.8768) -- (4.4046,7.6797);%
+\draw[] (4.4046,5.207) -- (4.7184,5.4017);%
+\draw[] (7.2643,7.9994) -- (8.5954,7.793);%
+\draw[] (8.5954,7.793) -- (7.9784,5.8875);%
 \pgfsetstrokecolor{mylime!58.26!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{mylime!58.26!black}%
-\draw[fill] (3.6858,4.9416) -- (4.7345,4.4157) -- (4.6269,4.7957)--cycle;%
+\draw[fill] (4.4046,5.207) -- (6.6133,4.0993) -- (6.3867,4.8997)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{1.2pt}%
-\draw[] (3.6858,4.9416) -- (4.7345,4.4157);%
+\draw[] (4.4046,5.207) -- (6.6133,4.0993);%
 \pgfsetstrokecolor{mylime!63.26!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{mylime!63.26!black}%
-\draw[fill] (4.7345,4.4157) -- (5.6756,4.9954) -- (4.6269,4.7957)--cycle;%
+\draw[fill] (6.6133,4.0993) -- (8.5954,5.3203) -- (6.3867,4.8997)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{1.2pt}%
-\draw[] (5.6756,4.9954) -- (4.7345,4.4157);%
-\draw[] (4.7345,4.4157) -- (4.6269,4.7957);%
+\draw[] (8.5954,5.3203) -- (6.6133,4.0993);%
+\draw[] (6.6133,4.0993) -- (6.3867,4.8997);%
 \pgfsetstrokecolor{mymagenta!85.58!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{mymagenta!85.58!black}%
-\draw[fill] (4.6269,4.7957) -- (3.9788,5.8464) -- (3.6858,4.9416)--cycle;%
+\draw[fill] (6.3867,4.8997) -- (5.0216,7.1125) -- (4.4046,5.207)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{1.2pt}%
-\draw[] (4.6269,4.7957) -- (3.6858,4.9416);%
+\draw[] (6.3867,4.8997) -- (4.4046,5.207);%
 \pgfsetstrokecolor{mymagenta!90.23!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{mymagenta!90.23!black}%
-\draw[fill] (5.2086,5.8796) -- (4.6269,4.7957) -- (5.6756,4.9954)--cycle;%
+\draw[fill] (7.6117,7.1825) -- (6.3867,4.8997) -- (8.5954,5.3203)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{1.2pt}%
-\draw[] (5.6756,4.9954) -- (4.6269,4.7957);%
+\draw[] (8.5954,5.3203) -- (6.3867,4.8997);%
 \pgfsetstrokecolor{mymagenta!58.4!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{mymagenta!58.4!black}%
-\draw[fill] (3.6858,6.1157) -- (3.6858,4.9416) -- (3.9788,5.8464)--cycle;%
+\draw[fill] (4.4046,7.6797) -- (4.4046,5.207) -- (5.0216,7.1125)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{1.2pt}%
-\draw[] (3.6858,4.9416) -- (3.6858,6.1157);%
-\draw[] (3.9788,5.8464) -- (3.6858,4.9416);%
+\draw[] (4.4046,5.207) -- (4.4046,7.6797);%
+\draw[] (5.0216,7.1125) -- (4.4046,5.207);%
 \pgfsetstrokecolor{mymagenta!70.38!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{mymagenta!70.38!black}%
-\draw[fill] (5.6756,6.1695) -- (5.2086,5.8796) -- (5.6756,4.9954)--cycle;%
+\draw[fill] (8.5954,7.793) -- (7.6117,7.1825) -- (8.5954,5.3203)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{1.2pt}%
-\draw[] (5.6756,6.1695) -- (5.6756,4.9954);%
-\draw[] (5.6756,4.9954) -- (5.2086,5.8796);%
+\draw[] (8.5954,7.793) -- (8.5954,5.3203);%
+\draw[] (8.5954,5.3203) -- (7.6117,7.1825);%
 \pgfsetstrokecolor{mymagenta!99.81!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{mymagenta!99.81!black}%
-\draw[fill] (4.6269,4.7957) -- (5.2086,5.8796) -- (3.9788,5.8464)--cycle;%
+\draw[fill] (6.3867,4.8997) -- (7.6117,7.1825) -- (5.0216,7.1125)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{1.2pt}%
-\draw[] (4.6269,4.7957) -- (3.9788,5.8464);%
-\draw[] (5.2086,5.8796) -- (4.6269,4.7957);%
+\draw[] (6.3867,4.8997) -- (5.0216,7.1125);%
+\draw[] (7.6117,7.1825) -- (6.3867,4.8997);%
 \pgfsetstrokecolor{myteal!63.45!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{myteal!63.45!black}%
-\draw[fill] (4.6269,6.6954) -- (3.6858,6.1157) -- (3.9788,5.8464)--cycle;%
+\draw[fill] (6.3867,8.9007) -- (4.4046,7.6797) -- (5.0216,7.1125)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{1.2pt}%
-\draw[] (4.6269,6.6954) -- (3.6858,6.1157);%
-\draw[] (3.9788,5.8464) -- (3.6858,6.1157);%
+\draw[] (6.3867,8.9007) -- (4.4046,7.6797);%
+\draw[] (5.0216,7.1125) -- (4.4046,7.6797);%
 \pgfsetstrokecolor{myteal!70.44!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{myteal!70.44!black}%
-\draw[fill] (5.2086,5.8796) -- (5.6756,6.1695) -- (4.6269,6.6954)--cycle;%
+\draw[fill] (7.6117,7.1825) -- (8.5954,7.793) -- (6.3867,8.9007)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{1.2pt}%
-\draw[] (5.6756,6.1695) -- (4.6269,6.6954);%
-\draw[] (5.6756,6.1695) -- (5.2086,5.8796);%
+\draw[] (8.5954,7.793) -- (6.3867,8.9007);%
+\draw[] (8.5954,7.793) -- (7.6117,7.1825);%
 \pgfsetstrokecolor{myteal!90.3!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{myteal!90.3!black}%
-\draw[fill] (3.9788,5.8464) -- (5.2086,5.8796) -- (4.6269,6.6954)--cycle;%
+\draw[fill] (5.0216,7.1125) -- (7.6117,7.1825) -- (6.3867,8.9007)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{1.2pt}%
-\draw[] (4.6269,6.6954) -- (5.2086,5.8796);%
-\draw[] (3.9788,5.8464) -- (4.6269,6.6954);%
-\draw[] (5.2086,5.8796) -- (3.9788,5.8464);%
+\draw[] (6.3867,8.9007) -- (7.6117,7.1825);%
+\draw[] (5.0216,7.1125) -- (6.3867,8.9007);%
+\draw[] (7.6117,7.1825) -- (5.0216,7.1125);%
 \pgfsetbuttcap%
 \pgfsetdash{{2.5pt}{2pt}}{0pt}%
-\draw[] (4.7345,4.4157) -- (4.6269,4.7957);%
-\draw[] (3.6858,4.9416) -- (4.1529,5.2315);%
-\draw[] (5.2086,5.8796) -- (4.6269,4.7957);%
-\draw[] (5.6756,6.1695) -- (5.2086,5.8796);%
-\draw[] (5.3826,5.2647) -- (4.7345,4.4157);%
-\draw[] (4.6269,6.6954) -- (5.2086,5.8796);%
-\draw[] (5.3826,5.2647) -- (5.6756,4.9954);%
-\draw[] (4.6269,6.6954) -- (3.6858,6.1157);%
-\draw[] (3.6858,4.9416) -- (4.7345,4.4157);%
-\draw[] (4.6269,6.6954) -- (4.7345,6.3154);%
-\draw[] (5.6756,6.1695) -- (4.6269,6.6954);%
-\draw[] (4.1529,5.2315) -- (5.3826,5.2647);%
-\draw[] (5.6756,4.9954) -- (4.7345,4.4157);%
-\draw[] (4.7345,4.4157) -- (4.1529,5.2315);%
-\draw[] (5.2086,5.8796) -- (3.9788,5.8464);%
-\draw[] (5.6756,6.1695) -- (5.6756,4.9954);%
-\draw[] (4.7345,6.3154) -- (5.6756,6.1695);%
-\draw[] (4.6269,4.7957) -- (3.6858,4.9416);%
-\draw[] (5.6756,4.9954) -- (4.6269,4.7957);%
-\draw[] (3.9788,5.8464) -- (3.6858,4.9416);%
-\draw[] (4.7345,6.3154) -- (4.1529,5.2315);%
-\draw[] (5.3826,5.2647) -- (4.7345,6.3154);%
-\draw[] (4.1529,5.2315) -- (3.6858,6.1157);%
-\draw[] (3.6858,4.9416) -- (3.6858,6.1157);%
-\draw[] (5.6756,6.1695) -- (5.3826,5.2647);%
-\draw[] (4.6269,4.7957) -- (3.9788,5.8464);%
-\draw[] (3.9788,5.8464) -- (3.6858,6.1157);%
-\draw[] (5.6756,4.9954) -- (5.2086,5.8796);%
-\draw[] (3.6858,6.1157) -- (4.7345,6.3154);%
-\draw[] (3.9788,5.8464) -- (4.6269,6.6954);%
+\draw[] (4.4046,5.207) -- (6.6133,4.0993);%
+\draw[] (6.3867,8.9007) -- (7.6117,7.1825);%
+\draw[] (7.9784,5.8875) -- (6.6133,8.1003);%
+\draw[] (6.3867,8.9007) -- (4.4046,7.6797);%
+\draw[] (8.5954,7.793) -- (6.3867,8.9007);%
+\draw[] (5.3883,5.8175) -- (7.9784,5.8875);%
+\draw[] (8.5954,5.3203) -- (7.6117,7.1825);%
+\draw[] (6.3867,4.8997) -- (4.4046,5.207);%
+\draw[] (8.5954,5.3203) -- (6.3867,4.8997);%
+\draw[] (6.3867,8.9007) -- (6.6133,8.1003);%
+\draw[] (7.9784,5.8875) -- (6.6133,4.0993);%
+\draw[] (7.9784,5.8875) -- (8.5954,5.3203);%
+\draw[] (8.5954,7.793) -- (8.5954,5.3203);%
+\draw[] (6.6133,4.0993) -- (6.3867,4.8997);%
+\draw[] (5.3883,5.8175) -- (4.4046,7.6797);%
+\draw[] (4.4046,5.207) -- (4.4046,7.6797);%
+\draw[] (6.6133,4.0993) -- (5.3883,5.8175);%
+\draw[] (4.4046,5.207) -- (5.3883,5.8175);%
+\draw[] (5.0216,7.1125) -- (4.4046,5.207);%
+\draw[] (6.3867,4.8997) -- (5.0216,7.1125);%
+\draw[] (5.0216,7.1125) -- (4.4046,7.6797);%
+\draw[] (8.5954,7.793) -- (7.9784,5.8875);%
+\draw[] (8.5954,5.3203) -- (6.6133,4.0993);%
+\draw[] (5.0216,7.1125) -- (6.3867,8.9007);%
+\draw[] (7.6117,7.1825) -- (5.0216,7.1125);%
+\draw[] (6.6133,8.1003) -- (5.3883,5.8175);%
+\draw[] (8.5954,7.793) -- (7.6117,7.1825);%
+\draw[] (4.4046,7.6797) -- (6.6133,8.1003);%
+\draw[] (6.6133,8.1003) -- (8.5954,7.793);%
+\draw[] (7.6117,7.1825) -- (6.3867,4.8997);%
 \end{scope}%
-\fill[opacity=1,ball color=black] (3.9788,5.8464) circle [radius=0.09cm];%
-\fill[opacity=1,ball color=black] (5.2086,5.8796) circle [radius=0.09cm];%
-\fill[opacity=1,ball color=black] (5.3826,5.2647) circle [radius=0.09cm];%
-\fill[opacity=1,ball color=black] (4.1529,5.2315) circle [radius=0.09cm];%
-\fill[opacity=1,ball color=black] (5.6756,6.1695) circle [radius=0.09cm];%
-\fill[opacity=1,ball color=black] (5.6756,4.9954) circle [radius=0.09cm];%
-\fill[opacity=1,ball color=black] (3.6858,4.9416) circle [radius=0.09cm];%
-\fill[opacity=1,ball color=black] (3.6858,6.1157) circle [radius=0.09cm];%
-\fill[opacity=1,ball color=black] (4.6269,6.6954) circle [radius=0.09cm];%
-\fill[opacity=1,ball color=black] (4.7345,6.3154) circle [radius=0.09cm];%
-\fill[opacity=1,ball color=black] (4.7345,4.4157) circle [radius=0.09cm];%
-\fill[opacity=1,ball color=black] (4.6269,4.7957) circle [radius=0.09cm];%
+\fill[opacity=1,ball color=black] (5.0216,7.1125) circle [radius=0.09cm];%
+\fill[opacity=1,ball color=black] (7.6117,7.1825) circle [radius=0.09cm];%
+\fill[opacity=1,ball color=black] (7.9784,5.8875) circle [radius=0.09cm];%
+\fill[opacity=1,ball color=black] (5.3883,5.8175) circle [radius=0.09cm];%
+\fill[opacity=1,ball color=black] (8.5954,7.793) circle [radius=0.09cm];%
+\fill[opacity=1,ball color=black] (8.5954,5.3203) circle [radius=0.09cm];%
+\fill[opacity=1,ball color=black] (4.4046,5.207) circle [radius=0.09cm];%
+\fill[opacity=1,ball color=black] (4.4046,7.6797) circle [radius=0.09cm];%
+\fill[opacity=1,ball color=black] (6.3867,8.9007) circle [radius=0.09cm];%
+\fill[opacity=1,ball color=black] (6.6133,8.1003) circle [radius=0.09cm];%
+\fill[opacity=1,ball color=black] (6.6133,4.0993) circle [radius=0.09cm];%
+\fill[opacity=1,ball color=black] (6.3867,4.8997) circle [radius=0.09cm];%
 \end{scope}%
 \end{tikzpicture}%

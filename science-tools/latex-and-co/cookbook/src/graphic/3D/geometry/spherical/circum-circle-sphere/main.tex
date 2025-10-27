@@ -1,11 +1,13 @@
 % !TEX TS-program = lualatex
 
+% FORCE-CROP
+
 %%%
 % src::
 %   url = https://github.com/pfradin/luadraw/discussions/82#discussioncomment-14370152
 %%%
 
-\documentclass{standalone}
+\documentclass[border = 3pt]{standalone}
 
 %%%
 % Des couleurs faciles C'emploi via le package ''xcolor''!
@@ -32,7 +34,8 @@ require 'luadraw_spherical'
 local graphview = graph3d:new{
   window  = {-4, 4, -3, 4},
   viewdir = {30, 60},
-  size    = {10, 10}
+  size    = {10, 10},
+  bbox    = false
 }
 
 ------

@@ -1,11 +1,13 @@
 % !TEX TS-program = lualatex
 
+% FORCE-CROP
+
 %%%
 % src::
 %     url = https://github.com/pfradin/luadraw/discussions/110#discussioncomment-14559937
 %%%
 
-\documentclass{standalone}
+\documentclass[border = 3pt]{standalone}
 
 \usepackage[svgnames]{xcolor}
 \usepackage[3d]{luadraw}
@@ -20,7 +22,8 @@ local O, R = Origin, 3
 local graphview = graph3d:new{
   window  = {-R - 1.5, R + 1.5, -R - 1.5, R + 1.5},
   viewdir = {25, 70},
-  size    = {10, 10}
+  size    = {10, 10},
+  bbox    = false
 }
 
 graphview:Linewidth(6)

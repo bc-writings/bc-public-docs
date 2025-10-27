@@ -5,7 +5,7 @@
 %     url = https://github.com/pfradin/luadraw/discussions/111#discussioncomment-14560468
 %%%
 
-\documentclass{standalone}
+\documentclass[border = 3pt]{standalone}
 
 %%%
 % Des couleurs nommées faciles d'emploi via le package ''xcolor''!
@@ -47,8 +47,8 @@ local pal = getPal("Jet")
 ------
 local graphview = graph:new{
   window = {xmin - 0.5, xmax + 0.5, ymin - 0.5, ymax + 0.5},
-  bg     = "",
-  size   = {10, 10}
+  size   = {10, 10},
+  bbox   = false
 }
 
 ------

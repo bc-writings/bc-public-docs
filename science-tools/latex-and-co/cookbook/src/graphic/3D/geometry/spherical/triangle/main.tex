@@ -1,11 +1,13 @@
 % !TEX TS-program = lualatex
 
+% FORCE-CROP
+
 %%%
 % src::
 %     url = https://tex.stackexchange.com/a/751717/6880
 %%%
 
-\documentclass{standalone}
+\documentclass[border = 3pt]{standalone}
 
 %%%
 % Des couleurs faciles d'emploi via le package ''xcolor''!
@@ -34,7 +36,8 @@ local O, R = Origin, 3
 local graphview = graph3d:new{
   window  = {-R - 1, R + 1, -R - 1, R + 1},
   viewdir = {25, 70},
-  size    = {10, 10}
+  size    = {10, 10},
+  bbox    = false
 }
 
 ------

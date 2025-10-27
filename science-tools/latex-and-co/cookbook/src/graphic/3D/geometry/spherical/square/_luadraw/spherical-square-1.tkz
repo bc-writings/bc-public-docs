@@ -1,6 +1,5 @@
 \begin{tikzpicture}[line join=round]%
 \begin{scope}%
-\clip (-0.5,-0.5) rectangle (9.5,9.5);%
 \pgfsetlinewidth{0.6pt}%
 \pgfsetstrokecolor{LightGray}%
 \draw[fill,ball color=orange] (1.9386,7.2389) .. controls (0.4185,5.8173) and (0.3395,3.4587) .. (1.7611,1.9386) .. controls (3.1827,0.4185) and (5.5413,0.3395) .. (7.0614,1.7611) .. controls (8.5815,3.1827) and (8.6605,5.5413) .. (7.2389,7.0614) .. controls (5.8173,8.5815) and (3.4587,8.6605) .. (1.9386,7.2389);%

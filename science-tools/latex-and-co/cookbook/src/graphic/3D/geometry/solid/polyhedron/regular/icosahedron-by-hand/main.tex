@@ -7,7 +7,7 @@
 %          https://github.com/pfradin/luadraw/discussions/63#discussioncomment-14274453
 %%%
 
-\documentclass{standalone}
+\documentclass[border = 3pt]{standalone}
 
 %%%
 % Des couleurs '"maison" pour un meilleur design.
@@ -32,7 +32,7 @@
 ------
 local graphview = graph3d:new{
   viewdir  = {5, 108},
-  adjust2d = true,
+  size     = {14, 14},
   bbox     = false
 }
 
