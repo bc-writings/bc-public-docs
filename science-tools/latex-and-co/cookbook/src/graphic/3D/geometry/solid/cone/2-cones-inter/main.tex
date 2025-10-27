@@ -1,6 +1,6 @@
 % !TEX TS-program = lualatex
 
-\documentclass{standalone}
+\documentclass[border = 3pt]{standalone}
 
 %%%
 % Des couleurs faciles d'emploi via le package ''xcolor''!
@@ -17,6 +17,17 @@
 
 \begin{luadraw}{name = 2-cones-inter}
 ------
+-- Les éléments graphiques de base.
+------
+local O     = Origin
+local r1, h = 2, 4
+local r2    = r1/2
+local T     = M(r2, 0, 0)
+
+local cone_1 = cone(Origin, h*vecK, r1, 50, true)
+local cone_2 = cone(T, h*vecK, r2, 50, true)
+
+------
 -- ¨Def de la zone graphique.
 --
 -- note::
@@ -24,9 +35,10 @@
 --     de passer directement via ''window'' sans ''window3d''.
 ------
 local graphview = graph3d:new{
-  window  = {-3, 5, -1, 5},
+  window  = {-r1 - 2, r1 + 3, 0, h + 1},
   viewdir = {270, 65},
-  size    = {10, 10}
+  size    = {10, 10},
+  bbox = false
 }
 
 ------
@@ -34,17 +46,6 @@ local graphview = graph3d:new{
 ------
 graphview:Linewidth(5)
 Hiddenlinestyle = "dashed"
-
-------
--- Les éléments graphiques de base.
-------
-local O     = Origin
-local r1, h =  2, 4
-local r2    = r1/2
-local T     =  M(r2, 0, 0)
-
-local cone_1 = cone(Origin, h*vecK, r1, 50, true)
-local cone_2 = cone(T, h*vecK, r2, 50, true)
 
 ------
 -- Nous voulons aussi voir les silouhettes des cônes.

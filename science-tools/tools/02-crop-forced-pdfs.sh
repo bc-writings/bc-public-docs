@@ -1,13 +1,6 @@
 # Version: 2025-08-24.science-tools
 
 
-# --------------- #
-# -- CONSTANTS -- #
-# --------------- #
-
-HASH_FILE="x-pdf-x.sha1"
-
-
 # ----------------------- #
 # -- ONE FOLDER NEEDED -- #
 # ----------------------- #
@@ -55,14 +48,16 @@ do
 
     cd "$TARGET/$fdir"
 
-    newhash=$(shasum -a 1 "$pdfile" | cut -d ' ' -f1)
+    hash_file="x-$fstem-pdf-x.sha1"
 
+    newhash=$(shasum -a 1 "$pdfile" | cut -d ' ' -f1)
     oldhash=""
 
-    if [[ -f "$HASH_FILE" ]]
+    if [[ -f "$hash_file" ]]
     then
-      oldhash=$(cat "$HASH_FILE")
+      oldhash=$(cat "$hash_file")
     fi
+
 
     if [[ "$newhash" != "$oldhash" || ! -f "$fstem-crop.pdf" ]]
     then
@@ -70,7 +65,7 @@ do
 
       pdfcrop --margins '3' "$pdfile"
 
-      echo "$newhash" > "$HASH_FILE"
+      echo "$newhash" > "$hash_file"
 
     else
       echo "  Nothing to do for '$fstem.tex'."
