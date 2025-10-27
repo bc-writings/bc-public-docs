@@ -6,7 +6,7 @@
 %            https://fr.wikipedia.org/wiki/Dodécaèdre_régulier
 %%%
 
-\documentclass{standalone}
+\documentclass[border = 3pt]{standalone}
 
 %%%
 % En couleur, c'est plus sympa !
@@ -80,9 +80,8 @@ polyhedron.facets = {
 local graphview = graph3d:new{
   window  = {-2.25, 2.25, -2.25, 2},
   viewdir = {5, 108},
-  size    = {10, 10},
-  adjust2d = true,
-  bbox     = false
+  size    = {14, 14},
+  bbox    = false
 }
 
 ------
