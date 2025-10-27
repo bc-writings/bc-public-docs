@@ -1,0 +1,28 @@
+\documentclass[varwidth, border = 3pt]{standalone}
+
+%%%
+% Le package pour les codes QR.
+%%%
+\usepackage{fancyqr}
+
+%%%
+% Pour ajouter des icones \sympas.
+%%%
+\usepackage{simpleicons}
+
+
+\begin{document}
+
+Code QR standard :
+\fancyqr{https://fr.wikipedia.org/wiki/Code_QR}
+
+\medskip
+
+Code QR iconique :
+\fancyqr[
+  image = \huge\simpleicon{python},
+  image padding=1,
+  color=black!90!gray
+]{https://www.python.org/}
+
+\end{document}
