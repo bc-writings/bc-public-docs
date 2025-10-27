@@ -26,7 +26,7 @@
 
 \begin{document}
 
-\section{Via une clé pour le tableau lui-même}
+\section*{\null\hfill La clé \texttt{tabularnote} \hfill\null}
 
 \begin{table}[ht!]
   \centering
@@ -37,21 +37,21 @@
   ]
     \toprule
 
-    Category & Cost & Value \\
+    Catégorie & Coût & Prix \\
 
     \midrule
 
-    Info. A & 200 & 200 \\
-    Info. B & 100 \tabularnote{Une note pour un nombre.}
-                  & 200 \\
-    Info. C & 300 & 100 \\
+    A & 200 & 100 \\
+    B & 100 \tabularnote{Une note pour un prix.}
+            & 200 \\
+    C & 300 & 300 \\
 
     \bottomrule
   \end{NiceTabular}
 \end{table}
 
 
-\section{Via un environnement pour le tableau lui-même}
+\section*{\null\hfill L'environnement \texttt{TabularNote} \hfill\null}
 
 \begin{table}[ht!]
   \centering
@@ -63,14 +63,15 @@
     \begin{TabularNote}
         Une note pour le tableau.
     \end{TabularNote}
-    Category & Cost & Value \\
+
+    Catégorie & Coût & Prix \\
 
     \midrule
 
-    Info. A & 200 & 200 \\
-    Info. B & 100 \tabularnote{Une note pour un nombre.}
-                  & 200 \\
-    Info. C & 300 & 100 \\
+    A & 200 & 100 \\
+    B & 100 \tabularnote{Une note pour un prix.}
+            & 200 \\
+    C & 300 & 300 \\
 
     \bottomrule
   \end{NiceTabular}
