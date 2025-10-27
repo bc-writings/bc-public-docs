@@ -17,8 +17,10 @@ local data = read_CSV(
 
 local graphview = graph3d:new{
   window3d = {-7, 7, -5, 5, -1, 5},
-  window   = {-9,9,-7,12},
   viewdir  = {60, 50},
+  adjust2d = true,
+  size     = {12, 12},
+  bbox     = false
 }
 
 graphview:Dboxaxes3d({

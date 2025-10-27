@@ -49,11 +49,15 @@ local side_col    = "sideCol"
 --     degrés) pour la projection orthographique.
 --
 --     1) ''size'' impose les dimensions en cm dans le document.
+--
+-- note::
+--     La symétrie de la figure vis à vis des axes du repère permet
+--     de passer directement via ''window'' sans ''window3d''.
 ------
 local graphview = graph3d:new{
   window  = {-radius - 1, radius + 1, -height - 1, height + 1},
   viewdir = {120, 60},
-  size    = {12, 12}
+  bbox    = false
 }
 
 ------

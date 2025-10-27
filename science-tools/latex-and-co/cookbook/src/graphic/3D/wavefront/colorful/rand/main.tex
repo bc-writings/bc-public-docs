@@ -22,9 +22,9 @@ local polyhedron, bounding_box = read_obj_file(file)
 ------
 local graphview = graph3d:new{
   window3d = bounding_box,
-  adjust2d = true,
   viewdir  = vdir,
-  size     = {10, 10},
+  adjust2d = true,
+  bbox     = false
 }
 
 ------

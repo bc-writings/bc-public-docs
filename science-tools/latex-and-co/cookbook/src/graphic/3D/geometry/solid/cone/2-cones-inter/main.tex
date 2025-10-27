@@ -18,6 +18,10 @@
 \begin{luadraw}{name = 2-cones-inter}
 ------
 -- ¨Def de la zone graphique.
+--
+-- note::
+--     La symétrie de la figure vis à vis des axes du repère permet
+--     de passer directement via ''window'' sans ''window3d''.
 ------
 local graphview = graph3d:new{
   window  = {-3, 5, -1, 5},

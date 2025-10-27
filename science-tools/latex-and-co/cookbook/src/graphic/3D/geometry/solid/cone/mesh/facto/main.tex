@@ -2,7 +2,8 @@
 
 %%%
 % src::
-%     url = https://tex.stackexchange.com/a/749228/6880
+%     urls = https://tex.stackexchange.com/a/749228/6880 ,
+%            https://github.com/pfradin/luadraw/discussions/129#discussioncomment-14793004
 %%%
 
 \documentclass[varwidth]{standalone}
@@ -16,20 +17,22 @@
 ------
 -- Les ingrédients de base.
 ------
-local graphview = graph3d:new{
-  window = {-1.5, 7, -2.5, 3},
-  size   = {10, 10}
-}
-
 local genecurve = function(t)
   return M(t, 2 - t/2, 0)
 end
 
+local tmin, tmax = -0.2, 6.5
+
+local xmin, xmax = tmin, tmax
+
+local ymax = math.max(math.abs(2 - tmax/2), math.abs(2 - tmin/2))
+local zmin, zmax = -ymax, ymax
+
+local ymin = -ymax
+
 local cone = rotcurve(
-  genecurve, -0.2, 6.5,
-  {
-    Origin, -vecI
-  },
+  genecurve, tmin, tmax,
+  {Origin, -vecI},
   0, 360,
   {
     grid = {25, 36}
@@ -37,38 +40,36 @@ local cone = rotcurve(
 )
 
 ------
--- Ajout d'une fonction pour tracer la surface.
+-- Ajout d'une fonction pour tracer la surface sans l'afficher.
 ------
-local draw = function()
-  graphview:Dfacet(
-    cone,
-    {
-      color  = "orange",
-      contrast = 0.5
+local draw = function(name, viewdir)
+    local graphview = graph3d:new{
+      window3d = {xmin, xmax, ymin, ymax, zmin, zmax},
+      adjust2d = true,
+      viewdir = viewdir,
+      bbox     = false,
     }
-  )
+    graphview:Dfacet(
+        cone,
+        {
+          color  = "orange",
+          contrast = 0.5
+        }
+    )
+    graphview:Savetofile(name)
 end
 
 ------
 -- Vue 1 construite en coulisse.
 ------
-graphview:Setviewdir(290, 60)
-draw()
-graphview:Savetofile("_luadraw/mesh-cone-1.tkz")
-
-------
--- Nous devons effacer la zone graphique courante !
-------
-graphview.currentexport = {""}
-graphview.export        = graphview.currentexport
+draw("_luadraw/mesh-cone-1.tkz", {290,60})
 
 ------
 -- Vue 2 construite en coulisse.
 ------
-graphview:Setviewdir(240,60) -- second view
-draw()
-graphview:Savetofile("_luadraw/mesh-cone-2.tkz")
+draw("_luadraw/mesh-cone-2.tkz", {240,60})
 \end{luadraw}
+
 
 \section*{1st point of view}
 

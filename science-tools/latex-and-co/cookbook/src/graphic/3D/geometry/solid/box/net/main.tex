@@ -22,12 +22,24 @@
 
 \begin{luadraw}{name = box-net}
 ------
+-- Préréglages.
+------
+local a, b, h = 4, 3, 5
+
+local shiftbox = 3*b
+
+------
 -- ¨Def de la zone graphique.
 ------
+local xmin, xmax = -a, a
+local ymin, ymax = -b - shiftbox, 1.6*b
+local zmin, zmax = -h, h
+
 local graphview = graph3d:new{
-  window  = {-9, 10, -3.5, 7},
-  viewdir = {165, 70},
-  size    = {12, 12}
+  window3d = {xmin, xmax, ymin, ymax, zmin, zmax},
+  viewdir  = {165, 70},
+  adjust2d = true,
+  bbox     = false,
 }
 
 ------
@@ -37,10 +49,8 @@ Hiddenlines     = true
 Hiddenlinestyle = "dashed"
 
 ------
--- Les ¨elts caractéristiques de la boîte.
+-- Les ¨elts géométriques de la boîte.
 ------
-local a, b, h = 4, 3, 5
-
 local box = parallelep(Origin, a*vecI, b*vecJ, h*vecK)
 
 local A, B, C, D, E, F, G, H = table.unpack(box.vertices)
@@ -76,7 +86,7 @@ graphview:Dscene3d(
   )
 )
 
-local box= shift3d(box, -3*b*vecJ)
+local box= shift3d(box, -shiftbox*vecJ)
 
 graphview:Dpoly(
   box,

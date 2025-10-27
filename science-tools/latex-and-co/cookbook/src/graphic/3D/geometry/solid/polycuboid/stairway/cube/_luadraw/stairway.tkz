@@ -1,6 +1,5 @@
 \begin{tikzpicture}[line join=round]%
 \begin{scope}%
-\clip (-0.5,-0.5) rectangle (8.7316715914944,10.5);%
 \pgfsetfillcolor{ForestGreen!50!white!87.06!black}%
 \draw[fill] (4.7649,9.0019) -- (5.1491,9.1921) -- (5.4182,8.9204) -- (5.0339,8.7302)--cycle;%
 \pgfsetfillcolor{ForestGreen!50!white!80.38!black}%

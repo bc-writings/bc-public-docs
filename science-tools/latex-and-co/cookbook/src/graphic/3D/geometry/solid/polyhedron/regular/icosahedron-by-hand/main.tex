@@ -28,6 +28,15 @@
 
 \begin{luadraw}{name = icosahedron-by-hand}
 ------
+-- ¨Def de la zone graphique.
+------
+local graphview = graph3d:new{
+  viewdir  = {5, 108},
+  adjust2d = true,
+  bbox     = false
+}
+
+------
 -- Calcul des coordonnées des sommets.
 ------
 local phi = (1 + math.sqrt(5)) / 2
@@ -97,16 +106,6 @@ local ico_down = {
 local ico_full = facet2poly(concat(ico_up, ico_middle, ico_down))
 
 ------
--- ¨Def de la zone graphique.
-------
-local graphview = graph3d:new{
-    window  = {-2.25, 2.25, -2, 2},
-    viewdir = {5, 108},
-    size    = {10, 10},
-    margin  = {0, 0, 0, 0}
-}
-
-------
 -- Réglage lié aux lignes.
 ------
 Hiddenlinestyle = "dashed"
@@ -116,32 +115,32 @@ Hiddenlinestyle = "dashed"
 ------
 graphview:Dscene3d(
 -- Faces colorées.
-    graphview:addFacet(
-      ico_up,
-      {
-        color = "myteal"
-      }
-    ),
-    graphview:addFacet(
-      ico_middle,
-      {
-        color = "mymagenta"
-      }
-    ),
-    graphview:addFacet(
-      ico_down,
-      {
-        color = "mylime"
-      }
-    ),
+  graphview:addFacet(
+    ico_up,
+    {
+      color = "myteal"
+    }
+  ),
+  graphview:addFacet(
+    ico_middle,
+    {
+      color = "mymagenta"
+    }
+  ),
+  graphview:addFacet(
+    ico_down,
+    {
+      color = "mylime"
+    }
+  ),
 -- Arêtes en mode cachés (un choix de design).
-    graphview:addPolyline(
-      facetedges(ico_full),
-      {
-        width = 12,
-        hidden = true
-      }
-    )
+  graphview:addPolyline(
+    facetedges(ico_full),
+    {
+      width = 12,
+      hidden = true
+    }
+  )
 )
 ------
 -- Tous les sommets sont rendus visibles (un choix de design).

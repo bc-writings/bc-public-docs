@@ -1,5 +1,5 @@
 ====================
-Empilements de cubes
+Jouons avec de cubes
 ====================
 
 content::

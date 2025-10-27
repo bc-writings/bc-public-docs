@@ -36,12 +36,15 @@ end
 ------
 -- ¨Def de la zone graphique.
 ------
+local xmin, xmax = 0, xdim
+local ymin, ymax = 0, ydim
+local zmin, zmax = 0, surf_height(0,0)
+
 local graphview = graph3d:new{
-  size    = {10, 10},
-  window  = {-5, 5, -5, 5},
+  window3d = {xmin, xmax, ymin, ymax, zmin, zmax},
   viewdir = {50, 65},
-  margin  = {0, 0, 0, 0},
---   adjust2d = true      -- Pour afficher le repère en mode "debug".
+  adjust2d = true ,
+  bbox  = false  
 }
 -- graphview:Dboxaxes3d() -- Pour afficher le repère en mode "debug".
 

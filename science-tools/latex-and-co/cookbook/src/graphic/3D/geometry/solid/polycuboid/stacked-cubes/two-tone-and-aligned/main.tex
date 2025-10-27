@@ -1,0 +1,74 @@
+% !TEX TS-program = lualatex
+
+\documentclass{standalone}
+
+%%%
+% Des couleurs nommées faciles d'emploi via le package ''xcolor''!
+%%%
+\usepackage[svgnames]{xcolor}
+
+%%%
+% La bibliothèque ''luadraw'' allie une facilité d’utilisation à
+% un rendu particulièrement soigné.
+%%%
+\usepackage[3d]{luadraw}
+
+\begin{document}
+
+\begin{luadraw}{name = for-stacked-cubes}
+------
+-- Préréglages.
+------
+local amax = 7
+local pal  = {"Teal", "LightBlue"}
+
+------
+-- ¨Def de la zone graphique.
+------
+local xysup = amax
+local zsup  = amax*(amax + 1) / 2
+
+local graphview = graph3d:new{
+  window3d = {0, xysup, 0, xysup, 0, zsup},
+  viewdir  = {155,70},
+  adjust2d = true,
+  bbox     = false
+}
+
+------
+-- Réglages liés aux lignes.
+------
+graphview:Linewidth(6)
+
+Hiddenlines = true
+
+------
+-- Empilons des cubes.
+------
+local zpos  = 0
+local icol  = 1
+local nbcol = #pal
+
+for a = amax, 1, -1 do
+  graphview:Dpoly(
+    parallelep(
+      M(0, 0, zpos),
+      a*vecI, a*vecJ, a*vecK
+    ),
+    {
+      mode  = mFlat,
+      color = pal[icol]
+    }
+  )
+
+  zpos = zpos + a
+  icol = icol % nbcol + 1
+end
+
+------
+-- Montrons le résultat de notre oeuvre.
+------
+graphview:Show()
+\end{luadraw}
+
+\end{document}

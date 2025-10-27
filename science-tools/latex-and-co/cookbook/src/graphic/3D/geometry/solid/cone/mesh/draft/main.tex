@@ -24,15 +24,6 @@
 
 \begin{luadraw}{name = mesh-cone-1}
 ------
--- ¨Def de la zone graphique.
-------
-local graphview = graph3d:new{
-  window  = {-1.5, 7, -2.5, 2.5},
-  viewdir = {290, 60},
-  size    = {10, 10}
-}
-
-------
 -- Un cône s'obtient par rotation d'une droite autour d'une axe.
 -- Le terme mathématique employé pour cette droite, qui peut
 -- aussi être une courbe "quelconque", est "génératrice" de la
@@ -41,6 +32,25 @@ local graphview = graph3d:new{
 local genecurve = function(t)
   return M(t, 2 - t/2, 0)
 end
+
+local tmin, tmax = -0.2, 6.5
+
+------
+-- ¨Def de la zone graphique.
+------
+local xmin, xmax = tmin, tmax
+
+local ymax = math.max(math.abs(2 - tmax/2), math.abs(2 - tmin/2))
+local zmin, zmax = -ymax, ymax
+
+local ymin = -ymax
+
+local graphview = graph3d:new{
+  window3d = {xmin, xmax, ymin, ymax, zmin, zmax},
+  viewdir = {290, 60},
+  adjust2d = true,
+  bbox     = false,
+}
 
 ------
 -- La fonction ''rotcurve'' construit une surface de révolution
@@ -67,10 +77,8 @@ end
 --     ''grid = {2, 5}''.
 ------
 local cone = rotcurve(
-  genecurve, -0.2, 6.5,
-  {
-    Origin, -vecI
-  },
+  genecurve, tmin, tmax,
+  {Origin, -vecI},
   0, 360,
   {
     grid = {25, 36}
@@ -100,12 +108,29 @@ graphview:Show()
 
 \begin{luadraw}{name = mesh-cone-2}
 ------
+-- Début de code identique.
+------
+local genecurve = function(t)
+  return M(t, 2 - t/2, 0)
+end
+
+local tmin, tmax = -0.2, 6.5
+
+------
 -- Modification des angles et de la fenêtre de vue.
 ------
+local xmin, xmax = tmin, tmax
+
+local ymax = math.max(math.abs(2 - tmax/2), math.abs(2 - tmin/2))
+local zmin, zmax = -ymax, ymax
+
+local ymin = -ymax
+
 local graphview = graph3d:new{
-  window  = {-1.5, 7, -2.5, 3.5},
+  window3d = {xmin, xmax, ymin, ymax, zmin, zmax},
   viewdir = {240, 60},
-  size    = {10, 10}
+  adjust2d = true,
+  bbox     = false,
 }
 
 ------
@@ -115,16 +140,9 @@ local graphview = graph3d:new{
 --     Une factorisation du code est donc possible. Ceci est proposé
 --     dans la recette suivante.
 ------
-local genecurve = function(t)
-  return M(t, 2 - t/2, 0)
-end
-
 local cone = rotcurve(
-  genecurve,
-  -0.2, 6.5,
-  {
-    Origin, -vecI
-  },
+  genecurve, tmin, tmax,
+  {Origin, -vecI},
   0, 360,
   {
     grid = {25, 36}

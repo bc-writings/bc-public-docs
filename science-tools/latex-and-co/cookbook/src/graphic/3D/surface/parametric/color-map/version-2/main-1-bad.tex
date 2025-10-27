@@ -20,8 +20,8 @@ local pal = getPal("Gnuplot")
 local pi, sin, cos, tanh = math.pi, math.sin, math.cos, math.tanh
 
 local graphview = graph3d:new{
-  size    = {12, 12},
-  viewdir = {120, 55}
+  viewdir = {120, 55},
+  bbox    = false
 }
 
 local projplane = surface(

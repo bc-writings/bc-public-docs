@@ -1,7 +1,7 @@
-this::
-    date = 2025-10-27
+==================
+Empilons des cubes
+==================
 
-
-=======================
-Juste des cubes empilés
-=======================
+content::
+    ./centered/\desc
+    ./two-tone-and-aligned/\desc

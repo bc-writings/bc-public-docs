@@ -22,10 +22,19 @@
 
 \begin{luadraw}{name = octahedron-in-cube}
 ------
--- Usage d'une bibliotèque spécialisée dans le dessin de polyèdres
+-- Usage d'une bibliothèque spécialisée dans le dessin de polyèdres
 -- réguliers convexes ou non.
 ------
 require 'luadraw_polyhedrons'
+
+------
+-- ¨Def de la zone graphique.
+------
+local graphview = graph3d:new{
+  viewdir = {140, 70},
+  adjust2d = true,
+  bbox     = false
+}
 
 ------
 -- Les éléments géométriques.
@@ -46,15 +55,6 @@ local octahedron_in_cube = shift3d(
   Octaedre(Origin, c/2*vecK),
   M(c, c, c)/2
 )
-
-------
--- ¨Def de la zone graphique.
-------
-local graphview = graph3d:new{
-  window  = {-8, 8, -2, 6},
-  viewdir = {140, 70},
-  size    = {10, 10}
-}
 
 ------
 -- Réglages liés aux lignes.

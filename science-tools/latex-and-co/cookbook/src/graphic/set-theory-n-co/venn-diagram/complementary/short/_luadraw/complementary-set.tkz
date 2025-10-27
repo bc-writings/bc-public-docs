@@ -1,6 +1,5 @@
 \begin{tikzpicture}[line join=round]%
 \begin{scope}%
-\clip (-0.5,-0.5) rectangle (9.5,6.7068965517241);%
 \pgfsetfillopacity{0.2}%
 \draw[black, rounded corners = 5pt, fill=red] (0.4655,5.5862) -- (8.5345,5.5862) -- (8.5345,0.6207) -- (0.4655,0.6207)--cycle;%
 \pgfsetfillopacity{1}%

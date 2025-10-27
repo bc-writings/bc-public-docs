@@ -22,12 +22,24 @@
 
 \begin{luadraw}{name = box-falling-walls}
 ------
+-- Préréglages.
+------
+local a, b, h = 4, 3, 5
+
+local shiftbox = 3*b
+
+------
 -- ¨Def de la zone graphique.
 ------
+local xmin, xmax = -5*a, a
+local ymin, ymax = -b - shiftbox, b
+local zmin, zmax = -h, h
+
 local graphview = graph3d:new{
-  window  = {-9, 10, -3.5, 7},
-  viewdir = {195, 70},
-  size    = {12, 12}
+  window3d = {xmin, xmax, ymin, ymax, -h, h},
+  viewdir  = {195, 70},
+  adjust2d = true,
+  bbox     = false,
 }
 
 ------
@@ -37,10 +49,8 @@ Hiddenlines     = true
 Hiddenlinestyle = "dashed"
 
 ------
--- Les ¨elts caractéristiques de la boîte.
+-- Les ¨elts géométriques de la boîte.
 ------
-local a, b, h = 4, 4, 4
-
 local box = parallelep(
   Origin,
   a*vecI, b*vecJ, h*vecK
@@ -63,7 +73,7 @@ table.remove(box_facets, 2)
 ------
 -- La boîte ouverte.
 ------
-local box = shift3d(box, -2*b*vecJ)
+local box = shift3d(box, -shiftbox*vecJ)
 
 table.remove(box.facets, 2)
 

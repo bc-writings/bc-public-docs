@@ -1,6 +1,5 @@
 \begin{tikzpicture}[line join=round]%
 \begin{scope}%
-\clip (-0.5,-0.5) rectangle (14.5,10.5);%
 \begin{scope}%
 \pgfsetstrokecolor{gray}%
 \pgfsetroundcap%

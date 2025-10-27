@@ -22,12 +22,22 @@
 
 \begin{luadraw}{name = box-opened-top}
 ------
+-- Préréglages.
+------
+local a, b, h = 4, 4, 4
+
+------
 -- ¨Def de la zone graphique.
 ------
+local xmin, xmax = -a, a
+local ymin, ymax = -b, b
+local zmin, zmax = -h, 1.6*h
+
 local graphview = graph3d:new{
-  window  = {-6, 1.5, -1.5, 7},
+  window3d = {xmin, xmax, ymin, ymax, zmin, zmax},
   viewdir = {165, 70},
-  size    = {8, 8}
+  adjust2d = true,
+  bbox     = false,
 }
 
 ------
@@ -37,10 +47,8 @@ Hiddenlines     = true
 Hiddenlinestyle = "dashed"
 
 ------
--- Les ¨elts caractéristiques de la boîte.
+-- La boîte.
 ------
-local a, b, h = 4, 4, 4
-
 local box = parallelep(
   Origin,
   a*vecI, a*vecJ, h*vecK
