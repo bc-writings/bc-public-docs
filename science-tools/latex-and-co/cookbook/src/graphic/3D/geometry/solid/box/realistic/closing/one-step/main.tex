@@ -1,0 +1,126 @@
+% !TEX TS-program = lualatex
+
+%%%
+% src::
+%     url = https://github.com/pfradin/luadraw/discussions/96#discussioncomment-14720763
+%%%
+
+\documentclass[border = 3pt]{standalone}
+
+%%%
+% Des couleurs faciles d'emploi via le package ''xcolor''!
+%%%
+\usepackage[svgnames]{xcolor}
+
+%%%
+% La bibliothèque ''luadraw'' allie une facilité d’utilisation à
+% un rendu particulièrement soigné.
+%%%
+\usepackage[3d]{luadraw}
+
+\begin{document}
+
+\begin{luadraw}{name = realistic-box-opening-one-step}
+------
+-- Préréglages.
+------
+local x = 2
+
+-- Angles de rotation.
+local alpha, beta = 40, 60
+
+------
+-- ¨Def de la zone graphique.
+------
+local graphview = graph3d:new{
+  window3d = {0, 7 + 2*x, 0, 10 + 2*x, -1, 1},
+  window   = {-8, 12, -10, 2},
+  viewdir  = {30, 60}, -- Commenter pour travailler dans
+                       -- un repère standard.
+  size     = {10, 10},
+  bbox     = false,
+}
+
+------
+-- Construction de la boîte.
+------
+-- La partie "gauche" de la boîte à plat.
+local A = M(0, x, 0)
+local B = M(x, x, 0)
+local C = M(2*x, x, 0)
+local D = M(2*x, 0, 0)
+local E = M(7 + 2*x, 0, 0)
+local F = M(7 + 2*x, x, 0)
+local G = M(7 + 3*x, x, 0)
+
+-- La partie "droite" de la boîte à plat.
+local N, _M, L, K, J, I, H = table.unpack(
+  sym3d(
+    {A, B, C, D, E, F, G},
+    {M(0, 5 + x, 0), vecJ}
+  )
+)
+
+-- Déplaçons les points dans l'espace.
+A, B, _M, N = table.unpack(
+  rotate3d(
+    {A, B, _M, N},
+    alpha, {C, vecJ}
+  )
+)
+
+A, N = table.unpack(
+  rotate3d(
+    {A, N},
+    beta, {B, vecJ}
+  )
+)
+
+D, E = table.unpack(
+  rotate3d(
+    {D, E},
+    alpha, {C, -vecI}
+  )
+)
+
+G, H = table.unpack(
+  rotate3d(
+    {G, H},
+    alpha, {F, -vecJ}
+  )
+)
+
+J, K = table.unpack(
+  rotate3d(
+    {J, K},
+    alpha, {I, vecI}
+  )
+)
+
+-- Définition des faces.
+local facets = {
+  {A, N, _M, B},
+  {B, _M, L, C},
+  {C, L, I, F},
+  {D, C, F, E},
+  {F, I, H, G},
+  {L, K, J, I}
+}
+
+------
+-- Tracé des ¨elts graphiques.
+------
+graphview:Dfacet(
+  facets,
+  {
+    color = "LightBlue"
+  }
+)
+
+------
+-- Montrons le résultat de notre oeuvre.
+------
+graphview:Show()
+\end{luadraw}
+
+\end{document}

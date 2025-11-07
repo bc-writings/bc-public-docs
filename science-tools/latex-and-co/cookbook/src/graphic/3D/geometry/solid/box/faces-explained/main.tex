@@ -1,0 +1,125 @@
+% !TEX TS-program = lualatex
+
+%%%
+% src::
+%     url = https://github.com/pfradin/luadraw/discussions/83#discussioncomment-14400538
+%%%
+
+\documentclass[border = 3pt]{standalone}
+
+%%%
+% Des couleurs faciles d'emploi via le package ''xcolor''!
+%%%
+\usepackage[svgnames]{xcolor}
+
+%%%
+% La bibliothèque ''luadraw'' allie une facilité d’utilisation à
+% un rendu particulièrement soigné.
+%%%
+\usepackage[3d]{luadraw}
+
+%%%
+% Pour afficher quelques distances.
+%%%
+\usepackage{siunitx}
+
+\begin{document}
+
+\begin{luadraw}{name = faces-explained}------
+-- Préréglages.
+------
+local a, b, h = 6, 8, 10
+
+------
+-- ¨Def de la zone graphique.
+------
+local graphview = graph3d:new{
+  window  = {-5, 8, -5, 10},
+  viewdir = {20, 60},
+  size    = {10, 10},
+  bbox    = false,
+}
+
+------
+-- Réglages liés aux lignes.
+------
+graphview:Linewidth(4)
+Hiddenlines     = true
+Hiddenlinestyle = "dashed"
+
+------
+-- Réglages liés aux étiquettes.
+------
+graphview:Labelcolor("Red")
+graphview:Labelsize("footnotesize")
+
+------
+-- Un basique parallélipipède.
+------
+local P = parallelep(
+  Origin,
+  a*vecI, b*vecJ, h*vecK
+)
+
+graphview:Dpoly(
+  P,
+  {
+    mode      = 4,
+    edgecolor = "Blue"
+  }
+)
+
+------
+-- Étiquettes explicatives.
+------
+graphview:Dlabel3d(
+-- Les dimensions.
+  b .. " \\unit{cm}", M(a, b/2, 0),
+  {
+    dir = {vecJ, -vecI},
+    pos = "S"
+  },
+  a .. " \\unit{cm}", M(a/2, b, 0),
+  {
+    dir = {-vecI, -vecJ}
+  },
+  h .. " \\unit{cm}", M(a, 0, h/2),
+  {
+    dir = {vecK, vecI},
+    pos = "N"
+  },
+-- Les faces.
+  "Face à droite", M(a/2, b, h/2),
+  {
+    dir = {-vecK, -vecI},
+    pos = {}
+  },
+  "Face au-dessus", M(a/2, b/2, h),
+  {
+    dir = {vecJ, -vecI}
+  },
+  "Face à gauche", M(a/2, 0, h/2),
+  {
+    dir = {-vecK, -vecI}
+  },
+  "Face au-dessous", M(a/2, b/2, 0),
+  {
+    dir = {vecJ, -vecI}
+  },
+  "Face avant", M(a, b/2, h/2),
+  {
+    dir = {vecJ, vecK}
+  },
+  "Face arrière", M(0, b/2, h/2),
+  {
+    dir = {vecJ, vecK}
+  }
+)
+
+------
+-- Montrons le résultat de notre oeuvre.
+------
+graphview:Show()
+\end{luadraw}
+
+\end{document}

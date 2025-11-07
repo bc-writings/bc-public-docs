@@ -1,0 +1,125 @@
+% !TEX TS-program = lualatex
+
+%%%
+% src::
+%     url = https://github.com/pfradin/luadraw/discussions/119#discussioncomment-14662370
+%%%
+
+\documentclass[border = 3pt]{standalone}
+
+%%%
+% Des couleurs faciles d'emploi via le package ''xcolor''!
+%%%
+\usepackage[svgnames]{xcolor}
+
+%%%
+% La bibliothèque ''luadraw'' allie une facilité d’utilisation à
+% un rendu particulièrement soigné.
+%%%
+\usepackage[3d]{luadraw}
+
+%%%
+% Pour afficher quelques distances.
+%%%
+\usepackage{siunitx}
+
+\begin{document}
+
+\begin{luadraw}{name = box-opened-no-top}
+------
+-- Préréglages.
+------
+local a, b, h, dep = 6, 6, 3, 0.25
+
+------
+-- ¨Def de la zone graphique.
+------
+local graphview = graph3d:new{
+  window  = {-4, 6, -4.5, 3},
+  viewdir = {30, 60},
+  size    = {10, 10},
+  bbox    = false,
+}
+
+------
+-- Réglages liés aux lignes.
+------
+Hiddenlines     = true
+Hiddenlinestyle = "dashed"
+
+------
+-- Réglages liés aux étiquettes.
+------
+graphview:Labelsize("footnotesize")
+
+------
+-- La boîte ouverte.
+------
+local P = parallelep(
+  Origin,
+  a*vecI, b*vecJ, h*vecK
+)
+
+-- Des sommets pour tracer des doubles flèches.
+local A, B, C, D, _  = table.unpack(P.vertices)
+
+-- Retirons la face du dessus.
+table.remove(P.facets, 2)
+
+------
+-- Tracé de la boîte.
+------
+graphview:Dpoly(
+  P,
+  {
+    edge  = true,
+    mode  = mShadedHidden,
+    color = "LightBlue",
+  }
+)
+
+-- Petits traits verticaux pour les dimensions.
+graphview:Dpolyline3d(
+{
+  {B - dep*vecK, B - 2*dep*vecK},
+  {C - dep*vecK, C - 2*dep*vecK},
+  {C + dep*vecJ, C + 2*dep*vecJ},
+  {D + dep*vecJ, D + 2*dep*vecJ},
+  {D + h*vecK + dep*vecJ, D + h*vecK + 2*dep*vecJ}
+}
+)
+
+-- Les doubles flèches.
+graphview:Dpolyline3d(
+{
+  {B - 3*dep/2*vecK, C - 3*dep/2*vecK}, 
+  {C + 3*dep/2*vecJ, D + 3*dep/2*vecJ}, 
+  {D + 3*dep/2*vecJ, D + h*vecK + 3*dep/2*vecJ} 
+},
+"stealth-stealth"
+)
+
+-- Les étiquettes.
+graphview:Dlabel3d(
+  "$x$ \\unit{m}", M(a, b/2, -3*dep/2),
+  {
+    dir          = {vecJ, vecK}, 
+    node_options = "fill = white"
+  },
+  "$x$ \\unit{m}", M(a/2, b + 3*dep/2, 0), 
+  {
+    dir = {-vecI, -vecJ}
+  },
+  "$h$ \\unit{m}", M(0, b + 3*dep/2, h/2), 
+  {
+    dir = {vecK, -vecJ}
+  }
+)
+
+------
+-- Montrons le résultat de notre oeuvre.
+------
+graphview:Show()
+\end{luadraw}
+
+\end{document}

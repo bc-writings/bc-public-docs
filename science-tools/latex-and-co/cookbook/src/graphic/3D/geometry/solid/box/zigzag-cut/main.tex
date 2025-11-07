@@ -1,0 +1,85 @@
+% !TEX TS-program = lualatex
+
+%%%
+% src::
+%     url = https://github.com/pfradin/luadraw/discussions/121#discussioncomment-14685714
+%%%
+
+\documentclass[border = 3pt]{standalone}
+
+%%%
+% Des couleurs faciles d'emploi via le package ''xcolor''!
+%%%
+\usepackage[svgnames]{xcolor}
+
+%%%
+% La bibliothèque ''luadraw'' allie une facilité d’utilisation à
+% un rendu particulièrement soigné.
+%%%
+\usepackage[3d]{luadraw}
+
+\begin{document}
+
+\begin{luadraw}{name = zigzag-cut}
+------
+-- Préréglages.
+------
+local a = 3
+
+-- Fixons notre marche au hasard.
+math.randomseed(20251107)
+
+------
+-- ¨Def de la zone graphique.
+------
+local graphview = graph3d:new{
+  window  = {-3, 3, -3, 3},
+  viewdir = {40, 70},
+  size    = {12, 12},
+  bbox    = false,
+}
+
+------
+-- Construction de la boîte incomplète.
+------
+local P = parallelep(
+  Origin,
+  a*vecI, a*vecJ, a*vecK
+)
+
+local _ , hidden_facets = graphview:Classifyfacet(P)
+
+local A = M(a, 0, a)
+local B = M(0, a, a)
+
+-- Pour les zigzags.
+local n = 8
+local u = (B - A) / (n + 1)
+local v = M(1, 1, 0) / (3*math.sqrt(2))
+
+local L = map(
+  function(k)
+    return A + k*u + (2*(k%2) - 1)*(0.5 + math.random()/2)*v
+  end,
+  range(1, n)
+)
+
+L = concat({A}, L, {B, a*vecK})
+
+graphview:Dfacet(
+  hidden_facets,
+  {color = "Orange"}
+)
+
+graphview:Dfacet(
+  L,
+  {color = "Orange"}
+)
+
+------
+-- Montrons le résultat de notre oeuvre.
+------
+graphview:Show()
+\end{luadraw}
+
+\end{document}

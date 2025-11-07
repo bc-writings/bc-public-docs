@@ -3,6 +3,9 @@ Des boîtes "rectangulaires"
 ===========================
 
 content::
-    ./opened-top/\desc
+    ./faces-explained/\desc
+    ./opened/\desc
     ./falling-walls/\desc
     ./net/\desc
+    ./realistic/\desc
+    ./zigzag-cut/\desc

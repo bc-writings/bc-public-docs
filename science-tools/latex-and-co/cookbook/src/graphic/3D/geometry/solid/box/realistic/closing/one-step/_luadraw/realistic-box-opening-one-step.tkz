@@ -1,0 +1,17 @@
+\begin{tikzpicture}[line join=round]%
+\begin{scope}%
+\pgfsetfillcolor{LightBlue!50!white!94.37!black}%
+\draw[fill] (3.8241,4.2951) -- (7.7213,3.1701) -- (7.3765,2.3706) -- (3.4794,3.4956)--cycle;%
+\pgfsetfillcolor{LightBlue!50!white!84.26!black}%
+\draw[fill] (3.746,4.995) -- (7.6431,3.87) -- (7.7213,3.1701) -- (3.8241,4.2951)--cycle;%
+\pgfsetfillcolor{LightBlue!50!white!84.76!black}%
+\draw[fill] (2.8824,4.1689) -- (3.4794,3.4956) -- (1.9044,2.1316) -- (1.3074,2.805)--cycle;%
+\pgfsetfillcolor{LightBlue!50!white!75.79!black}%
+\draw[fill] (3.4794,3.4956) -- (7.3765,2.3706) -- (5.8015,1.0066) -- (1.9044,2.1316)--cycle;%
+\pgfsetfillcolor{LightBlue!50!white!40.55!black}%
+\draw[fill] (7.3765,2.3706) -- (7.9736,2.6992) -- (6.3986,1.3352) -- (5.8015,1.0066)--cycle;%
+\pgfsetfillcolor{LightBlue!39.66!black}%
+\draw[fill] (1.9044,2.1316) -- (5.8015,1.0066) -- (5.4568,1.2091) -- (1.5597,2.3341)--cycle;%
+\pgfsetfillcolor{black}%
+\end{scope}%
+\end{tikzpicture}%

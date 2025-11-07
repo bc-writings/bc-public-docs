@@ -88,7 +88,7 @@
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
 \pgfsetroundcap%
-\draw[] (5,0) -- (5.9767,3.5168);%
+\draw[] (5.9767,3.5168) -- (5,0);%
 \pgfsetstrokecolor{green!49.16!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{green!49.16!black}%
@@ -158,7 +158,7 @@
 \draw[fill] (4.6754,1.1796) -- (4.6693,1.1908) -- (5,0)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (4.6693,1.1908) -- (5,0);%
+\draw[] (5,0) -- (4.6693,1.1908);%
 \pgfsetstrokecolor{orange!50!white!75.15!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{orange!50!white!75.15!black}%
@@ -443,7 +443,7 @@
 \draw[fill] (5.9921,3.5723) -- (5.9535,3.4655) -- (5.9533,3.4646) -- (5.9763,3.5155) -- (5.9767,3.5168)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (5.9767,3.5168) -- (5.9921,3.5723);%
+\draw[] (5.9921,3.5723) -- (5.9767,3.5168);%
 \pgfsetstrokecolor{green!49.16!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{green!49.16!black}%
@@ -454,7 +454,7 @@
 \draw[fill] (4.6693,1.1908) -- (4.6693,1.1907) -- (4.672,1.192) -- (4.672,1.1921) -- (4.6675,1.197)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (4.6675,1.197) -- (4.6693,1.1908);%
+\draw[] (4.6693,1.1908) -- (4.6675,1.197);%
 \pgfsetstrokecolor{orange!50!white!67.27!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{orange!50!white!67.27!black}%
@@ -539,169 +539,169 @@
 \draw[fill] (5.9686,3.5201) -- (5.9535,3.4655) -- (5.9921,3.5723)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (5.9921,3.5723) -- (5.9686,3.5201);%
+\draw[] (5.9686,3.5201) -- (5.9921,3.5723);%
 \pgfsetstrokecolor{green!49.16!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{green!49.16!black}%
 \draw[fill] (5.9524,3.4629) -- (5.9535,3.4655) -- (5.9686,3.5201) -- (5.9298,3.4697) -- (5.9009,3.3619)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (5.9686,3.5201) -- (5.9298,3.4697);%
+\draw[] (5.9298,3.4697) -- (5.9686,3.5201);%
 \pgfsetstrokecolor{green!59.41!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{green!59.41!black}%
 \draw[fill] (5.8763,3.4216) -- (5.8237,3.2163) -- (5.9009,3.3619) -- (5.9298,3.4697)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (5.9298,3.4697) -- (5.8763,3.4216);%
+\draw[] (5.8763,3.4216) -- (5.9298,3.4697);%
 \pgfsetstrokecolor{green!67.1!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{green!67.1!black}%
 \draw[fill] (5.8237,3.2163) -- (5.8763,3.4216) -- (5.809,3.3768) -- (5.7363,3.0733) -- (5.8091,3.1893)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (5.8763,3.4216) -- (5.809,3.3768);%
+\draw[] (5.809,3.3768) -- (5.8763,3.4216);%
 \pgfsetstrokecolor{green!73.19!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{green!73.19!black}%
 \draw[fill] (5.809,3.3768) -- (5.729,3.3359) -- (5.6353,2.9074) -- (5.7363,3.0733)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (5.809,3.3768) -- (5.729,3.3359);%
+\draw[] (5.729,3.3359) -- (5.809,3.3768);%
 \pgfsetstrokecolor{green!78.08!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{green!78.08!black}%
 \draw[fill] (5.5684,2.7952) -- (5.6353,2.9074) -- (5.729,3.3359) -- (5.6374,3.2996) -- (5.5285,2.736)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (5.729,3.3359) -- (5.6374,3.2996);%
+\draw[] (5.6374,3.2996) -- (5.729,3.3359);%
 \pgfsetstrokecolor{green!82.01!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{green!82.01!black}%
 \draw[fill] (5.5285,2.736) -- (5.6374,3.2996) -- (5.5358,3.2684) -- (5.421,2.5677)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (5.6374,3.2996) -- (5.5358,3.2684);%
+\draw[] (5.5358,3.2684) -- (5.6374,3.2996);%
 \pgfsetstrokecolor{green!85.11!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{green!85.11!black}%
 \draw[fill] (5.3144,2.3942) -- (5.421,2.5677) -- (5.5358,3.2684) -- (5.4258,3.2428)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (5.5358,3.2684) -- (5.4258,3.2428);%
+\draw[] (5.4258,3.2428) -- (5.5358,3.2684);%
 \pgfsetstrokecolor{green!87.46!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{green!87.46!black}%
 \draw[fill] (5.309,3.2233) -- (5.2132,2.2238) -- (5.3144,2.3942) -- (5.4258,3.2428)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (5.4258,3.2428) -- (5.309,3.2233);%
+\draw[] (5.309,3.2233) -- (5.4258,3.2428);%
 \pgfsetstrokecolor{green!89.1!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{green!89.1!black}%
 \draw[fill] (5.309,3.2233) -- (5.1874,3.2101) -- (5.1206,2.0666) -- (5.1746,2.1567) -- (5.2132,2.2238)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (5.309,3.2233) -- (5.1874,3.2101);%
+\draw[] (5.1874,3.2101) -- (5.309,3.2233);%
 \pgfsetstrokecolor{green!90.08!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{green!90.08!black}%
 \draw[fill] (5.1874,3.2101) -- (5.0628,3.2034) -- (5.0376,1.9206) -- (5.1206,2.0666)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (5.1874,3.2101) -- (5.0628,3.2034);%
+\draw[] (5.0628,3.2034) -- (5.1874,3.2101);%
 \pgfsetstrokecolor{green!90.4!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{green!90.4!black}%
 \draw[fill] (5.0376,1.9206) -- (5.0628,3.2034) -- (4.9372,3.2034) -- (4.965,1.7861)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (5.0628,3.2034) -- (4.9372,3.2034);%
+\draw[] (4.9372,3.2034) -- (5.0628,3.2034);%
 \pgfsetstrokecolor{green!90.08!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{green!90.08!black}%
 \draw[fill] (4.9028,1.6649) -- (4.965,1.7861) -- (4.9372,3.2034) -- (4.8126,3.2101)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (4.9372,3.2034) -- (4.8126,3.2101);%
+\draw[] (4.8126,3.2101) -- (4.9372,3.2034);%
 \pgfsetstrokecolor{green!89.1!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{green!89.1!black}%
 \draw[fill] (4.8505,1.559) -- (4.8706,1.5985) -- (4.9028,1.6649) -- (4.8126,3.2101) -- (4.691,3.2233)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (4.8126,3.2101) -- (4.691,3.2233);%
+\draw[] (4.691,3.2233) -- (4.8126,3.2101);%
 \pgfsetstrokecolor{green!87.46!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{green!87.46!black}%
 \draw[fill] (4.8505,1.559) -- (4.691,3.2233) -- (4.5742,3.2428) -- (4.807,1.47)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (4.691,3.2233) -- (4.5742,3.2428);%
+\draw[] (4.5742,3.2428) -- (4.691,3.2233);%
 \pgfsetstrokecolor{green!85.11!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{green!85.11!black}%
 \draw[fill] (4.7715,1.3941) -- (4.807,1.47) -- (4.5742,3.2428) -- (4.4642,3.2684)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (4.5742,3.2428) -- (4.4642,3.2684);%
+\draw[] (4.4642,3.2684) -- (4.5742,3.2428);%
 \pgfsetstrokecolor{green!82.01!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{green!82.01!black}%
 \draw[fill] (4.3626,3.2996) -- (4.7431,1.33) -- (4.7715,1.3941) -- (4.4642,3.2684)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (4.4642,3.2684) -- (4.3626,3.2996);%
+\draw[] (4.3626,3.2996) -- (4.4642,3.2684);%
 \pgfsetstrokecolor{green!78.08!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{green!78.08!black}%
 \draw[fill] (4.7202,1.2804) -- (4.734,1.3081) -- (4.7431,1.33) -- (4.3626,3.2996) -- (4.271,3.3359)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (4.3626,3.2996) -- (4.271,3.3359);%
+\draw[] (4.271,3.3359) -- (4.3626,3.2996);%
 \pgfsetstrokecolor{green!73.19!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{green!73.19!black}%
 \draw[fill] (4.7022,1.2429) -- (4.7202,1.2804) -- (4.271,3.3359) -- (4.191,3.3768)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (4.271,3.3359) -- (4.191,3.3768);%
+\draw[] (4.191,3.3768) -- (4.271,3.3359);%
 \pgfsetstrokecolor{green!67.1!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{green!67.1!black}%
 \draw[fill] (4.7022,1.2429) -- (4.191,3.3768) -- (4.1237,3.4216) -- (4.6889,1.2149) -- (4.691,1.2181)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (4.191,3.3768) -- (4.1237,3.4216);%
+\draw[] (4.1237,3.4216) -- (4.191,3.3768);%
 \pgfsetstrokecolor{green!59.41!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{green!59.41!black}%
 \draw[fill] (4.6889,1.2149) -- (4.1237,3.4216) -- (4.0702,3.4697) -- (4.6785,1.1999)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (4.1237,3.4216) -- (4.0702,3.4697);%
+\draw[] (4.0702,3.4697) -- (4.1237,3.4216);%
 \pgfsetstrokecolor{green!49.16!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{green!49.16!black}%
 \draw[fill] (4.0314,3.5201) -- (4.672,1.1921) -- (4.6721,1.1921) -- (4.6785,1.1999) -- (4.0702,3.4697)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (4.0702,3.4697) -- (4.0314,3.5201);%
+\draw[] (4.0314,3.5201) -- (4.0702,3.4697);%
 \pgfsetstrokecolor{green!32.98!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{green!32.98!black}%
 \draw[fill] (4.672,1.1921) -- (4.0314,3.5201) -- (4.0079,3.5723) -- (4.6675,1.197)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (4.0079,3.5723) -- (4.6675,1.197);%
-\draw[] (4.0314,3.5201) -- (4.0079,3.5723);%
+\draw[] (4.6675,1.197) -- (4.0079,3.5723);%
+\draw[] (4.0079,3.5723) -- (4.0314,3.5201);%
 \pgfsetstrokecolor{orange!57.32!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{orange!57.32!black}%
 \draw[fill] (4,0) -- (5.9372,3.415) -- (5.8596,3.3141)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (4.691,1.2181) -- (5.8091,3.1893);%
+\draw[] (5.8091,3.1893) -- (4.691,1.2181);%
 \pgfsetstrokecolor{green!49.16!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{green!49.16!black}%
@@ -714,22 +714,22 @@
 \draw[fill] (5.7945,3.1021) -- (5.8221,3.21) -- (5.7363,3.0733) -- (5.7221,3.0139)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (5.8091,3.1893) -- (5.839,3.242);%
+\draw[] (5.839,3.242) -- (5.8091,3.1893);%
 \pgfsetstrokecolor{green!73.19!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{green!73.19!black}%
 \draw[fill] (5.6312,2.8885) -- (5.7221,3.0139) -- (5.7363,3.0733) -- (5.6353,2.9074)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (5.839,3.242) -- (5.9201,3.385);%
+\draw[] (5.9201,3.385) -- (5.839,3.242);%
 \pgfsetstrokecolor{green!78.08!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{green!78.08!black}%
 \draw[fill] (5.6312,2.8885) -- (5.6353,2.9074) -- (5.5684,2.7952)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (5.9201,3.385) -- (5.9372,3.415);%
-\draw[] (5.9372,3.415) -- (5.8596,3.3141);%
+\draw[] (5.9372,3.415) -- (5.9201,3.385);%
+\draw[] (5.8596,3.3141) -- (5.9372,3.415);%
 \pgfsetstrokecolor{green!78.08!black}%
 \pgfsetlinewidth{0.1pt}%
 \draw[fill] (4.721,1.2767) -- (4.734,1.3081) -- (4.7202,1.2804)--cycle;%
@@ -741,21 +741,21 @@
 \draw[fill] (4.6931,1.1982) -- (4.7046,1.2331) -- (4.7022,1.2429) -- (4.6891,1.214)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (4.6903,1.217) -- (4.691,1.2181);%
+\draw[] (4.691,1.2181) -- (4.6903,1.217);%
 \pgfsetstrokecolor{green!59.41!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{green!59.41!black}%
 \draw[fill] (4.6891,1.214) -- (4.6804,1.1928) -- (4.6851,1.175) -- (4.6872,1.1753) -- (4.6931,1.1982)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (4.6857,1.2089) -- (4.6903,1.217);%
+\draw[] (4.6903,1.217) -- (4.6857,1.2089);%
 \pgfsetstrokecolor{green!49.16!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{green!49.16!black}%
 \draw[fill] (4.6804,1.1928) -- (4.6759,1.1793) -- (4.6851,1.175)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (4,0) -- (4.6857,1.2089);%
+\draw[] (4.6857,1.2089) -- (4,0);%
 \pgfsetstrokecolor{orange!69.02!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{orange!69.02!black}%
@@ -783,14 +783,14 @@
 \draw[fill] (5.2132,2.2238) -- (5.2129,2.2207) -- (5.3121,2.3773) -- (5.3144,2.3942)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (5.8596,3.3141) -- (5.8202,3.2788);%
+\draw[] (5.8202,3.2788) -- (5.8596,3.3141);%
 \pgfsetstrokecolor{green!89.1!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{green!89.1!black}%
 \draw[fill] (5.2129,2.2207) -- (5.2132,2.2238) -- (5.1746,2.1567)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (5.8202,3.2788) -- (5.7526,3.218);%
+\draw[] (5.7526,3.218) -- (5.8202,3.2788);%
 \pgfsetstrokecolor{green!89.1!black}%
 \pgfsetlinewidth{0.1pt}%
 \draw[fill] (4.8507,1.5575) -- (4.8706,1.5985) -- (4.8505,1.559)--cycle;%
@@ -844,21 +844,21 @@
 \draw[fill] (5.0376,1.9206) -- (5.0369,1.882) -- (5.1178,2.0182) -- (5.1206,2.0666)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (5.7526,3.218) -- (5.7307,3.2034);%
+\draw[] (5.7307,3.2034) -- (5.7526,3.218);%
 \pgfsetstrokecolor{green!90.4!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{green!90.4!black}%
 \draw[fill] (5.0376,1.9206) -- (4.965,1.7861) -- (4.9656,1.7527) -- (5.0369,1.882)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (5.7307,3.2034) -- (5.6718,3.1642);%
+\draw[] (5.6718,3.1642) -- (5.7307,3.2034);%
 \pgfsetstrokecolor{green!90.08!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{green!90.08!black}%
 \draw[fill] (4.9656,1.7527) -- (4.965,1.7861) -- (4.9028,1.6649) -- (4.9047,1.6334)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (5.6718,3.1642) -- (5.618,3.1284);%
+\draw[] (5.618,3.1284) -- (5.6718,3.1642);%
 \pgfsetstrokecolor{green!89.1!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{green!89.1!black}%
@@ -913,21 +913,21 @@
 \draw[fill] (4.9089,1.5604) -- (4.9672,1.6721) -- (4.9656,1.7527) -- (4.9047,1.6334)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (5.618,3.1284) -- (5.6088,3.1237);%
+\draw[] (5.6088,3.1237) -- (5.618,3.1284);%
 \pgfsetstrokecolor{green!89.1!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{green!89.1!black}%
 \draw[fill] (4.8537,1.5256) -- (4.8603,1.4571) -- (4.9089,1.5604) -- (4.9047,1.6334)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (5.6088,3.1237) -- (5.5292,3.083);%
+\draw[] (5.5292,3.083) -- (5.6088,3.1237);%
 \pgfsetstrokecolor{green!87.46!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{green!87.46!black}%
 \draw[fill] (4.8537,1.5256) -- (4.8122,1.43) -- (4.821,1.3636) -- (4.8603,1.4571)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (5.5292,3.083) -- (5.4579,3.0466);%
+\draw[] (5.4579,3.0466) -- (5.5292,3.083);%
 \pgfsetstrokecolor{green!85.11!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{green!85.11!black}%
@@ -973,21 +973,21 @@
 \draw[fill] (4.8285,1.3062) -- (4.8695,1.3607) -- (4.8603,1.4571) -- (4.821,1.3636)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (5.4579,3.0466) -- (5.4435,3.0409);%
+\draw[] (5.4435,3.0409) -- (5.4579,3.0466);%
 \pgfsetstrokecolor{green!85.11!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{green!85.11!black}%
 \draw[fill] (4.7901,1.2804) -- (4.793,1.2624) -- (4.8285,1.3062) -- (4.821,1.3636)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (5.4435,3.0409) -- (5.3395,2.9996);%
+\draw[] (5.3395,2.9996) -- (5.4435,3.0409);%
 \pgfsetstrokecolor{green!82.01!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{green!82.01!black}%
 \draw[fill] (4.7901,1.2804) -- (4.7795,1.2473) -- (4.793,1.2624)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (5.3395,2.9996) -- (5.2748,2.974);%
+\draw[] (5.2748,2.974) -- (5.3395,2.9996);%
 \pgfsetstrokecolor{orange!85.89!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{orange!85.89!black}%
@@ -1009,117 +1009,117 @@
 \draw[fill] (4.8973,1.3999) -- (4.9167,1.4272) -- (4.916,1.4387)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (5.2748,2.974) -- (5.0717,2.9116);%
+\draw[] (5.0717,2.9116) -- (5.2748,2.974);%
 \pgfsetstrokecolor{orange!87.81!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{orange!87.81!black}%
 \draw[fill] (4,0) -- (5.0717,2.9116) -- (4.8516,2.8604)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (5.0717,2.9116) -- (4.8516,2.8604);%
+\draw[] (4.8516,2.8604) -- (5.0717,2.9116);%
 \pgfsetstrokecolor{orange!89.22!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{orange!89.22!black}%
 \draw[fill] (4.618,2.8214) -- (4,0) -- (4.8516,2.8604)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (4.8516,2.8604) -- (4.618,2.8214);%
+\draw[] (4.618,2.8214) -- (4.8516,2.8604);%
 \pgfsetstrokecolor{orange!90.19!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{orange!90.19!black}%
 \draw[fill] (4.618,2.8214) -- (4.3748,2.795) -- (4,0)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (4.618,2.8214) -- (4.3748,2.795);%
+\draw[] (4.3748,2.795) -- (4.618,2.8214);%
 \pgfsetstrokecolor{orange!90.76!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{orange!90.76!black}%
 \draw[fill] (4,0) -- (4.3748,2.795) -- (4.1256,2.7817)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (4.3748,2.795) -- (4.1256,2.7817);%
+\draw[] (4.1256,2.7817) -- (4.3748,2.795);%
 \pgfsetstrokecolor{orange!90.95!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{orange!90.95!black}%
 \draw[fill] (3.8744,2.7817) -- (4,0) -- (4.1256,2.7817)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (4.1256,2.7817) -- (3.8744,2.7817);%
+\draw[] (3.8744,2.7817) -- (4.1256,2.7817);%
 \pgfsetstrokecolor{orange!90.76!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{orange!90.76!black}%
 \draw[fill] (3.8744,2.7817) -- (3.6252,2.795) -- (4,0)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (3.8744,2.7817) -- (3.6252,2.795);%
+\draw[] (3.6252,2.795) -- (3.8744,2.7817);%
 \pgfsetstrokecolor{orange!90.19!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{orange!90.19!black}%
 \draw[fill] (4,0) -- (3.6252,2.795) -- (3.382,2.8214)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (3.6252,2.795) -- (3.382,2.8214);%
+\draw[] (3.382,2.8214) -- (3.6252,2.795);%
 \pgfsetstrokecolor{orange!89.22!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{orange!89.22!black}%
 \draw[fill] (3.1484,2.8604) -- (4,0) -- (3.382,2.8214)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (3.382,2.8214) -- (3.1484,2.8604);%
+\draw[] (3.1484,2.8604) -- (3.382,2.8214);%
 \pgfsetstrokecolor{orange!87.81!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{orange!87.81!black}%
 \draw[fill] (3.1484,2.8604) -- (2.9283,2.9116) -- (4,0)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (3.1484,2.8604) -- (2.9283,2.9116);%
+\draw[] (2.9283,2.9116) -- (3.1484,2.8604);%
 \pgfsetstrokecolor{orange!85.89!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{orange!85.89!black}%
 \draw[fill] (4,0) -- (2.9283,2.9116) -- (2.7252,2.974)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (2.9283,2.9116) -- (2.7252,2.974);%
+\draw[] (2.7252,2.974) -- (2.9283,2.9116);%
 \pgfsetstrokecolor{orange!83.36!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{orange!83.36!black}%
 \draw[fill] (2.5421,3.0466) -- (4,0) -- (2.7252,2.974)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (2.7252,2.974) -- (2.5421,3.0466);%
+\draw[] (2.5421,3.0466) -- (2.7252,2.974);%
 \pgfsetstrokecolor{orange!80.03!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{orange!80.03!black}%
 \draw[fill] (2.5421,3.0466) -- (2.382,3.1284) -- (4,0)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (2.5421,3.0466) -- (2.382,3.1284);%
+\draw[] (2.382,3.1284) -- (2.5421,3.0466);%
 \pgfsetstrokecolor{orange!75.53!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{orange!75.53!black}%
 \draw[fill] (4,0) -- (2.382,3.1284) -- (2.2474,3.218)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (2.382,3.1284) -- (2.2474,3.218);%
+\draw[] (2.2474,3.218) -- (2.382,3.1284);%
 \pgfsetstrokecolor{orange!69.02!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{orange!69.02!black}%
 \draw[fill] (2.1404,3.3141) -- (4,0) -- (2.2474,3.218)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (2.2474,3.218) -- (2.1404,3.3141);%
+\draw[] (2.1404,3.3141) -- (2.2474,3.218);%
 \pgfsetstrokecolor{orange!57.32!black}%
 \pgfsetlinewidth{0.1pt}%
 \pgfsetfillcolor{orange!57.32!black}%
 \draw[fill] (2.1404,3.3141) -- (2.0628,3.415) -- (4,0)--cycle;%
 \pgfsetstrokecolor{black}%
 \pgfsetlinewidth{0.4pt}%
-\draw[] (2.0628,3.415) -- (4,0);%
-\draw[] (2.1404,3.3141) -- (2.0628,3.415);%
+\draw[] (4,0) -- (2.0628,3.415);%
+\draw[] (2.0628,3.415) -- (2.1404,3.3141);%
 \pgfsetbuttcap%
 \pgfsetdash{{2.5pt}{2pt}}{0pt}%
-\draw[] (2.7252,2.974) -- (2.5421,3.0466) -- (2.382,3.1284) -- (2.2474,3.218) -- (2.1404,3.3141) -- (2.0628,3.415) -- (4,0) -- (5.9372,3.415) -- (5.8596,3.3141) -- (5.7526,3.218) -- (5.618,3.1284) -- (5.4579,3.0466) -- (5.2748,2.974) -- (5.0717,2.9116) -- (4.8516,2.8604) -- (4.618,2.8214) -- (4.3748,2.795) -- (4.1256,2.7817) -- (3.8744,2.7817) -- (3.6252,2.795) -- (3.382,2.8214) -- (3.1484,2.8604) -- (2.9283,2.9116) -- (2.7252,2.974);%
-\draw[] (4.271,3.3359) -- (4.191,3.3768) -- (4.1237,3.4216) -- (4.0702,3.4697) -- (4.0314,3.5201) -- (4.0079,3.5723) -- (5,0) -- (5.9921,3.5723) -- (5.9686,3.5201) -- (5.9298,3.4697) -- (5.8763,3.4216) -- (5.809,3.3768) -- (5.729,3.3359) -- (5.6374,3.2996) -- (5.5358,3.2684) -- (5.4258,3.2428) -- (5.309,3.2233) -- (5.1874,3.2101) -- (5.0628,3.2034) -- (4.9372,3.2034) -- (4.8126,3.2101) -- (4.691,3.2233) -- (4.5742,3.2428) -- (4.4642,3.2684) -- (4.3626,3.2996) -- (4.271,3.3359);%
+\draw[] (4.1256,2.7817) -- (4.3748,2.795) -- (4.618,2.8214) -- (4.8516,2.8604) -- (5.0717,2.9116) -- (5.2748,2.974) -- (5.4579,3.0466) -- (5.618,3.1284) -- (5.7526,3.218) -- (5.8596,3.3141) -- (5.9372,3.415) -- (4,0) -- (2.0628,3.415) -- (2.1404,3.3141) -- (2.2474,3.218) -- (2.382,3.1284) -- (2.5421,3.0466) -- (2.7252,2.974) -- (2.9283,2.9116) -- (3.1484,2.8604) -- (3.382,2.8214) -- (3.6252,2.795) -- (3.8744,2.7817) -- (4.1256,2.7817);%
+\draw[] (4.9372,3.2034) -- (5.0628,3.2034) -- (5.1874,3.2101) -- (5.309,3.2233) -- (5.4258,3.2428) -- (5.5358,3.2684) -- (5.6374,3.2996) -- (5.729,3.3359) -- (5.809,3.3768) -- (5.8763,3.4216) -- (5.9298,3.4697) -- (5.9686,3.5201) -- (5.9921,3.5723) -- (5,0) -- (4.0079,3.5723) -- (4.0314,3.5201) -- (4.0702,3.4697) -- (4.1237,3.4216) -- (4.191,3.3768) -- (4.271,3.3359) -- (4.3626,3.2996) -- (4.4642,3.2684) -- (4.5742,3.2428) -- (4.691,3.2233) -- (4.8126,3.2101) -- (4.9372,3.2034);%
 \end{scope}%
 \draw[] (5.4142,4.2229) .. controls (4.6293,4.5546) and (3.3707,4.5546) .. (2.5858,4.2229) .. controls (1.8009,3.8912) and (1.8009,3.3593) .. (2.5858,3.0276) .. controls (3.3707,2.6959) and (4.6293,2.6959) .. (5.4142,3.0276) .. controls (6.1991,3.3593) and (6.1991,3.8912) .. (5.4142,4.2229);%
 \draw[] (5.7071,3.9241) .. controls (5.3147,4.0899) and (4.6853,4.0899) .. (4.2929,3.9241) .. controls (3.9004,3.7582) and (3.9004,3.4922) .. (4.2929,3.3264) .. controls (4.6853,3.1605) and (5.3147,3.1605) .. (5.7071,3.3264) .. controls (6.0996,3.4922) and (6.0996,3.7582) .. (5.7071,3.9241);%

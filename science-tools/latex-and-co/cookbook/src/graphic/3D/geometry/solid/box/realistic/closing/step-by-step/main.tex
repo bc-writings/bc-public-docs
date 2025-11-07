@@ -1,0 +1,160 @@
+% !TEX TS-program = lualatex
+
+%%%
+% src::
+%     url = https://github.com/pfradin/luadraw/discussions/137#discussioncomment-14892832
+%%%
+
+\documentclass[border = 3pt]{standalone}
+
+%%%
+% Des couleurs faciles d'emploi via le package ''xcolor''!
+%%%
+\usepackage[svgnames]{xcolor}
+
+%%%
+% La bibliothèque ''luadraw'' allie une facilité d’utilisation à
+% un rendu particulièrement soigné.
+%%%
+\usepackage[3d]{luadraw}
+
+\begin{document}
+
+\begin{luadraw}{name = realistic-box-opening-step-by-step}
+------
+-- Préréglages.
+------
+local x = 1.3
+
+local win2d = {-5, 10, -8, 1.5}
+
+------
+-- ¨Def de la zone graphique.
+------
+local graphview = graph3d:new{
+  window3d = {0, 7 + 2*x, 0, 10 + 2*x, -1, 1},
+  window   = {-5, 5, -5, 5},
+  viewdir  = {30, 70},
+  size     = {12, 12},
+  bbox     = false,
+}
+
+------
+-- Réglages liés aux lignes.
+------
+Hiddenlines     = true
+Hiddenlinestyle = "dashed"
+
+------
+-- Une fonction pour tracer une étape.
+------
+local draw_box = function(alpha, beta)
+  local A = M(0, x, 0)
+  local B = M(x, x, 0)
+  local C = M(2*x, x, 0)
+  local D = M(2*x, 0, 0)
+  local E = M(7 + 2*x, 0, 0)
+  local F = M(7 + 2*x, x, 0)
+  local G = M(7 + 3*x, x, 0)
+
+  local N, _M, L, K, J, I, H = table.unpack(
+    sym3d(
+      {A, B, C, D, E, F, G},
+      {M(0, 5 + x, 0), vecJ}
+    )
+  )
+
+  A, B, _M, N = table.unpack(
+    rotate3d(
+      {A, B, _M, N},
+      alpha, {C, vecJ}
+    )
+  )
+
+  A, N = table.unpack(
+    rotate3d(
+      {A, N},
+      beta, {B, vecJ}
+    )
+  )
+
+  D, E = table.unpack(
+    rotate3d(
+      {D, E},
+      alpha, {C, -vecI}
+    )
+  )
+
+  G, H = table.unpack(
+    rotate3d(
+      {G, H},
+      alpha, {F, -vecJ}
+    )
+  )
+
+  J, K = table.unpack(
+    rotate3d(
+      {J, K},
+      alpha, {I, vecI}
+    )
+  )
+
+  local facets = {
+    {A, N, _M, B},
+    {B, _M, L, C},
+    {C, L, I, F},
+    {D, C, F, E},
+    {F, I, H, G},
+    {L, K, J, I}
+  }
+
+  graphview:Dscene3d(
+    graphview:addFacet(
+      facets,
+      {
+        color = "Orange",
+        edge  = true
+      }
+    )
+  )
+end
+
+------
+-- Quatre étapes de fermeture.
+------
+
+-- En haut à gauche.
+graphview:Saveattr()
+  graphview:Viewport(-5, 0, 0, 5)
+  graphview:Coordsystem(table.unpack(win2d))
+  draw_box(0, 0)
+graphview:Restoreattr()
+
+-- En haut à droite.
+graphview:Saveattr()
+  graphview:Viewport(0, 5, 0, 5)
+  graphview:Coordsystem(table.unpack(win2d))
+  draw_box(20, 45)
+graphview:Restoreattr()
+
+-- En bas à gauche.
+graphview:Saveattr()
+  graphview:Viewport(-5, 0, -5, 0)
+  graphview:Coordsystem(table.unpack(win2d))
+  draw_box(45, 90)
+graphview:Restoreattr()
+
+-- En bas à droite.
+graphview:Saveattr()
+  graphview:Viewport(0, 5, -5, 0)
+  graphview:Coordsystem(table.unpack(win2d))
+  draw_box(70, 130)
+graphview:Restoreattr()
+
+------
+-- Montrons le résultat de notre oeuvre.
+------
+graphview:Show()
+\end{luadraw}
+
+\end{document}
