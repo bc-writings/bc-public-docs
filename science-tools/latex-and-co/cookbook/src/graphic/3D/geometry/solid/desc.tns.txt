@@ -3,7 +3,7 @@ Des solides
 ===========
 
 content::
-    ./polycube/\desc
+    ./polycuboid/\desc
     ./polyhedron/\desc
     ./cone/\desc
     ./cylinder/\desc

@@ -1,0 +1,7 @@
+=======================================
+\Inter de deux cylindres "paraboliques"
+=======================================
+
+content::
+    ./handmade/\desc
+    ./shorter/\desc
