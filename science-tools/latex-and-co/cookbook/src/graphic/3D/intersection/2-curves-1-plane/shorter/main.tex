@@ -5,7 +5,7 @@
 %     url = https://tex.stackexchange.com/a/750101
 %%%
 
-\documentclass{standalone}
+\documentclass[border = 3pt]{standalone}
 
 %%%
 % Des couleurs faciles d'emploi via le package ''xcolor''!
@@ -49,8 +49,8 @@ local P = planeEqn(1, 1, 1, -4)
 local graphview = graph3d:new{
   window3d = {-2, 2, -2, 3, 0, 8},
   viewdir  = {-30, 50},
+  size     = {13, 7, 0},
   adjust2d = true,
-  size     = {12, 12, 0}, 
   bbox     = false
 }
 
@@ -124,26 +124,21 @@ graphview:Linestyle("solid")
 -- se fait avec ¨opengl: nous jouons avec des matrices de vue.
 ------
 graphview:Savematrix()
-  graphview:Setmatrix(
-    graphview:Proj3d({Origin, vecI, vecJ})
-  )
+  graphview:Setmatrix(graphview:Proj3d({Origin, vecI, vecJ}))
 
   graphview:Dcartesian(
     f,
     {
       x = {-2/math.sqrt(3), 2/math.sqrt(3)},
       draw_options = "line width = 0.8pt, Navy"
-    }
-  )
+    })
 
   graphview:Dcartesian(
     g,
     {
       x = {-2, 2},
       draw_options = "line width = 0.8pt, Crimson"
-    }
-  )
-
+    })
 graphview:Restorematrix()
 
 ------
@@ -156,8 +151,7 @@ graphview:Dfacet(
     edgewidth = 2,
     color     = "Pink",
     opacity   = 0.3
-  }
-)
+  })
 
 ------
 -- Tracé du domaine dans le plan `P`.
@@ -178,7 +172,7 @@ graphview:Dpolyline3d(
 )
 
 ------
--- Montrons le résultat de notre oeuvre.
+-- Et le merveilleux se révèle au monde.
 ------
 graphview:Show()
 \end{luadraw}
