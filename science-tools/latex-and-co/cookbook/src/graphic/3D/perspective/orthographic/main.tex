@@ -1,0 +1,77 @@
+% !TEX TS-program = lualatex
+
+\documentclass[border = 3pt]{standalone}
+
+%%%
+% Des couleurs faciles d'emploi via le package ''xcolor''!
+%%%
+\usepackage[svgnames]{xcolor}
+
+%%%
+% La bibliothèque ''luadraw'' allie une facilité d’utilisation à
+% un rendu particulièrement soigné.
+%%%
+\usepackage[3d]{luadraw}
+
+\begin{document}
+
+\begin{luadraw}{name = orthographic-prespective-by-default}
+------
+-- ¨Def de la zone graphique.
+------
+local graphview = graph3d:new{
+  window  = {-6, 6.5, -5, 5.5},
+  size    = {10, 10},
+  bbox    = false,
+}
+
+------
+-- Réglages liés aux lignes.
+------
+graphview:Linewidth(4)
+Hiddenlinestyle = "dashed"
+
+------
+-- Une boîte ouverte comme exemple.
+------
+local P = parallelep(
+  Origin,
+  4*vecI, 6*vecJ, 1.5*vecK
+)
+
+table.remove(P.facets,2)
+
+P = shift3d(P,-isobar3d(P.vertices))
+
+graphview:Dscene3d(
+  graphview:addPoly(
+    P,
+    {
+      edge      = true,
+      hidden    = true,
+      contrast  = 0,
+      twoside   = false,
+      edgewidth = 6
+    }
+  ),
+  graphview:addFacet(
+    getfacet(P,1) ,
+    {
+      color="LightGray"
+    }
+  ),
+  graphview:addAxes(
+    Origin,
+    {
+      arrows = 1
+    }
+  )
+)
+
+------
+-- Montrons le résultat de notre oeuvre.
+------
+graphview:Show()
+\end{luadraw}
+
+\end{document}

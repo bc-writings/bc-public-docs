@@ -3,6 +3,7 @@ Dans l'espace
 =============
 
 content::
+    ./perspective/\desc
     ./geometry/\desc
     ./surface/\desc
     ./intersection/\desc

@@ -1,0 +1,16 @@
+this::
+    date = 2025-11-14
+
+
+====================
+Mise en persepective
+====================
+
+Nous montrons comment changer le type de perspective utilisée, le cas orthographique étant le réglage par défaut.
+
+
+content::
+    ./orthographic/\desc
+    ./cavalier/\desc
+    ./isometric/\desc
+//    ./central/\desc
