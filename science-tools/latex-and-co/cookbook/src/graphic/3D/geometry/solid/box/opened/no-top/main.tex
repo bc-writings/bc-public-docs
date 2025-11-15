@@ -13,8 +13,8 @@
 \usepackage[svgnames]{xcolor}
 
 %%%
-% La bibliothèque ''luadraw'' allie une facilité d’utilisation à
-% un rendu particulièrement soigné.
+% La bibliothèque ''luadraw'' allie une facilité d’utilisation
+% à un rendu particulièrement soigné.
 %%%
 \usepackage[3d]{luadraw}
 
@@ -92,9 +92,9 @@ graphview:Dpolyline3d(
 -- Les doubles flèches.
 graphview:Dpolyline3d(
 {
-  {B - 3*dep/2*vecK, C - 3*dep/2*vecK}, 
-  {C + 3*dep/2*vecJ, D + 3*dep/2*vecJ}, 
-  {D + 3*dep/2*vecJ, D + h*vecK + 3*dep/2*vecJ} 
+  {B - 3*dep/2*vecK, C - 3*dep/2*vecK},
+  {C + 3*dep/2*vecJ, D + 3*dep/2*vecJ},
+  {D + 3*dep/2*vecJ, D + h*vecK + 3*dep/2*vecJ}
 },
 "stealth-stealth"
 )
@@ -103,14 +103,14 @@ graphview:Dpolyline3d(
 graphview:Dlabel3d(
   "$x$ \\unit{m}", M(a, b/2, -3*dep/2),
   {
-    dir          = {vecJ, vecK}, 
+    dir          = {vecJ, vecK},
     node_options = "fill = white"
   },
-  "$x$ \\unit{m}", M(a/2, b + 3*dep/2, 0), 
+  "$x$ \\unit{m}", M(a/2, b + 3*dep/2, 0),
   {
     dir = {-vecI, -vecJ}
   },
-  "$h$ \\unit{m}", M(0, b + 3*dep/2, h/2), 
+  "$h$ \\unit{m}", M(0, b + 3*dep/2, h/2),
   {
     dir = {vecK, -vecJ}
   }

@@ -13,80 +13,111 @@
 \usepackage[svgnames]{xcolor}
 
 %%%
-% La bibliothèque ''luadraw'' allie une facilité d’utilisation à
-% un rendu particulièrement soigné.
+% La bibliothèque ''luadraw'' allie une facilité d’utilisation
+% à un rendu particulièrement soigné.
 %%%
 \usepackage[3d]{luadraw}
 
 \begin{document}
 
 \begin{luadraw}{name = central-proj-of-sphere}
-local g = graph3d:new{
-  window3d = {-5, 8, -5, 8, -3, 5},
-  adjust2d = true,
-  bbox = false,
-  viewdir = {30, 60},
-  size = {10, 10}
-}
-
-g:Linewidth(6)
-Hiddenlinestyle = "dashed"
-Hiddenlines = true
-
-local r, z0 = 2, -3
+------
+-- Nos ¨elts de base.
+------
+local r      = 2
 local center = M(-1, -1, 0)
-local S = {center, r} -- sphere
-local light = M(-5, -5, 5)
-local I = (light+center)/2
-local R = pt3d.abs(center-light)/2
 
--- central projection from light to z = z0 plane
+local z0    = -3
+local light = M(-5, -5, 5)
+
 local proj = function(A)
-  return proj3dO(A, {z0*vecK, vecK}, A-light)
+  return proj3dO(
+    A,
+    {z0*vecK, vecK},
+    A - light)
 end
 
-local J, r1, n = interSS(S, {I, R} ) -- circle of "tangence" to the sphere resulting from light
+------
+-- ¨Def de la zone graphique.
+------
+local graphview = graph3d:new{
+  window3d = {-5, 8, -5, 8, -3, 5},
+  adjust2d = true,
+  bbox     = false,
+  viewdir  = {30, 60},
+  size     = {10, 10}
+}
 
-local shadow = ftransform3d(circle3d(J, r1, n)[1], proj)
+------
+-- Réglages liés aux lignes.
+------
+graphview:Linewidth(6)
+Hiddenlinestyle = "dashed"
+Hiddenlines     = true
+
+------
+-- Une sphère, un faisceau et une ombre.
+------
+local S = {center, r}
+
+
+
+
+
+
+local I = (light + center) / 2
+local R = pt3d.abs(center - light) / 2
+
+
+-- circle of "tangence" to the sphere resulting from light
+local J, r1, n = interSS(S, {I, R} )
+
+local shadow = ftransform3d(
+  circle3d(J, r1, n)[1],
+  proj
+)
 
 local beam = pyramid(shadow, light, true)
 
-g:Dboxaxes3d({
-  grid = true,
+------
+-- Il ne reste plus qu'à dessiner.
+------
+graphview:Dboxaxes3d({
+  grid      = true,
   gridcolor = "gray",
   fillcolor = "lightgray!40"
 })
 
-g:Dballdots3d(light, "Yellow", 5)
+graphview:Dballdots3d(light, "Yellow", 5)
 
-g:Dsphere(
+graphview:Dsphere(
   center, r,
   {
     color = "Cyan",
-    mode = mBorder
+    mode  = mBorder
   }
 )
 
-g:Dpolyline3d(
+graphview:Dpolyline3d(
   shadow,
   true,
   "draw = none, fill = DarkGray, fill opacity = 0.9"
 )
 
-g:Dpoly(
+graphview:Dpoly(
   beam,
   {
-    color = "yellow",
-    opacity = 0.3,
+    color    = "yellow",
+    opacity  = 0.3,
     contrast = 0.5,
-    mode = mShadedOnly
+    mode     = mShadedOnly
   }
 )
 
 ------
 -- Montrons le résultat de notre oeuvre.
 ------
-g:Show()
+graphview:Show()
 \end{luadraw}
 
 \end{document}

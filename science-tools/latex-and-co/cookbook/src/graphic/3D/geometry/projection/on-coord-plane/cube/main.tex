@@ -13,8 +13,8 @@
 \usepackage[svgnames]{xcolor}
 
 %%%
-% La bibliothèque ''luadraw'' allie une facilité d’utilisation à
-% un rendu particulièrement soigné.
+% La bibliothèque ''luadraw'' allie une facilité d’utilisation
+% à un rendu particulièrement soigné.
 %%%
 \usepackage[3d]{luadraw}
 
@@ -24,22 +24,24 @@
 ------
 -- Nos ¨elts de base.
 ------
-local a, z0 = 2, -3
+local c  = 2  -- Côté du cube.
 
+local z0    = -3  -- Niveau du sol de projection.
 local light = M(-5, -5, 5)
 
 local proj = function(A)
   return proj3dO(
-    A,                -- Ce que l'on projette.
-    {z0*vecK, vecK},  -- Plan de projection.
-    A - light         -- Direction.
+    A,                  -- Ce que l'on projette.
+    {z0*vecK, vecK},  -- Plan de projection via un point
+                        -- et un vecteur normal.
+    A - light           -- Direction.
   )
 end
 
 ------
 -- ¨Def de la zone graphique.
 ------
-local g = graph3d:new{
+local graphview = graph3d:new{
   window3d = {-5, 8, -5, 8, -3, 5},
   adjust2d = true,
   bbox     = false,
@@ -50,7 +52,7 @@ local g = graph3d:new{
 ------
 -- Réglages liés aux lignes.
 ------
-g:Linewidth(6)
+graphview:Linewidth(6)
 Hiddenlinestyle = "dashed"
 Hiddenlines     = true
 
@@ -58,41 +60,50 @@ Hiddenlines     = true
 -- Un cube, un faisceau et une ombre.
 ------
 local P = parallelep(
-  M(-a, -a, -a)/2,
-  a*vecI, a*vecJ, a*vecK
+  M(-c, -c, -c)/2,
+  c*vecI, c*vecJ, c*vecK
 )
 
 P = rotate3d(
   P,
   25,
   {
-    M(a/2, -a/2, -a/2),  -- Point de l'axe de rotation.
+    M(c/2, -c/2, -c/2),  -- Point de l'axe de rotation.
     M(-1, 1, 1)          -- Vecteur dirigeant l'axe de rotation.
   }
 )
 
--- here we know that the shade is convex donc une seule factee, la première
+------
+-- Comme nous savons que l'ombre est convexe, une seule facette
+-- est renvoyée par ''cvx_hull3d''.
+------
 local shade = cvx_hull3d(
-  ftransform3d(P.vertices, proj)
+  ftransform3d(
+    P.vertices,
+    proj
+  )
 )[1]
 
-local faisceau = pyramid(shade, light, true)
+local beam = pyramid(shade, light, true)
 
-g:Dboxaxes3d({
+------
+-- Il ne reste plus qu'à dessiner.
+------
+graphview:Dboxaxes3d({
   grid      = true,
   gridcolor = "gray",
   fillcolor = "lightgray!40"
 })
 
-g:Dballdots3d(light, "Yellow", 5)
+graphview:Dballdots3d(light, "Yellow", 5)
 
-g:Dpolyline3d(
+graphview:Dpolyline3d(
   shade,
   true,
   "draw = none, fill = DarkGray, fill opacity = 0.9"
 )
 
-g:Dpoly(
+graphview:Dpoly(
   P,
   {
     color = "cyan",
@@ -100,8 +111,8 @@ g:Dpoly(
   }
 )
 
-g:Dpoly(
-  faisceau,
+graphview:Dpoly(
+  beam,
   {
     color    = "yellow",
     opacity  = 0.3,
@@ -111,7 +122,7 @@ g:Dpoly(
 )
 
 for _, A in ipairs(shade) do
-  g:Dseg3d(
+  graphview:Dseg3d(
     {light, A},
     "dotted, yellow"
   )
@@ -120,7 +131,7 @@ end
 ------
 -- Montrons le résultat de notre oeuvre.
 ------
-g:Show()
+graphview:Show()
 \end{luadraw}
 
 \end{document}
