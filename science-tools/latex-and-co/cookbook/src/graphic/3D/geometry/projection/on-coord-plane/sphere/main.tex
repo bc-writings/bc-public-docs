@@ -64,19 +64,30 @@ local S = {center, r}
 
 
 
-
+------
+-- Calcul du cercle de tangence de la sphère et du cône de lumière.
+------
 local I = (light + center) / 2
 local R = pt3d.abs(center - light) / 2
 
-
--- circle of "tangence" to the sphere resulting from light
+--- La fonction interSS(S1,S2) calcule et renvoie (si elle existe) l’intersection entre la sphère S1 = {C1,𝑟1} et S2 = {C2,𝑟2}. La fonction renvoie soit nil (intersection vide), ou bien une séquence de la forme I,𝑟,𝑛, où centre, rayon normal au cercle
 local J, r1, n = interSS(S, {I, R} )
 
+-- Lafonctioncircle3d(I,R,normal)renvoielalistedespointsdececercle(lignepolygonale3d).
+-- Lafonctioncircle3db(I,R,normal)renvoiececerclesousformed’unchemin3d(voirDpath3d)utilisantdescourbesde Bézier.
 local shadow = ftransform3d(
   circle3d(J, r1, n)[1],
   proj
 )
 
+
+
+
+
+------
+-- Construction du faisceau comme conséquence de la source
+-- lumineuse et de l'ombre...
+------
 local beam = pyramid(shadow, light, true)
 
 ------
