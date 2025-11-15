@@ -19,7 +19,7 @@ require 'luadraw_palettes'
 -- ¨Def de la zone graphique.
 ------
 local graphview = graph3d:new{
-  window3d = {-5, 5, -5, 5, 0, 6},
+  window3d = {-4, 5, -5, 5, 0, 6},
   viewdir  = {-120, 60},
   adjust2d = true,
   bbox     = false
@@ -95,7 +95,8 @@ end
 ------
 local cpx_surf = surface(
   gamma_modulus_pt,
-  -4.25, 5, -4, 4,
+--  -4.25, 5, -4, 4,
+  -4, 5, -5, 5,
   {50, 50}
 )
 

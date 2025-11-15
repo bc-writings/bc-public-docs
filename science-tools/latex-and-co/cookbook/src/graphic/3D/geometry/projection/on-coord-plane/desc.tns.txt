@@ -1,0 +1,7 @@
+==========================
+Sur un plan de coordonnées
+==========================
+
+content::
+    ./cube/\desc
+    ./sphere/\desc

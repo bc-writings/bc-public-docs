@@ -13,4 +13,3 @@ content::
     ./orthographic/\desc
     ./cavalier/\desc
     ./isometric/\desc
-//    ./central/\desc

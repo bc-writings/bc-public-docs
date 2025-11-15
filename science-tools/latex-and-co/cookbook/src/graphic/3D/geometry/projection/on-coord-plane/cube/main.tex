@@ -1,0 +1,126 @@
+% !TEX TS-program = lualatex
+
+%%%
+% src::
+%     url = https://github.com/pfradin/luadraw/discussions/148#discussioncomment-14976053
+%%%
+
+\documentclass[border = 3pt]{standalone}
+
+%%%
+% Des couleurs faciles d'emploi via le package ''xcolor''!
+%%%
+\usepackage[svgnames]{xcolor}
+
+%%%
+% La bibliothèque ''luadraw'' allie une facilité d’utilisation à
+% un rendu particulièrement soigné.
+%%%
+\usepackage[3d]{luadraw}
+
+\begin{document}
+
+\begin{luadraw}{name = central-proj-of-cube}
+------
+-- Nos ¨elts de base.
+------
+local a, z0 = 2, -3
+
+local light = M(-5, -5, 5)
+
+local proj = function(A)
+  return proj3dO(
+    A,                -- Ce que l'on projette.
+    {z0*vecK, vecK},  -- Plan de projection.
+    A - light         -- Direction.
+  )
+end
+
+------
+-- ¨Def de la zone graphique.
+------
+local g = graph3d:new{
+  window3d = {-5, 8, -5, 8, -3, 5},
+  adjust2d = true,
+  bbox     = false,
+  viewdir  = {30, 60},
+  size     = {10, 10}
+}
+
+------
+-- Réglages liés aux lignes.
+------
+g:Linewidth(6)
+Hiddenlinestyle = "dashed"
+Hiddenlines     = true
+
+------
+-- Un cube, un faisceau et une ombre.
+------
+local P = parallelep(
+  M(-a, -a, -a)/2,
+  a*vecI, a*vecJ, a*vecK
+)
+
+P = rotate3d(
+  P,
+  25,
+  {
+    M(a/2, -a/2, -a/2),  -- Point de l'axe de rotation.
+    M(-1, 1, 1)          -- Vecteur dirigeant l'axe de rotation.
+  }
+)
+
+-- here we know that the shade is convex donc une seule factee, la première
+local shade = cvx_hull3d(
+  ftransform3d(P.vertices, proj)
+)[1]
+
+local faisceau = pyramid(shade, light, true)
+
+g:Dboxaxes3d({
+  grid      = true,
+  gridcolor = "gray",
+  fillcolor = "lightgray!40"
+})
+
+g:Dballdots3d(light, "Yellow", 5)
+
+g:Dpolyline3d(
+  shade,
+  true,
+  "draw = none, fill = DarkGray, fill opacity = 0.9"
+)
+
+g:Dpoly(
+  P,
+  {
+    color = "cyan",
+    opacity = 0.8
+  }
+)
+
+g:Dpoly(
+  faisceau,
+  {
+    color    = "yellow",
+    opacity  = 0.3,
+    contrast = 0.5,
+    mode     = mShadedOnly
+  }
+)
+
+for _, A in ipairs(shade) do
+  g:Dseg3d(
+    {light, A},
+    "dotted, yellow"
+  )
+end
+
+------
+-- Montrons le résultat de notre oeuvre.
+------
+g:Show()
+\end{luadraw}
+
+\end{document}
