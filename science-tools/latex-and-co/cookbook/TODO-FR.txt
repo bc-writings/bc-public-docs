@@ -7,6 +7,8 @@ latex-and-co - TODO
 
 luadraw
 
+    --> matrix kernel transfo: auto --> method graph3d !!!! facilem mais le faire car plus propre
+
     --> SURFACE: revoir les colromap car c'est plus simple depuis vesrion 2.2 : garder ce qui est eprtinannent quitte à passer via un autre mode de coloartyion
 
     --> complex-func : dès que publié, prendre la palette SNFever
