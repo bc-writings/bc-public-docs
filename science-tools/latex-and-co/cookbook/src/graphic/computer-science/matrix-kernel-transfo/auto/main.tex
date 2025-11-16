@@ -1,0 +1,167 @@
+% !TEX TS-program = lualatex
+
+%%%
+% src::
+%     url = https://github.com/pfradin/luadraw/discussions/149#discussioncomment-14980701
+%%%
+
+\documentclass[border = 3pt]{standalone}
+
+\usepackage[svgnames]{xcolor}
+\usepackage[3d]{luadraw}
+
+\begin{document}
+
+\begin{luadraw}{name = matrix-kernel-transfo-auto}
+------
+-- Données de l'utilisateur.
+------
+local dist = 4
+
+-- Cellule suivie des dimensions.
+local focus_in  = { {3, 2}, {1, 1} }
+local focus_out = { {3, 2}, {0, 0} }
+
+local mat_in = {
+  {1, 2, 3, 4, 5},
+  {6, 7, 8, 9, 0},
+  {-1, -2, -3, -4, -5},
+  {-6, -7, -8, -9, 0},
+  {1, 2, 3, 4, 5},
+  {1, 0, -1, 0, 1},
+}
+
+local transfo = function(M)
+  local result  = {}
+  local nb_rows = #M
+  local nb_cols = #M[1]
+
+  for i = 1, nb_rows - 1 do
+    result[i] = {}
+
+    for j = 1, nb_cols - 1 do
+      local sum = M[i][j] + M[i][j+1] + M[i+1][j] + M[i+1][j+1]
+
+      result[i][j] = math.floor(sum / 4)
+    end
+  end
+
+  return result
+end
+
+------
+-- Outils d'automatisation.
+------
+local corners = function(P, u, v, focus, nb_cols)
+  local start = P + (focus[1][2] - 1)*u + (nb_cols - focus[1][1] + 2)*v
+
+  local d_row, d_col = focus[2][1], focus[2][2]
+  d_row = d_row + 1
+  d_col = d_col + 1
+
+  return {
+    start,
+    start - d_row*v,
+    start + d_col*u - d_row*v,
+    start + d_col*u
+  }
+end
+
+local draw_grid = function(Mat, g, P, u, v, focus)
+  local nb_rows = #Mat
+  local nb_cols = #Mat[1]
+
+  g:Dpolyline3d(
+    corners(P, u, v, focus, nb_cols),
+    true,
+    "fill = yellow, draw = none"
+  )
+
+  g:Dpolyline3d(
+    {
+      P,
+      P + (nb_rows - 1)*u,
+      P + (nb_rows - 1)*u + (nb_cols + 1)*v,
+      P + (nb_cols + 1)*v
+    },
+    true,
+    "blue, line width = 0.8pt"
+  )
+
+  for i = 1, nb_cols - 1 do
+    g:Dpolyline3d(
+      {
+        {P + i*u, P + i*u + (nb_cols + 1)*v},
+      },
+      "blue, line width = 0.4pt"
+    )
+  end
+
+  for j = 1, nb_rows - 1 do
+    g:Dpolyline3d(
+      {
+        {P + j*v, P + j*v + (nb_rows - 1)*u},
+      },
+      "blue, line width = 0.4pt"
+    )
+  end
+
+  for j = 1, nb_rows do
+    for i = 1, nb_cols do
+      g:Dlabel3d(
+        "$" .. Mat[1 + nb_rows - j][i] .. "$",
+        P + (j - 0.5)*v + (i - 0.5)*u,
+        {
+          dir = {u, v}
+        }
+      )
+    end
+  end
+end
+
+local draw_all = function(dist, Mat, T, focin, focout)
+  local MatOut = T(Mat)
+
+  local A, B = M(dist, 0, 0), M(-dist, 0, 0)
+  local u, v = vecJ, vecK
+
+  seg_pts_in  = corners(A, u, v, focin, #Mat[1])
+  seg_pts_out = corners(B, u, v, focout, #MatOut[1])
+
+  local focus_segs = {}
+
+  for i = 1, 4 do
+    focus_segs[i] = {seg_pts_in[i], seg_pts_out[i]}
+  end
+
+  local graphview = graph3d:new{
+    window3d = {-70, 70, -70, 70, -20, 20},
+    adjust2d = true,
+    bbox     = false,
+    viewdir  = {40, 60}
+  }
+
+  draw_grid(MatOut, graphview, B, u, v, focout)
+
+  graphview:Dpolyline3d(
+    focus_segs,
+    "red, line width = 0.4pt"
+  )
+
+  draw_grid(Mat, graphview, A, u, v, focin)
+
+  graphview:Dpolyline3d(
+    focus_segs,
+    "red, dotted, line width = 0.4pt"
+  )
+
+  graphview:Show()
+end
+
+------
+-- Début du tracé.
+------
+draw_all(dist, mat_in, transfo, focus_in, focus_out)
+\end{luadraw}
+
+\end{document}
