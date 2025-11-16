@@ -31,20 +31,15 @@ local graphview = graph3d:new{
 }
 
 local gamma = function(x, y)
-  local den, z, gamma_modulus_pt = 1, Z(x, y), 0
+  local k_facto, sign, z = 1, 1, Z(x, y)
 
-  local f, f1 = z, z+1
+  local S = 1 / z
 
-  local S = 1 / (f*f1)
+  for k = 1, 50 do
+    sign    = -sign
+    k_facto = k_facto*k
 
-  for k = 1, 10 do
-    gamma_modulus_pt  = gamma_modulus_pt + 2
-    f  = f + 2
-    f1 = f1 + 2
-
-    den = den*gamma_modulus_pt*(gamma_modulus_pt + 1)
-
-    S = S + (gamma_modulus_pt*f1 + 1) / (den*f*f1)
+    S = S + sign / k_facto / (z + k)
   end
 
   return S + int(

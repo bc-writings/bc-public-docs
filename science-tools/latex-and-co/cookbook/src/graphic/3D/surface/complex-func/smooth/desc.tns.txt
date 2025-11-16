@@ -1,3 +1,9 @@
-====================================
-Transformer une matrice via un noyau
-====================================
+this::
+    date = 2025-11-16
+
+
+===========================
+Un dégradé adouci via \tikz
+===========================
+
+La \sol proposée ici est loin d'être parfaite, mais le résultat final reste plaisant à regarder.
