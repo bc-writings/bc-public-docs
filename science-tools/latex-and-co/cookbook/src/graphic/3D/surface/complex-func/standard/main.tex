@@ -5,7 +5,7 @@
 %     url = https://tex.stackexchange.com/a/751587/6880
 %%%
 
-\documentclass{standalone}
+\documentclass[border = 3pt]{standalone}
 
 %%%
 % Des couleurs faciles d'emploi via le package ''xcolor''!
@@ -22,6 +22,8 @@
 
 \begin{luadraw}{name = gamma-modulus-surface}
 require 'luadraw_palettes'
+
+local pal = getPal("ShiftRainbow")
 
 ------
 -- Le ¨calc de `gamma(z)` est fait via la formule suivante :
@@ -62,9 +64,6 @@ end
 ------
 -- Coloration en ¨fonc de l'¨arg principal du complexe `gamma(z)`.
 ------
--- TODO: local pal = getPal("GistRainbow")
-local pal = {Cyan, DodgerBlue, Magenta, Red, Orange, Gold, LimeGreen}
-
 local color_coef = function(G)
   local gz = gamma(G.x, G.y)
 

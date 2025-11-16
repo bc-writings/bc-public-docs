@@ -27,7 +27,7 @@ local proj = function(A)
   )
 end
 
-local g = graph3d:new{
+local graphview = graph3d:new{
   window3d = {-5, 8, -5, 8, -3, 5},
   adjust2d = true,
   bbox     = false,
@@ -35,7 +35,7 @@ local g = graph3d:new{
   size     =  {10, 10}
 }
 
-g:Linewidth(6)
+graphview:Linewidth(6)
 Hiddenlinestyle = "dashed"
 Hiddenlines     = true
 
@@ -53,25 +53,25 @@ local shadow = ftransform3d(
 
 local beam = pyramid(shadow, light, true)
 
-g:Dfacet(
-  g:Plane2facet({z0*vecK, vecK}),
+graphview:Dfacet(
+  graphview:Plane2facet({z0*vecK, vecK}),
   {
     color    = "lightgray",
     contrast = 0
   }
 )
 
-g:Dseg3d({M(-5, -5, z0), light})
+graphview:Dseg3d({M(-5, -5, z0), light})
 
-g:Dballdots3d(light, "Yellow", 2)
+graphview:Dballdots3d(light, "Yellow", 2)
 
-g:Dpolyline3d(
+graphview:Dpolyline3d(
   shadow,
   true,
   "draw = none, fill = DarkGray, fill opacity = 0.8"
 )
 
-g:Dsphere(
+graphview:Dsphere(
   C, r,
   {
     color = "Cyan",
@@ -79,7 +79,7 @@ g:Dsphere(
   }
 )
 
-g:Dpoly(
+graphview:Dpoly(
   beam,
   {
     color    = "yellow",
@@ -90,7 +90,7 @@ g:Dpoly(
   }
 )
 
-g:Show()
+graphview:Show()
 \end{luadraw}
 
 \end{document}

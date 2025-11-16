@@ -1,0 +1,172 @@
+% !TEX TS-program = lualatex
+
+%%%
+% src::
+%     url = https://github.com/pfradin/luadraw/discussions/104#discussioncomment-14977791
+%%%
+
+\documentclass[border = 3pt]{standalone}
+
+\usepackage[svgnames]{xcolor}
+\usepackage[3d]{luadraw}
+
+%%%
+% La bibliothèque ''shadings'' propre à \tikz nous permet d'avoir
+% facilement des dégradés colorés.
+%%%
+\usetikzlibrary{shadings}
+
+\begin{document}
+
+\begin{luadraw}{name = gamma-modulus-surface-smooth}
+require 'luadraw_palettes'
+
+local pal = getPal("ShiftRainbow")
+
+local graphview = graph3d:new{
+  window3d = {-4, 5, -5, 5, 0, 6},
+  viewdir  = {-120, 60},
+  adjust2d = true,
+  bbox     = false
+}
+
+local gamma = function(x, y)
+  local den, z, gamma_modulus_pt = 1, Z(x, y), 0
+
+  local f, f1 = z, z+1
+
+  local S = 1 / (f*f1)
+
+  for k = 1, 10 do
+    gamma_modulus_pt  = gamma_modulus_pt + 2
+    f  = f + 2
+    f1 = f1 + 2
+
+    den = den*gamma_modulus_pt*(gamma_modulus_pt + 1)
+
+    S = S + (gamma_modulus_pt*f1 + 1) / (den*f*f1)
+  end
+
+  return S + int(
+    function(t)
+      return cpx.exp((z - 1)*math.log(t) - t)
+    end,
+    1, 10
+  )
+end
+
+local colors        = {}
+local memo_cpx_args = {}
+local key
+
+local xykey = function(x, y)
+  return x .. "/" .. y
+end
+
+local gamma_modulus_pt = function(x, y)
+  local z = gamma(x, y)
+  local arg = cpx.arg(z)
+
+  key = xykey(x, y)
+
+  memo_cpx_args[key] = arg -- save argument
+
+  colors[key] = palette(pal, (arg + math.pi)/(2*math.pi))
+
+  return M(x, y, cpx.abs(z))
+end
+
+local color_coef = function(f)
+  local miniarg = math.huge
+
+  for _ , A in ipairs(f) do
+    key = xykey(A.x, A.y)
+
+    local arg = memo_cpx_args[key]
+
+    if arg ~= nil then
+      if miniarg > arg then
+        miniarg = arg
+      end
+    end
+  end
+
+  return (miniarg + math.pi) / (2*math.pi)
+end
+
+local cpx_surf = surface(
+  gamma_modulus_pt,
+  -4, 5, -5, 5,
+  {50, 50}
+)
+
+cpx_surf = cutfacet(
+  cpx_surf,
+  {6*vecK, -vecK}
+)
+
+cpx_surf = graphview:Sortfacet(cpx_surf)
+
+graphview:Dboxaxes3d({
+  grid      = true,
+  gridcolor = "gray",
+  fillcolor = "LightGray"
+})
+
+graphview:Lineoptions(nil, "gray", 1)
+
+for _, f in ipairs(cpx_surf) do
+  local f1 = table.copy(f)
+
+  table.sort(
+    f1,
+    function(A, B)
+      return (
+        (A.x < B.x)
+        or
+        ((A.x == B.x) and (A.y < B.y))
+      )
+    end
+  )
+
+  gradcol = {}
+
+  for _, A in ipairs(f1) do
+    key = xykey(A.x, A.y)
+
+    local col = colors[key]
+
+    if col ==  nil then
+      gamma_modulus_pt(A.x, A.y)
+
+      col = colors[key]
+
+      if col ==  nil then
+        col = palette(pal, color_coef(f))
+      end
+    end
+
+    table.insert(gradcol, col)
+  end
+
+  local options = "upper left = " .. gradcol[1]
+
+  if #gradcol > 1 then
+    options = options .. ", upper right = " .. gradcol[2]
+  end
+
+  if #gradcol > 2 then
+    options = options .. ", lower left = " .. gradcol[3]
+  end
+
+  if #gradcol > 3 then
+    options = options .. ", lower right = " .. gradcol[4]
+  end
+
+  graphview:Dpolyline3d(f, true, options)
+end
+
+graphview:Show()
+\end{luadraw}
+
+\end{document}

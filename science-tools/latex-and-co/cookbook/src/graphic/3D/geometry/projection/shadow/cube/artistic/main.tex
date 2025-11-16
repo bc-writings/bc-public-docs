@@ -24,14 +24,14 @@ local proj = function(A)
   return proj3dO(A, {z0*vecK, vecK}, A-light)
 end
 
-local g = graph3d:new{
+local graphview = graph3d:new{
   window3d = {-5, 8, -5, 7, z0, 5},
   adjust2d = true, bbox = false,
   viewdir  = perspective("yz", 0.35, 60),
   size     = {10, 10}
 }
 
-g:Linewidth(6)
+graphview:Linewidth(6)
 Hiddenlinestyle = "dotted"
 Hiddenlines     = true
 
@@ -43,27 +43,27 @@ local shadow = cvx_hull3d(
 
 local beam = pyramid(reverse(shadow), light, true)
 
-local beamVisble, beamHidden = g:Classifyfacet(beam)
+local beamVisble, beamHidden = graphview:Classifyfacet(beam)
 
-g:Dfacet(
-  g:Plane2facet({z0*vecK, vecK}),
+graphview:Dfacet(
+  graphview:Plane2facet({z0*vecK, vecK}),
   {
     color    = "lightgray",
     contrast = 0
   }
 )
 
-g:Dseg3d({M(-5, -5, z0), light})
+graphview:Dseg3d({M(-5, -5, z0), light})
 
-g:Dballdots3d(light, "Yellow", 2)
+graphview:Dballdots3d(light, "Yellow", 2)
 
-g:Dpolyline3d(
+graphview:Dpolyline3d(
   shadow,
   true,
   "draw = none, fill = DarkGray, fill opacity = 0.9"
 )
 
-g:Dfacet(
+graphview:Dfacet(
   beamHidden,
   {
     color   = "yellow",
@@ -72,7 +72,7 @@ g:Dfacet(
   }
 )
 
-g:Dpoly(
+graphview:Dpoly(
   P,
   {
     color = "cyan",
@@ -80,7 +80,7 @@ g:Dpoly(
   }
 )
 
-g:Dfacet(
+graphview:Dfacet(
   beamVisble,
   {
     color   = "yellow",
@@ -89,7 +89,7 @@ g:Dfacet(
   }
 )
 
-g:Show()
+graphview:Show()
 \end{luadraw}
 
 \end{document}

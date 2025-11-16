@@ -33,9 +33,6 @@ local Omega = (C + M)/2
 g:Dseg({C, J}, "color = " .. coul_2)
 g:Dseg({C, M}, "color = " .. xtra_coul)
 
-g:Dmarkseg(C, Omega, 2,  0.25, 0.1, 50)
-g:Dmarkseg(M, Omega, 2,  0.25, 0.1, 50)
-
 g:Dangle(C, J, M, 0.25, "color = " .. coul_2)
 
 g:Dcircle(c_1, coul_1)
@@ -67,6 +64,11 @@ g:Dlabel(
     node_options = xtra_coul
   }
 )
+
+-- See https://github.com/pfradin/luadraw/discussions/150#discussioncomment-14981599 .
+g:Linecolor("orange")
+g:Dmarkseg(C, Omega, 2,  0.25, 0.1, 50)
+g:Dmarkseg(M, Omega, 2,  0.25, 0.1, 50)
 
 g:Show()
 \end{luadraw}

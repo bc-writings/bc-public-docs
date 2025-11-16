@@ -1,0 +1,6 @@
+===============
+\Info théorique
+===============
+
+content::
+    ./matrix-kernel-transfo/\desc

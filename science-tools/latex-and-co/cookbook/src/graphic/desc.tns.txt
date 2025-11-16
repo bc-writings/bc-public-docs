@@ -7,4 +7,5 @@ content::
     ./3D/\desc
     ./data/\desc
     ./set-theory-n-co/\desc
+    ./computer-science/\desc
     ./misc/\desc
