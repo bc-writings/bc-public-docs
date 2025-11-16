@@ -1,3 +1,7 @@
 ===================================
 Ombre d'une sphère sur le plan `xy`
 ===================================
+
+content::
+    ./box-coord/\desc
+    ./artistic/\desc

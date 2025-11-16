@@ -3,4 +3,4 @@ Projeter des \objs
 ==================
 
 content::
-    ./on-coord-plane/\desc
+    ./shadow/\desc

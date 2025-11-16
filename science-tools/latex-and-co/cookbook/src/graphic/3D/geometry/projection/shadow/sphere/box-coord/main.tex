@@ -20,21 +20,21 @@
 
 \begin{document}
 
-\begin{luadraw}{name = central-proj-of-cube}
+\begin{luadraw}{name = central-proj-of-sphere-box-coord}
 ------
 -- Nos ¨elts de base.
 ------
-local c  = 2  -- Côté du cube.
+local r = 2             -- Rayon de la sphère,
+local C = M(-1, -1, 0)  -- ainsi que son centre.
 
-local z0    = -3  -- Niveau du sol de projection.
+local z0    = -3
 local light = M(-5, -5, 5)
 
 local proj = function(A)
   return proj3dO(
-    A,                  -- Ce que l'on projette.
-    {z0*vecK, vecK},  -- Plan de projection via un point
-                        -- et un vecteur normal.
-    A - light           -- Direction.
+    A,
+    {z0*vecK, vecK},
+    A - light
   )
 end
 
@@ -57,38 +57,28 @@ Hiddenlinestyle = "dashed"
 Hiddenlines     = true
 
 ------
--- Un cube, un faisceau et une ombre.
+-- Une sphère, un faisceau et une ombre.
 ------
-local P = parallelep(
-  M(-c, -c, -c)/2,
-  c*vecI, c*vecJ, c*vecK
-)
-
-P = rotate3d(
-  P,
-  25,
-  {
-    M(c/2, -c/2, -c/2),  -- Point de l'axe de rotation.
-    M(-1, 1, 1)          -- Vecteur dirigeant l'axe de rotation.
-  }
-)
+local S = {C, r}
 
 ------
--- Comme nous savons que l'ombre est convexe, une seule facette
--- est renvoyée par ''cvx_hull3d''.
+-- Cercle de tangence de la sphère et du faisceau de lumière.
 ------
-local shade = cvx_hull3d(
-  ftransform3d(
-    P.vertices,
-    proj
-  )
-)[1]
+local I = (light + C) / 2
+local R = pt3d.abs(C - light) / 2
+
+local C_t, r_t, normal_t = interSS(S, {I, R})
+
+local shadow = ftransform3d(
+  circle3d(C_t, r_t, normal_t)[1],  -- 1ière composante connexe.
+  proj
+)
 
 ------
 -- Construction du faisceau comme conséquence de la source
 -- lumineuse et de l'ombre...
 ------
-local beam = pyramid(shade, light, true)
+local beam = pyramid(shadow, light, true)
 
 ------
 -- Il ne reste plus qu'à dessiner.
@@ -101,18 +91,18 @@ graphview:Dboxaxes3d({
 
 graphview:Dballdots3d(light, "Yellow", 5)
 
-graphview:Dpolyline3d(
-  shade,
-  true,
-  "draw = none, fill = DarkGray, fill opacity = 0.9"
+graphview:Dsphere(
+  C, r,
+  {
+    color = "Cyan",
+    mode  = mBorder
+  }
 )
 
-graphview:Dpoly(
-  P,
-  {
-    color = "cyan",
-    opacity = 0.8
-  }
+graphview:Dpolyline3d(
+  shadow,
+  true,
+  "draw = none, fill = DarkGray, fill opacity = 0.9"
 )
 
 graphview:Dpoly(
@@ -124,13 +114,6 @@ graphview:Dpoly(
     mode     = mShadedOnly
   }
 )
-
-for _, A in ipairs(shade) do
-  graphview:Dseg3d(
-    {light, A},
-    "dotted, yellow"
-  )
-end
 
 ------
 -- Montrons le résultat de notre oeuvre.

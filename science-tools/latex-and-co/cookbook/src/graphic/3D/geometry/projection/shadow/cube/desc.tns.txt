@@ -1,3 +1,7 @@
 ================================
 Ombre d'un cube sur le plan `xy`
 ================================
+
+content::
+    ./box-coord/\desc
+    ./artistic/\desc

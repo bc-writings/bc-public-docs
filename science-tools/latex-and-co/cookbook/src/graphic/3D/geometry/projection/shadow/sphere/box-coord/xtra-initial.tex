@@ -1,0 +1,63 @@
+% !TEX TS-program = lualatex
+
+\documentclass[border = 3pt]{standalone}
+
+\usepackage[svgnames]{xcolor}
+\usepackage{luadraw}
+
+\begin{document}
+
+\begin{luadraw}{name = cicrle-tangent-from-point-initial}
+local coul_1    = "blue"
+local coul_2    = "ForestGreen"
+local xtra_coul = "orange!80!black"
+
+local i    = cpx.I
+local C, r = -1, 2
+local M    = 4-i
+
+local g = graph:new{
+  window = {-10, 11, -5, 3},
+  margin = {0, 0, 0, 0},
+  size   = {14, 6},
+  bbox   = false
+}
+
+local c_1 = {C, 2}
+local c_2 = {(C + M) / 2, cpx.abs(M - C) / 2}
+
+local J = interCC(c_1, c_2)[2]
+
+local Omega = (C + M)/2
+
+g:Dseg({C, J}, "color = " .. coul_2)
+
+g:Dangle(C, J, M, 0.25, "color = " .. coul_2)
+
+g:Dcircle(c_1, coul_1)
+
+g:Dhline(M, J, coul_2)
+
+g:Ddots({C, M})
+g:Ddots({J}, coul_2)
+
+g:Dlabel(
+  "$M$", M,
+  {
+    pos = "SE"
+  },
+  "$C$", C,
+  {
+    pos = "W"
+  },
+  "$J$", J,
+  {
+    pos          = "N",
+    node_options = coul_2
+  }
+)
+
+g:Show()
+\end{luadraw}
+
+\end{document}

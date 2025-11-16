@@ -20,21 +20,22 @@
 
 \begin{document}
 
-\begin{luadraw}{name = central-proj-of-sphere}
+\begin{luadraw}{name = central-proj-of-cube-box-coord}
 ------
 -- Nos ¨elts de base.
 ------
-local r      = 2
-local center = M(-1, -1, 0)
+local c  = 2  -- Côté du cube.
 
-local z0    = -3
+local z0    = -3  -- Niveau du sol de projection.
 local light = M(-5, -5, 5)
 
 local proj = function(A)
   return proj3dO(
-    A,
-    {z0*vecK, vecK},
-    A - light)
+    A,                  -- Ce que l'on projette.
+    {z0*vecK, vecK},  -- Plan de projection via un point
+                        -- et un vecteur normal.
+    A - light           -- Direction.
+  )
 end
 
 ------
@@ -56,39 +57,38 @@ Hiddenlinestyle = "dashed"
 Hiddenlines     = true
 
 ------
--- Une sphère, un faisceau et une ombre.
+-- Un cube, un faisceau et une ombre.
 ------
-local S = {center, r}
-
-
-
-
-
-------
--- Calcul du cercle de tangence de la sphère et du cône de lumière.
-------
-local I = (light + center) / 2
-local R = pt3d.abs(center - light) / 2
-
---- La fonction interSS(S1,S2) calcule et renvoie (si elle existe) l’intersection entre la sphère S1 = {C1,𝑟1} et S2 = {C2,𝑟2}. La fonction renvoie soit nil (intersection vide), ou bien une séquence de la forme I,𝑟,𝑛, où centre, rayon normal au cercle
-local J, r1, n = interSS(S, {I, R} )
-
--- Lafonctioncircle3d(I,R,normal)renvoielalistedespointsdececercle(lignepolygonale3d).
--- Lafonctioncircle3db(I,R,normal)renvoiececerclesousformed’unchemin3d(voirDpath3d)utilisantdescourbesde Bézier.
-local shadow = ftransform3d(
-  circle3d(J, r1, n)[1],
-  proj
+local P = parallelep(
+  M(-c, -c, -c)/2,
+  c*vecI, c*vecJ, c*vecK
 )
 
+P = rotate3d(
+  P,
+  25,
+  {
+    M(c/2, -c/2, -c/2),  -- Point de l'axe de rotation.
+    M(-1, 1, 1)          -- Vecteur dirigeant l'axe de rotation.
+  }
+)
 
-
-
+------
+-- Comme nous savons que l'ombre est convexe, une seule facette
+-- est renvoyée par ''cvx_hull3d''.
+------
+local shade = cvx_hull3d(
+  ftransform3d(
+    P.vertices,
+    proj
+  )
+)[1]
 
 ------
 -- Construction du faisceau comme conséquence de la source
 -- lumineuse et de l'ombre...
 ------
-local beam = pyramid(shadow, light, true)
+local beam = pyramid(shade, light, true)
 
 ------
 -- Il ne reste plus qu'à dessiner.
@@ -101,18 +101,18 @@ graphview:Dboxaxes3d({
 
 graphview:Dballdots3d(light, "Yellow", 5)
 
-graphview:Dsphere(
-  center, r,
-  {
-    color = "Cyan",
-    mode  = mBorder
-  }
-)
-
 graphview:Dpolyline3d(
-  shadow,
+  shade,
   true,
   "draw = none, fill = DarkGray, fill opacity = 0.9"
+)
+
+graphview:Dpoly(
+  P,
+  {
+    color = "cyan",
+    opacity = 0.8
+  }
 )
 
 graphview:Dpoly(
@@ -124,6 +124,13 @@ graphview:Dpoly(
     mode     = mShadedOnly
   }
 )
+
+for _, A in ipairs(shade) do
+  graphview:Dseg3d(
+    {light, A},
+    "dotted, yellow"
+  )
+end
 
 ------
 -- Montrons le résultat de notre oeuvre.

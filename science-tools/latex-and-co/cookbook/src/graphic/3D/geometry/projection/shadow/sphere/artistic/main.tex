@@ -1,0 +1,96 @@
+% !TEX TS-program = lualatex
+
+%%%
+% src::
+%     url = https://github.com/pfradin/luadraw/discussions/148#discussioncomment-14980822
+%%%
+
+\documentclass[border = 3pt]{standalone}
+
+\usepackage[svgnames]{xcolor}
+\usepackage[3d]{luadraw}
+
+\begin{document}
+
+\begin{luadraw}{name = central-proj-of-sphere-artistic}
+local r = 2
+local C = M(-1, -1, 0)
+
+local z0    = -3
+local light = M(-5, -5, 5)
+
+local proj = function(A)
+  return proj3dO(
+    A,
+    {z0*vecK, vecK},
+    A - light
+  )
+end
+
+local g = graph3d:new{
+  window3d = {-5, 8, -5, 8, -3, 5},
+  adjust2d = true,
+  bbox     = false,
+  viewdir  = perspective("yz", 0.35, 60),
+  size     =  {10, 10}
+}
+
+g:Linewidth(6)
+Hiddenlinestyle = "dashed"
+Hiddenlines     = true
+
+local S = {C, r}
+
+local I = (light + C) / 2
+local R = pt3d.abs(C - light) / 2
+
+local C_t, r_t, normal_t = interSS(S, {I, R})
+
+local shadow = ftransform3d(
+  circle3d(C_t, r_t, normal_t)[1],
+  proj
+)
+
+local beam = pyramid(shadow, light, true)
+
+g:Dfacet(
+  g:Plane2facet({z0*vecK, vecK}),
+  {
+    color    = "lightgray",
+    contrast = 0
+  }
+)
+
+g:Dseg3d({M(-5, -5, z0), light})
+
+g:Dballdots3d(light, "Yellow", 2)
+
+g:Dpolyline3d(
+  shadow,
+  true,
+  "draw = none, fill = DarkGray, fill opacity = 0.8"
+)
+
+g:Dsphere(
+  C, r,
+  {
+    color = "Cyan",
+    mode  = mBorder
+  }
+)
+
+g:Dpoly(
+  beam,
+  {
+    color    = "yellow",
+    opacity  = 0.4,
+    backcull = true,
+    contrast = 0.5,
+    mode     = mShadedOnly
+  }
+)
+
+g:Show()
+\end{luadraw}
+
+\end{document}
