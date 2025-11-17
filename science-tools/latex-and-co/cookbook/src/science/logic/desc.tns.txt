@@ -4,3 +4,4 @@ Logique formelle
 
 content::
     ./explain/\desc
+    ./step-calc/\desc

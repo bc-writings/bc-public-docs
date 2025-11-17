@@ -5,4 +5,4 @@ Pour les sciences
 content::
     ./math/\desc
     ./logic/\desc
-    ./computer/\desc
+    ./computer-science/\desc

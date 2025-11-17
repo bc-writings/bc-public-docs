@@ -1,7 +1,0 @@
-======
-\cs_fr
-======
-
-content::
-    ./automata/\desc
-//    ./data-structure/\desc

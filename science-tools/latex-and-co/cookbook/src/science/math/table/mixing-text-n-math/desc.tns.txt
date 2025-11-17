@@ -1,10 +1,10 @@
 this::
-    date = 2025-06-08
+    date = 2025-11-17
 
 
-==================================
-\Tab décrivant des formules \maths
-==================================
+====================================
+Textes et formules \maths sans peine
+====================================
 
 Nous allons montrer comment obtenir le \tab suivant: le \pack ''tabularray' va nous permettre de faire ceci sans trop d'efforts.
 

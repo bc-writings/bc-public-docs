@@ -1,9 +1,9 @@
 this::
-    date = 2025-05-10
+    date = 2025-11-17
 
 
 =============================================================
-L'astuce(?) de Gauss pour additionner des entiers consécutifs
+L'astuce de Gauss(?) pour additionner des entiers consécutifs
 =============================================================
 
 Nous allons voir comment décorer une somme d'entiers consécutifs, ou en progression arithmétique, pour visualiser l'astuce, dite de Gauss, qui consiste à additionner successivement la somme du premier terme avec le dernier, à celle du deuxième avec l'avant-dernier, \etc.

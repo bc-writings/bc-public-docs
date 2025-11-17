@@ -1,0 +1,8 @@
+======
+\cs_fr
+======
+
+content::
+    ./dirview/\desc             ??????
+    ./automata/\desc
+    ./data-structure/\desc      ??

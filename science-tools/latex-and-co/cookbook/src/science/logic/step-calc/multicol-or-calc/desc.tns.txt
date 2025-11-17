@@ -2,10 +2,6 @@ this::
     date = 2025-05-10
 
 
-abrev::
-    desc = desc.tns.txt
-
-
 =======================
 Des calculs côte à côte
 =======================

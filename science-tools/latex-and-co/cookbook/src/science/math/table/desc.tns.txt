@@ -1,0 +1,6 @@
+============================
+Des tableaux pour les \maths
+============================
+
+content::
+    ./mixing-text-n-math/\desc
