@@ -1,29 +1,7 @@
-this::
-    date = 2025-06-07
+======================
+Gestion du format \csv
+======================
 
-
-==============================
-Usage basique de fichiers \csv
-==============================
-
-Considérons le fichier \csv suivant.
-
-csv::
-    ---
-    title = Les données brutes.
-    path  = ./data.csv
-    ---
-
-
-Nous allons voir comment utiliser le fichier précédent afin de produire le résultat ci-après.
-
-pdf::
-    ---
-    title = Rendu souhaité.
-    path  = ./main-table.pdf
-    ---
-
-
-note::
-    Le choix \tech retenu est de lire complètement le fichier \csv pour construire un stockage en interne, puis de rendre les données accessibles via des macros simples à employer.
-    En interne, des ''property lists'' de \l3 sont employées afin de faire des associations clé-valeur.
+content::
+    ./basic/\desc
+    ./plot/\desc

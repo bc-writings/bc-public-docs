@@ -1,16 +1,16 @@
 this::
-    date = 2025-09-20
+    date = 2025-11-17
 
 
-======================
-Avec des fichiers \csv
-======================
+============================
+Représenter des données \csv
+============================
 
 Via \lua, il n'est pas dur d'analyser un fichier tel que le suivant
 ((
     \csv est l'acronyme de \csv_full qui signife "valeurs séparées par des virgules" en français.
 )),
-pour ensuite utiliser les données qu'il contient dans des graohiques (nous proposons deux exemples simples peu créatifs).
+pour ensuite utiliser les données qu'il contient dans des graphiques (nous proposons deux exemples simples peu créatifs).
 
 csv::
     ---
