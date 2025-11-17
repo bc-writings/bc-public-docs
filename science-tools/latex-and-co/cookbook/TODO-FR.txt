@@ -5,6 +5,12 @@ latex-and-co - TODO
 
 > ---------------------------- <
 
+besoin de tout réorganiser
+
+    --> ne plus mettre luadraw à part, quitte à rendre chaque rectette autonome en indiquant dans le source le dépot de gthub en attendnat que je forke le projet
+
+> ---------------------------- <
+
 luadraw
 
     --> matrix kernel transfo: auto --> method graph3d !!!! facilem mais le faire car plus propre
