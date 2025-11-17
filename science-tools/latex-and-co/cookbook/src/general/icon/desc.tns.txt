@@ -1,6 +1,6 @@
-======================
-Des icones, des vraies
-======================
+====================
+Fabriquer ses icones
+====================
 
 content::
     ./tikz-pic/\desc

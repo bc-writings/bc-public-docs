@@ -1,12 +1,12 @@
 this::
-    date = 2025-07-23
+    date = 2025-11-17
 
 
 ===================
 Traitement par lots
 ===================
 
-Lorsque l'on produit du contenu de façon (semi) automatisée, il est facile de choisir des noms de fichiers numérotées séquentiellement. Dans ce cas, l'emploi du boucle ''for'' gérée par le rédacteur du \docu maître se justifie pleinement (ce ne sera plus le cas dans le scénario de la section suivante).
+Lorsque l'on produit du contenu de façon semi-automatisée, il est facile de choisir des noms de fichiers numérotées séquentiellement. Dans ce cas, l'emploi du boucle ''for'' gérée par le rédacteur du \docu maître se justifie pleinement (ce ne sera plus le cas dans le scénario de la section suivante).
 
 
 note::

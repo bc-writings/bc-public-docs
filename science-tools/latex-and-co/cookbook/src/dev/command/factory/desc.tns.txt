@@ -1,18 +1,18 @@
 this::
-    date = 2025-06-11
+    date = 2025-11-17
 
 
 ============================
 Fabrique de macros sans \arg
 ============================
 
-Le code présenté ici, qui se trouve dans l'article
-src(
-    kind   = journal ;
-    title  = TUGboat ;
-    vol    = 39:1 ;
-    year   = 2018 ;
-    author = Enrico, Gregorio ;
-    extra  = Voir la section "Symbol abbreviation macro sets", page 58.
-)::''TEX.StackExchange cherry picking: expl3'',
-fournit une \tech élégante pour fabriquer des macros sans \arg. Ceci devrait rendre service à beaucoup de confectionneurs de \packs.
+Ce code propose une \tech élégante pour créer des macros sans \arg, utile aux développeurs de \packs. Voici la \ref de l'article utilisé pour rédiger cette recette.
+
+ref::
+    kind    = journal
+    title   = TUGboat
+    vol     = 39:1
+    year    = 2018
+    article = TEX.StackExchange cherry picking: expl3
+    author  = Enrico, Gregorio
+    comment = Voir la section "Symbol abbreviation macro sets", page 58.

@@ -1,5 +1,5 @@
 this::
-    date = 2025-07-23
+    date = 2025-11-17
 
 
 ===================================
@@ -8,11 +8,11 @@ this::
 
 Lorsque les différents sous-contenus sont tapés par un humain, il n'est plus acceptable de nommer les fichiers via des entiers naturels. Une \1ere \sol consiste à utiliser une \struc de dossier comme la suivante.
 
-path::
+dirview::
     + content
-        - 01-start.tex
-        - 02-middle.tex
-        - 03-end.tex
+        * 01-start.tex
+        * 02-middle.tex
+        * 03-end.tex
 
 
 Avec ce choix, via le \pack ''l3sys-query'', il n'est pas dur d'obtenir une importation séquentielle respectant les préfixes numérotés.

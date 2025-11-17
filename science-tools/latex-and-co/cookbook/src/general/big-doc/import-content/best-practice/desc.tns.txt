@@ -1,5 +1,5 @@
 this::
-    date = 2025-07-23
+    date = 2025-11-17
 
 
 ===================================
@@ -11,11 +11,11 @@ Comme renuméroter des fichiers suite à l'ajout de nouveaux \docus est vite ing
     Dans notre cas, les noms ont été choisis pour valider la \demo \tech.
 )).
 
-path::
+dirview::
     + content
-        - start.tex
-        - middle.tex
-        - end.tex
+        * start.tex
+        * middle.tex
+        * end.tex
 
 
 Cette recette explique comment coder une petite fonction \l3 permettant d'indiquer les contenus comme suit.
