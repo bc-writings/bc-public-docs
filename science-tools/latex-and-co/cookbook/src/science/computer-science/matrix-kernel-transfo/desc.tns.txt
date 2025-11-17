@@ -4,3 +4,4 @@
 
 content::
     ./by-hand/\desc
+    ./auto/\desc

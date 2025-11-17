@@ -3,6 +3,7 @@
 ======
 
 content::
-    ./dirview/\desc             ??????
+    ./dirview/\desc                     ??????
     ./automata/\desc
-    ./data-structure/\desc      ??
+    ./data-structure/\desc              ??
+    ./matrix-kernel-transfo/\desc

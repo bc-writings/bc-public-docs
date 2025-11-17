@@ -1,0 +1,67 @@
+% !TEX TS-program = lualatex
+
+\documentclass[border = 3pt]{standalone}
+
+\usepackage[svgnames]{xcolor}
+\usepackage[3d]{luadraw}
+
+\directlua{dofile('main.lua')}
+
+\begin{document}
+
+\begin{luadraw}{name = matrix-kernel-transfo-auto-1}
+------
+-- Les données.
+------
+local dist = 4
+
+-- Cellule suivie des dimensions.
+local focus_in  = { {3, 2}, {1, 1} }
+local focus_out = { {3, 2}, {0, 0} }
+
+local mat_in = {
+  { 1,  2,  3,  4,  5},
+  { 6,  7,  8,  9,  0},
+  {-1, -2, -3, -4, -5},
+  {-6, -7, -8, -9,  0},
+  { 1,  2,  3,  4,  5},
+  { 1,  0, -1,  0,  1},
+}
+
+local transfo = function(Mat)
+  local NewMat  = {}
+  local nb_rows = #Mat
+  local nb_cols = #Mat[1]
+
+  for i = 1, nb_rows - 1 do
+    NewMat[i] = {}
+
+    for j = 1, nb_cols - 1 do
+      local sum = Mat[i][j] + Mat[i][j+1] + Mat[i+1][j] + Mat[i+1][j+1]
+
+      NewMat[i][j] = math.floor(sum / 4)
+    end
+  end
+
+  return NewMat
+end
+
+------
+-- Le tracé.
+------
+local graphview = graph3d:new{
+  adjust2d = true,
+  bbox     = false,
+  viewdir  = {40, 60}
+}
+
+graphview:Dmatkernel(
+  dist,
+  mat_in, transfo,
+  focus_in, focus_out
+)
+
+graphview:Show()
+\end{luadraw}
+
+\end{document}

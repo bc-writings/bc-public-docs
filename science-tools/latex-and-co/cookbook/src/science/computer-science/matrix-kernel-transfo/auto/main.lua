@@ -1,3 +1,8 @@
+------
+-- src::
+--     url = https://github.com/pfradin/luadraw/discussions/149#discussioncomment-14980701
+------
+
 function corners(P, u, v, focus, nb_rows)
   local start = P + (focus[1][2] - 1)*u + (nb_rows - focus[1][1] + 1)*v
 
