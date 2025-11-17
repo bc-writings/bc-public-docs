@@ -5,5 +5,4 @@ Surfaces
 content::
     ./orientation/\desc
     ./parametric/\desc
-    ./2-curves-1-plane/\desc
     ./complex-func/\desc
