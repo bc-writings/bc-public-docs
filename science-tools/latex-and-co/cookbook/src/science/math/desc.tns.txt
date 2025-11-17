@@ -5,7 +5,6 @@
 content::
     ./arithmetic/\desc
     ./combinatorics/\desc
-    ./sequences-series/\desc
+    ./analysis/\desc
     ./set-theory/\desc
-    ./symbols-operators-n-co/\desc
-    ./table/\desc
+    ./general/\desc

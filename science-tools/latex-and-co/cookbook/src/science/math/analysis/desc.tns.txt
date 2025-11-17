@@ -1,0 +1,7 @@
+=======
+Analyse
+=======
+
+content::
+    ./sequences-series/\desc
+    ./diff-calc/\desc
