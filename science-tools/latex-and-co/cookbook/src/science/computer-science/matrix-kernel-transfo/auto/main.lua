@@ -3,7 +3,52 @@
 --     url = https://github.com/pfradin/luadraw/discussions/149#discussioncomment-14980701
 ------
 
-function corners(P, u, v, focus, nb_rows)
+local function matkernel_get_vertices(
+  Mat,
+  P, u, v
+)
+  local nb_rows = #Mat
+  local nb_cols = #Mat[1]
+
+  return {
+    P,
+    P + nb_cols*u,
+    P + nb_cols*u + nb_rows*v,
+    P + nb_rows*v
+  }
+end
+
+function matkernel_getbbox3d(dist, mat_in, mat_out)
+  local O_in, O_out = M(dist, 0, 0), M(-dist, 0, 0)
+
+  local vertices = matkernel_get_vertices(
+    mat_in,
+    O_in, vecJ, vecK
+  )
+
+  local _vertices = matkernel_get_vertices(
+    mat_out,
+    O_out, vecJ, vecK
+  )
+
+  for i = 1, #_vertices do
+    table.insert(vertices, _vertices[i])
+  end
+
+  local xmin, xmax, ymin, ymax, zmin, zmax = getbounds3d(vertices)
+
+  return {xmin, xmax, ymin, ymax, zmin, zmax}
+end
+
+local function corners(
+  P, u, v,
+  focus,
+  nb_rows
+)
+  if type(focus[1]) == "number" then
+    focus = {focus, {0, 0}}
+  end
+
   local start = P + (focus[1][2] - 1)*u + (nb_rows - focus[1][1] + 1)*v
 
   local d_row, d_col = focus[2][1], focus[2][2]
@@ -18,23 +63,29 @@ function corners(P, u, v, focus, nb_rows)
   }
 end
 
-function graph3d:Dmatgrid(Mat, P, u, v, focus)
+function graph3d:Dmatgrid(
+  Mat,
+  P, u, v,
+  focus
+)
   local nb_rows = #Mat
   local nb_cols = #Mat[1]
 
-  self:Dpolyline3d(
-    corners(P, u, v, focus, nb_rows),
-    true,
-    "fill = yellow, draw = none"
+  if focus ~= nil then
+    self:Dpolyline3d(
+      corners(P, u, v, focus, nb_rows),
+      true,
+      "fill = yellow, draw = none"
+    )
+  end
+
+  vertices = matkernel_get_vertices(
+    Mat,
+    P, u, v
   )
 
   self:Dpolyline3d(
-    {
-      P,
-      P + nb_cols*u,
-      P + nb_cols*u + nb_rows*v,
-      P + nb_rows*v
-    },
+    vertices,
     true,
     "blue, line width = 0.8pt"
   )
@@ -70,20 +121,24 @@ function graph3d:Dmatgrid(Mat, P, u, v, focus)
   end
 end
 
-function graph3d:Dmatkernel(dist, MatIn, T, foc_in, foc_out)
-  local MatOut = T(MatIn)
-
+function graph3d:Dmatkernel(
+  dist,
+  MatIn, MatOut,
+  foc_in, foc_out
+)
   local O_in, O_out = M(dist, 0, 0), M(-dist, 0, 0)
 
   local u, v = vecJ, vecK
 
-  seg_pts_in  = corners(O_in, u, v, foc_in, #MatIn)
-  seg_pts_out = corners(O_out, u, v, foc_out, #MatOut)
-
   local focus_segs = {}
 
-  for i = 1, 4 do
-    focus_segs[i] = {seg_pts_in[i], seg_pts_out[i]}
+  if foc_in ~= nil and foc_out ~= nil then
+    seg_pts_in  = corners(O_in, u, v, foc_in, #MatIn)
+    seg_pts_out = corners(O_out, u, v, foc_out, #MatOut)
+
+    for i = 1, 4 do
+      focus_segs[i] = {seg_pts_in[i], seg_pts_out[i]}
+    end
   end
 
   self:Dmatgrid(MatOut, O_out, u, v, foc_out)

@@ -16,8 +16,7 @@
 local dist = 2.5
 
 -- Cellule suivie des dimensions.
-local focus_in  = { {6, 1}, {1, 1} }
-local focus_out = { {6, 1}, {0, 0} }
+local focus_out  = { {6, 1}, {3, 1} }
 
 local mat_in = {
   { 1,  2,  3},
@@ -53,8 +52,13 @@ end
 ------
 -- Le tracé.
 ------
+local mat_out = transfo(mat_in)
+
+local win3d = matkernel_getbbox3d(dist, mat_in, mat_out)
+
+whatis(win3d, "win3d")
 local graphview = graph3d:new{
-  window3d = {-10, 10, -30, 30, -10, 10},
+  window3d = win3d,
   adjust2d = true,
   bbox     = false,
   viewdir  = {40, 60}
@@ -62,8 +66,8 @@ local graphview = graph3d:new{
 
 graphview:Dmatkernel(
   dist,
-  mat_in, transfo,
-  focus_in, focus_out
+  mat_in, mat_out,
+  nil, focus_out
 )
 
 graphview:Show()
