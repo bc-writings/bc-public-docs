@@ -56,7 +56,6 @@ local mat_out = transfo(mat_in)
 
 local win3d = matkernel_getbbox3d(dist, mat_in, mat_out)
 
-whatis(win3d, "win3d")
 local graphview = graph3d:new{
   window3d = win3d,
   adjust2d = true,

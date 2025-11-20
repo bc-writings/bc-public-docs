@@ -3,6 +3,4 @@ En lien avec les géométries
 ===========================
 
 content::
-    ./solid/\desc
-    ./projection/\desc
-    ./spherical/\desc
+    ./3D/\desc

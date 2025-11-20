@@ -3,6 +3,7 @@
 ======
 
 content::
+    ./geometry/\desc
     ./arithmetic/\desc
     ./combinatorics/\desc
     ./analysis/\desc
