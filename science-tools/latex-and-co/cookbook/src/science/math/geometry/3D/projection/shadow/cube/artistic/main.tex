@@ -21,7 +21,11 @@ local light = M(-5, -5, 3.5)
 local center = M(-1, -1, -1)
 
 local proj = function(A)
-  return proj3dO(A, {z0*vecK, vecK}, A-light)
+  return proj3dO(
+    A,
+    {z0*vecK, vecK},
+    A - light
+  )
 end
 
 local graphview = graph3d:new{
@@ -43,7 +47,7 @@ local shadow = cvx_hull3d(
 
 local beam = pyramid(reverse(shadow), light, true)
 
-local beamVisble, beamHidden = graphview:Classifyfacet(beam)
+local beamVisible, beamHidden = graphview:Classifyfacet(beam)
 
 graphview:Dfacet(
   graphview:Plane2facet({z0*vecK, vecK}),
@@ -81,7 +85,7 @@ graphview:Dpoly(
 )
 
 graphview:Dfacet(
-  beamVisble,
+  beamVisible,
   {
     color   = "yellow",
     opacity = 0.4,
