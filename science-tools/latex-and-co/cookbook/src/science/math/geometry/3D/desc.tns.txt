@@ -3,6 +3,7 @@ Dans l'espace
 =============
 
 content::
+    ./prespective/\desc
     ./solid/\desc
     ./projection/\desc
     ./spherical/\desc

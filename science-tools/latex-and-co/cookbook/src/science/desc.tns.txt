@@ -6,3 +6,4 @@ content::
     ./math/\desc
     ./logic/\desc
     ./computer-science/\desc
+    ./misc/\desc

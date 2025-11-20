@@ -1,5 +1,5 @@
 this::
-    date = 2025-09-08
+    date = 2025-11-20
 
 
 abrev::
@@ -7,9 +7,9 @@ abrev::
                       https://en.wikipedia.org/wiki/Wavefront_.obj_file''
 
 
-================================
-Utilisation du format \wavefront
-================================
+=============================
+Utiliser le format \wavefront
+=============================
 
 Le format \wavefront permet de représenter des modèles \3d polyédriques à partir de leurs sommets et de leurs faces, avec la possibilité d’y associer des normales de facettes et des coordonnées de texture. Par exemple, le fichier suivant décrit un icosaèdre.
 
