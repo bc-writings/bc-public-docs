@@ -1,3 +1,13 @@
-==================
-Une version animée
-==================
+this::
+    date = 2025-11-20
+
+
+==============
+Version animée
+==============
+
+Le code proposé ici reprend la recette précédente en faisant tourner le cube, puis en produisant un \pdf animé grâce via le package ''animate''.
+
+
+caution::
+    Tous les lecteurs \pfd ne supportent pas les animations créées avec ''animate''. Vous pouvez utiliser le lecteur intégré au navigateur \firefox.

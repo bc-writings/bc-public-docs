@@ -16,7 +16,7 @@
 \usepackage{animate}
 
 %%%
-% Quelques vaeiables globales
+% Quelques \vars globales
 %%%
 \begin{luacode*}
 nbimages = 36
@@ -55,18 +55,21 @@ local proj = function(A)
   )
 end
 
-local P1 = cube(center, M(-1, -1, z0))
+local C = cube(center, M(-1, -1, z0))
 
 local shadow, beam, beamVisible, beamHidden
 
 local theta = linspace(0, 360, nbimages + 1)
 
 for k = 1, nbimages do
-  t = theta[k]
-  P = rotate3d(P1, t, {M(-1, -1, z0), vecK})
+  C_rotated = rotate3d(
+    C,
+    theta[k],
+    {M(-1, -1, z0), vecK}
+  )
 
   shadow = cvx_hull3d(
-    ftransform3d(P.vertices, proj)
+    ftransform3d(C_rotated.vertices, proj)
   )[1]
 
   if not graphview:Isvisible(shadow) then
@@ -105,7 +108,7 @@ for k = 1, nbimages do
   )
 
   graphview:Dpoly(
-    P,
+    C_rotated,
     {
       color = "cyan",
       mode  = mShadedHidden

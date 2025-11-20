@@ -8,3 +8,4 @@ content::
     ./cone/\desc
     ./cylinder/\desc
     ./box/\desc
+    ./sphere-minus-cylinder/\desc
