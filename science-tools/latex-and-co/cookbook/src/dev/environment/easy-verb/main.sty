@@ -1,0 +1,26 @@
+%%%
+% src::
+%     kind   = journal
+%     title  = TUGboat
+%     vol    = 46:2
+%     year   = 2025
+%     extra  = See the section "New or improved commands",
+%              page 239.
+%%%
+
+
+%%%
+% prototype::
+%     #1 : cet \arg permet d'agir sur texte final.
+%     #2 : ce n'est pas un \arg "utilisateur", c'est juste
+%          le réglage permettant de récupérer le contenu en
+%          mode verbatim.
+%
+%     :action: le contnu est mis en forme de façon verbatim
+%              en appliquant au prélable les macros fournies
+%              éventuellement via l'arg optionnel.
+%%%
+\NewDocumentEnvironment{homemadeverb}{ !O{\ttfamily} c }
+{
+  \begin{flushright}#1 #2\end{flushright}
+}{}
