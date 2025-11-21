@@ -3,5 +3,6 @@ Pour les macros \cmds
 =====================
 
 content::
-    ./special-deco/\desc
+    ./special-name/\desc
     ./factory/\desc
+    ./deco-and-expo/\desc
