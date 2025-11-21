@@ -3,7 +3,8 @@
 ========================
 
 content::
-    ./class/\desc
     ./cmd/\desc
+    ./env/\desc
+    ./class/\desc
     ./data/\desc
     ./lua/\desc

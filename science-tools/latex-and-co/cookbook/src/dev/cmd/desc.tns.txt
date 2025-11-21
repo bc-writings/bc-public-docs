@@ -1,6 +1,6 @@
-=====================
-Pour les macros \cmds
-=====================
+==============
+Pour les \cmds
+==============
 
 content::
     ./special-name/\desc
