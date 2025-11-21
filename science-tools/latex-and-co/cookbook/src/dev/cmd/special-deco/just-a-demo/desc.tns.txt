@@ -2,8 +2,21 @@ this::
     date = 2025-11-21
 
 
-==============================
-Exemple instcif, mais excessif
-==============================
+=================================
+Exemple instructif, mais excessif
+=================================
 
-????
+quote::
+    ---
+    movie    = Spiderman
+    director = Sam Raimi
+    caracter = L'oncle de Peter Parker
+    ---
+
+    Un grand pouvoir implique de grandes responsabilités.
+
+
+Nous montrons ici un florilège de décorateurs de \cmds: voir la \desc \texh de la \cmd ''decoratedcmd''
+((
+    Voir le \docu "LaTeX for authors" pour l'\ens des possibilités offertes.
+)).

@@ -1,9 +1,6 @@
-%%%
-% src::
-%     url = https://tex.stackexchange.com/q/679332/6880
-%%%
+% FORCE-CROP
 
-\documentclass[varwidth, border = 3pt]{standalone}
+\documentclass[varwidth]{standalone}
 
 \usepackage{main}
 
@@ -14,11 +11,11 @@
 
 \medskip
 
-\decoratedcmd[Mon choix optionnel]{Usage classique}
+\decoratedcmd[Mon option perso]{Usage classique}
 
 \medskip
 
-\decoratedcmd_{Sous}{Sur}
+\decoratedcmd<Autre type d'option>{Très utile!}
 
 \medskip
 
@@ -26,10 +23,7 @@
 
 \medskip
 
-\decoratedcmd.{Un point, c'est tout}
+\decoratedcmd*'<Opt.1>[Opt.2]{Sur}_{Sous}
 
-\medskip
-
-\decoratedcmd'._{Avec}[Tout]{Utile ?}
 
 \end{document}

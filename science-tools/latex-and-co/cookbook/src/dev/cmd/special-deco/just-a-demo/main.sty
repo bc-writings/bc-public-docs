@@ -1,30 +1,34 @@
 %%%
-% src::
-%     url = https://tex.stackexchange.com/q/679332/6880
-%%%
-
-
-%%%
 % prototype::
 %     #1 : ce booléen permet de savoir si le décorateur de commande
 %          ''*'' a été employé, ou non.
 %     #2 : ce booléen permet de savoir si le décorateur de commande
 %          {{'}} a été employé, ou non.
-%     #3 : ce booléen permet de savoir si le décorateur de commande
-%          ''.'' a été employé, ou non.
-%     #4 : XXX
-%     #5 : un classique \arg optionnel fourni entre des crochets.
-%     #6 : l'\arg obligatoire en bout de course.
+%     #3 : un \arg optionnel fourni entre des chevrons.
+%     #4 : un classique \arg optionnel fourni entre des crochets.
+%     #5 : l'\arg obligatoire en bout de course.
+%     #6 : un éventuel \arg fourni via un blanc souligné.
 %
-%     :action: production d'un texte indiquant les différents
-%              \params utilisés lors de l'appel de la \cmd.
+%     :action: \prod d'un texte indiquant les différents \params
+%              utilisés lors de l'appel de la \cmd.
 %%%
-\NewDocumentCommand{\decoratedcmd}{ s t' t. e_ O{Défaut} m }{%
+\NewDocumentCommand{\decoratedcmd}{
+  s
+  t'
+  d<>
+  O{Option classique}
+  m
+  e_
+}{%
   \def\deco{\quad +}
 
-  Argument obligatoire :``#6''.
+  Argument obligatoire :``#5''.
 
-  \deco\ Argument optionnel : (( #5 ))
+  \deco\ Option classique : (( #4 ))
+
+  \IfNoValueTF{#3}{}{
+    \deco\ Option entre chevrons : (( #3 ))
+  }
 
   \IfBooleanT{#1}{
     \deco\ Astérisque utilisé.
@@ -34,11 +38,7 @@
     \deco\ Prime utilisée.
   }
 
-  \IfBooleanT{#3}{
-    \deco\ Avec un point.
-  }
-
-  \IfNoValueTF{#4}{}{
-    \deco\ Un blanc souligné avec [[ #4 ]].
+  \IfNoValueTF{#6}{}{
+    \deco\ Un blanc souligné avec [[ #6 ]].
   }
 }

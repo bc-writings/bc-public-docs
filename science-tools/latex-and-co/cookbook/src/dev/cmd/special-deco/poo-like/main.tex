@@ -1,9 +1,11 @@
-\documentclass[varwidth, border = 3pt]{standalone}
+% FORCE-CROP
+
+\documentclass[varwidth]{standalone}
 
 \usepackage{main}
 
 \newcommand{\mymph}{\emph}
-\NewDocumentCommand{\mytxtbf}{m}{\textbf{\emph{#1}}}
+\NewDocumentCommand{\myitbf}{m}{\textbf{\emph{#1}}}
 
 
 \begin{document}
@@ -16,6 +18,6 @@
 
 \medskip
 
-\clslikecmd.\mytxtbf{Du gras en italique.}
+\clslikecmd.\myitbf{Du gras en italique.}
 
 \end{document}

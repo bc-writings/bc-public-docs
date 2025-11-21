@@ -1,11 +1,11 @@
 %%%
 % prototype::
-%     #1 : \arg fourni via le point.
+%     #1 : l'\arg fourni via le point.
 %     #2 : le contenu à mettre en forme éventuellement.
 %
 %     :action: le contenu de ''#2'' est mis en forme via la \val
-%              de l'\arg ''#1''. Rien n'est fait si l'\arg pointé
-%              n'est pas utilisé.
+%              de l'\arg ''#1''. Rien n'est appliqué à ''#2'' si
+%              l'\arg pointé n'est pas utilisé.
 %%%
 \NewDocumentCommand{\clslikecmd}{ e. m }{%
   \IfValueTF{#1}{

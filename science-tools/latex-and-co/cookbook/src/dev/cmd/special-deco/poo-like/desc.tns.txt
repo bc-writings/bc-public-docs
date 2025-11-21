@@ -1,9 +1,9 @@
 this::
-    date = 2025-11-21 ????
+    date = 2025-11-21
 
 
-============================
-XXXX
-============================
+==============================
+Écriture pointée comme en \poo
+==============================
 
-????
+Nous présentons ici un petit hack que pensons utile.
