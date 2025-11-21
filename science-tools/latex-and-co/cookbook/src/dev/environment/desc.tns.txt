@@ -1,0 +1,6 @@
+==============
+Pour les \envs
+==============
+
+content::
+    ./easy-verb/\desc
