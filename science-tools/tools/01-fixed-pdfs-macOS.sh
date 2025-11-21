@@ -40,20 +40,27 @@ cd "$TARGET"
 
 for f in $(find cookbook/src -name 'main*.tex' -o -name 'xtra*.tex' | sort -u)
 do
-  echo "-- NEW TEX FILE --"
-  echo "./$f"
-
-  fdir=$(dirname "$f")
-
-  cd "$TARGET/$fdir"
-
-  if head -n 1 "$TARGET/$f" | grep '^% *!TEX TS-program *= *lualatex'
-  then
-    texcmd="lualatex"
+  if [[ "$f" == *-by-hand.tex ]]; then
+    echo "-- NEW TEX FILE - HUMAN PROCESS --"
+    echo "./$f"
+    open "$TARGET/$f"
 
   else
-    texcmd="pdflatex"
-  fi
+    echo "-- NEW TEX FILE - AUTO --"
+    echo "./$f"
 
-  SOURCE_DATE_EPOCH=0 FORCE_SOURCE_DATE=1 latexmk -quiet -pdf -pdflatex="$texcmd --interaction=nonstopmode --halt-on-error --shell-escape  %O %S" "$TARGET/$f" || nocompile "$TARGET/$f"
+    fdir=$(dirname "$f")
+
+    cd "$TARGET/$fdir"
+
+    if head -n 1 "$TARGET/$f" | grep '^% *!TEX TS-program *= *lualatex'
+    then
+      texcmd="lualatex"
+
+    else
+      texcmd="pdflatex"
+    fi
+
+    SOURCE_DATE_EPOCH=0 FORCE_SOURCE_DATE=1 latexmk -quiet -pdf -pdflatex="$texcmd --interaction=nonstopmode --halt-on-error --shell-escape  %O %S" "$TARGET/$f" || nocompile "$TARGET/$f"
+  fi
 done # for f in $(find . -name '*.tex')
