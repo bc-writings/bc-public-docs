@@ -1,15 +1,13 @@
 %%%
 % prototype::
-%     #1 : le nom de la suite.
-%     #2 : un \arg optionnel founri précédé de ''d'' (pour "down").
-%     #3 : un \arg optionnel fourni précédé de ''u'' (pour "up").
-%     #4 : un \arg optionnel fourni précédé de ''D''.
-%     #5 : un \arg optionnel fourni précédé de ''u''.
+%     #1       : le nom de la suite.
+%     #2 .. #5 : des \args optionnels fournis précédés de ''_'',
+%                ''^'', ''\_'' ou ''\^''.
 %
 %     :action: dans le cas où tous les \args sont utilisés,
-%              nous obtenons ''${#1}_{#4}^{#5} #1_{#2}^{#3}$''.
+%              nous obtenons ''${}_{#4}^{#5} #1_{#2}^{#3}$''.
 %%%
-\NewDocumentCommand{\hyperseq}{ m ed eu eD eU }{%
+\NewDocumentCommand{\hyperseq}{ m e{_^\_\^} }{%
   $%
     {}%
     \IfValueT{#4}{_{#4}}%
