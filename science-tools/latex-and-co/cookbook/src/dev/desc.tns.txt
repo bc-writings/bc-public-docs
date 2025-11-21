@@ -4,6 +4,6 @@
 
 content::
     ./class/\desc
-    ./command/\desc
+    ./cmd/\desc
     ./data/\desc
     ./lua/\desc

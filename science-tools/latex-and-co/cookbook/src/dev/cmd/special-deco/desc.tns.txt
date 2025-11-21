@@ -1,0 +1,15 @@
+this::
+    date = 2025-11-21
+
+
+========================
+Décorateurs de commandes
+========================
+
+Le \dev du paradigme de \prg^o \l3 a abouti à l'ajout de la \cmd ''\NewDocumentCommand'' qui propose un \syst de \sign très flexible pour définir le comportement d'un macro. Ceci permet de sortir du trés restrctif emploi de \cmds étoilées, ou non, avec des \args optionnels, ou non.
+
+
+content::
+    ./just-a-demo/\desc
+    ./hyper-seq/\desc
+    ./poo-like/\desc

@@ -3,4 +3,5 @@ Pour les macros \cmds
 =====================
 
 content::
+    ./special-deco/\desc
     ./factory/\desc

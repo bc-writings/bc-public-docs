@@ -1,0 +1,44 @@
+%%%
+% src::
+%     url = https://tex.stackexchange.com/q/679332/6880
+%%%
+
+
+%%%
+% prototype::
+%     #1 : ce booléen permet de savoir si le décorateur de commande
+%          ''*'' a été employé, ou non.
+%     #2 : ce booléen permet de savoir si le décorateur de commande
+%          {{'}} a été employé, ou non.
+%     #3 : ce booléen permet de savoir si le décorateur de commande
+%          ''.'' a été employé, ou non.
+%     #4 : XXX
+%     #5 : un classique \arg optionnel fourni entre des crochets.
+%     #6 : l'\arg obligatoire en bout de course.
+%
+%     :action: production d'un texte indiquant les différents
+%              \params utilisés lors de l'appel de la \cmd.
+%%%
+\NewDocumentCommand{\decoratedcmd}{ s t' t. e_ O{Défaut} m }{%
+  \def\deco{\quad +}
+
+  Argument obligatoire :``#6''.
+
+  \deco\ Argument optionnel : (( #5 ))
+
+  \IfBooleanT{#1}{
+    \deco\ Astérisque utilisé.
+  }
+
+  \IfBooleanT{#2}{
+    \deco\ Prime utilisée.
+  }
+
+  \IfBooleanT{#3}{
+    \deco\ Avec un point.
+  }
+
+  \IfNoValueTF{#4}{}{
+    \deco\ Un blanc souligné avec [[ #4 ]].
+  }
+}

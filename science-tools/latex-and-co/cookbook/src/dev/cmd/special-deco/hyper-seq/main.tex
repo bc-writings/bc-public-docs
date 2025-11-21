@@ -1,0 +1,28 @@
+\documentclass[varwidth, border = 3pt]{standalone}
+
+\NewDocumentCommand{\hyperseq}{ m e_ e^ e- e. }{%
+  $%
+    {}%
+    \IfValueT{#4}{_{#4}}%
+    \IfValueT{#5}{^{#5}}%
+    #1%
+    \IfValueT{#2}{_{#2}}%
+    \IfValueT{#3}{^{#3}}%
+  $
+}
+
+\begin{document}
+
+\hyperseq{u}
+
+\hyperseq{u}_{1}
+
+\hyperseq{u}_{1}^{2}
+
+\hyperseq{u}_{1}^{2}-{3}
+
+\hyperseq{u}_{1}^{2}-{3}.{4}
+
+\hyperseq{u}-{3}.{4}
+
+\end{document}

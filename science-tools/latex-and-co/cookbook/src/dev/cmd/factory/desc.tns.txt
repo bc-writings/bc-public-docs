@@ -1,0 +1,9 @@
+this::
+    date = 2025-11-20
+
+
+============================
+Fabrique de macros sans \arg
+============================
+
+Ce code propose une \tech élégante pour créer des macros sans \arg, utile aux développeurs de \packs. Voici la \ref de l'article utilisé pour rédiger cette recette.

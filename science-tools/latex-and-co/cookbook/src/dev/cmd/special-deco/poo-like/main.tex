@@ -1,0 +1,21 @@
+\documentclass[varwidth, border = 3pt]{standalone}
+
+\usepackage{main}
+
+\newcommand{\mymph}{\emph}
+\NewDocumentCommand{\mytxtbf}{m}{\textbf{\emph{#1}}}
+
+
+\begin{document}
+
+\clslikecmd{En l'état...}
+
+\medskip
+
+\clslikecmd.\mymph{Ayons un peu d'emphase.}
+
+\medskip
+
+\clslikecmd.\mytxtbf{Du gras en italique.}
+
+\end{document}

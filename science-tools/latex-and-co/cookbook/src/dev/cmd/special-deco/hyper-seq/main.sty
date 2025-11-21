@@ -1,0 +1,16 @@
+%%%
+% prototype::
+%     #1 : \arg fourni via le point.
+%     #2 : le contenu à mettre en forme éventuellement.
+%
+%     :action: le contenu de ''#2'' est mis en forme via la \val
+%              de l'\arg ''#1''. Rien n'est fait si l'\arg pointé
+%              n'est pas utilisé.
+%%%
+\NewDocumentCommand{\hyperseq}{ e_ m}{%
+  $
+    #2
+    \IfValueT{#1}{_#1}
+    % \IfValueT{#2}{^#2}
+  $
+}
