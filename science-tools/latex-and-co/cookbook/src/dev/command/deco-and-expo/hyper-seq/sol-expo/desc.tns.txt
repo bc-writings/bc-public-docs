@@ -1,9 +1,0 @@
-this::
-    date = 2025-11-21
-
-
-================================
-Via des \args de type "exposant"
-================================
-
-Voici une première possibilité étendant l'usage classique de ''^'' et ''_''.

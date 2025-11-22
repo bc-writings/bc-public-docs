@@ -1,0 +1,27 @@
+%%%
+% src::
+%     url = https://tex.stackexchange.com/a/755194/6880
+%%%
+
+
+%%%
+% prototype::
+%     #1 .. #2 : des \args optionnels fournis avant l'\arg
+%                obligatoire en étant précédés de ''_'' ou ''^''.
+%     #3       : le nom de la suite.
+%     #4 .. #5 : des \args optionnels fournis après l'\arg
+%                obligatoire en étant précédés de ''_'' ou ''^''.
+%
+%     :action: dans le cas où tous les \args sont utilisés,
+%              nous obtenons ''${}^{#1}_{#2} #3_{#4}^{#5}$''.
+%%%
+\NewDocumentCommand{\hyperseq}{ e{^_} m e{_^} }{%
+  $%
+    {}%
+    \IfValueT{#1}{^{#1}}%
+    \IfValueT{#2}{_{#2}}%
+    #3%
+    \IfValueT{#4}{_{#4}}%
+    \IfValueT{#5}{^{#5}}%
+  $
+}

@@ -4,16 +4,17 @@
 %     #2 : un \arg optionnel fourni entre des crochets.
 %     #3 : un \arg optionnel fourni entre des parenthèses.
 %     #4 : un \arg optionnel fourni entre des chevrons.
-%     #5 : un \arg optionnel fourni entre deux signes `+`.
+%     #5 : un \arg optionnel fourni entre deux points
+%          d'exclamation.
 %
 %     :action: dans le cas où tous les \args sont utilisés,
-%              nous obtenons ''${#1}_{#4}^{#5} #1_{#2}^{#3}$''.
+%              nous obtenons ''${#1}^{#4}_{#5} #1_{#2}^{#3}$''.
 %%%
-\NewDocumentCommand{\hyperseq}{ m o d() d<> d++ }{%
+\NewDocumentCommand{\hyperseq}{ m o d() d<> d!! }{%
   $%
     {}%
-    \IfValueT{#4}{_{#4}}%
-    \IfValueT{#5}{^{#5}}%
+    \IfValueT{#4}{^{#4}}%
+    \IfValueT{#5}{_{#5}}%
     #1%
     \IfValueT{#2}{_{#2}}%
     \IfValueT{#3}{^{#3}}%
