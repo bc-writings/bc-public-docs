@@ -1,0 +1,9 @@
+this::
+    date = 2025-11-22
+
+
+======================================
+Nom suivi des indices et des exposants
+======================================
+
+Cette \2e possibilité passe via l'usage de nouveaux exposant ''\^'' et indice ''\_'' en plus des classiques ''^'' et ''_''.

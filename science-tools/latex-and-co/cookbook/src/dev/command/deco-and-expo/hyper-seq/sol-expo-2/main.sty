@@ -1,0 +1,25 @@
+%%%
+% src::
+%     url = https://tex.stackexchange.com/a/755170/6880
+%%%
+
+
+%%%
+% prototype::
+%     #1       : le nom de la suite.
+%     #2 .. #5 : des \args optionnels fournis précédés de ''_'',
+%                ''^'', ''\_'' ou ''\^''.
+%
+%     :action: dans le cas où tous les \args sont utilisés,
+%              nous obtenons ''${}^{#4}_{#5} #1_{#2}^{#3}$''.
+%%%
+\NewDocumentCommand{\hyperseq}{ m e{_^\^\_} }{%
+  $%
+    {}%
+    \IfValueT{#4}{^{#4}}%
+    \IfValueT{#5}{_{#5}}%
+    #1%
+    \IfValueT{#2}{_{#2}}%
+    \IfValueT{#3}{^{#3}}%
+  $
+}

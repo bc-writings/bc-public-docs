@@ -1,9 +1,0 @@
-this::
-    date = 2025-11-21
-
-
-================================
-Via des \args de type "exposant"
-================================
-
-Bien que n'étant pas le meilleur choix, le code proposé ici peut donner des idéés pour d'autres cas d'utilisation réel.

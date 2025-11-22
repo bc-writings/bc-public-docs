@@ -1,0 +1,9 @@
+this::
+    date = 2025-11-22
+
+
+======================
+Saisie proche du rendu
+======================
+
+Voici une première possibilité via l'usage classique de ''^'' et ''_''.

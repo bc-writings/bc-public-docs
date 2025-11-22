@@ -1,9 +1,9 @@
 this::
-    date = 2025-11-21
+    date = 2025-11-22
 
 
 ====================================================
 Via des \args optionnels avec différents délimiteurs
 ====================================================
 
-L'\api porposée ici est à la fois efficace est très intuitive. Un cas d'école !
+L'\api porposée ici est à la fois efficace est très intuitive.
