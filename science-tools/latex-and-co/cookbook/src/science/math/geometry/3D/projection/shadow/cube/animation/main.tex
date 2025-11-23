@@ -16,11 +16,8 @@
 \usepackage{animate}
 
 \begin{luacode*}
-nbimages = 36
-\end{luacode*}
+NB_IMAGES = 36
 
-% images creation
-\begin{luacode*}
 require 'luadraw_polyhedrons'
 
 local z0    = -3
@@ -38,20 +35,21 @@ end
 
 local C = cube(center, M(-1, -1, z0))
 
+local graphview = graph3d:new{
+  window3d = {-5, 8, -5, 7, z0, 5},
+  adjust2d = true,
+  bbox     = false,
+  viewdir  = perspective("yz", 0.35, 60),
+  size     = {10, 10}
+}
+
 local shadow
 local beam, beamVisible, beamHidden
 
-local theta = linspace(0, 360, nbimages + 1)
+local theta = linspace(0, 360, NB_IMAGES + 1)
 
-function makeframe(k)local
-  graphview = graph3d:new{
-    window3d = {-5, 8, -5, 7, z0, 5},
-    adjust2d = true,
-    bbox     = false,
-    viewdir  = perspective("yz", 0.35, 60),
-    size     = {10, 10}
-  }
-
+function makeframe(k)
+  graphview:Defaultattr()  -- IMPORTANT!
   graphview:Linewidth(12)
 
   C_rot = rotate3d(
@@ -121,7 +119,7 @@ function makeframe(k)local
 end
 \end{luacode*}
 
-\def\nb{\directlua{tex.print(nbimages)}}
+\def\nb{\directlua{tex.print(NB_IMAGES)}}
 \def\makeframe#1{\directlua{makeframe(#1)}}%
 
 \begin{document}
