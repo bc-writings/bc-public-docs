@@ -1,4 +1,7 @@
-% https://tex.stackexchange.com/a/755230/6880
+%%%
+% src::
+%     url = https://tex.stackexchange.com/a/755230/6880
+%%%
 
 \usepackage[edges]{forest}
 
@@ -8,46 +11,48 @@
 \definecolor{filecolor}{RGB}{88,88,88}
 
 \forestset{
-  fa dir tree/.style={
-    for tree={
-      font         = \sffamily,
+  fa dir tree/.style = {
+    for tree = {
       folder,
-      grow'        = 0,
-      inner ysep   = 1pt,
-      inner xsep   = 1.75pt,
+      grow'      = 0,
+      inner ysep = 1pt,
+      inner xsep = 1.75pt,
+      font       = \sffamily,
     },
   },
-  fa/.style 2 args={
-    before typesetting nodes={
-      content/.process={Ow{content}{
+  fa/.style 2 args = {
+    before typesetting nodes = {
+      content/.process = {
+        Ow{content}{
           \textcolor{#1}{#2}\ ##1
         }%
       },
     },
   },
-  /handlers/.fa/.code 2 args={%
+%%%
+% XXXX
+%%%
+  /handlers/.fa/.code 2 args = {%
     \edef\projetmbctemptpath{\pgfkeyscurrentpath}%
     \pgfkeys{%
-      \pgfkeyscurrentpath/.style={%
-        fa={#1}{#2},
+      \pgfkeyscurrentpath/.style = {%
+        fa = {#1}{#2},
       },
     }%
   },
-  open/.fa={foldercolor}{\faFolderOpen},
-  closed/.fa={foldercolor}{\faFolder},
-  file/.fa={filecolor}{\faFile},
-  codefile/.fa={filecolor}{\faFile},
-  pdffile/.fa={red!70}{\faFilePdf},
-  textfile/.fa={filecolor}{\faFile*},
-  imagefile/.fa={blue!70}{\faFileImage},
-  archivefile/.fa={orange!80}{\faFileArchive},
+  open/.fa        = {foldercolor}{\faFolderOpen},
+  closed/.fa      = {foldercolor}{\faFolder},
+  file/.fa        = {filecolor}{\faFile},
+  codefile/.fa    = {filecolor}{\faFile},
+  pdffile/.fa     = {red!70}{\faFilePdf},
+  textfile/.fa    = {filecolor}{\faFile*},
+  imagefile/.fa   = {blue!70}{\faFileImage},
+  archivefile/.fa = {orange!80}{\faFileArchive},
 }
 
-
-
 \NewDocumentEnvironment{dirtree}{b}{
-\begin{forest}
-  fa dir tree
-  #1
-\end{forest}
+  \begin{forest}
+    fa dir tree
+    #1
+  \end{forest}
 }{}
