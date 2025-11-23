@@ -1,0 +1,49 @@
+\begin{tikzpicture}[line join=round,background rectangle/.style={,fill=Beige},show background rectangle]%
+\begin{scope}%
+\pgfsetfillcolor{lightgray!100!black}%
+\draw[fill] (14.3221,2.2435) -- (16.3696,5.7899) -- (4.6696,5.7899) -- (2.6221,2.2435)--cycle;%
+\pgfsetfillcolor{black}%
+\draw[] (4.6696,5.7899) -- (4.6696,11.6399);%
+\fill[opacity=1,ball color=Yellow] (4.6696,11.6399) circle [radius=0.15cm];%
+\draw[draw = none, fill = DarkGray, fill opacity = 0.9] (6.9544,3.5092) -- (12.3916,2.9528) -- (11.9319,3.4979) -- (10.4474,4.7365) -- (10.2308,4.8118) -- (6.7544,4.7449)--cycle;%
+\pgfsetfillopacity{0.4}%
+\pgfsetfillcolor{yellow!50!white!98.41!black}%
+\fill[] (10.2308,4.8118) -- (6.7544,4.7449) -- (4.6696,11.6399)--cycle;%
+\pgfsetfillcolor{yellow!50!white!72.79!black}%
+\fill[] (10.4474,4.7365) -- (10.2308,4.8118) -- (4.6696,11.6399)--cycle;%
+\pgfsetfillcolor{yellow!50!white!28.67!black}%
+\fill[] (6.7544,4.7449) -- (6.9544,3.5092) -- (4.6696,11.6399)--cycle;%
+\pgfsetfillcolor{yellow!50!white!37.98!black}%
+\fill[] (11.9319,3.4979) -- (10.4474,4.7365) -- (4.6696,11.6399)--cycle;%
+\pgfsetfillopacity{1}%
+\pgfsetfillcolor{black}%
+\pgfsetdash{}{0pt}%
+\pgfsetfillcolor{cyan!50!white!97.34!black}%
+\draw[fill] (7.6396,4.6987) -- (6.3267,6.1592) -- (7.9493,7.6131) -- (9.2622,6.1526)--cycle;%
+\pgfsetfillcolor{cyan!50!white!65.06!black}%
+\draw[fill] (6.3267,6.1592) -- (6.0171,6.8448) -- (7.6396,8.2987) -- (7.9493,7.6131)--cycle;%
+\pgfsetfillcolor{cyan!50!white!39.47!black}%
+\draw[fill] (9.2622,6.1526) -- (7.9493,7.6131) -- (7.6396,8.2987) -- (8.9525,6.8382)--cycle;%
+\pgfsetfillcolor{cyan!39.47!black}%
+\draw[fill] (7.6396,4.6987) -- (7.3299,5.3843) -- (6.0171,6.8448) -- (6.3267,6.1592)--cycle;%
+\pgfsetfillcolor{cyan!65.06!black}%
+\draw[fill] (7.3299,5.3843) -- (7.6396,4.6987) -- (9.2622,6.1526) -- (8.9525,6.8382)--cycle;%
+\pgfsetfillcolor{cyan!97.34!black}%
+\draw[fill] (7.3299,5.3843) -- (8.9525,6.8382) -- (7.6396,8.2987) -- (6.0171,6.8448)--cycle;%
+\pgfsetfillcolor{black}%
+\pgfsetroundcap%
+\pgfsetdash{{0pt}{3pt}}{0pt}%
+\draw[] (6.3267,6.1592) -- (7.9493,7.6131) -- (7.6396,8.2987);%
+\draw[] (9.2622,6.1526) -- (7.9493,7.6131);%
+\pgfsetbuttcap%
+\pgfsetdash{}{0pt}%
+\pgfsetfillopacity{0.4}%
+\pgfsetfillcolor{yellow!91.23!black}%
+\fill[] (6.9544,3.5092) -- (12.3916,2.9528) -- (4.6696,11.6399)--cycle;%
+\pgfsetfillcolor{yellow!17.93!black}%
+\fill[] (12.3916,2.9528) -- (11.9319,3.4979) -- (4.6696,11.6399)--cycle;%
+\pgfsetfillopacity{1}%
+\pgfsetfillcolor{black}%
+\pgfsetdash{}{0pt}%
+\end{scope}%
+\end{tikzpicture}%
