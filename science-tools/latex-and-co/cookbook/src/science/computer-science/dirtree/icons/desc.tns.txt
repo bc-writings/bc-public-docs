@@ -1,0 +1,15 @@
+this::
+    date = 2025-11-23  ?????
+
+
+===============
+Avec des icones
+===============
+
+ZZZ
+
+
+
+content::
+    ./by-hand/\desc        ??????
+    ./facto/\desc          ???

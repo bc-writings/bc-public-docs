@@ -2,7 +2,7 @@
 
 %%%
 % src::
-%     url = https://github.com/pfradin/luadraw/discussions/148#discussioncomment-14983235
+%     url = https://github.com/pfradin/luadraw/discussions/152#discussioncomment-15052061
 %%%
 
 \documentclass{standalone}
@@ -11,40 +11,21 @@
 \usepackage[3d]{luadraw}
 
 %%%
-% Déléguons la création du \pdf final animable au \pack ''animate''.
+% Pour fabriquer un \pdf dyna.
 %%%
 \usepackage{animate}
 
-%%%
-% Quelques \vars globales
-%%%
 \begin{luacode*}
-nbimages = 35
-name     = "shadow"
-basename = cachedir .. name
+nbimages = 36
 \end{luacode*}
 
-%%%
-% Création des images.
-%
-% note::
-%     L'emploi de ''exec = false'' évite la refabrication des images.
-%%%
-\begin{luadraw}{auto = false, exec = true}
+% images creation
+\begin{luacode*}
 require 'luadraw_polyhedrons'
 
-local z0 = -3
+local z0    = -3
+local light = M(-5, -5, 3.5)
 
-local graphview = graph3d:new{
-  window3d = {-5, 8, -5, 8, z0, 5},
-  adjust2d = true,
-  bbox     = false,
-  viewdir  = perspective("yz", 0.35, 60),
-  bg       = "Beige",
-  size     = {10, 10}
-}
-
-local light  = M(-5, -5, 3.5)
 local center = M(-1, -1, -1)
 
 local proj = function(A)
@@ -55,21 +36,32 @@ local proj = function(A)
   )
 end
 
-local C = cube(center, M(-1, -1, z0))   -- TEMP: bug in version 2.3
+local C = cube(center, M(-1, -1, z0))
 
-local shadow, beam, beamVisible, beamHidden
+local shadow
+local beam, beamVisible, beamHidden
 
 local theta = linspace(0, 360, nbimages + 1)
 
-for k = 1, nbimages do
-  C_rotated = rotate3d(
+function makeframe(k)local
+  graphview = graph3d:new{
+    window3d = {-5, 8, -5, 7, z0, 5},
+    adjust2d = true,
+    bbox     = false,
+    viewdir  = perspective("yz", 0.35, 60),
+    size     = {10, 10}
+  }
+
+  graphview:Linewidth(12)
+
+  C_rot = rotate3d(
     C,
     theta[k],
     {M(-1, -1, z0), vecK}
   )
 
   shadow = cvx_hull3d(
-    ftransform3d(C_rotated.vertices, proj)
+    ftransform3d(C_rot.vertices, proj)
   )[1]
 
   if not graphview:Isvisible(shadow) then
@@ -108,7 +100,7 @@ for k = 1, nbimages do
   )
 
   graphview:Dpoly(
-    C_rotated,
+    C_rot,
     {
       color = "cyan",
       mode  = mShadedHidden
@@ -116,32 +108,32 @@ for k = 1, nbimages do
   )
 
   graphview:Dfacet(
-    beamVisible, {
+    beamVisible,
+    {
       color   = "yellow",
       opacity = 0.4,
       mode    = mShadedOnly
     }
   )
 
-  graphview:Savetofile(basename .. k .. ".tkz")
-
+  graphview:Sendtotex()
   graphview:Cleargraph()
 end
-\end{luadraw}
+\end{luacode*}
 
 \def\nb{\directlua{tex.print(nbimages)}}
-\def\name{\directlua{tex.print(basename)}}
+\def\makeframe#1{\directlua{makeframe(#1)}}%
 
 \begin{document}
 
 \begin{animateinline}[
-    poster = first,
-    controls,
-    loop
+  poster = first,
+  controls,
+  loop
 ]{6}
-    \multiframe{\nb}{ik = 1+1}{%
-        \input{\name\ik.tkz}%
-    }%
+    \multiframe{\nb}{ik = 1+1}{
+        \makeframe{\ik}
+    }
 \end{animateinline}
 
 \end{document}

@@ -1,6 +1,6 @@
-======
-XXXX
-======
+=============================
+Vue arborescente d'un dossier
+=============================
 
 content::
-    ./via-forest/\desc                     ??????
+    ./icons/\desc                     ??????

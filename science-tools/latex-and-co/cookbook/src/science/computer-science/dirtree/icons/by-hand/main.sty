@@ -1,9 +1,7 @@
 % https://tex.stackexchange.com/a/755230/6880
 
-
-\documentclass[border=10pt,tikz]{standalone}
-
 \usepackage[edges]{forest}
+
 \usepackage{fontawesome5}
 
 \definecolor{foldercolor}{RGB}{124,166,198}
@@ -52,44 +50,3 @@
     fa={orange!80}{\faFileArchive},
   },
 }
-
-\begin{document}
-\begin{forest}
-  fa dir tree
-  [system, open
-    [config, closed
-      [settings.conf, textfile]
-      [database.yml, codefile]
-    ]
-    [doc, open
-      [manual.pdf, pdffile]
-      [README.md, textfile]
-      [images, closed
-        [logo.png, imagefile]
-        [banner.jpg, imagefile]
-      ]
-    ]
-    [lib, closed
-      [utils.py, codefile]
-      [helpers.js, codefile]
-      [archive.zip, archivefile]
-    ]
-    [test, open
-      [test\_unit.py, codefile]
-      [test\_integration.py, codefile]
-      [fixtures, closed
-        [data.json, file]
-      ]
-    ]
-  ]
-\end{forest}
-\begin{forest}
-  fa dir tree
-  [system, open
-    [config, closed]
-    [Dog, closed]
-    [lib, closed]
-    [test, closed]
-  ]
-\end{forest}
-\end{document}
