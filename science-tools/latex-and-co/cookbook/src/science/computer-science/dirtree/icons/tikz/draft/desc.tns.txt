@@ -1,0 +1,9 @@
+this::
+    date = 2025-11-23
+
+
+==============
+Tout à la main
+==============
+
+Commençons comme il se doit par tout taper, quitte à faire quelques copeir-coller excessifs.

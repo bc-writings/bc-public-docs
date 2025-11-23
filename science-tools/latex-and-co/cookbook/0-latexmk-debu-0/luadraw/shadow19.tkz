@@ -31,8 +31,8 @@
 \pgfsetfillcolor{black}%
 \pgfsetroundcap%
 \pgfsetdash{{0pt}{3pt}}{0pt}%
-\draw[] (6.0185,5.9868) -- (7.334,7.5816) -- (7.6396,8.2987);%
-\draw[] (8.9552,6.2936) -- (7.334,7.5816);%
+\draw[] (8.9552,6.2936) -- (7.334,7.5816) -- (7.6396,8.2987);%
+\draw[] (6.0185,5.9868) -- (7.334,7.5816);%
 \pgfsetbuttcap%
 \pgfsetdash{}{0pt}%
 \pgfsetfillopacity{0.4}%

@@ -1,15 +1,19 @@
 this::
-    date = 2025-11-23  ?????
+    date = 2025-11-23
 
 
 ===============
 Avec des icones
 ===============
 
-ZZZ
+Notre objectif est de produire aisément une vue arborescente de dossiers comme la suivante.
 
+pdf::
+    ---
+    file = ./l3draw/main.pdf
+    ---
 
 
 content::
-    ./by-hand/\desc        ??????
-    ./facto/\desc          ???
+    ./tikz/\desc           ??????
+//    ./l3draw/\desc          ???

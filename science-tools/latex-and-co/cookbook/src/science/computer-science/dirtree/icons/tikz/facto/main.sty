@@ -42,3 +42,12 @@
   imagefile/.fa={blue!70}{\faFileImage},
   archivefile/.fa={orange!80}{\faFileArchive},
 }
+
+
+
+\NewDocumentEnvironment{dirtree}{b}{
+\begin{forest}
+  fa dir tree
+  #1
+\end{forest}
+}{}

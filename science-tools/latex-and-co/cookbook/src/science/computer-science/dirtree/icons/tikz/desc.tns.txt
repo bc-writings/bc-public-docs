@@ -1,0 +1,14 @@
+this::
+    date = 2025-11-23
+
+
+========================
+En faisant appel à \tikz
+========================
+
+Via \tikz, il est aisé d'obtenir un rendu de qualité sans passser via un code abscons. Nous allons procéder en deux étapes.
+
+
+content::
+    ./draft/\desc        ??????
+    ./facto/\desc          ???
