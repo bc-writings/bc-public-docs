@@ -1,0 +1,95 @@
+% https://tex.stackexchange.com/a/755230/6880
+
+
+\documentclass[border=10pt,tikz]{standalone}
+
+\usepackage[edges]{forest}
+\usepackage{fontawesome5}
+
+\definecolor{foldercolor}{RGB}{124,166,198}
+\definecolor{filecolor}{RGB}{88,88,88}
+
+\forestset{
+  fa dir tree/.style={
+    for tree={
+      font         = \sffamily,
+      folder,
+      grow'        = 0,
+      inner ysep   = 1pt,
+      inner xsep   = 1.75pt,
+    },
+  },
+  fa/.style 2 args={
+    before typesetting nodes={
+      content/.process={Ow{content}{
+          \textcolor{#1}{#2}\ ##1
+        }%
+      },
+    },
+  },
+  open/.style={
+    fa={foldercolor}{\faFolderOpen},
+  },
+  closed/.style={
+    fa={foldercolor}{\faFolder},
+  },
+  file/.style={
+    fa={filecolor}{\faFile},
+  },
+  codefile/.style={
+    fa={filecolor}{\faFile},
+  },
+  pdffile/.style={
+    fa={red!70}{\faFilePdf},
+  },
+  textfile/.style={
+    fa={filecolor}{\faFile*},
+  },
+  imagefile/.style={
+    fa={blue!70}{\faFileImage},
+  },
+  archivefile/.style={
+    fa={orange!80}{\faFileArchive},
+  },
+}
+
+\begin{document}
+\begin{forest}
+  fa dir tree
+  [system, open
+    [config, closed
+      [settings.conf, textfile]
+      [database.yml, codefile]
+    ]
+    [doc, open
+      [manual.pdf, pdffile]
+      [README.md, textfile]
+      [images, closed
+        [logo.png, imagefile]
+        [banner.jpg, imagefile]
+      ]
+    ]
+    [lib, closed
+      [utils.py, codefile]
+      [helpers.js, codefile]
+      [archive.zip, archivefile]
+    ]
+    [test, open
+      [test\_unit.py, codefile]
+      [test\_integration.py, codefile]
+      [fixtures, closed
+        [data.json, file]
+      ]
+    ]
+  ]
+\end{forest}
+\begin{forest}
+  fa dir tree
+  [system, open
+    [config, closed]
+    [Dog, closed]
+    [lib, closed]
+    [test, closed]
+  ]
+\end{forest}
+\end{document}

@@ -1,0 +1,71 @@
+%%%
+% src::
+%     url = https://tex.stackexchange.com/a/754942/6880
+%%%
+
+\usepackage[edges]{forest}
+
+\definecolor{folderbg}{RGB}{124,166,198}
+\definecolor{folderborder}{RGB}{110,144,169}
+
+\newlength\rootxshift
+\setlength\rootxshift{4pt}
+
+\newlength\rootyshift
+\setlength\rootyshift{4pt}
+
+\tikzset{%
+  folder/.pic={%
+    \filldraw[draw=folderborder, top color=folderbg!50, bottom color=folderbg] (-1.05*\rootxshift,0.2\rootxshift+5pt) rectangle ++(.75*\rootxshift,-0.2\rootxshift-5pt);
+    \filldraw [draw=folderborder, top color=folderbg!50, bottom color=folderbg] (-1.15*\rootxshift,-\rootxshift) rectangle (1.15*\rootxshift,\rootxshift);
+  },
+  file/.pic={%
+    \filldraw [draw=folderborder, top color=folderbg!5, bottom color=folderbg!10] (-\rootxshift,.4*\rootxshift+5pt) coordinate (a) |- (\rootxshift,-1.2*\rootxshift) coordinate (b) -- ++(0,1.6*\rootxshift) coordinate (c) -- ++(-5pt,5pt) coordinate (d) -- cycle (d) |- (c) ;
+  },
+}
+
+\forestset{%
+  declare autowrapped toks={pic me}{},
+  declare boolean register={pic root},
+  pic root=0,
+  pic dir tree/.style={%
+    for tree={%
+      folder,
+      font=\ttfamily,
+      grow'=0,
+    },
+    before typesetting nodes={%
+      for tree={%
+        edge label+/.option={pic me},
+      },
+      if pic root={
+        tikz+={
+          \pic at ([xshift=\rootxshift, yshift=-\rootxshift].west) {folder};
+        },
+        align={l}
+      }{},
+    },
+  },
+  pic me set/.code n args=2{%
+    \forestset{%
+      #1/.style={%
+        inner xsep=2\rootxshift,
+        pic me={pic {#2}},
+      }
+    }
+  },
+  pic me set={directory}{folder},
+  pic me set={file}{file},
+}
+
+
+\NewDocumentEnvironment{dirtree}{b}{
+\begin{forest}
+  pic dir tree,
+  pic root,
+  for tree={% folder icons by default; override using file for file icons
+    directory,
+  },
+  #1
+\end{forest}
+}{}
