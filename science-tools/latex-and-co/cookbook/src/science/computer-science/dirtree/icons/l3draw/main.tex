@@ -1,0 +1,20 @@
+\documentclass{article}
+
+\usepackage{main}
+
+\begin{document}
+
+\drawpath{
+  \drawpathdir{\faFolderOpen}{system}{
+    \drawpathdir*{\faFolderOpen}{foo}{
+      \drawpathdir{\faFolderOpen}{bar}{
+        \drawpathfile{\faFile}{baz1}
+        \drawpathfile{\faFile}{baz2}
+      }
+    }
+    \drawpathfile[red!70]{\faFilePdf}{file.pdf}
+    \drawpathdir*{\faFolder}{file.pdf}
+  }
+}
+
+\end{document}
