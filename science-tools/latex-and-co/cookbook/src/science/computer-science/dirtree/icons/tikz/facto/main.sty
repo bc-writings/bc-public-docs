@@ -30,10 +30,9 @@
     },
   },
 %%%
-% XXXX
+% Ce qui suit simplifie la saisie.
 %%%
   /handlers/.fa/.code 2 args = {%
-    \edef\projetmbctemptpath{\pgfkeyscurrentpath}%
     \pgfkeys{%
       \pgfkeyscurrentpath/.style = {%
         fa = {#1}{#2},
@@ -42,12 +41,12 @@
   },
   open/.fa        = {foldercolor}{\faFolderOpen},
   closed/.fa      = {foldercolor}{\faFolder},
-  file/.fa        = {filecolor}{\faFile},
-  codefile/.fa    = {filecolor}{\faFile},
-  pdffile/.fa     = {red!70}{\faFilePdf},
-  textfile/.fa    = {filecolor}{\faFile*},
-  imagefile/.fa   = {blue!70}{\faFileImage},
-  archivefile/.fa = {orange!80}{\faFileArchive},
+  file/.fa        = {filecolor}  {\faFile},
+  codefile/.fa    = {filecolor}  {\faFile},
+  pdffile/.fa     = {red!70}     {\faFilePdf},
+  textfile/.fa    = {filecolor}  {\faFile*},
+  imagefile/.fa   = {blue!70}    {\faFileImage},
+  archivefile/.fa = {orange!80}  {\faFileArchive},
 }
 
 \NewDocumentEnvironment{dirtree}{b}{

@@ -15,5 +15,5 @@ pdf::
 
 
 content::
-    ./tikz/\desc           ??????
+    ./tikz/\desc
 //    ./l3draw/\desc          ???

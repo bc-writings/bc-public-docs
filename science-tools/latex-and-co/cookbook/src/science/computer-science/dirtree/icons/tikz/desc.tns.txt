@@ -10,5 +10,5 @@ Via \tikz, il est aisé d'obtenir un rendu de qualité sans passser via un code 
 
 
 content::
-    ./draft/\desc        ??????
-    ./facto/\desc          ???
+    ./draft/\desc
+    ./facto/\desc

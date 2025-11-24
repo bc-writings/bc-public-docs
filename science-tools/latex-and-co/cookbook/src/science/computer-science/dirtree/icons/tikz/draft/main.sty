@@ -4,23 +4,26 @@
 %%%
 
 %%%
-% XXXX
+% La \pack \forest simplifie la saisie d'arbres de différents
+% types. L'option ''edges'' donne accès au style ''folder''
+% pour générer des vues arborescentes de type "dossier".
 %%%
 \usepackage[edges]{forest}
 
 %%%
-% XXXX
+% Utilisons les icones du \proj \fontawesome (version 5).
 %%%
 \usepackage{fontawesome5}
 
 %%%
-% XXXX
+% Un peu de couleurs...
 %%%
 \definecolor{foldercolor}{RGB}{124,166,198}
 \definecolor{filecolor}{RGB}{88,88,88}
 
 %%%
-% XXXX
+% Commençons par le style donnant la vue arborescente où
+% ''grow' = 0'' sert à développer la vue vers le bas.
 %%%
 \forestset{
   fa dir tree/.style = {
@@ -33,10 +36,16 @@
     },
   },
 %%%
-% XXXX
+% \Def d'un style paramétré.
 %%%
   fa/.style 2 args = {
     before typesetting nodes = {
+%%%
+% \Def d'une action optionnelle, d'où le ''O'' dans ''Ow''.
+% Ceci sert à appliquer une macro sur le contenu du noeud
+% via un encapsulage, on parle de "wrapping" en anglais,
+% d'où le ''w'' dans ''Ow''.
+%%%
       content/.process = {
         Ow{content}{
           \textcolor{#1}{#2}\ ##1
@@ -44,6 +53,9 @@
       },
     },
   },
+%%%
+% Usage répété du style paramétré.
+%%%
   open/.style = {
     fa = {foldercolor}{\faFolderOpen},
   },
@@ -71,7 +83,7 @@
 }
 
 %%%
-% XXXX
+% L'\env suivant est simple à comprendre et à utiliser.
 %%%
 \NewDocumentEnvironment{dirtree}{b}{
   \begin{forest}
