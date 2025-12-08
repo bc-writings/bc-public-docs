@@ -1,12 +1,12 @@
 this::
-    date = 2025-11-23
+    date = 2025-12-08
 
 
 ===============
 Avec des icones
 ===============
 
-Notre objectif est de produire aisément une vue arborescente de dossiers comme la suivante.
+Notre objectif est de produire aisément une vue arborescente de dossiers comme la suivante qui est parfaite pour un \pdf à lire sur un écran.
 
 pdf::
     ---
