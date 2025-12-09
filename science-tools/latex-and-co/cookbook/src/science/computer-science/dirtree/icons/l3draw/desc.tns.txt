@@ -1,13 +1,14 @@
 this::
-    date = 2025-12-09    ????
+    date = 2025-12-09
 
 
 ===========
 Via \l3draw
 ===========
 
-????
+Nosu allons employer le package \l3draw qui permet la création de graphiques vectoriels via le paradigme de \prog \l3.
 
 
-l3draw est une interface de programmation pour créer des graphiques
-vectoriels en LaTeX3, similaire à TikZ mais avec une syntaxe LaTeX3.
+content::
+    ./draft/\desc    ??????
+    ./final/\desc    ???

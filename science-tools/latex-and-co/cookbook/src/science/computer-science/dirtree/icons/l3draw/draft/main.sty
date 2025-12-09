@@ -19,20 +19,22 @@
 %%%
 % XXXX
 %%%
-\int_new:N \g_cookbook_dirtree_step_int
-\int_new:N \l_cookbook_dirtree_level_int
-\clist_new:N \l_cookbook_dirtree_skip_level_clist
-\bool_new:N \l_cookbook_dirtree_first_item_bool
+\int_new:N    \g_cookbook_dirtree_step_int
+\int_new:N    \l_cookbook_dirtree_level_int
+\clist_new:N  \l_cookbook_dirtree_skip_level_clist
+\bool_new:N   \l_cookbook_dirtree_first_item_bool
 \coffin_new:N \l_cookbook_dirtree_icon_coffin
 \coffin_new:N \l_cookbook_dirtree_name_coffin
 
 %%%
 % XXXX
 %%%
-\NewDocumentCommand { \drawpath } { m } {
+\NewDocumentCommand{ \drawpath }{ m }{
   \group_begin:
     \clist_clear:N \l_cookbook_dirtree_skip_level_clist
+
     \int_gzero:N \g_cookbook_dirtree_step_int
+
     \nullfont
     \draw_begin:
       #1
@@ -40,37 +42,51 @@
   \group_end:
 }
 
-\color_set:nnn { foldercolor } { RGB } { 124 , 166 , 198 }
-\color_set:nnn { filecolor } { RGB } { 88 , 88 , 88 }
+\color_set:nnn { foldercolor }{ RGB }{ 124 , 166 , 198 }
+\color_set:nnn { filecolor }{ RGB }{ 88 , 88 , 88 }
 
 %%%
 % XXXX
 %%%
 \cs_new:Npn \cookbookdirtree_item:nnnnn #1#2#3#4#5 {
-  \bool_if:nT {#1} {
-    \clist_put_right:NV \l_cookbook_dirtree_skip_level_clist
+  \bool_if:nT {#1}{
+    \clist_put_right:NV
+      \l_cookbook_dirtree_skip_level_clist
       \l_cookbook_dirtree_level_int
   }
 
-  \hcoffin_set:Nn \l_cookbook_dirtree_icon_coffin { \color_select:n {#2} #3 }
-  \hcoffin_set:Nn \l_cookbook_dirtree_name_coffin { \normalfont #4 }
+  \hcoffin_set:Nn
+    \l_cookbook_dirtree_icon_coffin
+    { \color_select:n {#2} #3 }
 
-  \draw_coffin_use:Nnnn \l_cookbook_dirtree_icon_coffin { hc } { vc } {
-    \l_cookbook_dirtree_level_int * 0.5cm + 0.2cm ,
-    \g_cookbook_dirtree_step_int * \baselineskip
-  }
+  \hcoffin_set:Nn
+    \l_cookbook_dirtree_name_coffin
+    { \normalfont #4 }
 
-  \draw_coffin_use:Nnnn \l_cookbook_dirtree_name_coffin { l } { vc } {
-    \l_cookbook_dirtree_level_int * 0.5cm + 0.5 cm ,
-    \g_cookbook_dirtree_step_int * \baselineskip
-  }
+  \draw_coffin_use:Nnnn
+    \l_cookbook_dirtree_icon_coffin
+    { hc }
+    { vc }
+    {
+      \l_cookbook_dirtree_level_int * 0.5cm + 0.2cm ,
+      \g_cookbook_dirtree_step_int * \baselineskip
+    }
 
-  \int_compare:nNnT { \l_cookbook_dirtree_level_int } > { 0 } {
-    \int_step_inline:nn { \l_cookbook_dirtree_level_int - 1 } {
+  \draw_coffin_use:Nnnn
+    \l_cookbook_dirtree_name_coffin
+    { l }
+    { vc }
+    {
+      \l_cookbook_dirtree_level_int * 0.5cm + 0.5 cm ,
+      \g_cookbook_dirtree_step_int * \baselineskip
+    }
+
+  \int_compare:nNnT { \l_cookbook_dirtree_level_int } > { 0 }{
+    \int_step_inline:nn { \l_cookbook_dirtree_level_int - 1 }{
       \exp_args:NNe
       \clist_if_in:NnF \l_cookbook_dirtree_skip_level_clist {
         \int_eval:n { ##1 - 1 }
-      } {
+      }{
         \draw_path_moveto:n {
           ##1 * 0.5cm - 0.33cm,
           ( \g_cookbook_dirtree_step_int + 1 ) * \baselineskip
@@ -87,7 +103,7 @@
         \l_cookbook_dirtree_level_int * 0.5cm - 0.33cm ,
         ( \g_cookbook_dirtree_step_int + 0.5 ) * \baselineskip
       }
-    } {
+    }{
       \draw_path_moveto:n {
         \l_cookbook_dirtree_level_int * 0.5cm - 0.33cm ,
         ( \g_cookbook_dirtree_step_int + 1 ) * \baselineskip
@@ -120,7 +136,7 @@
 %%%
 % XXXX
 %%%
-\NewDocumentCommand { \drawpathfile } { O { filecolor } m m } {
+\NewDocumentCommand { \drawpathfile }{ O { filecolor } m m }{
   \cookbookdirtree_item:nnnnn
     { \c_false_bool }
     { #1 }
@@ -132,7 +148,7 @@
 %%%
 % XXXX
 %%%
-\NewDocumentCommand { \drawpathdir } { s O { foldercolor } m m m } {
+\NewDocumentCommand { \drawpathdir }{ s O { foldercolor } m m m }{
   \cookbookdirtree_item:nnnnn
     { #1 }
     { #2 }

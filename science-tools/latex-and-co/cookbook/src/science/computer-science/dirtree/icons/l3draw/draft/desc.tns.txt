@@ -1,0 +1,9 @@
+this::
+    date = 2025-12-09
+
+
+==========================
+Les mains dans le cambouis
+==========================
+
+Cette \1ERE version permet de découvrir les fonctionnalités de \l3draw sans chercher à proposer une \api efficace à l'emploi.
