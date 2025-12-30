@@ -32,8 +32,7 @@
 \NewDocumentCommand{ \drawpath }{ m }{
   \group_begin:
     \clist_clear:N \l_cookbook_dirtree_skip_level_clist
-
-    \int_gzero:N \g_cookbook_dirtree_step_int
+    \int_gzero:N   \g_cookbook_dirtree_step_int
 
     \nullfont
     \draw_begin:
@@ -44,6 +43,31 @@
 
 \color_set:nnn { foldercolor }{ RGB }{ 124 , 166 , 198 }
 \color_set:nnn { filecolor }{ RGB }{ 88 , 88 , 88 }
+
+%%%
+% XXXX
+%%%
+\NewDocumentCommand { \drawpathfile }{ O { filecolor } m m }{
+  \cookbookdirtree_item:nnnnn
+    { \c_false_bool }
+    { #1 }
+    { #2 }
+    { #3 }
+    { }
+}
+
+%%%
+% XXXX
+%%%
+\NewDocumentCommand { \drawpathdir }{ s O { foldercolor } m m m }{
+  \cookbookdirtree_item:nnnnn
+    { #1 }
+    { #2 }
+    { #3 }
+    { #4 }
+    { #5 }
+}
+
 
 %%%
 % XXXX
@@ -131,30 +155,6 @@
     \int_incr:N \l_cookbook_dirtree_level_int
     #5
   \group_end:
-}
-
-%%%
-% XXXX
-%%%
-\NewDocumentCommand { \drawpathfile }{ O { filecolor } m m }{
-  \cookbookdirtree_item:nnnnn
-    { \c_false_bool }
-    { #1 }
-    { #2 }
-    { #3 }
-    { }
-}
-
-%%%
-% XXXX
-%%%
-\NewDocumentCommand { \drawpathdir }{ s O { foldercolor } m m m }{
-  \cookbookdirtree_item:nnnnn
-    { #1 }
-    { #2 }
-    { #3 }
-    { #4 }
-    { #5 }
 }
 
 \ExplSyntaxOff
