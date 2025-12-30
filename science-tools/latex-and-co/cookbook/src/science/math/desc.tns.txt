@@ -7,6 +7,6 @@ content::
     ./arithmetic/\desc
     ./combinatorics/\desc
     ./analysis/\desc
-    ./algebra/\desc            ????
+    ./algebra/\desc
     ./set-theory/\desc
     ./general/\desc

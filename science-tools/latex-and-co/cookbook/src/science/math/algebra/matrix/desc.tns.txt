@@ -4,3 +4,4 @@ Matrices
 
 content::
     ./vertical-dash-line/\desc
+    ./adjacency-matrix/\desc
