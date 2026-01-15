@@ -34,15 +34,10 @@ fi
 # --------------------- #
 
 function nocompile {
-  local file="$1"
-
-  echo "ERROR - Compilation failed for: $file" >&2
-
-  xdg-open "$file" 2>/dev/null || open "$file" 2>/dev/null || echo "Cannot open $file"
+  open "$1"
 
   exit 1
 }
-
 
 cd "$TARGET"
 
