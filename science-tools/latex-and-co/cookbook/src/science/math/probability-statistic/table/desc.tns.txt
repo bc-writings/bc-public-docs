@@ -1,8 +1,6 @@
-==============
-\Diags de Venn
-==============
+==========================
+Des données dans des \tabs
+==========================
 
 content::
-    ./complementary/\desc
-    ./2-sets/\desc
-    ./3-sets/\desc
+    ./*/\desc

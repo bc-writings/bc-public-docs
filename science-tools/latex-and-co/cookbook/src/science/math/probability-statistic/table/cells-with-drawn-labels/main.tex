@@ -14,41 +14,49 @@
 \usepackage{nicematrix}
 
 %%%
-% ''tikz'' nous donne le moyen de décorer un tableau obtenu
-% via ''nicematrix''.
+% ''tikz'' est utilisé pour décorer un tableau obtenu via
+% ''nicematrix''.
 %%%
 \usepackage{tikz}
 
+
 \ExplSyntaxOn
+
 \cs_new_protected:Nn \_cookbook_draw_angle:nnn {
-  \begin{tikzpicture}
-    \draw ([xshift=-5.5mm]#1-|#2) |- ([yshift=-4mm]#1-|#2) ;
-    \node at ([xshift=-2.75mm,yshift=-2mm]#1-|#2) { \small #3 } ;
+  \begin{tikzpicture}[color = red]
+    \draw ([xshift = -5.5mm]#1-|#2) 
+       |- ([yshift = -4mm]#1-|#2) ;
+    \node at ([xshift = -2.75mm, yshift = -2mm]#1-|#2) { \small #3 } ;
   \end{tikzpicture}
 }
 
-\NewDocumentCommand{\Cell}{mm}
-  {
-    #1
-    \tl_gput_right:Ne \g_nicematrix_code_after_tl
-      {
-        \_cookbook_draw_angle:nnn
-          { \arabic{iRow} }
-          { \inteval { \arabic{jCol} + 1 } }
-          { #2 }
-      }
+\NewDocumentCommand{ \Cell }{ m m }{
+  #1
+  \tl_gput_right:Ne \g_nicematrix_code_after_tl {
+    \_cookbook_draw_angle:nnn
+      { \arabic{iRow} }
+      { \inteval { \arabic{jCol} + 1 } }
+      { #2 }
   }
+}
 \ExplSyntaxOff
+
 
 \begin{document}
 
 \renewcommand{\arraystretch}{2}
+
 $\begin{NiceArray}{c*{4}{w{c}{1.5cm}}c}[hvlines]
-\diagbox{\downarrow\emph{From}}{\emph{To}\to}& P & Q & R & S & \text{\emph{Supply}} \\
-A & \Cell{12}{180} & \Cell{10}{150} & \Cell{12}{170} & 13 & 500 \\
-B & 7 & 11 & \Cell{8}{180} & \Cell{14}{120} & 300 \\
-C & 6 & 16 & 11 & \Cell{7}{200} & 200 \\
-\text{Demand} & 180 & 150 & 350 & 320 & 1000
+    \diagbox{\downarrow\emph{De}}{\emph{Vers}\to}
+        & P              & Q              & R              & S  & \text{\emph{Ressource}} \\
+    A
+        & \Cell{12}{180} & \Cell{10}{150} & \Cell{12}{170} & 13             & 500        \\
+    B
+        & 7              & 11             & \Cell{8}{180}  & \Cell{14}{120} & 300        \\
+    C
+        & 6              & 16             & 11             & \Cell{7}{200}  & 200        \\
+    \text{Demande}
+        & 180            & 150            & 350            & 320            & 1000
 \end{NiceArray}$
 
 \end{document}
