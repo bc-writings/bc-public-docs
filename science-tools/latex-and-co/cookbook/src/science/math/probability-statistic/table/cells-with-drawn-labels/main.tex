@@ -32,7 +32,7 @@
 
 \NewDocumentCommand{ \Cell }{ m m }{
   #1
-  \tl_gput_right:Ne \g_nicematrix_code_after_tl {
+  \tl_gput_right:Ne \g_nicematrix_code_before_tl {
     \_cookbook_draw_angle:nnn
       { \arabic{iRow} }
       { \inteval { \arabic{jCol} + 1 } }
