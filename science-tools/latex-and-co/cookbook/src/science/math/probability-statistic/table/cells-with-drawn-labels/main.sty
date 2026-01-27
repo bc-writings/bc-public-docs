@@ -1,0 +1,62 @@
+%%%
+% src::
+%   url = https://tex.stackexchange.com/a/583666
+%%%
+
+%%%
+% ''nicematrix'' nous fournit des tableaux en construisant
+% en coulisse des noeuds reconnus par \tikz.
+%%%
+\usepackage{nicematrix}
+
+%%%
+% ''tikz'' est utilisé pour décorer un tableau obtenu via
+% ''nicematrix''.
+%%%
+\usepackage{tikz}
+
+
+\ExplSyntaxOn
+
+%%%
+% prototype::
+%     #1 : contenu de la cellule.
+%     #2 : contenu de l'étiquette tracée en plus.
+%
+%     :action: ajout du contenu \std de la cellule, et mise
+%              en pré-code du tracé de l'étiquette.
+%%%
+\NewDocumentCommand{ \Cell }{ m m }{
+  #1
+%%%
+% Les mécanismes internes de ''nicematrix'' sont exploités
+% pour injecter du code avant le rendu du tableau.
+% Cela permet de placer le tracé rouge en arrière-plan,
+% sous les filets noirs de la structure principale.
+%%%
+  \tl_gput_right:Ne \g_nicematrix_code_before_tl {
+    \_cookbook_draw_angle:nnn
+      { \arabic{ iRow } }
+      { \inteval{ \arabic{jCol} + 1 } }
+      { #2 }
+  }
+}
+
+
+%%%
+% prototype::
+%     #1 : \num de la ligne haute de la cellule à "étiqueter".
+%     #2 : \num de la \col droite de la cellule à "étiqueter".
+%     #3 : contenu de l'étiquette tracée.
+%
+%     :action: tracé d'une étiquette dans le coin supérieur
+%              droit d'une cellule.
+%%%
+\cs_new_protected:Nn \_cookbook_draw_angle:nnn {
+  \begin{tikzpicture}[color = red]
+    \draw ([xshift = -5.5mm] #1-|#2)
+       |- ([yshift = -4mm]   #1-|#2) ;
+    \node at ([xshift = -2.75mm, yshift = -2mm]#1-|#2) { \small #3 } ;
+  \end{tikzpicture}
+}
+\ExplSyntaxOff

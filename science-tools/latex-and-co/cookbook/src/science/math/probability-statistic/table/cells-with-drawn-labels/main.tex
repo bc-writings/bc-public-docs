@@ -1,46 +1,6 @@
-% !TEX TS-program = lualatex
-
-%%%
-% src::
-%   url = https://tex.stackexchange.com/a/583666
-%%%
-
 \documentclass[border = 3pt]{standalone}
 
-%%%
-% ''nicematrix'' nous fournit des tableaux en construisant
-% en coulisse des noeuds reconnus par \tikz.
-%%%
-\usepackage{nicematrix}
-
-%%%
-% ''tikz'' est utilisé pour décorer un tableau obtenu via
-% ''nicematrix''.
-%%%
-\usepackage{tikz}
-
-
-\ExplSyntaxOn
-
-\cs_new_protected:Nn \_cookbook_draw_angle:nnn {
-  \begin{tikzpicture}[color = red]
-    \draw ([xshift = -5.5mm]#1-|#2) 
-       |- ([yshift = -4mm]#1-|#2) ;
-    \node at ([xshift = -2.75mm, yshift = -2mm]#1-|#2) { \small #3 } ;
-  \end{tikzpicture}
-}
-
-\NewDocumentCommand{ \Cell }{ m m }{
-  #1
-  \tl_gput_right:Ne \g_nicematrix_code_before_tl {
-    \_cookbook_draw_angle:nnn
-      { \arabic{iRow} }
-      { \inteval { \arabic{jCol} + 1 } }
-      { #2 }
-  }
-}
-\ExplSyntaxOff
-
+\usepackage{main}
 
 \begin{document}
 
