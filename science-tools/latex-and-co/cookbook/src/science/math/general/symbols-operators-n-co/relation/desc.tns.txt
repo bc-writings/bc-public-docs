@@ -1,7 +1,0 @@
-=====================
-Choisir ses relations
-=====================
-
-content::
-    ./superimpose/\desc
-    ./tikz-rel/\desc

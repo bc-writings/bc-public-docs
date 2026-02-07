@@ -1,0 +1,135 @@
+%%%
+% src::
+%     urls = https://tex.stackexchange.com/a/759365
+%%%
+
+%%%
+% Le \pack ''l3draw'' est l'outil de dessin utilisé dans cette
+% recette.
+%%%
+\usepackage{l3draw}
+
+%%%
+% Le \pack ''amsmath'' fournit la macro ''\mspaces'' qui set à
+% définir des espacements personnalisés en unités mathématiques
+% (mu).
+%%%
+\usepackage{amsmath}
+
+
+\ExplSyntaxOn
+
+\box_new:N \l__azetina_math_plus_box
+\box_new:N \l__azetina_math_cplus_box
+
+\dim_new:N \l__azetina_math_plus_width_dim
+
+\fp_new:N \l__azetina_cplus_fp
+
+\cs_new_protected:Nn \azetina_cplus:n {
+%%%   ???
+% Dans une macro complexe (comme une flèche extensible ou un symbole construit), on ne veut pas de cet espace parasite à l'intérieur de l'objet, sinon le symbole paraîtrait "cassé" ou décalé.
+%%%
+  \hbox_set:Nn \l__azetina_math_plus_box {
+    $\m@th#1 + $
+  }
+
+  \dim_set:Nn \l__azetina_math_plus_width_dim {
+    \box_ht:N \l__azetina_math_plus_box + \box_dp:N \l__azetina_math_plus_box
+  }
+
+  \draw_begin:
+    \draw_set_linewidth:n { \l__azetina_cplus_fp }
+
+%%%    ????
+%     \draw_set_cap_round: : Définit la finition des extrémités des lignes. Avec "round", le bout de ton trait ne sera pas carré (tronqué), mais arrondi. C'est très utile pour que les traits épais ne paraissent pas trop abrupts.
+%     \draw_set_join_round: : Définit la manière dont deux lignes se rejoignent (les angles). Avec "round", l'angle saillant entre deux segments sera arrondi au lieu d'être pointu ou plat.
+%%%
+    \draw_set_cap_round:
+    \draw_set_join_round:
+
+    \draw_path_moveto:n {
+      0.5 \l__azetina_math_plus_width_dim ,
+      0.0 \l__azetina_math_plus_width_dim
+    }
+
+    \draw_path_lineto:n {
+      0.5 \l__azetina_math_plus_width_dim ,
+      1.0 \l__azetina_math_plus_width_dim
+    }
+
+%%%   ?????
+%     stroke (L'action) : Elle demande au moteur de tracer réellement le contour du chemin que tu as défini précédemment. Sans cela, ton chemin reste une "ligne invisible" dans la mémoire de l'ordinateur.
+%     clear (Le nettoyage) : Une fois le tracé effectué, elle efface le chemin de la mémoire. Si tu dessines une autre ligne après, elle ne repartira pas de l'ancien chemin.
+%%%
+    \draw_path_use_clear:n { stroke }
+
+    \draw_path_moveto:n {
+      0.0 \l__azetina_math_plus_width_dim ,
+      0.5 \l__azetina_math_plus_width_dim
+    }
+
+    \draw_path_lineto:n {
+      1.0 \l__azetina_math_plus_width_dim ,
+      0.5 \l__azetina_math_plus_width_dim
+    }
+
+    \draw_path_use_clear:n { stroke }
+
+    \draw_path_circle:nn {
+      0.5 \l__azetina_math_plus_width_dim ,
+      0.5 \l__azetina_math_plus_width_dim
+    }{
+      0.25 \l__azetina_math_plus_width_dim
+    }
+
+    \draw_path_use_clear:n { stroke }
+  \draw_end:
+}
+
+\cs_new_protected:Npn \explcplusimpl #1#2 {
+  \fp_set:Nn \l__azetina_cplus_fp { 0.08 ex }
+
+  \hbox_set:Nn \l__azetina_math_cplus_box {
+    $\mspace{1mu}$ \azetina_cplus:n {#1} $\mspace{1mu}$
+  }
+
+  \vcenter { \box_use:N \l__azetina_math_cplus_box }
+}
+
+
+%%%   ????
+% Décomposons cette structure complexe :
+% 1. \mathbin{...}
+
+% Cette commande définit la nature mathématique de ce qui est à l'intérieur.
+
+%     Action : Elle dit à LaTeX : "Traite cet objet comme un opérateur binaire" (comme un + ou un ×).
+
+%     Conséquence : LaTeX ajoutera automatiquement les bons espaces typographiques autour du symbole (un medium space \:) pour qu'il ne soit pas collé aux opérandes.
+
+% 2. \mathpalette
+
+% C'est l'outil de "caméléon" de TeX.
+
+%     Le problème : Un symbole n'a pas la même taille s'il est au milieu d'une ligne (x+y), en indice (xa+b​), ou en indice d'indice (xya+b​​).
+
+%     La solution : \mathpalette regarde dans quel contexte le symbole est utilisé et transmet cette information (le style courant) à la macro suivante.
+
+% 3. \explcplusimpl
+
+% C'est le nom de la macro (probablement définie dans ton code avec \ExplSyntaxOn) qui contient le dessin ou la définition réelle de ton symbole.
+
+%     Elle reçoit généralement deux arguments : le style (transmis par \mathpalette) et l'argument suivant (\relax ici).
+
+%     Le préfixe expl suggère que c'est une implémentation liée à LaTeX3.
+
+% 4. \relax
+
+% Ici, il sert d'argument "vide" ou "neutre" passé à la macro \explcplusimpl. On l'utilise souvent comme marqueur de fin ou quand la macro n'a pas besoin de données supplémentaires pour fonctionner.
+%%%
+\NewDocumentCommand{\explcplus}{}{
+  \mathbin{\mathpalette\explcplusimpl\relax}
+}
+
+\ExplSyntaxOff

@@ -3,29 +3,25 @@
 \usepackage{main}
 
 %%%
-% Le chargement suivant est nécessaire pour un bon rendu du tableau
-% testant les styles.
-%%%
-\usepackage{amsmath}
-
-%%%
 % Pour simplifier la rédaction des tests.
 %%%
 \newcommand{\test}%
-           {A \mysymb B}
+           {A + B \explcplus C^{+}_{\explcplus}}
 
 \newcommand{\verbtest}%
-           {A \mathmacro{mysymb} B}
+           {A + B \mathmacro{explcplus} C\char94\{+\}\char95\{\mathmacro{explcplus}\}}
+
 
 \NewDocumentCommand{\mathmacro}{m}%
                    {\;\backslash#1\;}
+
 
 \newcommand{\testmathstyle}{
   \[
     \renewcommand{\arraystretch}{1.2}%
     \begin{array}{lll}
         \textbf{Style}
-      & \mathtt{\verbtest}
+      & {\verbtest}
       \\ \hline
         \mathtt{\backslash displaystyle}
       & \displaystyle \test

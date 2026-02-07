@@ -1,8 +1,0 @@
-====================
-Choisir ses symboles
-====================
-
-content::
-    ./superimpose/\desc
-    ./handmade/\desc
-    ./font-extracted/\desc

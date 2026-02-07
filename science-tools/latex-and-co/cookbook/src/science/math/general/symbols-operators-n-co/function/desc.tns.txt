@@ -1,7 +1,6 @@
 ======================
-De nouveaux opérateurs
+De nouvelles fonctions
 ======================
 
 content::
-    ./std/\desc
-    ./big/\desc
+    ./text-vs-math/\desc

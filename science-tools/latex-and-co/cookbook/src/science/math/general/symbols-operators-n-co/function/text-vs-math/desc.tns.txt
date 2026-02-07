@@ -1,10 +1,10 @@
 this::
-    date = 2025-07-03
+    date = 2026-02-07
 
 
-============================================================
-Une fonction pour les \maths, mais un acronyme pour le texte
-============================================================
+=======================================================
+Une fonction pour les \maths, un acronyme pour le texte
+=======================================================
 
 Nous allons voir comment faire en sorte de créer des macros comme ''\pgcd'' qui donne "\pgcd" en mode textuel, et `pgcd` en mode \math.
 La \sol proposée permet de créer une simple \fonc, ou un opératuer de type ''\sum''.

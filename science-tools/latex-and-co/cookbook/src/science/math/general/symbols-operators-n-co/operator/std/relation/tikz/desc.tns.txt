@@ -1,9 +1,3 @@
-this::
-    date = 2025-05-10
-
-
 ===========================
 Relation dessinée par \tikz
 ===========================
-
-Le titre dit tout, pas besoin d'en rajouter !
