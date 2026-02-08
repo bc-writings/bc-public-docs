@@ -3,9 +3,4 @@
 ======
 
 content::
-    ./geometry/\desc
-    ./arithmetic/\desc
-    ./combinatorics/\desc
-    ./analysis/\desc
-    ./set-theory/\desc
-    ./general/\desc
+    ./*/\desc

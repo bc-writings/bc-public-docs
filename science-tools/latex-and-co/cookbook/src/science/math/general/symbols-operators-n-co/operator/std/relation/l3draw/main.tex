@@ -1,0 +1,45 @@
+\documentclass[varwidth, border = 3pt]{standalone}
+
+\usepackage{main}
+
+%%%
+% Pour simplifier la rédaction des tests.
+%%%
+\newcommand{\test}%
+           {A + B \explcplus C^{+}_{\explcplus}}
+
+\newcommand{\verbtest}%
+           {A + B \mathmacro{explcplus} C\char94\{+\}\char95\{\mathmacro{explcplus}\}}
+
+
+\NewDocumentCommand{\mathmacro}{m}%
+                   {\;\backslash#1\;}
+
+
+\newcommand{\testmathstyle}{
+  \[
+    \renewcommand{\arraystretch}{1.2}%
+    \begin{array}{lll}
+        \textbf{Style}
+      & {\verbtest}
+      \\ \hline
+        \mathtt{\backslash displaystyle}
+      & \displaystyle \test
+      \\
+        \mathtt{\backslash textstyle}
+      & \textstyle \test
+      \\
+        \mathtt{\backslash scriptstyle}
+      & \scriptstyle \test
+      \\
+        \mathtt{\backslash scriptscriptstyle}
+      & \scriptscriptstyle \test
+    \end{array}
+  \]
+}
+
+\begin{document}
+
+\testmathstyle
+
+\end{document}

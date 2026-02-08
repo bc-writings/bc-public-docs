@@ -1,5 +1,7 @@
 % !TEX TS-program = lualatex
 
+% FORCE-CROP
+
 \documentclass[border = 3pt]{standalone}
 
 \usepackage[svgnames]{xcolor}
@@ -18,7 +20,6 @@ local M    = 4-i
 
 local g = graph:new{
   window = {-10, 11, -5, 3},
-  margin = {0, 0, 0, 0},
   size   = {14, 6},
   bbox   = false
 }

@@ -24,17 +24,17 @@
 ------
 -- Nos ¨elts de base.
 ------
-local c  = 2  -- Côté du cube.
+local c_len = 2   -- Côté du cube.
 
 local z0    = -3  -- Niveau du sol de projection.
 local light = M(-5, -5, 5)
 
 local proj = function(A)
   return proj3dO(
-    A,                  -- Ce que l'on projette.
+    A,                -- Ce que l'on projette.
     {z0*vecK, vecK},  -- Plan de projection via un point
-                        -- et un vecteur normal.
-    A - light           -- Direction.
+                      -- et un vecteur normal.
+    A - light         -- Direction.
   )
 end
 
@@ -52,24 +52,23 @@ local graphview = graph3d:new{
 ------
 -- Réglages liés aux lignes.
 ------
-graphview:Linewidth(6)
-Hiddenlinestyle = "dashed"
-Hiddenlines     = true
+graphview:Linewidth(12)
 
 ------
 -- Un cube, un faisceau et une ombre.
 ------
-local P = parallelep(
-  M(-c, -c, -c)/2,
-  c*vecI, c*vecJ, c*vecK
+local C = parallelep(
+  M(-c_len, -c_len, -c_len)/2,
+  c_len*vecI, c_len*vecJ, c_len*vecK
 )
 
-P = rotate3d(
-  P,
+C = rotate3d(
+  C,
   25,
   {
-    M(c/2, -c/2, -c/2),  -- Point de l'axe de rotation.
-    M(-1, 1, 1)          -- Vecteur dirigeant l'axe de rotation.
+    M(c_len/2, -c_len/2, -c_len/2),  -- Point de l'axe de rotation.
+    M(-1, 1, 1)                      -- Vecteur dirigeant l'axe de
+                                     -- rotation.
   }
 )
 
@@ -79,7 +78,7 @@ P = rotate3d(
 ------
 local shade = cvx_hull3d(
   ftransform3d(
-    P.vertices,
+    C.vertices,
     proj
   )
 )[1]
@@ -108,7 +107,7 @@ graphview:Dpolyline3d(
 )
 
 graphview:Dpoly(
-  P,
+  C,
   {
     color = "cyan",
     opacity = 0.8
@@ -124,6 +123,8 @@ graphview:Dpoly(
     mode     = mShadedOnly
   }
 )
+
+graphview:Linewidth(6)
 
 for _, A in ipairs(shade) do
   graphview:Dseg3d(

@@ -1,0 +1,130 @@
+% !TEX TS-program = lualatex
+
+\documentclass{standalone}
+
+\usepackage[svgnames]{xcolor}
+\usepackage[3d]{luadraw}
+
+\usepackage{animate}
+
+\begin{luacode*}
+nbimages = 35
+name     = "shadow"
+basename = cachedir .. name
+\end{luacode*}
+
+\begin{luadraw}{auto = false, exec = true}
+require 'luadraw_polyhedrons'
+
+local z0 = -3
+
+local graphview = graph3d:new{
+  window3d = {-5, 8, -5, 8, z0, 5},
+  adjust2d = true,
+  bbox     = false,
+  viewdir  = perspective("yz", 0.35, 60),
+  bg       = "Beige",
+  size     = {10, 10}
+}
+
+local light  = M(-5, -5, 3.5)
+local center = M(-1, -1, -1)
+
+local proj = function(A)
+  return proj3dO(
+    A,
+    {z0*vecK, vecK},
+    A - light
+  )
+end
+
+local C = cube(center, M(-1, -1, z0))   -- TEMP: bug in version 2.3
+
+local shadow, beam, beamVisible, beamHidden
+
+local theta = linspace(0, 360, nbimages + 1)
+
+for k = 1, nbimages do
+  C_rotated = rotate3d(
+    C,
+    theta[k],
+    {M(-1, -1, z0), vecK}
+  )
+
+  shadow = cvx_hull3d(
+    ftransform3d(C_rotated.vertices, proj)
+  )[1]
+
+  if not graphview:Isvisible(shadow) then
+    shadow = reverse(shadow)
+  end
+
+  beam = pyramid(shadow, light, true)
+
+  beamVisible, beamHidden = graphview:Classifyfacet(beam)
+
+  graphview:Dfacet(
+    graphview:Plane2facet({z0*vecK, vecK}),
+    {
+      color    = "lightgray",
+      contrast = 0
+    }
+  )
+
+  graphview:Dseg3d({M(-5, -5, z0), light})
+
+  graphview:Dballdots3d(light, "Yellow", 2)
+
+  graphview:Dpolyline3d(
+    shadow,
+    true,
+    "draw = none, fill = DarkGray, fill opacity = 0.9"
+  )
+
+  graphview:Dfacet(
+    beamHidden,
+    {
+      color   = "yellow",
+      opacity = 0.4,
+      mode    = mShadedOnly
+    }
+  )
+
+  graphview:Dpoly(
+    C_rotated,
+    {
+      color = "cyan",
+      mode  = mShadedHidden
+    }
+  )
+
+  graphview:Dfacet(
+    beamVisible, {
+      color   = "yellow",
+      opacity = 0.4,
+      mode    = mShadedOnly
+    }
+  )
+
+  graphview:Savetofile(basename .. k .. ".tkz")
+
+  graphview:Cleargraph()
+end
+\end{luadraw}
+
+\def\nb{\directlua{tex.print(nbimages)}}
+\def\name{\directlua{tex.print(basename)}}
+
+\begin{document}
+
+\begin{animateinline}[
+    poster = first,
+    controls,
+    loop
+]{6}
+    \multiframe{\nb}{ik = 1+1}{%
+        \input{\name\ik.tkz}%
+    }%
+\end{animateinline}
+
+\end{document}

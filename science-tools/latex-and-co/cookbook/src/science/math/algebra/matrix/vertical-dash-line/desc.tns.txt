@@ -1,0 +1,9 @@
+this::
+    date = 2025-12-30
+
+
+=======================
+Délimitations hachurées
+=======================
+
+Pour donner du sens aux entrées d’une matrice, résoudre des systèmes à la main ou encore calculer une matrice inverse, on utilise souvent des délimitations hachurées. Cette recette montre une méthode simple pour les réaliser facilement.

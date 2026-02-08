@@ -5,26 +5,23 @@ latex-and-co - TODO
 
 > ---------------------------- <
 
-besoin de tout réorganiser
-
-    --> ne plus mettre luadraw à part, quitte à rendre chaque rectette autonome en indiquant dans le source le dépot de gthub en attendnat que je forke le projet
-
-> ---------------------------- <
-
 luadraw
 
-    --> matrix kernel transfo: auto --> method graph3d !!!! facilem mais le faire car plus propre
+    ---> besoin d'expliquer comment régéléer à la main la fenètre 2D via adjust2d et lecture dans le terminal !
 
-    --> SURFACE: revoir les colromap car c'est plus simple depuis vesrion 2.2 : garder ce qui est eprtinannent quitte à passer via un autre mode de coloartyion
+    ---> matrix kernel transfo: auto
+       + method graph3d !!!! facilem mais le faire car plus propre
 
-    --> complex-func : dès que publié, prendre la palette SNFever
+    ---> SURFACE: revoir les colromap car c'est plus simple depuis vesrion 2.2 : garder ce qui est eprtinannent quitte à passer via un autre mode de coloartyion
 
-    --> BlindFish : adoucir (cf surf param color map)
+    ---> complex-func : dès que publié, prendre la palette SNFever
+
+    ---> BlindFish : adoucir (cf surf param color map)
 
 
 > ---------------------------- <
 
-geo sphérique : placer def de la sphère aant les objets !!!!
+geo sphérique : placer def de la sphère avant les objets !!!!
 
 
 > ---------------------------- <

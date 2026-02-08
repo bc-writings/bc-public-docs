@@ -1,0 +1,6 @@
+===============
+\Proba et \stat
+===============
+
+content::
+    ./table/\desc

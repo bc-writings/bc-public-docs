@@ -32,12 +32,10 @@ local graphview = graph3d:new{
   adjust2d = true,
   bbox     = false,
   viewdir  = perspective("yz", 0.35, 60),
-  size     =  {10, 10}
+  size     = {10, 10}
 }
 
-graphview:Linewidth(6)
-Hiddenlinestyle = "dashed"
-Hiddenlines     = true
+graphview:Linewidth(12)
 
 local S = {C, r}
 

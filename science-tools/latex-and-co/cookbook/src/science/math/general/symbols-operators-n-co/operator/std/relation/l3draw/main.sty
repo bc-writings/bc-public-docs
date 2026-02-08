@@ -1,0 +1,155 @@
+%%%
+% src::
+%     urls = https://tex.stackexchange.com/a/759365
+%%%
+
+%%%
+% Le \pack ''l3draw'' est la boîte à crayons utilisée dans cette
+% recette.
+%%%
+\usepackage{l3draw}
+
+%%%
+% Le \pack ''amsmath'' fournit la macro ''\mspaces'' utile pour
+% régler les espacements en mode mathématique.
+%%%
+\usepackage{amsmath}
+
+%%%
+% L'opérateur binaire est défini via les primitives ''\mathbin''
+% et ''\mathpalette''.
+%
+%     1) ''\mathbin'' assure un espacement d'opérateur binaire.
+%
+%     1) ''\mathpalette'' fournit à la macro ''\explcplusimpl''
+%     deux \args qui est implémentée en \l3.
+%
+%          + L'\arg ''#1'' est la taille du contexte \math
+%          ''\displaystyle'' (formule centrée), ''\textstyle''
+%          (dans le texte), ''\scriptstyle'' (indices/exposants)
+%          ''\scriptscriptstyle'' (indices de second niveau).
+%
+%          + L'\arg ''#2'' est le matériel \math à imprimer.
+%          Ici, nous n'avons pas besoin de ce \2nd, d'où l'usage
+%          de ''\relax'' qui sera mangé par ''\mathpalette'',
+%          mais non géré par ''\explcplusimpl''.
+%%%
+\NewDocumentCommand{\explcplus}{}{
+  \mathbin{\mathpalette\explcplusimpl\relax}
+}
+
+
+\ExplSyntaxOn
+
+\box_new:N \l__cookbook_math_plus_box
+\box_new:N \l__cookbook_math_cplus_box
+
+\dim_new:N \l__cookbook_math_plus_width_dim
+
+\fp_new:N \l__cookbook_cplus_fp
+
+%%%
+% prototype::
+%     #1 : taille du contexte \math d'utilisation
+%          (''\displaystyle'', ''\textstyle'', ''\scriptstyle''
+%          ou ''\scriptscriptstyle'').
+%     #2 : \arg \tjrs fourni par ''\mathpalette'', mais nous
+%          n'en avons pas besoin.
+%
+%     :action: tracé d'un signe plus avec un petit cercle en
+%              son centre délégué à ''\cookbook_cplus:n''.
+%
+%     :see: macro.explcplus
+%%%
+\cs_new_protected:Npn \explcplusimpl #1#2 {
+  \fp_set:Nn \l__cookbook_cplus_fp { 0.08 ex }
+
+  \hbox_set:Nn \l__cookbook_math_cplus_box {
+    $\mspace{1mu}$ \cookbook_cplus:n {#1} $\mspace{1mu}$
+  }
+
+  \vcenter { \box_use:N \l__cookbook_math_cplus_box }
+}
+
+%%%
+% prototype::
+%     :see: \l3.func.\explcplusimpl
+%%%
+\cs_new_protected:Nn \cookbook_cplus:n {
+%%%
+% Dans ce qui suit, nous utilisons deux ingrédients importants
+% pour obtenir un symbole avec une taille respectant le \ctxt
+% \math d'utilisation.
+%
+%     1) ''\m@th'', qui correspond à ''\mathsurround=0pt'',
+%     retire tout espace parasite autour du signe ''+''.
+%
+%     1) ''#1'' est la taille du contexte \math qui est fourni
+%     par ''\explcplusimpl''.
+%%%
+  \hbox_set:Nn \l__cookbook_math_plus_box {
+    $\m@th #1 + $
+  }
+
+  \dim_set:Nn \l__cookbook_math_plus_width_dim {
+    \box_ht:N \l__cookbook_math_plus_box
+    +
+    \box_dp:N \l__cookbook_math_plus_box
+  }
+
+  \draw_begin:
+    \draw_set_linewidth:n { \l__cookbook_cplus_fp }
+
+%%%
+% Expliquons les deux lignes de code ci-dessous.
+%
+%     1) ''\draw_set_cap_round'' permet d'avoir des segments
+%     avec des extrémités arrondis.
+%
+%     1) ''\draw_set_join_round'' sert à avoir des angles
+%     arrondis entre deux segments.
+%%%
+    \draw_set_cap_round:
+    \draw_set_join_round:
+
+    \draw_path_moveto:n {
+      0.5 \l__cookbook_math_plus_width_dim ,
+      0.0 \l__cookbook_math_plus_width_dim
+    }
+
+    \draw_path_lineto:n {
+      0.5 \l__cookbook_math_plus_width_dim ,
+      1.0 \l__cookbook_math_plus_width_dim
+    }
+
+%%%
+% Nous demandons au moteur \l3draw de tracer le chemin défini
+% dans les lignes précédentes, via l'\arg ''stroke'', tout en
+% le retirant de la pile mémoire, cf. le suffixe ''use_clear''.
+%%%
+    \draw_path_use_clear:n { stroke }
+
+    \draw_path_moveto:n {
+      0.0 \l__cookbook_math_plus_width_dim ,
+      0.5 \l__cookbook_math_plus_width_dim
+    }
+
+    \draw_path_lineto:n {
+      1.0 \l__cookbook_math_plus_width_dim ,
+      0.5 \l__cookbook_math_plus_width_dim
+    }
+
+    \draw_path_use_clear:n { stroke }
+
+    \draw_path_circle:nn {
+      0.5 \l__cookbook_math_plus_width_dim ,
+      0.5 \l__cookbook_math_plus_width_dim
+    }{
+      0.25 \l__cookbook_math_plus_width_dim
+    }
+
+    \draw_path_use_clear:n { stroke }
+  \draw_end:
+}
+
+\ExplSyntaxOff

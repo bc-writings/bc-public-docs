@@ -1,12 +1,12 @@
 this::
-    date = 2025-11-21
+    date = 2025-11-23
 
 
 ==============
 Version animée
 ==============
 
-Le code proposé ici reprend la recette précédente en faisant tourner le cube, puis en produisant un \pdf dynamique via le package ''animate''.
+Nous montrons ici comment autoriser la rotation du cube sous forme d'animation dans un \pdf dynamique.
 
 
 caution::

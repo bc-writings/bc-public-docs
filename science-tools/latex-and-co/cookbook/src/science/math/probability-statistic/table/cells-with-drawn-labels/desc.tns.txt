@@ -1,0 +1,9 @@
+this::
+    date = 2025-01-27
+
+
+====================
+Numéroter les ccases
+====================
+
+D'un point de vue pédagogique, il est utile d'indiquer l'ordre utilisé pour compléter un tableau. Il peut être également pertinent d'étiqueter certaines cellules pour faciliter des explications ultérieures. Cette recette propose une solution simple à ces deux problématiques.

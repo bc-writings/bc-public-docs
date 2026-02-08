@@ -1,0 +1,53 @@
+\documentclass[varwidth, border = 3pt]{standalone}
+
+\usepackage{main-2}
+
+%%%
+% Le chargement suivant est nécessaire pour un bon rendu du tableau
+% testant les styles.
+%%%
+\usepackage{amsmath}
+
+%%%
+% Pour simplifier la rédaction des tests.
+%%%
+\newcommand{\test}%
+           {a \equiv b \apart c \neq d}
+
+\newcommand{\verbtest}%
+           {a \mathmacro{equiv} b \mathmacro{apart} c \mathmacro{neq} d}
+
+\NewDocumentCommand{\mathmacro}{m}%
+                   {\;\backslash#1\;}
+
+\newcommand{\testmathstyle}{
+  \[
+    \renewcommand{\arraystretch}{1.2}%
+    \begin{array}{lll}
+        \textbf{Style}
+      & \mathtt{\verbtest}
+      \\ \hline
+        \mathtt{\backslash displaystyle}
+      & \displaystyle \test
+      \\
+        \mathtt{\backslash textstyle}
+      & \textstyle \test
+      \\
+        \mathtt{\backslash scriptstyle}
+      & \scriptstyle \test
+      \\
+        \mathtt{\backslash scriptscriptstyle}
+      & \scriptscriptstyle \test
+    \end{array}
+  \]
+}
+
+\begin{document}
+
+$\test$
+
+$a \equiv b = c \neq d$
+
+\testmathstyle
+
+\end{document}

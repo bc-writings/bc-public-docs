@@ -1,0 +1,94 @@
+%%%
+% src::
+%     url = https://tex.stackexchange.com/a/755230/6880
+%%%
+
+
+%%%
+% La \pack \forest simplifie la saisie d'arbres de différents
+% types. L'option ''edges'' donne accès au style ''folder''
+% pour générer des vues arborescentes de type "dossier".
+%%%
+\usepackage[edges]{forest}
+
+%%%
+% Utilisons les icones du \proj \fontawesome (version 5).
+%%%
+\usepackage{fontawesome5}
+
+%%%
+% Un peu de couleurs...
+%%%
+\definecolor{foldercolor}{RGB}{124,166,198}
+\definecolor{filecolor}{RGB}{88,88,88}
+
+%%%
+% Commençons par le style donnant la vue arborescente où
+% ''grow' = 0'' sert à développer la vue vers le bas.
+%%%
+\forestset{
+  fa dir tree/.style = {
+    for tree = {
+      folder,
+      grow'      = 0,
+      inner ysep = 1pt,
+      inner xsep = 1.75pt,
+      font       = \sffamily,
+    },
+  },
+%%%
+% \Def d'un style paramétré.
+%%%
+  fa/.style 2 args = {
+    before typesetting nodes = {
+%%%
+% \Def d'une action optionnelle, d'où le ''O'' dans ''Ow''.
+% Ceci sert à appliquer une macro sur le contenu du noeud
+% via un encapsulage, on parle de "wrapping" en anglais,
+% d'où le ''w'' dans ''Ow''.
+%%%
+      content/.process = {
+        Ow{content}{
+          \textcolor{#1}{#2}\ ##1
+        }%
+      },
+    },
+  },
+%%%
+% Usage répété du style paramétré.
+%%%
+  open/.style = {
+    fa = {foldercolor}{\faFolderOpen},
+  },
+  closed/.style = {
+    fa = {foldercolor}{\faFolder},
+  },
+  file/.style = {
+    fa = {filecolor}{\faFile},
+  },
+  codefile/.style = {
+    fa = {filecolor}{\faFile},
+  },
+  pdffile/.style = {
+    fa = {red!70}{\faFilePdf},
+  },
+  textfile/.style = {
+    fa = {filecolor}{\faFile*},
+  },
+  imagefile/.style = {
+    fa = {blue!70}{\faFileImage},
+  },
+  archivefile/.style = {
+    fa = {orange!80}{\faFileArchive},
+  },
+}
+
+%%%
+% L'\env suivant est simple à comprendre et à utiliser.
+%%%
+\NewDocumentEnvironment{dirtree}{b}{
+  \begin{forest}
+    fa dir tree
+    #1
+  \end{forest}
+}{}

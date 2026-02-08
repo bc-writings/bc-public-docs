@@ -1,0 +1,137 @@
+% !TEX TS-program = lualatex
+
+%%%
+% src::
+%     url = https://github.com/pfradin/luadraw/discussions/152#discussioncomment-15052061
+%%%
+
+\documentclass{standalone}
+
+\usepackage[svgnames]{xcolor}
+\usepackage[3d]{luadraw}
+
+%%%
+% Pour fabriquer un \pdf dyna.
+%%%
+\usepackage{animate}
+
+\begin{luacode*}
+NB_IMAGES = 36
+
+require 'luadraw_polyhedrons'
+
+local z0    = -3
+local light = M(-5, -5, 3.5)
+
+local center = M(-1, -1, -1)
+
+local proj = function(A)
+  return proj3dO(
+    A,
+    {z0*vecK, vecK},
+    A - light
+  )
+end
+
+local C = cube(center, M(-1, -1, z0))
+
+local graphview = graph3d:new{
+  window3d = {-5, 8, -5, 7, z0, 5},
+  adjust2d = true,
+  bbox     = false,
+  viewdir  = perspective("yz", 0.35, 60),
+  size     = {10, 10}
+}
+
+local shadow
+local beam, beamVisible, beamHidden
+
+local theta = linspace(0, 360, NB_IMAGES + 1)
+
+function makeframe(k)
+  graphview:Defaultattr()  -- IMPORTANT!
+  graphview:Linewidth(12)
+
+  C_rot = rotate3d(
+    C,
+    theta[k],
+    {M(-1, -1, z0), vecK}
+  )
+
+  shadow = cvx_hull3d(
+    ftransform3d(C_rot.vertices, proj)
+  )[1]
+
+  if not graphview:Isvisible(shadow) then
+    shadow = reverse(shadow)
+  end
+
+  beam = pyramid(shadow, light, true)
+
+  beamVisible, beamHidden = graphview:Classifyfacet(beam)
+
+  graphview:Dfacet(
+    graphview:Plane2facet({z0*vecK, vecK}),
+    {
+      color    = "lightgray",
+      contrast = 0
+    }
+  )
+
+  graphview:Dseg3d({M(-5, -5, z0), light})
+
+  graphview:Dballdots3d(light, "Yellow", 2)
+
+  graphview:Dpolyline3d(
+    shadow,
+    true,
+    "draw = none, fill = DarkGray, fill opacity = 0.9"
+  )
+
+  graphview:Dfacet(
+    beamHidden,
+    {
+      color   = "yellow",
+      opacity = 0.4,
+      mode    = mShadedOnly
+    }
+  )
+
+  graphview:Dpoly(
+    C_rot,
+    {
+      color = "cyan",
+      mode  = mShadedHidden
+    }
+  )
+
+  graphview:Dfacet(
+    beamVisible,
+    {
+      color   = "yellow",
+      opacity = 0.4,
+      mode    = mShadedOnly
+    }
+  )
+
+  graphview:Sendtotex()
+  graphview:Cleargraph()
+end
+\end{luacode*}
+
+\def\nb{\directlua{tex.print(NB_IMAGES)}}
+\def\makeframe#1{\directlua{makeframe(#1)}}%
+
+\begin{document}
+
+\begin{animateinline}[
+  poster = first,
+  controls,
+  loop
+]{6}
+    \multiframe{\nb}{ik = 1+1}{
+        \makeframe{\ik}
+    }
+\end{animateinline}
+
+\end{document}

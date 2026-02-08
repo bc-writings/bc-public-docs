@@ -1,0 +1,36 @@
+\documentclass[border=3pt, tikz]{standalone}
+
+\usepackage{main}
+
+\begin{document}
+
+\begin{dirtree}
+  [system, open
+    [config, closed
+      [settings.conf, textfile]
+      [database.yml , codefile]
+    ]
+    [doc, open
+      [manual.pdf, pdffile ]
+      [README.md , textfile]
+      [images    , closed
+        [logo.png  , imagefile]
+        [banner.jpg, imagefile]
+      ]
+    ]
+    [lib, closed
+      [utils.py   , codefile   ]
+      [helpers.js , codefile   ]
+      [archive.zip, archivefile]
+    ]
+    [test, open
+      [test\_unit.py       , codefile]
+      [test\_integration.py, codefile]
+      [fixtures            , closed
+        [data.json, file]
+      ]
+    ]
+  ]
+\end{dirtree}
+
+\end{document}

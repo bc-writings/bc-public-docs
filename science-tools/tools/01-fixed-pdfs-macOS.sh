@@ -1,6 +1,9 @@
 # Version: 2025-08-24.science-tools
 
 
+# PÄRALLELISER !!!!
+
+
 # ----------------------- #
 # -- ONE FOLDER NEEDED -- #
 # ----------------------- #
@@ -31,10 +34,15 @@ fi
 # --------------------- #
 
 function nocompile {
-  open "$1"
+  local file="$1"
+
+  echo "ERROR - Compilation failed for: $file" >&2
+
+  xdg-open "$file" 2>/dev/null || open "$file" 2>/dev/null || echo "Cannot open $file"
 
   exit 1
 }
+
 
 cd "$TARGET"
 
