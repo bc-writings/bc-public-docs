@@ -4,132 +4,152 @@
 %%%
 
 %%%
-% Le \pack ''l3draw'' est la boîte à outils utilisée dans cette 
-% recette pour dessiner.
+% Le \pack ''l3draw'' est la boîte à crayons utilisée dans cette
+% recette.
 %%%
 \usepackage{l3draw}
 
 %%%
-% Le \pack ''amsmath'' fournit la macro ''\mspaces'' qui set à
-% définir des espacements personnalisés en unités mathématiques
-% (mu).
+% Le \pack ''amsmath'' fournit la macro ''\mspaces'' utile pour
+% régler les espacements en mode mathématique.
 %%%
 \usepackage{amsmath}
+
+%%%
+% L'opérateur binaire est défini via les primitives ''\mathbin''
+% et ''\mathpalette''.
+%
+%     1) ''\mathbin'' assure un espacement d'opérateur binaire.
+%
+%     1) ''\mathpalette'' fournit à la macro ''\explcplusimpl''
+%     deux \args qui est implémentée en \l3.
+%
+%          + L'\arg ''#1'' est la taille du contexte \math
+%          ''\displaystyle'' (formule centrée), ''\textstyle''
+%          (dans le texte), ''\scriptstyle'' (indices/exposants)
+%          ''\scriptscriptstyle'' (indices de second niveau).
+%
+%          + L'\arg ''#2'' est le matériel \math à imprimer.
+%          Ici, nous n'avons pas besoin de ce \2nd, d'où l'usage
+%          de ''\relax'' qui sera mangé par ''\mathpalette'',
+%          mais non géré par ''\explcplusimpl''.
+%%%
+\NewDocumentCommand{\explcplus}{}{
+  \mathbin{\mathpalette\explcplusimpl\relax}
+}
 
 
 \ExplSyntaxOn
 
-\box_new:N \l__azetina_math_plus_box
-\box_new:N \l__azetina_math_cplus_box
+\box_new:N \l__cookbook_math_plus_box
+\box_new:N \l__cookbook_math_cplus_box
 
-\dim_new:N \l__azetina_math_plus_width_dim
+\dim_new:N \l__cookbook_math_plus_width_dim
 
-\fp_new:N \l__azetina_cplus_fp
+\fp_new:N \l__cookbook_cplus_fp
 
-\cs_new_protected:Nn \azetina_cplus:n {
-%%%   ???
-% Dans une macro complexe (comme une flèche extensible ou un symbole construit), on ne veut pas de cet espace parasite à l'intérieur de l'objet, sinon le symbole paraîtrait "cassé" ou décalé.
 %%%
-  \hbox_set:Nn \l__azetina_math_plus_box {
-    $\m@th#1 + $
+% prototype::
+%     #1 : taille du contexte \math d'utilisation
+%          (''\displaystyle'', ''\textstyle'', ''\scriptstyle''
+%          ou ''\scriptscriptstyle'').
+%     #2 : \arg \tjrs fourni par ''\mathpalette'', mais nous
+%          n'en avons pas besoin.
+%
+%     :action: tracé d'un signe plus avec un petit cercle en
+%              son centre délégué à ''\cookbook_cplus:n''.
+%
+%     :see: macro.explcplus
+%%%
+\cs_new_protected:Npn \explcplusimpl #1#2 {
+  \fp_set:Nn \l__cookbook_cplus_fp { 0.08 ex }
+
+  \hbox_set:Nn \l__cookbook_math_cplus_box {
+    $\mspace{1mu}$ \cookbook_cplus:n {#1} $\mspace{1mu}$
   }
 
-  \dim_set:Nn \l__azetina_math_plus_width_dim {
-    \box_ht:N \l__azetina_math_plus_box + \box_dp:N \l__azetina_math_plus_box
+  \vcenter { \box_use:N \l__cookbook_math_cplus_box }
+}
+
+%%%
+% prototype::
+%     :see: \l3.func.\explcplusimpl
+%%%
+\cs_new_protected:Nn \cookbook_cplus:n {
+%%%
+% Dans ce qui suit, nous utilisons deux ingrédients importants
+% pour obtenir un symbole avec une taille respectant le \ctxt
+% \math d'utilisation.
+%
+%     1) ''\m@th'', qui correspond à ''\mathsurround=0pt'',
+%     retire tout espace parasite autour du signe ''+''.
+%
+%     1) ''#1'' est la taille du contexte \math qui est fourni
+%     par ''\explcplusimpl''.
+%%%
+  \hbox_set:Nn \l__cookbook_math_plus_box {
+    $\m@th #1 + $
+  }
+
+  \dim_set:Nn \l__cookbook_math_plus_width_dim {
+    \box_ht:N \l__cookbook_math_plus_box
+    +
+    \box_dp:N \l__cookbook_math_plus_box
   }
 
   \draw_begin:
-    \draw_set_linewidth:n { \l__azetina_cplus_fp }
+    \draw_set_linewidth:n { \l__cookbook_cplus_fp }
 
-%%%    ????
-%     \draw_set_cap_round: : Définit la finition des extrémités des lignes. Avec "round", le bout de ton trait ne sera pas carré (tronqué), mais arrondi. C'est très utile pour que les traits épais ne paraissent pas trop abrupts.
-%     \draw_set_join_round: : Définit la manière dont deux lignes se rejoignent (les angles). Avec "round", l'angle saillant entre deux segments sera arrondi au lieu d'être pointu ou plat.
+%%%
+% Expliquons les deux lignes de code ci-dessous.
+%
+%     1) ''\draw_set_cap_round'' permet d'avoir des segments
+%     avec des extrémités arrondis.
+%
+%     1) ''\draw_set_join_round'' sert à avoir des angles
+%     arrondis entre deux segments.
 %%%
     \draw_set_cap_round:
     \draw_set_join_round:
 
     \draw_path_moveto:n {
-      0.5 \l__azetina_math_plus_width_dim ,
-      0.0 \l__azetina_math_plus_width_dim
+      0.5 \l__cookbook_math_plus_width_dim ,
+      0.0 \l__cookbook_math_plus_width_dim
     }
 
     \draw_path_lineto:n {
-      0.5 \l__azetina_math_plus_width_dim ,
-      1.0 \l__azetina_math_plus_width_dim
+      0.5 \l__cookbook_math_plus_width_dim ,
+      1.0 \l__cookbook_math_plus_width_dim
     }
 
-%%%   ?????
-%     stroke (L'action) : Elle demande au moteur de tracer réellement le contour du chemin que tu as défini précédemment. Sans cela, ton chemin reste une "ligne invisible" dans la mémoire de l'ordinateur.
-%     clear (Le nettoyage) : Une fois le tracé effectué, elle efface le chemin de la mémoire. Si tu dessines une autre ligne après, elle ne repartira pas de l'ancien chemin.
+%%%
+% Nous demandons au moteur \l3draw de tracer le chemin défini
+% dans les lignes précédentes, via l'\arg ''stroke'', tout en
+% le retirant de la pile mémoire, cf. le suffixe ''use_clear''.
 %%%
     \draw_path_use_clear:n { stroke }
 
     \draw_path_moveto:n {
-      0.0 \l__azetina_math_plus_width_dim ,
-      0.5 \l__azetina_math_plus_width_dim
+      0.0 \l__cookbook_math_plus_width_dim ,
+      0.5 \l__cookbook_math_plus_width_dim
     }
 
     \draw_path_lineto:n {
-      1.0 \l__azetina_math_plus_width_dim ,
-      0.5 \l__azetina_math_plus_width_dim
+      1.0 \l__cookbook_math_plus_width_dim ,
+      0.5 \l__cookbook_math_plus_width_dim
     }
 
     \draw_path_use_clear:n { stroke }
 
     \draw_path_circle:nn {
-      0.5 \l__azetina_math_plus_width_dim ,
-      0.5 \l__azetina_math_plus_width_dim
+      0.5 \l__cookbook_math_plus_width_dim ,
+      0.5 \l__cookbook_math_plus_width_dim
     }{
-      0.25 \l__azetina_math_plus_width_dim
+      0.25 \l__cookbook_math_plus_width_dim
     }
 
     \draw_path_use_clear:n { stroke }
   \draw_end:
-}
-
-\cs_new_protected:Npn \explcplusimpl #1#2 {
-  \fp_set:Nn \l__azetina_cplus_fp { 0.08 ex }
-
-  \hbox_set:Nn \l__azetina_math_cplus_box {
-    $\mspace{1mu}$ \azetina_cplus:n {#1} $\mspace{1mu}$
-  }
-
-  \vcenter { \box_use:N \l__azetina_math_cplus_box }
-}
-
-
-%%%   ????
-% Décomposons cette structure complexe :
-% 1. \mathbin{...}
-
-% Cette commande définit la nature mathématique de ce qui est à l'intérieur.
-
-%     Action : Elle dit à LaTeX : "Traite cet objet comme un opérateur binaire" (comme un + ou un ×).
-
-%     Conséquence : LaTeX ajoutera automatiquement les bons espaces typographiques autour du symbole (un medium space \:) pour qu'il ne soit pas collé aux opérandes.
-
-% 2. \mathpalette
-
-% C'est l'outil de "caméléon" de TeX.
-
-%     Le problème : Un symbole n'a pas la même taille s'il est au milieu d'une ligne (x+y), en indice (xa+b​), ou en indice d'indice (xya+b​​).
-
-%     La solution : \mathpalette regarde dans quel contexte le symbole est utilisé et transmet cette information (le style courant) à la macro suivante.
-
-% 3. \explcplusimpl
-
-% C'est le nom de la macro (probablement définie dans ton code avec \ExplSyntaxOn) qui contient le dessin ou la définition réelle de ton symbole.
-
-%     Elle reçoit généralement deux arguments : le style (transmis par \mathpalette) et l'argument suivant (\relax ici).
-
-%     Le préfixe expl suggère que c'est une implémentation liée à LaTeX3.
-
-% 4. \relax
-
-% Ici, il sert d'argument "vide" ou "neutre" passé à la macro \explcplusimpl. On l'utilise souvent comme marqueur de fin ou quand la macro n'a pas besoin de données supplémentaires pour fonctionner.
-%%%
-\NewDocumentCommand{\explcplus}{}{
-  \mathbin{\mathpalette\explcplusimpl\relax}
 }
 
 \ExplSyntaxOff
