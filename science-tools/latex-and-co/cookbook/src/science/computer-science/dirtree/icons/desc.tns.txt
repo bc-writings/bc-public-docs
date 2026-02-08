@@ -1,5 +1,5 @@
 this::
-    date = 2025-12-08
+    date = 2026-02-08
 
 
 ===============
@@ -8,12 +8,19 @@ Avec des icones
 
 Notre objectif est de produire aisément une vue arborescente de dossiers comme la suivante qui est parfaite pour un \pdf à lire sur un écran.
 
+/*
 pdf::
     ---
     file = ./l3draw/main.pdf
     ---
+*/
+
+pdf::
+    ---
+    file = ./forest/main-2.pdf
+    ---
 
 
 content::
-    ./tikz/\desc
-    ./l3draw/\desc    ???
+    ./forest/\desc
+//    ./l3draw/\desc    ???
