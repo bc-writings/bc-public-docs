@@ -1,9 +1,14 @@
 % !TEX TS-program = lualatex
 
+%%%
+% src::
+%     url = https://github.com/pfradin/luadraw/discussions/194#discussioncomment-15836574
+%%%
+
 \documentclass[border = 3pt]{standalone}
 
 %%%
-% Des couleurs nommées faciles d'emploi via le package ''xcolor''!
+% Des couleurs nommées faciles d'emploi via le package \xcolor!
 %%%
 \usepackage[svgnames]{xcolor}
 
@@ -28,6 +33,11 @@ require 'luadraw_shadedforms'
 require 'luadraw_fields'
 
 ------
+-- Réglages liés au tracé.
+------
+local xmin, xmax, ymin, ymax = -3, 3, -3, 3
+
+------
 -- ¨Def du ¨chp.
 ------
 local f = function(x, y)
@@ -44,9 +54,26 @@ local f_modulus = function(x, y)
 end
 
 ------
--- Réglages liés au tracé.
+-- Pour atténuer le fond coloré.
 ------
-local xmin, xmax, ymin, ymax = -3, 3, -3, 3
+local mixpalette = function(pal, percent, color)
+  color = color or White
+
+  local mix = {}
+
+  for _ , c in ipairs(pal) do
+    local _ , tbl =  mixcolor(
+      c,
+      percent,
+      color,
+      100 - percent
+    )
+
+    table.insert(mix, tbl)
+  end
+
+  return mix
+end
 
 ------
 -- ¨Def de la zone graphique.
@@ -58,11 +85,11 @@ local graphview = graph:new{
 }
 
 ------
--- Dessinons !
+-- Le fond coloré en fonction de `abs(1 + i(x^2 + y^2 - 1))`.
 ------
 graphview:Dshadedrectangle(
   xmin, xmax, ymin, ymax,
-  palJet,
+  mixpalette(palJet, 50),
   {
     values = f_modulus,
     bar    = "right",
@@ -70,6 +97,9 @@ graphview:Dshadedrectangle(
   }
 )
 
+------
+-- Tracé du champs.
+------
 graphview:Dvectorfield(
   f,
   {
@@ -78,6 +108,10 @@ graphview:Dvectorfield(
   }
 )
 
+
+------
+-- Ajout d'un cadre gradué.
+------
 graphview:Dgradbox(
   {
     Z(xmin, ymin),
