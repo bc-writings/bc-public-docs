@@ -1,0 +1,14 @@
+this::
+    date = 2026-02-17
+
+
+========================================
+Avec un fond coloré en fonction du champ
+========================================
+
+Deux méthodes sont proposées, la \1ere est clé en main depuis la version 2.6 de \luadraw, tandis que la \2nde, bien qu'imparfaite, permet de comprendre ce qu'il se passe plus ou moins en coulisses.
+
+
+content::
+    ./easy-way/\desc
+    ./by-hand/\desc

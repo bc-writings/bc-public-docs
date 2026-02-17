@@ -1,0 +1,84 @@
+% !TEX TS-program = lualatex
+
+\documentclass[border = 3pt]{standalone}
+
+%%%
+% Des couleurs nommées faciles d'emploi via le package ''xcolor''!
+%%%
+\usepackage[svgnames]{xcolor}
+
+%%%
+% La bibliothèque ''luadraw'' allie une facilité d’utilisation
+% à un rendu particulièrement soigné.
+%%%
+\usepackage[3d]{luadraw}
+
+\begin{document}
+
+\begin{luadraw}{name = vector-field-two-grids}
+require 'luadraw_palettes'
+require 'luadraw_shadedforms'
+require 'luadraw_fields'
+
+------
+-- ¨Def du ¨chp.
+------
+local f = function(x, y)
+  return {1, x^2 + y^2 - 1}
+end
+
+------
+-- ¨Def du module du ¨chp.
+------
+local f_modulus = function(x, y)
+  local A = f(x, y)
+
+  return cpx.abs(Z(A[1],A[2]))
+end
+
+------
+-- Réglages liés au tracé.
+------
+local xmin, xmax, ymin, ymax = -3, 3, -3, 3
+
+------
+-- ¨Def de la zone graphique.
+------
+local graphview = graph:new{
+  window = {xmin - 0.5, xmax + 0.5, ymin - 0.5, ymax + 0.5},
+  size   = {10, 10},
+  bbox   = false
+}
+
+------
+-- Dessinons !
+------
+
+--graphview:Dshadedrectangle(   xmin, xmax, ymin, ymax, palPicnic, {values     = f_modulus,bar        = "right",baroptions = {addvalues = {0.5,1.5,2.5,3.5}}})
+
+graphview:Dvectorfield(
+  f,
+  {
+    view         = {xmin, xmax, ymin, ymax},
+    draw_options = "-stealth"
+  }
+)
+
+graphview:Dgradbox(
+  {
+    Z(xmin, ymin),
+    Z(xmax, ymax),
+    1, 1
+  },
+  {
+    title = "Vector field $f(x,y) = (x^2 + y^2, x)$"
+  }
+)
+
+------
+-- Montrons le résultat de notre oeuvre.
+------
+graphview:Show()
+\end{luadraw}
+
+\end{document}
