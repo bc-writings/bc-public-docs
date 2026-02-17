@@ -8,10 +8,17 @@
 \usepackage[svgnames]{xcolor}
 
 %%%
-% La bibliothèque ''luadraw'' allie une facilité d’utilisation
+% La bibliothèque \luadraw allie une facilité d’utilisation
 % à un rendu particulièrement soigné.
 %%%
 \usepackage[3d]{luadraw}
+
+
+%%%
+% La bibliothèque ''shadings'' utilisable via \tikz est nécessaire
+% pour faire fonctionner ''luadraw_shadedforms''. .
+%%%
+\usetikzlibrary{shadings}
 
 \begin{document}
 
@@ -45,7 +52,7 @@ local xmin, xmax, ymin, ymax = -3, 3, -3, 3
 -- ¨Def de la zone graphique.
 ------
 local graphview = graph:new{
-  window = {xmin - 0.5, xmax + 0.5, ymin - 0.5, ymax + 0.5},
+  window = {xmin - 0.5, xmax + 1.5, ymin - 0.5, ymax + 0.5},
   size   = {10, 10},
   bbox   = false
 }
@@ -53,8 +60,15 @@ local graphview = graph:new{
 ------
 -- Dessinons !
 ------
-
---graphview:Dshadedrectangle(   xmin, xmax, ymin, ymax, palPicnic, {values     = f_modulus,bar        = "right",baroptions = {addvalues = {0.5,1.5,2.5,3.5}}})
+graphview:Dshadedrectangle(
+  xmin, xmax, ymin, ymax,
+  palJet,
+  {
+    values = f_modulus,
+    bar    = "right",
+    baroptions
+  }
+)
 
 graphview:Dvectorfield(
   f,
@@ -71,7 +85,7 @@ graphview:Dgradbox(
     1, 1
   },
   {
-    title = "Vector field $f(x,y) = (x^2 + y^2, x)$"
+    title = "Vector field $f(x,y) = (1, x^2 + y^2 - 1)$"
   }
 )
 
