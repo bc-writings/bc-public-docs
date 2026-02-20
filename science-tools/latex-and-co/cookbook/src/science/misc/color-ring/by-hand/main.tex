@@ -1,0 +1,62 @@
+% !TEX TS-program = lualatex
+
+%%%
+% src::
+%     url = https://github.com/pfradin/luadraw/discussions/207#discussioncomment-15868700
+%%%
+\documentclass{standalone}
+
+%%%
+% Des couleurs faciles d'emploi via le package \xcolor!
+%%%
+\usepackage[svgnames]{xcolor}
+
+%%%
+% La bibliothèque ''luadraw'' allie une facilité d’utilisation
+% à un rendu particulièrement soigné.
+%%%
+\usepackage[3d]{luadraw}
+
+\begin{document}
+
+\begin{luadraw}{name = angular-gradient-by-hand}
+require 'luadraw_palettes'
+
+local graphview = graph:new{
+  size = {10, 10},
+  bbox = false
+}
+
+local Rmax = 2
+local Rmin = .95
+local n    = 200
+
+local c = -Rmin
+local d = -Rmax
+local a, b 
+
+local dtheta = 360 / n
+
+local colors = getpalette(palPicnic, n)
+
+for k = 1, n do
+  a, b = c, d
+
+  c, d = table.unpack(
+    rotate({c, d}, dtheta)
+  )
+
+  graphview:Dpolyline(
+    {a, b, d, c},
+    true,           -- Fermons le quadrilatère.
+      "color = "
+    .. colors[k]
+    .. ", fill = "
+    .. colors[k]
+  )
+end
+
+graphview:Show()
+\end{luadraw}
+
+\end{document}

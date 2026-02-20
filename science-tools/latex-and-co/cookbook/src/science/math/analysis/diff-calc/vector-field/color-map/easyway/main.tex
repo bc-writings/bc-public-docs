@@ -62,14 +62,14 @@ local mixpalette = function(pal, percent, color)
   local mix = {}
 
   for _ , c in ipairs(pal) do
-    local _ , tbl =  mixcolor(
+    local _ , rgb_tbl =  mixcolor(
       c,
       percent,
       color,
       100 - percent
     )
 
-    table.insert(mix, tbl)
+    table.insert(mix, rgb_tbl)
   end
 
   return mix

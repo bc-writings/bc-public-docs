@@ -1,0 +1,64 @@
+% !TEX TS-program = lualatex
+
+\documentclass{standalone}
+
+%%%
+% Des couleurs faciles d'emploi via le package \xcolor!
+%%%
+\usepackage[svgnames]{xcolor}
+
+%%%
+% La bibliothèque ''luadraw'' allie une facilité d’utilisation
+% à un rendu particulièrement soigné.
+%%%
+\usepackage[3d]{luadraw}
+
+\begin{document}
+
+\begin{luadraw}{name = angular-gradient-easy-way}
+------
+-- La bibliothèque ''luadraw_shadedforms'' proposée par ¨luadraw
+-- permet d'obtenir des dégardés facilement.
+--
+-- note::
+--     ''luadraw_shadedforms'' charge ''luadraw_palettes'' pour
+--     nous.
+------
+require 'luadraw_shadedforms'
+
+local graphview = graph:new{
+  size = {10, 10},
+  bbox = false
+}
+
+------
+-- Le principe repose sur la ¨def d'un cercle et d'une ¨fonc de
+-- gradient associée. Le choix d'un tracé centré en `0` et d'une
+-- variation de couleur indexée sur les \arg d'affixes complexes
+-- permet d'obtenir le rendu annulaire souhaité.
+------
+C = circle(0, 2)
+
+local f = function(x,y)
+  return cpx.arg(Z(x,y))
+end
+
+------
+-- Déléguons le travail à ¨luadraw.
+------
+graphview:Dshadedpolyline(
+  C,              -- La ligne polygonale.
+  palPicnic,      -- La palette.
+  {
+    values = f,   -- Calcul du gradient.
+    width  = 400  -- Épaisseur excessive.
+  }
+)
+
+------
+-- Montrons le résultat de notre oeuvre.
+------
+graphview:Show()
+\end{luadraw}
+
+\end{document}

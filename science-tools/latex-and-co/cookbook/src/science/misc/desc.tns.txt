@@ -3,5 +3,4 @@ Les inclassables
 ================
 
 content::
-    ./wavefront/\desc
-    ./coil/\desc
+    ./*/\desc

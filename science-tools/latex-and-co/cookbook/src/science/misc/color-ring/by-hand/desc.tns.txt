@@ -1,0 +1,9 @@
+this::
+    date = 2026-02-20
+
+
+==========================
+Les mains dans le cambouis
+==========================
+
+En dessinant des secteurs annulaires étroits, il est aisé d'ajuster la précision du pas angulaire pour garantir une transition de couleurs sans effet de palier.

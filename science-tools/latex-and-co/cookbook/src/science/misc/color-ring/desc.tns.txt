@@ -1,0 +1,19 @@
+this::
+    date = 2026-02-20
+
+
+==================
+Nuancier annulaire
+==================
+
+Il est parfois utile d'intégrer une "anneau dégradé" comme illustré ci-dessous. Nous allons comparer deux approches : une solution "prête à l'emploi" au rendu perfectible, et une méthode manuelle permettant de comprendre ce qu'il se passe en coulisse.
+
+pdf::
+    ---
+    file = ./by-hand/main.pdf
+    ---
+
+
+content::
+    ./easy-way/\desc
+    ./by-hand/\desc
