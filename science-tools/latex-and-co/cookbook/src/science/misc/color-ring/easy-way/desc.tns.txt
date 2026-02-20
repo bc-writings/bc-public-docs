@@ -7,4 +7,3 @@ Le "hack" du cercle épais
 =========================
 
 Nous allons appliquer la méthode lua::''Dshadedpolyline'' de \luadraw sur un cercle très épais. Cela permet d'obtenir une transition de couleurs circulaire de manière détournée.
-Bien que facile à mettre en œuvre, cette approche crée un rendu par "paliers" plutôt qu'une transition fluide.

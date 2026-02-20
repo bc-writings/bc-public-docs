@@ -36,8 +36,18 @@ local graphview = graph:new{
 -- gradient associée. Le choix d'un tracé centré en `0` et d'une
 -- variation de couleur indexée sur les \arg d'affixes complexes
 -- permet d'obtenir le rendu annulaire souhaité.
+--
+-- note::
+--     Nous n'utlisons pas ''C = circle(0, 2)'', car ceci crée
+--     un effet de palier non paramétrable à la main.
 ------
-C = circle(0, 2)
+C = polar(
+  function(t)
+    return 2
+  end,
+  -math.pi, math.pi,
+  200
+)
 
 local f = function(x,y)
   return cpx.arg(Z(x,y))
