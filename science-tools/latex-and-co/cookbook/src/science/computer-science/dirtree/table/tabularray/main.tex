@@ -1,0 +1,40 @@
+% Source - https://tex.stackexchange.com/a/759959
+% Posted by CarLaTeX
+% Retrieved 2026-02-20, License - CC BY-SA 4.0
+
+\documentclass{article}
+\usepackage{tabularray}
+\UseTblrLibrary{booktabs, tikz}
+
+\begin{document}
+\begin{tblrtikzabove}
+    \foreach \myind in {3,6,9}
+        {%
+        \draw[color=red] ([xshift=10pt]2-1.south west) |- (\myind-2.west);
+        \foreach \i [evaluate=\i as \mysecond using {int(\i+\myind)}] in {1,2} 
+            \draw[color=red] ([xshift=10pt]\myind-2.south west) |- (\mysecond-3.west);
+        }
+\end{tblrtikzabove}%
+\begin{tblr}{
+    colspec={lllr},
+    row{1}={c, font=\bfseries},
+    cell{1,2}{1}={c=3}{},
+    cell{3,6,9}{2}={c=2}{},
+    column{1-2}={rightsep=12pt}
+    }
+    \toprule
+    Category &&&  \% \\
+    \midrule
+    Animal   &&& 100 \\
+    & Human   &&  50 \\
+    && Man     &  20 \\
+    && Woman   &  30 \\
+    & Fox     &&  30 \\
+    && Vixen   &  16 \\
+    && Dog     &  14 \\
+    & Chicken &&  20 \\
+    && Cock    &   8 \\
+    && Hen     &  12 \\
+    \bottomrule
+\end{tblr}
+\end{document}
