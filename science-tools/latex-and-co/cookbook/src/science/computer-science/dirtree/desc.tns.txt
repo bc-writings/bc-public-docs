@@ -1,6 +1,6 @@
-=============================
-Vue arborescente d'un dossier
-=============================
+================
+Vue arborescente
+================
 
 content::
     ./icons/\desc

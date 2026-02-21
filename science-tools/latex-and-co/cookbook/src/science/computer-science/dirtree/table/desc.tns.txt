@@ -2,9 +2,9 @@ this::
     date = 2026-02-21
 
 
-==============
-Via un tableau
-==============
+====================
+Avec des métadonnées
+====================
 
 Voyons comment intégrer une vue arborescente dans un tableau afin d'ajouter aisément des métadonnées.
 
