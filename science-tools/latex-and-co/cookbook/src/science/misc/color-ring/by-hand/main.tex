@@ -20,20 +20,30 @@
 \begin{document}
 
 \begin{luadraw}{name = angular-gradient-by-hand}
+------
+-- Par goût, nous allons utiliser la palette ''palPicnic''.
+------
 require 'luadraw_palettes'
 
+------
+-- Réglages globaux.
+------
+local Rmax = 2
+local Rmin = .95
+local n    = 200
+
+------
+-- Dessinons les secteurs angulaires, lesquels seront appochés
+-- par des quadrilatères.
+------
 local graphview = graph:new{
   size = {10, 10},
   bbox = false
 }
 
-local Rmax = 2
-local Rmin = .95
-local n    = 200
-
 local c = -Rmin
 local d = -Rmax
-local a, b 
+local a, b
 
 local dtheta = 360 / n
 
@@ -56,6 +66,9 @@ for k = 1, n do
   )
 end
 
+------
+-- Montrons le résultat de notre oeuvre.
+------
 graphview:Show()
 \end{luadraw}
 
