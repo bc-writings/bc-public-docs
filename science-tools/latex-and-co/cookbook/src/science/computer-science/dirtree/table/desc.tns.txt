@@ -1,9 +1,0 @@
-this::
-    date = 2026-03-14
-
-
-====================
-Avec des métadonnées
-====================
-
-Grâce à \nicematrix, il est aisé d'obtenir une vue arborescente dans un tableau afin d'ajouter aisément des métadonnées.

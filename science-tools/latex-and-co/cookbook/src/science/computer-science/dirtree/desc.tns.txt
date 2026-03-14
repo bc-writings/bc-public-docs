@@ -4,4 +4,4 @@ Vue arborescente
 
 content::
     ./icons/\desc
-    ./table/\desc
+    ./metadata/\desc

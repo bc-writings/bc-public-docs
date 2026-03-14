@@ -1,0 +1,67 @@
+% FORCE-CROP
+
+%%%
+% src::
+%     url = https://tex.stackexchange.com/a/759963
+%%%
+
+\documentclass{article}
+
+%%%
+% Pour un tableau qui a du style...
+%%%
+\usepackage{booktabs}
+
+%%%
+% Un package idéal pour les matrices, mais aussi pour les tableaux
+% techniques.
+%%%
+\usepackage{nicematrix}
+
+\begin{document}
+
+\thispagestyle{empty}
+
+%%%
+% Quelques réglages cosmétiques à but promotionnel.
+%%%
+\NiceMatrixOptions{
+    trees = {
+        line-width = 1 pt,
+        color = green!70!black,
+        rounded-corners
+    }
+}
+
+\renewcommand{\arraystretch}{1.3}
+
+%%%
+% L'arborescence s'active via l'option ''draw-trees-in-col = 1-3'',
+% où ''1-3'' spécifie que les colonnes ''1'' à ''3'' contiennent
+% la structure de l'arborescence.
+%%%
+\begin{NiceTabular}{
+    *{3}{w{l}{2.5mm}} l r
+}[draw-trees-in-col = 1-3]
+    \toprule
+    %
+    \RowStyle{\bfseries}
+    \Block{1-4}{Category} &&&& \% \\
+    %
+    \midrule
+    %
+    Animal   &&&& 100 \\
+    & Human   &&&  50 \\
+    && Man     &&  20 \\
+    && Woman   &&  30 \\
+    & Fox     &&&  30 \\
+    && Vixen   &&  16 \\
+    &&& Dog     &  14 \\
+    & Chicken &&&  20 \\
+    && Cock    &&   8 \\
+    && Hen     &&  12 \\
+    %
+    \bottomrule
+\end{NiceTabular}
+
+\end{document}
