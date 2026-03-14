@@ -1,0 +1,25 @@
+%%%
+% src::
+%     url = https://tex.stackexchange.com/a/760845
+%%%
+
+\documentclass{article}
+
+\usepackage{nicematrix}
+
+\NiceMatrixOptions{trees/color=red}
+
+\begin{document}
+
+\renewcommand{\arraystretch}{1.3}
+
+\begin{NiceTabular}{>{.\arabic{iRow}}c w{l}{3mm} w{l}{3mm} w{l}{3mm}}[draw-trees-in-col=2-3]
+    & Root.           \\
+    && First Level.   \\
+    && First level.   \\
+    &&& Second level. \\
+    &&& Second level.  \\
+    && First level.    \\
+\end{NiceTabular}
+
+\end{document}

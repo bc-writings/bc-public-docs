@@ -1,0 +1,40 @@
+%%%
+% src::
+%     url = https://tex.stackexchange.com/a/759963
+%%%
+
+\documentclass{article}
+
+\usepackage{booktabs}
+
+\usepackage{nicematrix}
+
+\begin{document}
+
+\NiceMatrixOptions{trees= {line-width = 0.4pt, color = red , rounded-corners } }
+
+\renewcommand{\arraystretch}{1.3}
+%
+\begin{NiceTabular}{w{l}{2.5mm} w{l}{2.5mm} l r}[draw-trees-in-col=1-2]
+    \toprule
+    %
+    \RowStyle{\bfseries}
+    \Block{1-3}{Category} &&&  \% \\
+    %
+    \midrule
+    %
+    Animal   &&& 100 \\
+    & Human   &&  50 \\
+    && Man     &  20 \\
+    && Woman   &  30 \\
+    & Fox     &&  30 \\
+    && Vixen   &  16 \\
+    && Dog     &  14 \\
+    & Chicken &&  20 \\
+    && Cock    &   8 \\
+    && Hen     &  12 \\
+    %
+    \bottomrule
+\end{NiceTabular}
+
+\end{document}
