@@ -22,9 +22,15 @@
 
 \begin{NiceTabular}{>{\bfseries}*{6}{c}}[
   hvlines,
-  corners = NW,
-  name    = adj-matrix
+  corners = NW
 ]
+\CodeBefore [create-cell-nodes]
+  \tikz \draw[red!60, ->, shorten <= 1pt, shorten >= 1pt]
+    (4-1.east)
+      -| node[pos = 0.5, name = corner] {}
+    (1-2.south);
+  \tikz \fill[red!10] (corner) circle (5pt);
+\Body
   \RowStyle{\bfseries}
     & A & B & C & D & E  \\
   A &   &   & 1 & 1 &    \\
@@ -33,21 +39,5 @@
   D & 1 & 1 &   &   &    \\
   E &   & 1 & 1 &   &
 \end{NiceTabular}
-
-%%%
-% Le point d'ancrage ''shipout/background'' du noyau \latex exécute
-% du code au moment de l'envoi de la page vers le PDF, en plaçant
-% les éléments sur une couche située derrière tout le contenu déjà
-% présent.
-%%%
-\AddToHook{shipout/background}{
-  \begin{tikzpicture}[remember picture, overlay]
-    \draw[red!60, ->, shorten <= 1pt, shorten >= 1pt]
-      (adj-matrix-4-1.east)
-      -| node[pos=0.5, name=corner] {}
-      (adj-matrix-1-2.south);
-    \fill[red!10] (corner) circle (5pt);
-  \end{tikzpicture}
-}
 
 \end{document}
