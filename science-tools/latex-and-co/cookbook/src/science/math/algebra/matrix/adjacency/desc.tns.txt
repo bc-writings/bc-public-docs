@@ -1,0 +1,6 @@
+===================
+Matrices d'ajacence
+===================
+
+content::
+    ./pedagogical-table/\desc
