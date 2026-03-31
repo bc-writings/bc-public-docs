@@ -8,16 +8,20 @@
 \documentclass[a4paper]{article}
 
 %%%
+% Nous avons besoin de produire du faux contenu.
+%%%
+\usepackage{lipsum}
+
+%%%
 % La bibliothèque ''luadraw'' allie une facilité d’utilisation
 % à un rendu particulièrement soigné.
 %%%
 \usepackage{luadraw}
 
 %%%
-% Nous avons besoin de produire du faux contenu.
+% Définition d'une fonction ¨lua pour dessiner, via ¨luadraw,
+% la même suite de cercles au fond de chaque page.
 %%%
-\usepackage{lipsum}
-
 \begin{luacode*}
 function background()
 ------
@@ -34,7 +38,7 @@ function background()
   graphview:Linecolor("lightgray")
 
 ------
--- Figure qui servira de fond des pages.
+-- Une suite de cercles.
 ------
   for j = 1, 5 do
     for k = 1, 10*j do
@@ -59,8 +63,8 @@ end
 \newcommand\background{\directlua{background()}}
 
 %%%
-% Utilisation d'un point d'ancrage pour agir lors de la
-% fabrication des fonds des pages.
+% Utilisation d'un point d'ancrage du noyau ¨latex pour agir
+% lors de la fabrication des fonds des pages.
 %%%
 \AddToHook{shipout/background}{%
     \put(\paperwidth/2 - 9cm, -\paperheight/2 - 9cm){\background}%
