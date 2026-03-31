@@ -8,3 +8,4 @@ content::
     ./image/\desc
     ./icon/\desc
     ./big-doc/\desc
+    ./layout/\desc

@@ -1,0 +1,77 @@
+%!TEX TS-program = lualatex
+
+%%%
+% src::
+%     url = https://tex.stackexchange.com/a/761442
+%%%
+
+\documentclass[a4paper]{article}
+
+%%%
+% La bibliothèque ''luadraw'' allie une facilité d’utilisation
+% à un rendu particulièrement soigné.
+%%%
+\usepackage{luadraw}
+
+%%%
+% Nous avons besoin de produire du faux contenu.
+%%%
+\usepackage{lipsum}
+
+\begin{luacode*}
+function background()
+------
+-- ¨Def de la zone graphique.
+------
+  local graphview = graph:new{
+    margins = {0, 0, 0, 0},
+    size    = {18, 18}
+  }
+
+------
+-- Réglages liés aux lignes.
+------
+  graphview:Linecolor("lightgray")
+
+------
+-- Figure qui servira de fond des pages.
+------
+  for j = 1, 5 do
+    for k = 1, 10*j do
+      graphview:Dcircle(
+        Zp(j, k * math.pi / (5*j)),
+        1
+      )
+    end
+  end
+
+------
+-- On renvoie directement le code ¨tikz.
+------
+  graphview:Sendtotex()
+end
+\end{luacode*}
+
+%%%
+% Création d'une macro sans argument qui sera utilisée lors
+% de la production du fond de chaque page.
+%%%
+\newcommand\background{\directlua{background()}}
+
+%%%
+% Utilisation d'un point d'ancrage pour agir lors de la
+% fabrication des fonds des pages.
+%%%
+\AddToHook{shipout/background}{%
+    \put(\paperwidth/2 - 9cm, -\paperheight/2 - 9cm){\background}%
+}
+
+\begin{document}
+
+\lipsum[1-2]
+
+\newpage
+
+\lipsum[1-2]
+
+\end{document}
