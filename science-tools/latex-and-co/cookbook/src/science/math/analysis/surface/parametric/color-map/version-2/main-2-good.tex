@@ -12,10 +12,17 @@
 
 \begin{document}
 
-\begin{luadraw}{name = param-surf-colmap-OK}
-require 'luadraw_palettes'
+\begin{luadraw*}{name = param-surf-colmap-OK}
+local ld = luadraw
 
-local pal = getPal("Gnuplot")
+local M      = ld.pt3d.M
+local Origin = ld.pt3d.Origin
+local vecJ   = ld.pt3d.vecJ
+local vecK   = ld.pt3d.vecK
+
+local palext = require 'luadraw_palettes'
+
+local pal = palext.Gnuplot
 
 local pi, sin, cos, tanh = math.pi, math.sin, math.cos, math.tanh
 
@@ -23,7 +30,7 @@ local pi, sin, cos, tanh = math.pi, math.sin, math.cos, math.tanh
 -- Nous gardons juste un quart de la ¨surf, un morceau n'ayant
 -- que des faces orientées vers l'observateur.
 ------
-local projplane = surface(
+local projplane = ld.surface(
   function(u, v)
     return M(
       2*(1 + cos(v))*cos(u),
@@ -39,40 +46,40 @@ local projplane = surface(
 -- Le reste de la surface s'obtient via des symétries, mais en
 -- prenant garde à donner la bonne orientation aux faces visibles.
 ------
-projplane = concat(
+projplane = ld.concat(
   projplane,
-  reverse_face_orientation(
-    sym3d(
+  ld.reverse_face_orientation(
+    ld.sym3d(
       projplane,
       {Origin, vecJ}
     )
   )
 )
 
-projplane = concat(
+projplane = ld.concat(
   projplane,
-  reverse_face_orientation(
-    sym3d(
+  ld.reverse_face_orientation(
+    ld.sym3d(
       projplane,
       {Origin, vecK}
     )
   )
 )
 
-local graphview = graph3d:new{
+local graphview = ld.graph3d:new{
   viewdir = {120, 55},
   bbox    = false
 }
 
 graphview:Dpoly(
-  facet2poly(projplane),
+  ld.facet2poly(projplane),
   {
     usepalette = {pal, "z"},
-    mode       = mShaded
+    mode       = ld.mShaded
   }
 )
 
 graphview:Show()
-\end{luadraw}
+\end{luadraw*}
 
 \end{document}

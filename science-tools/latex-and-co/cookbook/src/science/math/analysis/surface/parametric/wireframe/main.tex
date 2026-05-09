@@ -12,15 +12,19 @@
 
 \begin{document}
 
-\begin{luadraw}{name = param-surf-flat-no-edge}
+\begin{luadraw*}{name = param-surf-flat-no-edge}
+local ld = luadraw
+
+local M = ld.pt3d.M
+
 local pi, sin, cos = math.pi, math.sin, math.cos
 
-local graphview = graph3d:new{
+local graphview = ld.graph3d:new{
   viewdir = {170, 80},
   bbox    = false
 }
 
-local ProjPlane =  surface(
+local ProjPlane = ld.surface(
   function(u, v)
     return M(
       3*v*cos(2*u),
@@ -42,12 +46,12 @@ local ProjPlane =  surface(
 graphview:Dfacet(
   ProjPlane,
   {
-    mode  = mWireFrame,
+    mode  = ld.mWireFrame,
     color = "Crimson"
   }
 )
 
 graphview:Show()
-\end{luadraw}
+\end{luadraw*}
 
 \end{document}

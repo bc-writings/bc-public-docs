@@ -15,14 +15,20 @@
 
 \begin{document}
 
-\begin{luadraw}{name = isometric-prespective}
+\begin{luadraw*}{name = isometric-prespective}
+local ld = luadraw
+
+local M      = ld.pt3d.M
+local Origin = ld.pt3d.Origin
+local vecI   = ld.pt3d.vecI
+local vecJ   = ld.pt3d.vecJ
+local vecK   = ld.pt3d.vecK
+
 ------
 -- ¨Def de la zone graphique.
 ------
-local ld = luadraw
-
 local graphview = ld.graph3d:new{
-  viewdir = perspective("iso", 0.65, 60),
+  viewdir = {"iso", 0.65, 60},
   window  = {-6, 6.5, -5, 5.5},
   size    = {10, 10},
   bbox    = false,
@@ -44,7 +50,7 @@ local P = ld.parallelep(
 
 table.remove(P.facets,2)
 
-P = shift3d(P,-isobar3d(P.vertices))
+P = ld.shift3d(P, - ld.pt3d.isobar3d(P.vertices))
 
 graphview:Dscene3d(
   graphview:addPoly(
@@ -58,7 +64,7 @@ graphview:Dscene3d(
     }
   ),
   graphview:addFacet(
-    getfacet(P,1) ,
+    ld.getfacet(P,1) ,
     {
       color="LightGray"
     }
@@ -75,6 +81,6 @@ graphview:Dscene3d(
 -- Montrons le résultat de notre oeuvre.
 ------
 graphview:Show()
-\end{luadraw}
+\end{luadraw*}
 
 \end{document}
