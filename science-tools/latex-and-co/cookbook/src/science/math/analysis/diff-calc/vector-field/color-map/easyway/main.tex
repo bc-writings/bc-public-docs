@@ -27,7 +27,7 @@
 
 \begin{document}
 
-\begin{luadraw}{name = vector-field-two-grids}
+\begin{luadraw*}{name = vector-field-two-grids}
 local palext = require 'luadraw_palettes'
 
 require 'luadraw_shadedforms'
@@ -100,7 +100,8 @@ graphview:Dshadedrectangle(
     values = f_modulus,
     bar    = "right",
     baroptions
-  })
+  }
+)
 
 ------
 -- Tracé du champs.
@@ -110,7 +111,8 @@ graphview:Dvectorfield(
   {
     view         = {xmin, xmax, ymin, ymax},
     draw_options = "-stealth"
-  })
+  }
+)
 
 ------
 -- Ajout d'un cadre gradué.
@@ -123,12 +125,13 @@ graphview:Dgradbox(
   },
   {
     title = "Vector field $f(x,y) = (1, x^2 + y^2 - 1)$"
-  })
+  }
+)
 
 ------
 -- Montrons le résultat de notre oeuvre.
 ------
 graphview:Show()
-\end{luadraw}
+\end{luadraw*}
 
 \end{document}

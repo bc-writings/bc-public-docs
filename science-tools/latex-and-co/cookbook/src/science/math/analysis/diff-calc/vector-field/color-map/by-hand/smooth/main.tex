@@ -26,7 +26,7 @@
 
 \begin{document}
 
-\begin{luadraw}{name = vector-field-smooth}
+\begin{luadraw*}{name = vector-field-smooth}
 local palext = require 'luadraw_palettes'
 
 local ld = luadraw
@@ -183,7 +183,8 @@ graphview:Dgradbox(
     originloc = 0,
     originnum = {0, 0},
     nbsubdiv  = {3, 3}
-  })
+  }
+)
 
 ------
 -- Tracé des vecteurs.
@@ -201,7 +202,8 @@ graphview:Dodesolve(
     clip         = {-2.5, 2.25, ymin, ymax},
     nbdots       = 150,
     draw_options = "Navy, line width = 1pt"
-  })
+  }
+)
 
 ------
 -- Ajout du point initial.
@@ -213,6 +215,6 @@ graphview:Dlabeldot(
 -- Montrons le résultat de notre oeuvre.
 ------
 graphview:Show()
-\end{luadraw}
+\end{luadraw*}
 
 \end{document}

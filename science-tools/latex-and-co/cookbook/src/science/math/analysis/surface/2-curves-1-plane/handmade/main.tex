@@ -20,7 +20,7 @@
 
 \begin{document}
 
-\begin{luadraw}{name = 2-curves-1-plane}
+\begin{luadraw*}{name = 2-curves-1-plane}
 local ld = luadraw
 
 local Origin = ld.pt3d.Origin
@@ -149,14 +149,16 @@ graphview:Savematrix()
     {
       x = {-2/math.sqrt(3), 2/math.sqrt(3)},
       draw_options = "line width = 0.8pt, Navy"
-    })
+    }
+  )
 
   graphview:Dcartesian(
     g,
     {
       x = {-2, 2},
       draw_options = "line width = 0.8pt, Crimson"
-    })
+    }
+  )
 graphview:Restorematrix()
 
 ------
@@ -169,7 +171,8 @@ graphview:Dfacet(
     edgewidth = 2,
     color   = "Pink",
     opacity   = 0.3
-  })
+  }
+)
 
 ------
 -- Tracé du domaine dans le plan `P`.
@@ -193,6 +196,6 @@ graphview:Dpolyline3d(
 -- Et le merveilleux se révèle au monde.
 ------
 graphview:Show()
-\end{luadraw}
+\end{luadraw*}
 
 \end{document}

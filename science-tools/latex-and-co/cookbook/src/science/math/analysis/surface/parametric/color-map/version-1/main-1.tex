@@ -20,7 +20,7 @@
 
 \begin{document}
 
-\begin{luadraw}{name = param-surf-colmap-Z}
+\begin{luadraw*}{name = param-surf-colmap-Z}
 local ld = luadraw
 
 local M = ld.pt3d.M
@@ -55,19 +55,21 @@ local projplane = ld.surface(
     )
   end,
   0, 2*pi, 0, 1,
-  {50, 30})
+  {50, 30}
+)
 
 graphview:Dpoly(
   ld.facet2poly(projplane),
   {
     usepalette = {pal, "z"},
     mode       = ld.mShaded
-  })
+  }
+)
 
 ------
 -- Montrons le résultat de notre oeuvre.
 ------
 graphview:Show()
-\end{luadraw}
+\end{luadraw*}
 
 \end{document}

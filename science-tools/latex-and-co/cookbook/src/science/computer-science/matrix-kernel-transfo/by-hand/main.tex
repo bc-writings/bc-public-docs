@@ -20,7 +20,7 @@
 
 \begin{document}
 
-\begin{luadraw}{name = matrix-kernel-transfo-by-hand}
+\begin{luadraw*}{name = matrix-kernel-transfo-by-hand}
 ------
 -- Les deux ¨mats.
 ------
@@ -73,7 +73,8 @@ graphview:Dlabel3d(
   "Résultat", B + 1.5*u + 3.5*v,
   {
     dir = {u, v}
-  })
+  }
+)
 
 graphview:Dpolyline3d(
   {
@@ -103,7 +104,8 @@ for k = 1, 3 do
       B + (k - 0.5)*v + (i - 0.5)*u,
       {
         dir = {u, v}
-      })
+      }
+    )
   end
 end
 
@@ -140,7 +142,8 @@ graphview:Dlabel3d(
   "Originale", A + 2*u + 4.5*v,
   {
     dir = {u, v}
-  })
+  }
+)
 
 graphview:Dpolyline3d(
   {
@@ -170,7 +173,8 @@ for k = 1, 4 do
       A + (k - 0.5)*v + (i - 0.5)*u,
       {
         dir = {u, v}
-      })
+      }
+    )
   end
 end
 
@@ -186,6 +190,6 @@ graphview:Dpolyline3d(
 -- Montrons le résultat de notre oeuvre.
 ------
 graphview:Show()
-\end{luadraw}
+\end{luadraw*}
 
 \end{document}

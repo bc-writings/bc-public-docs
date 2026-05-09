@@ -15,7 +15,7 @@
 
 \begin{document}
 
-\begin{luadraw}{name = orientation-n-box-axes-full}
+\begin{luadraw*}{name = orientation-n-box-axes-full}
 local ld = luadraw
 
 local M = ld.pt3d.M
@@ -59,19 +59,21 @@ local projplane = ld.surface(
     )
   end,
   0, 2*pi, 0, 2*pi,
-  {51, 15})
+  {51, 15}
+)
 
 graphview:Dfacet(
   projplane,
   {
     mode  = ld.mShadedOnly,
     color = "ForestGreen"
-  })
+  }
+)
 
 ------
 -- Montrons le résultat de notre oeuvre.
 ------
 graphview:Show()
-\end{luadraw}
+\end{luadraw*}
 
 \end{document}

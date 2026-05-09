@@ -13,7 +13,7 @@ name     = "shadow"
 basename = cachedir .. name
 \end{luacode*}
 
-\begin{luadraw}{auto = false, exec = true}
+\begin{luadraw*}{auto = false, exec = true}
 require 'luadraw_polyhedrons'
 
 local z0 = -3
@@ -110,7 +110,7 @@ for k = 1, nbimages do
 
   graphview:Cleargraph()
 end
-\end{luadraw}
+\end{luadraw*}
 
 \def\nb{\directlua{tex.print(nbimages)}}
 \def\name{\directlua{tex.print(basename)}}

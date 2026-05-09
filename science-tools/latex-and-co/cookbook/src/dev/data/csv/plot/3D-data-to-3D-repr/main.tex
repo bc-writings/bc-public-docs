@@ -9,7 +9,7 @@
 
 \begin{document}
 
-\begin{luadraw}{name = 3D-CSV-data-to-3D-repr}
+\begin{luadraw*}{name = 3D-CSV-data-to-3D-repr}
 local data = read_CSV(
   "../common/basic.csv",
   true
@@ -49,6 +49,6 @@ for _, xyz in ipairs(data) do
 end
 
 graphview:Show()
-\end{luadraw}
+\end{luadraw*}
 
 \end{document}

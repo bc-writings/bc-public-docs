@@ -20,7 +20,7 @@
 
 \begin{document}
 
-\begin{luadraw}{name = implicit-tangent-lines}
+\begin{luadraw*}{name = implicit-tangent-lines}
 local ld  = luadraw
 local Z   = ld.cpx.Z
 local abs = ld.cpx.abs
@@ -89,7 +89,8 @@ graphview:Dgradbox(
   {
     grid  = true,
     title = "{\\boldmath $x^2 + y^4 + x y = 1$}"
-  })
+  }
+)
 
 ------
 -- La valeur par défaut de ''grid'' rend visible les segments
@@ -100,7 +101,8 @@ graphview:Dimplicit(
   {
     grid         = {100, 100},
     draw_options = "thick"
-  })
+  }
+)
 
 local x0 = 1/math.sqrt(3)
 local L  = ld.solve(
@@ -118,6 +120,6 @@ end
 -- Montrons le résultat de notre oeuvre.
 ------
 graphview:Show()
-\end{luadraw}
+\end{luadraw*}
 
 \end{document}

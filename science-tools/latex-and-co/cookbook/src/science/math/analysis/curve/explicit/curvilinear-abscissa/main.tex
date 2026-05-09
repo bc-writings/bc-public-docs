@@ -20,7 +20,7 @@
 
 \begin{document}
 
-\begin{luadraw}{name = curvilinear-abscissa}
+\begin{luadraw*}{name = curvilinear-abscissa}
 ------
 -- ¨Long de parcours souhaitée.
 ------
@@ -107,7 +107,8 @@ local draw_method = function(k)
     {
       x = {xmin, xmax},
       draw_options = "red, line width = 0.8pt"
-    })
+    }
+  )
 
 -- Les points.
   graphview:Ddots(all_pts)
@@ -115,7 +116,8 @@ local draw_method = function(k)
 -- La légende.
   graphview:Dlabel(
     "Méthode "..k, Z(xlabel, ylabel),
-    {})
+    {}
+  )
 end
 
 ------
@@ -269,23 +271,26 @@ graphview:Dcartesian(
   {
     x = {xmin, xmax},
     draw_options = "red, line width = 0.8pt"
-  })
+  }
+)
 
 graphview:Dcartesian(
   f,
   {
     x = {xmin, xmax},
     draw_options = dot_options
-  })
+  }
+)
 
 graphview:Dlabel(
   "Ti\\emph{k}Z decorate", Z(xlabel, ylabel),
-  {})
+  {}
+)
 
 ------
 -- Montrons le résultat de notre oeuvre.
 ------
 graphview:Show()
-\end{luadraw}
+\end{luadraw*}
 
 \end{document}

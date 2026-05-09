@@ -20,7 +20,7 @@
 
 \begin{document}
 
-\begin{luadraw}{name = discontinous-function}
+\begin{luadraw*}{name = discontinous-function}
 local ld = luadraw
 local I  = ld.cpx.I
 
@@ -69,7 +69,8 @@ graphview:Dline(
 ------
 graphview:Daxes(
   {0, 1, 1},
-  {arrows = "-stealth"})
+  {arrows = "-stealth"}
+)
 
 ------
 -- Tracé de la fonction.
@@ -80,12 +81,13 @@ graphview:Dcartesian(
     discont      = true,
     nbdiv        = 10,
     draw_options = "Crimson"
-  })
+  }
+)
 
 ------
 -- Montrons le résultat de notre oeuvre.
 ------
 graphview:Show()
-\end{luadraw}
+\end{luadraw*}
 
 \end{document}

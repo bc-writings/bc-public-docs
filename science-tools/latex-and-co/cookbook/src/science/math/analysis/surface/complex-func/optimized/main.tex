@@ -12,7 +12,7 @@
 
 \begin{document}
 
-\begin{luadraw}{name = gamma-modulus-surface-optimized}
+\begin{luadraw*}{name = gamma-modulus-surface-optimized}
 local palext = require 'luadraw_palettes'
 
 local pal = palext.ShiftRainbow
@@ -103,11 +103,13 @@ end
 local cpx_surf = ld.surface(
   gamma_modulus_pt,
   -4, 5, -5, 5,
-  {50, 50})
+  {50, 50}
+)
 
 cpx_surf = ld.cutfacet(
   cpx_surf,
-  {6*vecK, -vecK})
+  {6*vecK, -vecK}
+)
 
 cpx_surf = graphview:Sortfacet(cpx_surf)
 
@@ -136,6 +138,6 @@ end
 -- Montrons le résultat de notre oeuvre.
 ------
 graphview:Show()
-\end{luadraw}
+\end{luadraw*}
 
 \end{document}

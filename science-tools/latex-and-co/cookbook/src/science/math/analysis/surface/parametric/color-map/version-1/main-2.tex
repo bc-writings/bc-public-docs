@@ -7,7 +7,7 @@
 
 \begin{document}
 
-\begin{luadraw}{name = param-surf-colmap-Y}
+\begin{luadraw*}{name = param-surf-colmap-Y}
 local ld = luadraw
 
 local M = ld.pt3d.M
@@ -27,7 +27,8 @@ local projplane = ld.surface(
     )
   end,
   0, 2*pi, 0, 1,
-  {50, 30})
+  {50, 30}
+)
 
 local graphview = ld.graph3d:new{
   viewdir = {170, 80},
@@ -42,9 +43,10 @@ graphview:Dpoly(
   {
     usepalette = {pal, "y"},
     mode       = ld.mShaded
-  })
+  }
+)
 
 graphview:Show()
-\end{luadraw}
+\end{luadraw*}
 
 \end{document}
