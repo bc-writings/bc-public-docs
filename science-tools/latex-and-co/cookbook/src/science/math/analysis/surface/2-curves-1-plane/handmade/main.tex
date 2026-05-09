@@ -21,6 +21,13 @@
 \begin{document}
 
 \begin{luadraw}{name = 2-curves-1-plane}
+local ld = luadraw
+
+local Origin = ld.pt3d.Origin
+local vecI   = ld.pt3d.vecI
+local vecJ   = ld.pt3d.vecJ
+local vecK   = ld.pt3d.vecK
+
 ------
 -- Éléments constitutifs de notre solide.
 --
@@ -36,12 +43,12 @@ local g = function(x)
   return 3 - x^2
 end
 
-local P = planeEqn(1, 1, 1, -4)
+local P = ld.planeEq(1, 1, 1, -4)
 
 ------
 -- ¨Def de la zone graphique.
 ------
-local graphview = graph3d:new{
+local graphview = ld.graph3d:new{
   window3d = {-2, 2, -2, 3, 0, 8},
   viewdir  = {-30, 50},
   adjust2d = true,
@@ -69,9 +76,9 @@ graphview:Dboxaxes3d({
 --     contour délimité par les courbes des fonctions `f` et `g` avec
 --     des réglages expliqués en commentaires.
 ------
-local xOy_domain = map(
-  toPoint3d,
-  domain3(
+local xOy_domain = ld.map(
+  ld.pt3d.toPoint3d,
+  ld.domain3(
     f, g,   -- Deux courbes pour le domaine.
     -3, 3,  -- Intervalle de définition [-3; 3]
     50,     -- Nombre de points utilisés.
@@ -87,7 +94,7 @@ local xOy_domain = map(
 -- Construction du domaine dans le plan `P`: nous avons juste à
 -- projeter la base du cylindre dans le plan `P`.
 ------
-local P_domain = proj3dO(xOy_domain, P, vecK)
+local P_domain = ld.proj3dO(xOy_domain, P, vecK)
 
 ------
 -- Construction d'une liste de faces latérales polygonales (ce choix
@@ -131,7 +138,7 @@ graphview:Linestyle("solid")
 
 ------
 -- Nous nous plaçons dans le plan `xOy` pour y tracer les courbes des
--- fonctions  `f` et `g`. La technique employée est similiare à ce qui
+-- fonctions  `f` et `g`. La technique employée est similaire à ce qui
 -- se fait avec ¨opengl: nous jouons avec des matrices de vue.
 ------
 graphview:Savematrix()

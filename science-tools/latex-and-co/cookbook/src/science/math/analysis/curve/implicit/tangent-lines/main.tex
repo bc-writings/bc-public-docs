@@ -21,6 +21,10 @@
 \begin{document}
 
 \begin{luadraw}{name = implicit-tangent-lines}
+local ld  = luadraw
+local Z   = ld.cpx.Z
+local abs = ld.cpx.abs
+
 ------
 -- La fonction `F(x, y)` pour l'équation implicite `F(x, y) = 0`.
 ------
@@ -31,7 +35,7 @@ end
 ------
 -- ¨Def de la zone graphique.
 ------
-local graphview = graph:new{
+local graphview = ld.graph:new{
   window = {-3, 3, -3, 3},
   size   = {10, 10},
   bbox   = false
@@ -65,7 +69,7 @@ local DtangentI = function(
 
 -- Tracé d'un segment.
   else
-    local u = len*v / cpx.abs(v) / 2
+    local u = len*v / abs(v) / 2
 
     graphview:Dseg(
       {A - u, A + u},
@@ -85,8 +89,7 @@ graphview:Dgradbox(
   {
     grid  = true,
     title = "{\\boldmath $x^2 + y^4 + x y = 1$}"
-  }
-)
+  })
 
 ------
 -- La valeur par défaut de ''grid'' rend visible les segments
@@ -97,11 +100,10 @@ graphview:Dimplicit(
   {
     grid         = {100, 100},
     draw_options = "thick"
-  }
-)
+  })
 
 local x0 = 1/math.sqrt(3)
-local L  = solve(
+local L  = ld.solve(
   function(t)
     return F(x0, t)
   end,

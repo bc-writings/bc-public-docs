@@ -24,10 +24,12 @@
 %%%
 \begin{luacode*}
 function background()
+  local ld = luadraw
+
 ------
 -- ¨Def de la zone graphique.
 ------
-  local graphview = graph:new{
+  local graphview = ld.graph:new{
     margins = {0, 0, 0, 0},
     size    = {18, 18}
   }
@@ -40,10 +42,12 @@ function background()
 ------
 -- Une suite de cercles.
 ------
+  _Zp = ld.cpx.Zp
+  
   for j = 1, 5 do
     for k = 1, 10*j do
       graphview:Dcircle(
-        Zp(j, k * math.pi / (5*j)),
+        _Zp(j, k * math.pi / (5*j)),
         1
       )
     end

@@ -32,7 +32,9 @@ local data = read_CSV(
 ------
 -- ¨Def de la zone graphique.
 ------
-local graphview = graph:new{
+local ld = luadraw
+
+local graphview = ld.graph:new{
   window = {-7, 7, -5, 5},
   bbox   = false
 }
@@ -45,8 +47,7 @@ graphview:Daxes(
   {
     arrows = "->",
     grid   = true
-  }
-)
+  })
 
 ------
 -- Quelques réglages graphiques.
@@ -57,7 +58,7 @@ graphview:Filloptions("full", "Crimson")
 ------
 -- Traitement graphique des données.
 ------
-local i = cpx.I
+local i = ld.cpx.I
 local xyR
 
 for _, xyR in ipairs(data) do

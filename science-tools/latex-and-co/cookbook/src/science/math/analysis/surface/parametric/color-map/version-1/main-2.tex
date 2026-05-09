@@ -8,13 +8,17 @@
 \begin{document}
 
 \begin{luadraw}{name = param-surf-colmap-Y}
-require 'luadraw_palettes'
+local ld = luadraw
 
-local pal = getPal("BurningGrass")
+local M = ld.pt3d.M
+
+local palext = require 'luadraw_palettes'
+
+local pal = palext.BurningGrass
 
 local pi, sin, cos = math.pi, math.sin, math.cos
 
-local projplane = surface(
+local projplane = ld.surface(
   function(u, v)
     return M(
       3*v*cos(2*u),
@@ -23,10 +27,9 @@ local projplane = surface(
     )
   end,
   0, 2*pi, 0, 1,
-  {50, 30}
-)
+  {50, 30})
 
-local graphview = graph3d:new{
+local graphview = ld.graph3d:new{
   viewdir = {170, 80},
   bbox    = false
 }
@@ -35,12 +38,11 @@ local graphview = graph3d:new{
 -- Un seul ¨chgt ici : usage de la méthode ''"y"''.
 ------
 graphview:Dpoly(
-  facet2poly(projplane),
+  ld.facet2poly(projplane),
   {
     usepalette = {pal, "y"},
-    mode       = mShaded
-  }
-)
+    mode       = ld.mShaded
+  })
 
 graphview:Show()
 \end{luadraw}

@@ -16,6 +16,10 @@
 \begin{document}
 
 \begin{luadraw}{name = orientation-n-box-axes-full}
+local ld = luadraw
+
+local M = ld.pt3d.M
+
 ------
 -- Nos ingrédients de base.
 ------
@@ -24,7 +28,7 @@ local pi, sin, cos, tanh = math.pi, math.sin, math.cos, math.tanh
 ------
 -- ¨Def de la zone graphique.
 ------
-local graphview = graph3d:new{
+local graphview = ld.graph3d:new{
   window3d = {-3, 6, -4, 6, -2, 2},
   viewdir  = {210, 70},
   adjust2d = true,
@@ -46,7 +50,7 @@ graphview:Dboxaxes3d({
 ------
 -- ¨Def et tracé de notre ¨surf ¨param en mode monocolore.
 ------
-local projplane = surface(
+local projplane = ld.surface(
   function(u, v)
     return M(
       2*(1 + cos(v))*cos(u),
@@ -55,16 +59,14 @@ local projplane = surface(
     )
   end,
   0, 2*pi, 0, 2*pi,
-  {51, 15}
-)
+  {51, 15})
 
 graphview:Dfacet(
   projplane,
   {
-    mode  = mShadedOnly,
+    mode  = ld.mShadedOnly,
     color = "ForestGreen"
-  }
-)
+  })
 
 ------
 -- Montrons le résultat de notre oeuvre.

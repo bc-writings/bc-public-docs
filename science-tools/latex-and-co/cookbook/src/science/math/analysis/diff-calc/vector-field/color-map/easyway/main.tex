@@ -28,9 +28,15 @@
 \begin{document}
 
 \begin{luadraw}{name = vector-field-two-grids}
-require 'luadraw_palettes'
+local palext = require 'luadraw_palettes'
+
 require 'luadraw_shadedforms'
 require 'luadraw_fields'
+
+local ld = luadraw
+
+local abs = ld.cpx.abs
+local Z   = ld.cpx.Z
 
 ------
 -- Réglages liés au tracé.
@@ -50,7 +56,7 @@ end
 local f_modulus = function(x, y)
   local A = f(x, y)
 
-  return cpx.abs(Z(A[1],A[2]))
+  return abs(Z(A[1],A[2]))
 end
 
 ------
@@ -62,7 +68,7 @@ local mixpalette = function(pal, percent, color)
   local mix = {}
 
   for _ , c in ipairs(pal) do
-    local _ , rgb_tbl =  mixcolor(
+    local _ , rgb_tbl = ld.mixcolor(
       c,
       percent,
       color,
@@ -78,7 +84,7 @@ end
 ------
 -- ¨Def de la zone graphique.
 ------
-local graphview = graph:new{
+local graphview = ld.graph:new{
   window = {xmin - 0.5, xmax + 1.5, ymin - 0.5, ymax + 0.5},
   size   = {10, 10},
   bbox   = false
@@ -89,13 +95,12 @@ local graphview = graph:new{
 ------
 graphview:Dshadedrectangle(
   xmin, xmax, ymin, ymax,
-  mixpalette(palJet, 50),
+  ld.mixpalette(palext.Jet, 50),
   {
     values = f_modulus,
     bar    = "right",
     baroptions
-  }
-)
+  })
 
 ------
 -- Tracé du champs.
@@ -105,9 +110,7 @@ graphview:Dvectorfield(
   {
     view         = {xmin, xmax, ymin, ymax},
     draw_options = "-stealth"
-  }
-)
-
+  })
 
 ------
 -- Ajout d'un cadre gradué.
@@ -120,8 +123,7 @@ graphview:Dgradbox(
   },
   {
     title = "Vector field $f(x,y) = (1, x^2 + y^2 - 1)$"
-  }
-)
+  })
 
 ------
 -- Montrons le résultat de notre oeuvre.

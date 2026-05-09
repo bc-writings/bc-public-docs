@@ -19,6 +19,11 @@ local function matkernel_get_vertices(
 end
 
 function matkernel_getbbox3d(dist, mat_in, mat_out)
+  local ld   = luadraw
+  local M    = ld.pt3d.M
+  local vecJ = ld.pt3d.vecJ
+  local vecK = ld.pt3d.vecK
+
   local O_in, O_out = M(dist, 0, 0), M(-dist, 0, 0)
 
   local vertices = matkernel_get_vertices(
@@ -35,7 +40,7 @@ function matkernel_getbbox3d(dist, mat_in, mat_out)
     table.insert(vertices, _vertices[i])
   end
 
-  local xmin, xmax, ymin, ymax, zmin, zmax = getbounds3d(vertices)
+  local xmin, xmax, ymin, ymax, zmin, zmax = luadraw.getbounds3d(vertices)
 
   return {xmin, xmax, ymin, ymax, zmin, zmax}
 end
@@ -63,7 +68,7 @@ local function corners(
   }
 end
 
-function graph3d:Dmatgrid(
+function luadraw.graph3d:Dmatgrid(
   Mat,
   P, u, v,
   focus
@@ -121,14 +126,17 @@ function graph3d:Dmatgrid(
   end
 end
 
-function graph3d:Dmatkernel(
+function luadraw.graph3d:Dmatkernel(
   dist,
   MatIn, MatOut,
   foc_in, foc_out
 )
+  local ld = luadraw
+  local M  = ld.pt3d.M
+  
   local O_in, O_out = M(dist, 0, 0), M(-dist, 0, 0)
 
-  local u, v = vecJ, vecK
+  local u, v = ld.pt3d.vecJ, ld.pt3d.vecK
 
   local focus_segs = {}
 

@@ -21,6 +21,9 @@
 \begin{document}
 
 \begin{luadraw}{name = discontinous-function}
+local ld = luadraw
+local I  = ld.cpx.I
+
 ------
 -- Définition de la fonction discontinue.
 ------
@@ -30,14 +33,14 @@ end
 
 local f = function(x)
   if (x < 1/2) or (x > 1) then
-    return int(h, x, 2*x)
+    return ld.int(h, x, 2*x)
   end
 end
 
 ------
 -- ¨Def de la zone graphique.
 ------
-local graphview = graph:new{
+local graphview = ld.graph:new{
   window = {-0.1, 5, -3, 5},
   size   = {12, 12, 0},
   bbox   = false
@@ -52,12 +55,12 @@ graphview:Linewidth(6)
 -- Tracé de deux asymptotes verticales.
 ------
 graphview:Dline(
-  {0.5, cpx.I},
+  {0.5, I},
   "Navy"
 )
 
 graphview:Dline(
-  {1, cpx.I},
+  {1, I},
   "ForestGreen"
 )
 
@@ -66,8 +69,7 @@ graphview:Dline(
 ------
 graphview:Daxes(
   {0, 1, 1},
-  {arrows = "-stealth"}
-)
+  {arrows = "-stealth"})
 
 ------
 -- Tracé de la fonction.
@@ -78,8 +80,7 @@ graphview:Dcartesian(
     discont      = true,
     nbdiv        = 10,
     draw_options = "Crimson"
-  }
-)
+  })
 
 ------
 -- Montrons le résultat de notre oeuvre.

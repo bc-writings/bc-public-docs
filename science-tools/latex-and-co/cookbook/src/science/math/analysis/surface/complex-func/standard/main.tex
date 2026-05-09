@@ -21,9 +21,17 @@
 \begin{document}
 
 \begin{luadraw}{name = gamma-modulus-surface}
-require 'luadraw_palettes'
+local palext = require 'luadraw_palettes'
 
-local pal = getPal("ShiftRainbow")
+local pal = palext.ShiftRainbow
+
+local ld = luadraw
+
+local M   = ld.pt3d.M
+local cpx = ld.cpx
+local Z   = cpx.Z
+
+local vecK = ld.pt3d.vecK
 
 ------
 -- Le ¨calc de `gamma(z)` est fait via la formule suivante :
@@ -42,7 +50,7 @@ local gamma = function(x, y)
     S = S + sign / k_facto / (z + k)
   end
 
-  return S + int(
+  return S + ld.int(
     function(t)
       return cpx.exp((z - 1)*math.log(t) - t)
     end,
@@ -75,7 +83,7 @@ end
 ------
 -- ¨Def de la zone graphique.
 ------
-local graphview = graph3d:new{
+local graphview = ld.graph3d:new{
   window3d = {-4, 5, -5, 5, 0, 6},
   viewdir  = {-120, 60},
   adjust2d = true,
@@ -85,16 +93,14 @@ local graphview = graph3d:new{
 ------
 -- ¨Def de la ¨surf contenue dans le demi-plan `z <= 6`.
 ------
-local cpx_surf = surface(
+local cpx_surf = ld.surface(
   gamma_modulus_pt,
   -4, 5, -5, 5,
-  {50, 50}
-)
+  {50, 50})
 
-cpx_surf = cutfacet(
+cpx_surf = ld.cutfacet(
   cpx_surf,
-  {6*vecK, -vecK}
-)
+  {6*vecK, -vecK})
 
 cpx_surf = graphview:Sortfacet(cpx_surf)
 
@@ -115,7 +121,7 @@ for _ , facet in ipairs(cpx_surf) do
     facet,
     true,
        "very thin, fill = "
-    .. palette(pal, color_coef(isobar3d(facet)))
+    .. ld.palette(pal, color_coef(ld.pt3d.isobar3d(facet)))
   )
 end
 

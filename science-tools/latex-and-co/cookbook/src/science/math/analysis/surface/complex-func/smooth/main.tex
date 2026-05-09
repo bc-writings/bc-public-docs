@@ -19,11 +19,19 @@
 \begin{document}
 
 \begin{luadraw}{name = gamma-modulus-surface-smooth}
-require 'luadraw_palettes'
+local palext = require 'luadraw_palettes'
 
-local pal = getPal("ShiftRainbow")
+local pal = palext.ShiftRainbow
 
-local graphview = graph3d:new{
+local ld = luadraw
+
+local M   = ld.pt3d.M
+local cpx = ld.cpx
+local Z   = cpx.Z
+
+local vecK = ld.pt3d.vecK
+
+local graphview = ld.graph3d:new{
   window3d = {-4, 5, -5, 5, 0, 6},
   viewdir  = {-120, 60},
   adjust2d = true,
@@ -42,7 +50,7 @@ local gamma = function(x, y)
     S = S + sign / k_facto / (z + k)
   end
 
-  return S + int(
+  return S + ld.int(
     function(t)
       return cpx.exp((z - 1)*math.log(t) - t)
     end,
@@ -66,7 +74,7 @@ local gamma_modulus_pt = function(x, y)
 
   memo_cpx_args[key] = arg -- save argument
 
-  colors[key] = palette(pal, (arg + math.pi)/(2*math.pi))
+  colors[key] = ld.palette(pal, (arg + math.pi)/(2*math.pi))
 
   return M(x, y, cpx.abs(z))
 end
@@ -89,16 +97,14 @@ local color_coef = function(f)
   return (miniarg + math.pi) / (2*math.pi)
 end
 
-local cpx_surf = surface(
+local cpx_surf = ld.surface(
   gamma_modulus_pt,
   -4, 5, -5, 5,
-  {50, 50}
-)
+  {50, 50})
 
-cpx_surf = cutfacet(
+cpx_surf = ld.cutfacet(
   cpx_surf,
-  {6*vecK, -vecK}
-)
+  {6*vecK, -vecK})
 
 cpx_surf = graphview:Sortfacet(cpx_surf)
 
@@ -137,7 +143,7 @@ for _, f in ipairs(cpx_surf) do
       col = colors[key]
 
       if col ==  nil then
-        col = palette(pal, color_coef(f))
+        col = ld.palette(pal, color_coef(f))
       end
     end
 

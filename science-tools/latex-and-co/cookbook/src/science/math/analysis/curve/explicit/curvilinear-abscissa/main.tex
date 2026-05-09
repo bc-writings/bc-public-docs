@@ -66,7 +66,11 @@ end
 ------
 -- ¨Def de la zone graphique.
 ------
-local graphview = graph:new{
+local ld  = luadraw
+local cpx = ld.cpx
+local Z   = cpx.Z
+
+local graphview = ld.graph:new{
   window = {-5.5, 5.5, -4.35, 4.55},
   size   = {11.5, 11},
   bbox   = false
@@ -103,16 +107,15 @@ local draw_method = function(k)
     {
       x = {xmin, xmax},
       draw_options = "red, line width = 0.8pt"
-    }
-  )
+    })
 
 -- Les points.
   graphview:Ddots(all_pts)
 
 -- La légende.
   graphview:Dlabel(
-    "Méthode "..k, Z(xlabel, ylabel), {}
-  )
+    "Méthode "..k, Z(xlabel, ylabel),
+    {})
 end
 
 ------
@@ -120,7 +123,7 @@ end
 -- ''curv_absc(x) = len_step'' à partir du ''x'' courant.
 ------
 while x < xmax do
-  local x_next = solve(
+  local x_next = ld.solve(
     function(t)
       return curv_absc(x, t) - len_step
     end,
@@ -164,12 +167,12 @@ local function len_f(x)
     return math.sqrt(1 + df(x)^2)
 end
 
-local sol = odesolve(
+local sol = ld.odesolve(
   function(t, y)
     return 1 / math.sqrt(1 + df(y)^2)
   end,
   0, xmin,
-  0, int(len_f, xmin, xmax),
+  0, ld.int(len_f, xmin, xmax),
   20
 )
 
@@ -211,7 +214,7 @@ draw_method(nb_method)
 --     des calculs inutiles). Par contre, `10` ne donne pas
 --     un bon résultat.
 ------
-local C = cartesian(f, xmin, xmax, 30)[1]
+local C = ld.cartesian(f, xmin, xmax, 30)[1]
 
 s_vals, x_vals = {0}, {xmin}
 
@@ -266,20 +269,18 @@ graphview:Dcartesian(
   {
     x = {xmin, xmax},
     draw_options = "red, line width = 0.8pt"
-  }
-)
+  })
 
 graphview:Dcartesian(
   f,
   {
     x = {xmin, xmax},
     draw_options = dot_options
-  }
-)
+  })
 
 graphview:Dlabel(
-  "Ti\\emph{k}Z decorate", Z(xlabel, ylabel), {}
-)
+  "Ti\\emph{k}Z decorate", Z(xlabel, ylabel),
+  {})
 
 ------
 -- Montrons le résultat de notre oeuvre.

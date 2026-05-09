@@ -19,7 +19,9 @@
 ------
 -- ¨Def de la zone graphique.
 ------
-local graphview = graph3d:new{
+local ld = luadraw
+
+local graphview = ld.graph3d:new{
   viewdir = perspective("iso", 0.65, 60),
   window  = {-6, 6.5, -5, 5.5},
   size    = {10, 10},
@@ -30,12 +32,12 @@ local graphview = graph3d:new{
 -- Réglages liés aux lignes.
 ------
 graphview:Linewidth(4)
-Hiddenlinestyle = "dashed"
+ld.Hiddenlinestyle = "dashed"
 
 ------
 -- Une boîte ouverte comme exemple.
 ------
-local P = parallelep(
+local P = ld.parallelep(
   Origin,
   4*vecI, 6*vecJ, 1.5*vecK
 )

@@ -8,9 +8,13 @@
 \begin{document}
 
 \begin{luadraw}{name = orientation-n-box-axes-partial}
+local ld = luadraw
+
+local M = ld.pt3d.M
+
 local pi, sin, cos, tanh = math.pi, math.sin, math.cos, math.tanh
 
-local graphview = graph3d:new{
+local graphview = ld.graph3d:new{
   window3d = {-3, 6, -4, 6, -2, 2},
   viewdir  = {190, 80},  -- Modifions le point de vue pour mieux
                          -- visualiser le changement d'orientation.
@@ -28,7 +32,7 @@ graphview:Dboxaxes3d({
 ------
 -- Nous ne gardons qu'une partie de la surface.
 ------
-local projplane = surface(
+local projplane = ld.surface(
   function(u, v)
     return M(
       2*(1 + cos(v))*cos(u),
@@ -37,16 +41,14 @@ local projplane = surface(
     )
   end,
   0, 2*pi, 0.3, pi,
-  {51, 15}
-)
+  {51, 15})
 
 graphview:Dfacet(
   projplane,
   {
-    mode  = mShadedOnly,
+    mode  = ld.mShadedOnly,
     color = "ForestGreen"
-  }
-)
+  })
 
 graphview:Show()
 \end{luadraw}

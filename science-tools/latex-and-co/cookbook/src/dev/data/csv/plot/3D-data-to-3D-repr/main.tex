@@ -15,7 +15,10 @@ local data = read_CSV(
   true
 )
 
-local graphview = graph3d:new{
+local ld = luadraw
+local M  = ld.pt3d.M
+
+local graphview = ld.graph3d:new{
   window3d = {-6, 4, -6, 3, -1, 5},
   viewdir  = {60, 50},
   adjust2d = true,

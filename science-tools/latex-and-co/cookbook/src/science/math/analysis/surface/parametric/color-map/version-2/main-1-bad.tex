@@ -13,18 +13,22 @@
 \begin{document}
 
 \begin{luadraw}{name = param-surf-colmap-KO}
-require 'luadraw_palettes'
+local ld = luadraw
 
-local pal = getPal("Gnuplot")
+local M = ld.pt3d.M
+
+local palext = require 'luadraw_palettes'
+
+local pal = palext.Gnuplot
 
 local pi, sin, cos, tanh = math.pi, math.sin, math.cos, math.tanh
 
-local graphview = graph3d:new{
+local graphview = ld.graph3d:new{
   viewdir = {120, 55},
   bbox    = false
 }
 
-local projplane = surface(
+local projplane = ld.surface(
   function(u, v)
     return M(
       2*(1 + cos(v))*cos(u),
@@ -33,17 +37,14 @@ local projplane = surface(
     )
   end,
   0, 2*pi, 0,  2*pi,
-  {51, 30}
-)
+  {51, 30})
 
 graphview:Dpoly(
-  facet2poly(projplane),
+  ld.facet2poly(projplane),
   {
     usepalette = {pal, "z"},
-    mode       = mShadedOnly
-  }
-)
-
+    mode       = ld.mShadedOnly
+  })
 
 graphview:Show()
 \end{luadraw}

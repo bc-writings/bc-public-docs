@@ -21,6 +21,13 @@
 \begin{document}
 
 \begin{luadraw}{name = 2-curves-1-plane}
+local ld = luadraw
+
+local Origin = ld.pt3d.Origin
+local vecI   = ld.pt3d.vecI
+local vecJ   = ld.pt3d.vecJ
+local vecK   = ld.pt3d.vecK
+
 ------
 -- Éléments constitutifs de notre solide.
 --
@@ -41,12 +48,12 @@ local g = function(x)
   return 3 - x^2
 end
 
-local P = planeEqn(1, 1, 1, -4)
+local P = ld.planeEq(1, 1, 1, -4)
 
 ------
 -- ¨Def de la zone graphique.
 ------
-local graphview = graph3d:new{
+local graphview = ld.graph3d:new{
   window3d = {-2, 2, -2, 3, 0, 8},
   viewdir  = {-30, 50},
   size     = {13, 7, 0},
@@ -74,9 +81,9 @@ graphview:Dboxaxes3d({
 --     contour délimité par les courbes des fonctions `f` et `g` avec
 --     des réglages expliqués en commentaires.
 ------
-local xOy_domain = map(
-  toPoint3d,
-  domain3(
+local xOy_domain = ld.map(
+  ld.pt3d.toPoint3d,
+  ld.domain3(
     f, g,   -- Deux courbes pour le domaine.
     -3, 3,  -- Intervalle de définition [-3; 3]
     50,     -- Nombre de points utilisés.
@@ -97,9 +104,9 @@ local xOy_domain = map(
 -- 	   La première variable ''_'' contient les facettes du "mauvais"
 --     côte du demi-plan `P`.
 ------
-local _, lateral, P_domain = cutfacet(
-  poly2facet(
-    prism(xOy_domain, 8*vecK, true)
+local _, lateral, P_domain = ld.cutfacet(
+  ld.poly2facet(
+    ld.prism(xOy_domain, 8*vecK, true)
   ),
   P
 )

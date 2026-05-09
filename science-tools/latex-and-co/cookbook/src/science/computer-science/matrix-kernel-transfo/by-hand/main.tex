@@ -40,13 +40,15 @@ local mat_dest = {
 ------
 -- ¨Params pour le dessin.
 ------
-local A, B = M(3, 0, 0), M(-3, 0, 0)
-local u, v = vecJ, vecK
+local ld = luadraw
+
+local A, B = ld.pt3d.M(3, 0, 0), ld.pt3d.M(-3, 0, 0)
+local u, v = ld.pt3d.vecJ, ld.pt3d.vecK
 
 ------
 -- ¨Def de la zone graphique.
 ------
-local graphview = graph3d:new{
+local graphview = ld.graph3d:new{
   window  = {-2, 5, -2.5, 4},
   bbox    = false,
   viewdir = {40, 60},
@@ -71,8 +73,7 @@ graphview:Dlabel3d(
   "Résultat", B + 1.5*u + 3.5*v,
   {
     dir = {u, v}
-  }
-)
+  })
 
 graphview:Dpolyline3d(
   {
@@ -102,8 +103,7 @@ for k = 1, 3 do
       B + (k - 0.5)*v + (i - 0.5)*u,
       {
         dir = {u, v}
-      }
-    )
+      })
   end
 end
 
@@ -140,8 +140,7 @@ graphview:Dlabel3d(
   "Originale", A + 2*u + 4.5*v,
   {
     dir = {u, v}
-  }
-)
+  })
 
 graphview:Dpolyline3d(
   {
@@ -171,8 +170,7 @@ for k = 1, 4 do
       A + (k - 0.5)*v + (i - 0.5)*u,
       {
         dir = {u, v}
-      }
-    )
+      })
   end
 end
 

@@ -21,7 +21,11 @@
 \begin{document}
 
 \begin{luadraw}{name = vector-field-same-grids}
-require 'luadraw_palettes'
+local palext = require 'luadraw_palettes'
+
+local ld  = luadraw
+local Z   = ld.cpx.Z
+local abs = ld.cpx.abs
 
 ------
 -- Considérons `y' = f(x, y)` où `f(x, y) = x^2 + y^2 - 1` avec
@@ -40,12 +44,12 @@ local xmin, xmax, ymin, ymax = -3, 3, -3, 3
 
 local nb_divs = 20
 
-local pal = getPal("Jet")
+local pal = palext.Jet
 
 ------
 -- ¨Def de la zone graphique.
 ------
-local graphview = graph:new{
+local graphview = ld.graph:new{
   window = {xmin - 0.5, xmax + 0.5, ymin - 0.5, ymax + 0.5},
   size   = {10, 10},
   bbox   = false
@@ -88,7 +92,7 @@ for i = 1, nb_divs do
     values[key] = img
 
     v = Z(1, img)
-    v = v / cpx.abs(v) * vect_norm
+    v = v / abs(v) * vect_norm
 
     table.insert(vectors, {Z(x, y), Z(x, y) + v})
   end
@@ -106,7 +110,7 @@ for i = 1, nb_divs do
   for j = 1, nb_divs do
     y = ymin + delta_X * (j - 1)
 
-    color = palette(
+    color = ld.palette(
       pal,
       (values[i .. "/" .. j] - img_min) / (img_max - img_min)
     )
@@ -135,8 +139,7 @@ graphview:Dgradbox(
     originloc = 0,
     originnum = {0, 0},
     nbsubdiv  = {3, 3}
-  }
-)
+  })
 
 ------
 -- Tracé des vecteurs.
@@ -154,15 +157,13 @@ graphview:Dodesolve(
     clip         = {-2.5, 2.25, ymin, ymax},
     nbdots       = 150,
     draw_options = "Navy, line width = 1pt"
-  }
-)
+  })
 
 ------
 -- Ajout du point initial.
 ------
 graphview:Dlabeldot(
-  "{\\boldmath $A_0$}", A_0, {pos = "S", node_options = "Navy"}
-)
+  "{\\boldmath $A_0$}", A_0, {pos = "S", node_options = "Navy"})
 
 ------
 -- Montrons le résultat de notre oeuvre.
