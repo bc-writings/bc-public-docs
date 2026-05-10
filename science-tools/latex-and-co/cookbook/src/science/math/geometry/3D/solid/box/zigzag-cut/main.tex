@@ -21,6 +21,14 @@
 \begin{document}
 
 \begin{luadraw*}{name = zigzag-cut}
+local ld = luadraw
+
+local Origin = ld.pt3d.Origin
+local M      = ld.pt3d.M
+local vecI   = ld.pt3d.vecI
+local vecJ   = ld.pt3d.vecJ
+local vecK   = ld.pt3d.vecK
+
 ------
 -- Préréglages.
 ------
@@ -32,7 +40,7 @@ math.randomseed(20251107)
 ------
 -- ¨Def de la zone graphique.
 ------
-local graphview = graph3d:new{
+local graphview = ld.graph3d:new{
   window  = {-3, 3, -3, 3},
   viewdir = {40, 70},
   size    = {12, 12},
@@ -42,7 +50,7 @@ local graphview = graph3d:new{
 ------
 -- Construction de la boîte incomplète.
 ------
-local P = parallelep(
+local P = ld.parallelep(
   Origin,
   a*vecI, a*vecJ, a*vecK
 )
@@ -57,14 +65,14 @@ local n = 8
 local u = (B - A) / (n + 1)
 local v = M(1, 1, 0) / (3*math.sqrt(2))
 
-local L = map(
+local L = ld.map(
   function(k)
     return A + k*u + (2*(k%2) - 1)*(0.5 + math.random()/2)*v
   end,
-  range(1, n)
+  ld.range(1, n)
 )
 
-L = concat({A}, L, {B, a*vecK})
+L = ld.concat({A}, L, {B, a*vecK})
 
 graphview:Dfacet(
   hidden_facets,

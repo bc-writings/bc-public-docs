@@ -21,6 +21,13 @@
 \begin{document}
 
 \begin{luadraw*}{name = realistic-box-opening-one-step}
+local ld = luadraw
+
+local Origin = ld.pt3d.Origin
+local M      = ld.pt3d.M
+local vecI   = ld.pt3d.vecI
+local vecJ   = ld.pt3d.vecJ
+
 ------
 -- Préréglages.
 ------
@@ -32,7 +39,7 @@ local alpha, beta = 40, 60
 ------
 -- ¨Def de la zone graphique.
 ------
-local graphview = graph3d:new{
+local graphview = ld.graph3d:new{
   window3d = {0, 7 + 2*x, 0, 10 + 2*x, -1, 1},
   window   = {-8, 12, -10, 2},
   viewdir  = {30, 60}, -- Commenter pour travailler dans
@@ -55,7 +62,7 @@ local G = M(7 + 3*x, x, 0)
 
 -- La partie "droite" de la boîte à plat.
 local N, _M, L, K, J, I, H = table.unpack(
-  sym3d(
+  ld.sym3d(
     {A, B, C, D, E, F, G},
     {M(0, 5 + x, 0), vecJ}
   )
@@ -63,35 +70,35 @@ local N, _M, L, K, J, I, H = table.unpack(
 
 -- Déplaçons les points dans l'espace.
 A, B, _M, N = table.unpack(
-  rotate3d(
+  ld.rotate3d(
     {A, B, _M, N},
     alpha, {C, vecJ}
   )
 )
 
 A, N = table.unpack(
-  rotate3d(
+  ld.rotate3d(
     {A, N},
     beta, {B, vecJ}
   )
 )
 
 D, E = table.unpack(
-  rotate3d(
+  ld.rotate3d(
     {D, E},
     alpha, {C, -vecI}
   )
 )
 
 G, H = table.unpack(
-  rotate3d(
+  ld.rotate3d(
     {G, H},
     alpha, {F, -vecJ}
   )
 )
 
 J, K = table.unpack(
-  rotate3d(
+  ld.rotate3d(
     {J, K},
     alpha, {I, vecI}
   )
@@ -112,9 +119,7 @@ local facets = {
 ------
 graphview:Dfacet(
   facets,
-  {
-    color = "LightBlue"
-  }
+  {color = "LightBlue"}
 )
 
 ------

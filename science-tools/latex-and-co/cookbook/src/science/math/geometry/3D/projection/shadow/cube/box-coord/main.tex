@@ -21,6 +21,15 @@
 \begin{document}
 
 \begin{luadraw*}{name = central-proj-of-cube-box-coord}
+local polyext = require 'luadraw_polyhedrons'
+
+local ld = luadraw
+
+local M    = ld.pt3d.M
+local vecI = ld.pt3d.vecI
+local vecJ = ld.pt3d.vecJ
+local vecK = ld.pt3d.vecK
+
 ------
 -- Nos ¨elts de base.
 ------
@@ -30,7 +39,7 @@ local z0    = -3  -- Niveau du sol de projection.
 local light = M(-5, -5, 5)
 
 local proj = function(A)
-  return proj3dO(
+  return ld.proj3dO(
     A,                -- Ce que l'on projette.
     {z0*vecK, vecK},  -- Plan de projection via un point
                       -- et un vecteur normal.
@@ -41,7 +50,7 @@ end
 ------
 -- ¨Def de la zone graphique.
 ------
-local graphview = graph3d:new{
+local graphview = ld.graph3d:new{
   window3d = {-5, 8, -5, 8, -3, 5},
   adjust2d = true,
   bbox     = false,
@@ -57,12 +66,12 @@ graphview:Linewidth(12)
 ------
 -- Un cube, un faisceau et une ombre.
 ------
-local C = parallelep(
+local C = ld.parallelep(
   M(-c_len, -c_len, -c_len)/2,
   c_len*vecI, c_len*vecJ, c_len*vecK
 )
 
-C = rotate3d(
+C = ld.rotate3d(
   C,
   25,
   {
@@ -76,8 +85,8 @@ C = rotate3d(
 -- Comme nous savons que l'ombre est convexe, une seule facette
 -- est renvoyée par ''cvx_hull3d''.
 ------
-local shade = cvx_hull3d(
-  ftransform3d(
+local shade = ld.cvx_hull3d(
+  ld.ftransform3d(
     C.vertices,
     proj
   )
@@ -87,7 +96,7 @@ local shade = cvx_hull3d(
 -- Construction du faisceau comme conséquence de la source
 -- lumineuse et de l'ombre...
 ------
-local beam = pyramid(shade, light, true)
+local beam = ld.pyramid(shade, light, true)
 
 ------
 -- Il ne reste plus qu'à dessiner.
@@ -120,7 +129,7 @@ graphview:Dpoly(
     color    = "yellow",
     opacity  = 0.3,
     contrast = 0.5,
-    mode     = mShadedOnly
+    mode     = ld.mShadedOnly
   }
 )
 

@@ -21,6 +21,12 @@
 \begin{document}
 
 \begin{luadraw*}{name = realistic-box-opening-step-by-step}
+local ld = luadraw
+
+local M    = ld.pt3d.M
+local vecI = ld.pt3d.vecI
+local vecJ = ld.pt3d.vecJ
+
 ------
 -- Préréglages.
 ------
@@ -31,7 +37,7 @@ local win2d = {-5, 10, -8, 1.5}
 ------
 -- ¨Def de la zone graphique.
 ------
-local graphview = graph3d:new{
+local graphview = ld.graph3d:new{
   window3d = {0, 7 + 2*x, 0, 10 + 2*x, -1, 1},
   window   = {-5, 5, -5, 5},
   viewdir  = {30, 70},
@@ -42,8 +48,8 @@ local graphview = graph3d:new{
 ------
 -- Réglages liés aux lignes.
 ------
-Hiddenlines     = true
-Hiddenlinestyle = "dashed"
+ld.Hiddenlines     = true
+ld.Hiddenlinestyle = "dashed"
 
 ------
 -- Une fonction pour tracer une étape.
@@ -58,42 +64,42 @@ local draw_box = function(alpha, beta)
   local G = M(7 + 3*x, x, 0)
 
   local N, _M, L, K, J, I, H = table.unpack(
-    sym3d(
+    ld.sym3d(
       {A, B, C, D, E, F, G},
       {M(0, 5 + x, 0), vecJ}
     )
   )
 
   A, B, _M, N = table.unpack(
-    rotate3d(
+    ld.rotate3d(
       {A, B, _M, N},
       alpha, {C, vecJ}
     )
   )
 
   A, N = table.unpack(
-    rotate3d(
+    ld.rotate3d(
       {A, N},
       beta, {B, vecJ}
     )
   )
 
   D, E = table.unpack(
-    rotate3d(
+    ld.rotate3d(
       {D, E},
       alpha, {C, -vecI}
     )
   )
 
   G, H = table.unpack(
-    rotate3d(
+    ld.rotate3d(
       {G, H},
       alpha, {F, -vecJ}
     )
   )
 
   J, K = table.unpack(
-    rotate3d(
+    ld.rotate3d(
       {J, K},
       alpha, {I, vecI}
     )

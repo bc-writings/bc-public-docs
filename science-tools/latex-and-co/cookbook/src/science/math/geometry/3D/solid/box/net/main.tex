@@ -21,6 +21,13 @@
 \begin{document}
 
 \begin{luadraw*}{name = box-net}
+local ld = luadraw
+
+local Origin = ld.pt3d.Origin
+local vecI   = ld.pt3d.vecI
+local vecJ   = ld.pt3d.vecJ
+local vecK   = ld.pt3d.vecK
+
 ------
 -- Préréglages.
 ------
@@ -35,7 +42,7 @@ local xmin, xmax = -a, a
 local ymin, ymax = -b - shiftbox, 1.6*b
 local zmin, zmax = -h, h
 
-local graphview = graph3d:new{
+local graphview = ld.graph3d:new{
   window3d = {xmin, xmax, ymin, ymax, zmin, zmax},
   viewdir  = {165, 70},
   adjust2d = true,
@@ -45,31 +52,31 @@ local graphview = graph3d:new{
 ------
 -- Réglages liés aux lignes.
 ------
-Hiddenlines     = true
-Hiddenlinestyle = "dashed"
+ld.Hiddenlines     = true
+ld.Hiddenlinestyle = "dashed"
 
 ------
 -- Les ¨elts géométriques de la boîte.
 ------
-local box = parallelep(Origin, a*vecI, b*vecJ, h*vecK)
+local box = ld.parallelep(Origin, a*vecI, b*vecJ, h*vecK)
 
 local A, B, C, D, E, F, G, H = table.unpack(box.vertices)
 
-local box_facets = poly2facet(box)
+local box_facets = ld.poly2facet(box)
 
 ------
 -- Déplacements des faces.
 ------
-box_facets[4] = rotate3d(box_facets[4], -90, {C, C-D})
-box_facets[3] = rotate3d(box_facets[3], 90 , {A, B-A})
-box_facets[5] = rotate3d(box_facets[5], -90, {A, D-A})
-box_facets[6] = rotate3d(box_facets[6], 90 , {B, C-B})
+box_facets[4] = ld.rotate3d(box_facets[4], -90, {C, C-D})
+box_facets[3] = ld.rotate3d(box_facets[3], 90 , {A, B-A})
+box_facets[5] = ld.rotate3d(box_facets[5], -90, {A, D-A})
+box_facets[6] = ld.rotate3d(box_facets[6], 90 , {B, C-B})
 
-box_facets[2] = rotate3d(box_facets[2], -90, {A, D-A})
+box_facets[2] = ld.rotate3d(box_facets[2], -90, {A, D-A})
 
 P, Q, R, S = table.unpack(box_facets[2])
 
-box_facets[2] = rotate3d(box_facets[2], -90, {P, S-P})
+box_facets[2] = ld.rotate3d(box_facets[2], -90, {P, S-P})
 
 ------
 -- Tracé des ¨elts graphiques.
@@ -86,11 +93,11 @@ graphview:Dscene3d(
   )
 )
 
-local box= shift3d(box, -shiftbox*vecJ)
+local box = ld.shift3d(box, -shiftbox*vecJ)
 
 graphview:Dpoly(
   box,
-  {mode = mShadedHidden}
+  {mode = ld.mShadedHidden}
 )
 
 ------

@@ -26,6 +26,14 @@
 \begin{document}
 
 \begin{luadraw*}{name = box-opened-no-top}
+local ld = luadraw
+
+local Origin = ld.pt3d.Origin
+local M      = ld.pt3d.M
+local vecI   = ld.pt3d.vecI
+local vecJ   = ld.pt3d.vecJ
+local vecK   = ld.pt3d.vecK
+
 ------
 -- Préréglages.
 ------
@@ -34,7 +42,7 @@ local a, b, h, dep = 6, 6, 3, 0.25
 ------
 -- ¨Def de la zone graphique.
 ------
-local graphview = graph3d:new{
+local graphview = ld.graph3d:new{
   window  = {-4, 6, -4.5, 3},
   viewdir = {30, 60},
   size    = {10, 10},
@@ -44,8 +52,8 @@ local graphview = graph3d:new{
 ------
 -- Réglages liés aux lignes.
 ------
-Hiddenlines     = true
-Hiddenlinestyle = "dashed"
+ld.Hiddenlines     = true
+ld.Hiddenlinestyle = "dashed"
 
 ------
 -- Réglages liés aux étiquettes.
@@ -55,7 +63,7 @@ graphview:Labelsize("footnotesize")
 ------
 -- La boîte ouverte.
 ------
-local P = parallelep(
+local P = ld.parallelep(
   Origin,
   a*vecI, b*vecJ, h*vecK
 )
@@ -73,30 +81,28 @@ graphview:Dpoly(
   P,
   {
     edge  = true,
-    mode  = mShadedHidden,
+    mode  = ld.mShadedHidden,
     color = "LightBlue",
   }
 )
 
 -- Petits traits verticaux pour les dimensions.
-graphview:Dpolyline3d(
-{
+graphview:Dpolyline3d({
   {B - dep*vecK, B - 2*dep*vecK},
   {C - dep*vecK, C - 2*dep*vecK},
   {C + dep*vecJ, C + 2*dep*vecJ},
   {D + dep*vecJ, D + 2*dep*vecJ},
   {D + h*vecK + dep*vecJ, D + h*vecK + 2*dep*vecJ}
-}
-)
+})
 
 -- Les doubles flèches.
 graphview:Dpolyline3d(
-{
-  {B - 3*dep/2*vecK, C - 3*dep/2*vecK},
-  {C + 3*dep/2*vecJ, D + 3*dep/2*vecJ},
-  {D + 3*dep/2*vecJ, D + h*vecK + 3*dep/2*vecJ}
-},
-"stealth-stealth"
+  {
+    {B - 3*dep/2*vecK, C - 3*dep/2*vecK},
+    {C + 3*dep/2*vecJ, D + 3*dep/2*vecJ},
+    {D + 3*dep/2*vecJ, D + h*vecK + 3*dep/2*vecJ}
+  },
+  "stealth-stealth"
 )
 
 -- Les étiquettes.
@@ -107,13 +113,9 @@ graphview:Dlabel3d(
     node_options = "fill = white"
   },
   "$x$ \\unit{m}", M(a/2, b + 3*dep/2, 0),
-  {
-    dir = {-vecI, -vecJ}
-  },
+  {dir = {-vecI, -vecJ}},
   "$h$ \\unit{m}", M(0, b + 3*dep/2, h/2),
-  {
-    dir = {vecK, -vecJ}
-  }
+  {dir = {vecK, -vecJ}}
 )
 
 ------

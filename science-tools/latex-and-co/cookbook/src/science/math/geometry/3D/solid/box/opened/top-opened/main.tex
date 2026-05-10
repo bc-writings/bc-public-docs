@@ -21,6 +21,13 @@
 \begin{document}
 
 \begin{luadraw*}{name = box-opened-top}
+local ld = luadraw
+
+local Origin = ld.pt3d.Origin
+local vecI   = ld.pt3d.vecI
+local vecJ   = ld.pt3d.vecJ
+local vecK   = ld.pt3d.vecK
+
 ------
 -- Préréglages.
 ------
@@ -33,9 +40,9 @@ local xmin, xmax = -a, a
 local ymin, ymax = -b, b
 local zmin, zmax = -h, 1.6*h
 
-local graphview = graph3d:new{
+local graphview = ld.graph3d:new{
   window3d = {xmin, xmax, ymin, ymax, zmin, zmax},
-  viewdir = {165, 70},
+  viewdir  = {165, 70},
   adjust2d = true,
   bbox     = false,
 }
@@ -43,25 +50,25 @@ local graphview = graph3d:new{
 ------
 -- Réglages liés aux lignes.
 ------
-Hiddenlines     = true
-Hiddenlinestyle = "dashed"
+ld.Hiddenlines     = true
+ld.Hiddenlinestyle = "dashed"
 
 ------
 -- La boîte.
 ------
-local box = parallelep(
+local box = ld.parallelep(
   Origin,
   a*vecI, a*vecJ, h*vecK
 )
 
 local A, B, C, D, E, F, G, H = table.unpack(box.vertices)
 
-local box_facets = poly2facet(box)
+local box_facets = ld.poly2facet(box)
 
 ------
 -- Rotation du couvercle.
 ------
-box_facets[2] = rotate3d(
+box_facets[2] = ld.rotate3d(
   box_facets[2],
   30,         -- Angle de rotation de 30°.
   {F, G - F}  -- (FG) est l'axe de rotation.

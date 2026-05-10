@@ -10,24 +10,26 @@
 \begin{document}
 
 \begin{luadraw*}{name = cicrle-tangent-from-point-initial}
+local ld = luadraw
+
 local coul_1    = "blue"
 local coul_2    = "ForestGreen"
 local xtra_coul = "orange!80!black"
 
-local i    = cpx.I
+local i    = ld.cpx.I
 local C, r = -1, 2
 local M    = 4-i
 
-local g = graph:new{
+local g = ld.graph:new{
   window = {-10, 11, -5, 3},
   size   = {14, 6},
   bbox   = false
 }
 
 local c_1 = {C, 2}
-local c_2 = {(C + M) / 2, cpx.abs(M - C) / 2}
+local c_2 = {(C + M) / 2, ld.cpx.abs(M - C) / 2}
 
-local J = interCC(c_1, c_2)[2]
+local J = ld.interCC(c_1, c_2)[2]
 
 local Omega = (C + M)/2
 
@@ -46,21 +48,13 @@ g:Ddots({J}, coul_2)
 g:Ddots({Omega}, xtra_coul)
 
 g:Dlabel(
-  "$M$", M,
-  {
-    pos = "SE"
-  },
-  "$C$", C,
-  {
-    pos = "W"
-  },
-  "$J$", J,
-  {
+  "$M$", M, {pos = "SE"},
+  "$C$", C, {pos = "W"},
+  "$J$", J, {
     pos          = "N",
     node_options = coul_2
   },
-  "$\\Omega$", Omega,
-  {
+  "$\\Omega$", Omega, {
     pos          = "S",
     node_options = xtra_coul
   }

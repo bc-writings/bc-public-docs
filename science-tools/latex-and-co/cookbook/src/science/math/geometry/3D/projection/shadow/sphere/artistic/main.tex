@@ -13,6 +13,11 @@
 \begin{document}
 
 \begin{luadraw*}{name = central-proj-of-sphere-artistic}
+local ld = luadraw
+
+local M    = ld.pt3d.M
+local vecK = ld.pt3d.vecK
+
 local r = 2
 local C = M(-1, -1, 0)
 
@@ -20,18 +25,18 @@ local z0    = -3
 local light = M(-5, -5, 5)
 
 local proj = function(A)
-  return proj3dO(
+  return ld.proj3dO(
     A,
     {z0*vecK, vecK},
     A - light
   )
 end
 
-local graphview = graph3d:new{
+local graphview = ld.graph3d:new{
   window3d = {-5, 8, -5, 8, -3, 5},
   adjust2d = true,
   bbox     = false,
-  viewdir  = perspective("yz", 0.35, 60),
+  viewdir  = {"yz", 0.35, 60},
   size     = {10, 10}
 }
 
@@ -40,16 +45,16 @@ graphview:Linewidth(12)
 local S = {C, r}
 
 local I = (light + C) / 2
-local R = pt3d.abs(C - light) / 2
+local R = ld.pt3d.abs(C - light) / 2
 
-local C_t, r_t, normal_t = interSS(S, {I, R})
+local C_t, r_t, normal_t = ld.interSS(S, {I, R})
 
-local shadow = ftransform3d(
-  circle3d(C_t, r_t, normal_t)[1],
+local shadow = ld.ftransform3d(
+  ld.circle3d(C_t, r_t, normal_t)[1],
   proj
 )
 
-local beam = pyramid(shadow, light, true)
+local beam = ld.pyramid(shadow, light, true)
 
 graphview:Dfacet(
   graphview:Plane2facet({z0*vecK, vecK}),
@@ -73,7 +78,7 @@ graphview:Dsphere(
   C, r,
   {
     color = "Cyan",
-    mode  = mBorder
+    mode  = ld.mBorder
   }
 )
 
@@ -84,7 +89,7 @@ graphview:Dpoly(
     opacity  = 0.4,
     backcull = true,
     contrast = 0.5,
-    mode     = mShadedOnly
+    mode     = ld.mShadedOnly
   }
 )
 

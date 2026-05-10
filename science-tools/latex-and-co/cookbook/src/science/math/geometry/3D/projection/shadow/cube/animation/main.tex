@@ -18,7 +18,12 @@
 \begin{luacode*}
 NB_IMAGES = 36
 
-require 'luadraw_polyhedrons'
+local polyext = require 'luadraw_polyhedrons'
+
+local ld = luadraw
+
+local M    = ld.pt3d.M
+local vecK = ld.pt3d.vecK
 
 local z0    = -3
 local light = M(-5, -5, 3.5)
@@ -26,47 +31,47 @@ local light = M(-5, -5, 3.5)
 local center = M(-1, -1, -1)
 
 local proj = function(A)
-  return proj3dO(
+  return ld.proj3dO(
     A,
     {z0*vecK, vecK},
     A - light
   )
 end
 
-local C = cube(center, M(-1, -1, z0))
+local C = polyext.cube(center, M(-1, -1, z0))
 
-local graphview = graph3d:new{
+local graphview = ld.graph3d:new{
   window3d = {-5, 8, -5, 7, z0, 5},
   adjust2d = true,
   bbox     = false,
-  viewdir  = perspective("yz", 0.35, 60),
+  viewdir  = {"yz", 0.35, 60},
   size     = {10, 10}
 }
 
 local shadow
 local beam, beamVisible, beamHidden
 
-local theta = linspace(0, 360, NB_IMAGES + 1)
+local theta = ld.linspace(0, 360, NB_IMAGES + 1)
 
 function makeframe(k)
   graphview:Defaultattr()  -- IMPORTANT!
   graphview:Linewidth(12)
 
-  C_rot = rotate3d(
+  C_rot = ld.rotate3d(
     C,
     theta[k],
     {M(-1, -1, z0), vecK}
   )
 
-  shadow = cvx_hull3d(
-    ftransform3d(C_rot.vertices, proj)
+  shadow = ld.cvx_hull3d(
+    ld.ftransform3d(C_rot.vertices, proj)
   )[1]
 
   if not graphview:Isvisible(shadow) then
-    shadow = reverse(shadow)
+    shadow = ld.reverse(shadow)
   end
 
-  beam = pyramid(shadow, light, true)
+  beam = ld.pyramid(shadow, light, true)
 
   beamVisible, beamHidden = graphview:Classifyfacet(beam)
 
@@ -93,7 +98,7 @@ function makeframe(k)
     {
       color   = "yellow",
       opacity = 0.4,
-      mode    = mShadedOnly
+      mode    = ld.mShadedOnly
     }
   )
 
@@ -101,7 +106,7 @@ function makeframe(k)
     C_rot,
     {
       color = "cyan",
-      mode  = mShadedHidden
+      mode  = ld.mShadedHidden
     }
   )
 
@@ -110,7 +115,7 @@ function makeframe(k)
     {
       color   = "yellow",
       opacity = 0.4,
-      mode    = mShadedOnly
+      mode    = ld.mShadedOnly
     }
   )
 

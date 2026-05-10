@@ -13,7 +13,12 @@
 \begin{document}
 
 \begin{luadraw*}{name = central-proj-of-cube-artistic}
-require 'luadraw_polyhedrons'
+local polyext = require 'luadraw_polyhedrons'
+
+local ld = luadraw
+
+local M    = ld.pt3d.M
+local vecK = ld.pt3d.vecK
 
 local z0    = -3
 local light = M(-5, -5, 3.5)
@@ -21,30 +26,30 @@ local light = M(-5, -5, 3.5)
 local center = M(-1, -1, -1)
 
 local proj = function(A)
-  return proj3dO(
+  return ld.proj3dO(
     A,
     {z0*vecK, vecK},
     A - light
   )
 end
 
-local graphview = graph3d:new{
+local graphview = ld.graph3d:new{
   window3d = {-5, 8, -5, 7, z0, 5},
   adjust2d = true,
-  bbox = false,
-  viewdir  = perspective("yz", 0.35, 60),
+  bbox     = false,
+  viewdir  = {"yz", 0.35, 60},
   size     = {10, 10}
 }
 
 graphview:Linewidth(12)
 
-local C = cube(center, M(-1, -0.5, z0 + .2))
+local C = polyext.cube(center, M(-1, -0.5, z0 + .2))
 
-local shadow = cvx_hull3d(
-  ftransform3d(C.vertices, proj)
+local shadow = ld.cvx_hull3d(
+  ld.ftransform3d(C.vertices, proj)
 )[1]
 
-local beam = pyramid(reverse(shadow), light, true)
+local beam = ld.pyramid(ld.reverse(shadow), light, true)
 
 local beamVisible, beamHidden = graphview:Classifyfacet(beam)
 
@@ -71,7 +76,7 @@ graphview:Dfacet(
   {
     color   = "yellow",
     opacity = 0.4,
-    mode    = mShadedOnly
+    mode    = ld.mShadedOnly
   }
 )
 
@@ -79,7 +84,7 @@ graphview:Dpoly(
   C,
   {
     color = "cyan",
-    mode  = mShadedHidden
+    mode  = ld.mShadedHidden
   }
 )
 
@@ -88,7 +93,7 @@ graphview:Dfacet(
   {
     color   = "yellow",
     opacity = 0.4,
-    mode    = mShadedOnly
+    mode    = ld.mShadedOnly
   }
 )
 

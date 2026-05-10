@@ -21,6 +21,11 @@
 \begin{document}
 
 \begin{luadraw*}{name = central-proj-of-sphere-box-coord}
+local ld = luadraw
+
+local M    = ld.pt3d.M
+local vecK = ld.pt3d.vecK
+
 ------
 -- Nos ¨elts de base.
 ------
@@ -31,7 +36,7 @@ local z0    = -3
 local light = M(-5, -5, 5)
 
 local proj = function(A)
-  return proj3dO(
+  return ld.proj3dO(
     A,
     {z0*vecK, vecK},
     A - light
@@ -41,7 +46,7 @@ end
 ------
 -- ¨Def de la zone graphique.
 ------
-local graphview = graph3d:new{
+local graphview = ld.graph3d:new{
   window3d = {-5, 8, -5, 8, -3, 5},
   adjust2d = true,
   bbox     = false,
@@ -63,12 +68,12 @@ local S = {C, r}
 -- Cercle de tangence de la sphère et du faisceau de lumière.
 ------
 local I = (light + C) / 2
-local R = pt3d.abs(C - light) / 2
+local R = ld.pt3d.abs(C - light) / 2
 
-local C_t, r_t, normal_t = interSS(S, {I, R})
+local C_t, r_t, normal_t = ld.interSS(S, {I, R})
 
-local shadow = ftransform3d(
-  circle3d(C_t, r_t, normal_t)[1],  -- 1ière composante connexe.
+local shadow = ld.ftransform3d(
+  ld.circle3d(C_t, r_t, normal_t)[1],  -- 1ière composante connexe.
   proj
 )
 
@@ -76,7 +81,7 @@ local shadow = ftransform3d(
 -- Construction du faisceau comme conséquence de la source
 -- lumineuse et de l'ombre...
 ------
-local beam = pyramid(shadow, light, true)
+local beam = ld.pyramid(shadow, light, true)
 
 ------
 -- Il ne reste plus qu'à dessiner.
@@ -93,7 +98,7 @@ graphview:Dsphere(
   C, r,
   {
     color = "Cyan",
-    mode  = mBorder
+    mode  = ld.mBorder
   }
 )
 
@@ -109,7 +114,7 @@ graphview:Dpoly(
     color    = "yellow",
     opacity  = 0.3,
     contrast = 0.5,
-    mode     = mShadedOnly
+    mode     = ld.mShadedOnly
   }
 )
 

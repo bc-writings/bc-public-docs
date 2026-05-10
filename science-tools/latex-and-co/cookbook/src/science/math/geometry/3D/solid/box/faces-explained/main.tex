@@ -25,7 +25,16 @@
 
 \begin{document}
 
-\begin{luadraw*}{name = faces-explained}------
+\begin{luadraw*}{name = faces-explained}
+local ld = luadraw
+
+local Origin = ld.pt3d.Origin
+local M      = ld.pt3d.M
+local vecI   = ld.pt3d.vecI
+local vecJ   = ld.pt3d.vecJ
+local vecK   = ld.pt3d.vecK
+
+------
 -- Préréglages.
 ------
 local a, b, h = 6, 8, 10
@@ -33,7 +42,7 @@ local a, b, h = 6, 8, 10
 ------
 -- ¨Def de la zone graphique.
 ------
-local graphview = graph3d:new{
+local graphview = ld.graph3d:new{
   window  = {-5, 8, -5, 10},
   viewdir = {20, 60},
   size    = {10, 10},
@@ -44,8 +53,9 @@ local graphview = graph3d:new{
 -- Réglages liés aux lignes.
 ------
 graphview:Linewidth(4)
-Hiddenlines     = true
-Hiddenlinestyle = "dashed"
+
+ld.Hiddenlines     = true
+ld.Hiddenlinestyle = "dashed"
 
 ------
 -- Réglages liés aux étiquettes.
@@ -56,7 +66,7 @@ graphview:Labelsize("footnotesize")
 ------
 -- Un basique parallélipipède.
 ------
-local P = parallelep(
+local P = ld.parallelep(
   Origin,
   a*vecI, b*vecJ, h*vecK
 )
@@ -80,9 +90,7 @@ graphview:Dlabel3d(
     pos = "S"
   },
   a .. " \\unit{cm}", M(a/2, b, 0),
-  {
-    dir = {-vecI, -vecJ}
-  },
+  {dir = {-vecI, -vecJ}},
   h .. " \\unit{cm}", M(a, 0, h/2),
   {
     dir = {vecK, vecI},
@@ -95,25 +103,15 @@ graphview:Dlabel3d(
     pos = {}
   },
   "Face au-dessus", M(a/2, b/2, h),
-  {
-    dir = {vecJ, -vecI}
-  },
+  {dir = {vecJ, -vecI}},
   "Face à gauche", M(a/2, 0, h/2),
-  {
-    dir = {-vecK, -vecI}
-  },
+  {dir = {-vecK, -vecI}},
   "Face au-dessous", M(a/2, b/2, 0),
-  {
-    dir = {vecJ, -vecI}
-  },
+  {dir = {vecJ, -vecI}},
   "Face avant", M(a, b/2, h/2),
-  {
-    dir = {vecJ, vecK}
-  },
+  {dir = {vecJ, vecK}},
   "Face arrière", M(0, b/2, h/2),
-  {
-    dir = {vecJ, vecK}
-  }
+  {dir = {vecJ, vecK}}
 )
 
 ------

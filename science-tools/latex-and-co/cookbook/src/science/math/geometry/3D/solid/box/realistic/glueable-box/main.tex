@@ -21,6 +21,13 @@
 \begin{document}
 
 \begin{luadraw*}{name = glueable-box}
+local ld = luadraw
+
+local Origin = ld.pt3d.Origin
+local M      = ld.pt3d.M
+local vecI   = ld.pt3d.vecI
+local vecJ   = ld.pt3d.vecJ
+
 ------
 -- Préréglages.
 ------
@@ -32,7 +39,7 @@ local alpha, beta, gamma = 80, 45, 60
 ------
 -- ¨Def de la zone graphique.
 ------
-local graphview = graph3d:new{
+local graphview = ld.graph3d:new{
   window  = {-5, 5, -3, 3},
   viewdir = {-50, 65},
   size    = {12, 12},
@@ -42,8 +49,8 @@ local graphview = graph3d:new{
 ------
 -- Réglages liés aux lignes.
 ------
-Hiddenlines     = true
-Hiddenlinestyle = "dashed"
+ld.Hiddenlines     = true
+ld.Hiddenlinestyle = "dashed"
 
 ------
 -- Construction de la boîte avec des languettes.
@@ -100,13 +107,15 @@ P.facets = {
 }
 
 -- Centre de la boîte sur l'origine.
-P = shift3d(
+P = ld.shift3d(
   P,
   -M(l/2, l/2, 0)
 )
 
 -- Conversion des faces.
-F, T, Tl, Tr, B, Bl, Br, Le, Li, Re, Ri = table.unpack(poly2facet(P))
+F, T, Tl, Tr, B, Bl, Br, Le, Li, Re, Ri = table.unpack(
+  ld.poly2facet(P)
+)
 
 -- Même type d'axe utilisé plusieurs fois.
 local axe = function(i, j)
@@ -117,59 +126,59 @@ local axe = function(i, j)
 end
 
 -- La manège des rotations peut être lancé...
-Tl = rotate3d(
+Tl = ld.rotate3d(
   Tl,
   90, axe(1, 16)
 )
 
-Tr = rotate3d(
+Tr = ld.rotate3d(
   Tr,
   90, axe(15, 4)
 )
 
 T, Tl, Tr = table.unpack(
-  rotate3d(
+  ld.rotate3d(
     {T, Tl, Tr},
     alpha, axe(1, 4)
   )
 )
 
-Bl = rotate3d(
+Bl = ld.rotate3d(
   Bl,
   90, axe(9, 2)
 )
 
-Br = rotate3d(
+Br = ld.rotate3d(
   Br,
   90, axe(3, 10)
 )
 
 B, Bl, Br = table.unpack(
-  rotate3d(
+  ld.rotate3d(
     {B, Bl, Br},
     alpha, axe(3, 2)
   )
 )
 
-Le = rotate3d(
+Le = ld.rotate3d(
   Le,
   beta, axe(7, 6)
 )
 
 Li, Le = table.unpack(
-  rotate3d(
+  ld.rotate3d(
     {Li, Le},
     gamma, axe(2, 1)
   )
 )
 
-Re = rotate3d(
+Re = ld.rotate3d(
   Re,
   beta, axe(13, 12)
 )
 
 Ri, Re = table.unpack(
-  rotate3d(
+  ld.rotate3d(
     {Ri, Re},
     gamma, axe(4, 3)
   )
