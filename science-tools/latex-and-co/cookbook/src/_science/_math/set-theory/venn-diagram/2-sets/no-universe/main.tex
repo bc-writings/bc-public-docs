@@ -1,0 +1,64 @@
+% !TEX TS-program = lualatex
+
+\documentclass[border = 3pt]{standalone}
+
+\usepackage{main}
+
+\directlua{dofile("main.lua")}
+
+\begin{document}
+
+\begin{luadraw*}{name = 2-sets-alone}
+local ld = luadraw
+
+local cpx = ld.cpx
+
+------
+-- Nos ingrédients de base.
+------
+local A, B = ld.set(-1.75,90), ld.set(1.75, -90)
+
+local lab_A, lab_B = "$A$", "$B$"
+local col_A, col_B = SET_COL("Crimson"), SET_COL("ForestGreen")
+
+------
+-- ¨Def de la zone graphique.
+------
+local graphview = ld.graph:new{
+  window = {-7.25, 7.25, -5, 5},
+  size   = {10, 10},
+  bbox   = false
+}
+
+------
+-- Tracé des ¨enss `A` et `B`.
+------
+graphview:Fillopacity(0.3)
+
+graphview:Dpath(
+  B,
+  col_B .. ", pattern = stripes"
+)
+
+graphview:Dpath(
+  A,
+  col_A .. ", pattern = {stripes[size = 10pt, angle = -45]}"
+)
+
+------
+-- Ajout de points.
+------
+graphview:Fillopacity(.75)
+
+graphview:Dlabel(
+  lab_A, -4 + 2.7*i, {node_options = col_A, pos = "W"},
+  lab_B,  4 + 2.7*i, {node_options = col_B, pos = "E"}
+)
+
+------
+-- Montrons le résultat de notre oeuvre.
+------
+graphview:Show()
+\end{luadraw*}
+
+\end{document}

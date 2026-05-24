@@ -1,0 +1,101 @@
+% !TEX TS-program = lualatex
+
+\documentclass[border = 3pt]{standalone}
+
+\usepackage{../no-universe/main}
+
+\directlua{dofile("../no-universe/main.lua")}
+
+\begin{document}
+
+\begin{luadraw*}{name = 2-sets-focus-intersection} 
+local ld = luadraw
+
+local cpx = ld.cpx
+
+------
+-- Nos ingrédients de base.
+------
+local A = ld.set(-1.75,90)
+local B = ld.set(1.75, -90)
+
+local lab_A = "$A$"
+local lab_B = "$B$"
+
+local col_A = SET_COL("Crimson")
+local col_B = SET_COL("ForestGreen")
+
+local polyline_A_inter_B = ld.cap(ld.path(A), ld.path(B))
+
+local lab_A_inter_B = "$A \\cap B$"
+local col_A_inter_B = "blue!50!black"
+
+------
+-- ¨Def de la zone graphique.
+------
+local graphview = ld.graph:new{
+  window = {-7.25, 7.25, -5, 5},
+  size   = {10, 10},
+  bbox   = false
+}
+
+------
+-- Tracé de `A inter B`.
+------
+graphview:Fillopacity(0.15)
+
+graphview:Filloptions("full")
+
+graphview:Dpolyline(
+  polyline_A_inter_B,
+  true,
+  col_A_inter_B .. ", line width = 0pt")
+
+------
+-- Tracé des ¨enss `A` et `B`.
+------
+graphview:Fillopacity(0.3)
+
+graphview:Dpath(
+  B,
+  col_B .. ", pattern = stripes"
+)
+
+graphview:Dpath(
+  A,
+  col_A .. ", pattern = {stripes[size = 10pt, angle = -45]}"
+)
+
+
+------
+-- Ajout de points.
+------
+graphview:Fillopacity(1)
+
+graphview:Dlabel(
+  lab_A, -4 + 2.7*i,
+  {
+    node_options = col_A, 
+    pos          = "W"
+  },
+  lab_B, 4 + 2.7*i,
+  {
+    node_options = col_B,
+    pos          = "E"
+  },
+  lab_A_inter_B, 0 ,
+  {
+    node_options = col_A_inter_B
+                .. ", fill = " .. col_A_inter_B .. "!25,"
+                .. "fill opacity = 1",
+    pos = "center"
+  }
+)
+
+------
+-- Montrons le résultat de notre oeuvre.
+------
+graphview:Show()
+\end{luadraw*}
+
+\end{document}
