@@ -1,8 +1,7 @@
 \ExpandArgs{c}
-\newcommand{cmd-1}{CMD 1 OK ?}
+\newcommand{cmd-1}{Je suis `cmd-1`}
 
 \newcommand\nbid{2}
 
 \ExpandArgs{c}
-\newcommand{cmd-\nbid}[1]{#1 : CMD 2 OK ?}
-
+\newcommand{cmd@\nbid}[1]{Je suis `cmd@2` - Option = "#1"}

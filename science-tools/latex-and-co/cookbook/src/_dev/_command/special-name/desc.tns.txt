@@ -1,3 +1,9 @@
-==========================
-Noms de \cmds particuliers
-==========================
+this::
+    date = 2026-05-24
+
+
+====================================
+Des \cmds avec des noms particuliers
+====================================
+
+Via ''\ExpandArgs{c}'', \latex permet, via ''newcommand'', la \def de \cmds avec des noms spéciaux tels que ''cmd-1'' et ''cmd@\userid'' où la macro ''\userid'' se développe en ''2''.

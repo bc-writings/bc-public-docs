@@ -1,10 +1,10 @@
-========================
-\lua à portée de main...
-========================
+=================================
+Mettre les mains dans le cambouis
+=================================
 
 content::
-    ./command/\desc
-    ./environment/\desc
-    ./class/\desc
-    ./data/\desc
-    ./lua/\desc
+    ./command/\desc        ??????????
+    ./environment/\desc    ????????
+    ./class/\desc          ??????
+    ./data/\desc           ????
+    ./lua/\desc            ??

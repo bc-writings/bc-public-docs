@@ -3,7 +3,7 @@ Pour les sciences
 =================
 
 content::
-    ./math/\desc
-    ./logic/\desc
-    ./computer-science/\desc
-    ./misc/\desc
+    ./math/\desc                ????????
+    ./logic/\desc               ??????
+    ./computer-science/\desc    ????
+    ./misc/\desc                ??

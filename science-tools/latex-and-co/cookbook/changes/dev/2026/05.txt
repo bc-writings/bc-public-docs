@@ -2,7 +2,12 @@
 
 
 ==
-????  (0.0.0-beta.1)
+24  (0.0.0-beta.1)
 ==
 
-????
+--------
+:update:
+--------
+
+[[:content:]]
+Working on \dev examples: the  section about special named \cmds has been accepted.
