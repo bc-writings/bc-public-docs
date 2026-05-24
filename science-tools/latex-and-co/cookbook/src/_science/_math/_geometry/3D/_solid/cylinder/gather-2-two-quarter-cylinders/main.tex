@@ -21,10 +21,19 @@
 \begin{document}
 
 \begin{luadraw*}{name = gather-2-cylinders}
+local ld = luadraw
+
+local Origin = ld.pt3d.Origin
+local M      = ld.pt3d.M
+
+local vecI = ld.pt3d.vecI
+local vecJ = ld.pt3d.vecJ
+local vecK = ld.pt3d.vecK
+
 ------
 -- ¨Def de la zone graphique.
 ------
-local graphview = graph3d:new{
+local graphview = ld.graph3d:new{
   window3d = {-1, 4, -1, 4, -1, 2},
   size     = {10, 10},
   viewdir  = {30, 60},
@@ -34,20 +43,20 @@ local graphview = graph3d:new{
 ------
 -- Construction de notre solide.
 ------
-local C1 = cylinder(Origin, 1, 3*vecI, 100, true)
-local C2 = cylinder(Origin, 1, 3*vecJ, 100, true)
+local C1 = ld.cylinder(Origin, 1, 3*vecI, 100, true)
+local C2 = ld.cylinder(Origin, 1, 3*vecJ, 100, true)
 
 -- Demi-cylindres.
-C1 = cutpoly(C1, {Origin, vecJ}, true)
-C2 = cutpoly(C2, {Origin, vecI}, true)
+C1 = ld.cutpoly(C1, {Origin, vecJ}, true)
+C2 = ld.cutpoly(C2, {Origin, vecI}, true)
 
 -- Quart de cylindres.
-C1 = cutpoly(C1, {Origin, vecK}, true)
-C2 = cutpoly(C2, {Origin, vecK}, true)
+C1 = ld.cutpoly(C1, {Origin, vecK}, true)
+C2 = ld.cutpoly(C2, {Origin, vecK}, true)
 
 -- Cylindres biseautés.
-C1 = cutpoly(C1, {Origin, vecI-vecJ})
-C2 = cutpoly(C2, {Origin, -vecI+vecJ})
+C1 = ld.cutpoly(C1, {Origin, vecI-vecJ})
+C2 = ld.cutpoly(C2, {Origin, -vecI+vecJ})
 
 ------
 -- Tracé de notre solide.
@@ -56,7 +65,7 @@ graphview:Dscene3d(
   graphview:addWall({Origin, -vecI+vecJ}),
   graphview:addPoly(C1, {color = "LightBlue"}),
   graphview:addPoly(C2, {color = "LightBlue"}),
-  graphview:addPolyline(concat(border(C1), border(C2))),
+  graphview:addPolyline(ld.concat(ld.border(C1), ld.border(C2))),
   graphview:addAxes(Origin, {arrows = 1})
 )
 

@@ -16,6 +16,15 @@
 \begin{document}
 
 \begin{luadraw*}{name = for-stacked-cubes}
+local ld = luadraw
+
+local Origin = ld.pt3d.Origin
+local M      = ld.pt3d.M
+
+local vecI = ld.pt3d.vecI
+local vecJ = ld.pt3d.vecJ
+local vecK = ld.pt3d.vecK
+
 ------
 -- Préréglages.
 ------
@@ -28,7 +37,7 @@ local pal  = {"Teal", "LightBlue"}
 local xysup = amax
 local zsup  = amax*(amax + 1) / 2
 
-local graphview = graph3d:new{
+local graphview = ld.graph3d:new{
   window3d = {0, xysup, 0, xysup, 0, zsup},
   viewdir  = {155,70},
   adjust2d = true,
@@ -51,12 +60,12 @@ local nbcol = #pal
 
 for a = amax, 1, -1 do
   graphview:Dpoly(
-    parallelep(
+    ld.parallelep(
       M(0, 0, zpos),
       a*vecI, a*vecJ, a*vecK
     ),
     {
-      mode  = mFlat,
+      mode  = ld.mFlat,
       color = pal[icol]
     }
   )

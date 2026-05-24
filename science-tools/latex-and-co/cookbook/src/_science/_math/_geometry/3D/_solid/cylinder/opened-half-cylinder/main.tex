@@ -21,10 +21,19 @@
 \begin{document}
 
 \begin{luadraw*}{name = half-cylinder}
+local ld = luadraw
+
+local Origin = ld.pt3d.Origin
+local M      = ld.pt3d.M
+
+local vecI = ld.pt3d.vecI
+local vecJ = ld.pt3d.vecJ
+local vecK = ld.pt3d.vecK
+
 ------
 -- ¨Def de la zone graphique.
 ------
-local graphview = graph3d:new{
+local graphview = ld.graph3d:new{
   size    = {10, 10},
   viewdir = {70, 60},
   bbox    = false
@@ -47,29 +56,29 @@ Hiddenlinestyle = "dashed"
 --              le cylindre sous-jacent suivant le plan "orienté"
 --              ``{A, n}``.
 ------
-function graph3d:addHalfCyl(A, r, B, n, options)
-  local cyl  = cylinder(A, r, B, 150)
+function ld.graph3d:addHalfCyl(A, r, B, n, options)
+  local cyl  = ld.cylinder(A, r, B, 150)
   local P, w = {A, n}, B - A
 
-  cyl = cutpoly(cyl, P)
+  cyl = ld.cutpoly(cyl, P)
 
   local L = self:Outline(cyl)
-  L = concat(L.visible, L.hidden)
+  L = ld.concat(L.visible, L.hidden)
 
-  n = r * pt3d.normalize(n)
+  n = r * ld.pt3d.normalize(n)
 
-  local B1, B2 = rotate3d(B + n, -90, {B, w})
+  local B1, B2 = ld.rotate3d(B + n, -90, {B, w})
   local B2     = 2*B - B1
   local A1, A2 = B1 - w, B2 - w
 
   local ret = {}
 
-  insert(
+  ld.insert(
     ret,
     self:addPoly(cyl, options)
   )
 
-  insert(
+  ld.insert(
     ret,
     self:addPolyline(
       L,
@@ -80,12 +89,12 @@ function graph3d:addHalfCyl(A, r, B, n, options)
     )
   )
 
-  insert(
+  ld.insert(
     ret,
     graphview:addArc(B1, B, B2, r, 1, w)
   )
 
-  insert(
+  ld.insert(
     ret,
     graphview:addArc(A1, A, A2, r, 1, w)
   )

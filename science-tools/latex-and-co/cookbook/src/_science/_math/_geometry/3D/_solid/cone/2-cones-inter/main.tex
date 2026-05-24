@@ -16,6 +16,15 @@
 \begin{document}
 
 \begin{luadraw*}{name = 2-cones-inter}
+local ld = luadraw
+
+local Origin = ld.pt3d.Origin
+local M      = ld.pt3d.M
+
+local vecI = ld.pt3d.vecI
+local vecJ = ld.pt3d.vecJ
+local vecK = ld.pt3d.vecK
+
 ------
 -- Les éléments graphiques de base.
 ------
@@ -24,8 +33,8 @@ local r1, h = 2, 4
 local r2    = r1/2
 local T     = M(r2, 0, 0)
 
-local cone_1 = cone(Origin, h*vecK, r1, 50, true)
-local cone_2 = cone(T, h*vecK, r2, 50, true)
+local cone_1 = ld.cone(Origin, h*vecK, r1, 50, true)
+local cone_2 = ld.cone(T, h*vecK, r2, 50, true)
 
 ------
 -- ¨Def de la zone graphique.
@@ -34,7 +43,7 @@ local cone_2 = cone(T, h*vecK, r2, 50, true)
 --     La symétrie de la figure vis à vis des axes du repère permet
 --     de passer directement via ''window'' sans ''window3d''.
 ------
-local graphview = graph3d:new{
+local graphview = ld.graph3d:new{
   window  = {-r1 - 2, r1 + 3, 0, h + 1},
   viewdir = {270, 65},
   size    = {10, 10},
@@ -50,11 +59,11 @@ Hiddenlinestyle = "dashed"
 ------
 -- Nous voulons aussi voir les silouhettes des cônes.
 ------
-local border_1 = border(
+local border_1 = ld.border(
   graphview:Classifyfacet(cone_1)
 )
 
-local border_2 = border(
+local border_2 = ld.border(
   graphview:Classifyfacet(cone_2)
 )
 
@@ -78,7 +87,7 @@ graphview:Dscene3d(
   ),
 -- Les bords cachés.
   graphview:addPolyline(
-    concat(border_1, border_2),
+    ld.concat(border_1, border_2),
     {
       width  = 4,
       hidden = true

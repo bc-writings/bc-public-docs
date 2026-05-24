@@ -17,9 +17,20 @@
 \begin{luadraw*}{name = spherical-pretty-axes}
 require 'luadraw_spherical'
 
+local ld = luadraw
+
+local Origin = ld.pt3d.Origin
+local M      = ld.pt3d.M
+
+local sM = ld.sM
+
+local vecI = ld.pt3d.vecI
+local vecJ = ld.pt3d.vecJ
+local vecK = ld.pt3d.vecK
+
 local O, R = Origin, 3
 
-local graphview = graph3d:new{
+local graphview = ld.graph3d:new{
   window  = {-R - 1.5, R + 1.5, -R - 1.5, R + 1.5},
   viewdir = {25, 70},
   size    = {10, 10},
@@ -27,8 +38,9 @@ local graphview = graph3d:new{
 }
 
 graphview:Linewidth(6)
-Hiddenlinestyle = "dashed"
-Hiddenlines     = true
+
+ld.Hiddenlinestyle = "dashed"
+ld.Hiddenlines     = true
 
 arrowBstyle = "-stealth"
 
@@ -49,7 +61,7 @@ graphview:DSfacet(
 ------
 local function build_axe_vect(ray, vect_3d)
   local vect_2d = graphview:Proj3d(vect_3d)
-  local k       = (ray + 1) / cpx.abs(vect_2d)
+  local k       = (ray + 1) / ld.cpx.abs(vect_2d)
 
   return k * vect_3d
 end

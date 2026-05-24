@@ -22,58 +22,60 @@
 
 \begin{document}
 
-\begin{luadraw*}{name = spherical-default-axes}
-------
--- Importation du module ¨luadraw dédié à la ¨geo sphérique.
-------
+\begin{luadraw*}{name = spherical-triangle}
 require 'luadraw_spherical'
+
+local ld = luadraw
+
+local Origin = ld.pt3d.Origin
+local M      = ld.pt3d.M
+
+local sM = ld.sM
+
+local vecI = ld.pt3d.vecI
+local vecJ = ld.pt3d.vecJ
+local vecK = ld.pt3d.vecK
 
 ------
 -- ¨Def de la zone graphique.
 ------
 local O, R = Origin, 3
 
-local graphview = graph3d:new{
-  window  = {-R - 1.5, R + 1.5, -R - 1.5, R + 1.5},
+local graphview = ld.graph3d:new{
+  window  = {-R - 1, R + 1, -R - 1, R + 1},
   viewdir = {25, 70},
   size    = {10, 10},
   bbox    = false
 }
 
 ------
--- Réglages liés aux lignes et aux flèches.
+-- Réglages liés aux lignes.
 ------
 graphview:Linewidth(6)
-Hiddenlinestyle = "dashed"
-Hiddenlines     = true
 
-arrowBstyle = "-stealth"
+ld.Hiddenlinestyle = "dashed"
+ld.Hiddenlines     = true
 
 ------
 -- Nos ¨objs de ¨geo sphérique.
 ------
 graphview:Define_sphere({center = O, radius = R})
 
-local N, A, B = sM(90, 0), sM(-50, 60), sM(-10, 60)
+local N = sM(90, 0)
+
+graphview:Define_sphere({center = O, radius = R})
+
+local A, B = sM(-50, 60), sM(-10, 60)
+local C, D = sM(50, 70) , sM(170, 70)
 
 graphview:DSfacet(
   {N, A, B},
   {fill = "brown", fillopacity = 0.6}
 )
 
--- Axes.
-local k      = R + 1     -- "Taille" des axes.
-local x_vect = k * vecI
-local y_vect = k * vecJ
-local z_vect = k * vecK
-
-graphview:DSpolyline(
-  {
-    {O, O + x_vect},  -- O inutiles, mais mathématiquement
-    {O, O + y_vect},  -- c'est plus correct.
-    {O, O + z_vect}
-  },
-  {arrows = 1, width = 6, color = "blue"}
+graphview:DSfacet(
+  {N, C, D},
+  {fill = "brown", fillopacity = 0.6}
 )
 
 -- Équateur.
@@ -89,15 +91,14 @@ graphview:Dspherical()
 -- Ajout de points.
 ------
 graphview:Dlabel3d(
--- Nos axes.
+-- Points "cardinaux".
+  "$N$", N, {pos = "S"},
   "$O$", O, {pos = "S"},
-  "$x$", x_vect, {pos = "SW"},
-  "$y$", y_vect, {pos = "E"},
-  "$z$", z_vect, {pos = "N"},
 -- Points de l'exemple.
   "$A$", A, {pos = "S"},
-  "$B$", B, {},           -- Même position que A.
-  "$N$", N, {pos = "E"}
+  "$B$", B, {},
+  "$C$", C, {pos = "E"},
+  "$D$", D, {pos = "S"}
 )
 
 ------

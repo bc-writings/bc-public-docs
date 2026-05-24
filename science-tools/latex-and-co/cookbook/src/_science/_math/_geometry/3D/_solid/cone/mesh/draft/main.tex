@@ -23,6 +23,15 @@
 \section*{1st point of view}
 
 \begin{luadraw*}{name = mesh-cone-1}
+local ld = luadraw
+
+local Origin = ld.pt3d.Origin
+local M      = ld.pt3d.M
+
+local vecI = ld.pt3d.vecI
+local vecJ = ld.pt3d.vecJ
+local vecK = ld.pt3d.vecK
+
 ------
 -- Un cône s'obtient par rotation d'une droite autour d'une axe.
 -- Le terme mathématique employé pour cette droite, qui peut
@@ -45,9 +54,9 @@ local zmin, zmax = -ymax, ymax
 
 local ymin = -ymax
 
-local graphview = graph3d:new{
+local graphview = ld.graph3d:new{
   window3d = {xmin, xmax, ymin, ymax, zmin, zmax},
-  viewdir = {290, 60},
+  viewdir  = {290, 60},
   adjust2d = true,
   bbox     = false,
 }
@@ -76,7 +85,7 @@ local graphview = graph3d:new{
 --     saisir ce qu'il se passe, testez ce que donne le réglage
 --     ''grid = {2, 5}''.
 ------
-local cone = rotcurve(
+local cone = ld.rotcurve(
   genecurve, tmin, tmax,
   {Origin, -vecI},
   0, 360,
@@ -107,6 +116,15 @@ graphview:Show()
 \section*{2nd point of view}
 
 \begin{luadraw*}{name = mesh-cone-2}
+local ld = luadraw
+
+local Origin = ld.pt3d.Origin
+local M      = ld.pt3d.M
+
+local vecI = ld.pt3d.vecI
+local vecJ = ld.pt3d.vecJ
+local vecK = ld.pt3d.vecK
+
 ------
 -- Début de code identique.
 ------
@@ -126,9 +144,9 @@ local zmin, zmax = -ymax, ymax
 
 local ymin = -ymax
 
-local graphview = graph3d:new{
+local graphview = ld.graph3d:new{
   window3d = {xmin, xmax, ymin, ymax, zmin, zmax},
-  viewdir = {240, 60},
+  viewdir  = {240, 60},
   adjust2d = true,
   bbox     = false,
 }
@@ -140,7 +158,7 @@ local graphview = graph3d:new{
 --     Une factorisation du code est donc possible. Ceci est proposé
 --     dans la recette suivante.
 ------
-local cone = rotcurve(
+local cone = ld.rotcurve(
   genecurve, tmin, tmax,
   {Origin, -vecI},
   0, 360,
