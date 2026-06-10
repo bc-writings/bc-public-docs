@@ -1,0 +1,68 @@
+%%%
+% src::
+%     format = journal
+%     title  = TUGboat
+%     vol    = 39:1
+%     year   = 2018
+%     author = Enrico, Gregorio
+%     note   = See the section "Symbol abbreviation macro sets",
+%              page 58.
+%%%
+
+\ExplSyntaxOn
+
+%%%
+% prototype::
+%     #1 : la macro utilisée pour la mise en forme.
+%     #2 : le schéma de nommage de la macro à créer.
+%     #3 : une liste de séries de lettres autorisées pour nommer
+%          une macro, les différentes valeurs étant séparées par
+%          des virgules.
+%
+%     :action: imaginons que les arguments soient, dans l'ordre,
+%              ''\mathbf'', ''b#1#1'' et ''A, X''. Dans ce cas,
+%              les macros ''\bAA'' et ''\bXX'' seront créées
+%              comme alias de ''\mathbf{A}'' et ''\mathbf{X}''.
+%%%
+\NewDocumentCommand{ \makeabbrev }{m m m} {
+  \cookbook_make_abbrev:nnn { #1 } { #2 } { #3 }
+}
+
+%%%
+% prototype::
+%     :see: cmd.makeabbrev
+%%%
+\cs_new_protected:Nn \cookbook_make_abbrev:nnn {
+%%%
+% Nous allons traiter chaque élément de la liste de valeurs
+% séparées par des virgules. Dans le script de traitement,
+% l'élément courant est représenté par ''##1'', car dans les
+% \cmds imbriquées, le \nbre de ''#'' doit être doublé.
+%%%
+  \clist_map_inline:nn { #3 } {
+%%%
+% Pour comprendre l'unique ligne de code utilisée, il faut
+% suffit de noter que si ''b#1#1'' est le \2nd \arg de
+% ''\makeabbrev'', \latex le transforme en ''b##1##1''.
+% C'est là que réside toute l'astuce.
+%
+%
+% note::
+%     Dans ''\cs_new_protected:cpn'', laisser la liste de
+%     \params ''p'' vide, en enchaînant directement les deux
+%     blocs ''{ ... }{ ... }'' sans spécifier de ''#n'',
+%     permet de créer une macro sans \arg.
+%     À l'inverse, si la macro devait accepter deux \args,
+%     il faudrait le spécifier avec #1#2 entre les deux
+%     paires d'accolades, comme ci-dessous.
+%
+%     latex3::
+%         \cs_new_protected:cpn {macro} #1#2 {
+%           actions sur #1 et #2
+%         }
+%%%
+    \cs_new_protected:cpn { #2 } { #1 { ##1 } }
+  }
+}
+
+\ExplSyntaxOff

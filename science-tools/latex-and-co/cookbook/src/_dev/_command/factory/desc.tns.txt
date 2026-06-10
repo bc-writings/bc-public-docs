@@ -1,0 +1,9 @@
+this::
+    date = 2026-06-09
+
+
+========================
+Usine à macros sans \arg
+========================
+
+Cet exemple illustre une \tech élégante pour créer des macros sans \arg, une approche très utile pour les développeurs de \packs.

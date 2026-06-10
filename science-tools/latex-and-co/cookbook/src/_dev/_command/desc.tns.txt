@@ -4,31 +4,5 @@ Pour les \cmds
 
 content::
     ./special-name/\desc
-    ./factory/\desc          ????
+    ./factory/\desc
     ./deco-and-expo/\desc    ??
-
-
-
-
-
-
-
-
-c (Control sequence from text) : Indique que le premier argument sera une chaîne de caractères (du texte brut) que LaTeX va automatiquement transformer en nom de commande (une control sequence).
-
-p (Parameter specification) : Indique que ce qui suit immédiatement dans le code sera la liste des paramètres (par exemple #1#2) de la macro, exactement comme on le faisait en TeX/LaTeX2e traditionnel.
-
-n (Normal argument) : Représente le corps de la fonction (le code qui sera exécuté), entouré d'accolades {...}.
-
-
-% Avant : 0 argument
-\cs_new_protected:cpn { ma_macro } {
-    % Corps de la macro (sans argument)
-}
-
-% Après : 2 arguments
-\cs_new_protected:cpn { ma_macro } #1 #2 {
-    % Vous pouvez maintenant utiliser #1 et #2 ici
-    Le premier argument est : #1 \\
-    Le deuxième argument est : #2
-}
