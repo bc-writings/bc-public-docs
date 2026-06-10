@@ -1,11 +1,9 @@
 this::
-    date = 2026-06-04
+    date = 2026-06-09
 
 
-============================
-Fabrique de macros sans \arg
-============================
+========================
+Usine à macros sans \arg
+========================
 
-????
-
-Ce code propose une \tech élégante pour créer des macros sans \arg, utile aux développeurs de \packs.
+Cet exemple illustre une \tech élégante pour créer des macros sans \arg, une approche qui devrait ravir les développeurs de \packs.

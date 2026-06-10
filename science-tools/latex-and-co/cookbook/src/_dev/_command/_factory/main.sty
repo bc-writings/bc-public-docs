@@ -1,6 +1,6 @@
 %%%
 % src::
-%     kind   = journal
+%     format = journal
 %     title  = TUGboat
 %     vol    = 39:1
 %     year   = 2018
@@ -13,14 +13,15 @@
 
 %%%
 % prototype::
-%     #1 : la macro à utiliser pour mettre en forme une lettre.
+%     #1 : la macro utilisée pour la mise en forme.
 %     #2 : le schéma de nommage de la macro à créer.
-%     #3 : une liste de lettres séparées par des virgules.
+%     #3 : une liste de séries de lettres \ascii séparées par
+%          des virgules.
 %
 %     :action: imaginons que les arguments soient, dans l'ordre,
-%              ''\mathbf'', ''b#1'' et ''A, X''. Dans ce cas,
-%              les macros ''\bA'' et ''\bX'' seront créées comme
-%              alias de ''\mathbf{A}'' et ''\mathbf{X}''.
+%              ''\mathbf'', ''b#1#1'' et ''A, X''. Dans ce cas,
+%              les macros ''\bAA'' et ''\bXX'' seront créées
+%              comme alias de ''\mathbf{A}'' et ''\mathbf{X}''.
 %%%
 \NewDocumentCommand{ \makeabbrev }{m m m} {
   \cookbook_make_abbrev:nnn { #1 } { #2 } { #3 }
@@ -31,29 +32,40 @@
 %     :see: cmd.makeabbrev
 %%%
 \cs_new_protected:Nn \cookbook_make_abbrev:nnn {
+%%%
+% XXXX
+% XXXX
+% XXXX
+% XXXX
+% XXXX
+% XXXX
+% XXXX
+% XXXX
+%%%
   \clist_map_inline:nn { #3 } {
 %%%
 % Expliquons le fonctionnement du code très concis qui suit.
 %
-%     + Ici, ''##1'' correspond à l'une des lettres fournies par
-%       l'utilisateur (voir la note ci-après)
+%     + Ici, ''##1'' correspond à l'une des séries de lettres
+%       \ascii fournies par l'utilisateur (voir la note juste
+%       après).
 %
-%     + Si l'utilisateur a fourni ''b#1'' comme \2e \arg à la macro
-%       ''\makeabbrev'', \latex l'aura transformé automatiquement
-%       en ''b##1'', et c'est là que se situte l'astuce.
+%     + Si l'utilisateur a fourni ''b#1#1'' comme \2e \arg de
+%       ''\makeabbrev'', \latex le transforme automatiquement
+%       en ''b##1##1'', et c'est là que se situe l'astuce.
 %
 %
 % note::
 %     Rappelons que pour les \cmds imbriquées, il faut doubler
-%     le \nbre de ''#'' pour utiliser un \arg.
-%     Ceci permet de différencier les \args "au-dessus" d'une
-%     \cmd imbriquée de ceux qui lui sont propres.
+%     le \nbre de ''#'' pour utiliser un \arg venant du niveau
+%     supérieur. Ceci sert à différencier les \args "au-dessus"
+%     d'une \cmd imbriquée de ceux qui lui sont propres.
 %
 %
-% warning::
-%     Dans ''\cs_new_protected:cpn {...} {...}'', l'emploi de ''p'',
-%     avec ''{...} {...}'' sans ''#n'' entre les deux accolades,
-%     permet de fabriquer une macro sans argument.
+% warning::    XXXXXXXX
+%     Dans ''\cs_new_protected:cpn {...} {...}'', l'emploi de
+%     ''p'', avec ''{...} {...}'' sans ''#n'' entre les deux
+%     accolades, permet de fabriquer une macro sans argument.
 %%%
     \cs_new_protected:cpn { #2 } { #1 { ##1 } }
   }
