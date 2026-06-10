@@ -1,15 +1,15 @@
 this::
-    date = 2025-11-22
+    date = 2026-06-10
 
 
 ===========================
 Un exemple d'utilisa^o réel
 ===========================
 
-Nous proposons ici trois implémentations de ce que pourrait être le début d'une \cmd pour taper des "hypersuites" admettant jusqu'à deux exposants, et deux indices, placés à gauche et à droite.
+Nous proposons ici trois implémentations de ce que pourrait être le début d'une \cmd pour taper des "hypersuites" admettant jusqu'à deux exposants et deux indices placés à gauche et à droite.
 
 
 content::
     ./sol-expo-1/\desc
-    ./sol-expo-2/\desc
-    ./sol-delim/\desc
+    ./sol-expo-2/\desc    ????
+    ./sol-delim/\desc     ??

@@ -1,9 +1,9 @@
 this::
-    date = 2025-11-22
+    date = 2026-06-10
 
 
 ======================================
 Nom suivi des indices et des exposants
 ======================================
 
-Cette \2e possibilité passe via l'usage de nouveaux exposant ''\^'' et indice ''\_'' en plus des classiques ''^'' et ''_''.
+Cette \2e possibilité passe via l'usage de nouveaux exposant ''\^'' et indice ''\_'' en plus des classiques ''^'' et ''_'', sans avoir besoin de saisir l'exposant et l'indice de gauche avant le nom de la suite.
