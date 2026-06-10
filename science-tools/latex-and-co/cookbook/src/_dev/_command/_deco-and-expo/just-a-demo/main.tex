@@ -1,27 +1,45 @@
 % FORCE-CROP
 
-\documentclass[varwidth]{standalone}
+\documentclass[varwidth, border = 3pt]{standalone}
 
 \usepackage{main}
 
 
 \begin{document}
 
+\verb#\decoratedcmd{Usage minimal}#
+
 \decoratedcmd{Usage minimal}
 
+
 \medskip
+
+
+\verb#\decoratedcmd[Mon option perso]{Usage classique}#
 
 \decoratedcmd[Mon option perso]{Usage classique}
 
+
 \medskip
+
+
+\verb#\decoratedcmd<Autre type d'option>{Très utile!}#
 
 \decoratedcmd<Autre type d'option>{Très utile!}
 
+
 \medskip
+
+
+\verb#\decoratedcmd'{Une prime en plus}#
 
 \decoratedcmd'{Une prime en plus}
 
+
 \medskip
+
+
+\verb#\decoratedcmd*'<Opt.1>[Opt.2]{Sur}_{Sous}#
 
 \decoratedcmd*'<Opt.1>[Opt.2]{Sur}_{Sous}
 

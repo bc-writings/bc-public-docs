@@ -1,5 +1,5 @@
 this::
-    date = 2025-11-21
+    date = 2026-06-10
 
 
 =================================
@@ -16,7 +16,7 @@ quote::
     Un grand pouvoir implique de grandes responsabilités.
 
 
-Nous montrons ici un florilège de décorateurs de \cmds: voir la \desc \texh de la \cmd ''decoratedcmd''
+Nous montrons ici un florilège de décorateurs de \cmds
 ((
-    Voir le \docu "LaTeX for authors" pour l'\ens des possibilités offertes.
+    Le \docu "LaTeX for authors" contient l'\ens des possibilités offertes.
 )).
