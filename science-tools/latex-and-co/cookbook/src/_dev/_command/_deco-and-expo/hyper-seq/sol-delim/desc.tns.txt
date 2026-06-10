@@ -1,9 +1,10 @@
 this::
-    date = 2025-11-22
+    date = 2026-06-10
 
 
 ====================================================
 Via des \args optionnels avec différents délimiteurs
 ====================================================
 
-L'\api porposée ici est à la fois efficace est très intuitive.
+Nous utilisons ici différents délimiteurs d'\args optionnels afin de distinguer leur usage lors de la saisie.
+Si cette approche s'avère peu pertinente pour les "hypersuites", la \tech demeure intéressante dans d'autres contextes.

@@ -11,5 +11,5 @@ Le \dev du paradigme de \prg^o \l3 a abouti à l'ajout de la \cmd ''\NewDocument
 
 content::
     ./just-a-demo/\desc
-    ./hyper-seq/\desc      ????
+    ./hyper-seq/\desc
     ./poo-like/\desc       ??

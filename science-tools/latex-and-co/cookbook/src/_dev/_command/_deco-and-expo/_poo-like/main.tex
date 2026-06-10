@@ -1,0 +1,31 @@
+\documentclass[varwidth, border = 3pt]{standalone}
+
+\usepackage{main}
+
+\newcommand{\myemph}{\emph}
+\NewDocumentCommand{\myitbf}{m}{\textbf{\emph{#1}}}
+
+
+\begin{document}
+
+\verb#\poolikecmd{En l'état...}# donne :
+
+\poolikecmd{En l'état...}
+
+
+\medskip
+
+
+\verb#\poolikecmd.\myemph{Ayons un peu d'emphase.}# donne :
+
+\poolikecmd.\myemph{Ayons un peu d'emphase.}
+
+
+\medskip
+
+
+\verb#\poolikecmd.\myitbf{Du gras en italique.}# donne :
+
+\poolikecmd.\myitbf{Du gras en italique.}
+
+\end{document}

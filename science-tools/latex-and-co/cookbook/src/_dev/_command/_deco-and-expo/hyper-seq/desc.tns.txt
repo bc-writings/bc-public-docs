@@ -11,5 +11,5 @@ Nous proposons ici trois implémentations de ce que pourrait être le début d'u
 
 content::
     ./sol-expo-1/\desc
-    ./sol-expo-2/\desc    ????
-    ./sol-delim/\desc     ??
+    ./sol-expo-2/\desc
+    ./sol-delim/\desc
