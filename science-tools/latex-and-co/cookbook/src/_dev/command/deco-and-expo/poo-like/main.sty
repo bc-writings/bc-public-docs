@@ -1,18 +1,19 @@
 %%%
 % prototype::
-%     #1 : l'\arg fourni précédé d'un point.
-%     #2 : le contenu à mettre en forme éventuellement via l'\arg
-%          ''#1''.
+%     #1 : une macro fournie via une écriture pointée.
+%     #2 : le contenu à mettre en forme éventuellement via
+%          la macro ''#1''.
 %
-%     :action: le contenu de ''#2'' est mis en forme via la \val
-%              de l'\arg ''#1''. Rien n'est appliqué à ''#2'' si
-%              l'\arg pointé n'est pas utilisé.
+%     :action: le contenu de ''#2'' est mis en forme via
+%              l'\arg ''#1'' lorsqu'il est fourni.
+%              Rien n'est appliqué à ''#2'' si l'\arg pointé
+%              n'est pas utilisé.
 %%%
 \NewDocumentCommand{\poolikecmd}{ e. m }{%
-  \IfValueTF{#1}{
-    \def\@macro{#1}
-  }{
-    \def\@macro##1{##1}
+  \IfValueTF{#1}{%
+    \def\@macro{#1}%
+  }{%
+    \def\@macro##1{##1}%
   }%
   %
   \@macro{#2}%
