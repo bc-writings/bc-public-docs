@@ -41,20 +41,22 @@
 %%%
   \clist_map_inline:nn { #3 } {
 %%%
-% Pour comprendre l'unique ligne de code utilisée, il faut
-% suffit de noter que si ''b#1#1'' est le \2nd \arg de
-% ''\makeabbrev'', \latex le transforme en ''b##1##1''.
-% C'est là que réside toute l'astuce.
+% Pour comprendre l'unique ligne de code utilisée, il suffit
+% de noter que si ''b#1#1'' est le \2nd \arg de ''\makeabbrev'',
+% \latex le transforme en ''b##1##1''. C'est là que réside
+% toute l'astuce.
 %
 %
 % note::
-%     Dans ''\cs_new_protected:cpn'', laisser la liste de
-%     \params ''p'' vide, en enchaînant directement les deux
-%     blocs ''{ ... }{ ... }'' sans spécifier de ''#n'',
+%     ''\cs_new_protected:cpn '' attend comme \1er \arg un nom
+%     de macro sans la contre-oblique.
+%     De plus, dans ''\cs_new_protected:cpn'', laisser la liste
+%     de \params ''p'' vide, en enchaînant directement les deux
+%     blocs ''{ ... }{ ... }'' sans spécifier de ''#<n>'',
 %     permet de créer une macro sans \arg.
-%     À l'inverse, si la macro devait accepter deux \args,
-%     il faudrait le spécifier avec #1#2 entre les deux
-%     paires d'accolades, comme ci-dessous.
+%     À l'inverse, si la macro devait accepter deux \args, il
+%     faudrait le spécifier avec #1#2 entre les deux paires
+%     d'accolades, comme ci-dessous.
 %
 %     latex3::
 %         \cs_new_protected:cpn {macro} #1#2 {
