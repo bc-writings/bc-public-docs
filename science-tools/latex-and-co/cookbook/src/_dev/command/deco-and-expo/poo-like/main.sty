@@ -1,13 +1,18 @@
 %%%
 % prototype::
 %     #1 : une macro fournie via une écriture pointée.
-%     #2 : le contenu à mettre en forme éventuellement via
+%     #2 : du contenu qui sera éventuellement passé à
 %          la macro ''#1''.
 %
-%     :action: le contenu de ''#2'' est mis en forme via
-%              l'\arg ''#1'' lorsqu'il est fourni.
-%              Rien n'est appliqué à ''#2'' si l'\arg pointé
-%              n'est pas utilisé.
+%     :action: le contenu de ''#2'' est géré via l'\arg
+%              ''#1'' lorsqu'il est fourni.
+%              Si l'\arg pointé n'est pas utilisé, ce sera
+%              ''#2'' qui sera fourni à \latex.
+%
+% note::
+%     Dans ''e. m'', l'emploi de ''e.'' permet de proposer
+%     un \arg optionnel indiqué via l'exposant ''.'' tout
+%     simplement.
 %%%
 \NewDocumentCommand{\poolikecmd}{ e. m }{%
   \IfValueTF{#1}{%

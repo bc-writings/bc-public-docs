@@ -2,9 +2,9 @@
 
 \usepackage{main}
 
-\newcommand{\myemph}{\emph}
+\NewDocumentCommand{\itbf}{m}{\textbf{\emph{#1}}}
 
-\NewDocumentCommand{\myitbf}{m}{\textbf{\emph{#1}}}
+\NewDocumentCommand{\dble}{m}{#1 // #1}
 
 
 \begin{document}
@@ -17,16 +17,16 @@
 \medskip
 
 
-\verb#\poolikecmd.\myemph{Ayons un peu d'emphase.}# donne :
+\verb#\poolikecmd.\itbf{Italique gras.}# donne :
 
-\poolikecmd.\myemph{Ayons un peu d'emphase.}
+\poolikecmd.\itbf{Italique gras.}
 
 
 \medskip
 
 
-\verb#\poolikecmd.\myitbf{Du gras en italique.}# donne :
+\verb#\poolikecmd.\dble{Doublons.}# donne :
 
-\poolikecmd.\myitbf{Du gras en italique.}
+\poolikecmd.\dble{Doublons.}
 
 \end{document}
