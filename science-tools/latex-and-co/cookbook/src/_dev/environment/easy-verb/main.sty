@@ -1,10 +1,10 @@
 %%%
 % src::
-%     kind   = journal
+%     format = journal
 %     title  = TUGboat
 %     vol    = 46:2
 %     year   = 2025
-%     extra  = See the section "New or improved commands",
+%     note   = See the section "New or improved commands",
 %              page 239.
 %%%
 
@@ -20,7 +20,6 @@
 %              en appliquant au prélable les macros fournies
 %              éventuellement via l'arg optionnel.
 %%%
-\NewDocumentEnvironment{homemadeverb}{ !O{\ttfamily} c }
-{
-  \begin{flushright}#1 #2\end{flushright}
+\NewDocumentEnvironment{homemadeverb}{ !O{\ttfamily} c }{
+  \begin{flushleft}#1{}#2\end{flushleft}
 }{}

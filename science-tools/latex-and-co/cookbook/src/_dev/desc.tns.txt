@@ -4,7 +4,7 @@ Mettre les mains dans le cambouis
 
 content::
     ./command/\desc
-    ./environment/\desc    ????????
+    ./environment/\desc
     ./class/\desc          ??????
     ./data/\desc           ????
     ./lua/\desc            ??
