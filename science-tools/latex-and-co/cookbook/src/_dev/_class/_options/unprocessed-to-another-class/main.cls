@@ -1,7 +1,7 @@
 %%%
-% refs::
-%     + https://tex.stackexchange.com/a/729929/6880
-%     + https://tex.stackexchange.com/a/729913/6880
+% src::
+%     urls = https://tex.stackexchange.com/a/729929/6880 ,
+%            https://tex.stackexchange.com/a/729913/6880
 %%%
 
 %%%
