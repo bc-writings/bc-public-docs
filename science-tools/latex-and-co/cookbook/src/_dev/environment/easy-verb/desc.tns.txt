@@ -6,4 +6,4 @@ this::
 Du contenu verbatim
 ===================
 
-XXX
+Le \syst de \sign de ''\NewDocumentEnvironment'' propose un moyen simple d'afficher du contenu verbatim.
