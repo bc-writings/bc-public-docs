@@ -3,9 +3,10 @@
 \usepackage{main}
 
 %%%
-% Nous avons besoin de la macro ''\num'' du \pack ''siunitx'',
-% mais comme le \tab est construit par le \pack ''tabularray'',
-% nous faisons appel à sa bibliothèque dédiée ''siunitx''.
+% Nous avons besoin des macros ''\num'' et ''\num''unit \pack
+% ''siunitx'', mais comme le \tab est construit par le \pack
+% ''tabularray'', nous devons faire appel à la bibliothèque
+% ''siunitx'' proposée par ''tabularray''.
 %%%
 \UseTblrLibrary{siunitx}
 
@@ -14,14 +15,29 @@
 \csvread{mes-donnees}{data.csv}
 
 %%%
-% XXX
+% L'option est passée telle quelle à l'\env ''tblr'' de
+% ''tabularray''. Nous utilisons ici les possibilités de \mefs
+% fines offertes par ''tabularray''.
+%
+%
+% note::
+%     ''2-Y'' indique les positions de la \2e à l'avant-dernière,
+%     tandis que ''1-Z'' va de la \1ere à la dernière.
 %%%
 \csvtblr{mes-donnees}[
+% Lignes verticales.
   vline{2-Y}   = {solid},
+% Lignes horizontales.
   hline{2-Y}   = {solid},
+% Cellules de la \1ere ligne contenant du texte en gras.
   cell{1}{1-Z} = {cmd = \bfseries},
+% Données de la \2e \col en mode \math.
   cell{2-Z}{2} = {mode = math},
+% Données de la \3e \col mises en forme par la macro''\num'' du
+% \pack ''siunitx''.
   cell{2-Z}{3} = {cmd = {\num[locale = FR]}},
+% Données de la \4e \col mises en forme par la macro''\unit'' du
+% \pack ''siunitx''.
   cell{2-Z}{4} = {cmd = \unit}
 ]
 

@@ -199,6 +199,7 @@
         \l_cookbook_csv_num_col_int < \l_cookbook_csv_num_col_max_int + 1
       }
     }{
+% Ajout d'une \nelle cellule.
       \tl_put_right:Ne \l_cookbook_csv_tblr_tl {
         \prop_item:Ne \l_cookbook_csv_table_prop {
           #1
@@ -209,6 +210,7 @@
         }
       }
 
+% Une \col après ?
       \int_compare:nT {
         \l_cookbook_csv_num_col_int < \l_cookbook_csv_num_col_max_int
       }{
@@ -218,6 +220,7 @@
       \int_incr:N \l_cookbook_csv_num_col_int
     }
 
+ % Une ligne après ?
     \int_compare:nT {
       \l_cookbook_csv_num_row_int < \l_cookbook_csv_num_row_max_int
     }{
@@ -238,10 +241,16 @@
 %
 %
 % note::
-%     XXXXXXX
+%     Expliquons la \sign de '' \exp_args:NnnV''.
+%
+%         + ''N'' permet de ne pas toucher à ''\begin''.
+%
+%         + ''n'' fournit un token que \latex développera seul.
+%
+%         + ''V'' demande le \dev de ''\l_cookbook_csv_tblr_tl''.
 %%%
   \exp_args:NnnV \begin {tblr} {#2} \l_cookbook_csv_tblr_tl
-  %
+% Fermons le tabelau.
   \end{tblr}
 }
 
