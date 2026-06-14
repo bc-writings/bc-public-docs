@@ -1,0 +1,29 @@
+% !TEX TS-program = lualatex
+
+\documentclass[varwidth, border = 3pt]{standalone}
+
+\usepackage{verbatim}
+
+\begin{document}
+
+% Le code \ascii de ''%'' est 37.
+\directlua{
+  local pcc = string.char(37)
+
+  local test = {
+    "1",
+    pcc .. pcc,
+    "\\three",
+    "++++"
+  }
+
+  tex.print("\\begin{verbatim}")
+
+  for i, x in ipairs(test) do
+    tex.print("[" .. i .. "] " .. x)
+  end
+
+  tex.print("\\end{verbatim}")
+}
+
+\end{document}

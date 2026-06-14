@@ -1,11 +1,11 @@
-====================================
-D'utilité générale reconnue (ou pas)
-====================================
+=====================================
+D'utilité générale (reconnue, ou pas)
+=====================================
 
 content::
-    ./link/\desc
-    ./table/\desc
-    ./image/\desc
-    ./icon/\desc
-    ./big-doc/\desc
-    ./layout/\desc
+    ./link/\desc        ????????????
+    ./table/\desc       ??????????
+    ./image/\desc       ????????
+    ./icon/\desc        ??????
+    ./big-doc/\desc     ????
+    ./layout/\desc      ??

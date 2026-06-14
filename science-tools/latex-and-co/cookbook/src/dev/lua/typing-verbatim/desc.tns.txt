@@ -1,7 +1,15 @@
 this::
-    date = 2025-09-30
+    date = 2026-06-14
 
 
 ================================
 Produire du contenu ''verbatim''
 ================================
+
+Cet exemple va être l'occasion de parler de la macro ''\directlua'' qu'il faut utiliser avec prudence.
+
+
+Dans la \1ere \sol, où tout est mis dans un unique fichier ext::''tex'', l'usage de lua::''local pcc = string.char(37)'' est nécessaire, car \ttes les lignes de code \lua sont d'abord interprétés par \latex avant de laisser \lua faire son travail. Ceci implique que l'usage de lua::''"%%",'' ne laisserait plus que lua:''"'' dans le code \lua, car ''%'' est le symbole d'ouverture d'un commentaire \latex. Ceci donnerait un code \lua syntaxiquement faux.
+
+
+Dans la \2nde \sol, le code \lua placé dans le fichier path::''main.lua'' est du code \std interprété par \lua sans être passé à la moulinette par \latex. Dès lors, l'usage de lua::''"%%",'' devient correct.
