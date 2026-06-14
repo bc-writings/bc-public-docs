@@ -3,5 +3,5 @@ Gestion du format \csv
 ======================
 
 content::
-    ./basic/\desc   ????
+    ./basic/\desc
     ./plot/\desc    ??

@@ -1,7 +1,7 @@
 %%%
-% L'environnement ''tblr'' de ''tabularray'' est employé pour fabriquer
-% le tableau attendu en laissant la possibilité à l'utilisateur final de
-% choisir finement la mise en forme des contenus.
+% L'\env ''tblr'' de ''tabularray'' est employé pour fabriquer
+% le \tab attendu. Ceci laissae la possibilité à l'utilisateur
+% final de choisir finement la \mef des contenus.
 %%%
 \usepackage{tabularray}
 
@@ -9,68 +9,94 @@
 
 %%%
 % prototype::
-%     #1 : identifiant pour les données.
-%     #2 : chemin relatif du fichier \csv.
+%     #1 : un \id pour les données.
+%     #2 : le chemin relatif du fichier \csv.
 %
-%     :action: construction d'associations de clés ''<#1>.i-j'' pour
-%              accéder à la donnée en ligne `i` et colonne `j`, la
-%              ligne `0` étant celle des étiquettes, mais aussi des
-%              associations de clés ''#1-nbrows'' et ''#1-nbcols''
-%              pour les dimensions de la table des données, ce qui
-%              est utile pour des itérations.
+%     :action: construction d'\assos de clés ''<#1>.i-j'' pour
+%              accéder à la donnée en ligne `i` et colonne `j`,
+%              la ligne `0` étant celle des étiquettes, et
+%              d'\assos de clés ''#1-nbrows'' et ''#1-nbcols''
+%              pour les \dims de la table des données.
+%
+%
+% note::
+%     Côté utilisateur, des macros sont proposées pour un usage
+%     humainement amical des variables \l3 créés ici. Voir les
+%     macros ''\csv>...>'' définies plus bas.
+%
+%
+% note::
+%     Nous délèguons tout le travail à '' \cookbook_csv_read:nn''
+%     codée en \l3 (voir un peu plus bas).
 %%%
 \NewDocumentCommand{ \csvread }{ m m } {
-% Laissons une trace du fichier analysé dans le fichier \log. Ceci
-% permet, par exemple, à \latexmk de savoir qu'il doit compiler de
-% nouveau un document en cas de changements dans les fichiers de
-% données utilisés.
+%%%
+% tip::
+%     Nous laissons une trace du fichier analysé dans le fichier
+%     \log. Ceci permet, par exemple, à \latexmk de savoir qu'il
+%     doit compiler de nouveau un \docu en cas de \chgts dans
+%     les fichiers de données utilisés.
+%%%
   \typeout{(#1)}
 
-% C'est parti.
   \cookbook_csv_read:nn { #1 } { #2 }
 }
 
+
 %%%
 % prototype::
-%     #1 : identifiant pour les données.
-%     #2 : numéro de la ligne de la donnée souhaitée.
-%     #3 : numéro de la colonne de la donnée souhaitée.
+%     #1 : l'\id des données.
+%     #2 : le \num de la ligne de la donnée souhaitée.
+%     #3 : le \num de la \col de la donnée souhaitée.
 %
-%     :return: le contenu de la cellule en ligne ''#2'' et colonne
-%              ''#3'' de la table d'identifiant ''#1''.
+%     :return: le contenu de la cellule en ligne \no ''#2'' et
+%              \col \no ''#3'' de la table de données d'\id
+%              ''#1''.
 %%%
 \NewDocumentCommand{ \csvdata }{ m m m } {
   \prop_item:Ne \l_cookbook_csv_table_prop { #1-#2.#3 }
 }
 
+
 %%%
 % prototype::
-%     #1 : identifiant pour les données.
-%     #2 : "nbrows" ou "nbcols".
+%     #1 : l'\id des données.
+%     #2 : "nbrows" ou "nbcols" suivant que l'on souhaite avoir
+%          le \nbre total de lignes ou de \cols.
+%        @ #2 in ["nbrows", "nbcols"]
 %
-%     :return: le nombre de lignes si ''#2'' est ''rows'' de la table
-%              d'identifiant ''#1'', ou de colonnes si ''#2'' est
-%              ''cols''.
+%     :return: pour la table d'\id ''#1'', le \nbre de lignes
+%              si ''#2'' est ''nbrows'', ou de \cols si ''#2''
+%              est ''nbcols''.
 %%%
 \NewDocumentCommand{ \csvdim }{ m m } {
   \prop_item:Nn \l_cookbook_csv_table_prop { #1-#2 }
 }
 
+
 %%%
 % prototype::
-%     #1 : identifiant pour les données.
-%     #2 : ensemble de \specs pour mettre en forme le tableau ''tblr''
-%          contenant le données.
+%     #1 : l'\id des données.
+%     #2 : un \ens d'options au format ''tabularray'', pour
+%          mettre en forme le \tab ''tblr'' contenant les
+%          données.
 %
-%     :action: création du tableau de \ttes les données en utilissant
-%              la \mef éventuelle indiquée.
+%     :action: création du \tab de \ttes les données en
+%              appliquant les options ''tabularray'' éventuelles
+%              indiquées.
+%
+%
+% note::
+%     Nous délèguons tout le travail à '' \cookbook_csv_tblr:nn''
+%     codée en \l3 (voir un peu plus bas).
 %%%
 \NewDocumentCommand{ \csvtblr }{ m O{} } {
   \cookbook_csv_tblr:nn { #1 }{ #2 }
 }
 
+
 %%%
-% Les variables utilisées pour la gestion des données.
+% Voici les \vars utilisées pour la gestion des données.
 %%%
 \ior_new:N \g_cookbook_csv_data_ior
 
@@ -83,6 +109,17 @@
 \prop_new:N \l_cookbook_csv_table_prop
 
 \tl_new:N \l_cookbook_csv_tblr_tl
+
+
+
+
+
+
+
+
+
+
+
 
 %%%
 % prototype::
@@ -127,6 +164,15 @@
 
   \ior_close:N \g_cookbook_csv_data_ior
 }
+
+
+
+
+
+
+
+
+
 
 %%%
 % prototype::
@@ -184,13 +230,21 @@
     \int_incr:N \l_cookbook_csv_num_row_int
   }
 
-% DEBUGGING
+% % DEBUGGING - START
 %   \tl_show:N \l_cookbook_csv_tblr_tl
+% % DEBUGGING - END
 
-% Nous devons développer le contenu de ''\l_cookbook_csv_tblr_tl'',
-% car l'\env ''tblr'' ne le fait pas.
-  \exp_args:NnnV \begin{tblr}{#2}
-    \l_cookbook_csv_tblr_tl
+%%%
+% caution::
+%     La \var ''\l_cookbook_csv_tblr_tl'' doit être développée
+%     "à la main", car l'\env ''tblr'' ne le fera pas pour nous.
+%
+%
+% note::
+%     XXXXXXX
+%%%
+  \exp_args:NnnV \begin {tblr} {#2} \l_cookbook_csv_tblr_tl
+  %
   \end{tblr}
 }
 

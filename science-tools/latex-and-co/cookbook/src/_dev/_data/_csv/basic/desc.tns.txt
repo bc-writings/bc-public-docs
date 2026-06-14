@@ -24,7 +24,7 @@ pdf::
     ---
 
 
-Le choix \tech retenu est de lire complètement le fichier \csv en stockant les données en interne, puis de rendre ces données accessibles via des macros simples à employer comme dans l'exemple suivant qui complète le précédent.
+Le choix \tech retenu est de lire complètement le fichier \csv en stockant les données en interne, puis de rendre ces données accessibles via des macros simples à employer comme dans l'exemple suivant.
 
 
 pdf::

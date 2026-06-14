@@ -3,8 +3,9 @@
 \usepackage{main}
 
 %%%
-% XXXXX
-% XXXXX
+% Nous avons besoin de la macro ''\num'' du \pack ''siunitx'',
+% mais comme le \tab est construit par le \pack ''tabularray'',
+% nous faisons appel à sa bibliothèque dédiée ''siunitx''.
 %%%
 \UseTblrLibrary{siunitx}
 
@@ -12,6 +13,9 @@
 
 \csvread{mes-donnees}{data.csv}
 
+%%%
+% XXX
+%%%
 \csvtblr{mes-donnees}[
   vline{2-Y}   = {solid},
   hline{2-Y}   = {solid},
