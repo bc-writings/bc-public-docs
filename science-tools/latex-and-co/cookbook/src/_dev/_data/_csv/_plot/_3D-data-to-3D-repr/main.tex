@@ -21,7 +21,7 @@ local M = ld.pt3d.M
 
 local graphview = ld.graph3d:new{
   window3d = {-6, 4, -6, 3, -1, 5},
-  viewdir  = {60, 50},
+  viewdir  = {62, 50},
   adjust2d = true,
   size     = {14, 14},
   bbox     = false
@@ -33,10 +33,11 @@ graphview:Dboxaxes3d({
   fillcolor = "lightgray"
 })
 
-graphview:Linecolor("Crimson")
+graphview:Linewidth(10)
+graphview:Linecolor("DodgerBlue")
 
 ------
--- Juste un nouvelle façon de traiter les données.
+-- Juste un nouveau traitement des données.
 ------
 local A, B, xyz
 
@@ -46,7 +47,7 @@ for _, xyz in ipairs(data) do
 
   graphview:Dseg3d({A, B})
 
-  graphview:Dballdots3d({B}, "Crimson")
+  graphview:Dballdots3d({B}, "DodgerBlue", 1.5)
 end
 
 graphview:Show()

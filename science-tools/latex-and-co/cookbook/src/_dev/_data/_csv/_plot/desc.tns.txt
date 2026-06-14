@@ -1,16 +1,12 @@
 this::
-    date = 2025-11-17
+    date = 2026-06-14
 
 
 ============================
 Représenter des données \csv
 ============================
 
-Via \lua, il n'est pas dur d'analyser un fichier tel que le suivant
-((
-    \csv est l'acronyme de \csv_full qui signife "valeurs séparées par des virgules" en français.
-)),
-pour ensuite utiliser les données qu'il contient dans des graphiques (nous proposons deux exemples simples peu créatifs).
+Comme nous allons le voir, analyser un fichier \csv avec \lua est très simple. Nous utiliserons ensuite les données extraites dans des graphiques.
 
 csv::
     ---
@@ -19,5 +15,5 @@ csv::
 
 
 content::
-    ./3D-data-to-2D-repr/\desc
-    ./3D-data-to-3D-repr/\desc
+    ./3D-data-to-2D-repr/\desc    ????
+    ./3D-data-to-3D-repr/\desc    ??

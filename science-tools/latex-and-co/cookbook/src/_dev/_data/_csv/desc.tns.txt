@@ -1,6 +1,14 @@
+this::
+    date = 2026-06-14
+
+
 ======================
 Gestion du format \csv
 ======================
+
+note::
+    \csv est l'acronyme de \csv_full qui, en français, signife "Valeurs Séparées par des Virgules".
+
 
 content::
     ./basic/\desc

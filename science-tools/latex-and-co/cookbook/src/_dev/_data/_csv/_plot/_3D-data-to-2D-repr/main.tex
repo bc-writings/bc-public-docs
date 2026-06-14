@@ -3,18 +3,19 @@
 \documentclass[border = 3pt]{standalone}
 
 %%%
-% Des couleurs faciles d'emploi via le package \xcolor!
+% Des couleurs faciles d'emploi via le package \xcolor.
 %%%
 \usepackage[svgnames]{xcolor}
 
 %%%
-% La bibliothèque ''luadraw'' allie une facilité d’utilisation
-% à un rendu particulièrement soigné.
+% La \bib ''luadraw'' allie une facilité d’utilisation à un rendu
+% particulièrement soigné.
 %%%
 \usepackage{luadraw}
 
 %%%
-% Externalisation du travail pour des usages multiples.
+% Externalisation de l'extraction des données pour permettre
+% différents usages.
 %%%
 \directlua{dofile('../common/csv.lua')}
 
@@ -22,10 +23,11 @@
 
 \begin{luadraw*}{name = 3D-CSV-data-to-2D-repr}
 ------
--- Chargeons nos données.
+-- Chargeons nos données (cf. path::''../common/csv.lua'').
 ------
 local data = read_CSV(
   "../common/basic.csv",
+-- On ignore la ¨1ere ligne qui contient les entêtes.
   true
 )
 
@@ -40,7 +42,7 @@ local graphview = ld.graph:new{
 }
 
 ------
--- Ajout d'axes.
+-- Ajout des axes.
 ------
 graphview:Daxes(
   {0, 1, 1},
@@ -53,8 +55,9 @@ graphview:Daxes(
 ------
 -- Quelques réglages graphiques.
 ------
+graphview:Linewidth(7)
 graphview:Linecolor("Crimson")
-graphview:Filloptions("full", "Crimson")
+graphview:Filloptions("full", "SandyBrown")
 
 ------
 -- Traitement graphique des données.
