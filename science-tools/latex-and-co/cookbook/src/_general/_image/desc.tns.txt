@@ -3,4 +3,4 @@ Le choc des images
 ==================
 
 content::
-    ./step-by-step/\desc
+    ./step-by-step/\desc    ??
