@@ -1,5 +1,5 @@
 -----
--- Reste d'une division euclidienne.
+-- Reste d'une division euclidienne (pas à pas).
 -----
 function mod(a, b)
   local r = a
@@ -22,6 +22,9 @@ function calc(expr)
     tonumber(vars[2])
   )
 
--- Il faut \tex-imprimer le résultat, et non le renvoyer.
+-----
+-- Il faut \tex-imprimer le résultat, et non le renvoyer, à cause
+-- de la récupération verbatim de l'\arg.
+-----
   tex.print(m)
 end
