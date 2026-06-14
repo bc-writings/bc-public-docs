@@ -24,10 +24,7 @@ pdf::
     ---
 
 
-Le choix \tech retenu est de lire complètement le fichier \csv en stockant les données en interne, puis de rendre ces données accessibles via des macros simples à employer comme dans l'exemple suivant qui complète le précédent
-((
-    En interne, des ''property lists'' de \l3 sont employées afin de faire des associations clé-valeur.
-)).
+Le choix \tech retenu est de lire complètement le fichier \csv en stockant les données en interne, puis de rendre ces données accessibles via des macros simples à employer comme dans l'exemple suivant qui complète le précédent.
 
 
 pdf::
@@ -35,3 +32,6 @@ pdf::
     title = Extraire des données
     path  = ./main-2-extract.pdf
     ---
+
+
+Cette recette demande un peu de travail, mais \l3 rend les traitements très faciles à effectuer.

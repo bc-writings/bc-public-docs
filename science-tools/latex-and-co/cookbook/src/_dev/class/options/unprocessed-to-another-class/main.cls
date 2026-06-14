@@ -14,12 +14,10 @@
   { Passing unprocessed options to another class }
 
 %%%
-% L'option de la classe sera stockée dans ''\selectedoptions'',
+% L'option de la classe sera stockée dans ''\selectedoption'',
 % cette macro valant ''color'' par défaut.
-% Pour une actualisation de cette valeur, il suffit de faire
-% appel à ''\renewcommand''.
 %%
-\newcommand{ \selectedoptions }{ color }
+\newcommand{ \selectedoption }{ color }
 
 %%%
 % Dans l'espace de noms ''class / options'', nous définissons
@@ -29,26 +27,14 @@
 %
 % note::
 %     Nous déléguons à \l3 la gestion d'une clé illégale.
-%
-%
-% caution::
-%     XXXX
-%
-%     XXXX
-%
-%     Ci-dessous, ''\l_keys_choice_tl'' fait référence à un choix
-%     correct de la valeur de ''theme''. Sans ''\exp_args:NNV'', nous
-%     pourions ne pas avoir la bonne valeur, car ''\l_keys_choice_tl''
-%     peut être utilisée pour chaque option de type "choix". Nous
-%     devons donc développer ''\l_keys_choice_tl'' immédiatement.
-%%
+%%%
 \keys_define:nn { class / options }{
   theme .choices:nn = {
 % Les valeurs possibles.
     bw, color, dark, draft
   } {
-% L'action faite avec une valeur autorisée.
-    \exp_args:NNV \renewcommand \selectedoptions \l_keys_choice_tl
+% Mise à jour de la valeur de ''\selectedoption''.
+    \tl_set_eq:NN \selectedoption \l_keys_choice_tl
   }
 }
 
