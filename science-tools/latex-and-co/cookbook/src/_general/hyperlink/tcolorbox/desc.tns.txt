@@ -1,5 +1,5 @@
 this::
-    date = 2025-07-23
+    date = 2026-06-14
 
 
 =====================
@@ -8,5 +8,5 @@ Des boîtes cliquables
 
 Via le package \tcolorbox, il est très simple de créer des boîtes contenant du texte ou du code informatique, avec ou sans titre, qui pointent vers un lien externe, une \url
 ((
-    Il est aussi possible de travailler avec des liens internes, des ancres. Chercher ''hypertarget'' et ''hyperlink'' dans la \doc de \tcolorbox.
+    Il est aussi possible de travailler avec des liens internes, des ancres. Chercher ''hypertarget'' et ''hyperlink'' dans la \doc de \tcolorbox pour en savoir plus.
 )).

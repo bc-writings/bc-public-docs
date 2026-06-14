@@ -4,4 +4,4 @@ Hyperliens
 
 content::
     ./qrcode/\desc
-    ./tcolorbox/\desc   ??
+    ./tcolorbox/\desc

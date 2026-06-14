@@ -8,10 +8,10 @@
 
 %%%
 % Les boîtes sont de la responsabilité du \pack ''tcolorbox''.
-% Par contre, nous devons la bibliothèque ''skins'' pour créer
-% des liens externs ou internes.
-% Quant à la bibliothèque ''minted'', elle est juste là pour
-% proposer un code \python en exemple.
+% Par contre, nous avons besoin de la \bib ''skins'' pour
+% créer des hyperliens.
+% Quant à la \bib ''minted'', elle est juste là pour proposer
+% un code \python en exemple.
 %%%
 \usepackage{tcolorbox}
 \tcbuselibrary{minted, skins}
@@ -21,29 +21,33 @@
 Voilà une fonctionnalité bien utile.
 
 %%%
-% Sans l'option ''enhanced'', nous n'avons pas fonctionalités de
-% type "lien".
+% Sans l'option ''enhanced'', nous n'avons pas de fonctionalité
+% du type "hyperlien".
 %
 % Notons que bien que les exemples ci-dessous n'utilisent que
 % l'\arg ''hyperurl'', il existe aussi les \args suivants.
 %
 %     + ''label'' définit une ancre interne.
+%
 %     + ''hyperlink'' permet de pointer vers une ancre interne.
+%
 %     + ''hyperref'' est une variante plus générale de hyperlink
 %       (voir la \doc de ''tcolorbox'' pour en savoir plus).
-%     + ''hyperurl*'' permet de définir des options hyperref pour
-%       le lien externe : par exemple, on peut indiquer sur quelle
-%       page ouvrir un PDF.
+%
+%     + ''hyperurl*'' permet d'employer des options ''hyperref''
+%       pour le lien externe : par exemple, on peut indiquer à
+%       quelle page ouvrir un PDF.
 %%%
 \begin{tcolorbox}[
   enhanced,
   title    = Une boîte pointant vers l'extérieur,
   hyperurl = https://www.latex-project.org/news/2023/03/17/TLC3/,
 ]
-  Cliquer moi, vous saurez d'où vient le code utilisé.
+  Cliquer sur moi, vous saurez d'où vient le code utilisé pour produire ce document.
 \end{tcolorbox}
 
-Ceci permet de proposer une version en ligne d'un code informatique difficilement copiable dans un PDF. Ai-je bien entendu ? Vous souhaitez aussi ne pas avoir de cadre, ni de rondeur ! Aucun souci.
+
+Cette technique permet de proposer une version en ligne d'un code informatique difficilement copiable dans un PDF. Ai-je bien entendu ? Vous souhaitez aussi ne pas avoir de cadre, ni de rondeur ! Aucun souci.
 
 \begin{tcblisting}{
   enhanced,
@@ -56,7 +60,7 @@ Ceci permet de proposer une version en ligne d'un code informatique difficilemen
   minted language = python,
   listing only,
 %%%
-% Configurations pour la mise en forme.
+% Réglages pour la mise en forme.
 %%%
   sharp corners,
   colback  = orange!20,
