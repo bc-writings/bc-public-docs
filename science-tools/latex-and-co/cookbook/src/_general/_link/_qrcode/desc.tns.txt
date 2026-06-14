@@ -1,3 +1,9 @@
-============
-Des \qrcodes
-============
+this::
+    date = 2026-06-14
+
+
+=================
+Ajout de \qrcodes
+=================
+
+Le package ''fancyqr'' rend enfantin l'ajout de \qrcodes tout en personnalisant leur apparence.
