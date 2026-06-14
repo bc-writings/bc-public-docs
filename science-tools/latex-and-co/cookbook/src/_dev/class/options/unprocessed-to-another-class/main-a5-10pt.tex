@@ -1,0 +1,22 @@
+%%%
+% Usage de l'option ''theme'' spécifique à la classe ''main''.
+% Les options ''10pt'' et ''a5paper'' sont destinées à la classe
+% ''article'' chargée en coulisse.
+%%%
+\documentclass[10pt, a5paper, theme = bw]{main}
+
+%%%
+% Le package ''blindtext'' nous fournit du contenu factice.
+%%%
+\usepackage{blindtext}
+
+\begin{document}
+
+\begin{center}
+  \Huge
+  Selected options : \selectedoptions
+\end{center}
+
+\blinddocument
+
+\end{document}

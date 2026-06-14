@@ -3,4 +3,4 @@ Gestion des \opts
 =================
 
 content::
-    ./unprocessed-to-another-class/\desc    ????
+    ./unprocessed-to-another-class/\desc

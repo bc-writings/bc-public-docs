@@ -1,0 +1,9 @@
+this::
+    date = 2026-06-14
+
+
+===========================================
+Passer des options non traitées à une autre
+===========================================
+
+Nous présentons une méthode permettant de récupérer les clés spécifiques à une \cls maison, puis de transférer les options non traitées à une autre \cls.

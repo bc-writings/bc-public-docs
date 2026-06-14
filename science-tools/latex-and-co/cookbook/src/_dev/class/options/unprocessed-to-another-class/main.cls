@@ -14,21 +14,25 @@
   { Passing unprocessed options to another class }
 
 %%%
-% L'option de classe sera stockée dans la macro ''\selectedoptions''.
-% Nous choisissons la valeur par défaut ''color'', et si besoin l'emploi
-% de ''\renewcommand'' permettra d'actualiser ''\selectedoptions''.
+% L'option de la classe sera stockée dans ''\selectedoptions'',
+% cette macro valant ''color'' par défaut.
+% Pour une actualisation de cette valeur, il suffit de faire
+% appel à ''\renewcommand''.
 %%
 \newcommand{ \selectedoptions }{ color }
 
 %%%
-% Dans l'espace de noms ''class / options'', nous définissons une option
-% ''theme'' ne pouvant avoir que la valeur ''bw'', ''color'', ''dark'',
-% ou ''draft''.
+% Dans l'espace de noms ''class / options'', nous définissons
+% une option ''theme'' ne pouvant avoir que la valeur ''bw'',
+% ''color'', ''dark'' ou ''draft''.
+%
 %
 % note::
 %     Nous déléguons à \l3 la gestion d'une clé illégale.
 %
+%
 % caution::
+%     XXXX
 %     Ci-dessous, ''\l_keys_choice_tl'' fait référence à un choix
 %     correct de la valeur de ''theme''. Sans ''\exp_args:NNV'', nous
 %     pourions ne pas avoir la bonne valeur, car ''\l_keys_choice_tl''
@@ -47,20 +51,23 @@
 
 
 %%%
-% Nous indiquons de passer à la classe ''article'' toutes les options
-% qui ne seront pas traitées dans l'espace de noms ''class / options''.
+% Nous indiquons de passer à la classe ''article'' toutes les
+% options non traitées dans l'espace de noms ''class / options''.
 %%
 \DeclareUnknownKeyHandler[ class / options ]{
   \PassOptionsToClass{ \CurrentOption }{ article }
 }
 
 %%%
-% Nous demandons le traitement de toutes les options dans l'espace de
-% noms ''class / options''.
+% Nous demandons le traitement de toutes les options dans
+% l'espace de noms ''class / options'', avec au passage le
+% traitement des cas inconnus comme indiqué, ci-dessus, via
+% ''\DeclareUnknownKeyHandler''.
 %%
 \ProcessKeyOptions[ class / options ]
 
 %%%
-% Nous pouvons maintenant charger la classe ''article''.
+% Nous pouvons maintenant charger la classe ''article'' avec
+% le passage des options non traitées dans ''class / options''.
 %%
 \LoadClass{ article }
