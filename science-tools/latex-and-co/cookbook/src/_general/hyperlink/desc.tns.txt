@@ -1,6 +1,6 @@
-==========
-Hyperliens
-==========
+===================
+Avec des hyperliens
+===================
 
 content::
     ./qrcode/\desc

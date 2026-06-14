@@ -1,6 +1,6 @@
-=====
-\Tabs
-=====
+==============
+Avec des \tabs
+==============
 
 content::
     ./note-for-table/\desc

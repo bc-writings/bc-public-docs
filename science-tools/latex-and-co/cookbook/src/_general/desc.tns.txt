@@ -5,7 +5,7 @@ D'utilité générale (reconnue, ou pas)
 content::
     ./hyperlink/\desc
     ./table/\desc
-    ./image/\desc       ????????
+    ./image/\desc
     ./icon/\desc        ??????
     ./big-doc/\desc     ????
     ./layout/\desc      ??

@@ -1,0 +1,6 @@
+==============
+Avec des \imgs
+==============
+
+content::
+    ./step-by-step/\desc

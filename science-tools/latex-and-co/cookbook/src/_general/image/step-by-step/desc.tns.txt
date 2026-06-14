@@ -1,0 +1,10 @@
+this::
+    date = 2026-06-14
+
+
+================================
+Des \imgs explicatives pas à pas
+================================
+
+Pour améliorer des explications, il est parfois utile d'afficher une série d'étapes visuelles.
+Nous allons découvrir comment insérer des \imgs séquentiellement en \latex tout en les agençant ligne par ligne dans un \tab à plusieurs \cols, de sorte que les \imgs s'adaptent aux \dims des \cols.
