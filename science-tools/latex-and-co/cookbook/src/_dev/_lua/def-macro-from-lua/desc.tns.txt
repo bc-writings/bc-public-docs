@@ -1,0 +1,9 @@
+this::
+    date = 2026-06-14
+
+
+==========================================
+Créer une macro \latex depuis un code \lua
+==========================================
+
+Un script \lua peut nécessiter de rendre publiques certaines macros pour \latex. Nous allons voir que cette opération est particulièrement simple à réaliser.

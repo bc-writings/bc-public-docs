@@ -1,9 +1,0 @@
-this::
-    date = 2025-05-10
-
-
-==========================================
-Créer une macro \latex depuis un code \lua
-==========================================
-
-Le titre dit tout, pas besoin d'en rajouter !
