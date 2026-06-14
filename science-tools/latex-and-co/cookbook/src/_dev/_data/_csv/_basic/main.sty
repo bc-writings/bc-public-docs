@@ -46,14 +46,14 @@
 %%%
 % prototype::
 %     #1 : identifiant pour les données.
-%     #2 : "rows" ou "cols".
+%     #2 : "nbrows" ou "nbcols".
 %
 %     :return: le nombre de lignes si ''#2'' est ''rows'' de la table
 %              d'identifiant ''#1'', ou de colonnes si ''#2'' est
 %              ''cols''.
 %%%
 \NewDocumentCommand{ \csvdim }{ m m } {
-  \prop_item:Nn \l_cookbook_csv_table_prop { #1-nb#2 }
+  \prop_item:Nn \l_cookbook_csv_table_prop { #1-#2 }
 }
 
 %%%

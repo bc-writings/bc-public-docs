@@ -33,6 +33,9 @@
 %
 % caution::
 %     XXXX
+%
+%     XXXX
+%
 %     Ci-dessous, ''\l_keys_choice_tl'' fait référence à un choix
 %     correct de la valeur de ''theme''. Sans ''\exp_args:NNV'', nous
 %     pourions ne pas avoir la bonne valeur, car ''\l_keys_choice_tl''

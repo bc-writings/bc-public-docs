@@ -2,13 +2,16 @@
 
 \usepackage{main}
 
+%%%
+%
+%%%
 \UseTblrLibrary{siunitx}
 
 \begin{document}
 
-\csvread{MON/ID}{data.csv}
+\csvread{mes-donnees}{data.csv}
 
-\csvtblr{MON/ID}[
+\csvtblr{mes-donnees}[
   vline{2-Y}   = {solid},
   hline{2-Y}   = {solid},
   cell{1}{1-Z} = {cmd = \bfseries},
