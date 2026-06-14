@@ -111,37 +111,39 @@
 \tl_new:N \l_cookbook_csv_tblr_tl
 
 
-
-
-
-
-
-
-
-
-
-
 %%%
 % prototype::
 %     :see: cmd.csvread
 %%%
 \cs_new_protected:Nn \cookbook_csv_read:nn {
+% Ouverture d'un flux vers le fichier \csv de données.
   \ior_open:Nn \g_cookbook_csv_data_ior { #2 }
 
   \prop_clear:N \l_cookbook_csv_table_prop
   \int_zero:N   \l_cookbook_csv_num_row_int
 
+% Lecture ligne par ligne du fichier \csv : chaque contenu de
+% ligne sera accessible via ''##1'' (\tech du doublement des
+% ''#'' pour les \cmds imbriquées).
   \ior_map_inline:Nn \g_cookbook_csv_data_ior {
     \int_incr:N \l_cookbook_csv_num_row_int
 
+% ''\clist_set:Nn'' de \l3 se charge pour nous d'isoler les
+% textes séparés par des virgules, tout en nettoyant les espaces
+% initiaux et finaux. Que demander de plus ?
     \clist_clear:N \l_cookbook_csv_row_clist
     \clist_set:Nn  \l_cookbook_csv_row_clist {##1}
 
     \int_zero:N \l_cookbook_csv_num_col_int
 
+% Lecture \val par \val : chaque contenu de la liste de \vals,
+% initialement séparées par des virgules, sera accessible via
+% ''####1'' (\tech du doublement des ''#'' pour les \cmds
+% imbriquées).
     \clist_map_inline:Nn \l_cookbook_csv_row_clist {
       \int_incr:N \l_cookbook_csv_num_col_int
 
+% Ajout d'une nouvelle \asso clé-valeur.
       \prop_gput:Nen \l_cookbook_csv_table_prop {
         #1
         -
@@ -152,6 +154,8 @@
     }
   }
 
+% \Ttes les lignes ont été lues; nous pouvons créer les \vars
+% donnant les \nbs totaux de lignes et de \cols.
   \prop_gput:Nne
     \l_cookbook_csv_table_prop
     { #1-nbrows }
@@ -162,16 +166,9 @@
     { #1-nbcols }
     { \int_use:N \l_cookbook_csv_num_col_int }
 
+% Fermeture du flux vers le fichier \csv de données.
   \ior_close:N \g_cookbook_csv_data_ior
 }
-
-
-
-
-
-
-
-
 
 
 %%%
