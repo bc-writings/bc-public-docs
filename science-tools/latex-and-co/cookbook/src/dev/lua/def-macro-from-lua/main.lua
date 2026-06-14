@@ -13,6 +13,7 @@ function divmod(a, b)
   return q, r
 end
 
+
 -----
 -- Définitions de macros via \lualatex.
 -----

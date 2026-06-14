@@ -11,6 +11,7 @@ function mod(a, b)
   return r
 end
 
+
 -----
 -- Calcul du modulo indiqué via ''a % b'' côté \latex.
 -----
