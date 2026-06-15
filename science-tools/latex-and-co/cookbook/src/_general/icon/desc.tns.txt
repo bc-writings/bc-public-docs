@@ -1,6 +1,6 @@
 ====================
-Fabriquer ses icones
+Fabriquer des icônes
 ====================
 
 content::
-    ./tikz-pic/\desc  ????
+    ./tikz-pic/\desc

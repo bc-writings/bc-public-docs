@@ -9,10 +9,11 @@
 \usepackage{tikz}
 
 %%%
-% La macro ''\adjustbox'' du package éponyme permet d'adapter
-% facilement les dimensions d'un matériel typrographique.
+% La macro ''\adjustbox'' du \pack éponyme permet d'adapter
+% facilement les \dims d'un matériel typographique.
 %%%
 \usepackage{adjustbox}
+
 
 %%%
 % Les couleurs par défaut de l'enveloppe et des traits.
@@ -20,28 +21,23 @@
 \definecolor{env-init-col}{RGB}{255, 207, 0}
 \definecolor{line-init-col}{RGB}{0, 0, 0}
 
-%%%
-% La macro ''\kval'' donne la valeur associée à une clé \pgf.
-%%%
-\NewExpandableDocumentCommand{ \kval }{ m }{%
-  \pgfkeysvalueof{/tikz/env-icon/#1}%
-}
 
 %%%
-% Réglage général de certaines clés.
+% Les clés \tikz que nous allons utiliser.
 %%%
 \tikzset{
 %%%
-% Il faut étendre la portée des clés afin que l'utilisateur puisse
-% modifier leur valeur.
+% Il faut étendre la portée des clés afin que l'utilisateur
+% puisse modifier leurs valeurs.
 %%%
   env-icon/.search also = {/tikz, /pgf},
 %%%
-% Création de clés associés à env-icon.
+% Création et initialisation des clés associées à ''env-icon''.
 %
 % note::
-%     L'emploi de ''env-icon/.cd'' fait changer de contexte, ceci
-%     nous évitant de taper à chaque fois le contexte ''env-icon/''.
+%     L'emploi de ''env-icon/.cd'' change le contexte afin
+%     d'éviter d'avoir à taper le contexte ''env-icon'' à chaque
+%     fois.
 %%%
   env-icon/.cd,
     line-width/.initial    = 3pt,
@@ -52,31 +48,48 @@
     seal-color/.initial    = env-init-col,
 }
 
+
+%%%
+% La macro ''\kval'' permt une récupération simplifiée de la
+% \val associée à une clé \pgf.
+%%%
+\NewExpandableDocumentCommand{ \kval }{ m }{%
+  \pgfkeysvalueof{/tikz/env-icon/#1}%
+}
+
+
 %%%
 % La partie pénible de la recette est la création de l'icône
 % au format vectoriel.
 %%%
 \tikzset{
 %%%
-% Création de différents styles.
+% Initialisation de différents styles.
 %%%
   pre-common/.style = {
     draw       = \kval{line-color},
     line width = \kval{line-width}
   },
+% Un style basé sur ''pre-common''.
   full-common/.style = {
     pre-common,
     rounded corners = \kval{corner-radius}
   },
+% Un style basé sur ''full-common''.
   env/.style = {
     full-common,
     fill = \kval{env-color}
   },
-  flap/.style = {pre-common},
+% Un alias donnant du sens au code.
+  flap/.style = {
+    pre-common
+  },
+% Un autre style basé sur ''pre-common''.
   seal-line/.style = {
     pre-common,
     fill = \kval{seal-color}
   },
+% Un dernier style.
   dot/.style = {
     circle,
     inner sep = \kval{dot-radius},
@@ -84,7 +97,7 @@
     fill      = \kval{line-color}
   },
 %%%
-% Notre icône sous forme de ''pic'' \tikz.
+% L'icône est définie via un ''pic'' \tikz.
 %%%
   PEC/.pic = {
 % L'enveloppe.
@@ -111,13 +124,17 @@
 
 %%%
 % prototype::
-%     #1 : des options au format "clé-valeur". Voir le premier
-%          ''\tikzset'' pour savoir ce qui est disponible.
+%     #1 : des options au format "clé-valeur" parmi celles
+%          définies plus haut via ''\tikzset''.
 %%%
 \NewDocumentCommand{ \iconpec }{ O{} }{%
   \adjustbox{height=1.8ex}{%
-    \tikzset{
+    \tikzset{%
+% Recherche de \vals des clés dans les espaces de noms ''tikz''
+% et''pgf''.
       env-icon/.search also = {/tikz, /pgf},
+% ''env-icon/.cd'' change le contexte afin d'éviter d'avoir à
+% taper le contexte ''env-icon'' à chaque fois.
       env-icon/.cd, #1
     }%
     \tikz{\pic{PEC};}%

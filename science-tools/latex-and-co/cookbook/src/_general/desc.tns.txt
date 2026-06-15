@@ -6,6 +6,6 @@ content::
     ./hyperlink/\desc
     ./table/\desc
     ./image/\desc
-    ./icon/\desc        ??????
+    ./icon/\desc
     ./big-doc/\desc     ????
     ./layout/\desc      ??

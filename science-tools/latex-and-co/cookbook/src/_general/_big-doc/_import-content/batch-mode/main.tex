@@ -1,14 +1,19 @@
 \documentclass[varwidth, border = 3pt]{standalone}
 
 %%%
-% Le \pack ''pgffor'' fournit la sympathique macro ''foreach''
-% (celle-ci possède quelques limitations non abordées ici).
+% Le \pack ''pgffor'' fournit la sympathique macro ''foreach''.
+%
+%
+% warning::
+%     La macro ''foreach'' possède quelques limitations qui
+%     pourraient rendre innefficiente la méthode très basique
+%     proposée ici.
 %%%
 \usepackage{pgffor}
 
 \begin{document}
 
-\section*{Contenu importé brutalement}
+\section{Contenu importé brutalement}
 
 \foreach \n in {1,...,3} {
   \par
