@@ -3,4 +3,4 @@ Fabriquer ses icones
 ====================
 
 content::
-    ./tikz-pic/\desc
+    ./tikz-pic/\desc  ????
