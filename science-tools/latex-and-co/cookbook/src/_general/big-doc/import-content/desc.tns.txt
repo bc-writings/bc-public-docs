@@ -17,6 +17,6 @@ Nous allons voir comment faire ceci efficacement en considérant trois scénario
 
 
 content::
-    ./batch-mode/\desc      ??????
-    ./real-case/\desc       ????
-    ./best-practice/\desc   ??
+    ./batch-mode/\desc
+    ./real-case/\desc
+    ./best-practice/\desc

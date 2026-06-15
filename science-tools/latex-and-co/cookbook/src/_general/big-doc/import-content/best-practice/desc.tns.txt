@@ -1,5 +1,5 @@
 this::
-    date = 2025-11-17
+    date = 2026-06-15
 
 
 ===================================
@@ -13,12 +13,12 @@ Comme renuméroter des fichiers suite à l'ajout de nouveaux \docus est vite ing
 
 dirview::
     + content
-        * start.tex
-        * middle.tex
         * end.tex
+        * middle.tex
+        * start.tex
 
 
-Cette recette explique comment coder une petite fonction \l3 permettant d'indiquer les contenus comme suit.
+Nous allons voir comment coder une petite \fonc \l3 permettant d'indiquer les contenus comme suit.
 
 latex::
     \easyimport{

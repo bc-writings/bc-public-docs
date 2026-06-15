@@ -1,12 +1,12 @@
 this::
-    date = 2025-11-17
+    date = 2026-06-15
 
 
 ===================================
 \Redac humaine, la fausse bone idée
 ===================================
 
-Lorsque les différents sous-contenus sont tapés par un humain, il n'est plus acceptable de nommer les fichiers via des entiers naturels. Une \1ere \sol consiste à utiliser une \struc de dossier comme la suivante.
+Lorsque les différents sous-contenus sont tapés par un humain, il n'est plus acceptable de juste nommer les fichiers via des entiers naturels. Une \1ere \sol consiste à utiliser une \struc de dossier comme la suivante.
 
 dirview::
     + content
@@ -18,6 +18,6 @@ dirview::
 Avec ce choix, via le \pack ''l3sys-query'', il n'est pas dur d'obtenir une importation séquentielle respectant les préfixes numérotés.
 
 
-note::
+caution::
     Dans le \docu maître, aucune \maj ne sera à faire en cas de \chgt du contenu du dossier path::''content''.
     Par contre, en cas d'ajout d'un fichier entre deux autres, il faudra mettre à jour toutes les numérotations après le \docu ajouté. Une tache qui devient vite ingrate.

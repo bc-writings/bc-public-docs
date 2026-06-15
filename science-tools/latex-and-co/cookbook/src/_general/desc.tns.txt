@@ -7,5 +7,5 @@ content::
     ./table/\desc
     ./image/\desc
     ./icon/\desc
-    ./big-doc/\desc     ????
+    ./big-doc/\desc
     ./layout/\desc      ??
