@@ -20,4 +20,4 @@ Avec ce choix, via le \pack ''l3sys-query'', il n'est pas dur d'obtenir une impo
 
 note::
     Dans le \docu maître, aucune \maj ne sera à faire en cas de \chgt du contenu du dossier path::''content''.
-    Par contre, en cas d'ajout d'un fichier entre deux autres, il faudra mettre à jour toutes les numérotations après le \docu ajouté. La dernière section qui suit propose ce que nous pensons être la seule bonne \sol.
+    Par contre, en cas d'ajout d'un fichier entre deux autres, il faudra mettre à jour toutes les numérotations après le \docu ajouté. Une tache qui devient vite ingrate.
