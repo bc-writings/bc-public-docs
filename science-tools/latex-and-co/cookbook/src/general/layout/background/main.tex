@@ -54,7 +54,7 @@ function background()
   end
 
 ------
--- On renvoie directement le code \tikz pour l'utiliser où l'on
+-- On renvoie directement le code ¨tikz pour l'utiliser où l'on
 -- souhaite.
 ------
   graphview:Sendtotex()
@@ -72,9 +72,13 @@ end
 % la fabrication des fonds des pages.
 %%%
 \AddToHook{shipout/background}{%
+% Un dessin \tikz.
     \put(\paperwidth/2 - 9cm, -\paperheight/2 - 9cm){%
         \background%
-        \color{red}\fbox{\thepage}%
+    }
+% Si besoin, le \num de page est utilisable.
+    \put(\paperwidth/2 - 1.5em, -\paperheight/2){%
+        \Huge\bfseries\color{red}\fbox{\thepage}%
     }%
 }
 
