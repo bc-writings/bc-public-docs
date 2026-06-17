@@ -8,19 +8,19 @@
 \documentclass[a4paper]{article}
 
 %%%
-% Nous avons besoin de produire du faux contenu.
+% Un \pack pour obtenir du faux contenu.
 %%%
 \usepackage{lipsum}
 
 %%%
-% La bibliothèque ''luadraw'' allie une facilité d’utilisation
-% à un rendu particulièrement soigné.
+% La \bib ''luadraw'' allie une facilité d’utilisation à un
+% rendu particulièrement soigné.
 %%%
 \usepackage{luadraw}
 
 %%%
-% Définition d'une fonction ¨lua pour dessiner, via ¨luadraw,
-% la même suite de cercles au fond de chaque page.
+% \Def d'une \fonc \lua pour dessiner, via \luadraw, la même
+% suite de cercles au fond de chaque page.
 %%%
 \begin{luacode*}
 function background()
@@ -40,10 +40,10 @@ function background()
   graphview:Linecolor("lightgray")
 
 ------
--- Une suite de cercles.
+-- Traçons des cercles.
 ------
   _Zp = ld.cpx.Zp
-  
+
   for j = 1, 5 do
     for k = 1, 10*j do
       graphview:Dcircle(
@@ -54,27 +54,32 @@ function background()
   end
 
 ------
--- On renvoie directement le code ¨tikz.
+-- On renvoie directement le code \tikz pour l'utiliser où l'on
+-- souhaite.
 ------
   graphview:Sendtotex()
 end
 \end{luacode*}
 
 %%%
-% Création d'une macro sans argument qui sera utilisée lors
-% de la production du fond de chaque page.
+% Création d'une macro sans \arg qui sera utilisée lors de la \prod
+% du fond de chaque page.
 %%%
 \newcommand\background{\directlua{background()}}
 
 %%%
-% Utilisation d'un point d'ancrage du noyau ¨latex pour agir
-% lors de la fabrication des fonds des pages.
+% Utilisation d'un point d'ancrage du noyau \latex pour agir lors de
+% la fabrication des fonds des pages.
 %%%
 \AddToHook{shipout/background}{%
     \put(\paperwidth/2 - 9cm, -\paperheight/2 - 9cm){\background}%
 }
 
 \begin{document}
+
+\lipsum[1-2]
+
+\newpage
 
 \lipsum[1-2]
 
