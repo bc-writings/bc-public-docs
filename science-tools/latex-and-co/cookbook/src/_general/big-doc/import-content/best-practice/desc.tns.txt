@@ -1,12 +1,12 @@
 this::
-    date = 2026-06-15
+    date = 2026-06-17
 
 
 ===================================
 \Redac humaine, la vraie bonne idée
 ===================================
 
-Comme renuméroter des fichiers suite à l'ajout de nouveaux \docus est vite ingrat, nous proposons de procéder comme suit avec des noms non numérotés, mais explicites, de fichiers
+Pour éviter la corvée de renumérotation à chaque ajout de \docu, nous proposons d'utiliser plutôt des noms de fichiers clairs, précis et sans \nums
 ((
     Dans notre cas, les noms ont été choisis pour valider la \demo \tech.
 )).
@@ -18,7 +18,7 @@ dirview::
         * start.tex
 
 
-Nous allons voir comment coder une petite \fonc \l3 permettant d'indiquer les contenus comme suit.
+Nous allons voir comment coder une petite \fonc \l3 permettant d'indiquer les contenus de la manière suivante.
 
 latex::
     \easyimport{
