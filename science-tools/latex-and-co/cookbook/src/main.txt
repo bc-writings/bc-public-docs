@@ -12,6 +12,6 @@ abrev::
 
 
 content::
-    ./general/\desc    ??????
+    ./general/\desc
     ./science/\desc    ????
     ./dev/\desc
