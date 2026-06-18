@@ -18,12 +18,20 @@
 
 \begin{document}
 
+%%%
+% La commande \renewcommand{\arraystretch}{1.2} sert à augmenter l'espacement vertical (la hauteur) des lignes dans les tableaux et les matrices en LaTeX.
+%%%
 \renewcommand{\arraystretch}{1.2}
 
-\begin{NiceTabular}{>{\bfseries}*{6}{c}}[
+%%%
+% XX
+%
 % Nous souhaitons tracer \ttes les lignes verticales et horizontales.
-  hvlines,
+%
 % On exclut le coin nord-ouest du tableau.
+%%%
+\begin{NiceTabular}{>{\bfseries}*{6}{c}}[
+  hvlines,
   corners = NW
 ]
 \CodeBefore [create-cell-nodes]
