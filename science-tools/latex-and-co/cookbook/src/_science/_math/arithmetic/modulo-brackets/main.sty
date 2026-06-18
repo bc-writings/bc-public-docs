@@ -1,0 +1,55 @@
+%%%
+% note::
+%     XXXX    ''\DeclareRobustCommand'' devient inutile lorsque l'on emploie ''\NewDocumentCommand''.
+%%%
+
+% \NewDocumentCommand{ \brmod }{ m }{ ... }
+% Définit une commande nommée \brmod qui prend un argument obligatoire (la valeur du modulo, par exemple n).
+
+% \brod{ ... }
+% Elle appelle immédiatement la commande précédente. Tout ce qui est à l'intérieur va donc être mis entre crochets, précédé d'un espace automatique (grand si la formule est centrée, plus petit si elle est dans le texte).
+
+% {\operator@font mod}
+% Écrit le texte « mod » en utilisant la police standard des opérateurs mathématiques (lettres droites comme pour log ou cos, et non en italique mathématique comme mod, ce qui se lirait m×o×d).
+
+% \mkern6mu
+% Ajoute un petit espace mathématique fixe (6 math units) juste après le mot « mod ».
+
+% #1
+% Affiche l'argument que vous avez donné (par exemple, le nombre).
+
+
+\NewDocumentCommand{ \brmod }{ m }{%
+  \brod{{\operator@font mod}\mkern6mu#1}%
+}
+
+
+
+
+
+% \NewDocumentCommand{ \brod }{ m }{ ... }
+% Définit une nouvelle commande nommée \brod qui prend un argument obligatoire ({m}, pour mandatory). Cet argument est représenté par #1 plus bas.
+
+% \allowbreak
+% Autorise LaTeX à couper la ligne à cet endroit précis si la formule est dans le texte. Cela évite que la formule et sa note ne dépassent vilainement dans la marge.
+
+% \if@display ... \else ... \fi
+% C'est un test de condition. LaTeX vérifie le mode mathématique en cours :
+
+%     Si la formule est affichée (\if@display) — c'est-à-dire centrée sur sa propre ligne (dans un environnement \[ ... \] ou equation) — LaTeX applique un grand espace horizontal (\mkern18mu).
+
+%     Sinon (\else) — si la formule est au milieu d'un paragraphe (dans des $ ... $) — LaTeX applique un espace plus petit (\mkern8mu) pour ne pas casser le rythme de la lecture.
+
+% [#1]
+% Affiche le contenu que vous avez passé en argument, entouré de crochets.
+
+
+\NewDocumentCommand{ \brod }{ m }{%
+  \allowbreak%
+  \if@display%
+    \mkern18mu%
+  \else%
+    \mkern8mu%
+  \fi%
+  [#1]%
+}

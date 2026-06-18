@@ -1,0 +1,32 @@
+this::
+    date = 2026-06-18
+
+
+=================
+Égalité modulaire
+=================
+
+Via ''amsmath'', il est aisé d'écrire des égalités modulaires comme `a = b + c mod n`.
+En France, il est d'usage d'utiliser un `n` entre des crochets. Nous allons voir comment obtenir cet effet sans trop d'efforts.
+
+
+note::
+    Les \nelles macros proposées ici imitent celles du \pack ''amsmaths''. Pour ce faire, nous avons utilisé la \cmd term::''kpsewhere amsmath.sty'' pour accéder au contenu du fichier path::''amsmath.sty'', puis une simple recherche dans le code \src a donné les \defs suivantes
+    ((
+        Nous avons juste modifié la \mef du code pour le rendre plus aisé à décrypter. Des explications complètes sont données dans la \sol proposée ici.
+    )).
+
+    latex::
+        \DeclareRobustCommand{\pmod}[1]{%
+          \pod{{\operator@font mod}\mkern6mu#1}%
+        }
+
+        \DeclareRobustCommand{\pod}[1]{%
+          \allowbreak%
+          \if@display%
+            \mkern18mu%
+          \else%
+            \mkern8mu%
+          \fi%
+          (#1)%
+        }
