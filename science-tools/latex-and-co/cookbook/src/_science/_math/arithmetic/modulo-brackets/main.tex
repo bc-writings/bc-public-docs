@@ -12,7 +12,8 @@
 % prototype::
 %    #1 : KKKKKK
 %    #2 : KKKKKK
-% Pour simplifier la rédaction des tests.
+%
+%    :action: Pour simplifier la rédaction des tests.
 %%%
 \NewDocumentCommand{ \test }{ m m }{
   $a \equiv b + c #1{n}$
@@ -28,11 +29,17 @@
 
 \begin{document}
 
-\subsection*{Via amsmath}
+\textbf{amsmath.}
+Usage de \verb+\pmod+ et \verb +\pod+.
 
 \test{\pmod}{\pod}
 
-\subsection*{Une version plus carrée}
+
+\bigskip
+
+
+\textbf{Solutions "maison".}
+Usage de \verb+\brmod+ et \verb +\brod+.
 
 \test{\brmod}{\brod}
 
