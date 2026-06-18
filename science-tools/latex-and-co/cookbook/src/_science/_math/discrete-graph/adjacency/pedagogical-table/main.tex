@@ -19,16 +19,31 @@
 \begin{document}
 
 %%%
-% La commande \renewcommand{\arraystretch}{1.2} sert à augmenter l'espacement vertical (la hauteur) des lignes dans les tableaux et les matrices en LaTeX.
+% Augmenta^o de l'espacement vertical des lignes dans les \tabs.
 %%%
 \renewcommand{\arraystretch}{1.2}
 
 %%%
-% XX
+% Expliquons les \elts \techs du code suivant.
 %
-% Nous souhaitons tracer \ttes les lignes verticales et horizontales.
+%     + ''hvlines'' permet de tracer \ttes les lignes verticales
+%     et horizontales.
 %
-% On exclut le coin nord-ouest du tableau.
+%     + ''corners = NW'' exclut le coin Nord-Ouest du tableau.
+%
+%     + ''\CodeBefore [create-cell-nodes] ... \Body'' permet
+%     d'utiliser du code \tikz tout en ayant accès aux noms \autos
+%     des noeuds des \tabs créés par ''nicematrix''.
+%     Par exemple, ''(4-1.east)'' correspond à l'ancre Est de
+%     l'entrée dans la \4e ligne et la \1ere \col.
+%
+%     + Une police grasse dans la \1ere ligne s'obtient via
+%     ''\RowStyle{\bfseries}''.
+%
+%     + Une police grasse dans la \1ere \col s'obtient via
+%     ''>{\bfseries}*{6}{c}'', soit ''>{\bfseries}cccccc''.
+%     Ceci ajoute ''\bfseries'' en \pref de chaque cellule de la
+%     \1ere \col.
 %%%
 \begin{NiceTabular}{>{\bfseries}*{6}{c}}[
   hvlines,
