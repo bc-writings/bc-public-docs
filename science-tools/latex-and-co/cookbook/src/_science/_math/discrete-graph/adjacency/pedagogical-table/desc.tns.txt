@@ -6,4 +6,4 @@ this::
 \Tab d'adjacence à but \peda
 ============================
 
-????
+Lorsque l'on présente le fonctionnement d'un \tab d'adjacence, il faut expliquer comment lire les données. À cette fin, nous proposons une représentation facile à obtenir.
