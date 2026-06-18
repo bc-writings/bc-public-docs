@@ -3,4 +3,4 @@ Algèbre
 =======
 
 content::
-    ./matrix/\desc  ???
+    ./matrix/\desc

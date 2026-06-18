@@ -11,20 +11,20 @@
 \usepackage{nicematrix}
 
 %%%
-% Le \pack \tikz est nécessaire pour décorer les matrices.
+% Le \pack \tikz va être utilisé pour décorer les matrices.
 %%%
 \usepackage{tikz}
 
 \begin{document}
 
 %%%
-% Réglages "maison" pour tracer nos \delims hachurées.
+% ''nicematrix'' fournit ''\hdashedline'' pour dessiner des
+% \delims hachurées horizontales.
+% Pour les hachures verticales, nous créons un nouveau style
+% de ligne utilisable directement via un simple spécificateur.
 %%%
 \NiceMatrixOptions{
   custom-line = {
-% Lignes hachurées horizontales.
-    command     = \hdashedline,
-% Lignes hachurées verticales.
     letter      = I ,
     tikz        = dashed ,
     total-width = \pgflinewidth
@@ -32,7 +32,10 @@
 }
 
 %%%
-%  XXX first-row et first-col car ....
+% L'emploi de ''first-row'' et ''first-col'' permet d'indiquer
+% des étiquettes dans la \1ere ligne et la \1ere colonne du code
+% \latex, ces étiquettes ne faisant pas partie de la matrice
+% finale.
 %%%
 $H
 =
