@@ -3,19 +3,20 @@
 \usepackage{main}
 
 %%%
-% Nous utilisions les macros ''\pod'' et ''\substack'' de ''amsmaths''.
+% Nous utilisons les macros ''\pod'' et ''\substack'' de
+% ''amsmaths''.
 %%%
 \usepackage{amsmath}
 
 
 %%%
 % prototype::
-%    #1 : KKKKKK
-%    #2 : KKKKKK
+%    #1 : une \1ere \cmd de \mef d'un unique matéruiel \math.
+%    #2 : une \2nde \cmd de \mef d'un unique matéruiel \math.
 %
-%    :action: Pour simplifier la rédaction des tests.
+%    :action: cette macro simplifie la rédaction des tests.
 %%%
-\NewDocumentCommand{ \test }{ m m }{
+\NewDocumentCommand{\test}{ m m }{
   $a \equiv b + c #1{n}$
   \, et \,
   $a \equiv b + c #2{n}$
