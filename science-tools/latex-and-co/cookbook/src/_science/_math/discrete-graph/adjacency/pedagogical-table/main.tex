@@ -33,7 +33,7 @@
 %
 %     + ''\CodeBefore [create-cell-nodes] ... \Body'' permet
 %     d'utiliser du code \tikz tout en ayant accès aux noms \autos
-%     des noeuds des \tabs créés par ''nicematrix''.
+%     des noeuds créés par ''nicematrix''.
 %     Par exemple, ''(4-1.east)'' correspond à l'ancre Est de
 %     l'entrée dans la \4e ligne et la \1ere \col.
 %
@@ -42,15 +42,24 @@
 %
 %     + Une police grasse dans la \1ere \col s'obtient via
 %     ''>{\bfseries}*{6}{c}'', soit ''>{\bfseries}cccccc''.
-%     Ceci ajoute ''\bfseries'' en \pref de chaque cellule de la
+%     Ceci ajoute ''\bfseries'' en \pref de chaque \cel de la
 %     \1ere \col.
+%
+%
+% note::
+%     ''\CodeBefore'' sert à dessiner sous le \tab.
 %%%
 \begin{NiceTabular}{>{\bfseries}*{6}{c}}[
   hvlines,
   corners = NW
 ]
 \CodeBefore [create-cell-nodes]
-  \tikz \draw[red!60, ->, shorten <= 1pt, shorten >= 1pt]
+  \tikz \draw[
+    red!60,
+    ->,
+    shorten <= 1pt,
+    shorten >= 1pt
+  ]
     (4-1.east)
       -| node[pos = 0.5, name = corner] {}
     (1-2.south);
