@@ -3,5 +3,5 @@ Théorie des \enss
 =================
 
 content::
-    ./interval/\desc
-    ./venn-diagram/\desc
+    ./interval/\desc           ????
+    ./venn-diagram/\desc       ??
