@@ -1,6 +1,6 @@
-=======================
-Les intervalles réelles
-=======================
+=====================
+Les intervalles réels
+=====================
 
 content::
     ./write/\desc    ????
