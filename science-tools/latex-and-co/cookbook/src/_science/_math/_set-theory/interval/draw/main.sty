@@ -14,13 +14,13 @@
 %     #1 : borne inférieure de l'intervalle.
 %     #2 : borne supérieure de l'intervalle.
 %%%
-\NewDocumentCommand{ \drawinter }{ m m }{
+\NewDocumentCommand{\drawinter}{ m m }{
   \begin{tikzpicture}
 %%%
 % Dessin des diamètres de l'intervalle.
 %
 % note::
-%     Nous utilisons ''\pgfmathparse'' pour délguer certains calculs
+%     Nous utilisons ''\pgfmathparse'' pour déléguer certains calculs
 %     à \pgf qui va mettre le résultat dans le registre, ou mémoire
 %     volatile, ''\pgfmathresult''.
 %     Nous avons aussi besoin de ''\pgfmathprintnumber'' pour éviter
@@ -47,8 +47,11 @@
     \pgfmathparse{#2 + 2.6}
     \let\@inter@end@axe\pgfmathresult
 
-    \draw[> = {Latex[width = 4mm]}, ->, line width = 1pt]
-      (\@inter@start@axe, 0) -- (\@inter@end@axe, 0);
+    \draw[
+      > = {Latex[width = 4mm]},
+      ->,
+      line width = 1pt
+    ] (\@inter@start@axe, 0) -- (\@inter@end@axe, 0);
 
     \pgfmathparse{floor(#1 - 2)}
     \let\@inter@start@axe\pgfmathresult
@@ -61,7 +64,8 @@
     }
 
 %%%
-% Ajout des bornes et du centre de l'intervalle.
+% Ajout des bornes et du centre de l'intervalle via la macro
+% ''\@add@deco@label'' définie plus bas.
 %%%
     \foreach \x in {#1,\@inter@middle,#2} {
       \@add@deco@label[green!50!black][1.2]{\x}[\footnotesize]
