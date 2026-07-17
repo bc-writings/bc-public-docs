@@ -61,14 +61,14 @@
 \tl_new:N   \l__cookbook_interval_left_delims_tl
 \tl_new:N   \l__cookbook_interval_right_delims_tl
 
-\tl_new:N   \l__cookbook_interval_ldel_tl
-\tl_new:N   \l__cookbook_interval_rdel_tl
+\tl_new:N   \l__cookbook_interval_single_left_del_tl
+\tl_new:N   \l__cookbook_interval_single_right_del_tl
 
 \tl_new:N   \l__cookbook_interval_sep_tl
 
 %%%
 % prototype::
-%     standard : utilisation de parentèses pour les bornes excluses,
+%     standard : utilisation de parenthèses pour les bornes excluses,
 %                et de crochets pour les bornes incluses.
 %     french   : utilisation de crochets partout.
 %
@@ -86,7 +86,7 @@
 %     co : intervalle fermé à droite, et ouvert à gauche.
 %     oc : intervalle ouvert à droite, et fermé à gauche.
 %
-%     sep : ce qui sépare les bornes des intervalles.
+%     sep : ce qui sépare les bornes de l'intervalle.
 %%%
 \keys_define:nn { cookbook/interval } {
   standard .code:n = \__cookbook_interval_set_standard: ,
@@ -114,8 +114,7 @@
 
 %%%
 % prototype::
-%     :action: réglage \std des délimiteurs de l'intervalle et du
-%              séparateur.
+%     :action: réglage \std des \delims de l'intervalle et du \sep.
 %%%
 \cs_new_protected:Nn \__cookbook_interval_set_standard: {
   \tl_set:Nn \l__cookbook_interval_sep_tl { {,} }
@@ -143,22 +142,22 @@
 
 %%%
 % prototype::
-%     #1 : position du \delim gauche dans la \var
+%     #1 : indice permettant le choix du \delim gauche dans la \var
 %          ''\l__cookbook_interval_right_delims_tl''.
-%     #2 : position du \delim droit dans la \var
+%     #2 : indice permettant le choix du \delim droit dans la \var
 %          ''\l__cookbook_interval_left_delims_tl''.
 %
 %     :action: les bons \delims sont stockés dans les \vars
-%              ''\l__cookbook_interval_left_delims_tl'' et
-%              ''\l__cookbook_interval_right_delims_tl''.
+%              ''\l__cookbook_interval_single_left_del_tl'' et
+%              ''\l__cookbook_interval_single_right_del_tl''.
 %%%
 \cs_new_protected:Nn \__cookbook_interval:nn {
   \tl_set:Ne
-    \l__cookbook_interval_ldel_tl
+    \l__cookbook_interval_single_left_del_tl
     { \tl_item:Nn \l__cookbook_interval_left_delims_tl {#1} }
 
   \tl_set:Ne
-    \l__cookbook_interval_rdel_tl
+    \l__cookbook_interval_single_right_del_tl
     { \tl_item:Nn \l__cookbook_interval_right_delims_tl {#2} }
 }
 
@@ -172,32 +171,30 @@
 %%%
 \cs_new_protected:Nn \cookbook_interval:nnn {
   \group_begin:
+    \bool_set_false:N \l__cookbook_interval_auto_bool
+    \tl_set:Nn        \l__cookbook_interval_size_tl {}
 
-  \bool_set_false:N \l__cookbook_interval_auto_bool
-  \tl_set:Nn        \l__cookbook_interval_size_tl {}
+    \keys_set:nn
+      { cookbook/interval }
+      { o , #1 }
 
-  \keys_set:nn
-    { cookbook/interval }
-    { o, #1 }
+    \bool_if:NTF \l__cookbook_interval_auto_bool {
+      \mleft\l__cookbook_interval_single_left_del_tl
+    }{
+      \mathopen{ \l__cookbook_interval_size_tl \l__cookbook_interval_single_left_del_tl }
+    }
 
-  \bool_if:NTF \l__cookbook_interval_auto_bool {
-    \mleft\l__cookbook_interval_ldel_tl
-  }{
-    \mathopen{ \l__cookbook_interval_size_tl \l__cookbook_interval_ldel_tl }
-  }
+    \cookbook_interval_alias:n {#2}
 
-  \cookbook_interval_alias:n {#2}
+    \mkern2mu \l__cookbook_interval_sep_tl \mkern2mu
 
-  \mkern2mu \l__cookbook_interval_sep_tl \mkern2mu
+    \cookbook_interval_alias:n {#3}
 
-  \cookbook_interval_alias:n {#3}
-
-  \bool_if:NTF \l__cookbook_interval_auto_bool {
-    \mright\l__cookbook_interval_rdel_tl
-  }{
-    \mathclose{ \l__cookbook_interval_size_tl \l__cookbook_interval_rdel_tl }
-  }
-
+    \bool_if:NTF \l__cookbook_interval_auto_bool {
+      \mright\l__cookbook_interval_single_right_del_tl
+    }{
+      \mathclose{ \l__cookbook_interval_size_tl \l__cookbook_interval_single_right_del_tl }
+    }
   \group_end:
 }
 
@@ -206,7 +203,7 @@
 %     #1 : une borne pouvant être un alias
 %
 %     :return: soit la version longue d'un alias, soit l'\arg lui-même
-%              s'il ne correspond pas à un alias.
+%              s'il ne correspond à aucun alias.
 %%%
 \cs_new_protected:Nn \cookbook_interval_alias:n {
   \str_case:nnF {#1} {

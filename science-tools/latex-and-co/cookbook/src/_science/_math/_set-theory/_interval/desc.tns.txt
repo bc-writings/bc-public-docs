@@ -3,5 +3,5 @@ Les intervalles réels
 =====================
 
 content::
-    ./write/\desc    ????
+    ./write/\desc
     ./draw/\desc     ??

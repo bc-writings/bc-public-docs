@@ -10,5 +10,5 @@ Nous allons examiner trois méthodes de saisie d'intervalles à la française co
 
 content::
     ./ibrackets/\desc
-    ./mathtools/\desc       ????
-    ./international/\desc   ??
+    ./mathtools/\desc
+    ./international/\desc

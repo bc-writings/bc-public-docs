@@ -1,5 +1,5 @@
 this::
-    date = 2026-06-25
+    date = 2026-07-17
 
 
 =========================
@@ -8,7 +8,7 @@ Une version "clé en main"
 
 Cette \1ere version est faussement efficace, car il n'est pas possible de changer la taille des crochets.
 De plus, l'espacement autour du séparateur des bornes n'est pas correct.
-Dans ce cas, pourquoi proposons-nous cet exemple ? Parce que ceci permet d'incister sur une règle importante avec \latex : \tjrs proposer une \sol modifiable pour répondre à d'autres usages
+Dans ce cas, pourquoi proposons-nous cet exemple ? Parce que ceci permet d'incister sur une règle importante avec \latex : \tjrs proposer une \sol modifiable pour répondre à d'autres usages prévus par le codeur
 ((
     Nous verrons comment faire ceci dans cf::''../international/\desc''.
 )).
