@@ -6,8 +6,8 @@ this::
 Complémentaire d'un \ens
 ========================
 
-Nous proposons deux façons de tracer un \ens et son complémentaire : une méthode rapide et facile, mais un peu “bricolée”, et une autre plus soignée, qui demande un peu plus d’effort.
+Nous proposons deux façons de tracer un \ens et son complémentaire : une méthode rapide et facile, mais un peu "bricolée", et une autre plus soignée, qui demande un peu plus d’effort.
 
 content::
-    ./short/\desc    ????
-    ./clean/\desc    ??
+    ./short/\desc
+    ./clean/\desc

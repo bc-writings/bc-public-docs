@@ -13,7 +13,7 @@
 \usepackage[svgnames]{xcolor}
 
 %%%
-% La bibliothèque ''luadraw'' allie une facilité d’utilisation
+% La bibliothèque \luadraw allie une facilité d’utilisation
 % à un rendu particulièrement soigné.
 %%%
 \usepackage{luadraw}
@@ -74,7 +74,7 @@ local drawdiag = function(paths, legend)
   graphview:Dpath(C)
 
   graphview:Dlabel(
-    "$U$", -6.5 + 6*i, 
+    "$U$", -6.5 + 6*i,
     {pos = "NE"},
     "$A$", 4.75*i,
     {pos = "N"},
@@ -82,7 +82,7 @@ local drawdiag = function(paths, legend)
     {pos = "W"},
     "$C$", 4 + 3*i,
     {pos = "E"},
-    legend, -6.5 - 6.75*i, 
+    legend, -6.5 - 6.75*i,
     {}
   )
 end

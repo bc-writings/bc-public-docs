@@ -13,7 +13,7 @@
 \usepackage[svgnames]{xcolor}
 
 %%%
-% La bibliothèque ''luadraw'' allie une facilité d’utilisation
+% La bibliothèque \luadraw allie une facilité d’utilisation
 % à un rendu particulièrement soigné.
 %%%
 \usepackage{luadraw}
@@ -34,7 +34,7 @@ local A = ld.set(0, 90)
 
 local lab_A     = "$A$"
 local lab_A_not = "$\\overline{A}$"
-local lab_E     = "$E$"
+local lab_E     = "$\\Omega$"
 
 local col_A     = "blue"
 local col_A_not = "red"
@@ -59,7 +59,7 @@ graphview:Fillopacity(0.2)
 -- de tracé proposé par les commandes ''path'' et ''Dpath''.
 --
 --     1) La ¨doc de ¨luadraw nous informe que ''set(...)'' est
---     un chemin destiné aux  commandes ''path'' et ''Dpath''.
+--     un chemin destiné aux commandes ''path'' et ''Dpath''.
 --
 --     1) On transforme le chemin ''{S, ...}'' de `A` en
 --     ''{S, "m", ...}'' où S désigne le premier point du chemin.

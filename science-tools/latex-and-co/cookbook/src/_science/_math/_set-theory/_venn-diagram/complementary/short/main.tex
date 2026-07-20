@@ -13,7 +13,7 @@
 \usepackage[svgnames]{xcolor}
 
 %%%
-% La bibliothèque ''luadraw'' allie une facilité d’utilisation
+% La bibliothèque \luadraw allie une facilité d’utilisation
 % à un rendu particulièrement soigné.
 %%%
 \usepackage{luadraw}
@@ -35,8 +35,13 @@ local A = ld.set(
   90  -- Pour l'orientation.
 )
 
-local lab_A, lab_A_not, lab_E = "$A$", "$\\overline{A}$", "$E$"
-local col_A, col_A_not, col_E = "blue", "red", "black"
+local lab_A     = "$A$"
+local lab_A_not = "$\\overline{A}$"
+local lab_E     = "$\\Omega$"
+
+local col_A     = "blue"
+local col_A_not = "red"
+local col_E     = "black"
 
 ------
 -- ¨Def de la zone graphique.
@@ -54,7 +59,9 @@ graphview:Fillopacity(0.2)
 
 graphview:Drectangle(
    -6.5 + 4*i, 6.5 + 4*i, 6.5 - 4*i,
-   col_E .. ", rounded corners = 5pt, fill=red"
+      col_E
+   .. ", rounded corners = 5pt, fill = "
+   .. col_A_not
 )
 
 ------
@@ -62,8 +69,8 @@ graphview:Drectangle(
 --
 --
 -- note::
---     Nous traçons une version opaque et blanche de l'ensemble
---     `A` pour "effacer" le bleu de l'univers.
+--     Nous devons traer en premier une version opaque et blanche
+--     de l'ensemble `A` pour "effacer" le bleu de l'univers.
 ------
 graphview:Fillopacity(1)
 
@@ -85,9 +92,24 @@ graphview:Dpath(
 graphview:Fillopacity(.75)
 
 graphview:Dlabel(
-  lab_A    , 0         , {node_options = col_A, pos = "center"},
-  lab_A_not, 4 + 2.7*i , {node_options = col_A_not, pos = "E"},
-  lab_E    , -6.5 + 4*i, {node_options = col_E, pos = "NW"}
+  lab_A,
+  0,
+  {
+    node_options = col_A,
+    pos          = "center"
+  },
+  lab_A_not,
+  4 + 2.7*i,
+  {
+    node_options = col_A_not,
+    pos          = "E"
+    },
+  lab_E,
+  -6.5 + 4*i,
+  {
+    node_options = col_E,
+    pos          = "NW"
+  }
 )
 
 ------
