@@ -59,9 +59,8 @@ graphview:Fillopacity(0.2)
 
 graphview:Drectangle(
    -6.5 + 4*i, 6.5 + 4*i, 6.5 - 4*i,
-      col_E
-   .. ", rounded corners = 5pt, fill = "
-   .. col_A_not
+      col_E .. ", fill = " .. col_A_not
+   .. ", rounded corners = 5pt"
 )
 
 ------
@@ -87,7 +86,7 @@ graphview:Dpath(
 )
 
 ------
--- Ajout de points.
+-- Ajout des étiquettes.
 ------
 graphview:Fillopacity(.75)
 

@@ -55,39 +55,50 @@ local graphview = ld.graph:new{
 graphview:Fillopacity(0.2)
 
 ------
--- Construction du complémentaire de `A` en utilisant le langage
--- de tracé proposé par les commandes ''path'' et ''Dpath''.
+-- Comme la ¨doc de ¨luadraw nous informe que ''set(...)'' est
+-- un chemin destiné aux commandes ''path'' et ''Dpath'', nous
+-- allons construire nous-même l'univers et le complémentaire
+-- de `A` via le langage de tracé proposé par les commandes
+-- ''path'' et ''Dpath''. Voici des explications sur le code
+-- utilisé ci-dessous.
 --
---     1) La ¨doc de ¨luadraw nous informe que ''set(...)'' est
---     un chemin destiné aux commandes ''path'' et ''Dpath''.
+--     1) ''Universe_and_A_not'' est une table contenant les
+--     instructions de tracé.
 --
---     1) On transforme le chemin ''{S, ...}'' de `A` en
---     ''{S, "m", ...}'' où S désigne le premier point du chemin.
+--     1) ''{-6.5 + 4*i, ... , "cla"}'' sert au tracé de la
+--     boîte arrondie resprésentant l'univers où ''"cla"'' est
+--     pour "closed line arc", soit "une ligne fermé aux coins
+--     arrondis"
 --
---     1) On met le chemin ''{-6.5 + 4*i, ... , "cla"}'' du
---     rectangle avant ''{S, "m", ...}''.
+--     1) ''A_bis'' est une copie des instructions définissant
+--     ''A'' (pas besoin de refaire le travail abattu par la
+--     commande ''set'' de ¨luadraw).
+--
+--     1) ''table.insert(A_bis, 2, "m")'' permet de déplacer le
+--     tracé de `A` au point d'affixe complexe `2`. La commande
+--     ''"m"'' est pour "move to", soit se "déplacer vers".
 --
 --     1) Lors du tracé, ''Dpath'', en lisant les instructions,
---     trace le rectangle, puis se déplace en ''S'' pour commencer
+--     trace le rectangle, puis se déplace en `2` pour commencer
 --     un nouveau tracé, à savoir celui de l'ensemble `A`.
 --
 --     1) Il ne reste plus qu'à utiliser la régle de remplissage
 --     latex::''even odd rule'' de ¨tikz.
 ------
-local A_bis = table.copy(A)
-
-table.insert(A_bis, 2, "m")
-
-local A_not = {
+local Universe_and_A_not = {
   -6.5 + 4*i, 6.5 + 4*i, 6.5 - 4*i, -6.5 - 4*i, 0.25,
   "cla"
 }
 
-ld.insert(A_not, A_bis)
+local A_bis = table.copy(A)
+table.insert(A_bis, 2, "m")
+
+ld.insert(Universe_and_A_not, A_bis)
 
 graphview:Dpath(
-  A_not,
-  col_E .. ", fill = " .. col_A_not .. ", even odd rule"
+  Universe_and_A_not,
+     col_E .. ", fill = " .. col_A_not
+  .. ", even odd rule"
 )
 
 ------
@@ -99,22 +110,25 @@ graphview:Dpath(
 )
 
 ------
--- Ajout de points.
+-- Ajout des étiquettes.
 ------
 graphview:Fillopacity(.75)
 
 graphview:Dlabel(
-  lab_A, 0,
+  lab_A,
+  0,
   {
     node_options = col_A,
     pos          = "center"
   },
-  lab_A_not, 4 + 2.7*i ,
+  lab_A_not,
+  4 + 2.7*i ,
   {
     node_options = col_A_not,
     pos          = "E"
   },
-  lab_E, -6.5 + 4*i,
+  lab_E,
+  -6.5 + 4*i,
   {
     node_options = col_E,
     pos          = "NW"
