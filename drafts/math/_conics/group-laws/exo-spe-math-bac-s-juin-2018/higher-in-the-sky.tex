@@ -1,11 +1,9 @@
-Ce qui suit reprend les excellentes indications données par Jérôme Germoni dans une discussion au bas de cette page :
+Dans la suite, nous ne considérons que l'ensemble des matrices $A$ telles que $A^T Q A = Q$ et $\det A = 1$ afin de pouvoir les multiplier entre elles.
+\footnote{
+    Ce qui suit reprend les excellentes indications données par Jérôme Germoni dans une discussion au bas de cette page :
 \url{http://images.math.cnrs.fr/+Nombres-puissants-au-bac-S+}
 \textit{(chercher les messages de l'utilisateur projetmbc)}.
-
-
-\bigskip
-
-Dans la suite, nous ne considérons que l'ensemble des matrices $A$ telles que $A^T Q A = Q$ et $\det A = 1$ afin de pouvoir les multiplier entre elles.
+}
 
 
 \medskip
@@ -56,7 +54,7 @@ Notant $\setproba{S}$ l'ensemble des solutions entières
 \footnote{
 	Ce qui suit se généralise aux solutions rationnelles, à celles réelles ou encore à celles complexes mais ne sortons pas du cadre de ce modeste document.
 }
-de \textbf{[ED]} : $x^2 - 8 y^2 = 1$ , ce qui précède motive la définition de la loi $\star$ sur $\setproba{S}$ via
+de \ED, ce qui précède motive la définition de la loi $\star$ sur $\setproba{S}$ via
 $\begin{pmatrix} 
   a \\ 
   c 
@@ -76,7 +74,7 @@ Nous allons démontrer que cette loi $\star$ est bien définie et qu'elle fait d
 
 \medskip
 
-Les raisonnements suivants se font en faisant le parallèle entre 
+Les raisonnements suivants utilisent utilise le fait que 
 $\begin{pmatrix} 
   a \\ 
   c 
@@ -86,7 +84,7 @@ $\begin{pmatrix}
   x \\ 
   y 
 \end{pmatrix}$
-et la matrice produit
+est la première colonne de la matrice produit
 $\begin{pmatrix} 
   a & 8c \\ 
   c & a 
@@ -94,11 +92,10 @@ $\begin{pmatrix}
 \begin{pmatrix} 
   x & 8y \\ 
   y & x 
-\end{pmatrix}$
-dont on garde juste la première colonne
+\end{pmatrix}$.
 \footnote{
 	Les résultats présentés ici se vérifient et se trouvent directement à la main sans passer par les matrices mais ceci est bien moins élégant.
-} .
+}
 Rappelons que les deux matrices du produit précédent sont des matrices entières $A$ vérifiant $A^T Q A = Q$ et $\det A = 1$ . Nous savons que pour ce type de matrice la première colonne est solution de \textbf{[ED]} .
 
 
