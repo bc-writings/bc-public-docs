@@ -1,6 +1,6 @@
-Dans la suite, nous ne considérons que l'ensemble des matrices $A$ telles que $A^T Q A = Q$ et $\det A = 1$ afin de pouvoir les multiplier entre elles.
+Dans la suite, nous considérons l'ensemble $\setproba{M}$ des matrices $A$ telles que $A^T Q A = Q$ et $\det A = 1$ afin de pouvoir les multiplier entre elles comme nous allons le vérifier.
 \footnote{
-    Ce qui suit reprend les excellentes indications données par Jérôme Germoni dans une discussion au bas de cette page :
+    Ce qui suit reprend les excellentes indications données par Jérôme Germoni dans une discussion au bas de cette page:
 \url{http://images.math.cnrs.fr/+Nombres-puissants-au-bac-S+}
 \textit{(chercher les messages de l'utilisateur projetmbc)}.
 }
@@ -8,103 +8,105 @@ Dans la suite, nous ne considérons que l'ensemble des matrices $A$ telles que $
 
 \medskip
 
-Nous savons que $A$ est du type 
+Nous savons que $A \in \setproba{M}$ est du type
 $A
 =
-\begin{pmatrix} 
-  a & 8c \\ 
+\begin{pmatrix}
+  a & 8c \\
   c & a
-\end{pmatrix}$ 
-et que la contrainte $a^2 - 8c^2 = 1$ est cachée dans la relation $A^T Q A = Q$ .
+\end{pmatrix}$
+et que la contrainte $a^2 - 8c^2 = 1$ est cachée dans la relation $A^T Q A = Q$.%
+\footnote{
+    Autrement dit, la première colonne de $A$ est une solution de \ED.
+}
 
 
 \medskip
 
 Nous savons aussi que si
-$\begin{pmatrix} 
-  x \\ 
-  y 
+$\begin{pmatrix}
+  x \\
+  y
 \end{pmatrix}$
-verifie $x^2 - 8 y^2 = 1$ , il en sera de même pour
-$\begin{pmatrix} 
-  X \\ 
-  Y 
+verifie $x^2 - 8 y^2 = 1$, il en sera de même pour
+$\begin{pmatrix}
+  x' \\
+  y'
 \end{pmatrix}
 =
 A
-\begin{pmatrix} 
-  x \\ 
-  y 
-\end{pmatrix}$
-où
-$\begin{pmatrix} 
-  X \\ 
-  Y 
+\begin{pmatrix}
+  x \\
+  y
+\end{pmatrix}$,
+c'est-à-dire
+$\begin{pmatrix}
+  x' \\
+  y'
 \end{pmatrix}
 =
-\begin{pmatrix} 
-  a x + 8c y \\ 
+\begin{pmatrix}
+  a x + 8c y \\
   c x + a y
-\end{pmatrix}$ .
+\end{pmatrix}$.
 
 
-\medskip
+\bigskip
 
 Notant $\setproba{S}$ l'ensemble des solutions entières
 \footnote{
-	Ce qui suit se généralise aux solutions rationnelles, à celles réelles ou encore à celles complexes mais ne sortons pas du cadre de ce modeste document.
+	Ce qui suit se généralise aux solutions rationnelles, à celles réelles, ou encore à celles complexes, mais ne sortons pas du cadre de ce modeste document.
 }
 de \ED, ce qui précède motive la définition de la loi $\star$ sur $\setproba{S}$ via
-$\begin{pmatrix} 
-  a \\ 
-  c 
+$\begin{pmatrix}
+  a \\
+  c
 \end{pmatrix}
 \star
-\begin{pmatrix} 
-  x \\ 
-  y 
+\begin{pmatrix}
+  x \\
+  y
 \end{pmatrix}
 =
-\begin{pmatrix} 
-  a x + 8c y \\ 
+\begin{pmatrix}
+  a x + 8c y \\
   c x + a y
-\end{pmatrix}$ .
-Nous allons démontrer que cette loi $\star$ est bien définie et qu'elle fait de $\setproba{S}$ un groupe. Très joli ! Non ?
+\end{pmatrix}$.
+Nous allons démontrer que cette loi $\star$ est bien définie et fait de $\setproba{S}$ un groupe. Très joli ! Non?
 
 
 \medskip
 
-Les raisonnements suivants utilisent utilise le fait que 
-$\begin{pmatrix} 
-  a \\ 
-  c 
+Les justifications suivantes sont faciles à obtenir en notant que
+$\begin{pmatrix}
+  a \\
+  c
 \end{pmatrix}
 \star
-\begin{pmatrix} 
-  x \\ 
-  y 
+\begin{pmatrix}
+  x \\
+  y
 \end{pmatrix}$
 est la première colonne de la matrice produit
-$\begin{pmatrix} 
-  a & 8c \\ 
-  c & a 
+$\begin{pmatrix}
+  a & 8c \\
+  c & a
 \end{pmatrix}
-\begin{pmatrix} 
-  x & 8y \\ 
-  y & x 
+\begin{pmatrix}
+  x & 8y \\
+  y & x
 \end{pmatrix}$.
 \footnote{
-	Les résultats présentés ici se vérifient et se trouvent directement à la main sans passer par les matrices mais ceci est bien moins élégant.
+	Les résultats présentés ici se vérifient et se trouvent directement à la main sans passer par les matrices, mais ceci est bien moins élégant.
 }
-Rappelons que les deux matrices du produit précédent sont des matrices entières $A$ vérifiant $A^T Q A = Q$ et $\det A = 1$ . Nous savons que pour ce type de matrice la première colonne est solution de \textbf{[ED]} .
 
 
-\begin{itemize}[label=\small\textbullet]
-	\item La loi $\star$ est bien interne à $\setproba{S}$ car si $A^T Q A = Q$ avec $\det A = 1$ et $B^T Q B = Q$ avec $\det B = 1$ , alors nous avons :
-	
-	\begin{itemize}[label=\raisebox{.3ex}{$\centerdot$}]
+\begin{itemize}
+	\item La loi $\star$ est bien interne à $\setproba{S}$, car si $A^T Q A = Q$ avec $\det A = 1$ et $B^T Q B = Q$ avec $\det B = 1$, nous avons:
+
+	\begin{itemize}
 		\item $(AB)^T Q (AB) = B^T A^T Q A B = B^T Q B = Q$
-		
+
 		\medskip
 		\item $\det(AB) = \det A \cdot \det B = 1$
 	\end{itemize}
@@ -112,23 +114,23 @@ Rappelons que les deux matrices du produit précédent sont des matrices entièr
 
 	\medskip
 	\item
-	$\begin{pmatrix} 
-	  1 \\ 
-	  0 
+	$\begin{pmatrix}
+	  1 \\
+	  0
 	\end{pmatrix}$
-	est l'élément neutre de $\star$ car sa matrice associée est la matrice identité.
+	est l'élément neutre de $\star$, car sa matrice associée est la matrice identité.
 
 
 	\medskip
 	\item
-	$\begin{pmatrix} 
-	  a  \\ 
-	  -c 
+	$\begin{pmatrix}
+	  a  \\
+	  -c
 	\end{pmatrix}$
 	est l'inverse de
-	$\begin{pmatrix} 
-	  a \\ 
-	  c 
+	$\begin{pmatrix}
+	  a \\
+	  c
 	\end{pmatrix}$
 	\textit{(revoir si besoin le cas 1 de la section précédente)}.
 
