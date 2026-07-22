@@ -1,14 +1,13 @@
-Ce qui suit tente de donner une explication naturelle du lien entre la loi $\star$ et un procédé géométrique rappelé par Jérôme Germoni précédemment cité dans une note de bas de page.
+Jusqu'à présent, nous n'avons à aucun moment utiliser l'hyperbole $\setgeo{H}$ \squote{à deux branches} d'équation implicite $X^2 - 8 Y^2 = 1$ \textit{(on utilise ici des majuscules pour le système de coordonnées)}. C'est un peu dommage!%
+\footnote{
+    Cette section est née de l'échange avec Jérôme Germoni indiqué dans une précédente note de bas de page.
+}
 
 
 \medskip
 
-Jusqu'à présent, nous n'avons à aucun moment représenter l'hyperbole $\setgeo{H}$ \squote{à deux branches} d'équation implicite $X^2 - 8 Y^2 = 1$ \textit{(on utilise ici des majuscules pour le système de coordonnées)}. C'est un peu dommage !
 
-
-\medskip
-Un peu de conjecture pour commencer... Dans les représentations ci-dessous, nous partons de deux points $M(x ; y)$ et $N(x' ; y')$ sur $\setgeo{H}$,
-puis nous ajoutons $E(1 ; 0)$, cf. le neutre de $\star$, et $P(x'' ; y'')$
+Essayons de voir ce que donne le tracé de $M(x ; y)$ et $N(x' ; y')$ sur $\setgeo{H}$ autre que $E(1 ; 0)$, cf. le neutre de $\star$, et de $P(x'' ; y'')$
 où
 $\begin{pmatrix} 
   x'' \\ 
@@ -28,8 +27,8 @@ $\begin{pmatrix}
 \begin{pmatrix}
   x x' + 8 y y' \\ 
   x y' + x' y 
-\end{pmatrix}$,
-ces derniers points étant aussi sur $\setgeo{H}$.
+\end{pmatrix}$.
+Nous avons que ce dernier point est aussi sur $\setgeo{H}$.
 
 
 \medskip
@@ -65,18 +64,22 @@ Les graphiques précédents suggèrent
 un procédé géométrique simple pour construire $P$.
 
 \begin{enumerate}
-	\item Si $M \neq N$ et $x_M \neq x_N$, alors $P$ est le second point d'intersection de $\setgeo{H}$ avec la parallèle à $(MN)$ passant par $E$.
+	\item Si $M \neq N$ et $x \neq x'$, alors $P$ est le second point d'intersection de $\setgeo{H}$ avec la parallèle à $(MN)$ passant par $E$.
 
 
-	\item Si $M \neq N$ et $x_M = x_N$, alors $P = E$ (ce second cas peut être vu comme un cas limite du précédent avec un point d'intersection \squote{double}).
+	\item Si $M \neq N$ et $x = x'$, alors $P = E$ (ce second cas peut être vu comme un cas limite du précédent avec un point d'intersection \squote{double}).
 
 
-	\item Si $M = N$, alors $P$ est le \squote{second} point d'intersection de $\setgeo{H}$ avec la parallèle de la tangente à $\setgeo{H}$ au point $M$.
-	Notons que si $M$ et $N$ ont pour coordonnées $(-1 :0)$, alors $P = E$ est un point d'intersection double.
+	\item Si $M = N$ et $y \neq 0$, alors $P$ est le second point d'intersection de $\setgeo{H}$ avec la parallèle de la tangente à $\setgeo{H}$ au point $M$.
+
+
+	\item Si $M = N$ et $y = 0$, alors $P = E$
+	(ce dernier cas peut être vu comme un cas limite du précédent avec un point d'intersection \squote{double}).
+
 \end{enumerate}
 
 
-Dans les graphiques suivants, nous avons tracé les droites utilisées par le procédé géométrique conjecturé à l'instant.
+Dans les graphiques suivants, nous avons tracé les droites indiquées par le procédé géométrique conjecturé à l'instant.
 
 
 \medskip
@@ -103,15 +106,67 @@ Dans les graphiques suivants, nous avons tracé les droites utilisées par le pr
 
 \medskip
 
-Prouvons la validité de notre conjecture. %Nous confondrons les points avec les vecteurs utilisés pour définir la loi $\star$.
+
+Comme $E(1 ; 0)$ correspond au neutre de $\star$, il est immédiat de noter que les procédés de construction sont vrais lorsque que $M = E$ ou $N = E$.
+Prouvons donc la validité de notre conjecture pour $M \neq E$ et $N \neq E$. %Nous confondrons les points avec les vecteurs utilisés pour définir la loi $\star$.
 
 \begin{enumerate}
-	\item Supposons que $M \neq N$ avec $x_M \neq x_N$.
+	\item Supposons $M \neq N$ et $x \neq x'$.
 	
 	\smallskip
 	
 	\noindent
-	Nous devons juste vérifier que $(EP)$ et $(MN)$ sont parallèles puisque l'on sait que $P \neq E$ \textit{(voir le point suivant si besoin)}. Ce qui suit est quelque peu brutal \textit{(on pourrait faire appel à un logiciel de calcul formel qui ici peut être utilisé en toute confiance)}.
+	Nous devons vérifier que $P \neq E$, puis le parallélisme de $(EP)$ et $(MN)$.
+	
+	\smallskip
+		
+	\noindent
+	Démontrons par l'absurde que $P \neq E$. Partons donc de $(x'' ; y'') = (1 ; 0)$,
+	c'est-à-dire de $x x' + 8 y y' = 1$ et $x y' + x' y = 0$.
+	Nous avons alors:
+	
+	\medskip
+	
+	\noindent
+	\kern-1em\begin{stepcalc}[style = ar*, ope = {\implies[donc]}]
+	    (x x' + 8 y y')^2 = 1
+	\explnext{}
+	    x^2 x'^2 + 64 y^2 y'^2 + 16 x x' y y' = 1
+	\explnext*{$x' y = - x y'$}{}
+	    x^2 x'^2 + 64 y^2 y'^2 - 16 x^2 y'^2 = 1
+	\explnext*{$x^2 = 1 + 8 y^2$ et $x'^2 = 1 + 8 y'^2$}{}
+	      (1 + 8 y^2) (1 + 8 y'^2) 
+	    + 64 y^2 y'^2 
+	    - 16 (1 + 8 y^2) y'^2 
+	    = 1
+	\explnext{}
+	      1 + 8 y^2 + 8 y'^2 + 64 y^2 y'^2 
+	    + 64 y^2 y'^2 
+	    - 16 y'^2 - 128 y^2 y'^2
+	    = 1
+	\explnext{}
+	    8 y^2 - 8 y'^2 = 0
+	\explnext{}
+	    y^2 = y'^2
+	\explnext{}
+	    y = \pm y'
+	\end{stepcalc}
+	
+	\medskip
+		
+	\noindent
+	Or $y = y'= 0$ est exclus ici, donc $y = \pm y'$ donne $y \neq 0$ et $y'\neq 0$, puis $x' y = - x y'$ et $x \neq x'$ impliquent
+	$(x' ; y') = (- x ; y)$.
+	Nous obtenons alors
+	$x x' + 8 y y' = - x^2 + 8 y^2 = -1$ qui contredit $x x' + 8 y y' = 1$.
+	
+	\smallskip
+		
+	\noindent
+	Ensuite, le parallélisme des droites $(EP)$ et $(MN)$ se démontrent via les calculs quelque peu brutaux suivants.%
+	\footnote{
+	    Faire appel à un logiciel de calcul formel serait ici acceptable.
+	}
 	
 	\smallskip
 	
@@ -183,48 +238,47 @@ Prouvons la validité de notre conjecture. %Nous confondrons les points avec les
 	\smallskip
 	
 	\noindent
-	Nous avons bien vérifié le parallélisme des droites $(EP)$ et $(MN)$.
+	Les vecteurs $\vect{EP}$ et $\vect{MN}$ sont bien colinéaires.
 
 % --------------- %
 
 	\medskip
-	\item Supposons que $M \neq N$ avec $x_M = x_N$.
+	\item Supposons $M \neq N$ et $x = x'$.
 	
 	\smallskip
 	
 	\noindent
-	Dans ce cas, comme $x_M = x_N$ et $y_M = -y_N$, nous avons
-	$x_M x_N + 8 y_M y_N = x_M^2 - 8 y_M^2 = 1$
+	Dans ce cas, 
+	nous avons aussi $y' = - y$, 
+	d'où
+	$x'' = x x' + 8 y y' = x^2 - 8 y^2 = 1$
 	et
-	$y_M x_N + x_M y_N = 0$.
+	$y'' = y x' + x y' = y x - x y = 0$.
 	Ceci justifie que $P = E$.
 
 % --------------- %
 
 	\medskip
-	\item XXXXXXXX
-	Supposons que $M = N$.
+	\item Supposons $M = N$.
 	
 	\smallskip
 	
 	\noindent
 	Notant $F(X ; Y) = X^2 - 8 Y^2 - 1$, la tangente à $\setproba{H}: F(X ; Y) = 0$ en $M$ admet pour vecteur directeur
-	$\vect{u} \big( - \pder{F}{Y}{1}(x ; y) ; \pder{F}{X}{1}(x ; y) \big)$,
-	c'est-à-dire
-	$\vect{u} ( 16y ; 2x )$
-	sous la condition $(x ; y) \neq (0 ; 0)$ qui est vérifiée par tout point de notre hyperbole $\setgeo{H}$. 
-	
+	$\vect{u} \big( - \pder{F}{Y}{1}(x ; y) ; \pder{F}{X}{1}(x ; y) \big)$ si ce vecteur est non nul.
 	
 	\noindent
+	Comme $\vect{u} ( 16y ; 2x )$ et $(x ; y) \neq (0 ; 0)$, car $x^2 - 8 y^2 - 1 = 0$,
+	la tangente à $\setproba{H}$ en $M$ admet $\vect{u} ( 16y ; 2x )$ pour vecteur directeur.
+	%
 	Comme de plus $x'' = x^2 + 8y^2 = 16y^2 + 1$ et $y'' = 2xy$, nous avons
-	$\vect{EP} ( 16y^2 ; 2xy )$
-	d'où
-	$\vect{EP} = y \vect{u}$.
-	Ceci permet de conclure.
+	$\vect{EP} ( 16y^2 ; 2xy )$,
+	soit $\vect{EP} = y \vect{u}$.
+	Deux alternatives sont alors possibles.
+	%
+	\begin{itemize}
+	    \item Si $y = 0$, alors $M(-1 ; 0)$ et $P = E$, via $\vect{EP} = \vect{0}$. Ceci valide le dernier point de la conjecture.
+
+	    \item Si $y \neq 0$, alors $P$ est le second point d'intersection de $\setgeo{H}$ avec la parallèle de la tangente à $\setgeo{H}$ au point $M$. Ceci achève la validation complète de la conjecture.
+	\end{itemize}
 \end{enumerate}
-
-
-
-\medskip
-
-\textbf{Remarque.} DIVISEURS ??? Pour ceux qui connaissent la loi de groupe des courbes elliptiques, notons que ce qui précède peut être un point d'entrée naturel, et humainement calculable, vers celle-ci \textit{(indiquons qu'il existe un moyen naturel, mais d'une très grande technicité, de tomber sur cette fameuse loi de groupe qui est trop souvent donnée violemment sans plus d'explications sur la raison du procédé géométrique qui lui est associé)}.
