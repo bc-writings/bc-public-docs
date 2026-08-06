@@ -21,6 +21,10 @@
 \begin{document}
 
 \begin{luadraw*}{name = curvilinear-abscissa}
+local ld  = luadraw
+local cpx = ld.cpx
+local Z   = cpx.Z
+
 ------
 -- ¨Long de parcours souhaitée.
 ------
@@ -40,7 +44,7 @@ local df = function(x)
 end
 
 local curv_absc = function(a, x)
-  return int(
+  return ld.int(
     function(t)
       return math.sqrt(1 + df(t)^2)
     end,
@@ -66,10 +70,6 @@ end
 ------
 -- ¨Def de la zone graphique.
 ------
-local ld  = luadraw
-local cpx = ld.cpx
-local Z   = cpx.Z
-
 local graphview = ld.graph:new{
   window = {-5.5, 5.5, -4.35, 4.55},
   size   = {11.5, 11},
