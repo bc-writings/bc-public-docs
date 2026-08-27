@@ -44,7 +44,8 @@ do
 
     pdfile="$fstem.pdf"
 
-    echo "+ ./$fdir"
+    echo
+    echo "./$fdir"
 
     cd "$TARGET/$fdir"
 
@@ -61,14 +62,14 @@ do
 
     if [[ "$newhash" != "$oldhash" || ! -f "$fstem-crop.pdf" ]]
     then
-      echo "  Croping needed for '$fstem.tex'."
+      echo "  + Cropping needed: '$fstem.tex'"
 
       pdfcrop --margins '3' "$pdfile"
 
       echo "$newhash" > "$hash_file"
 
     else
-      echo "  Nothing to do for '$fstem.tex'."
+      echo "  + Already cropped: '$fstem.tex'"
     fi
   fi
 done # for f in $(find . -name '*.tex')

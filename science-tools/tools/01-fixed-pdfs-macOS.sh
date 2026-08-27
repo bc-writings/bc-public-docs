@@ -49,12 +49,18 @@ cd "$TARGET"
 for f in $(find cookbook/src -name 'main*.tex' -o -name 'xtra*.tex' | sort -u)
 do
   if [[ "$f" == *-by-hand.tex ]]; then
-    echo "-- NEW TEX FILE - HUMAN PROCESS --"
+    echo
+    echo "--- TEX FILE - HUMAN PROCESS ---"
+    echo
+
     echo "./$f"
     open "$TARGET/$f"
 
   else
-    echo "-- NEW TEX FILE - AUTO --"
+    echo
+    echo "--- TEX FILE - AUTO ---"
+    echo
+
     echo "./$f"
 
     fdir=$(dirname "$f")
