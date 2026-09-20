@@ -3,7 +3,7 @@ Analyse
 =======
 
 content::
-    ./sequences-series/\desc
-    ./curve/\desc
-    ./surface/\desc
-    ./diff-calc/\desc
+    ./sequences-series/\desc   ????????
+    ./curve/\desc              ??????
+    ./surface/\desc            ????
+    ./diff-calc/\desc          ??

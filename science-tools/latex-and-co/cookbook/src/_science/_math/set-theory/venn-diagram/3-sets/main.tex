@@ -48,10 +48,16 @@ local U = {
   "l",
   "cl"
 }
+local lab_U = "$U$"
 
-local A = ld.set(i, 0)
-local B = ld.set(-2 - i, 25)
-local C = ld.set(2 - i, -25)
+local A     = ld.set(i, 0)
+local lab_A = "$A$"
+
+local B     = ld.set(-2 - i, 25)
+local lab_B = "$B$"
+
+local C     = ld.set(2 - i, -25)
+local lab_C = "$C$"
 
 -- Conversion des chemins en listes de complexes.
 local C1, C2, C3 = ld.path(A), ld.path(B), ld.path(C)
@@ -63,9 +69,7 @@ local drawdiag = function(paths, legend)
   graphview:Dpolyline(
     paths,
     true,
-       "draw = none,"
-    .. "fill = lightgray,"
-    .. "even odd rule"
+    "draw = none," .. "fill = lightgray," .. "even odd rule"
   )
 
   graphview:Dpath(U)
@@ -74,16 +78,11 @@ local drawdiag = function(paths, legend)
   graphview:Dpath(C)
 
   graphview:Dlabel(
-    "$U$", -6.5 + 6*i,
-    {pos = "NE"},
-    "$A$", 4.75*i,
-    {pos = "N"},
-    "$B$", -4 + 3*i,
-    {pos = "W"},
-    "$C$", 4 + 3*i,
-    {pos = "E"},
-    legend, -6.5 - 6.75*i,
-    {}
+    lab_U , -6.5 + 6*i   , {pos = "NE"},
+    lab_A , 4.75*i       , {pos = "N"},
+    lab_B , -4 + 3*i     , {pos = "W"},
+    lab_C , 4 + 3*i      , {pos = "E"},
+    legend, -6.5 - 6.75*i, {}
   )
 end
 

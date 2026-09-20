@@ -4,4 +4,4 @@ Théorie des \enss
 
 content::
     ./interval/\desc
-    ./venn-diagram/\desc       ??
+    ./venn-diagram/\desc
