@@ -30,15 +30,15 @@ local cpx = ld.cpx
 ------
 local i = cpx.I
 
-local A = ld.set(0, 90)
+local A     = ld.set(0, 90)
+local lab_A = "$A$"
+local col_A = "blue"
 
-local lab_A     = "$A$"
 local lab_A_not = "$\\overline{A}$"
-local lab_E     = "$\\Omega$"
-
-local col_A     = "blue"
 local col_A_not = "red"
-local col_E     = "black"
+
+local lab_E = "$\\Omega$"
+local col_E = "black"
 
 ------
 -- ¨Def de la zone graphique.
@@ -97,8 +97,8 @@ ld.insert(Universe_and_A_not, A_bis)
 
 graphview:Dpath(
   Universe_and_A_not,
-     col_E .. ", fill = " .. col_A_not
-  .. ", even odd rule"
+  col_E .. ", fill = " .. col_A_not ..
+  ", even odd rule"
 )
 
 ------

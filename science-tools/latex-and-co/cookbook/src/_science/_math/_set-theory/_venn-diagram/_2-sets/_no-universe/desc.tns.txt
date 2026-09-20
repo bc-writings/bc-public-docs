@@ -1,9 +1,0 @@
-this::
-    date = 2025-09-18
-
-
-=================================
-Deux \enss en version minimaliste
-=================================
-
-Nous commençons par voir comment tracer deux \enss d'intersection non vides, de couleurs différentes et hachurés. La \tech retenue emploie deux scripts path::''main.lua'' et path::''main.sty''.

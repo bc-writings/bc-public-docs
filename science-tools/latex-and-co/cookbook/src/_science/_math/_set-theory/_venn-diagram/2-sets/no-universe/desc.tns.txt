@@ -1,0 +1,9 @@
+this::
+    date = 2026-09-20
+
+
+=================================
+Deux \enss en version minimaliste
+=================================
+
+Nous commençons par voir comment tracer deux \enss d'intersection non vides, de couleurs différentes et hachurés.

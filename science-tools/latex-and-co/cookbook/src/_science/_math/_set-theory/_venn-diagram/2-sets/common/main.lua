@@ -1,10 +1,10 @@
+---------------------------
+-- Factorisation du code --
+---------------------------
 local ld = luadraw
 
 local cpx = ld.cpx
 
----------------------------
--- Factorisation du code --
----------------------------
 i = cpx.I
 
 ------

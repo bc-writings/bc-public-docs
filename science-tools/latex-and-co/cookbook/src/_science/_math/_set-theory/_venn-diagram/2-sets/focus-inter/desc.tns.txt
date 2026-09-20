@@ -1,9 +1,9 @@
 this::
-    date = 2025-09-28
+    date = 2026-09-20
 
 
 =======================================
 Visualiser l'intersection de deux \enss
 =======================================
 
-Ici, nous découvrons comment mettre en valeur l’intersection de deux \enss.
+Voici comment mettre en valeur l’intersection des deux \enss.
