@@ -3,4 +3,4 @@ Suites et séries
 ================
 
 content::
-    ./gauss-sum-trick/\desc
+    ./gauss-sum-trick/\desc            ????
