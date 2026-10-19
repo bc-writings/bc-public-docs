@@ -1,5 +1,5 @@
 this::
-    date = 2025-05-10
+    date = 2026-10-19
 
 
 ============================
@@ -9,7 +9,7 @@ Une \1iere version à la main
 Cette recette s'appuie sur \tikz et sa bibliothèque ''tikzmark'' pour décorer la somme d'entiers en progression arithmétique.
 
 
-caution::
+important::
     La méthode proposée demande de faire tous les réglages à la main. Nous verrons dans les recettes suivantes comment éviter ceci.
 
 

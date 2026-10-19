@@ -1,0 +1,52 @@
+\documentclass[varwidth, border = 3pt]{standalone}
+
+\usepackage{main}
+
+\begin{document}
+
+\paragraph{Exemple 1.}
+
+%%%
+% La méthode demande de régler à la main la commande ''\nubdepth'',
+% valant ''0'' initialement, afin d'indiquer la profondeur du trait
+% le plus bas. La valeur donnée est simple, c'est le successeur du
+% nombre de macros ''\nub'' utilisées (ceci laisse envisager une
+% automatisation possible).
+%%%
+\renewcommand{\nubdepth}{6}
+
+$ \nub{1}{
+    11 + \nub{2}{
+      12 + \nub{3}{
+        13 + \nub{4}{
+          14 + \nub{5}{15 + 16} +
+          17} +
+        18} +
+      19} +
+    20}
+= 31 \times 5
+= 155$
+
+\paragraph{Exemple 2.}
+
+%%%
+% Ce second exemple implique la mise à jour de la valeur de la
+% commande ''\nubid'' nécessaire en coulisse pour nommer des
+% marques nécessaires au tracé (en coulisse, un compteur pourrait
+% faire ce travail à notre place).
+%%%
+\renewcommand{\nubid}{usecase-B}
+\renewcommand{\nubdepth}{4}
+
+$ \nub{1}{
+    1 + \nub{2}{
+      3 + \nub{3}{
+        5
+          + \cdots + % Un peu de maths... Au milieu, nous avons
+        95} +        % `49 + 51`, d'où `(49 - 1) / 2 = 24` ajouts
+      97} +          % du nombre `2` pour aller de 1 à 49.
+    99}
+= 100 \times (1 + 24)
+= 2500$
+
+\end{document}

@@ -16,6 +16,6 @@ pdf::
 
 
 content::
-    ./draft/\desc             ??????
+    ./draft/\desc
     ./auto-old-style/\desc    ????
     ./auto-l3/\desc           ??
