@@ -18,4 +18,4 @@ pdf::
 content::
     ./draft/\desc
     ./auto-old-style/\desc
-    ./auto-l3/\desc           ??
+    ./auto-l3/\desc

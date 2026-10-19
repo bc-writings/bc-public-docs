@@ -1,0 +1,13 @@
+this::
+    date = 2026-10-20
+
+
+==============================
+Une version aux petits oignons
+==============================
+
+Finissons avec une macro permettant de juste taper ''\nub{1, 2, 3, 4}'' ou ''\nub{1, 2,..., 100}''. De plus, il est possible d'obtenir le résultat de la somme via ''\nub*''.
+
+
+caution::
+    La solution proposée interdit l'imbrication de macros ''\nub''. Ce n'est pas grave, car cela n'a aucune utilité.
