@@ -21,8 +21,8 @@
 
 %%%
 % La bibliothèque ''shadings'' proposée par \tikz, déjà chargé
-% par \ludadraw, est nécessaire pour utiliser la bibliothèque
-% ''luadraw_shadedforms'' proposée par \ludadraw.
+% par \ludadraw, est utilisée par ''luadraw_shadedforms'', une
+% extension proposée par \ludadraw.
 %%%
 \usetikzlibrary{shadings}
 
@@ -45,8 +45,15 @@ local Z   = ld.cpx.Z
 ------
 local xmin, xmax, ymin, ymax = -3, 3, -3, 3
 
+------------
+-- Champs défini par `y' = f(x, y)` où `f(x, y) = x^2 + y^2 - 1`
+-- avec la ¨cond initiale `y(0) = 1/2`.
 ------
--- ¨Def du champs.
+local f = function(x, y)
+  return x^2 + y^2 - 1
+end
+
+local A_0 = Z(0, 1/2)
 ------
 local f = function(x, y)
   return {1, x^2 + y^2 - 1}
