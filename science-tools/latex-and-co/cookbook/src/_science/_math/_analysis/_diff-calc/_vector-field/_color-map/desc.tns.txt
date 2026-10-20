@@ -10,5 +10,5 @@ Deux méthodes sont proposées, la \1ere est clé en main depuis la version 2.6 
 
 
 content::
-    ./easy-way/\desc
-    ./by-hand/\desc
+    ./easy-way/\desc    ????
+    ./by-hand/\desc     ??

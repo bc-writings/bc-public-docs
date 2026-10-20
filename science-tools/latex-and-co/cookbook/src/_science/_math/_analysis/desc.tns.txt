@@ -4,6 +4,6 @@ Analyse
 
 content::
     ./sequences-series/\desc
+    ./diff-calc/\desc          ??????????
     ./curve/\desc              ??????
     ./surface/\desc            ????
-    ./diff-calc/\desc          ??
