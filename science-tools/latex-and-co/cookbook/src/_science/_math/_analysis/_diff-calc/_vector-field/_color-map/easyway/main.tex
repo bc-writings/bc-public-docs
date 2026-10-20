@@ -20,8 +20,9 @@
 
 
 %%%
-% La bibliothèque ''shadings'' utilisable via \tikz est nécessaire
-% pour faire fonctionner ''luadraw_shadedforms''. .
+% La bibliothèque ''shadings'' proposée par \tikz, déjà chargé
+% par \ludadraw, est nécessaire pour utiliser la bibliothèque
+% ''luadraw_shadedforms'' proposée par \ludadraw.
 %%%
 \usetikzlibrary{shadings}
 
@@ -32,6 +33,7 @@ local palext = require 'luadraw_palettes'
 
 require 'luadraw_shadedforms'
 require 'luadraw_fields'
+require 'luadraw_colors'
 
 local ld = luadraw
 
@@ -44,41 +46,19 @@ local Z   = ld.cpx.Z
 local xmin, xmax, ymin, ymax = -3, 3, -3, 3
 
 ------
--- ¨Def du ¨chp.
+-- ¨Def du champs.
 ------
 local f = function(x, y)
   return {1, x^2 + y^2 - 1}
 end
 
 ------
--- ¨Def du module du ¨chp.
+-- ¨Def du module du champs.
 ------
 local f_modulus = function(x, y)
   local A = f(x, y)
 
   return abs(Z(A[1],A[2]))
-end
-
-------
--- Pour atténuer le fond coloré.
-------
-local mixpalette = function(pal, percent, color)
-  color = color or White
-
-  local mix = {}
-
-  for _ , c in ipairs(pal) do
-    local _ , rgb_tbl = ld.mixcolor(
-      c,
-      percent,
-      color,
-      100 - percent
-    )
-
-    table.insert(mix, rgb_tbl)
-  end
-
-  return mix
 end
 
 ------
@@ -95,7 +75,7 @@ local graphview = ld.graph:new{
 ------
 graphview:Dshadedrectangle(
   xmin, xmax, ymin, ymax,
-  ld.mixpalette(palext.Jet, 50),
+  ld.mixpalette(palext.Jet, 50, ld.White),
   {
     values = f_modulus,
     bar    = "right",
