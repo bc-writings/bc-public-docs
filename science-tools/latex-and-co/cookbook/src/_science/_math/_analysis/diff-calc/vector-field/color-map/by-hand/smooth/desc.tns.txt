@@ -1,0 +1,9 @@
+this::
+    date = 2026-10-22
+
+
+====================
+Efficacité via \tikz
+====================
+
+La version finale proposée ici s'appuie sur des gradients colorés calculés par \tikz, plus exactement par la bibliothèque ''shadings''. Ceci accélère un peu la \prod d'un rendu qui devient au passage impécable.

@@ -50,7 +50,7 @@ local xmin, xmax, ymin, ymax = -3, 3, -3, 3
 
 local nb_divs = 20
 
-local pal = palext.Jet
+local pal = ld.mixpalette(palext.Jet, 50, ld.White)
 
 ------
 -- ¨Def de la zone graphique.
@@ -166,7 +166,7 @@ for i = 0, nb_divs-1 do
         Z(x + delta_X + eps, y + delta_Y + eps),
         Z(x-eps, y + delta_Y + eps)
       },
-      "draw = none, fill opacity = .65, " .. options
+      "draw = none, " .. options
     )
   end
 end

@@ -43,7 +43,8 @@ local Z   = ld.cpx.Z
 ------
 -- Réglages liés au tracé.
 ------
-local xmin, xmax, ymin, ymax = -3, 3, -3, 3
+local xmin, xmax = -3, 3
+local ymin, ymax = -3, 3
 
 ------------
 -- Champs défini par `y' = f(x, y)` où `f(x, y) = x^2 + y^2 - 1`
@@ -53,17 +54,17 @@ local f = function(x, y)
   return x^2 + y^2 - 1
 end
 
-local A_0 = Z(0, 1/2)
-------
-local f = function(x, y)
-  return {1, x^2 + y^2 - 1}
+local field = function(x, y)
+  return {1, f(x, y)}
 end
+
+local A_0 = Z(0, 1/2)
 
 ------
 -- ¨Def du module du champs.
 ------
 local f_modulus = function(x, y)
-  local A = f(x, y)
+  local A = field(x, y)
 
   return abs(Z(A[1],A[2]))
 end
@@ -72,7 +73,10 @@ end
 -- ¨Def de la zone graphique.
 ------
 local graphview = ld.graph:new{
-  window = {xmin - 0.5, xmax + 1.5, ymin - 0.5, ymax + 0.5},
+  window = {
+    xmin - 0.5, xmax + 1.5,
+    ymin - 0.5, ymax + 0.5
+  },
   size   = {10, 10},
   bbox   = false
 }
@@ -94,7 +98,7 @@ graphview:Dshadedrectangle(
 -- Tracé du champs.
 ------
 graphview:Dvectorfield(
-  f,
+  field,
   {
     view         = {xmin, xmax, ymin, ymax},
     draw_options = "-stealth"
@@ -112,6 +116,31 @@ graphview:Dgradbox(
   },
   {
     title = "Vector field $f(x,y) = (1, x^2 + y^2 - 1)$"
+  }
+)
+
+------
+-- ¨luadraw va résoudre et tracer la ¨sol de l'¨eq_diff.
+------
+graphview:Dodesolve(
+  f,
+  A_0.re, A_0.im,
+  {
+    t            = {xmin, xmax},
+    clip         = {-2.5, 2.25, ymin, ymax},
+    nbdots       = 150,
+    draw_options = "Navy, line width = 1pt"
+  }
+)
+
+------
+-- Ajout du point initial.
+------
+graphview:Dlabeldot(
+  "{\\boldmath $A_0$}", A_0, 
+  {
+    pos          = "S", 
+    node_options = "Navy"
   }
 )
 

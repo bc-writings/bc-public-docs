@@ -3,5 +3,5 @@ Via une équation explicite
 ==========================
 
 content::
-    ./discontinuous/\desc
-    ./curvilinear-abscissa\/desc
+    ./discontinuous/\desc             ????
+    ./curvilinear-abscissa\/desc      ??
