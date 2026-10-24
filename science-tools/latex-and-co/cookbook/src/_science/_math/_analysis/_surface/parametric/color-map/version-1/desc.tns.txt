@@ -5,6 +5,3 @@ this::
 =========================
 Des méthodes clés en main
 =========================
-
-note::
-    La surface servant d'exemple est appelée "disque auto-intersecté".

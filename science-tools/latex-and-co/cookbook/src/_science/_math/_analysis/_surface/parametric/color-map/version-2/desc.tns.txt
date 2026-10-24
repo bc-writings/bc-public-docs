@@ -1,5 +1,5 @@
 this::
-    date = 2025-10-21
+    date = 2026-10-24
 
 
 ===================================
@@ -12,12 +12,10 @@ Nous reproduisons une belle optimisation vis-à-vis des codes \tikz produits par
 )).
 Voici quelques remarques relatives aux exemples proposés.
 
-    1) L'exemple 1 montre que notre \surf est non orientable : des faces visibles sont coloriées comme des faces cachées.
+    1) L'exemple 1 montre que notre \surf est non orientable : du point de vue humain, des faces visibles sont coloriées comme des faces cachées, mais mathématiquement ceci est correct.
 
     1) L'exemple 2 explique comment obtenir le bon tracé via quelques \modifs des \objs \maths manipulés.
 
-    1) La \2nde \sol, en plus de fournir le rendu souhaité, diminue la taille du fichier \tikz construit en coulisse de `100 \ko`.
-
 
 note::
-    La \surf servant d'exemple est appelée "disque à double calotte".
+    La \2nde \sol, en plus de fournir le rendu souhaité, diminue la taille du fichier \tikz construit en coulisse de `100 \ko`.

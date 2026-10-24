@@ -21,27 +21,42 @@ local palext = require 'luadraw_palettes'
 
 local pal = palext.Gnuplot
 
-local pi, sin, cos, tanh = math.pi, math.sin, math.cos, math.tanh
+------
+-- Nos ingrédients de base.
+------
+local pi   = math.pi
+local sin  = math.sin
+local cos  = math.cos
+local tanh = math.tanh
 
+------
+-- ¨Def de la zone graphique.
+------
 local graphview = ld.graph3d:new{
   viewdir = {120, 55},
   bbox    = false
 }
 
-local projplane = ld.surface(
+------
+-- ¨Def et tracé de notre ¨surf ¨param.
+------
+local facets = ld.surface(
   function(u, v)
     return M(
       2*(1 + cos(v))*cos(u),
       2*(1 + cos(v))*sin(u),
-      2*sin(v)*tanh(u-pi)
+      2*sin(v)*tanh(u - pi)
     )
   end,
   0, 2*pi, 0,  2*pi,
   {51, 30}
 )
 
+------
+-- Montrons le résultat de notre oeuvre.
+------
 graphview:Dpoly(
-  ld.facet2poly(projplane),
+  ld.facet2poly(facets),
   {
     usepalette = {pal, "z"},
     mode       = ld.mShadedOnly

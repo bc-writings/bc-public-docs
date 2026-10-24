@@ -15,27 +15,36 @@
 \begin{luadraw*}{name = param-surf-colmap-OK}
 local ld = luadraw
 
-local M      = ld.pt3d.M
-local Origin = ld.pt3d.Origin
-local vecJ   = ld.pt3d.vecJ
-local vecK   = ld.pt3d.vecK
+local M = ld.pt3d.M
 
 local palext = require 'luadraw_palettes'
 
 local pal = palext.Gnuplot
 
-local pi, sin, cos, tanh = math.pi, math.sin, math.cos, math.tanh
+local pi   = math.pi
+local sin  = math.sin
+local cos  = math.cos
+local tanh = math.tanh
 
 ------
--- Nous gardons juste un quart de la ¨surf, un morceau n'ayant
--- que des faces orientées vers l'observateur.
+-- Points et vecteurs utilisés pour compléter le tracé via
+-- des symétries.
 ------
-local projplane = ld.surface(
+local Origin = ld.pt3d.Origin
+local vecJ   = ld.pt3d.vecJ
+local vecK   = ld.pt3d.vecK
+
+
+------
+-- Nous gardons juste un quart de la ¨surf qui n'a que
+-- des faces orientées vers l'observateur.
+------
+local facets = ld.surface(
   function(u, v)
     return M(
       2*(1 + cos(v))*cos(u),
       2*(1 + cos(v))*sin(u),
-      2*sin(v)*tanh(u-pi)
+      2*sin(v)*tanh(u - pi)
     )
   end,
   pi, 0, 0, pi,
@@ -43,36 +52,40 @@ local projplane = ld.surface(
 )
 
 ------
--- Le reste de la surface s'obtient via des symétries, mais en
--- prenant garde à donner la bonne orientation aux faces visibles.
+-- Le reste de la surface s'obtient via des symétries, mais
+-- en prenant garde à donner la bonne orientation aux faces
+-- visibles.
 ------
-projplane = ld.concat(
-  projplane,
+facets = ld.concat(
+  facets,
   ld.reverse_face_orientation(
     ld.sym3d(
-      projplane,
+      facets,
       {Origin, vecJ}
     )
   )
 )
 
-projplane = ld.concat(
-  projplane,
+facets = ld.concat(
+  facets,
   ld.reverse_face_orientation(
     ld.sym3d(
-      projplane,
+      facets,
       {Origin, vecK}
     )
   )
 )
 
+------
+-- Rien de neuf pour la fin...
+------
 local graphview = ld.graph3d:new{
   viewdir = {120, 55},
   bbox    = false
 }
 
 graphview:Dpoly(
-  ld.facet2poly(projplane),
+  ld.facet2poly(facets),
   {
     usepalette = {pal, "z"},
     mode       = ld.mShaded

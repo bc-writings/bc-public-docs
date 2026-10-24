@@ -16,9 +16,11 @@ local palext = require 'luadraw_palettes'
 
 local pal = palext.BurningGrass
 
-local pi, sin, cos = math.pi, math.sin, math.cos
+local pi  = math.pi
+local sin = math.sin
+local cos = math.cos
 
-local projplane = ld.surface(
+local facets = ld.surface(
   function(u, v)
     return M(
       3*v*cos(2*u),
@@ -39,7 +41,7 @@ local graphview = ld.graph3d:new{
 -- Un seul ¨chgt ici : usage de la méthode ''"x"''.
 ------
 graphview:Dpoly(
-  ld.facet2poly(projplane), 
+  ld.facet2poly(facets),
   {
     usepalette = {pal, "x"},
     mode       = ld.mShaded

@@ -32,7 +32,9 @@ local palext = require 'luadraw_palettes'
 
 local pal = palext.BurningGrass
 
-local pi, sin, cos = math.pi, math.sin, math.cos
+local pi  = math.pi
+local sin = math.sin
+local cos = math.cos
 
 ------
 -- ¨Def de la zone graphique.
@@ -46,7 +48,7 @@ local graphview = ld.graph3d:new{
 -- ¨Def et tracé de notre ¨surf ¨param en colorant les facettes
 -- suivant la côte de leur ¨bary.
 ------
-local projplane = ld.surface(
+local facets = ld.surface(
   function(u, v)
     return M(
       3*v*cos(2*u),
@@ -59,7 +61,7 @@ local projplane = ld.surface(
 )
 
 graphview:Dpoly(
-  ld.facet2poly(projplane),
+  ld.facet2poly(facets),
   {
     usepalette = {pal, "z"},
     mode       = ld.mShaded

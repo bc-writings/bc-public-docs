@@ -26,7 +26,7 @@ local graphview = ld.graph3d:new{
   bbox    = false
 }
 
-local ProjPlane = ld.surface(
+local facets = ld.surface(
   function(u, v)
     return M(
       3*v*cos(2*u),
@@ -48,7 +48,7 @@ local ProjPlane = ld.surface(
 --     ''"Crimson"''.
 ------
 graphview:Dfacet(
-  ProjPlane,
+  facets,
   {
     mode  = ld.mWireFrame,
     color = "Crimson"

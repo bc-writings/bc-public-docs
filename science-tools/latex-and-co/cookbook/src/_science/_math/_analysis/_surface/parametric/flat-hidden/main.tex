@@ -43,7 +43,7 @@ local graphview = ld.graph3d:new{
 ------
 -- ¨Def et tracé de notre ¨surf ¨param.
 ------
-local projplane = ld.surface(
+local facets = ld.surface(
   function(u, v)
     return M(
       3*v*cos(2*u),
@@ -56,7 +56,7 @@ local projplane = ld.surface(
 )
 
 graphview:Dfacet(
-  projplane,
+  facets,
   {
     mode  = ld.mShadedOnly,
     color = "ForestGreen"
