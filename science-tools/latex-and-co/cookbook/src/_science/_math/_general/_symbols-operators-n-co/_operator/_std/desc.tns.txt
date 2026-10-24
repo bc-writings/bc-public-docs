@@ -3,5 +3,5 @@ Version "unitaille"
 ===================
 
 content::
-    ./font-extracted/\desc
-    ./relation/\desc
+    ./font-extracted/\desc      ????
+    ./relation/\desc            ??

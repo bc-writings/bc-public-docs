@@ -25,8 +25,9 @@
 %        cas de problème.
 %
 %     4) Pour finir, il faut définir le texte d'aide complémentaire
-%        affiché en cas de demande d'aide de la part de l'utilisateur
-%        lors d'une compilation en mode interactif.
+%        affiché en cas de demande d'aide de l'utilisateur lors
+%        d'une compilation en mode interactif.
+%
 %
 % note::
 %     Remarquer l'emploi de ''#1'' qui permet d'avoir un message
@@ -45,17 +46,17 @@
 
 %%%
 % prototype::
-%     #1 : cet \arg est un booléen, géré par \latex, qui permet de
-%          savoir si la version étoilée de ''\DeclareAcronymOperator''
-%          a été employée.
-%     #2 : cet \arg permet de choisir le nom de la macro construite.
+%     #1 : cet \arg est un booléen, géré par \latex, qui permet
+%          de savoir si la version étoilée de notre macro a été
+%          employée.
+%     #2 : le nom de la macro construite.
 %     #3 : le texte de l'opérateur \math et de l'acronyme à créer.
 %
 %     :action: création d'une macro qui sera un opérateur en mode
 %              \math, et un acronyme en mode texte.
 %              Par défaut, le texte fourni en \arg sera celui de
-%              l'opérateur, et sa version majuscule correspondra à
-%              l'acronyme.
+%              l'opérateur, et sa version majuscule correspondra
+%              à l'acronyme.
 %
 % note::
 %     Dans la \sign ''s O{#3} m'', l'emploi de ''O{#3}'' indique que

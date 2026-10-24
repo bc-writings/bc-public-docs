@@ -4,5 +4,5 @@ De nouveaux opérateurs, de nouvelles \foncs...
 
 content::
     ./font-alphabet/\desc
-    ./function/\desc         ????
+    ./function/\desc
     ./operator/\desc         ??
