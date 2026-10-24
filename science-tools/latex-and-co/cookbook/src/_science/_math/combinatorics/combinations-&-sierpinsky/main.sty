@@ -1,0 +1,72 @@
+%%%
+% Le \pack ''ifthen'' nous facilite l'usage de tests du type
+% ''SI-SINON-SI''.
+%%%
+\usepackage{ifthen}
+
+%%%
+% \tikz facilite le tracé d'un triangle de Pascal "binaire".
+%%%
+\usepackage{tikz}
+
+%%%
+% Le travail de calcul modulo `2` est fait par la fonction
+% ''binaryCnp'' présente dans le fichier ''main.lua''.
+%%%
+\directlua{dofile('main.lua')}
+
+%%%
+% prototype::
+%     #1 : un naturel `n`.
+%     #2 : un naturel `p`.
+%
+%     :return: le nombre de combinaisons de `p` parmi `n`.
+%%%
+\NewDocumentCommand{ \binaryCnp }{m m}{%
+  \directlua{tex.sprint(binaryCnp(#1, #2))}%
+}
+
+%%%
+% Nous créons un style \tikz paramétré par une \coul.
+%%%
+\tikzset{
+  binaryCnp-style/.style n args={1}{
+    draw,
+    rectangle,
+    minimum size = 2.3em,
+    color        = #1!70!black, % Un design visuel subjectif
+    fill         = #1!70!black, % avec 70% de la \coul donnée
+                                %  en \arg, et 30% de noir.
+  }
+}
+
+%%%
+% prototype::
+%     #1 : la couleur des impairs.
+%     #2 : la couleur des pairs.
+%     #3 : le nombre de lignes souhaitées.
+%%%
+\NewDocumentCommand{ \discretsierpinsky }{
+  O{red}
+  D<>{blue}
+  m
+}{%
+  \begin{tikzpicture}[scale = 0.8]
+    \pgfmathsetmacro{\upperBound}{#3-1}
+
+    \foreach \n in {0,...,\upperBound} {
+      \pgfmathsetmacro\pshift{0.5 * \n}
+
+      \foreach \p in {0,...,\n} {
+        \ifthenelse{\binaryCnp{\p}{\n} = 1}{
+          \colorlet{col}{#1}
+        }{
+          \colorlet{col}{#2}
+        }
+
+        \draw (\p - \pshift, 6 - \n)
+              node[binaryCnp-style = col] {};
+      }
+    }
+  \end{tikzpicture}
+}

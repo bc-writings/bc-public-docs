@@ -5,17 +5,25 @@
 \usepackage{main}
 
 %%%
-% La mise en forme du triangle est aisée via le package \tikz.
+% La mise en forme du triangle "rectangle" des combinaiisons est
+% aisée via le package \tikz.
 %%%
 \usepackage{tikz}
 
 \begin{document}
 
+%%%
+% caution::
+%     La mise en forme reste correcte jusqu'à ''nmax = 12''.
+%%%
 \def\nmax{10}
 
 \begin{tikzpicture}[
   scale = 0.8,
-  cpn/.style = {
+%%%
+% Usage d'un style pour la \mef des valeurs des combinaisons.
+%%%
+  cpn-style/.style = {
     rectangle, draw,
     minimum size = 2em,
     fill         = gray!20,
@@ -23,7 +31,7 @@
 ]
   \foreach \n in {0,...,\nmax} {
     \foreach \p in {0,...,\n} {
-      \draw (\p, 6 - \n) node[cpn] { \Cpn{\p}{\n} };
+      \draw (\p, 6 - \n) node[cpn-style] { \Cpn{\p}{\n} };
     }
   }
 \end{tikzpicture}

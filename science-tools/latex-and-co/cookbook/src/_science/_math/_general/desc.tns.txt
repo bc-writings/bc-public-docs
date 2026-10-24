@@ -3,5 +3,5 @@ Des \techs générales
 ====================
 
 content::
-    ./symbols-operators-n-co/\desc
-    ./table/\desc
+    ./symbols-operators-n-co/\desc  ??
+    ./table/\desc                   ????

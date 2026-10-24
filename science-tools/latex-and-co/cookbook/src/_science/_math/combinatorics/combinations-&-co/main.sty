@@ -17,8 +17,10 @@
 
 %%%
 % prototype::
-%     #1 : le "naturel" p du nombre d'arrangements de p parmi n.
-%     #2 : le "naturel" n du nombre d'arrangements de p parmi n.
+%     #1 : un naturel `n`.
+%     #2 : un naturel `p`.
+%
+%     :return: le nombre d'arrangements de `p` parmi `n`.
 %%%
 \NewDocumentCommand{ \Apn }{ m m }{%
   \directlua{writefloat2int(Apn(#1, #2))}%
@@ -26,8 +28,10 @@
 
 %%%
 % prototype::
-%     #1 : le "naturel" p du nombre de combinaisons de p parmi n.
-%     #2 : le "naturel" n du nombre de combinaisons de p parmi n.
+%     #1 : un naturel `n`.
+%     #2 : un naturel `p`.
+%
+%     :return: le nombre de combinaisons de `p` parmi `n`.
 %%%
 \NewDocumentCommand{ \Cpn }{ m m }{%
   \directlua{writefloat2int(Cpn(#1, #2))}%

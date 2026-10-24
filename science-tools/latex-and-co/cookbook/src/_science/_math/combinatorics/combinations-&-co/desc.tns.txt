@@ -1,0 +1,9 @@
+this::
+    date = 2026-10-24
+
+
+============================
+Combinaisons et arrangements
+============================
+
+Grâce à \lua, il est aisé de proposer deux macros ''\Cpn'' et ''\Apn'' calculant respectivement le \nbre combinaisons et d'arrangements de `p` parmi `n`. Nous en profitons au passage pour tracer le triangle de Pascal sur `10` niveaux en appuyant sur la machinerie \tikz.
