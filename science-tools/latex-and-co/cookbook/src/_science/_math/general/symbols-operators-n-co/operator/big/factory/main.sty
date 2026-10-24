@@ -4,7 +4,7 @@
 %%%
 
 %%%
-% Le \pack ''amsmath'' nous fournit la macro ''\DeclareMathOperator*''
+% Le \pack ''amsmath'' fournit la macro ''\DeclareMathOperator*''
 % pour définir de nouveaux opérateurs de type ''\lim''.
 %%%
 \usepackage{amsmath}
@@ -12,9 +12,9 @@
 \ExplSyntaxOn
 
 %%%
-% \Def efficace via des \assos "clé-valeur": une clé donne le nom de
-% la macro construite, et une \val le matériel utilisé pour imprimer
-% l'opérateur.
+% \Def efficace via des \assos "clé-valeur" : une clé donne le nom
+% de la macro construite, et une \val le matériel utilisé pour
+% "imprimer" l'opérateur.
 %%%
 \prop_new:N              \g_cookbook_ope_prop
 \prop_set_from_keyval:Nn \g_cookbook_ope_prop {

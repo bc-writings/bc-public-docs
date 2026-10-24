@@ -3,4 +3,4 @@ En lien avec les géométries
 ===========================
 
 content::
-    ./3D/\desc
+    ./3D/\desc       ??

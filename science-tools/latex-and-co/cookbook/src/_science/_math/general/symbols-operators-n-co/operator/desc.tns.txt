@@ -4,4 +4,4 @@ De nouveaux opérateurs
 
 content::
     ./std/\desc
-    ./big/\desc      ??
+    ./big/\desc

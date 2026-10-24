@@ -1,0 +1,74 @@
+% FORCE-CROP
+
+\documentclass[varwidth, border = 8pt]{standalone}
+
+\usepackage{main}
+
+%%%
+% Le chargement suivant sert au tableau testant les styles.
+%%%
+\usepackage{amsmath}
+
+%%%
+% Pour simplifier la rédaction des tests.
+%%%
+\newcommand\exasep{\kern3pt | \kern3pt}
+
+\newcommand\limexa{\lim_{k = 0}^{m} \ell_k}
+\newcommand\xtrexa{\xtr_{k = 0}^{m} \ell_k}
+\newcommand\extexa{\exterior_{k = 0}^{m} \ell_k}
+
+\newcommand{\simpletest}{\extexa}
+\newcommand{\verbtest}%
+           {\mathmacro{extexa}\_\{k = 0\}%
+            \text{\textasciicircum}\{9\} \, a\_k}
+
+\newcommand{\simpletestbis}{\xtrexa}
+\newcommand{\verbtestbis}%
+           {\mathmacro{xtrexa}\_\{k = 0\}%
+            \text{\textasciicircum}\{9\} \, c\_k}
+
+\NewDocumentCommand{\mathmacro}{m}%
+                   {\;\backslash#1}%\;}
+
+\NewDocumentCommand{\txtmacro}{m}%
+                   {\mathtt{\backslash#1}}
+
+\newcommand{\testmathstyle}{
+  \[
+    \renewcommand{\arraystretch}{1.2}%
+    \begin{array}{lll}
+        \textbf{Style}
+      & \mathtt{\verbtest}
+      & \mathtt{\verbtestbis}
+      \\ \hline
+        \txtmacro{displaystyle}
+      & \displaystyle \simpletest
+      & \displaystyle \simpletestbis
+      \\
+        \txtmacro{textstyle}
+      & \textstyle \simpletest
+      & \textstyle \simpletestbis
+      \\
+        \txtmacro{scriptstyle}
+      & \scriptstyle \simpletest
+      & \scriptstyle \simpletestbis
+      \\
+        \txtmacro{scriptscriptstyle}
+      & \scriptscriptstyle \simpletest
+      & \scriptscriptstyle \simpletestbis
+    \end{array}
+  \]
+}
+
+\begin{document}
+
+Mode étendu:
+$\displaystyle \limexa \exasep \extexa \exasep \xtrexa$
+
+Mode en ligne:
+$\limexa \exasep \extexa \exasep \xtrexa$.
+
+\testmathstyle
+
+\end{document}

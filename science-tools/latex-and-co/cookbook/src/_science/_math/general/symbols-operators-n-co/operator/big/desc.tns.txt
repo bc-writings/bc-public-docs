@@ -3,5 +3,5 @@ Version "grande taille"
 =======================
 
 content::
-    ./factory/\desc     ????
-    ./handmade/\desc    ??
+    ./factory/\desc
+    ./handmade/\desc

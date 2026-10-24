@@ -1,9 +1,0 @@
-this::
-    date = 2025-05-10
-
-
-=======================================
-De nouveaux opérateurs de type ''\lim''
-=======================================
-
-Nous expliquons ici comment définir facilement plusieurs nouveaux opérateurs de type ''\lim''. Pour faire ceci à la chaîne, nous nous appuyons sur les "property lists" du \lang \l3.
