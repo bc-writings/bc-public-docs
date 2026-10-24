@@ -1,0 +1,54 @@
+% FORCE-CROP
+
+\documentclass[varwidth, border = 3pt]{standalone}
+
+\usepackage{main-1}
+
+%%%
+% Le chargement suivant sert au tableau testant les styles.
+%%%
+\usepackage{amsmath}
+
+%%%
+% Pour simplifier la rédaction des tests.
+%%%
+\newcommand{\simpletest}%
+           {A \circleprod B}
+
+\newcommand{\verbtest}%
+           {A \mathmacro{circleprod} B}
+
+\NewDocumentCommand{\mathmacro}{m}%
+                   {\;\backslash#1\;}
+
+\NewDocumentCommand{\txtmacro}{m}%
+                   {\mathtt{\backslash#1}}
+
+
+\newcommand{\testmathstyle}{
+  \[
+    \renewcommand{\arraystretch}{1.2}%
+    \begin{array}{lll}
+        \textbf{Style}
+      & \mathtt{\verbtest}
+      \\ \hline
+        \txtmacro{displaystyle}
+      & \displaystyle \simpletest
+      \\
+        \txtmacro{textstyle}
+      & \textstyle \simpletest
+      \\
+        \txtmacro{scriptstyle}
+      & \scriptstyle \simpletest
+      \\
+        \txtmacro{scriptscriptstyle}
+      & \scriptscriptstyle \simpletest
+    \end{array}
+  \]
+}
+
+\begin{document}
+
+\testmathstyle
+
+\end{document}

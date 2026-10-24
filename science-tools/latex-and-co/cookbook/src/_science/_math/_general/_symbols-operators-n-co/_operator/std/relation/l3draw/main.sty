@@ -15,14 +15,16 @@
 %%%
 \usepackage{amsmath}
 
+\ExplSyntaxOn
+
 %%%
 % L'opérateur binaire est défini via les primitives ''\mathbin''
 % et ''\mathpalette''.
 %
 %     1) ''\mathbin'' assure un espacement d'opérateur binaire.
 %
-%     1) ''\mathpalette'' fournit à la macro ''\explcplusimpl''
-%     deux \args qui est implémentée en \l3.
+%     1) ''\mathpalette'' fournit deux \args à la \fonc \l3
+%        ''\cookbook_plusimpl''.
 %
 %          + L'\arg ''#1'' est la taille du contexte \math
 %          ''\displaystyle'' (formule centrée), ''\textstyle''
@@ -32,21 +34,18 @@
 %          + L'\arg ''#2'' est le matériel \math à imprimer.
 %          Ici, nous n'avons pas besoin de ce \2nd, d'où l'usage
 %          de ''\relax'' qui sera mangé par ''\mathpalette'',
-%          mais non géré par ''\explcplusimpl''.
+%          mais non géré par ''\cookbook_plusimpl''.
 %%%
-\NewDocumentCommand{\explcplus}{}{
-  \mathbin{\mathpalette\explcplusimpl\relax}
+\NewDocumentCommand{\circleplus}{}{
+  \mathbin{\mathpalette\cookbook_plusimpl\relax}
 }
 
-
-\ExplSyntaxOn
-
 \box_new:N \l__cookbook_math_plus_box
-\box_new:N \l__cookbook_math_cplus_box
+\box_new:N \l__cookbook_math_circleplus_box
 
 \dim_new:N \l__cookbook_math_plus_width_dim
 
-\fp_new:N \l__cookbook_cplus_fp
+\fp_new:N \l__cookbook_circleplus_fp
 
 %%%
 % prototype::
@@ -56,24 +55,24 @@
 %     #2 : \arg \tjrs fourni par ''\mathpalette'', mais nous
 %          n'en avons pas besoin.
 %
-%     :action: tracé d'un signe plus avec un petit cercle en
-%              son centre délégué à ''\cookbook_cplus:n''.
+%     :action: le tracé d'un signe plus avec un petit cercle en
+%              son centre qui est délégué à ''\cookbook_cplus:n''.
 %
-%     :see: macro.explcplus
+%     :see: macro.circleplus
 %%%
-\cs_new_protected:Npn \explcplusimpl #1#2 {
-  \fp_set:Nn \l__cookbook_cplus_fp { 0.08 ex }
+\cs_new_protected:Npn \cookbook_plusimpl #1#2 {
+  \fp_set:Nn \l__cookbook_circleplus_fp { 0.08 ex }
 
-  \hbox_set:Nn \l__cookbook_math_cplus_box {
+  \hbox_set:Nn \l__cookbook_math_circleplus_box {
     $\mspace{1mu}$ \cookbook_cplus:n {#1} $\mspace{1mu}$
   }
 
-  \vcenter { \box_use:N \l__cookbook_math_cplus_box }
+  \vcenter { \box_use:N \l__cookbook_math_circleplus_box }
 }
 
 %%%
 % prototype::
-%     :see: \l3.func.\explcplusimpl
+%     :see: l3.func.\cookbook_plusimpl
 %%%
 \cs_new_protected:Nn \cookbook_cplus:n {
 %%%
@@ -85,7 +84,7 @@
 %     retire tout espace parasite autour du signe ''+''.
 %
 %     1) ''#1'' est la taille du contexte \math qui est fourni
-%     par ''\explcplusimpl''.
+%     par ''\cookbook_plusimpl''.
 %%%
   \hbox_set:Nn \l__cookbook_math_plus_box {
     $\m@th #1 + $
@@ -98,7 +97,7 @@
   }
 
   \draw_begin:
-    \draw_set_linewidth:n { \l__cookbook_cplus_fp }
+    \draw_set_linewidth:n { \l__cookbook_circleplus_fp }
 
 %%%
 % Expliquons les deux lignes de code ci-dessous.
@@ -107,7 +106,7 @@
 %     avec des extrémités arrondis.
 %
 %     1) ''\draw_set_join_round'' sert à avoir des angles
-%     arrondis entre deux segments.
+%     arrondis entre deux segments consécutifs.
 %%%
     \draw_set_cap_round:
     \draw_set_join_round:

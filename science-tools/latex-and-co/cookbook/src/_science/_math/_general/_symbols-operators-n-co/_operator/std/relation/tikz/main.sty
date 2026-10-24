@@ -1,0 +1,60 @@
+%%%
+% src::
+%     urls = https://tex.stackexchange.com/a/621737/6880 ,
+%            https://tex.stackexchange.com/a/685974/6880
+%%%
+
+%%%
+% Le \pack ''scalerel'' va servir à redimensionner le symbole
+% siovant le contexte d'utilisation, du style de \mef \math.
+%%%
+\usepackage{scalerel}
+
+%%%
+% \tikz et la bibliothèque ''decorations'' vont permettre le
+% tracé d'un zigzag sans effort.
+%%%
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathmorphing}
+
+%%%
+% Nous stockons notre dessin dans un boîte \latex que nous
+% mettrons aux bonnes dimensions lors de son emploi.
+%%%
+\newsavebox{\box@zigzagarrow}
+
+\sbox{\box@zigzagarrow}{%
+  \raisebox{.3ex}{%
+    \begin{tikzpicture}[baseline]
+      \draw[
+        <->,
+        line cap = round,
+        decorate,
+        decoration = {
+          zigzag,
+          segment length = 1.7,
+          amplitude      = .8,
+          pre length     = 2pt,
+          post length    = 2pt
+        }
+      ] (0,0) -- (.3,0);
+    \end{tikzpicture}%
+  }%
+}
+
+%%%
+% L'astuce employée pour obtenir un symbole s'adaptant à la
+% taille du style mathématique en cours est de redimensionner
+% notre dessin \tikz en fonction du symbole \iff qui respecte
+% le style mathématique en cours.
+%
+%
+% note::
+%     La version étoilée de ''\scalerel'' tient compte du \ctx
+%     \math d'utilisation.
+%%%
+\newcommand{\zigzagarrow}{%
+  \mathrel{%
+    \scalerel*{\usebox{\box@zigzagarrow}}{\iff}%
+  }%
+}

@@ -1,42 +1,45 @@
+% FORCE-CROP
+
 \documentclass[varwidth, border = 3pt]{standalone}
 
 \usepackage{main}
 
 %%%
-% Le chargement suivant est nécessaire pour un bon rendu du tableau
-% testant les styles.
-%%%
-\usepackage{amsmath}
-
-%%%
 % Pour simplifier la rédaction des tests.
 %%%
 \newcommand{\test}%
-           {A \myeq B}
+           {A + B \circleplus C^{+}_{\circleplus}}
 
 \newcommand{\verbtest}%
-           {A \mathmacro{myeq} B}
+           {A%
+            + B%
+            \mathmacro{circleplus}%
+            C\char94\{+\}\char95\{\mathmacro{circleplus}\}}
+
 
 \NewDocumentCommand{\mathmacro}{m}%
                    {\;\backslash#1\;}
+
+\NewDocumentCommand{\txtmacro}{m}%
+                   {\mathtt{\backslash#1}}
 
 \newcommand{\testmathstyle}{
   \[
     \renewcommand{\arraystretch}{1.2}%
     \begin{array}{lll}
         \textbf{Style}
-      & \mathtt{\verbtest}
+      & {\verbtest}
       \\ \hline
-        \mathtt{\backslash displaystyle}
+        \txtmacro{displaystyle}
       & \displaystyle \test
       \\
-        \mathtt{\backslash textstyle}
+        \txtmacro{textstyle}
       & \textstyle \test
       \\
-        \mathtt{\backslash scriptstyle}
+        \txtmacro{scriptstyle}
       & \scriptstyle \test
       \\
-        \mathtt{\backslash scriptscriptstyle}
+        \txtmacro{scriptscriptstyle}
       & \scriptscriptstyle \test
     \end{array}
   \]

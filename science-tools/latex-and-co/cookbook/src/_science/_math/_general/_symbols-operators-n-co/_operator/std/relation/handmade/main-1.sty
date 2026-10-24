@@ -8,35 +8,43 @@
 % prototype::
 %     #1 : le style mathématique géré par la macro ''\mathpalette''.
 %     #2 : les deux symboles à superposer fournis sous la forme
-%          ''{symbole_1}{symbole2}''.
+%          ''{symbole_1}{symbole_2}''.
 %
 % Expliquons rapidement les primitives \tex utilisées.
 %
-%     + ''\ooalign'' superpose différentes lignes en les centrant.
+%     + ''\ooalign'' superpose différentes lignes en les centrant
+%       horizontalement.
 %
-%     + ''\cr'' termine une ligne pour en commencer une nouvelle.
+%     + ''\cr'' termine une ligne pour en commencer une nouvelle
+%       ("carriage return" signifie "retour chariot" en français).
 %
 %     + ''\hss'' équivaut à ''\hskip 0cm plus 1fil minus 1fil''.
-%       Ceci est utilisé ici pour centrer le cercle moyen
+%       Ceci est utilisé ici pour centrer le cercle moyen.
 %
 %     + ''\@firstoftwo'' renvoie le premier token d'un argument
 %       fait de deux tokens qui pour nous correspond à l'emploi
-%       de ''{symbole_1}{symbole2}''.
+%       de ''{symbole_1}{symbole_2}''.
 %
 %     + ''\@secondoftwo'' est similaire à ''\@firstoftwo'', mais
 %       en renvoyant le second token.
 %%%
 \NewDocumentCommand{ \@superimpose@ }{ m m }{%
-  {\ooalign{$#1\hss\@firstoftwo#2$\hss\cr$#1\@secondoftwo#2$}}%
+  {%
+    \ooalign{%
+      $#1\hss\@firstoftwo#2$\hss%
+      \cr%
+      $#1\@secondoftwo#2$%
+    }%
+  }%
 }
 
 %%%
-% Fabrication d'un nouveau symbole obtenu en superposant un cercle
+% Fabrication d'un nouveau symbole fait en superposant un cercle
 % moyen et un symbole de multiplication.
 %%%
-\newcommand{\mysymb}{%
-  \bgroup% Pour autoriser l'usage de ''B^\mysymb''
-         % comme raccourci de ''B^{\mysymb}''.
+\newcommand{\circleprod}{%
+  \bgroup% Pour autoriser l'usage de ''B^\circleprod'' comme
+         % raccourci de ''B^{\circleprod}''.
     \mathpalette\@superimpose@{{\circ}{\times}}%
   \egroup%
 }

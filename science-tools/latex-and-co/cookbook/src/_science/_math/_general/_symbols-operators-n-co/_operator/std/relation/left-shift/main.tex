@@ -1,10 +1,11 @@
+% FORCE-CROP
+
 \documentclass[varwidth, border = 3pt]{standalone}
 
-\usepackage{main-1}
+\usepackage{main}
 
 %%%
-% Le chargement suivant est nécessaire pour un bon rendu du tableau
-% testant les styles.
+% Le chargement suivant sert au tableau testant les styles.
 %%%
 \usepackage{amsmath}
 
@@ -12,13 +13,16 @@
 % Pour simplifier la rédaction des tests.
 %%%
 \newcommand{\test}%
-           {A \mysymb B}
+           {A \eqdot B}
 
 \newcommand{\verbtest}%
-           {A \mathmacro{mysymb} B}
+           {A \mathmacro{eqdot} B}
 
 \NewDocumentCommand{\mathmacro}{m}%
                    {\;\backslash#1\;}
+
+\NewDocumentCommand{\txtmacro}{m}%
+                   {\mathtt{\backslash#1}}
 
 \newcommand{\testmathstyle}{
   \[
@@ -27,16 +31,16 @@
         \textbf{Style}
       & \mathtt{\verbtest}
       \\ \hline
-        \mathtt{\backslash displaystyle}
+        \txtmacro{displaystyle}
       & \displaystyle \test
       \\
-        \mathtt{\backslash textstyle}
+        \txtmacro{textstyle}
       & \textstyle \test
       \\
-        \mathtt{\backslash scriptstyle}
+        \txtmacro{scriptstyle}
       & \scriptstyle \test
       \\
-        \mathtt{\backslash scriptscriptstyle}
+        \txtmacro{scriptscriptstyle}
       & \scriptscriptstyle \test
     \end{array}
   \]

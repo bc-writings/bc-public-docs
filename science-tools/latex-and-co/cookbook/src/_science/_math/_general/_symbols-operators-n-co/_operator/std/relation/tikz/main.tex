@@ -1,21 +1,25 @@
+% FORCE-CROP
+
 \documentclass[varwidth, border = 3pt]{standalone}
 
 \usepackage{main}
 
 %%%
-% Le chargement suivant est nécessaire pour un bon rendu du tableau
-% testant les styles.
+% Le chargement suivant sert au tableau testant les styles.
 %%%
 \usepackage{amsmath}
 
 %%%
 % Pour simplifier la rédaction des tests.
 %%%
-\newcommand{\test}%
-           {A \mytikzrel B}
+\newcommand{\simpletest}%
+           {A \zigzagarrow B}
 
 \newcommand{\verbtest}%
-           {A \mathmacro{mytikzrel} B}
+           {A \mathmacro{zigzagarrow} B}
+
+\NewDocumentCommand{\txtmacro}{m}%
+                   {\mathtt{\backslash#1}}
 
 
 \NewDocumentCommand{\mathmacro}{m}%
@@ -29,17 +33,17 @@
         \textbf{Style}
       & \mathtt{\verbtest}
       \\ \hline
-        \mathtt{\backslash displaystyle}
-      & \displaystyle \test
+        \txtmacro{displaystyle}
+      & \displaystyle \simpletest
       \\
-        \mathtt{\backslash textstyle}
-      & \textstyle \test
+        \txtmacro{textstyle}
+      & \textstyle \simpletest
       \\
-        \mathtt{\backslash scriptstyle}
-      & \scriptstyle \test
+        \txtmacro{scriptstyle}
+      & \scriptstyle \simpletest
       \\
-        \mathtt{\backslash scriptscriptstyle}
-      & \scriptscriptstyle \test
+        \txtmacro{scriptscriptstyle}
+      & \scriptscriptstyle \simpletest
     \end{array}
   \]
 }

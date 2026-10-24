@@ -3,5 +3,5 @@ De nouveaux opérateurs
 ======================
 
 content::
-    ./std/\desc      ????
+    ./std/\desc
     ./big/\desc      ??
