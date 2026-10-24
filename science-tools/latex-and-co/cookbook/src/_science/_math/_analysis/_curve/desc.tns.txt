@@ -3,5 +3,5 @@ Des courbes dans le plan
 ========================
 
 content::
-    ./explicit/\desc            ????
+    ./explicit/\desc
     ./implicit/\desc            ??

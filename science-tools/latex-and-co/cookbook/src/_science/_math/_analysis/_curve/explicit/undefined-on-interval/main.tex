@@ -25,10 +25,10 @@ local ld = luadraw
 local I  = ld.cpx.I
 
 ------
--- Définition de la fonction discontinue.
+-- Définition d'une fonction non définie sur un intervalle.
 ------
 local h = function(t)
-  return 1/math.log(t)
+  return 1 / math.log(t)
 end
 
 local f = function(x)
@@ -56,12 +56,12 @@ graphview:Linewidth(6)
 ------
 graphview:Dline(
   {0.5, I},
-  "Navy"
+  "dashed, Navy"
 )
 
 graphview:Dline(
   {1, I},
-  "ForestGreen"
+  "dashed, ForestGreen"
 )
 
 ------
@@ -78,8 +78,8 @@ graphview:Daxes(
 graphview:Dcartesian(
   f,
   {
-    discont      = true,
-    nbdiv        = 10,
+    discont      = true, -- On indique la discontinuité ici!
+    nbdiv        = 20,
     draw_options = "Crimson"
   }
 )
