@@ -26,7 +26,7 @@ local cpx = ld.cpx
 local Z   = cpx.Z
 
 ------
--- ¨Long de parcours souhaitée.
+-- ¨Long des étapes du parcours.
 ------
 local len_step = .8
 
@@ -77,22 +77,27 @@ local graphview = ld.graph:new{
 }
 
 ------
--- Un outil de tracé.
+-- Un outil pour étudier les différents tracés.
 ------
-local shift_up, shift_down = Z(0, 3), Z(0, -2)
+local shift_up   = Z(0, 3)
+local shift_down = Z(0, -2)
 
-local xlabel, ylabel = -3.14 - .35, 1.3
+local xlabel = -3.14 - .35
+local ylabel = 1.3
 
 local xmin, xmax = -5, 5
 
 local x, s = xmin, 0
 
-local all_pts = {Z(xmin, f(xmin))}
+-- La tableau ''all_pts'' va être nourri plus bas.
+local all_pts = {}
 
-local draw_method = function(k)
--- Lignes verticales pour comparer les méthodes (à ne tracer
--- qu'une seule fois).
-  if k == 1 then
+local nb_method = 0
+
+local draw_method = function()
+-- Lignes verticales pour comparer les méthodes
+-- (à ne tracer qu'une seule fois).
+  if nb_method == 1 then
     for _ , z in ipairs(all_pts) do
       graphview:Dline(
         {z.re, cpx.I},
@@ -101,7 +106,7 @@ local draw_method = function(k)
     end
   end
 
--- La fonction.
+-- Tracé de la fonction.
   graphview:Dcartesian(
     f,
     {
@@ -110,20 +115,25 @@ local draw_method = function(k)
     }
   )
 
--- Les points.
+-- Ajout des points des étapes du parcours.
   graphview:Ddots(all_pts)
 
--- La légende.
+-- Une légende.
   graphview:Dlabel(
-    "Méthode "..k, Z(xlabel, ylabel),
+    "Méthode " .. nb_method,
+    Z(xlabel, ylabel),
     {}
   )
 end
 
+
 ------
 -- Méthode 1 : nous résolvons numériquement l'équation
--- ''curv_absc(x) = len_step'' à partir du ''x'' courant.
+-- ''curv_absc(x) = len_step'' à partir du ''x'' courant
+-- de façon itérative.
 ------
+all_pts = {Z(xmin, f(xmin))}
+
 while x < xmax do
   local x_next = ld.solve(
     function(t)
@@ -148,22 +158,23 @@ end
 graphview:Shift(shift_up)
 
 -- Standardisation de l'affichage.
-local nb_method = 1
+nb_method = nb_method + 1
 
-draw_method(nb_method)
+draw_method()
+
 
 ------
 -- Méthode 2 : nous travaillons en deux temps.
 --
 --     1) Résolution numérique de l'¨eq_diff
 --     ''y'(t) = 1 / sqrt(1 + f'(t))'' sous la ¨cond initiale
---     ''y(0) = xmin''. La ¨sol de cette ¨eq_diff est la
---     fonction réciproque de l'¨absc curviligne, ceci permttant
---     de comprendre que la résolution soit faite de ''0'' à
---     ''int(math.sqrt(1 + df(x)^2), xmin, xmax)''.
+--     ''y(0) = xmin''.
+--     La ¨sol de cette ¨eq_diff est la ¨fonc réciproque de
+--     l'¨absc curviligne, donc la résolution est faite de
+--     ''0'' à ''int(math.sqrt(1 + df(x)^2), xmin, xmax)''.
 --
---     1) Ensuite, les points régulièrement espacés sont
---     calculés par interpolation linéaire.
+--     1) Ensuite, une interpolation linéaire calcule les ¨pts
+--     des étapes du parcours.
 ------
 local function len_f(x)
     return math.sqrt(1 + df(x)^2)
@@ -197,7 +208,8 @@ graphview:Shift(shift_down)
 
 nb_method = nb_method + 1
 
-draw_method(nb_method)
+draw_method()
+
 
 ------
 -- Méthode 3 : approximation via une ligne polygonale.
@@ -250,7 +262,8 @@ graphview:Shift(shift_down)
 
 nb_method = nb_method + 1
 
-draw_method(nb_method)
+draw_method()
+
 
 ------
 -- Méthode 4 : nous délèguons les calculs à ¨tikz via l'option
