@@ -1,0 +1,142 @@
+% !TEX TS-program = lualatex
+
+%%%
+% src::
+%     url = https://tex.stackexchange.com/a/750101
+%%%
+
+\documentclass[border = 3pt]{standalone}
+
+%%%
+% Des couleurs faciles d'emploi via le package \xcolor!
+%%%
+\usepackage[svgnames]{xcolor}
+
+%%%
+% La bibliothèque \luadraw allie une facilité d’utilisation
+% à un rendu particulièrement soigné.
+%%%
+\usepackage[3d]{luadraw}
+
+\begin{document}
+
+\begin{luadraw*}{name = 2-curves-1-plane}
+local ld = luadraw
+
+local Origin = ld.pt3d.Origin
+local vecI   = ld.pt3d.vecI
+local vecJ   = ld.pt3d.vecJ
+local vecK   = ld.pt3d.vecK
+
+local f = function(x)
+  return 3*x^2 - 1
+end
+
+local g = function(x)
+  return 3 - x^2
+end
+
+------
+-- note::
+-- 	   Le choix `P : x + y + z - 4 = 0` permet d'avoir le bon
+--     vecteur normal utilisé après pour construire un prisme.
+------
+local P = ld.planeEq(1, 1, 1, -4)
+
+local graphview = ld.graph3d:new{
+  window3d = {-2, 2, -2, 3, 0, 8},
+  viewdir  = {-30, 50},
+  size     = {13, 7, 0},
+  adjust2d = true,
+  bbox     = false
+}
+
+graphview:Dboxaxes3d({
+  grid      = true,
+  gridcolor = "gray",
+  fillcolor = "LightGray"
+})
+
+local xOy_domain = ld.map(
+  ld.pt3d.toPoint3d,
+  ld.domain3(
+    f, g,
+    -3, 3, 50,
+    false, 0
+  )
+)
+
+------
+-- La nouveauté ici est l'emploi de la fonction ''ld.prism'' et
+-- ''ld.cutfacet'' pour obtenir le domaine dans le plan `P`, et
+-- la liste de faces latérales polygonales.
+--
+--
+-- note::
+-- 	   La variable ''_'' contient les facettes du "mauvais"
+--     côte du demi-plan `P`.
+------
+local _, lateral, domain_inside_P = ld.cutfacet(
+  ld.poly2facet(
+    ld.prism(xOy_domain, 8*vecK, true)
+  ),
+  P
+)
+
+
+------
+-- Rien de neuf pour la fin...
+------
+graphview:Filloptions("fdiag", "ForestGreen")
+graphview:Linestyle("noline")
+graphview:Dpolyline3d(xOy_domain, true)
+
+graphview:Filloptions("none")
+graphview:Linestyle("solid")
+
+graphview:Savematrix()
+  graphview:Setmatrix(graphview:Proj3d({Origin, vecI, vecJ}))
+
+  graphview:Dcartesian(
+    f,
+    {
+      x = {-2 / math.sqrt(3), 2 / math.sqrt(3)},
+      draw_options = "line width = 0.8pt, Navy"
+    }
+  )
+
+  graphview:Dcartesian(
+    g,
+    {
+      x = {-2, 2},
+      draw_options = "line width = 0.8pt, Crimson"
+    }
+  )
+graphview:Restorematrix()
+
+graphview:Dfacet(
+  lateral,
+  {
+    edgecolor = "gray",
+    edgewidth = 2,
+    color     = "Pink",
+    opacity   = 0.3
+  }
+)
+
+graphview:Dpolyline3d(
+  domain_inside_P,
+  true,
+  "draw = none, fill = cyan, fill opacity = 0.8"
+)
+
+graphview:Dpolyline3d(
+  graphview:Plane2facet(P),
+  true,
+  "cyan"
+)
+
+graphview:Show()
+\end{luadraw*}
+
+\end{document}

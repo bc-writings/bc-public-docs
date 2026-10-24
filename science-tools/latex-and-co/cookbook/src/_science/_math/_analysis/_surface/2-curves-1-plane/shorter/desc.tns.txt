@@ -1,9 +1,9 @@
 this::
-    date = 2025-08-24
+    date = 2026-10-24
 
 
 =================================
 Sans calculer les faces latérales
 =================================
 
-Nous voyons ici comment laisser \luadraw calculer automatiquement les faces latérales.
+Nous voyons ici comment déléguer à \luadraw le calcul des faces latérales.
