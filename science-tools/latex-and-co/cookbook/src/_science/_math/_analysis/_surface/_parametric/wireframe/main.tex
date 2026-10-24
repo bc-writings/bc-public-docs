@@ -17,7 +17,9 @@ local ld = luadraw
 
 local M = ld.pt3d.M
 
-local pi, sin, cos = math.pi, math.sin, math.cos
+local pi  = math.pi
+local sin = math.sin
+local cos = math.cos
 
 local graphview = ld.graph3d:new{
   viewdir = {170, 80},
@@ -39,9 +41,11 @@ local ProjPlane = ld.surface(
 ------
 -- Deux ¨chgts faits ici.
 --
---     1) Usage du mode ''mWireFrame'' au lieu de ''mShadedOnly''.
+--     1) Usage du mode ''ld.mWireFrame'' au lieu de
+--     ''ld.mShadedOnly''.
 --
---     1) ¨Chgt de couleur en optant pour un magenta ''"Crimson"''.
+--     1) ¨Chgt de couleur en optant pour un magenta
+--     ''"Crimson"''.
 ------
 graphview:Dfacet(
   ProjPlane,

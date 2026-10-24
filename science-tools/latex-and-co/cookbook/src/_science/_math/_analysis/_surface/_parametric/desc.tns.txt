@@ -1,5 +1,5 @@
 this::
-    date = 2025-09-20
+    date = 2026-10-24
 
 
 ======================
@@ -7,10 +7,10 @@ Surfaces paramétriques
 ======================
 
 note::
-    Les surfaces représentées dans les recettes à suivre illustrent le plan projectif. Elles ont été choisies précisément parce qu’elles ne sont pas orientables, \cad qu'elles n'ont ni "intérieur", ni "extérieur". Ceci sera instructif pour les derniers exemples.
+    Les surfaces représentées dans les recettes à suivre illustrent le plan projectif. Elles ont été choisies précisément parce qu’elles ne sont pas orientables, \cad qu'elles n'ont ni "intérieur", ni "extérieur".
 
 
 content::
     ./flat-hidden/\desc
     ./wireframe/\desc
-    ./color-map/\desc
+    ./color-map/\desc        ??

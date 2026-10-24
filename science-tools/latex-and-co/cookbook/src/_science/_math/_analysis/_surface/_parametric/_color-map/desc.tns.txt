@@ -10,5 +10,5 @@ Nous allons voir comment colorier chaque facette de la \surf suivant la \val d'u
 
 
 content::
-    ./version-1/\desc
-    ./version-2/\desc
+    ./version-1/\desc    ????
+    ./version-2/\desc    ??
