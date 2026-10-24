@@ -1,0 +1,9 @@
+this::
+    date = 2026-10-24
+
+
+===========================
+Un dégradé adouci via \tikz
+===========================
+
+Pour finir, nous proposons une recette ajoutant des dégradés calculés par \tikz. Bien que perfectible, cette \sol offre un résultat visuel agréable après un certain temps de calcul.

@@ -1,5 +1,5 @@
 -----
--- Combinaison.
+-- \Nbre de combinaisons de p parmi n.
 -----
 function Cpn(p, n)
   if (p == 0 or p == n) then
@@ -10,7 +10,7 @@ function Cpn(p, n)
 end
 
 -----
--- Arrangement.
+-- \Nbre d'arrangements de p parmi n.
 -----
 function Apn(p, n)
   if p == 0 then

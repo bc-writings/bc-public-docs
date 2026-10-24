@@ -1,9 +1,0 @@
-=======
-Analyse
-=======
-
-content::
-    ./sequences-series/\desc
-    ./curve/\desc
-    ./diff-calc/\desc
-    ./surface/\desc            ????
