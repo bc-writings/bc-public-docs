@@ -4,4 +4,4 @@ Des \techs générales
 
 content::
     ./symbols-operators-n-co/\desc  ??
-    ./table/\desc                   ????
+    ./table/\desc

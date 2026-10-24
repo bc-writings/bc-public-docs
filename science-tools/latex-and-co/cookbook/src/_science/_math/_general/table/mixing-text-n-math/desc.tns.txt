@@ -1,12 +1,12 @@
 this::
-    date = 2025-11-17
+    date = 2026-10-24
 
 
 ====================================
 Textes et formules \maths sans peine
 ====================================
 
-Nous allons montrer comment obtenir le \tab suivant: le \pack ''tabularray' va nous permettre de faire ceci sans trop d'efforts.
+Nous allons montrer comment obtenir le \tab suivant facilement via le \pack ''tabularray''.
 
 pdf::
     ---
