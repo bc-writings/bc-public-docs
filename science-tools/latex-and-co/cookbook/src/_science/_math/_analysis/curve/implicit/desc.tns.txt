@@ -3,4 +3,4 @@ Via une équation implicite
 ==========================
 
 content::
-    ./tangent-lines/\desc    ??
+    ./tangent-lines/\desc

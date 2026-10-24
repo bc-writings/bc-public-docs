@@ -26,10 +26,10 @@ local Z   = ld.cpx.Z
 local abs = ld.cpx.abs
 
 ------
--- La fonction `F(x, y)` pour l'équation implicite `F(x, y) = 0`.
+-- L'équation implicite est `F(x, y) = 0`.
 ------
 local F = function(x, y)
-  return x^2 + y^4 + x*y - 1
+  return x^2 + y^4 + x * y - 1
 end
 
 ------
@@ -40,43 +40,6 @@ local graphview = ld.graph:new{
   size   = {10, 10},
   bbox   = false
 }
-
-------
--- Tracer une "presque" tangente à une courbe d'équation implicite.
---
---
--- note::
---     Voir le code de ''tangentC'' dans le fichier
---     path::''luadraw_lines.lua''.
-------
-local DtangentI = function(
-  f,
-  x0, y0,  -- Hypothèse: `f(x0, y0) = 0`.
-  len,
-  draw_options
-)
-  local h = 1e-6
-  local A = Z(x0, y0)
-
-  local a = (f(x0 + h, y0) - f(x0 - h, y0)) / (2*h)
-  local b = (f(x0, y0 + h) - f(x0, y0 - h)) / (2*h)
-
-  local v = Z(-b, a)
-
--- Tracé d'une droite.
-  if len == nil then
-    graphview:Dline({A, v}, draw_options)
-
--- Tracé d'un segment.
-  else
-    local u = len*v / abs(v) / 2
-
-    graphview:Dseg(
-      {A - u, A + u},
-      draw_options
-    )
-  end
-end
 
 ------
 -- Il est temps de dessiner...
@@ -94,7 +57,7 @@ graphview:Dgradbox(
 
 ------
 -- La valeur par défaut de ''grid'' rend visible les segments
--- constituant la courbe, donc nous affinons la grille de calcul.
+-- constituant la courbe, donc nous affinons les pas de calcul.
 ------
 graphview:Dimplicit(
   F,
@@ -104,8 +67,12 @@ graphview:Dimplicit(
   }
 )
 
-local x0 = 1/math.sqrt(3)
-local L  = ld.solve(
+------
+-- Ajout de tangentes aux points d'abscisses `0.5`.
+------
+local x0 = 0.5
+
+local L = ld.solve(
   function(t)
     return F(x0, t)
   end,
@@ -113,7 +80,10 @@ local L  = ld.solve(
 )
 
 for _,  y in ipairs(L) do
-    DtangentI(F, x0, y, 2, "thick, red")
+    graphview:DtangentI(
+        F, x0, y, 2,
+        "Stealth-Stealth, thick, red"
+    )
 end
 
 ------
