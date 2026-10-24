@@ -25,9 +25,6 @@ local Z   = cpx.Z
 
 local vecK = ld.pt3d.vecK
 
-------
--- ¨Def de la zone graphique.
-------
 local graphview = ld.graph3d:new{
   window3d = {-4, 5, -5, 5, 0, 6},
   viewdir  = {-120, 60},
@@ -35,9 +32,6 @@ local graphview = ld.graph3d:new{
   bbox     = false
 }
 
-------
--- Méthode de ¨calc de `gamma(z)` inchangée.
-------
 local gamma = function(x, y)
   local k_facto, sign, z = 1, 1, Z(x, y)
 
@@ -59,7 +53,8 @@ local gamma = function(x, y)
 end
 
 ------
--- Construction de la ¨surf "complexe" à la main.
+-- Construction de la ¨surf "complexe" à la main en mémorisant
+-- les points utilisés.
 ------
 local memo_cpx_args = {}
 local key
@@ -68,7 +63,7 @@ local xykey = function(x, y)
     return x .. "/" .. y
 end
 
-local gamma_modulus_pt = function(x, y)
+local gamma_modulus_pt3d = function(x, y)
   local z = gamma(x, y)
 
   memo_cpx_args[xykey(x, y)] = cpx.arg(z)
@@ -77,12 +72,14 @@ local gamma_modulus_pt = function(x, y)
 end
 
 ------
--- Coloration en ¨fonc de l'¨arg principal du complexe `gamma(z)`.
+-- Coloration en ¨fonc de l'¨arg principal du complexe
+-- `gamma(z)` via le minimum des arguments associés aux
+-- sommets de la face.
 ------
-local color_coef = function(f)
+local color_coef = function(facet)
   local miniarg = math.huge
 
-  for _ , A in ipairs(f) do
+  for _ , A in ipairs(facet) do
     key = xykey(A.x, A.y)
 
     local arg = memo_cpx_args[key]
@@ -98,10 +95,10 @@ local color_coef = function(f)
 end
 
 ------
--- ¨Def de la ¨surf contenue dans le demi-plan `z <= 6`.
+-- Rien de neuf pour la fin...
 ------
 local cpx_surf = ld.surface(
-  gamma_modulus_pt,
+  gamma_modulus_pt3d,
   -4, 5, -5, 5,
   {50, 50}
 )
@@ -113,30 +110,24 @@ cpx_surf = ld.cutfacet(
 
 cpx_surf = graphview:Sortfacet(cpx_surf)
 
-------
--- Boîte graduée.
-------
 graphview:Dboxaxes3d({
   grid      = true,
   gridcolor = "gray",
   fillcolor = "LightGray"
 })
 
-------
--- Tracé de la ¨surf facette par facette.
-------
-for _ , f in ipairs(cpx_surf) do
+for _ , facet in ipairs(cpx_surf) do
   graphview:Dpolyline3d(
-    f,
+    facet,
     true,
        "fill = "
-    .. ld.palette(pal, color_coef(f))
+    .. ld.palette(
+          pal,
+          color_coef(facet)
+       )
   )
 end
 
-------
--- Montrons le résultat de notre oeuvre.
-------
 graphview:Show()
 \end{luadraw*}
 

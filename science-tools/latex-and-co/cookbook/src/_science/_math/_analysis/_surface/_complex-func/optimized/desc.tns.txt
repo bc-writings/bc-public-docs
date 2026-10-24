@@ -1,0 +1,13 @@
+this::
+    date = 2026-10-24
+
+
+=============================================
+Une optimisation via un léger \chgt de design
+=============================================
+
+Pour limiter les \calcs, il est préférable d’évaluer la \coul uniquement à partir des sommets des facettes. Nous avons choisi d'utiliser le \min des \args des `gamma(z)` aux sommets, ces valeurs étant mémorisées lors de la construction de la \surf
+((
+    Une \1re idée aurait consisté à passer par le \bary des \args, mais cette \sol génère des sauts de couleur excessifs.
+)).
+Une fois ces \modifs effectuées, le \tmps de calcul est réduit d’environ moitié.

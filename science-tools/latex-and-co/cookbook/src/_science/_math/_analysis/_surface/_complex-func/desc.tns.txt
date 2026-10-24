@@ -11,5 +11,5 @@ Nous allons voir comment représenter le module d'une \fonc complexe sous la for
 
 content::
     ./standard/\desc
-    ./optimized/\desc    ????
+    ./optimized/\desc
     ./smooth/\desc       ??
