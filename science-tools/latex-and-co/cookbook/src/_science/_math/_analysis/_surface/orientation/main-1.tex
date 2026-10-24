@@ -23,21 +23,24 @@ local M = ld.pt3d.M
 ------
 -- Nos ingrédients de base.
 ------
-local pi, sin, cos, tanh = math.pi, math.sin, math.cos, math.tanh
+local pi   = math.pi
+local sin  = math.sin
+local cos  = math.cos
+local tanh = math.tanh
 
 ------
 -- ¨Def de la zone graphique.
 ------
 local graphview = ld.graph3d:new{
   window3d = {-3, 6, -4, 6, -2, 2},
-  viewdir  = {210, 70},
+  viewdir  = {210, 70},  -- Un point de vue éclairant.
   adjust2d = true,
   size     = {14, 14},
   bbox     = false
 }
 
 ------
--- Ajout d'une repère de type "boîte ouverte" avant la surface
+-- Ajout d'un repère de type "boîte ouverte" avant la surface
 -- (ne jamais oublier que ¨luadraw n'est pas un moteur de rendu
 -- ¨3d).
 ------
@@ -50,7 +53,7 @@ graphview:Dboxaxes3d({
 ------
 -- ¨Def et tracé de notre ¨surf ¨param en mode monocolore.
 ------
-local projplane = ld.surface(
+local facets = ld.surface(
   function(u, v)
     return M(
       2*(1 + cos(v))*cos(u),
@@ -63,7 +66,7 @@ local projplane = ld.surface(
 )
 
 graphview:Dfacet(
-  projplane,
+  facets,
   {
     mode  = ld.mShadedOnly,
     color = "ForestGreen"

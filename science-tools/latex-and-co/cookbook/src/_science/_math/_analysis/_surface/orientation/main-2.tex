@@ -12,12 +12,15 @@ local ld = luadraw
 
 local M = ld.pt3d.M
 
-local pi, sin, cos, tanh = math.pi, math.sin, math.cos, math.tanh
+local pi   = math.pi
+local sin  = math.sin
+local cos  = math.cos
+local tanh = math.tanh
 
 local graphview = ld.graph3d:new{
   window3d = {-3, 6, -4, 6, -2, 2},
-  viewdir  = {190, 80},  -- Modifions le point de vue pour mieux
-                         -- visualiser le changement d'orientation.
+  viewdir  = {190, 80},  -- Un autre point de vue pour mieux
+                         -- visualiser le ¨chgt d'orientation.
   adjust2d = true,
   size     = {14, 14},
   bbox     = false
@@ -32,7 +35,7 @@ graphview:Dboxaxes3d({
 ------
 -- Nous ne gardons qu'une partie de la surface.
 ------
-local projplane = ld.surface(
+local facets = ld.surface(
   function(u, v)
     return M(
       2*(1 + cos(v))*cos(u),
@@ -45,7 +48,7 @@ local projplane = ld.surface(
 )
 
 graphview:Dfacet(
-  projplane,
+  facets,
   {
     mode  = ld.mShadedOnly,
     color = "ForestGreen"
