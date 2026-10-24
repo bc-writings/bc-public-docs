@@ -76,7 +76,7 @@ local xOy_domain = ld.map(
 -- 	   La variable ''_'' contient les facettes du "mauvais"
 --     côte du demi-plan `P`.
 ------
-local _, lateral, domain_inside_P = ld.cutfacet(
+local _ , lateral, domain_inside_P = ld.cutfacet(
   ld.poly2facet(
     ld.prism(xOy_domain, 8*vecK, true)
   ),
