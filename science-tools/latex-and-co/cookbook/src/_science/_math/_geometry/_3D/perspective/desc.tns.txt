@@ -1,0 +1,15 @@
+this::
+    date = 2026-20-28
+
+
+===================
+Mise en perspective
+===================
+
+Dans cette section, nous proposons des représentations 3D basées sur différentes perspectives usuelles.
+
+
+content::
+    ./orthographic/\desc
+    ./cavalier/\desc
+    ./isometric/\desc

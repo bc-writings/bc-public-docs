@@ -25,12 +25,20 @@ local vecJ   = ld.pt3d.vecJ
 local vecK   = ld.pt3d.vecK
 
 ------
--- ¨Def de la zone graphique.
+-- ¨Def de la zone graphique sans aucun réglage du mode de rendu,
+-- puisque la perspective orthographique est activée par défaut.
+--
+--
+-- note::
+--     lua::''viewdir = {"ortho", 30, 60}'' est le réglage par
+--     défaut : `30` et `60`, en degrés, correspondent à des
+--     ¨coords sphériques réglant la direction du point de vue
+--     de l'observateur.
 ------
 local graphview = ld.graph3d:new{
-  window  = {-6, 6.5, -5, 5.5},
-  size    = {10, 10},
-  bbox    = false,
+  window = {-6, 6.5, -5, 5.5},
+  size   = {10, 10},
+  bbox   = false,
 }
 
 ------
@@ -49,7 +57,10 @@ local P = ld.parallelep(
 
 table.remove(P.facets,2)
 
-P = ld.shift3d(P, - ld.pt3d.isobar3d(P.vertices))
+P = ld.shift3d(
+  P,
+  - ld.pt3d.isobar3d(P.vertices)
+)
 
 graphview:Dscene3d(
   graphview:addPoly(
@@ -64,15 +75,11 @@ graphview:Dscene3d(
   ),
   graphview:addFacet(
     ld.getfacet(P,1) ,
-    {
-      color="LightGray"
-    }
+    {color = "LightGray"}
   ),
   graphview:addAxes(
     Origin,
-    {
-      arrows = 1
-    }
+    {arrows = 1}
   )
 )
 

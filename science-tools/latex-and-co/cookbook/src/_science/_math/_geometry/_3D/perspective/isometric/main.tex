@@ -15,7 +15,7 @@
 
 \begin{document}
 
-\begin{luadraw*}{name = cavalier-prespective}
+\begin{luadraw*}{name = isometric-prespective}
 local ld = luadraw
 
 local M      = ld.pt3d.M
@@ -25,14 +25,11 @@ local vecJ   = ld.pt3d.vecJ
 local vecK   = ld.pt3d.vecK
 
 ------
--- ¨Def de la zone graphique.
---
--- note::
---     Nous pouvons choisir comme "plan de fond" lua::''"xy"'',
---     lua::''"yz"'' ou lua::''"xz"''.
+-- ¨Def de la zone graphique où l'¨arg lua::''viewdir'' permet
+-- de choisir le type de perspective.
 ------
 local graphview = ld.graph3d:new{
-  viewdir = {"yz", 0.65, 60},
+  viewdir = "iso",
   window  = {-6, 6.5, -5, 5.5},
   size    = {10, 10},
   bbox    = false,
@@ -54,7 +51,10 @@ local P = ld.parallelep(
 
 table.remove(P.facets,2)
 
-P = ld.shift3d(P, - ld.pt3d.isobar3d(P.vertices))
+P = ld.shift3d(
+  P,
+  - ld.pt3d.isobar3d(P.vertices)
+)
 
 graphview:Dscene3d(
   graphview:addPoly(
@@ -69,15 +69,11 @@ graphview:Dscene3d(
   ),
   graphview:addFacet(
     ld.getfacet(P,1) ,
-    {
-      color = "LightGray"
-    }
+    {color = "LightGray"}
   ),
   graphview:addAxes(
     Origin,
-    {
-      arrows = 1
-    }
+    {arrows = 1}
   )
 )
 

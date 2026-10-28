@@ -1,0 +1,12 @@
+this::
+    date = 2026-20-28
+
+
+=======================
+Perspective isométrique
+=======================
+
+important::
+    La perspective isométrique n'est pas paramétrable : se
+    reporter à cf::''"Perspective isométrique" ;
+    https://fr.wikipedia.org/wiki/Perspective_isom%C3%A9trique''.

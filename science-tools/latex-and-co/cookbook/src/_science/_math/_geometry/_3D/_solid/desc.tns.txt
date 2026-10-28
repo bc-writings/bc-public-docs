@@ -3,9 +3,9 @@ Des solides
 ===========
 
 content::
-    ./polycuboid/\desc
-    ./polyhedron/\desc
-    ./cone/\desc
-    ./cylinder/\desc
-    ./box/\desc
-    ./sphere-minus-cylinder/\desc
+    ./polycuboid/\desc              ????????????
+    ./polyhedron/\desc              ??????????
+    ./cone/\desc                    ????????
+    ./cylinder/\desc                ??????
+    ./box/\desc                     ????
+    ./sphere-minus-cylinder/\desc   ??

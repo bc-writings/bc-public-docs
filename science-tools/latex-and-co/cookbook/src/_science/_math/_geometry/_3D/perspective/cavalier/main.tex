@@ -15,7 +15,7 @@
 
 \begin{document}
 
-\begin{luadraw*}{name = isometric-prespective}
+\begin{luadraw*}{name = cavalier-prespective}
 local ld = luadraw
 
 local M      = ld.pt3d.M
@@ -25,10 +25,24 @@ local vecJ   = ld.pt3d.vecJ
 local vecK   = ld.pt3d.vecK
 
 ------
--- ¨Def de la zone graphique.
+-- ¨Def de la zone graphique où l'¨arg lua::''viewdir'' permet
+-- de choisir le type de perspective.
+--
+-- Le paramétrage lua::''viewdir = {"yz", 0.65, 60}'' fonctionne
+-- comme suit.
+--
+--     + lua::''"yz"'' désigne le "plan de fond". Les autres
+--     choix possibles sont lua::''"xy"'', lua::''"yz"'' et
+--     lua::''"xz"''.
+--
+--     + Le ¨coef lua::''0.65'' permet de régler la distance "unité"
+--     des axes dans la vue 2D.
+--
+--     + `60`, en dégrés, est la mesure de l'angle entre l'axe
+--     horizontal du "plan de fond" et celui "sortant" de ce plan.
 ------
 local graphview = ld.graph3d:new{
-  viewdir = {"iso", 0.65, 60},
+  viewdir = {"yz", 0.65, 60},
   window  = {-6, 6.5, -5, 5.5},
   size    = {10, 10},
   bbox    = false,
@@ -50,7 +64,10 @@ local P = ld.parallelep(
 
 table.remove(P.facets,2)
 
-P = ld.shift3d(P, - ld.pt3d.isobar3d(P.vertices))
+P = ld.shift3d(
+  P,
+  - ld.pt3d.isobar3d(P.vertices)
+)
 
 graphview:Dscene3d(
   graphview:addPoly(
@@ -65,15 +82,11 @@ graphview:Dscene3d(
   ),
   graphview:addFacet(
     ld.getfacet(P,1) ,
-    {
-      color="LightGray"
-    }
+    {color = "LightGray"}
   ),
   graphview:addAxes(
     Origin,
-    {
-      arrows = 1
-    }
+    {arrows = 1}
   )
 )
 

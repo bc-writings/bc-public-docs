@@ -3,6 +3,14 @@
 \usepackage{main}
 
 %%%
+% .
+%%%
+\usepackage[french]{babel}
+\usetikzlibrary{babel}
+
+\usepackage{siunitx}
+
+%%%
 % Nous allons utiliser la macro ''\dfrac'' pour stresser le rendu.
 %%%
 \usepackage{amsmath}
@@ -18,9 +26,9 @@
 Cas simple à valider.
 
 \begin{orsteps}
-  x^2 - 2 = 0  \\
-  x^2 = 2      \\
-  x = \pm \sqrt{2}
+  x^2 - \num{.08} = 0  \\
+  x^2 = \dfrac{2}{25}      \\
+  x = \pm \dfrac{\sqrt{2}}{5}
   ---
   -4 x + 3 = 0  \\
   -4 x = - 3    \\
@@ -34,6 +42,7 @@ Cas simple à valider.
   \text{Impossible !}
 \end{orsteps}
 
+\medskip
 
 Cas utile atypique à valider.
 
@@ -53,7 +62,7 @@ Cas utile atypique à valider.
     f(x)^2 - g(x)^2 \ge 0
   \end{WithArrows}
   ---
-  \text{Utile.}
+  \text{Parfois utile.}
 \end{orsteps}
 
 \end{document}
