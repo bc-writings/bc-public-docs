@@ -1,0 +1,102 @@
+% !TEX TS-program = lualatex
+
+% FORCE-CROP
+
+\documentclass[border = 3pt]{standalone}
+
+\usepackage[svgnames]{xcolor}
+\usepackage[3d]{luadraw}
+
+\begin{document}
+
+\begin{luadraw*}{name = isometric-prespective}
+local ld = luadraw
+
+local M      = ld.pt3d.M
+local Origin = ld.pt3d.Origin
+local vecI   = ld.pt3d.vecI
+local vecJ   = ld.pt3d.vecJ
+local vecK   = ld.pt3d.vecK
+
+------
+-- Ici, nous jouons plus finement avec le paramétrage de la
+-- perspective centrale. Voici comment cela fonctionne.
+--
+--     + lua::''67'', lua::''25'' et lua::''42'' sont les ¨coords
+--     cylindriques de l'observateur relativement au repère avec
+--     pour nouvelle origine lua::''NewOrigin''.
+--
+--     + Le plan de projection passe par lua::''NewOrigin'' et
+--     est orienté par le vecteur directeur allant du point
+--     lua::''NewOrigin'' à l'observateur.
+--
+--
+-- note::
+--     En gardant le réglage lua::''window  = {-6, 6.5, -5, 5.5}'',
+--     notre choix de positionnement, qui élève l'observateur,
+--     fait disparaître la flèche de l'axe des ordonnées.
+--     Choisir lua::''window  = {-6, 6.5, -10, 5.5}'' rectifie la
+--     situation (mais cela devient moins pertinent pour expliquer
+--     comment fonctionne le réglage de la perspective centrale).
+--
+--
+-- warning::
+--     La ¨dist cylindrique ne semble modifier que très peu le
+--     rendu final.
+--
+--
+-- note::
+--     Choisir lua::''-90'' pour les deux angles donne une vue
+--     à la ¨opengl avec l'axe des abscisses `x` vers la droite,
+--     celui des côtes `z` vers le bas, et celui des ordonnées
+--     `y` "sortant" du plan de la vue 2D.
+------
+local NewOrigin = Origin + 4*vecK
+
+local graphview = ld.graph3d:new{
+  viewdir = {"central", 67, 52, 42, NewOrigin},
+  window  = {-6, 6.5, -5, 5.5},
+  size    = {10, 10},
+  bbox    = false,
+}
+
+graphview:Linewidth(4)
+ld.Hiddenlinestyle = "dashed"
+
+local P = ld.parallelep(
+  Origin,
+  4*vecI, 6*vecJ, 1.5*vecK
+)
+
+table.remove(P.facets,2)
+
+P = ld.shift3d(
+  P,
+  - ld.pt3d.isobar3d(P.vertices)
+)
+
+graphview:Dscene3d(
+  graphview:addPoly(
+    P,
+    {
+      edge      = true,
+      hidden    = true,
+      contrast  = 0,
+      twoside   = false,
+      edgewidth = 6
+    }
+  ),
+  graphview:addFacet(
+    ld.getfacet(P,1) ,
+    {color = "LightGray"}
+  ),
+  graphview:addAxes(
+    Origin,
+    {arrows = 1}
+  )
+)
+
+graphview:Show()
+\end{luadraw*}
+
+\end{document}

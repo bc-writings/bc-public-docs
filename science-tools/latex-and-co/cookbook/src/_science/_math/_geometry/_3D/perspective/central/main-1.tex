@@ -1,0 +1,93 @@
+% !TEX TS-program = lualatex
+
+% FORCE-CROP
+
+\documentclass[border = 3pt]{standalone}
+
+%%%
+% Des couleurs faciles d'emploi via le package \xcolor!
+%%%
+\usepackage[svgnames]{xcolor}
+
+%%%
+% La bibliothèque \luadraw allie une facilité d’utilisation
+% à un rendu particulièrement soigné.
+%%%
+\usepackage[3d]{luadraw}
+
+\begin{document}
+
+\begin{luadraw*}{name = isometric-prespective}
+local ld = luadraw
+
+local M      = ld.pt3d.M
+local Origin = ld.pt3d.Origin
+local vecI   = ld.pt3d.vecI
+local vecJ   = ld.pt3d.vecJ
+local vecK   = ld.pt3d.vecK
+
+------
+-- ¨Def de la zone graphique où l'¨arg lua::''viewdir'' permet
+-- de choisir le type de perspective.
+--
+-- Le paramétrage lua::''viewdir = "central"'' est un réglage
+-- clés en main équivalent à lua::''viewdir = { "central", 30,
+-- 60, 16, ld.pt3d.Origin}'' (voir le ¨2nd exemple pour plus
+-- de détails).
+------
+local graphview = ld.graph3d:new{
+  viewdir = "central",
+  window  = {-6, 6.5, -5, 5.5},
+  size    = {10, 10},
+  bbox    = false,
+}
+
+------
+-- Réglages liés aux lignes.
+------
+graphview:Linewidth(4)
+ld.Hiddenlinestyle = "dashed"
+
+------
+-- Une boîte ouverte comme exemple.
+------
+local P = ld.parallelep(
+  Origin,
+  4*vecI, 6*vecJ, 1.5*vecK
+)
+
+table.remove(P.facets,2)
+
+P = ld.shift3d(
+  P,
+  - ld.pt3d.isobar3d(P.vertices)
+)
+
+graphview:Dscene3d(
+  graphview:addPoly(
+    P,
+    {
+      edge      = true,
+      hidden    = true,
+      contrast  = 0,
+      twoside   = false,
+      edgewidth = 6
+    }
+  ),
+  graphview:addFacet(
+    ld.getfacet(P,1) ,
+    {color = "LightGray"}
+  ),
+  graphview:addAxes(
+    Origin,
+    {arrows = 1}
+  )
+)
+
+------
+-- Montrons le résultat de notre oeuvre.
+------
+graphview:Show()
+\end{luadraw*}
+
+\end{document}

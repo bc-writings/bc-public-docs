@@ -1,5 +1,7 @@
 % !TEX TS-program = lualatex
 
+% FORCE-CROP
+
 \documentclass[border = 3pt]{standalone}
 
 %%%
@@ -35,11 +37,12 @@ local vecK   = ld.pt3d.vecK
 --     choix possibles sont lua::''"xy"'', lua::''"yz"'' et
 --     lua::''"xz"''.
 --
---     + Le ¨coef lua::''0.65'' permet de régler la distance "unité"
---     des axes dans la vue 2D.
+--     + Le ¨coef lua::''0.65'' permet de régler la distance
+--     "unité" des axes dans la vue 2D.
 --
---     + `60`, en dégrés, est la mesure de l'angle entre l'axe
---     horizontal du "plan de fond" et celui "sortant" de ce plan.
+--     + lua::''60lua::'' donne la mesure en degrés de l'angle
+--     entre l'axe horizontal du "plan de fond" et celui "sortant"
+--     de ce plan.
 ------
 local graphview = ld.graph3d:new{
   viewdir = {"yz", 0.65, 60},
