@@ -23,16 +23,16 @@ local vecK   = ld.pt3d.vecK
 -- perspective centrale. Voici comment cela fonctionne.
 --
 --     + lua::''67'', lua::''25'' et lua::''42'' sont les ¨coords
---     cylindriques de l'observateur relativement au repère avec
+--     sphériques de l'observateur relativement au repère avec
 --     pour nouvelle origine lua::''NewOrigin''.
 --
 --     + Le plan de projection passe par lua::''NewOrigin'' et
---     est orienté par le vecteur directeur allant du point
---     lua::''NewOrigin'' à l'observateur.
+--     est orienté et dirigé par le vecteur directeur allant du 
+--     point lua::''NewOrigin'' à l'observateur.
 --
 --
 -- note::
---     En gardant le réglage lua::''window  = {-6, 6.5, -5, 5.5}'',
+--     En gardant le réglage lua::''window = {-6, 6.5, -5, 5.5}'',
 --     notre choix de positionnement, qui élève l'observateur,
 --     fait disparaître la flèche de l'axe des ordonnées.
 --     Choisir lua::''window  = {-6, 6.5, -10, 5.5}'' rectifie la
@@ -41,8 +41,8 @@ local vecK   = ld.pt3d.vecK
 --
 --
 -- warning::
---     La ¨dist cylindrique ne semble modifier que très peu le
---     rendu final.
+--     La ¨dist sphériques ne semble modifier que très peu le rendu
+--     final.
 --
 --
 -- note::
