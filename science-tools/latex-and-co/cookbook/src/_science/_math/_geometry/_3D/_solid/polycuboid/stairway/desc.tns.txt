@@ -1,0 +1,7 @@
+====================
+Un escalier de cubes
+====================
+
+content::
+    ./cube/\desc
+    ./facet/\desc

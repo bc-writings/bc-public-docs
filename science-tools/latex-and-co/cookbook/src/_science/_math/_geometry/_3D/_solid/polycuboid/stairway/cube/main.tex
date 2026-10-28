@@ -3,7 +3,7 @@
 \documentclass[border = 3pt]{standalone}
 
 %%%
-% Des couleurs faciles d'emploi via le package \xcolor!
+% Des couleurs faciles d'emploi via le package \xcolor.
 %%%
 \usepackage[svgnames]{xcolor}
 
@@ -26,7 +26,7 @@ local vecJ = ld.pt3d.vecJ
 local vecK = ld.pt3d.vecK
 
 ------
--- Nombre de marches ou de tranches souhaité.
+-- Nombre de marches, ou de tranches, souhaité.
 ------
 local nb_slices = 10
 
@@ -42,31 +42,45 @@ local graphview = ld.graph3d:new{
 
 ------
 -- Tracé de l'escalier avec l'obligation de tracer les éléments
--- du "plus caché" au "moins caché".
+-- du "plus caché" au "moins caché" (¨luadraw n'est pas un moteur
+-- de rendu 3D).
+--
+--
+-- note::
+--     En décommentant la ligne suivante, un repère en mode
+--     "boîte" sera visible. Ceci permet de choisir le bon ordre
+--     des tracés suivant les réglages de la caméra.
 ------
--- graphview:Dboxaxes3d()  -- En affichant le repère en mode
-                        -- "boîte", nous pouvons choisir
-                        -- le bon ordre des tracés.
-local num_col, colors = 0, {"ForestGreen", "Crimson"}
+graphview:Dboxaxes3d()
 
-local cube = ld.parallelep(M(-5, -5, -5), vecI, vecJ, vecK)
+local num_col = 0
+local colors  = {"ForestGreen", "Crimson"}
+
+local cube = ld.parallelep(
+  M(-5, -5, -5),
+  vecI, vecJ, vecK
+)
 
 nb_slices = nb_slices - 1
 
 for i = 0, nb_slices do
-  num_col = num_col%2 + 1
+  num_col = num_col % 2 + 1
 
--- Attention à l'ordre de la boucle !
+-- Attention aux ordres des boucles !
   for j = nb_slices, 0, -1 do
     for k = 0, nb_slices - i do
       if j == 0 or k == nb_slices - i then
         graphview:Dpoly(
-          ld.shift3d(cube, i*vecI + j*vecJ + k*vecK),
-          {
-            color = colors[num_col]
--- En utilisant ''mode = 4'' en plus, on peut faire apparaître
--- les traits cachés en pointillés.
-          }
+          ld.shift3d(
+            cube,
+            i*vecI + j*vecJ + k*vecK
+          ),
+------
+-- note::
+--     En utilisant ''mode = ld.mFlatHidden'' en plus de la
+--     couleur, les traits cachés apparaitront en pointillés.
+------
+          {color = colors[num_col]}
         )
       end
     end

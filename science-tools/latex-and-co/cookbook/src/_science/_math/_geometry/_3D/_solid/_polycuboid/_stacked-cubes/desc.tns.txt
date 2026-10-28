@@ -1,7 +1,0 @@
-==================
-Empilons des cubes
-==================
-
-content::
-    ./centered/\desc
-    ./two-tone-and-aligned/\desc

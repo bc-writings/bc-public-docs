@@ -8,7 +8,7 @@
 \documentclass[border = 3pt]{standalone}
 
 %%%
-% Des couleurs nommées faciles 5'emploi via le package \xcolor!
+% Des couleurs nommées faciles d'emploi via le package \xcolor.
 %%%
 \usepackage[svgnames]{xcolor}
 
@@ -36,10 +36,10 @@ local vecK = ld.pt3d.vecK
 local xdim, ydim = 10, 8
 
 local large = 5 / math.max(xdim, ydim)
-local hmax  = 5
+local h_max = 5
 
 local surf_height = function(x, y)
-  return hmax*(1 - 0.85*(x^2 + y^2) / (ydim^2 + xdim^2))
+  return h_max*(1 - 0.85*(x^2 + y^2) / (ydim^2 + xdim^2))
 end
 
 ------
@@ -55,10 +55,16 @@ local graphview = ld.graph3d:new{
   adjust2d = true ,
   bbox     = false
 }
--- graphview:Dboxaxes3d() -- Pour afficher le repère en mode "debug".
 
 ------
--- Définition et tracé des facettes "visibles".
+-- note::
+--     En décommentant la ligne suivante, un repère en mode
+--     "boîte" sera visible.
+------
+-- graphview:Dboxaxes3d()
+
+------
+-- ¨Def et tracé des facettes "visibles".
 ------
 local facets = {}
 

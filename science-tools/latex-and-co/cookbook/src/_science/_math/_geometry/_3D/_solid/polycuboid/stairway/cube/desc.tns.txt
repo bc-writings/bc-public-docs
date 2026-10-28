@@ -1,0 +1,13 @@
+this::
+    date = 2026-10-28
+
+
+=========================
+Un vrai escalier de cubes
+=========================
+
+Nous dessinons ici ce qu'il faudrait fabriquer en conditions réelles. Bien que cette méthode présente l'inconvénient de tracer des cubes qui ne seront plus visibles au final, elle a l'avantage de s'adapter automatiquement aux changements de point de vue de la scène 3D.
+
+
+warning::
+    Nous devons de gérer l'ordre du tracé des éléments graphiques, car nous utilisons \luadraw qui n'est pas un moteur de rendu 3D !

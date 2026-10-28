@@ -1,0 +1,13 @@
+this::
+    date = 2026-10-28
+
+
+=======================
+Une surface "cuboidale"
+=======================
+
+Nous allons voir comment construire un solide formé de pavés droits reposant tous sur un sol commun, et venant s'ajuster sous une surface d'équation cartésienne `z = f(x, y)`.
+
+
+note::
+    L'emploi de la méthode lua::''Classifyfacet'' permet de limiter les tracés au minimum par rapport à ce que fait \luadraw.

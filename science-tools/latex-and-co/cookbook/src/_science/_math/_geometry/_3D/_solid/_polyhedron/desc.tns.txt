@@ -3,5 +3,5 @@ Polyèdres
 =========
 
 content::
-    ./regular/\desc
-    ./diamond/\desc
+    ./regular/\desc    ????
+    ./diamond/\desc    ??

@@ -8,7 +8,7 @@
 \documentclass[border = 3pt]{standalone}
 
 %%%
-% Des couleurs faciles d'emploi via le package \xcolor!
+% Des couleurs faciles d'emploi via le package \xcolor.
 %%%
 \usepackage[svgnames]{xcolor}
 
@@ -31,7 +31,7 @@ local vecJ = ld.pt3d.vecJ
 local vecK = ld.pt3d.vecK
 
 ------
--- Nombre de marches ou de tranches souhaité.
+-- Nombre de marches, ou de tranches, souhaité.
 ------
 local nb_slices = 10
 
@@ -48,9 +48,14 @@ local graphview = ld.graph3d:new{
 ------
 -- Pour les facettes "visibles".
 ------
-local num_col, colors = 0, {"ForestGreen", "Crimson"}
+local num_col = 0
+local colors  = {"ForestGreen", "Crimson"}
 
-local cube        = ld.parallelep(M(-5, -5, -5), vecI, vecJ, vecK)
+local cube = ld.parallelep(
+  M(-5, -5, -5),
+  vecI, vecJ, vecK
+)
+
 local cube_facets = graphview:Classifyfacet(cube)
 
 ------
@@ -64,7 +69,7 @@ local facets_n_options = {}
 nb_slices = nb_slices - 1
 
 for i = 0, nb_slices do
-  num_col = num_col%2 + 1
+  num_col = num_col % 2 + 1
 
   for j = nb_slices, 0, -1 do
     for k = 0, nb_slices - i do
@@ -85,10 +90,15 @@ for i = 0, nb_slices do
   end
 end
 
--- ''table.unpack'' "déplie" les éléments d'une table en valeurs
--- séparées. Par exemple, si ''args = {1, 2, 3}'', alors l'emploi
--- de ''table.unpack(args)'' équivaut à la saisie de ''1, 2, 3''.
-graphview:Dmixfacet(table.unpack(facets_n_options))
+------
+-- ''table.unpack'' "déplie" les éléments de ''facets_n_options''.
+-- Par exemple, si ''args = {1, 2, 3}'', alors l'emploi de
+-- ''table.unpack(args)'' équivaut à la saisie de ''1'', ''2'',
+-- puis '' 3''.
+------
+graphview:Dmixfacet(
+  table.unpack(facets_n_options)
+)
 
 ------
 -- Montrons le résultat de notre oeuvre.

@@ -3,7 +3,7 @@
 \documentclass[border = 3pt]{standalone}
 
 %%%
-% Des couleurs nommées faciles d'emploi via le package \xcolor!
+% Des couleurs nommées faciles d'emploi via le package \xcolor.
 %%%
 \usepackage[svgnames]{xcolor}
 
@@ -28,19 +28,20 @@ local vecK = ld.pt3d.vecK
 ------
 -- Préréglages.
 ------
-local amax = 7
+local h_max = 7
+local pal  = {"Teal", "LightBlue"}
 
 ------
 -- ¨Def de la zone graphique.
 ------
-local xysup = amax / 2 + 1
-local zsup  = amax*(amax - 1) / 2 + amax
+local xy_sup = h_max
+local z_sup  = h_max*(h_max + 1) / 2
 
 local graphview = ld.graph3d:new{
-  window3d = {-xysup, xysup, -xysup, xysup, -zsup, zsup},
-  viewdir  = {155,70},
+  window3d = {0, xy_sup, 0, xy_sup, 0, z_sup},
+  viewdir  = {155, 70},
   adjust2d = true,
-  bbox     = false,
+  bbox     = false
 }
 
 ------
@@ -48,24 +49,27 @@ local graphview = ld.graph3d:new{
 ------
 graphview:Linewidth(6)
 
-ld.Hiddenlines     = true
-ld.Hiddenlinestyle = "dashed"
-
 ------
 -- Empilons des cubes.
 ------
-local zpos  = 0
+local z_pos   = 0
+local i_col   = 1
+local nb_cols = #pal
 
-for a = amax, 1, -1 do
+for a = h_max, 1, -1 do
   graphview:Dpoly(
     ld.parallelep(
-      M(-a / 2, -a / 2, zpos),
+      M(0, 0, z_pos),
       a*vecI, a*vecJ, a*vecK
     ),
-    {mode = ld.mFlatHidden}
+    {
+      mode  = ld.mFlat,
+      color = pal[i_col]
+    }
   )
 
-  zpos = zpos + a
+  z_pos = z_pos + a
+  i_col = i_col % nb_cols + 1
 end
 
 ------
