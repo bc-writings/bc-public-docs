@@ -48,8 +48,8 @@ local graphview = ld.graph3d:new{
 ------
 graphview:Linewidth(6)
 
-Hiddenlines     = true
-Hiddenlinestyle = "dashed"
+ld.Hiddenlines     = true
+ld.Hiddenlinestyle = "dashed"
 
 ------
 -- Empilons des cubes.
@@ -62,9 +62,7 @@ for a = amax, 1, -1 do
       M(-a / 2, -a / 2, zpos),
       a*vecI, a*vecJ, a*vecK
     ),
-    {
-      mode = ld.mFlatHidden,
-    }
+    {mode = ld.mFlatHidden}
   )
 
   zpos = zpos + a
