@@ -9,4 +9,5 @@ Des diamants sur mesure
 Cette recette montre le tracé de diamants obtenus en collant deux pyramides de base régulière commune ayant `n` côtés où `n` est un \param.
 
 
+
 ON DOIT travailler à la opengl car inutlisable en létat !!!!
