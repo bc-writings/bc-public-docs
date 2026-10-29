@@ -15,7 +15,7 @@
 
 \begin{document}
 
-\begin{luadraw*}{name = stairway}
+\begin{luadraw*}{name = stairway-cubes}
 local ld = luadraw
 
 local Origin = ld.pt3d.Origin
@@ -51,7 +51,7 @@ local graphview = ld.graph3d:new{
 --     "boîte" sera visible. Ceci permet de choisir le bon ordre
 --     des tracés suivant les réglages de la caméra.
 ------
-graphview:Dboxaxes3d()
+-- graphview:Dboxaxes3d()
 
 local num_col = 0
 local colors  = {"ForestGreen", "Crimson"}

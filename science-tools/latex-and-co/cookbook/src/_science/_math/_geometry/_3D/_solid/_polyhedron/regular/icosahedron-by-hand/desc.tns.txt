@@ -1,0 +1,13 @@
+this::
+    date = 2026-10-29
+
+
+=====================
+Icosaèdre "à la main"
+=====================
+
+Cette recette explique comment tracer un icosaèdre à partir du calcul de ses sommets, avec des faces colorées selon trois nuances différentes. La méthode exposée ouvre la voie à la création d'autres polyèdres, entièrement personnalisables selon des besoins très spécifiques.
+
+
+note::
+    L'extension lua::''luadraw_polyhedrons'' de \luadraw propose des polyèdres prêts à l'emploi. Nous présentons volontairement une construction réalisée "à la main".

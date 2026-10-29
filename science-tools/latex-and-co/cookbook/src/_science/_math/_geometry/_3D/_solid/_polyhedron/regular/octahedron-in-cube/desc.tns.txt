@@ -1,0 +1,9 @@
+this::
+    date = 2026-10-29
+
+
+===========================
+Octaèdre comme dual du cube
+===========================
+
+Nous fabriquons ici un octaèdre obtenu via les centres des faces d'un cube.

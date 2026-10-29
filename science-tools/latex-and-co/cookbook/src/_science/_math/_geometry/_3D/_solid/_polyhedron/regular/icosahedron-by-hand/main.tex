@@ -46,7 +46,7 @@ local graphview = ld.graph3d:new{
 }
 
 ------
--- Calcul des coordonnées des sommets.
+-- Calcul des sommets.
 ------
 local phi = (1 + math.sqrt(5)) / 2
 
@@ -66,24 +66,15 @@ local C3 = M(-1, 0, -phi)
 local D3 = M( 1, 0, -phi)
 
 ------
--- Lors du développement, la ligne suivante permet l'ajout automatique
--- d'étiquettes aux sommets (en attendant que cela soit proposé
--- nativement en mode ''debug'' par \luadraw).
---
---
---  warning::
---      L'ordre doit être celui de la création des points.
-------
--- local all_pts = {
---   A1, B1, C1, D1,
---   A2, B2, C2, D2,
---   A3, B3, C3, D3
--- }
-
-------
 -- Construction de l'icosaèdre en trois parties.
+--
+--
+-- tip::
+--     Plus bas est donnée une méthode pour ajouter facilement
+--     des étiquettes aux sommets, afin de savoir comment définir
+--     les différentes faces.
 ------
-local ico_up = {
+local ico_up_facets = {
   {A1, B1, A3},
   {B3, A3, A2},
   {A3, B3, D2},
@@ -91,7 +82,7 @@ local ico_up = {
   {A1, A3, D2}
 }
 
-local ico_middle = {
+local ico_middle_facets = {
   {B1, A1, D3},
   {C1, D1, B3},
   {B2, A2, B1},
@@ -104,7 +95,7 @@ local ico_middle = {
   {A1, C2, D3}
 }
 
-local ico_down = {
+local ico_down_facets = {
   {C2, D1, C3},
   {D3, C3, B2},
   {C3, D3, C2},
@@ -112,11 +103,14 @@ local ico_down = {
   {D1, C1, C3}
 }
 
-local ico_full = ld.facet2poly(
+------
+-- Pour le tracé des arêtes, nous avons besoin de toutes les faces.
+------
+local ico_all_facets = ld.facet2poly(
   ld.concat(
-    ico_up,
-    ico_middle,
-    ico_down
+    ico_up_facets,
+    ico_middle_facets,
+    ico_down_facets
   )
 )
 
@@ -126,44 +120,40 @@ local ico_full = ld.facet2poly(
 ld.Hiddenlinestyle = "dashed"
 
 ------
--- Tracé "automatique".
+-- Tracé des faces, puis des arêtes.
 ------
 graphview:Dscene3d(
--- Faces colorées.
+-- Faces colorées (un choix de design).
   graphview:addFacet(
-    ico_up,
-    {
-      color = "myteal"
-    }
+    ico_up_facets,
+    {color = "myteal"}
   ),
   graphview:addFacet(
-    ico_middle,
-    {
-      color = "mymagenta"
-    }
+    ico_middle_facets,
+    {color = "mymagenta"}
   ),
   graphview:addFacet(
-    ico_down,
-    {
-      color = "mylime"
-    }
+    ico_down_facets,
+    {color = "mylime"}
   ),
--- Arêtes en mode cachés (un choix de design).
+-- Arêtes cachées tracées en pointillés (un choix de design).
   graphview:addPolyline(
-    ld.facetedges(ico_full),
+    ld.facetedges(ico_all_facets),
     {
-      width = 12,
+      width  = 12,
       hidden = true
     }
   )
 )
+
 ------
--- Tous les sommets sont rendus visibles (un choix de design).
+-- Nous affichons tous les sommets (un choix de design).
 --
 --
 -- note::
---     Pour ne pas afficher les sommets cachés, il suffit de mettre
---     la commande suivante en paramètre de `graphview:Dscene3d`.
+--     Pour le moment, l'unique façon de ne pas tracer les sommets
+--     cachés est d'effectuer le tracé des points avant celui des
+--     faces.
 ------
 graphview:Dballdots3d(
   {
@@ -176,16 +166,10 @@ graphview:Dballdots3d(
 )
 
 ------
--- Lors du développement, les lignes suivantes ajoutent des étiquettes
--- aux sommets pour corriger d'éventuelles erreurs.
+-- Lors du développement, décommenter la ligne suivante ajoute
+-- automatiquement des étiquettes aux sommets et aux faces.
 ------
--- local labels = {}
---
--- for k, X in ipairs(all_pts) do
---   insert(labels, {"$M_{".. k .."}$", X, {pos = "S", dist = 0.1}})
--- end
---
--- graphview:Dlabel3d(table.unpack(labels))
+-- graphview:Dpolynames(ico_all_facets)
 
 ------
 -- Montrons le résultat de notre oeuvre.

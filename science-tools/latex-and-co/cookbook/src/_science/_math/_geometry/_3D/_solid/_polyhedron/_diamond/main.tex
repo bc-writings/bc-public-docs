@@ -20,7 +20,7 @@
 
 \begin{document}
 
-\begin{luadraw*}{name = diamond-in-sphere}
+\begin{luadraw*}{name = poly_diamond-in-sphere}
 local ld = luadraw
 
 local Origin = ld.pt3d.Origin
@@ -31,12 +31,17 @@ local vecJ = ld.pt3d.vecJ
 local vecK = ld.pt3d.vecK
 
 ------
--- Une fonction permettant de tracer un diamant dont les sommets
--- sur une sphère.
+-- prototype::
+--     center : gg
+--     vertice : gg
+--     normal : gg
+--     nb_sides : gg
+--
+--     return: un diamant dont les sommets sont sur une sphère.
 ------
-local diamond = function(
-  center,   -- Centre de la sphère.
-  vertice,  --
+local poly_diamond = function(
+  center,
+  vertice,
   normal,
   nb_sides
 )
@@ -84,25 +89,32 @@ ld.Hiddenlinestyle = "dashed"
 -- Tracé de deux diamants.
 ------
 graphview:Dpoly(
-  diamond(
-    M(-4, -4, 0), M(-2, -2, 0), vecK,
+  poly_diamond(
+    M(-4, -4, 0),
+    M(-2, -2, 0),
+    vecK,
     9
   ),
   {
-    mode  = ld.mFlatHidden,  -- Colorisation des facettes en fonction de leur
-                             -- inclinaison avec les arêtes cachées.
+-- ''ld.mShadedHidden'' demande la coloration des facettes selon
+-- leur inclinaison et l'affichage des arêtes cachées.
+    mode  = ld.mFlatHidden,
     color = "orange"
   }
 )
 
 graphview:Dpoly(
-  diamond(
-    M(3, 3.5, 0), M(3, 3, 3), vecJ,
+  poly_diamond(
+    M(3, 3.5, 1), 
+    M(3, 3, 3), 
+    vecJ,
     7
   ),
   {
-    mode  = ld.mFlat,  -- Colorisation des facettes en fonction de leur
-                       -- inclinaison sans les arêtes cachées.
+
+-- ''ld.mShadedHidden'' demande la coloration des facettes selon
+-- leur inclinaison et sans l'affichage des arêtes cachées.
+    mode  = ld.mFlat,
     color = "LightBlue"
   }
 )

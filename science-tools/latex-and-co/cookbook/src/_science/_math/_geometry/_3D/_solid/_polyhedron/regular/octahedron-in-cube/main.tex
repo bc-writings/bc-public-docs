@@ -33,8 +33,8 @@ local vecJ = ld.pt3d.vecJ
 local vecK = ld.pt3d.vecK
 
 ------
--- Usage d'une bibliothèque spécialisée dans le dessin de polyèdres
--- réguliers convexes ou non.
+-- Usage d'une ¨biblio spécialisée pour récupérer des polyèdres
+-- réguliers clés en main (convexes ou non).
 ------
 require 'luadraw_polyhedrons'
 
@@ -51,20 +51,24 @@ local graphview = ld.graph3d:new{
 -- Les éléments géométriques.
 ------
 local c = 5
+
 local cube = ld.parallelep(
   Origin,
   c*vecI, c*vecJ, c*vecK
 )
 
-local vect_shift = -4.5*(vecJ + vecI)
+local shift_vect = -4.5*(vecJ + vecI)
 
 ------
--- Dans ''Octaedre(C, S)'', les points ''C'' et ''S'' sont le centre
--- et un sommet de l'octaèdre.
+-- Dans ''poly.octahedron(C, S)'', les ¨args ''C'' et ''S''
+-- désignent le centre et un sommet de l'octaèdre.
 ------
 local octahedron_in_cube = ld.shift3d(
-  poly.octahedron(Origin, c/2*vecK),
-  M(c, c, c)/2
+  poly.octahedron(
+    Origin,
+    (c / 2)*vecK  -- Ceci est un point, et non un vecteur!
+  ),
+  M(c, c, c) / 2  -- Ceci est un vecteur, et non un point!
 )
 
 ------
@@ -81,31 +85,33 @@ ld.Hiddenlinestyle = "dashed"
 graphview:Dpoly(
   cube,
   {
-    mode  = 4,  -- Colorisation des facettes en fonction de
-                -- leur inclinaison avec les arêtes cachées.
+-- ''ld.mShadedHidden'' demande la coloration des facettes selon
+-- leur inclinaison et l'affichage des arêtes cachées.
+    mode  = ld.mShadedHidden,
     color = "LightBlue"
   }
 )
 
 ------
--- Tracé des deux octaèdres.
+-- Tracé de deux octaèdres.
 ------
 graphview:Dpoly(
   ld.shift3d(
     octahedron_in_cube,
-    vect_shift
+    shift_vect
   ),
   {
-    mode = 4,
+    mode  = ld.mShaded,
     color = "orange"
   }
 )
 
-graphview:Lineoptions("dashed")
 graphview:Dpoly(
   octahedron_in_cube,
   {
-    mode = 0  -- Rendu de type fil de fer.
+-- ''ld.mShadedHidden'' permet d'avoir un rendu de type fil de fer.
+    mode      = ld.mWireframe,
+    edgestyle = "dashed"
   }
 )
 

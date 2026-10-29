@@ -1,0 +1,7 @@
+=============
+Les réguliers
+=============
+
+content::
+    ./icosahedron-by-hand/\desc
+    ./octahedron-in-cube/\desc
