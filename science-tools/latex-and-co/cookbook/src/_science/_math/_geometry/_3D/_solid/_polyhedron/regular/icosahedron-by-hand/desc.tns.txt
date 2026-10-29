@@ -6,7 +6,8 @@ this::
 Icosaèdre "à la main"
 =====================
 
-Cette recette explique comment tracer un icosaèdre à partir du calcul de ses sommets, avec des faces colorées selon trois nuances différentes. La méthode exposée ouvre la voie à la création d'autres polyèdres, entièrement personnalisables selon des besoins très spécifiques.
+Cette recette explique comment tracer un icosaèdre à partir du calcul de ses sommets, avec des faces colorées selon trois nuances différentes. La méthode exposée ouvre la voie à la création d'autres polyèdres, entièrement personnalisables selon des besoins très spécifiques. Nous proposons au passage trois rendus différents.
+
 
 
 note::

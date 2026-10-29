@@ -5,4 +5,4 @@ latex-and-co/cookbook - TODO
 
 // ---------- //
 
-?
+syst de commentaires magiques afin de ne'afficher que des ligenspertineents pour des sous recetetees

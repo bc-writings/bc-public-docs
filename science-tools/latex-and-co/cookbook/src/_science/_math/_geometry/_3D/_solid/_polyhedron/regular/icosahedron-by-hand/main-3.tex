@@ -1,0 +1,128 @@
+% !TEX TS-program = lualatex
+
+%%%
+% src::
+%   url = https://github.com/pfradin/luadraw/discussions/362#discussioncomment-19264280
+%%%
+
+\documentclass[border = 3pt]{standalone}
+
+\usepackage{xcolor}
+
+\colorlet{myteal}{teal!50}
+\colorlet{mymagenta}{magenta!50}
+\colorlet{mylime}{lime!50}
+
+\usepackage[3d]{luadraw}
+
+\begin{document}
+
+\begin{luadraw*}{name = icosahedron-by-hand}
+local ld = luadraw
+
+local Origin = ld.pt3d.Origin
+local M      = ld.pt3d.M
+
+local vecI = ld.pt3d.vecI
+local vecJ = ld.pt3d.vecJ
+local vecK = ld.pt3d.vecK
+
+local graphview = ld.graph3d:new{
+  viewdir  = {5, 108},
+  size     = {14, 14},
+  bbox     = false
+}
+
+local phi = (1 + math.sqrt(5)) / 2
+
+local A1 = M( phi, -1, 0)
+local B1 = M( phi,  1, 0)
+local C1 = M(-phi,  1, 0)
+local D1 = M(-phi, -1, 0)
+
+local A2 = M(0,  phi,  1)
+local B2 = M(0,  phi, -1)
+local C2 = M(0, -phi, -1)
+local D2 = M(0, -phi,  1)
+
+local A3 = M( 1, 0,  phi)
+local B3 = M(-1, 0,  phi)
+local C3 = M(-1, 0, -phi)
+local D3 = M( 1, 0, -phi)
+
+local ico_up_facets = {
+  {A1, B1, A3},
+  {B3, A3, A2},
+  {A3, B3, D2},
+  {B1, A2, A3},
+  {A1, A3, D2}
+}
+
+local ico_middle_facets = {
+  {B1, A1, D3},
+  {C1, D1, B3},
+  {B2, A2, B1},
+  {A2, B2, C1},
+  {D2, C2, A1},
+  {C2, D2, D1},
+  {A2, C1, B3},
+  {D1, D2, B3},
+  {B2, B1, D3},
+  {A1, C2, D3}
+}
+
+local ico_down_facets = {
+  {C2, D1, C3},
+  {D3, C3, B2},
+  {C3, D3, C2},
+  {B2, C3, C1},
+  {D1, C1, C3}
+}
+
+local all_pts = {
+  A1, B1, C1, D1,
+  A2, B2, C2, D2,
+  A3, B3, C3, D3
+}
+
+local ico_all_facets = ld.concat(
+    ico_up_facets,
+    ico_middle_facets,
+    ico_down_facets
+  )
+
+ld.Hiddenlinestyle = "dashed"
+
+------
+-- Nous déléguons l'affichage des sommets à la méthode ''Dscene3d''
+-- pour un rendu basé sur la transparence (un choix de design).
+------
+local opacity = 0.9
+
+graphview:Dscene3d(
+  graphview:addFacet(
+    ico_up_facets,
+    {color = "myteal", opacity = opacity}
+  ),
+  graphview:addFacet(
+    ico_middle_facets,
+    {color = "mymagenta", opacity = opacity}
+  ),
+  graphview:addFacet(
+    ico_down_facets,
+    {color = "mylime", opacity = opacity}
+  ),
+  graphview:addPolyline(
+    ld.facetedges(ico_all_facets),
+    {width  = 12}
+  ),
+  graphview:addDots(
+    all_pts,
+    {scale = 1.2}
+  )
+)
+
+graphview:Show()
+\end{luadraw*}
+
+\end{document}

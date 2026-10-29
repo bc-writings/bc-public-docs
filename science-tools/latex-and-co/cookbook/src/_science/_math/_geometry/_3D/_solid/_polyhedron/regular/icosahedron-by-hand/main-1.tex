@@ -1,0 +1,188 @@
+% !TEX TS-program = lualatex
+
+%%%
+% src::
+%   urls = https://tex.stackexchange.com/a/750435/6880 ,
+%          https://fr.wikipedia.org/wiki/Icosaèdre ,
+%          https://github.com/pfradin/luadraw/discussions/63#discussioncomment-14274453
+%%%
+
+\documentclass[border = 3pt]{standalone}
+
+%%%
+% Des couleurs '"maison" pour un meilleur design.
+%%%
+\usepackage{xcolor}
+
+\colorlet{myteal}{teal!50}
+\colorlet{mymagenta}{magenta!50}
+\colorlet{mylime}{lime!50}
+
+%%%
+% La bibliothèque \luadraw allie une facilité d’utilisation
+% à un rendu particulièrement soigné.
+%%%
+\usepackage[3d]{luadraw}
+
+\begin{document}
+
+\begin{luadraw*}{name = icosahedron-by-hand-1}
+local ld = luadraw
+
+local Origin = ld.pt3d.Origin
+local M      = ld.pt3d.M
+
+local vecI = ld.pt3d.vecI
+local vecJ = ld.pt3d.vecJ
+local vecK = ld.pt3d.vecK
+
+------
+-- ¨Def de la zone graphique.
+------
+local graphview = ld.graph3d:new{
+  viewdir  = {5, 108},
+  size     = {14, 14},
+  bbox     = false
+}
+
+------
+-- Calcul des sommets.
+------
+local phi = (1 + math.sqrt(5)) / 2
+
+local A1 = M( phi, -1, 0)
+local B1 = M( phi,  1, 0)
+local C1 = M(-phi,  1, 0)
+local D1 = M(-phi, -1, 0)
+
+local A2 = M(0,  phi,  1)
+local B2 = M(0,  phi, -1)
+local C2 = M(0, -phi, -1)
+local D2 = M(0, -phi,  1)
+
+local A3 = M( 1, 0,  phi)
+local B3 = M(-1, 0,  phi)
+local C3 = M(-1, 0, -phi)
+local D3 = M( 1, 0, -phi)
+
+local all_pts = {
+  A1, B1, C1, D1,
+  A2, B2, C2, D2,
+  A3, B3, C3, D3
+}
+
+------
+-- Lors du développement, décommenter les lignes suivantes permet
+-- d'ajouter des étiquettes aux points pour définir correctement
+-- les faces.
+--
+--
+--  warning::
+--      L'ordre doit être celui de la création des points.
+------
+-- local labels = {}
+-- for k, X in ipairs(all_pts) do
+--   ld.insert(labels, {"$M_{".. k .."}$", X, {pos = "S", dist = 0.1}})
+-- end
+-- graphview:Dlabel3d(table.unpack(labels))
+
+------
+-- Construction de l'icosaèdre en trois parties.
+--
+--
+-- tip::
+--     Plus bas est donnée une méthode pour ajouter facilement
+--     des étiquettes aux sommets, afin de savoir comment définir
+--     les différentes faces.
+------
+local ico_up_facets = {
+  {A1, B1, A3},
+  {B3, A3, A2},
+  {A3, B3, D2},
+  {B1, A2, A3},
+  {A1, A3, D2}
+}
+
+local ico_middle_facets = {
+  {B1, A1, D3},
+  {C1, D1, B3},
+  {B2, A2, B1},
+  {A2, B2, C1},
+  {D2, C2, A1},
+  {C2, D2, D1},
+  {A2, C1, B3},
+  {D1, D2, B3},
+  {B2, B1, D3},
+  {A1, C2, D3}
+}
+
+local ico_down_facets = {
+  {C2, D1, C3},
+  {D3, C3, B2},
+  {C3, D3, C2},
+  {B2, C3, C1},
+  {D1, C1, C3}
+}
+
+------
+-- Pour le tracé des arêtes, nous avons besoin de toutes les faces.
+------
+local ico_all_facets = ld.facet2poly(
+  ld.concat(
+    ico_up_facets,
+    ico_middle_facets,
+    ico_down_facets
+  )
+)
+
+------
+-- Réglage lié aux lignes.
+------
+ld.Hiddenlinestyle = "dashed"
+
+------
+-- Tracé des faces, puis des arêtes.
+------
+graphview:Dscene3d(
+-- Faces colorées (un choix de design).
+  graphview:addFacet(
+    ico_up_facets,
+    {color = "myteal"}
+  ),
+  graphview:addFacet(
+    ico_middle_facets,
+    {color = "mymagenta"}
+  ),
+  graphview:addFacet(
+    ico_down_facets,
+    {color = "mylime"}
+  ),
+-- Arêtes cachées tracées en pointillés (un choix de design).
+  graphview:addPolyline(
+    ld.facetedges(ico_all_facets),
+    {
+      width  = 12,
+      hidden = true
+    }
+  )
+)
+
+------
+-- Nous affichons tous les sommets toujours de façon "non caché"
+-- (un choix de design).
+--
+--
+-- note::
+--     Pour le moment, l'unique façon de ne pas tracer les sommets
+--     cachés est d'effectuer le tracé des points avant celui des
+--     faces.
+------
+graphview:Dballdots3d(all_pts, black, 1.2)
+
+------
+-- Montrons le résultat de notre oeuvre.
+------
+graphview:Show()
+\end{luadraw*}
+
+\end{document}
