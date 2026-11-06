@@ -1,7 +1,0 @@
-=============================================
-\Transfo d'une matrice via un un \ope à noyau
-=============================================
-
-content::
-    ./by-hand/\desc
-    ./auto/\desc

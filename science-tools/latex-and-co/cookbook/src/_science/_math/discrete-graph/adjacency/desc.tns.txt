@@ -1,6 +1,0 @@
-================
-\Mats d'ajacence
-================
-
-content::
-    ./pedagogical-table/\desc

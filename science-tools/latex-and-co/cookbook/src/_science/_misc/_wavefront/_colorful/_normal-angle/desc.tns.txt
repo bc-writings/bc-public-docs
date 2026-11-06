@@ -1,9 +1,0 @@
-this::
-    date = 2025-10-21
-
-
-======================================
-Colora^o suivant la normale d'une face
-======================================
-
-Dans cet exemple, nous enrichissons ''graphview'' de \luadraw avec une méthode chargée de calculer la \coul attendue.

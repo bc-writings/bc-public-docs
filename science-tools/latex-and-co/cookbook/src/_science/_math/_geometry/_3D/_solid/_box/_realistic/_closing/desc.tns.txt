@@ -1,7 +1,0 @@
-=========================
-Une boîte qui se ferme...
-=========================
-
-content::
-    ./one-step/\desc
-    ./step-by-step/\desc

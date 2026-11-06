@@ -1,6 +1,0 @@
-=========
-Automates
-=========
-
-content::
-    ./basic/\desc

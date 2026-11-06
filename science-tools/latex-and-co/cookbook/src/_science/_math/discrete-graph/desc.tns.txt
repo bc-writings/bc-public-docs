@@ -1,6 +1,0 @@
-================
-Graphes discrets
-================
-
-content::
-    ./adjacency/\desc

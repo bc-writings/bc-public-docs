@@ -1,7 +1,0 @@
-=========================
-Sections planes d'un cône
-=========================
-
-content::
-    ./no-plane/\desc
-    ./plane/\desc

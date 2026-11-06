@@ -1,6 +1,0 @@
-==================
-\Calc différentiel
-==================
-
-content::
-    ./vector-field/\desc

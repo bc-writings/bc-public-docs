@@ -1,7 +1,0 @@
-========================
-Des courbes dans le plan
-========================
-
-content::
-    ./explicit/\desc
-    ./implicit/\desc

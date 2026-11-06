@@ -1,7 +1,0 @@
-=====================
-Maillage pour un cône
-=====================
-
-content::
-    ./draft/\desc
-    ./facto/\desc

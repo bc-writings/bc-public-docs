@@ -1,7 +1,0 @@
-=======================
-Version "grande taille"
-=======================
-
-content::
-    ./factory/\desc
-    ./handmade/\desc

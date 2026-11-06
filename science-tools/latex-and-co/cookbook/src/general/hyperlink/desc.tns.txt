@@ -1,7 +1,0 @@
-===================
-Avec des hyperliens
-===================
-
-content::
-    ./qrcode/\desc
-    ./tcolorbox/\desc

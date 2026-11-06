@@ -1,6 +1,0 @@
-================
-Suites et séries
-================
-
-content::
-    ./gauss-sum-trick/\desc

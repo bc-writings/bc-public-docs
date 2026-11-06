@@ -1,1 +1,0 @@
-mathget = math + gadget   BOF mais c'est l'idée

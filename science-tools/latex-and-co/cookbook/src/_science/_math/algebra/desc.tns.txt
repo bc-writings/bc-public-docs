@@ -1,6 +1,0 @@
-=======
-Algèbre
-=======
-
-content::
-    ./matrix/\desc

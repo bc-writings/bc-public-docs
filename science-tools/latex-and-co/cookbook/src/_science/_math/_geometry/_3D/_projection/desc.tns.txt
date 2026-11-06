@@ -1,6 +1,0 @@
-==================
-Projeter des \objs
-==================
-
-content::
-    ./shadow/\desc

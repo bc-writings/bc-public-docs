@@ -1,7 +1,0 @@
-=====================
-Des boîtes "ouvertes"
-=====================
-
-content::
-    ./no-top/\desc
-    ./top-opened/\desc

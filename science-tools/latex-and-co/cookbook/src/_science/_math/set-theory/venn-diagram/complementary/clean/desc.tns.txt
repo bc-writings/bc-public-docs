@@ -1,9 +1,0 @@
-this::
-    date = 2025-09-28
-
-
-========================
-Une construction soignée
-========================
-
-Fini le bricolage ici ! Nous construisons deux courbes distinctes qui, réunies, délimitent précisément la région correspondant au complémentaire de l’\ens. Le remplissage se fait alors via la règle "pair impair" prise en charge par \tikz.

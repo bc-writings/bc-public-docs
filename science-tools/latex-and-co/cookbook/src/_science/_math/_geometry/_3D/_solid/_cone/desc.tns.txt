@@ -1,8 +1,0 @@
-==============================
-Des cônes à prendre au sérieux
-==============================
-
-content::
-    ./mesh/\desc
-    ./plane-section/\desc
-    .2-cones-inter/\desc

@@ -1,6 +1,0 @@
-==========================
-Via une équation implicite
-==========================
-
-content::
-    ./tangent-lines/\desc

@@ -1,9 +1,0 @@
-this::
-    date = 2026-02-20
-
-
-=========================
-Le "hack" du cercle épais
-=========================
-
-Nous allons appliquer la méthode lua::''Dshadedpolyline'' de \luadraw sur un cercle très épais. Cela permet d'obtenir une transition de couleurs circulaire de manière détournée.

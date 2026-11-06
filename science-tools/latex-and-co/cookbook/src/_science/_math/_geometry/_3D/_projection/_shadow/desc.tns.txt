@@ -1,7 +1,0 @@
-=================
-Ombre d'un solide
-=================
-
-content::
-    ./cube/\desc
-    ./sphere/\desc

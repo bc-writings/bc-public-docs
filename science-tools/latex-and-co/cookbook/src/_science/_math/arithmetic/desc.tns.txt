@@ -1,6 +1,0 @@
-============
-Arithmétique
-============
-
-content::
-    ./modulo-brackets/\desc

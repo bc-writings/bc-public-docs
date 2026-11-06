@@ -1,7 +1,0 @@
-====================
-Des boîtes réalistes
-====================
-
-content::
-    ./closing/\desc
-    ./glueable-box/\desc

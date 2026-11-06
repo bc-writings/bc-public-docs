@@ -1,9 +1,0 @@
-this::
-    date = 2025-08-24
-
-
-================================
-En calculant les faces latérales
-================================
-
-Ici, nous montrons comment calculer nous-même les faces latérales.

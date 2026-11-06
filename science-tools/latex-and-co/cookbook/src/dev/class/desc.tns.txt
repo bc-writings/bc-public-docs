@@ -1,6 +1,0 @@
-=======================
-Pour les classes \latex
-=======================
-
-content::
-    ./options/\desc

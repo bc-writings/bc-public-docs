@@ -1,6 +1,0 @@
-======================
-De nouvelles fonctions
-======================
-
-content::
-    ./text-vs-math/\desc

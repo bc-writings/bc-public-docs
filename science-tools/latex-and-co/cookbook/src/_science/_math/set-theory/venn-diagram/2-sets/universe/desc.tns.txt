@@ -1,9 +1,0 @@
-this::
-    date = 2026-09-20
-
-
-==========================
-Deux \enss dans un univers
-==========================
-
-Ici, nous ajoutons juste l'univers.

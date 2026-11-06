@@ -1,9 +1,0 @@
-this::
-    date = 2026-10-24
-
-
-=================================
-Sans calculer les faces latérales
-=================================
-
-Nous voyons ici comment déléguer à \luadraw le calcul des faces latérales.

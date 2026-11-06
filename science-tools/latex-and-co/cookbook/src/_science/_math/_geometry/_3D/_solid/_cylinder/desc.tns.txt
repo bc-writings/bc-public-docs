@@ -1,7 +1,0 @@
-===========================
-Des cylindres non hydriques
-===========================
-
-content::
-    ./opened-half-cylinder/\desc
-    ./gather-2-two-quarter-cylinders/\desc

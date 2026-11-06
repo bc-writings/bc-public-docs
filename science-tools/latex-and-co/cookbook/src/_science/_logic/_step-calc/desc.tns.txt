@@ -1,6 +1,0 @@
-=====================
-Détailler des calculs
-=====================
-
-content::
-    ./multicol-or-calc/\desc

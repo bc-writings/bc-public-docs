@@ -1,6 +1,0 @@
-=====
-\Mats
-=====
-
-content::
-    ./vertical-dash-line/\desc
