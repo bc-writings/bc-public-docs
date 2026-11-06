@@ -1,0 +1,7 @@
+==========================
+Via une équation explicite
+==========================
+
+content::
+    ./undefined-on-interval/\desc
+    ./curvilinear-abscissa\/desc

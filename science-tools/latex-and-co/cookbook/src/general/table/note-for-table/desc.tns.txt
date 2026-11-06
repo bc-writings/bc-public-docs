@@ -1,0 +1,9 @@
+this::
+    date = 2026-06-14
+
+
+==================
+Annoter un tableau
+==================
+
+Nous allons voir comment ajouter des notes de pied de \tabl relatives au \tab lui-même, ou bien à l'une de ses cellules.

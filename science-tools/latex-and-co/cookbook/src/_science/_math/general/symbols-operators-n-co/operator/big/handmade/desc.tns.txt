@@ -1,0 +1,14 @@
+this::
+    date = 2024-11-12
+
+
+====================================================
+Définir un opérateur maison de type "somme discrète"
+====================================================
+
+Nous souhaitons définir un opérateur de grande taille de type `\sum` en remplaçant le symbole `\Sigma` par un caractère de notre choix.
+
+
+content::
+    ./draft/\desc
+    ./final/\desc

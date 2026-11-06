@@ -1,0 +1,30 @@
+this::
+    date = 2025-11-16
+
+
+=========================
+Avec des plans de \coords
+=========================
+
+Cette figure nécessite une petite explication mathématique concernant le calcul du cercle de tangence utilisé pour définir le faisceau lumineux.
+Commençons par observer que le faisceau lumineux forme un cône de révolution dont l'axe est la droite `(LC)`, où `L` désigne la source lumineuse et `C` le centre de la sphère.
+Cette observation permet de ramener le problème au tracé d'une tangente à un cercle passant par un point extérieur à ce cercle.
+Introduisons les notations suivantes où `J` est le point à construire.
+
+pdf::
+    ---
+    title = Notre objectif
+    file  = ./xtra-initial.pdf
+    ---
+
+
+Voici ce que l'on peut déduire du dessin précédent.
+
+pdf::
+    ---
+    title = Notre objectif
+    file  = ./xtra-analysis.pdf
+    ---
+
+
+`J` est bien entendu sur le cercle circonscrit au triangle `CMJ`. Or ce triangle est rectangle en `J`, donc le cercle circonscrit est de diamètre `[CM]`. Voilà, le tour est joué : il suffit de tracer le cercle de diamètre `[CM]`, puis de considérer l'une des intersections de ce cercle avec le cercle initialement donné.

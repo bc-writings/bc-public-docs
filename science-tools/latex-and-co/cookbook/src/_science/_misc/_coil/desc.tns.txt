@@ -1,0 +1,7 @@
+=====================
+Une bobine électrique
+=====================
+
+content::
+    ./3D-version/\desc
+    ./2D-version/\desc

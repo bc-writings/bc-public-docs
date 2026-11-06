@@ -1,0 +1,138 @@
+%%%
+% src::
+%     url = https://tex.stackexchange.com/a/730684/6880
+%%%
+
+%%%
+% Le package ''amsmath'' nous fournit la macro ''\mathpalette''
+% qui attend deux \args ; elle est définie comme suit.
+%
+% latex::
+%     \mathchoice{#1\displaystyle {#2}}     %
+%                {#1\textstyle {#2}}        %
+%                {#1\scriptstyle {#2}}      % Exposant ou indice.
+%                {#1\scriptscriptstyle {#2}}% "Surexposant" et
+%                                           % "surindice".
+%%%
+\usepackage{amsmath}
+
+%%%
+% Le package ''graphicx'' nous fournit la macro ''\resizebox''
+% qui attend trois \args pour redimensionner du matériel de type
+% texte.
+%%%
+\usepackage{graphicx}
+
+%%%
+% prototype::
+%     #1 : un \coef de mise à l'échelle en mode ''\displaystyle''
+%     #2 : le matériel correspondant au "gros" opérateur
+%
+%
+% note::
+%     Nous devons passer via une macro cachée ''\bigop@'' puisque
+%     ''\mathpalette'' attend une macro à deux \args : le style
+%     \math en cours, et le matériel \math.
+%
+%
+% caution::
+%     Bien remarquer l'usage de ''{#1}{#2}'' dont nous allons
+%     reparler juste après.
+%%%
+\NewDocumentCommand{ \bigop }{ O{1} m }{%
+  \DOTSB% Cette macro est un alias de \relax.
+  \mathop{%
+    \vphantom{\sum}%
+    \mathpalette\bigop@{{#1}{#2}}%
+  }%
+  \slimits@
+}
+
+%%%
+% prototype::
+%     #1 : le style \math fourni par ''\mathpalette''
+%     #2 : un contenu du type ''{<bigop-#1>}{<bigop-#2>}'' où
+%          ''<bigop-#1>'' et ''<bigop-#2>'' sont les deux \args
+%          fournis à la macro publique ''\bigop''.
+%
+%
+% note::
+%     Comme la macro ''\bigop@@'', définie plus bas, attend trois
+%     \args, elle repérera ''{<style>}{<bigop-#1>}{<bigop-#2>}''.
+%%%
+\NewDocumentCommand{ \bigop@ }{ m m }{\bigop@@#1#2}
+
+%%%
+% prototype::
+%     #1 : le style \math fourni par ''\mathpalette''
+%     #2 : un \coef de mise à l'échelle en mode ''\displaystyle''
+%     #3 : le matériel correspondant au "gros" opérateur
+%
+%
+% Expliquons les parties \tex-niques du code qui suit.
+%
+%     * ''\sbox\z@{$#1\sum$}'' crée une boîte nommée ''\z@'' de
+%     contenu ''$#1\sum$''.\tex nous fournira sa hauteur et sa
+%     profondeur via ''\ht\z@'' et ''\dp\z@''.
+%
+%     * Dans le fichier path::''latex.ltx'', on trouve le code
+%     \tex ''\def\m@th{\mathsurround\z@}'' qui correspond à
+%     ''\mathsurround=0pt''. Ceci indique de n'ajouter aucun
+%     espacement autour du matériel \math (tester, par exemple,
+%     ''A$\mathsurround=10pt c+y$B'' versus ''A$c+y$B'').
+%%%
+\NewDocumentCommand{ \bigop@@ }{ m m m }{%
+  \vcenter{%
+    \sbox\z@{$#1\sum$}%
+    \hbox{%
+      \resizebox{% Largeur souhaitée.
+        \ifx#1\displaystyle#2\fi%
+        \dimexpr\ht\z@+\dp\z@%
+      }{%
+        !% Pour respecter les rapports des \dims lors de la mise
+         % à l'échelle.
+      }{%
+        $\m@th#3$%
+      }}%
+  }%
+}
+
+%%%
+% On définir un symbole "cercle moyen" sans espacements inutiles,
+% et qui s'adapte au style \math en cours.
+% Pour ce faire, on s'appuie sur ''\mathpalette''. Ceci demande
+% de coder une marco cachée ''\lcirc@'' qui doit manger deux \args
+% (voir avant pourquoi). Comme ici, on veut juste récupérer le
+% style \math en cours, ''\mathpalette\lcirc@'' est suivie de
+% ''\relax'' qui sera mangé par ''\lcirc@''.
+%%%
+\newcommand{\lcirc}{%
+  \mathpalette\lcirc@\relax%
+}
+
+%%%
+% prototype::
+%     #1 : le style \math fourni par ''\mathpalette''
+%     #2 : un \arg fantôme non utilisé, mais qui nous est imposé
+%          par ''\mathpalette''
+%
+%
+% note::
+%     Dans le code suivant, la macro ''\height'' fait \ref à la
+%     hauteur du contenu ''$\m@th#1\circ$'' avant tout traitement
+%     effectué par ''\raisebox''.
+%%%
+\NewDocumentCommand{ \lcirc@ }{ m m }{%
+  \raisebox{-0.1\height}   % Le déplacement vertical souhaité.
+           [0.9\height]    % La hauteur que devra utiliser \latex.
+           [0pt]           % La \prof que devra utiliser \latex.
+           {$\m@th#1\circ$}%
+}
+
+
+%%%
+% Il ne reste plus qu'à communiquer avec notre marco "orchestre"
+% ''\bigop'' en usant nos \args personnels.
+%%%
+\newcommand{\bigast}  {\bigop{*}}
+\newcommand{\bigcompo}{\bigop[1.1]{\lcirc}}

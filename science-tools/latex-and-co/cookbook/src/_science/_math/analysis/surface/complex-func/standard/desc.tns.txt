@@ -1,0 +1,13 @@
+this::
+    date = 2026-10-24
+
+
+===============
+La version \std
+===============
+
+Commençons par une version qui colorie les facettes de la \surf en \fonc de l'\arg principal de `gamma(z)` pour les complexes `z` correspondant aux \barys des facettes.
+
+
+warning::
+    Le calcul de `gamma(z)` étant très coûteux, le résultat final met environ quarante secondes à être produit.

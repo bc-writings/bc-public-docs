@@ -1,0 +1,75 @@
+Nous allons donner deux autres méthodes de résolution
+\footnote{
+	Ces méthodes sont présentes dans le livre \emph{\og Histoires de mathématiques et de populations \fg} de Nicolas Bacaër. 
+}
+du système \textbf{[EDV]} suivant où les fonctions $S$ et $P$ sont dérivables sur $\RRp$ et ne s'annulent jamais.
+
+\medskip
+
+\textbf{[EDV]} :
+$\begin{cases}
+	S\,'(t) = - q_I S(t) - m(t) S(t)     \\
+	P\,'(t) = - q_V q_I S(t) - m(t) P(t)
+\end{cases}$
+
+% ---------- %
+
+
+\paragraph{Méthode de Daniel Bernoulli.} Le médecin suisse raisonne comme suit.
+
+\medskip
+
+$\begin{cases}
+	- m(t) = \dfrac{S\,'(t) + q_I S(t)}{S(t)}     \\
+	- m(t) = \dfrac{P\,'(t) + q_V q_I S(t)}{P(t)}
+\end{cases}$
+
+\medskip
+
+$\left( \, S\,'(t) + q_I S(t) \, \right) P(t) = \left( \, P\,'(t) + q_V q_I S(t) \, \right) S(t)$
+
+\bigskip
+
+$S\,'(t) P(t) - P\,'(t) S(t) = - q_I S(t) P(t) + q_V q_I S^2(t)$
+
+\medskip
+
+$R\,'(t) = - q_I R(t) + q_V q_I R^2(t)$ en notant $R(t) = \dfrac{S(t)}{P(t)}$
+
+\medskip
+
+\dots \emph{etc}.
+
+
+
+% ---------- %
+
+
+\paragraph{Méthode via la dérivation logarithmique.} Supposons la fonction $m$ intégrable sur $\RRp$
+\footnote{
+	L'ensemble des fonctions intégrables sur $\RRp$ ne se limite pas à celui des fonctions continues. On y trouve des fonctions plus ou moins complexes suivant le type de calcul intégral que l'on s'autorise. Le lecteur intéressé par le sujet pourra se reporter à l'excellent livre \emph{\og Intégration, de Riemann à Kurzweil et Henstock - La construction progressive des théories modernes de l'intégrale \fg} de Laurent Moonens chez ellipses. 
+}.
+Les solutions de $S\,'(t) = - q_I S(t) - m(t) S(t)$ sont du type $\displaystyle S(t) = c_1 \, \exp \left( \, - q_I t - \int_0^t m(x) \dd{x} \, \right)$ où $c_1 \in \RR$ est une constante \emph{(ceci se démontre via la dérivée logarithmique de $S$ sans aucune connaissance préalable sur les équations différentielles linaires)}. Concrètement, nous savons que $c_1 > 0$ .
+
+\medskip
+
+De même, les solutions de $P\,'(t) = - m(t) P(t)$ sont de la forme $\displaystyle P(t) = c_2 \, \exp \left( \, - \int_0^t m(x) \dd{x} \, \right)$ où $c_2 \in \RR$ est une constante, tandis que $P\,'(t) = - q_V q_I S(t) - m(t) P(t)$ admet la solution particulière $P(t) = q_V S(t)$ .
+Dès lors, les solutions de $P\,'(t) = - q_V q_I S(t) - m(t) P(t)$ sont du type
+$\displaystyle P(t) = c_2 \, \exp \left( \, - \int_0^t m(x) \dd{x} \, \right) + q_V S(t)$ .
+Comme $\displaystyle \exp \left( \, - \int_0^t m(x) \dd{x} \, \right) = \dfrac{1}{c_1} \, \ee^{q_I t} \, S(t)$ nous obtenons :
+
+\medskip
+
+$P(t) = \dfrac{c_2}{c_1} \, \ee^{q_I t} \, S(t) + q_V S(t)$
+
+\medskip
+
+$\dfrac{P(t)}{S(t)} = k \, \ee^{q_I t} + q_V$ avec $k = \dfrac{c_2}{c_1}$ une constante réelle
+
+\medskip
+
+$R(t) = \dfrac{S(t)}{P(t)} = \dfrac{1}{q_V + k \, \ee^{q_I t}}$
+
+\medskip
+
+\dots \emph{etc}.

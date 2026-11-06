@@ -1,0 +1,16 @@
+this::
+    date = 2025-10-21
+
+
+======================================
+De la couleur, en veux-tu ? En voilà !
+======================================
+
+Nous présentons ici des exemples colorés qui montrent que la prise en charge d’une version simplifiée du format \wavefront permet d’effectuer facilement des traitements intéressants sur des objets \3d. Voici quelques illustrations.
+
+
+content::
+    ./nb-edge/\desc
+    ./bary/\desc
+    ./rand/\desc
+    ./normal-angle/\desc

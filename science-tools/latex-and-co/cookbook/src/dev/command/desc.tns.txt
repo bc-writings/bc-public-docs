@@ -1,0 +1,8 @@
+==============
+Pour les \cmds
+==============
+
+content::
+    ./special-name/\desc
+    ./factory/\desc
+    ./deco-and-expo/\desc

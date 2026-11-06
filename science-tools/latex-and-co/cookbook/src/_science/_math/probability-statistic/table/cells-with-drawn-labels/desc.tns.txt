@@ -1,0 +1,9 @@
+this::
+    date = 2026-06-19
+
+
+====================
+Référencer les cases
+====================
+
+Pour améliorer la clarté des explications, il faut parfois indiquer l'ordre de complétion d'un \tab ou étiqueter des cellules spécifiques. Le \pack ''nicematrix'' permet de gérer cela efficacement côté \redac.

@@ -1,0 +1,216 @@
+%%%
+% src::
+%     url    = https://tex.stackexchange.com/a/745985/6880
+%     author = egreg
+%%%
+
+%%%
+% Le \pack ''mleftright'' fournit les commandes ''\mleft'' et ''\mright''
+% pour obtenir des délimiteurs extensibles avec de bons espacements (en
+% coulisse, les macros ''\mathopen'' et ''\mathclose'' sont utilisées).
+%%%
+\usepackage{mleftright}
+
+\ExplSyntaxOn
+
+%%%
+% prototype::
+%     #1 : une liste de \params de réglage de l'intervalle.
+%     #2 : les bornes ''a'' et ''b'' de l'intervalle séparées par une
+%          virgule avec la possibilité d'utiliser ''oo'', ''-oo'' et
+%          ''+oo'' comme raccourcis de ''\infty'',  ''-\infty'' et
+%          ''+\infty'' respectivement.
+%
+%     :return: l'intervalle mis en forme avec les réglages souhaités.
+%
+%     :see: keys(cookbook/interval)
+%
+% info::
+%     La \seq de code ''>{\SplitArgument{1}{,}}m'' indique que l'\arg
+%     obligatoire doit être constitué d'une liste de deux \seqs de
+%     tokens séparées par une virgule. Si c'est le cas, la liste est
+%     éclatée en deux tokens, les espaces encadrants étant supprimés:
+%     par exemple, ''a^{5} , b_2'' devient ''{a^{5}}{b_2}''. Ceci
+%     justifie l'usage de ''\cookbook_interval:nnn'' qui attend trois
+%     \args, mais aussi l'emploi de ''#2'', et non de ''{#2}''.
+%%%
+\NewDocumentCommand{ \interval }{
+  O{}
+  >{\SplitArgument{1}{,}}m
+}{
+  \cookbook_interval:nnn {#1} #2
+}
+
+%%%
+% prototype::
+%     #1 : une liste de \params de réglage des intervalles.
+%
+%     :action: \modif des réglages globaux comme souhaité.
+%
+%     :see: keys(cookbook/interval)
+%%%
+\NewDocumentCommand{ \intervalsetup }{ m }{
+  \keys_set:nn { cookbook/interval } {#1}
+}
+
+%%%
+% Quelques variables utiles.
+%%%
+\bool_new:N \l__cookbook_interval_auto_bool
+
+\tl_new:N   \l__cookbook_interval_left_delims_tl
+\tl_new:N   \l__cookbook_interval_right_delims_tl
+
+\tl_new:N   \l__cookbook_interval_single_left_del_tl
+\tl_new:N   \l__cookbook_interval_single_right_del_tl
+
+\tl_new:N   \l__cookbook_interval_sep_tl
+
+%%%
+% prototype::
+%     standard : utilisation de parenthèses pour les bornes excluses,
+%                et de crochets pour les bornes incluses.
+%     french   : utilisation de crochets partout.
+%
+%     auto : les parenthèses/crochets sont extensibles.
+%     big  : les parenthèses/crochets ont une taille de type ''\big''.
+%     Big  : fonctionnement similaire à big.
+%     bigg : fonctionnement similaire à big.
+%     Bigg : fonctionnement similaire à big.
+%     Big  : fonctionnement similaire à big.
+%     Big  : fonctionnement similaire à big.
+%     Big  : fonctionnement similaire à big.
+%
+%     c  : intervalle fermé.
+%     o  : intervalle ouvert.
+%     co : intervalle fermé à droite, et ouvert à gauche.
+%     oc : intervalle ouvert à droite, et fermé à gauche.
+%
+%     sep : ce qui sépare les bornes de l'intervalle.
+%%%
+\keys_define:nn { cookbook/interval } {
+  standard .code:n = \__cookbook_interval_set_standard: ,
+  french   .code:n = \__cookbook_interval_set_french: ,
+
+  auto .code:n = \bool_set_true:N \l__cookbook_interval_auto_bool ,
+  big  .code:n = \tl_set:Nn \l__cookbook_interval_size_tl {\big} ,
+  Big  .code:n = \tl_set:Nn \l__cookbook_interval_size_tl {\Big} ,
+  bigg .code:n = \tl_set:Nn \l__cookbook_interval_size_tl {\bigg} ,
+  Bigg .code:n = \tl_set:Nn \l__cookbook_interval_size_tl {\Bigg} ,
+
+  c  .code:n = \__cookbook_interval:nn {2} {2},
+  o  .code:n = \__cookbook_interval:nn {1} {1},
+  co .code:n = \__cookbook_interval:nn {2} {1},
+  oc .code:n = \__cookbook_interval:nn {1} {2},
+
+  sep .code:n = \tl_set:Ne \l__cookbook_interval_sep_tl {
+    \str_case:nn {#1} {
+      { , } { {,} }
+      { ; } { {;} }
+      { .. }{ .\mkern1mu. }
+    }
+  } ,
+}
+
+%%%
+% prototype::
+%     :action: réglage \std des \delims de l'intervalle et du \sep.
+%%%
+\cs_new_protected:Nn \__cookbook_interval_set_standard: {
+  \tl_set:Nn \l__cookbook_interval_sep_tl { {,} }
+
+  \tl_set:Nn \l__cookbook_interval_left_delims_tl  { ([ }
+  \tl_set:Nn \l__cookbook_interval_right_delims_tl { )] }
+}
+
+%%%
+% Initialisation avec le réglage \std.
+%%%
+\__cookbook_interval_set_standard:
+
+%%%
+% prototype::
+%     :action: réglage français des délimiteurs de l'intervalle et du
+%              séparateur.
+%%%
+\cs_new_protected:Nn \__cookbook_interval_set_french: {
+  \tl_set:Nn \l__cookbook_interval_sep_tl { {;} }
+
+  \tl_set:Nn \l__cookbook_interval_left_delims_tl  { ][ }
+  \tl_set:Nn \l__cookbook_interval_right_delims_tl { [] }
+}
+
+%%%
+% prototype::
+%     #1 : indice permettant le choix du \delim gauche dans la \var
+%          ''\l__cookbook_interval_right_delims_tl''.
+%     #2 : indice permettant le choix du \delim droit dans la \var
+%          ''\l__cookbook_interval_left_delims_tl''.
+%
+%     :action: les bons \delims sont stockés dans les \vars
+%              ''\l__cookbook_interval_single_left_del_tl'' et
+%              ''\l__cookbook_interval_single_right_del_tl''.
+%%%
+\cs_new_protected:Nn \__cookbook_interval:nn {
+  \tl_set:Ne
+    \l__cookbook_interval_single_left_del_tl
+    { \tl_item:Nn \l__cookbook_interval_left_delims_tl {#1} }
+
+  \tl_set:Ne
+    \l__cookbook_interval_single_right_del_tl
+    { \tl_item:Nn \l__cookbook_interval_right_delims_tl {#2} }
+}
+
+%%%
+% prototype::
+%     #1 : options de \mef.
+%     #2 : borne inférieure de l'intervalle.
+%     #3 : borne supérieure de l'intervalle.
+%
+%     :return: l'intervalle mis en forme avec les réglages souhaités.
+%%%
+\cs_new_protected:Nn \cookbook_interval:nnn {
+  \group_begin:
+    \bool_set_false:N \l__cookbook_interval_auto_bool
+    \tl_set:Nn        \l__cookbook_interval_size_tl {}
+
+    \keys_set:nn
+      { cookbook/interval }
+      { o , #1 }
+
+    \bool_if:NTF \l__cookbook_interval_auto_bool {
+      \mleft\l__cookbook_interval_single_left_del_tl
+    }{
+      \mathopen{ \l__cookbook_interval_size_tl \l__cookbook_interval_single_left_del_tl }
+    }
+
+    \cookbook_interval_alias:n {#2}
+
+    \mkern2mu \l__cookbook_interval_sep_tl \mkern2mu
+
+    \cookbook_interval_alias:n {#3}
+
+    \bool_if:NTF \l__cookbook_interval_auto_bool {
+      \mright\l__cookbook_interval_single_right_del_tl
+    }{
+      \mathclose{ \l__cookbook_interval_size_tl \l__cookbook_interval_single_right_del_tl }
+    }
+  \group_end:
+}
+
+%%%
+% prototype::
+%     #1 : une borne pouvant être un alias
+%
+%     :return: soit la version longue d'un alias, soit l'\arg lui-même
+%              s'il ne correspond à aucun alias.
+%%%
+\cs_new_protected:Nn \cookbook_interval_alias:n {
+  \str_case:nnF {#1} {
+    { oo  }{ \infty    }
+    { -oo }{ {-\infty} }
+    { +oo }{ {+\infty} }
+  } { #1 }
+}
+
+\ExplSyntaxOff

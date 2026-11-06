@@ -1,0 +1,30 @@
+this::
+    date = 2025-09-15
+
+
+=================
+Via une coroutine
+=================
+
+Une coroutine est une \fonc spéciale qui peut suspendre son exécution, puis la reprendre plus tard exactement où elle s’était arrêtée. Voici un exemple éclairant.
+
+
+lua::
+    ---
+    file   = ./what-is-a-coroutine.lua
+    output = yes
+    ---
+
+
+Voici ce qu'il faut retenir sur les coroutines \lua.
+
+    1) La création se fait via ''coroutine.create(...)'' qui attend une fonction.
+
+    1) Le point d'arrêt s'indique via ''coroutine.yield()'' qui renvoie rien ici, mais ce n'est pas une obligation. Plusieurs ''coroutine.yield()'' peuvent être utilisés si la logique du code le nécessite.
+
+    1) L'activation d'une coroutine jusqu'à un point d'arrêt se fait via ''coroutine.resume(...)'' qui attend comme \var une coroutine.
+
+    1) Lorsqu'une coroutine a fini son travail, l'apppel via ''coroutine.resume(...)'' ne lève aucune erreur.
+
+
+L'emploi d'une coroutine rend très naturelle la conception de générateurs via ''coroutine.wrap(...)'' au lieu de ''coroutine.create(...)'' afin d'obtenir une coroutine directement utilisable par la boucle ''for''.

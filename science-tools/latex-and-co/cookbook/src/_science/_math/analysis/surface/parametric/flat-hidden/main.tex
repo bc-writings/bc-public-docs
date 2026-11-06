@@ -1,0 +1,72 @@
+% !TEX TS-program = lualatex
+
+%%%
+% src::
+%     url = https://tex.stackexchange.com/a/646514/6880
+%%%
+
+\documentclass[border = 3pt]{standalone}
+
+%%%
+% Des couleurs faciles d'emploi via le package \xcolor.
+%%%
+\usepackage[svgnames]{xcolor}
+
+%%%
+% La bibliothèque \luadraw allie une facilité d’utilisation
+% à un rendu particulièrement soigné.
+%%%
+\usepackage[3d]{luadraw}
+
+\begin{document}
+
+\begin{luadraw*}{name = param-surf-flat-no-edge}
+local ld = luadraw
+
+local M = ld.pt3d.M
+
+------
+-- Nos ingrédients de base.
+------
+local pi  = math.pi
+local sin = math.sin
+local cos = math.cos
+
+------
+-- ¨Def de la zone graphique.
+------
+local graphview = ld.graph3d:new{
+  viewdir = {170, 80},
+  bbox    = false
+}
+
+------
+-- ¨Def et tracé de notre ¨surf ¨param.
+------
+local facets = ld.surface(
+  function(u, v)
+    return M(
+      3*v*cos(2*u),
+      3*v*sin(2*u),
+      3*v*cos(u)
+    )
+  end,
+  0, 2*pi, 0, 1,  -- Pavé pour le paramétrage.
+  {150, 30}       -- "Grille" pour le tracé.
+)
+
+graphview:Dfacet(
+  facets,
+  {
+    mode  = ld.mShadedOnly,
+    color = "ForestGreen"
+  }
+)
+
+------
+-- Montrons le résultat de notre oeuvre.
+------
+graphview:Show()
+\end{luadraw*}
+
+\end{document}

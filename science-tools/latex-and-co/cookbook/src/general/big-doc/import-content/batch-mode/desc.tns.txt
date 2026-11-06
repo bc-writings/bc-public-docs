@@ -1,0 +1,14 @@
+this::
+    date = 2026-06-15
+
+
+===================
+Traitement par lots
+===================
+
+Lorsque l'on produit du contenu de façon semi-automatisée, il est facile de choisir des noms de fichiers numérotées séquentiellement.
+Dans ce cas, l'emploi du boucle ''for'' gérée par le rédacteur du \docu maître se justifie pleinement.
+
+
+note::
+    Dans le \docu maître, les \majs se limiteront à modifier la borne maximale de la boucle ''for''.

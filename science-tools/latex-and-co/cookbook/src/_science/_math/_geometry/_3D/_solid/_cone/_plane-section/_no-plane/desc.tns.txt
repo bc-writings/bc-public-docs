@@ -1,0 +1,9 @@
+this::
+    date = 2025-08-04
+
+
+==================================================
+Section hyperbolique sans montrer le plan de coupe
+==================================================
+
+Nous allons voir comment calculer l'intersection d'un plan avec un cône, puis ensuite obtenir un rendu concrétisant les calculs faits en coulisse.

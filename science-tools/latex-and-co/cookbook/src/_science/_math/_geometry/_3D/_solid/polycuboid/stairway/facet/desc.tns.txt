@@ -1,0 +1,17 @@
+this::
+    date = 2026-10-28
+
+
+=====================
+Un escalier des faces
+=====================
+
+Faisons maintenant comme au cinéma en fabriquant un escalier en carton-pâte uniquement constitué des faces visibles. Bien qu'économique en calculs, cette solution ne s'adapte pas automatiquement aux changements de point de vue de la scène 3D.
+
+
+important::
+    Les versions récentes de \luadraw proposent la méthode lua::''Classifyfacet'' qui évite la gestion manuelle des facettes visibles. Nous avons gardé cette recette car elle nous semble instructive.
+
+
+note::
+    Le \pdf obtenu pèse `4 \ko` de moins que le \pdf obtenu via des cubes.

@@ -1,0 +1,127 @@
+% !TEX TS-program = lualatex
+
+%%%
+% src::
+%     url = https://github.com/pfradin/luadraw/discussions/148#discussioncomment-14976053
+%%%
+
+\documentclass[border = 3pt]{standalone}
+
+%%%
+% Des couleurs faciles d'emploi via le package \xcolor.
+%%%
+\usepackage[svgnames]{xcolor}
+
+%%%
+% La bibliothèque \luadraw allie une facilité d’utilisation
+% à un rendu particulièrement soigné.
+%%%
+\usepackage[3d]{luadraw}
+
+\begin{document}
+
+\begin{luadraw*}{name = central-proj-of-sphere-box-coord}
+local ld = luadraw
+
+local M    = ld.pt3d.M
+local vecK = ld.pt3d.vecK
+
+------
+-- Nos ¨elts de base.
+------
+local r = 2             -- Rayon de la sphère,
+local C = M(-1, -1, 0)  -- ainsi que son centre.
+
+local z0    = -3
+local light = M(-5, -5, 5)
+
+local proj = function(A)
+  return ld.proj3dO(
+    A,
+    {z0*vecK, vecK},
+    A - light
+  )
+end
+
+------
+-- ¨Def de la zone graphique.
+------
+local graphview = ld.graph3d:new{
+  window3d = {-5, 8, -5, 8, -3, 5},
+  adjust2d = true,
+  bbox     = false,
+  viewdir  = {30, 60},
+  size     = {10, 10}
+}
+
+------
+-- Réglages liés aux lignes.
+------
+graphview:Linewidth(12)
+
+------
+-- Une sphère, un faisceau et une ombre.
+------
+local S = {C, r}
+
+------
+-- Cercle de tangence de la sphère et du faisceau de lumière.
+------
+local I = (light + C) / 2
+local R = ld.pt3d.abs(C - light) / 2
+
+local C_t, r_t, normal_t = ld.interSS(S, {I, R})
+
+local shadow = ld.ftransform3d(
+  ld.circle3d(C_t, r_t, normal_t)[1],  -- 1ière composante connexe.
+  proj
+)
+
+------
+-- Construction du faisceau comme conséquence de la source
+-- lumineuse et de l'ombre...
+------
+local beam = ld.pyramid(shadow, light, true)
+
+------
+-- Il ne reste plus qu'à dessiner.
+------
+graphview:Dboxaxes3d({
+  grid      = true,
+  gridcolor = "gray",
+  fillcolor = "lightgray!40"
+})
+
+graphview:Dballdots3d(light, "Yellow", 5)
+
+graphview:Dsphere(
+  C, r,
+  {
+    color = "Cyan",
+    mode  = ld.mBorder
+  }
+)
+
+graphview:Dpolyline3d(
+  shadow,
+  true,
+  "draw = none, fill = DarkGray, fill opacity = 0.9"
+)
+
+graphview:Dpoly(
+  beam,
+  {
+    color    = "yellow",
+    opacity  = 0.3,
+    contrast = 0.5,
+    mode     = ld.mShadedOnly
+  }
+)
+
+------
+-- Montrons le résultat de notre oeuvre.
+------
+graphview:Show()
+\end{luadraw*}
+
+\end{document}

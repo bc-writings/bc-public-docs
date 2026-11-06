@@ -1,0 +1,154 @@
+\subsection{Dictionnaires - Associer des clés à des valeurs}
+
+\subsubsection{Un dictionnaire Python, c'est quoi !}
+
+Un dictionnaire Python sert à associer une clé à une valeur. Voici un exemple d'utilisation.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+numero_tel = {"James Bond": '007', "M. Arignan": '13.14.09.1515'}
+
+print("numero_tel =", numero_tel)
+print("Type de numero_tel :", type(numero_tel))
+
+print("Le numéro de James Bond :", numero_tel["James Bond"])
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+numero_tel = {'James Bond': '007', 'M. Arignan': '13.14.09.1515'}
+Type de numero_tel : <class 'dict'>
+Le numéro de James Bond : 007
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+\textbf{Attention !} Les clés doivent avoir des types \textit{"simples"} comme le montre l'exemple suivant. Les chaînes de caractères, les nombres et les booléens ont des types \textit{"simples"}.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+probleme = {"ok": 'pas ok ensuite', [0, 1]: 4}
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+<ipython-input-4-4012efa7f409> in <module>()
+----> 1 probleme = {"ok": 'pas ok ensuite', [0, 1]: 4}
+TypeError: unhashable type: 'list'
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+\subsubsection{Modifier la valeur d'une clé}
+
+Tout se fait très facilement grâce aux crochets. Voici un exemple.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+numero_tel = {"James Bond": '007', "M. Arignan": '13.14.09.1515'}
+
+print("Avant : numero_tel =", numero_tel)
+
+numero_tel["James Bond"] = "***"
+
+print("Après : numero_tel =", numero_tel)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+Avant : numero_tel = {'James Bond': '007', 'M. Arignan': '13.14.09.1515'}
+Après : numero_tel = {'James Bond': '***', 'M. Arignan': '13.14.09.1515'}
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+\subsubsection{Ajouter de nouvelles clés}
+
+Tout se fait de nouveau via l'utilisation de crochets comme le montre l'exemple suivant
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+notre_dico = {}
+
+print("Un dictionnaire vide au départ :", notre_dico)
+
+notre_dico["James Bond"] = '007'
+notre_dico["M. Arignan"] = '13.14.09.1515'
+
+print("Dictionnaire rempli maintenant :", notre_dico)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+Un dictionnaire vide au départ : {}
+Dictionnaire rempli maintenant : {'James Bond': '007', 'M. Arignan': '13.14.09.1515'}
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+\subsubsection{Copier un dictionnaire, attention danger !}
+
+Ci-dessous les variables \texttt{dico\_ancien} et \texttt{dico\_nouveau} pointent vers le même emplacement mémoire car Python cherche à limiter les copies des objets \textit{"mémophages"}. Ceci permet de comprendre ce qu'il se passe.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+dico_ancien  = {"un": 1, "deux": 2, "trois": 3}
+dico_nouveau = dico_ancien
+
+dico_nouveau["quatre"] = 4
+dico_nouveau["cinq"]   = 5
+
+print("dico_ancien  =", dico_ancien)
+print("dico_nouveau =", dico_nouveau)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+dico_ancien  = {'un': 1, 'trois': 3, 'cinq': 5, 'deux': 2, 'quatre': 4}
+dico_nouveau = {'un': 1, 'trois': 3, 'cinq': 5, 'deux': 2, 'quatre': 4}
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+Pour copier un dictionnaire afin d'avoir deux versions différentes en mémoire, il suffit de faire appel au module spécialisé \texttt{copy}.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+from copy import deepcopy
+
+dico_ancien  = {"un": 1, "deux": 2, "trois": 3}
+dico_nouveau = deepcopy(dico_ancien)
+
+dico_nouveau["quatre"] = 4
+dico_nouveau["cinq"]   = 5
+
+print("dico_ancien  =", dico_ancien)
+print("dico_nouveau =", dico_nouveau)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+dico_ancien  = {'un': 1, 'trois': 3, 'deux': 2}
+dico_nouveau = {'un': 1, 'trois': 3, 'cinq': 5, 'deux': 2, 'quatre': 4}
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip

@@ -1,0 +1,11 @@
+\begin{tikzpicture}[line join=round]%
+\begin{scope}%
+\draw[color = ForestGreen] (5.5714,3.0952) -- (6.271,4.1168);%
+\draw[color = ForestGreen] (6.1835,3.9891) -- (6.3112,3.9016) -- (6.3987,4.0293);%
+\draw[blue] (6.8095,3.0952) .. controls (6.8095,3.7824) and (6.2586,4.3333) .. (5.5714,4.3333) .. controls (4.8843,4.3333) and (4.3333,3.7824) .. (4.3333,3.0952) .. controls (4.3333,2.4081) and (4.8843,1.8571) .. (5.5714,1.8571) .. controls (6.2586,1.8571) and (6.8095,2.4081) .. (6.8095,3.0952);%
+\draw[ForestGreen] (8.6667,2.4762) -- (5.0507,4.9524);%
+\draw[mark=*,mark size=1.4pt] plot coordinates {(5.5714,3.0952)} plot coordinates {(8.6667,2.4762)};%
+\draw[mark=*,mark size=1.4pt,mark options={ForestGreen}] plot coordinates {(6.271,4.1168)};%
+\draw[-] (8.6667,2.4762) node[below right] {$M$} (5.5714,3.0952) node[left] {$C$} (6.271,4.1168) node[above,ForestGreen] {$J$};%
+\end{scope}%
+\end{tikzpicture}%

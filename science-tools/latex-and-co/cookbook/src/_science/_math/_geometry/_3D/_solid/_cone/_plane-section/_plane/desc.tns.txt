@@ -1,0 +1,16 @@
+this::
+    date = 2025-08-04
+
+
+===================================================
+Section parabolique en visualisant le plan de coupe
+===================================================
+
+En plus du calcul et du tracé de l’intersection entre un plan et un cône, nous représentons ici le plan. Cette construction demande davantage d’étapes intermédiaires, mais aboutit à une figure finale obtenue de façon relativement simple : l’idée repose sur une approche directe consistant à tout tracer en masquant les parties invisibles, autrement dit en mode "solide plein", puis à ajouter manuellement les pointillés représentant les arêtes cachées
+((
+    Grâce à la surimpression, cela ne modifie pas les contours visibles pleins.
+)).
+
+
+note::
+    Pour faciliter la compréhension du code, nous avons choisi un design multicolore immonde, mais très pédagogique.

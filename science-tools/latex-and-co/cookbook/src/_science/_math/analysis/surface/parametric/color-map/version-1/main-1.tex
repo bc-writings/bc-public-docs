@@ -1,0 +1,77 @@
+% !TEX TS-program = lualatex
+
+%%%
+% src::
+%     url = https://tex.stackexchange.com/a/646514/6880
+%%%
+
+\documentclass[border = 3pt]{standalone}
+
+%%%
+% Des couleurs faciles d'emploi via le package \xcolor.
+%%%
+\usepackage[svgnames]{xcolor}
+
+%%%
+% La bibliothèque \luadraw allie une facilité d’utilisation
+% à un rendu particulièrement soigné.
+%%%
+\usepackage[3d]{luadraw}
+
+\begin{document}
+
+\begin{luadraw*}{name = param-surf-colmap-Z}
+local ld = luadraw
+
+local M = ld.pt3d.M
+
+------
+-- Nos ingrédients de base.
+------
+local palext = require 'luadraw_palettes'
+
+local pal = palext.BurningGrass
+
+local pi  = math.pi
+local sin = math.sin
+local cos = math.cos
+
+------
+-- ¨Def de la zone graphique.
+------
+local graphview = ld.graph3d:new{
+  viewdir = {170, 80},
+  bbox    = false
+}
+
+------
+-- ¨Def et tracé de notre ¨surf ¨param en colorant les facettes
+-- suivant la côte de leur ¨bary.
+------
+local facets = ld.surface(
+  function(u, v)
+    return M(
+      3*v*cos(2*u),
+      3*v*sin(2*u),
+      3*v*cos(u)
+    )
+  end,
+  0, 2*pi, 0, 1,
+  {50, 30}
+)
+
+graphview:Dpoly(
+  ld.facet2poly(facets),
+  {
+    usepalette = {pal, "z"},
+    mode       = ld.mShaded
+  }
+)
+
+------
+-- Montrons le résultat de notre oeuvre.
+------
+graphview:Show()
+\end{luadraw*}
+
+\end{document}

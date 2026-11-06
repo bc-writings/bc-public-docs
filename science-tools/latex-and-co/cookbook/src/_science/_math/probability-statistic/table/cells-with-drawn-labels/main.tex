@@ -1,0 +1,48 @@
+\documentclass[border = 3pt]{standalone}
+
+\usepackage{main}
+
+\begin{document}
+
+%%%
+% Augmenta^o de l'espacement vertical des lignes dans les \tabs.
+%%%
+\renewcommand{\arraystretch}{2}
+
+%%%
+% Le référencement d'une cellule est fait via la macro "maison"
+% ''\Cell'' de \1er \arg le contenu de la cellule, et de \2nd
+% la \ref qui apparaîtra encadrée dans le coin Nord-Est de la
+% cellule.
+%
+%
+% tip::
+%     Noter l'emploi de la bien nommée macro ''\diagbox''
+%     fournie par ''nicematrix''.
+%%%
+$\begin{NiceArray}{c*{4}{w{c}{1.5cm}}c}[
+    hvlines
+]
+    \diagbox{\downarrow\emph{De}}{\emph{Vers}\to}
+        & P            & Q
+        & R            & S
+        & \text{\emph{Ressource}}     \\
+    A
+        & \Cell{8}{2}  & \Cell{3}{6}
+        & \Cell{12}{4} & 7
+        & 30                          \\
+    B
+        & 7            & 11
+        & \Cell{8}{3}  & \Cell{14}{5}
+        & 40                          \\
+    C
+        & 6            & 16
+        & 11           & \Cell{7}{1}
+        & 40                          \\
+    \text{Demande}
+        & 21           & 30
+        & 31           & 28
+        & 110
+\end{NiceArray}$
+
+\end{document}

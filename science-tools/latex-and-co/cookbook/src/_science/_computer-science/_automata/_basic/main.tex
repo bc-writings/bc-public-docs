@@ -1,0 +1,30 @@
+% FORCE-CROP
+
+\documentclass{standalone}
+
+
+%%%
+% C'est le \pack ''adigraph'' qui va travailler pour nous.
+%%%
+\usepackage{adigraph}
+
+\begin{document}
+
+%%%
+% Définition de l'automate sans l'afficher.
+%%%
+\NewAdigraph{automata}{
+  s: 0, 0 ;            % On positionne le noeud.
+  t: 2, 1 : $\alpha$ ; % Modification du nom "imprimé".
+}{
+  s, s: 3 ; % Une boucle en s.
+  s, t: 2 ; % Une connection de s vers t.
+  t, s: 5 ; % Une connection de t vers s.
+}
+
+%%%
+% L'affichage se fait comme suit autant de fois que l'on veut.
+%%%
+\automata{}
+
+\end{document}

@@ -1,0 +1,12 @@
+this::
+    date = 2025-09-20
+
+
+=========================
+Maillage de tracé affiché
+=========================
+
+Le tracé en fil de fer met en évidence le maillage de la surface. Certains le trouvent peu esthétique, mais sans entrer dans ce débat, soulignons qu’il constitue une aide précieuse pour notre cerveau lorsqu’il s’agit de visualiser la forme d'une \surf
+((
+    Un must à utiliser dans un cours de \maths.
+)).

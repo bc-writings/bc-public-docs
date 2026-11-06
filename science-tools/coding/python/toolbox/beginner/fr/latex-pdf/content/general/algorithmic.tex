@@ -1,0 +1,75 @@
+\subsection{Utilisez des algorithmes !}
+
+Même si ceci peut se faire uniquement mentalement, programmer demande une grande organisation. Un outil très utile est la notion d'algorithme. Par exemple, je souhaite afficher trois nombres réels connus \texttt{a}, \texttt{b} et \texttt{c} du plus petit au plus grand. Je peux opter pour la tactique suivante écrite sous forme d'un algorithme utilisant un langage naturel où les lignes commençant par le symbole sharp \texttt{\#} sont des commentaires \textit{\textit{(la tactique proposée n'est pas optimale mais peu importe)}}.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+# On se débrouille pour avoir b <= c.
+Si c < b alors échanger les valeurs de b et c.
+
+# On est certain que b <= c à ce stade. Il reste
+# juste à mettre le réel a au bon endroit.
+
+# Cas 1: a < b . On n'a rien à faire.
+
+# Cas 2: b <= a <= c
+Si b <= a <= c alors échanger les valeurs de a et b.
+
+
+# Cas 3: a > c
+Si a > c, autrement dit b <= c < a, alors procéder
+comme suit.
+    + a prend l'ancienne valeur de b.
+    + b prend l'ancienne valeur de c.
+    + c prend l'ancienne valeur de a.
+
+# Fin du travail
+Afficher a, b et c dans cet ordre.
+\end{verbatim}
+{\hrule height .5mm}
+\bigskip
+
+
+Ceci se traduit assez directement en Python comme suit à condition de disposer d'un \textit{"dictionnaire"} permettant une traduction dans le langage Python. Les sections suivantes vous aideront à faire vos propres traductions.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+# Donnons directement des valeurs dans le code.
+a = 2
+b = 1
+c = 3
+
+# On se débrouille pour avoir b <= c.
+if c < b:
+    b, c = c, b
+
+# On est certain que b <= c à ce stade. Il reste
+# juste à mettre le réel a au bon endroit.
+
+# Cas 1: a <= b . On n'a rien à faire.
+
+# Cas 2: b <= a <= c
+if b <= a <= c:
+    a, b = b, a
+
+# Cas 3: a > c
+if a > c:
+    a, b, c = b, c, a
+
+# Fin du travail
+print(a, "<=", b, "<=", c)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+1 <= 2 <= 3
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+\textbf{Important !} Il ne faut jamais négliger la phase de réflexion avant de programmer. Ce ne sera jamais une perte de temps que d'organiser ses pensées avant de taper des lignes de code.

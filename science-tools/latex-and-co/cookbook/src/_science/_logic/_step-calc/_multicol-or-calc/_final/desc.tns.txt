@@ -1,0 +1,17 @@
+this::
+    date = 2025-05-13
+
+
+====================
+Une saisie naturelle
+====================
+
+L'\env ''orsteps'' permet une saisie intuitive de calculs faits en parallèle, et présenté dans des colonnes contigües. La difficulté à surmontrer est de permettre une saisie de chaque bloc de calculs à la suite, et ensuite de les présenter côte à côte alignés les uns par rapport aux autres
+((
+    L'alignement ligne par ligne n'est pas possible via l'\env ''multicols'' du \pack ''multicol''.
+)).
+Le langage \l3 rend ceci relativement aisé à implémenter.
+
+
+note::
+    La gestion des données vient directement du code de cf::''cette réponse en ligne ; https://tex.stackexchange.com/a/593148/6880''.

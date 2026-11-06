@@ -1,0 +1,20 @@
+this::
+    date = 2026-10-24
+
+
+======================
+Surfaces paramétriques
+======================
+
+note::
+    Les surfaces représentées dans les recettes à suivre illustrent le plan projectif
+    ((
+        Plus précisément, nous allons travailler avec des "disques auto-intersectés" et des "disques à double calotte".
+    )).
+    Elles ont été choisies précisément parce qu’elles ne sont pas orientables, \cad qu'elles n'ont ni "intérieur", ni "extérieur".
+
+
+content::
+    ./flat-hidden/\desc
+    ./wireframe/\desc
+    ./color-map/\desc

@@ -1,0 +1,13 @@
+% !TEX TS-program = lualatex
+
+\documentclass[varwidth, border = 3pt]{standalone}
+
+\usepackage{verbatim}
+
+\directlua{dofile('main.lua')}
+
+\begin{document}
+
+\directlua{verbtest()}
+
+\end{document}

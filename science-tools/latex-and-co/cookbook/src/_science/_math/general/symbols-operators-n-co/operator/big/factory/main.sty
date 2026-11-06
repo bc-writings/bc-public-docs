@@ -1,0 +1,33 @@
+%%%
+% src::
+%     url = https://tex.stackexchange.com/a/685321/6880
+%%%
+
+%%%
+% Le \pack ''amsmath'' fournit la macro ''\DeclareMathOperator*''
+% pour définir de nouveaux opérateurs de type ''\lim''.
+%%%
+\usepackage{amsmath}
+
+\ExplSyntaxOn
+
+%%%
+% \Def efficace via des \assos "clé-valeur" : une clé donne le nom
+% de la macro construite, et une \val le matériel utilisé pour
+% "imprimer" l'opérateur.
+%%%
+\prop_new:N              \g_cookbook_ope_prop
+\prop_set_from_keyval:Nn \g_cookbook_ope_prop {
+  xtr      = xtr,
+  exterior = \Lambda,
+}
+
+%%%
+% On parcourt nos associations pour appliquer à chaque "clé-valeur"
+% la macro ''\DeclareMathOperator*'' qui fait tout le travail.
+%%%
+\prop_map_inline:Nn \g_cookbook_ope_prop {
+  \exp_args:NNc \DeclareMathOperator* { #1 }{ #2 }
+}
+
+\ExplSyntaxOff

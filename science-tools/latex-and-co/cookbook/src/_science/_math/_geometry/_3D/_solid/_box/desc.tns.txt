@@ -1,0 +1,11 @@
+===========================
+Des boîtes "rectangulaires"
+===========================
+
+content::
+    ./faces-explained/\desc
+    ./opened/\desc
+    ./falling-walls/\desc
+    ./net/\desc
+    ./realistic/\desc
+    ./zigzag-cut/\desc

@@ -1,0 +1,19 @@
+this::
+    date = 2026-06-14
+
+
+============================
+Représenter des données \csv
+============================
+
+Comme nous allons le voir, analyser un fichier \csv avec \lua est très simple. Nous utiliserons ensuite les données extraites dans des graphiques.
+
+csv::
+    ---
+    file = common/basic.csv
+    ---
+
+
+content::
+    ./3D-data-to-2D-repr/\desc
+    ./3D-data-to-3D-repr/\desc

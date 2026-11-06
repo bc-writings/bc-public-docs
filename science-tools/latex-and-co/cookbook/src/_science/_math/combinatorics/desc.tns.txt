@@ -1,0 +1,7 @@
+===================
+Dénombrement et \co
+===================
+
+content::
+    ./combinations-&-co/\desc
+    ./combinations-&-sierpinsky/\desc

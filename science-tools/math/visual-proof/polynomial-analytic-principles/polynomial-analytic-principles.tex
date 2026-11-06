@@ -1,0 +1,91 @@
+\documentclass[12pt]{amsart}
+
+\usepackage{bc-writings}
+
+\hypersetup{hidelinks}
+
+
+\NewDocumentCommand{\area}{m}{\mathrm{Aire}(#1)}
+
+\NewDocumentCommand{\Ccircle}{mm}{\mathcal{C}(#1 ; #2)}
+\NewDocumentCommand{\CdiscO}{mm}{{\mathcal{D}(#1 ; #2[}}
+\NewDocumentCommand{\CdiscC}{mm}{{\mathcal{D}(#1 ; #2]}}
+
+
+\DeclareMathOperator{\ent}{Ent}
+
+
+\begin{document}
+
+
+\title{Des preuves sans mot aux preuves sans doute}
+\author{Christophe BAL}
+\date{16 Juillet 2019 - 10 Avril 2025}
+
+\maketitle
+
+\begin{center}
+	\itshape
+	Document, avec son source \LaTeX, disponible sur la page
+
+	\url{https://github.com/bc-writings/bc-public-docs/tree/main/math/visual-proof/polynomial-analytic-principles}.
+\end{center}
+
+
+\bigskip
+
+
+\begin{center}
+	\hrule\vspace{.3em}
+	{
+		\fontsize{1.35em}{1em}\selectfont
+		\textbf{Mentions \og légales \fg}
+	}
+
+	\vspace{0.45em}
+	\doclicenseThis
+	\hrule
+\end{center}
+
+
+\bigskip
+
+
+\setcounter{tocdepth}{1}
+\tableofcontents
+
+
+
+\newpage
+
+\begin{meta-abstract*}
+	Ce document donne un cadre rigoureux pour justifier la généralisation de certaines identités obtenues via des cas \focus{particuliers évidents} comme, par exemple, dans les preuves sans mot. 
+\end{meta-abstract*}
+
+
+% ----------- %
+
+
+\section{Au commencement étaient les polynômes}
+
+\subimport*{content/poly-id/}{poly-id}
+
+
+% ----------- %
+
+
+%\newpage
+\section{Puis vinrent les fonctions analytiques d'une seule variable}
+
+\subimport*{content/analytic-id/}{analytic-id-1-var}
+
+
+% ----------- %
+
+
+%\newpage
+\section{Et suivirent les fonctions séparablement analytiques}
+
+\subimport*{content/analytic-id/}{analytic-id-sep-var}
+
+\end{document}

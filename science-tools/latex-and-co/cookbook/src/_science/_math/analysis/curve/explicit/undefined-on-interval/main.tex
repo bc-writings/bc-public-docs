@@ -1,0 +1,93 @@
+% !TEX TS-program = lualatex
+
+%%%
+% src::
+%     url = https://tex.stackexchange.com/questions/739244/plotting-a-discontinuous-function-with-pgfplots-in-latex#750098
+%%%
+
+\documentclass[border = 3pt]{standalone}
+
+%%%
+% Des couleurs nommées faciles d'emploi via le package \xcolor.
+%%%
+\usepackage[svgnames]{xcolor}
+
+%%%
+% La bibliothèque \luadraw allie une facilité d’utilisation
+% à un rendu particulièrement soigné.
+%%%
+\usepackage[3d]{luadraw}
+
+\begin{document}
+
+\begin{luadraw*}{name = discontinous-function}
+local ld = luadraw
+local I  = ld.cpx.I
+
+------
+-- Définition d'une fonction non définie sur un intervalle.
+------
+local h = function(t)
+  return 1 / math.log(t)
+end
+
+local f = function(x)
+  if (x < 1/2) or (x > 1) then
+    return ld.int(h, x, 2*x)
+  end
+end
+
+------
+-- ¨Def de la zone graphique.
+------
+local graphview = ld.graph:new{
+  window = {-0.1, 5, -3, 5},
+  size   = {12, 12, 0},
+  bbox   = false
+}
+
+------
+-- Réglage lié aux lignes.
+------
+graphview:Linewidth(6)
+
+------
+-- Tracé de deux asymptotes verticales.
+------
+graphview:Dline(
+  {0.5, I},
+  "dashed, Navy"
+)
+
+graphview:Dline(
+  {1, I},
+  "dashed, ForestGreen"
+)
+
+------
+-- Tracé du repère "à la française".
+------
+graphview:Daxes(
+  {0, 1, 1},
+  {arrows = "-stealth"}
+)
+
+------
+-- Tracé de la fonction.
+------
+graphview:Dcartesian(
+  f,
+  {
+    discont      = true, -- On indique la discontinuité ici!
+    nbdiv        = 20,
+    draw_options = "Crimson"
+  }
+)
+
+------
+-- Montrons le résultat de notre oeuvre.
+------
+graphview:Show()
+\end{luadraw*}
+
+\end{document}

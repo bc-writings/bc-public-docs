@@ -1,0 +1,103 @@
+% !TEX TS-program = lualatex
+
+%%%
+% src::
+%     url = https://github.com/pfradin/luadraw/discussions/148#discussioncomment-14980822
+%%%
+
+\documentclass[border = 3pt]{standalone}
+
+\usepackage[svgnames]{xcolor}
+\usepackage[3d]{luadraw}
+
+\begin{document}
+
+\begin{luadraw*}{name = central-proj-of-cube-artistic}
+local polyext = require 'luadraw_polyhedrons'
+
+local ld = luadraw
+
+local M    = ld.pt3d.M
+local vecK = ld.pt3d.vecK
+
+local z0    = -3
+local light = M(-5, -5, 3.5)
+
+local center = M(-1, -1, -1)
+
+local proj = function(A)
+  return ld.proj3dO(
+    A,
+    {z0*vecK, vecK},
+    A - light
+  )
+end
+
+local graphview = ld.graph3d:new{
+  window3d = {-5, 8, -5, 7, z0, 5},
+  adjust2d = true,
+  bbox     = false,
+  viewdir  = {"yz", 0.35, 60},
+  size     = {10, 10}
+}
+
+graphview:Linewidth(12)
+
+local C = polyext.cube(center, M(-1, -0.5, z0 + .2))
+
+local shadow = ld.cvx_hull3d(
+  ld.ftransform3d(C.vertices, proj)
+)[1]
+
+local beam = ld.pyramid(ld.reverse(shadow), light, true)
+
+local beamVisible, beamHidden = graphview:Classifyfacet(beam)
+
+graphview:Dfacet(
+  graphview:Plane2facet({z0*vecK, vecK}),
+  {
+    color    = "lightgray",
+    contrast = 0
+  }
+)
+
+graphview:Dseg3d({M(-5, -5, z0), light})
+
+graphview:Dballdots3d(light, "Yellow", 2)
+
+graphview:Dpolyline3d(
+  shadow,
+  true,
+  "draw = none, fill = DarkGray, fill opacity = 0.9"
+)
+
+graphview:Dfacet(
+  beamHidden,
+  {
+    color   = "yellow",
+    opacity = 0.4,
+    mode    = ld.mShadedOnly
+  }
+)
+
+graphview:Dpoly(
+  C,
+  {
+    color = "cyan",
+    mode  = ld.mShadedHidden
+  }
+)
+
+graphview:Dfacet(
+  beamVisible,
+  {
+    color   = "yellow",
+    opacity = 0.4,
+    mode    = ld.mShadedOnly
+  }
+)
+
+graphview:Show()
+\end{luadraw*}
+
+\end{document}

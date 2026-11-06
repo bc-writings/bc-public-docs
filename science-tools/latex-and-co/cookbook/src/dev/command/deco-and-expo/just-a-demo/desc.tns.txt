@@ -1,0 +1,22 @@
+this::
+    date = 2026-06-10
+
+
+=================================
+Exemple instructif, mais excessif
+=================================
+
+quote::
+    ---
+    movie    = Spiderman
+    director = Sam Raimi
+    caracter = L'oncle de Peter Parker
+    ---
+
+    Un grand pouvoir implique de grandes responsabilités.
+
+
+Nous montrons ici un florilège de décorateurs de \cmds
+((
+    Le \docu "LaTeX for authors" contient l'\ens des possibilités offertes.
+)).

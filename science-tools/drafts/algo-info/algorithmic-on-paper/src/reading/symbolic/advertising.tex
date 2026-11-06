@@ -1,0 +1,48 @@
+Nous redonnons ci-dessous la version \og langage naturel \fg{} de l'algorithme n°14, puis nous proposons à côté une version symbolique de  cet algorithme. Repérez les conventions utilisées. On constate que l'écriture \og symbolique \fg{} est très économe en texte, et du coup il est très facile de la parcourir pour l'analyser.
+
+\begin{multicols}{2}
+    {\small\textbf{\textsc{[Algo.14]}}}
+    \bigskip
+    \begin{myverb}
+Donnée
+    Un naturel \(N\).
+Actions
+    Si \(N\) est un multiple de \(2\) alors :
+        \(N\) prend pour valeur \(\frac{N}{2}\).
+    Fin du ou des test(s) Si
+    Si \(N\) est un multiple de \(3\) alors :
+        \(N\) prend pour valeur \(\frac{N}{3}\).
+    Fin du ou des test(s) Si
+    Si \(N\) est un multiple de \(5\) alors :
+        \(N\) prend pour valeur \(\frac{N}{5}\).
+    Sinon :
+        \(N\) prend pour valeur \(0\).
+    Fin du ou des test(s) Si
+    Afficher \(N\) sous forme réduite.
+    \end{myverb}
+
+    \switchcol
+
+    {\small\textbf{\textsc{[Algo.14 "Symbolique"]}}}
+    Ci-dessous, $k \, | \, n$ signifie que le naturel $k$ divise le naturel $n$.
+    Par exemple, $3$ divise $15$ mais il ne divise pas $13$.
+    \bigskip
+    \begin{algo}
+        \Data{$n \in \NN$}
+        \Begin{
+            \If{$2 \, | \, n$}{
+                $n \leftarrow \frac{n}{2}$
+            }
+            \If{$3 \, | \, n$}{
+                $n \leftarrow \frac{n}{3}$
+            }
+            \If{$5 \, | \, n$}{
+                $n \leftarrow \frac{n}{5}$
+            }
+            \Print{$n$ sous forme réduite.}
+        }
+    \end{algo}
+\end{multicols}
+
+
+

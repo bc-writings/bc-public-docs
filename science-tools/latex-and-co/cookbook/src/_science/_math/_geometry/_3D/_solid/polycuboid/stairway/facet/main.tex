@@ -1,0 +1,109 @@
+% !TEX TS-program = lualatex
+
+%%%
+% src::
+%   url = https://github.com/pfradin/luadraw/discussions/53#discussioncomment-14207791
+%%%
+
+\documentclass[border = 3pt]{standalone}
+
+%%%
+% Des couleurs faciles d'emploi via le package \xcolor.
+%%%
+\usepackage[svgnames]{xcolor}
+
+%%%
+% La bibliothèque \luadraw allie une facilité d’utilisation
+% à un rendu particulièrement soigné.
+%%%
+\usepackage[3d]{luadraw}
+
+\begin{document}
+
+\begin{luadraw*}{name = stairway-facets}
+local ld = luadraw
+
+local Origin = ld.pt3d.Origin
+local M      = ld.pt3d.M
+
+local vecI = ld.pt3d.vecI
+local vecJ = ld.pt3d.vecJ
+local vecK = ld.pt3d.vecK
+
+------
+-- Nombre de marches, ou de tranches, souhaité.
+------
+local nb_slices = 10
+
+------
+-- ¨Def de la zone graphique.
+------
+local graphview = ld.graph3d:new{
+  window3d = {-5, 5, -5, 5, -5, 5},
+  viewdir  = {-35, 45},
+  adjust2d = true,
+  bbox     = false
+}
+
+------
+-- Pour les facettes "visibles".
+------
+local num_col = 0
+local colors  = {"ForestGreen", "Crimson"}
+
+local cube = ld.parallelep(
+  M(-5, -5, -5),
+  vecI, vecJ, vecK
+)
+
+local cube_facets = graphview:Classifyfacet(cube)
+
+------
+-- La liste ''facets_n_options'' stocke les faces et les options
+-- au format ''{facets, options, facets, options, ...}''.
+-- Ceci sera ensuite mangé par ''Dmixfacet'' qui attend des ¨args
+-- sous cette forme.
+------
+local facets_n_options = {}
+
+nb_slices = nb_slices - 1
+
+for i = 0, nb_slices do
+  num_col = num_col % 2 + 1
+
+  for j = nb_slices, 0, -1 do
+    for k = 0, nb_slices - i do
+      if j == 0 or k == nb_slices - i then
+        table.insert(
+          facets_n_options,
+          ld.shift3d(cube_facets, i*vecI + j*vecJ + k*vecK)
+        )
+
+        table.insert(
+          facets_n_options,
+          {
+            color = colors[num_col]
+          }
+        )
+      end
+    end
+  end
+end
+
+------
+-- ''table.unpack'' "déplie" les éléments de ''facets_n_options''.
+-- Par exemple, si ''args = {1, 2, 3}'', alors l'emploi de
+-- ''table.unpack(args)'' équivaut à la saisie de ''1'', ''2'',
+-- puis '' 3''.
+------
+graphview:Dmixfacet(
+  table.unpack(facets_n_options)
+)
+
+------
+-- Montrons le résultat de notre oeuvre.
+------
+graphview:Show()
+\end{luadraw*}
+
+\end{document}

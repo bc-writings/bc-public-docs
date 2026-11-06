@@ -1,0 +1,8 @@
+=================================
+Si l'on faisait tout à la main...
+=================================
+
+content::
+    ./same-grids/\desc
+    ./two-grids/\desc
+    ./smooth/\desc

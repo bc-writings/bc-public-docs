@@ -1,0 +1,7 @@
+=========
+Polyèdres
+=========
+
+content::
+    ./regular/\desc
+    ./diamond/\desc    ??

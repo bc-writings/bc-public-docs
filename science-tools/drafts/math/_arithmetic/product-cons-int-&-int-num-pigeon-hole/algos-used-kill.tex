@@ -1,0 +1,55 @@
+\subsubsection{Cibler la recherche pour des tests brutaux} \label{algos-used-kill}
+
+\leavevmode
+\smallskip
+
+Reprenons les notations de la section \ref{algos-used-select}, de nouveau en supposant $\consprod \in \NNssquare$ avec $k \in \NN_{\geq 2}$\,, et plaçons-nous dans la situation où l'algorithme \ref{algo-select} a réussi sa sélection (dans le cas contraire, notre tactique est mise en échec).
+Nous avons donc au moins deux facteurs $(n+i)$ et $(n+i^\prime)$ de $\consprod$ vérifiant les points suivants avec $\setgeo{C} = \emptyset$ éventuellement.
+%
+\begin{itemize}
+	\item $\forall p \in \PP - \setgeo{C}$\,, $( \padicval{n+i}, \padicval{n+i^\prime} ) \in ( 2 \NN )^2$\,.
+
+	\item $\forall p \in \setgeo{C}$\,, $\padicval{n+i}$ et $\padicval{n+i^\prime}$ ont la même parité.
+\end{itemize}
+
+Ceci permet de \enquote{localiser} comme suit les valeurs de $n$ pouvant vérifier $\consprod \in \NNssquare$\,.
+%
+\begin{enumerate}
+	\item Si $\setgeo{C} = \emptyset$\,, on pose $\setproba{C} = \setgene{1}$\,. 
+	
+	\noindent
+	Sinon, $\setproba{C}$ désigne l'ensemble des entiers $\prod_{p \in \setgeo{C}} p^{(\epsilon_p)}$ avec $(\epsilon_p)_{p \in \setgeo{C}} \subseteq \setgene{0, 1}$\,.
+
+
+	\item Il existe $c \in \setproba{C}$ tel que $n+i = c M^2$ et $n+i^\prime = c N^2$ avec $(c, M, N) \in \NNsf \times ( \NNs )^2$\,.
+	
+	\explainthis{Comme nous n'avons aucune idée de l'élément de $\setproba{C}$ à choisir, il faudra les tester tous.}
+
+
+	\item $c ( N^2 - M^2 ) \in \ZintervalC{1}{k-1}$ donne $N^2 - M^2 \in \ZintervalC{1}{\quot{k-1}{c}}$\,.
+
+
+	\item Pour chaque $c \in \setproba{C}$\,, l'algorithme \ref{algo-square-ko} permet de construire l'ensemble fini $\setproba*{D}{c}$\,, éventuellement vide, des couples $(M^2, N^2)$ tels que $N^2 - M^2 \in \ZintervalC{1}{\quot{k-1}{c}}$\,.
+	L'ensemble $\setproba*{D}{c}$ nous sert à construire
+	$\setproba*{F}{c} = \setgene{ (c M^2, c N^2) \,\, | \,\, (M^2, N^2) \in \setproba*{D}{c} }$\,.
+	
+	\explainthis{Nous pouvons affirmer que $\consprod$ contient au moins un couple de facteurs $(n + i, n + i^\prime)$ appartenant à $\cup_{c \in \setproba{C}} \setproba*{F}{c}$ et vérifiant $n + i < n + i^\prime$\,.}
+
+
+	\item Si $f$ et $f^\prime$ sont deux facteurs de $\consprod$\, tels que $f < f^\prime$\,, alors $n \in \ZintervalC{f^\prime - k + 1}{f + k - 1}$\,.
+	
+	\explainthis{Via $\cup_{c \in \setproba{C}} \setproba*{F}{c}$\,, nous pouvons donc construire un ensemble fini $\setproba{N}$ des valeurs de $n$ à tester.}
+
+
+	\item Le dernier ingrédient utilisé est à la fois brutal et osé : pour chaque naturel $n$ retenu, nous tentons de voir si un seul des facteurs $(n+i)$ de $\consprod$ est un nombre premier ne divisant aucun des autres facteurs $(n+i^\prime)$ de $\consprod$\,.
+	L'existence d'un tel nombre premier implique que $\consprod \notin \NNsquare$\,, ceci permettant d'achever la démonstration par l'absurde.
+	
+	\explainthis{Un tel nombre premier $p$ est tel que $2p \geq n + k$\,.}
+\end{enumerate}
+
+
+%\medskip
+%\newpage
+
+Ce qui précède donne un algorithme à la brutalité \enquote{localisée} : voir la page suivante.
+

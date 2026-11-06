@@ -1,0 +1,9 @@
+this::
+    date = 2026-06-18
+
+
+=================
+\Delims hachurées
+=================
+
+Pour donner du sens aux entrées d’une \mat, résoudre des \systs d’\equs à la main ou calculer une \mat inverse, on utilise souvent des lignes de \delim. Nous présentons ici une méthode simple et rapide pour les tracer efficacement de telles \delims.

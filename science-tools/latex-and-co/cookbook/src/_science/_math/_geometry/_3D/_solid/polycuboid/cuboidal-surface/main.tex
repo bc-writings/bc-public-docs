@@ -1,0 +1,98 @@
+% !TEX TS-program = lualatex
+
+%%%
+% src::
+%   url = https://github.com/pfradin/luadraw/discussions/55#discussioncomment-14234192
+%%%
+
+\documentclass[border = 3pt]{standalone}
+
+%%%
+% Des couleurs nommées faciles d'emploi via le package \xcolor.
+%%%
+\usepackage[svgnames]{xcolor}
+
+%%%
+% La bibliothèque \luadraw allie une facilité d’utilisation
+% à un rendu particulièrement soigné.
+%%%
+\usepackage[3d]{luadraw}
+
+\begin{document}
+
+\begin{luadraw*}{name = cuboidal-surface}
+local ld = luadraw
+
+local Origin = ld.pt3d.Origin
+local M      = ld.pt3d.M
+
+local vecI = ld.pt3d.vecI
+local vecJ = ld.pt3d.vecJ
+local vecK = ld.pt3d.vecK
+
+------
+-- Paramètres de la surface "prismoidale".
+------
+local xdim, ydim = 10, 8
+
+local large = 5 / math.max(xdim, ydim)
+local h_max = 5
+
+local surf_height = function(x, y)
+  return h_max*(1 - 0.85*(x^2 + y^2) / (ydim^2 + xdim^2))
+end
+
+------
+-- ¨Def de la zone graphique.
+------
+local xmin, xmax = 0, xdim
+local ymin, ymax = 0, ydim
+local zmin, zmax = 0, surf_height(0,0)
+
+local graphview = ld.graph3d:new{
+  window3d = {xmin, xmax, ymin, ymax, zmin, zmax},
+  viewdir  = {50, 65},
+  adjust2d = true ,
+  bbox     = false
+}
+
+------
+-- note::
+--     En décommentant la ligne suivante, un repère en mode
+--     "boîte" sera visible.
+------
+-- graphview:Dboxaxes3d()
+
+------
+-- ¨Def et tracé des facettes "visibles".
+------
+local facets = {}
+
+for j = 1, xdim do
+  for k = 1, ydim do
+    local P = ld.parallelep(
+      Origin,
+      large*vecI, large*vecJ, surf_height(j, k)*vecK
+    )
+
+    P = graphview:Classifyfacet(P)
+
+    ld.insert(
+      facets,
+      ld.shift3d(P, (j - 1)*large*vecI + (k - 1)*large*vecJ)
+    )
+  end
+end
+
+graphview:Dfacet(
+  facets,
+  {color = "LightBlue"}
+)
+
+------
+-- Montrons le résultat de notre oeuvre.
+------
+graphview:Show()
+\end{luadraw*}
+
+\end{document}

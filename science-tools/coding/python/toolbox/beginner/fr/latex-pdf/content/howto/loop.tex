@@ -1,0 +1,157 @@
+\subsection{Répéter des actions}
+
+\subsubsection{Répéter un nombre de fois connu}
+
+Dans le code qui suit, la fonction \texttt{range} renvoie une plage de valeurs. Voici un premier exemple d'utilisation.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+for i in range(4):
+    print(i)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+0
+1
+2
+3
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+La convention utilisée pour \texttt{range\textit{(n)}} est de renvoyer les naturels de \texttt{0} à \texttt{\textit{(n - 1)}}, et non de \texttt{1} à \texttt{n}. Mais comment obtenir ce dernier résultat ? Il suffit de faire comme suit où \texttt{range\textit{(d, f)}} renvoie les naturels de \texttt{d} à \texttt{\textit{(f - 1)}}.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+for i in range(1, 5):
+    print(i)
+\end{verbatim}
+\newpage
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+1
+2
+3
+4
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+Un dernier usage possible consiste à indiquer un pas d'avancement. Le code suivant affiche tous les multiples de $5$ entre $0$ compris et $35$ non compris.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+for i in range(0, 35, 5):
+    print(i)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+0
+5
+10
+15
+20
+25
+30
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+\subsubsection{Répéter un nombre de fois inconnu}
+
+Lorsque l'on ne connait pas le nombre de répétitions à effectuer, Python propose la boucle \texttt{while}. Voici un exemple typique.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+reponse = ""
+
+while(reponse != "oui"):
+    reponse = input('Taper "oui" sans les guillemets pour partir. ')
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+Taper "oui" sans les guillemets pour partir. o
+Taper "oui" sans les guillemets pour partir. NON
+Taper "oui" sans les guillemets pour partir. Infernal
+Taper "oui" sans les guillemets pour partir. Je vais devoir céder !
+Taper "oui" sans les guillemets pour partir. oui
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+\subsubsection{Indentation, attention danger !}
+
+L'indentation est importante comme nous allons le voir. Considérons le code suivant où l'utilisation maladroite d'une boucle \texttt{while} au lieu d'une boucle \texttt{for} sert juste à illustrer notre propos.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+colonne = 0
+
+while(colonne < 3):
+    colonne = colonne + 1
+
+    for ligne in range(1, 5):
+        print(ligne, ";", colonne)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+1 ; 1
+2 ; 1
+3 ; 1
+4 ; 1
+1 ; 2
+2 ; 2
+3 ; 2
+4 ; 2
+1 ; 3
+2 ; 3
+3 ; 3
+4 ; 3
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+Bien que le code suivant change juste quelques indentations du code précédent, les résultats affichés sont très différents.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+colonne = 0
+
+while(colonne < 3):
+    colonne = colonne + 1
+
+for ligne in range(1, 5):
+    print(ligne, ";", colonne)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+1 ; 3
+2 ; 3
+3 ; 3
+4 ; 3
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip

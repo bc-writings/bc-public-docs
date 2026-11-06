@@ -1,0 +1,57 @@
+% FORCE-CROP
+
+\documentclass[varwidth, border = 3pt]{standalone}
+
+\usepackage{main-2}
+
+%%%
+% Le chargement suivant sert au tableau testant les styles.
+%%%
+\usepackage{amsmath}
+
+%%%
+% Pour simplifier la rédaction des tests.
+%%%
+\newcommand{\simpletest}%
+           {a \equiv b \apart c \neq d}
+
+\newcommand{\verbtest}%
+           {a \mathmacro{equiv} b \mathmacro{apart} c \mathmacro{neq} d}
+
+\NewDocumentCommand{\mathmacro}{m}%
+                   {\;\backslash#1\;}
+
+\NewDocumentCommand{\txtmacro}{m}%
+                   {\mathtt{\backslash#1}}
+
+\newcommand{\testmathstyle}{
+  \[
+    \renewcommand{\arraystretch}{1.2}%
+    \begin{array}{lll}
+        \textbf{Style}
+      & \mathtt{\verbtest}
+      \\ \hline
+        \txtmacro{displaystyle}
+      & \displaystyle \simpletest
+      \\
+        \txtmacro{textstyle}
+      & \textstyle \simpletest
+      \\
+        \txtmacro{scriptstyle}
+      & \scriptstyle \simpletest
+      \\
+        \txtmacro{scriptscriptstyle}
+      & \scriptscriptstyle \simpletest
+    \end{array}
+  \]
+}
+
+\begin{document}
+
+$\simpletest$
+
+$a \equiv b = c \neq d$
+
+\testmathstyle
+
+\end{document}

@@ -1,0 +1,247 @@
+\subsection{Organiser son code - Les fonctions}
+
+\subsubsection{Scinder son code en petits bouts}
+
+Organiser un code est une tache importante, et pas toujours simple. L'une des techniques consistent à définir des fonctions qui agissent de façon précise sur des arguments donnés. Une fonction peut se définir comme suit \textit{(nous ne faisons qu'effleurer les choses ici)}.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+def puissance(x, n):
+    return x**n
+
+def carre(x):
+    return puissance(x, 2)
+
+def cube(x):
+    return puissance(x, 3)
+
+print("Carré de 2 :", carre(2))
+print("Cube de 5  :", cube(5))
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+Carré de 2 : 4
+Cube de 5  : 125
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+\subsubsection{Indentation, attention danger !}
+
+L'indentation est importante comme le montre le code suivant où la fonction \texttt{cube\_test} n'existe qu'au sein de la fonction \texttt{carre\_test}. Notez au passage la possibilité de définir des fonctions dans le code d'une fonction, une technique qui a des applications très concrètes via un outil très puissant que sont les décorateurs Python \textit{(ceci ne sera pas du tout abordé dans ce document)}.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+def carre_test(x):
+    def cube_test(x):
+        return x**3
+
+    return x**2
+# Fonction carre_test utilisable.
+print("Carré de 2 :", carre_test(2))
+
+# Fonction cube_test inconnue en dehors de carre_test.
+print("Cube de 5  :", cube_test(5))
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+Carré de 2 : 4
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-39-7ef84e534a61> in <module>()
+      9 
+     10 # Fonction cube_test inconnue en dehors de carre_test.
+---> 11 print("Cube de 5  :", cube_test(5))
+NameError: name 'cube_test' is not defined
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+\subsubsection{Portée des variables}
+
+Il peut arriver que l'on souhaite modifier une variable au sein d'une fonction en gardant cette nouvelle valeur dans la suite de l'exécution du code \textit{(dans ce type de situation, la programmation orienté objet devient une technique très efficace, mais ceci ne sera pas abordé dans ce document)}. Commençons par un code ne fonctionnant pas.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+x = 5
+
+def modifie_x():
+    x = x + 10
+
+print("Avant : x =", x)
+modifie_x()
+print("Après : x =", x)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+Avant : x = 5
+---------------------------------------------------------------------------
+UnboundLocalError                         Traceback (most recent call last)
+<ipython-input-40-87436836dfd5> in <module>()
+      5 
+      6 print("Avant : x =", x)
+----> 7 modifie_x()
+      8 print("Après : x =", x)
+<ipython-input-40-87436836dfd5> in modifie_x()
+      2 
+      3 def modifie_x():
+----> 4     x = x + 10
+      5 
+      6 print("Avant : x =", x)
+UnboundLocalError: local variable 'x' referenced before assignment
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+Le message indique que la variable \texttt{x} est inconue du point de vue de la fonction \texttt{modifie\_x}. Le mot clé \texttt{global} permet d'indiquer à une fonction une variable existant globalement. On obtient ainsi le code suivant qui fait ce qui est attendu.
+
+
+\newpage
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+x = 5
+
+def modifie_x_avec_global():
+    global x
+    x = x + 10
+
+print("Avant : x =", x)
+modifie_x_avec_global()
+print("Après : x =", x)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+Avant : x = 5
+Après : x = 15
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+Indiquons que pour des variables \textit{"mémophages"} comme les listes, les ensembles et les dictionnaires, il peut y avoir des comportements bizarres comme le montre le code suivant \textit{(voir ce qui a été dit à propos de la copie des listes, des dictionnaires ou des ensembles)}.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+# Une méthode qui marche.
+liste = ["et un", "et deux"]
+
+def modifie_liste_accepte():
+    liste.append("et trois zéro")
+
+print("modifie_liste_accepte - Avant")
+print("=============================")
+print("liste =", liste)
+
+modifie_liste_accepte()
+print("")
+
+print("modifie_liste_accepte - Après")
+print("=============================")
+print("liste =", liste)
+
+
+# Une méthode qui pose problème.
+liste = ["et un", "et deux"]
+
+def modifie_liste_problematique():
+    liste = liste + ["et trois zéro"]
+
+print("")
+print("modifie_liste_problematique - Avant")
+print("===================================")
+print("liste =", liste)
+
+modifie_liste_problematique()
+print("")
+print("modifie_liste_problematique - Après")
+print("===================================")
+print("liste =", liste)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+modifie_liste_accepte - Avant
+=============================
+liste = ['et un', 'et deux']
+
+modifie_liste_accepte - Après
+=============================
+liste = ['et un', 'et deux', 'et trois zéro']
+
+modifie_liste_problematique - Avant
+===================================
+liste = ['et un', 'et deux']
+---------------------------------------------------------------------------
+UnboundLocalError                         Traceback (most recent call last)
+<ipython-input-42-0d911c15b216> in <module>()
+     28 print("liste =", liste)
+     29 
+---> 30 modifie_liste_problematique()
+     31 print("")
+     32 print("modifie_liste_problematique - Après")
+<ipython-input-42-0d911c15b216> in modifie_liste_problematique()
+     21 
+     22 def modifie_liste_problematique():
+---> 23     liste = liste + ["et trois zéro"]
+     24 
+     25 print("")
+UnboundLocalError: local variable 'liste' referenced before assignment
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+Expliquons rapidement le problème rencontré ici. Lorsque Python exécute le code, il rencontre \texttt{liste = ...} or il n'existe pas de variable \texttt{liste} du point de vue de la fonction. Ceci aboutit alors à l'erreur \textit{\textit{"local variable 'liste' referenced before assignment"}} soit \textit{\textit{"variable locale 'liste' referencé avant affectation"}}. Le code suivant montre que c'est bien l'exécution du code qui renvoie une erreur et non son analyse syntaxique.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+liste = ["et un", "et deux"]
+
+def modifie_liste_problematique():
+    print("Je suis affiché si le code est exécuté.")
+    liste = liste + ["et trois zéro"]
+
+modifie_liste_problematique()
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+Je suis affiché si le code est exécuté.
+---------------------------------------------------------------------------
+UnboundLocalError                         Traceback (most recent call last)
+<ipython-input-43-982a4a6ce25f> in <module>()
+      5     liste = liste + ["et trois zéro"]
+      6 
+----> 7 modifie_liste_problematique()
+<ipython-input-43-982a4a6ce25f> in modifie_liste_problematique()
+      3 def modifie_liste_problematique():
+      4     print("Je suis affiché si le code est exécuté.")
+----> 5     liste = liste + ["et trois zéro"]
+      6 
+      7 modifie_liste_problematique()
+UnboundLocalError: local variable 'liste' referenced before assignment
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+\textbf{Conseil :} utilisez \texttt{global} dès que vous souhaitez agir globalement, et sinon utilisez un nom \textit{\textit{"non global"}} pour une variable utilisée uniquement dans le code d'une fonction.

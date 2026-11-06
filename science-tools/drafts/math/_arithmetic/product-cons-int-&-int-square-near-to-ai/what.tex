@@ -1,0 +1,20 @@
+Dans l'article \emph{\enquote{Note on Products of Consecutive Integers}}
+\footnote{
+	J. London Math. Soc. 14 (1939).
+},
+Paul Erdős démontre que pour tout couple $(n, k) \in \NNs \times \NNs$\,, le produit de $(k+1)$ entiers consécutifs $n (n + 1) \cdots (n + k)$ n'est jamais le carré d'un entier.
+Plus précisément, l'argument général de Paul Erdős est valable pour $k + 1 \geq 100$\,, soit à partir de $100$ facteurs.
+
+\smallskip
+
+Il est facile de trouver sur le web des preuves à la main un nombre de facteurs appartenant à $\ZintervalC{2}{8} \cup \setgene{10}$\,.
+Bien que certaines de ces preuves soient très sympathiques, leur lecture ne fait pas ressortir de schéma commun de raisonnement
+\footnote{
+	Ceci est à nuancer, car à partir de $10$ facteurs, une technique de type \enquote{principe des tiroirs} est envisageable numériquement ; par contre, elle n'est pas humainement efficace contrairement à ce qui va être présenté dans ce document.
+}.
+%
+Dans ce document, nous allons tenter de limiter au maximum l'emploi de fourberies déductives en présentant une méthode très élémentaire
+\footnote{
+	Cette méthode s'appuie sur une représentation trouvée dans \href{https://web.archive.org/web/20171110144534/http://mathforum.org/library/drmath/view/65589.html}{un message archivé} : voir la section \ref{sources}.
+},
+efficace, et semi-automatisable, pour démontrer, avec peu d'efforts cognitifs, les premiers cas d'impossibilité.

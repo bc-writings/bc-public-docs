@@ -1,0 +1,99 @@
+% Sources :
+%    + http://forum.mathematex.net/latex-f6/lettrine-encadree-t11998-20.html#p116343
+%      francky gave me the table of the greek letters. Thank you !
+
+%    + http://trucsmaths.free.fr/hist_symbol.htm
+%      Significations of some symbolic notations.
+
+
+\documentclass[fontsize=13pt]{scrartcl}
+%\documentclass[14pt]{article}
+    \usepackage{template/general}
+    \usepackage{template/math}
+    \usepackage{specific}
+
+
+    \usepackage[
+        type={CC},
+        modifier={by-nc-sa},
+        version={4.0},
+    ]{doclicense}
+
+
+\begin{document}
+
+% See ''Math mode'' of Herbert Voß
+
+\abovedisplayskip=4pt plus 1pt minus 3pt
+\abovedisplayshortskip=0pt plus 1pt
+\belowdisplayskip=4pt plus 1pt minus 3pt
+\belowdisplayshortskip=2.3pt plus 1pt minus 1.3pt
+
+
+\addtitle{%
+    title      = {Des lettres et des Sciences},
+    name       = {Christophe BAL},
+    mail       = {projetmbc@gmail.com},
+    version    = {Version du 2019-08-29},
+    addlicence = yes,
+    repo       = {https://github.com/bc-writing/letters-and-science},
+    repofolder = {fr}
+}
+
+
+\vspace{4em}
+\hrule
+\vspace{-1em}
+\setcounter{tocdepth}{2}
+\tableofcontents
+
+\vspace{1.5em}
+\hrule
+
+
+
+\newpage
+\specialSubSection{Les lettres grecques}
+    
+    \input{content/greek_letters_table.tex}
+
+
+
+\newpage
+\specialSubSection{Quelques exemples d'utilisation de lettres grecques}
+    
+  \input{content/greek_letters.tex}
+
+
+
+\newpage
+\specialSubSection{Des ensembles classiques}
+    \input{content/sets.tex}
+
+
+
+\newpage
+\specialSubSection{Des constantes célèbres}
+    \input{content/constants.tex}
+
+
+
+\newpage
+\specialSubSection{Des lettres sens dessus dessous...}
+    \input{content/up_and_down.tex}
+
+
+\newpage
+\specialSubSection{D'autre(s) lettre(s)...}
+    \input{content/special.tex}
+
+
+\newpage
+\specialSubSection{Remerciements}
+    \input{content/thanks.tex}
+
+ 
+\specialSubSection{Journal de bord (chronologie inversée)}
+    \input{content/changelog.tex}        
+%
+\end{document}

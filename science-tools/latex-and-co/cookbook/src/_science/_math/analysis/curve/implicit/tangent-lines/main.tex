@@ -1,0 +1,95 @@
+% !TEX TS-program = lualatex
+
+%%%
+% src::
+%     url = https://tex.stackexchange.com/a/750411/6880
+%%%
+
+\documentclass[border = 3pt]{standalone}
+
+%%%
+% Des couleurs faciles d'emploi via le package \xcolor.
+%%%
+\usepackage[svgnames]{xcolor}
+
+%%%
+% La bibliothèque \luadraw allie une facilité d’utilisation
+% à un rendu particulièrement soigné.
+%%%
+\usepackage[3d]{luadraw}
+
+\begin{document}
+
+\begin{luadraw*}{name = implicit-tangent-lines}
+local ld  = luadraw
+local Z   = ld.cpx.Z
+local abs = ld.cpx.abs
+
+------
+-- L'équation implicite est `F(x, y) = 0`.
+------
+local F = function(x, y)
+  return x^2 + y^4 + x * y - 1
+end
+
+------
+-- ¨Def de la zone graphique.
+------
+local graphview = ld.graph:new{
+  window = {-3, 3, -3, 3},
+  size   = {10, 10},
+  bbox   = false
+}
+
+------
+-- Il est temps de dessiner...
+------
+graphview:Dgradbox(
+  {
+    Z(-2, -2), Z(2, 2),
+    1, 1
+  },
+  {
+    grid  = true,
+    title = "{\\boldmath $x^2 + y^4 + x y = 1$}"
+  }
+)
+
+------
+-- La valeur par défaut de ''grid'' rend visible les segments
+-- constituant la courbe, donc nous affinons les pas de calcul.
+------
+graphview:Dimplicit(
+  F,
+  {
+    grid         = {100, 100},
+    draw_options = "thick"
+  }
+)
+
+------
+-- Ajout de tangentes aux points d'abscisses `0.5`.
+------
+local x0 = 0.5
+
+local L = ld.solve(
+  function(t)
+    return F(x0, t)
+  end,
+  -2, 2
+)
+
+for _,  y in ipairs(L) do
+    graphview:DtangentI(
+        F, x0, y, 2,
+        "Stealth-Stealth, thick, red"
+    )
+end
+
+------
+-- Montrons le résultat de notre oeuvre.
+------
+graphview:Show()
+\end{luadraw*}
+
+\end{document}

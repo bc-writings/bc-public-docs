@@ -1,0 +1,13 @@
+this::
+    date = 2026-07-17
+
+
+=========================
+Une version "clé en main"
+=========================
+
+Le \pack ''mathtools'' propose la \cmd ''\DeclarePairedDelimiter'' permettant de créer des macros pour encadrer facilement du contenu entre deux délimiteurs.
+La taille de ces délimiteurs devient alors entièrement modulable : soit de manière fixe en passant un \arg optionnel (comme ''\Big''), soit de manière automatique en utilisant la version étoilée de la macro ainsi créée.
+Malheureusement, bien que puissante, cette approche ne permet pas de basculer facilement entre les conventions française `intervalO(a,b) union intervalCO(c,d)` et anglo-saxone `intervalO[locale = en](a,b) union intervalCO[locale = en](c,d)`.
+De plus, l'usage d'un \sep particulier de bornes n'est toujours pas implémenté.
+La dernière recette de ce chapitre s'attaque justement à ces \pbs avec brio.

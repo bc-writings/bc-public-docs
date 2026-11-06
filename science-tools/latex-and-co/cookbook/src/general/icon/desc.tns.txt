@@ -1,0 +1,6 @@
+====================
+Fabriquer des icônes
+====================
+
+content::
+    ./tikz-pic/\desc

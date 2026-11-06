@@ -1,0 +1,7 @@
+====================================
+Empilons des cubes comme des enfants
+====================================
+
+content::
+    ./centered/\desc
+    ./two-tone-and-aligned/\desc

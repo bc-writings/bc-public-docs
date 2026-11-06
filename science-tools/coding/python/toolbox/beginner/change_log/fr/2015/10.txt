@@ -1,0 +1,33 @@
+==========
+2015-10-28
+==========
+
+**Réorganisation sur ¨github:** une organisation a été créée pour les écrits sur la programmation avec ¨python à l'adresse cf::``https://github.com/bc-writings-prog-python``. Ceci implique que les différentes versions de ce document et ses sources seront dorénavant hebergées à l'adresse cf::``https://github.com/bc-writings-prog-python/toolboxes``.
+
+
+==========
+2015-10-18
+==========
+
+**Amélioration du document :** voici ce qui a changé.
+
+    1) Amélioration de l'explication du comportement d'une fonction face à une liste.
+
+    1) Résolution dans le document ¨pdf de deux problèmes dus à deux bugs du petit code "maison" utilisé pour passer de la version ¨jupyter à celle au format ¨latex.
+
+        + Les codes renvoyant une sortie normale suivie d'un message d'erreur n'étaient pas pris en compte.
+
+        + Le code ¨markdown markdown::``*"Soit $x = 4$"* et *"A-t-on $x = 4$"*`` posait problème. Ceci était dû à une expression régulière trop gourmande (so greedy).
+
+    1) La table des matières commence sur une page impaire. Ceci permet d'imprimer le document au format "2 pages sur 1" avec une table des matières contenues dans une seule page. Très pratique !
+
+    1) Diverses corrections typographiques mineures ont été faites.
+
+    1) Utilisation plus systématique de variables dans les bouts de code donnés en exemple.
+
+
+==========
+2015-10-07
+==========
+
+**Première version du document "Boîte à outils - Premiers pas avec Python 3".**

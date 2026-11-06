@@ -1,0 +1,80 @@
+% FORCE-CROP
+
+%%%
+% src::
+%     url = https://tex.stackexchange.com/a/753973/6880
+%%%
+
+\documentclass{article}
+
+%%%
+% Les \tabs vont être construits par le \pack ''nicematrix''.
+%%%
+\usepackage{nicematrix}
+
+%%%
+% Les \packs suivants vont être utilisés par ''nicematrix''.
+%%%
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{caption}
+
+%%%
+% Nous ne vous voulons ni pied de page ni entête.
+%%%
+\pagestyle{empty}
+
+\begin{document}
+
+\section*{\null\hfill La clé \texttt{tabularnote} \hfill\null}
+
+\begin{table}[ht!]
+  \centering
+  \caption{Annoter un tableau}
+
+  \begin{NiceTabular}{c|c|c}[
+    tabularnote = {Une note pour le tableau.}
+  ]
+    \toprule
+
+    Catégorie & Coût & Prix \\
+
+    \midrule
+
+    A & 200 & 100 \\
+    B & 100 \tabularnote{Une note pour un prix.}
+            & 200 \\
+    C & 300 & 300 \\
+
+    \bottomrule
+  \end{NiceTabular}
+\end{table}
+
+
+\section*{\null\hfill L'environnement \texttt{TabularNote} \hfill\null}
+
+\begin{table}[ht!]
+  \centering
+  \caption{Annoter un tableau}
+
+  \begin{NiceTabular}{c|c|c}
+    \toprule
+
+    \begin{TabularNote}
+        Une note pour le tableau.
+    \end{TabularNote}
+
+    Catégorie & Coût & Prix \\
+
+    \midrule
+
+    A & 200 & 100 \\
+    B & 100 \tabularnote{Une note pour un prix.}
+            & 200 \\
+    C & 300 & 300 \\
+
+    \bottomrule
+  \end{NiceTabular}
+\end{table}
+
+\end{document}

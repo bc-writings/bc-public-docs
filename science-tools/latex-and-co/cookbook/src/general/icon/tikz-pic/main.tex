@@ -1,0 +1,57 @@
+\documentclass[varwidth, border = 3pt]{standalone}
+
+\usepackage{main}
+
+%%%
+% Deux couleurs "maison".
+%%%
+\definecolor{env-perso}{RGB}{150, 200, 0}
+\definecolor{seal-perso}{RGB}{150, 0, 200}
+
+%%%
+% Simplifions la rédaction des tests.
+%%%
+\newcommand\test{
+  [0]
+  \iconpec\
+  %
+  [1]
+  \iconpec[%
+    line-width = 8pt,
+    env-color  = seal-perso%
+  ]
+  %
+  [2]
+  \iconpec[%
+    line-width    = 10pt,
+    corner-radius = 15pt,
+    dot-radius    = 3pt,
+    env-color     = env-perso,
+    seal-color    = magenta!20,
+    line-color    = magenta%
+  ]
+}
+
+\begin{document}
+
+Taille \verb#\tiny# :
+
+{\tiny\test}
+
+
+\medskip
+
+
+Taille \verb#\normalsize# :
+
+\test
+
+
+\medskip
+
+
+Taille \verb#\Large# :
+
+{\Large\test}
+
+\end{document}

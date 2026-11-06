@@ -1,0 +1,5 @@
+==========
+2017-09-04
+==========
+
+**Fin du support de la version pour IPython 3:** tout est dit !

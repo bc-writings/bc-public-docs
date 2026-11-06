@@ -1,0 +1,10 @@
+\begin{tikzpicture}[line join=round]%
+\begin{scope}%
+\draw[blue] (8.8,4) .. controls (8.8,4.888) and (8.088,5.6) .. (7.2,5.6) .. controls (6.312,5.6) and (5.6,4.888) .. (5.6,4) .. controls (5.6,3.112) and (6.312,2.4) .. (7.2,2.4) .. controls (8.088,2.4) and (8.8,3.112) .. (8.8,4);%
+\draw[dashed] (11.2396,3.6) .. controls (11.2396,4.732) and (10.332,5.6396) .. (9.2,5.6396) .. controls (8.068,5.6396) and (7.1604,4.732) .. (7.1604,3.6) .. controls (7.1604,2.468) and (8.068,1.5604) .. (9.2,1.5604) .. controls (10.332,1.5604) and (11.2396,2.468) .. (11.2396,3.6);%
+\draw[red] (11.2,3.2) -- (-0,0.8636);%
+\draw[red] (11.2,3.2) -- (4.1907,8);%
+\draw[mark=*,mark size=1.4pt] plot coordinates {(7.5267,2.4337)} plot coordinates {(8.104,5.3201)};%
+\draw[-] (11.2,3.2) node[below right] {$M$};%
+\end{scope}%
+\end{tikzpicture}%

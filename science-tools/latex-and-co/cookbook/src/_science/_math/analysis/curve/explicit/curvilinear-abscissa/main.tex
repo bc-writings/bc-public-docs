@@ -1,0 +1,309 @@
+% !TEX TS-program = lualatex
+
+%%%
+% src::
+%     url = https://tex.stackexchange.com/a/751726/6880
+%%%
+
+\documentclass[border = 3pt]{standalone}
+
+%%%
+% Des couleurs nommées faciles d'emploi via le package \xcolor.
+%%%
+\usepackage[svgnames]{xcolor}
+
+%%%
+% La bibliothèque \luadraw allie une facilité d’utilisation
+% à un rendu particulièrement soigné.
+%%%
+\usepackage[3d]{luadraw}
+
+\begin{document}
+
+\begin{luadraw*}{name = curvilinear-abscissa}
+local ld  = luadraw
+local cpx = ld.cpx
+local Z   = cpx.Z
+
+------
+-- ¨Long des étapes du parcours.
+------
+local len_step = .8
+
+------
+-- Nos outils ¨maths.
+------
+local f = function(x)
+  return math.cos(1.75*x)
+end
+
+local df = function(x)
+  local h = 1e-6
+
+  return (f(x + h) - f(x - h)) / (2*h)
+end
+
+local curv_absc = function(a, x)
+  return ld.int(
+    function(t)
+      return math.sqrt(1 + df(t)^2)
+    end,
+    a, x
+  )
+end
+
+local linear_interpo = function(x, x_vals, y_vals)
+  local k = 1
+  local n = #x_vals
+
+  while (k < n) and (x_vals[k] < x) do
+    k = k + 1
+  end
+
+  if k <= n then
+    local p = (x - x_vals[k - 1]) / (x_vals[k] - x_vals[k - 1])
+
+    return y_vals[k - 1] + p * (y_vals[k] - y_vals[k - 1])
+  end
+end
+
+------
+-- ¨Def de la zone graphique.
+------
+local graphview = ld.graph:new{
+  window = {-5.5, 5.5, -4.35, 4.55},
+  size   = {11.5, 11},
+  bbox   = false
+}
+
+------
+-- Un outil pour étudier les différents tracés.
+------
+local shift_up   = Z(0, 3)
+local shift_down = Z(0, -2)
+
+local xlabel = -3.14 - .35
+local ylabel = 1.3
+
+local xmin, xmax = -5, 5
+
+local x, s = xmin, 0
+
+-- La tableau ''all_pts'' va être nourri plus bas.
+local all_pts = {}
+
+local nb_method = 0
+
+local draw_method = function()
+-- Lignes verticales pour comparer les méthodes
+-- (à ne tracer qu'une seule fois).
+  if nb_method == 1 then
+    for _ , z in ipairs(all_pts) do
+      graphview:Dline(
+        {z.re, cpx.I},
+        "gray, draw opacity = 0.5"
+      )
+    end
+  end
+
+-- Tracé de la fonction.
+  graphview:Dcartesian(
+    f,
+    {
+      x = {xmin, xmax},
+      draw_options = "red, line width = 0.8pt"
+    }
+  )
+
+-- Ajout des points des étapes du parcours.
+  graphview:Ddots(all_pts)
+
+-- Une légende.
+  graphview:Dlabel(
+    "Méthode " .. nb_method,
+    Z(xlabel, ylabel),
+    {}
+  )
+end
+
+
+------
+-- Méthode 1 : nous résolvons numériquement l'équation
+-- ''curv_absc(x) = len_step'' à partir du ''x'' courant
+-- de façon itérative.
+------
+all_pts = {Z(xmin, f(xmin))}
+
+while x < xmax do
+  local x_next = ld.solve(
+    function(t)
+      return curv_absc(x, t) - len_step
+    end,
+    x, xmax
+  )
+
+-- Nous pouvons encore avancé.
+  if x_next ~= nil then
+    x = x_next[1]  -- Gardons juste le résultat le plus proche.
+
+    table.insert(all_pts, Z(x, f(x)))
+
+-- Nous sommes au bout de notre chemin.
+  else
+    x = xmax
+  end
+end
+
+-- Délocalisation "relative" du repère courant.
+graphview:Shift(shift_up)
+
+-- Standardisation de l'affichage.
+nb_method = nb_method + 1
+
+draw_method()
+
+
+------
+-- Méthode 2 : nous travaillons en deux temps.
+--
+--     1) Résolution numérique de l'¨eq_diff
+--     ''y'(t) = 1 / sqrt(1 + f'(t))'' sous la ¨cond initiale
+--     ''y(0) = xmin''.
+--     La ¨sol de cette ¨eq_diff est la ¨fonc réciproque de
+--     l'¨absc curviligne, donc la résolution est faite de
+--     ''0'' à ''int(math.sqrt(1 + df(x)^2), xmin, xmax)''.
+--
+--     1) Ensuite, une interpolation linéaire calcule les ¨pts
+--     des étapes du parcours.
+------
+local function len_f(x)
+    return math.sqrt(1 + df(x)^2)
+end
+
+local sol = ld.odesolve(
+  function(t, y)
+    return 1 / math.sqrt(1 + df(y)^2)
+  end,
+  0, xmin,
+  0, ld.int(len_f, xmin, xmax),
+  20
+)
+
+local s_vals, x_vals = sol[1], sol[2]
+
+all_pts = {Z(xmin, f(xmin))}
+
+x, s = xmin, 0
+
+while x < xmax do
+  s = s + len_step
+  x = linear_interpo(s, s_vals, x_vals)
+
+  if x < xmax then
+    table.insert(all_pts, Z(x, f(x)))
+  end
+end
+
+graphview:Shift(shift_down)
+
+nb_method = nb_method + 1
+
+draw_method()
+
+
+------
+-- Méthode 3 : approximation via une ligne polygonale.
+--
+--     1) Une ligne polygonale approchant la courbe permet
+--     d'obtenir une approximation de la longueur de la
+--     courbe aux sommets de la ligne.
+--
+--     1) Ensuite, les points régulièrement espacés sont
+--     calculés par interpolation linéaire.
+--
+--
+-- note::
+--     La ¨val `30` a été choisie à la main (plus grande est
+--     la ¨val, meilleure sera l'approximation, mais évitons
+--     des calculs inutiles). Par contre, `10` ne donne pas
+--     un bon résultat.
+------
+local C = ld.cartesian(f, xmin, xmax, 30)[1]
+
+s_vals, x_vals = {0}, {xmin}
+
+s = 0
+
+local a, b = nil, C[1]
+
+for k = 2, #C do
+  a, b = b, C[k]
+
+  s = s + cpx.abs(b - a)
+
+  table.insert(x_vals, b.re)
+  table.insert(s_vals, s)
+end
+
+all_pts = {Z(xmin, f(xmin))}
+
+x, s = xmin, 0
+
+while x < xmax do
+  s = s + len_step
+  x = linear_interpo(s, s_vals, x_vals)
+
+  if x < xmax then
+    table.insert(all_pts, Z(x, f(x)))
+  end
+end
+
+graphview:Shift(shift_down)
+
+nb_method = nb_method + 1
+
+draw_method()
+
+
+------
+-- Méthode 4 : nous délèguons les calculs à ¨tikz via l'option
+-- ''decoration''.
+------
+local dot_options = (
+     "decorate,"
+  .. "decoration = {markings, "
+  .. "mark = between positions 0 and 1 step "
+  .. (10*len_step) .. "mm"
+  .. "with {\\fill circle (1.8pt);}}"
+)
+
+graphview:Shift(shift_down)
+
+graphview:Dcartesian(
+  f,
+  {
+    x = {xmin, xmax},
+    draw_options = "red, line width = 0.8pt"
+  }
+)
+
+graphview:Dcartesian(
+  f,
+  {
+    x = {xmin, xmax},
+    draw_options = dot_options
+  }
+)
+
+graphview:Dlabel(
+  "Ti\\emph{k}Z decorate", Z(xlabel, ylabel),
+  {}
+)
+
+------
+-- Montrons le résultat de notre oeuvre.
+------
+graphview:Show()
+\end{luadraw*}
+
+\end{document}

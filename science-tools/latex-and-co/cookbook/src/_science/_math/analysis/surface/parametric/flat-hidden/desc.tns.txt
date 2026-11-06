@@ -1,0 +1,13 @@
+this::
+    date = 2025-09-20
+
+
+===============================
+Une version "lisse", ou presque
+===============================
+
+La \1ere représentation permet de se familiariser avec la \def d'une \surf \param. Rien de dur !
+
+
+note::
+    Nous utilisons \luadraw qui n'est pas un logiciel de représentation \3d ; ceci explique qu'en zoomant sur la figure, nous voyons apparaître des quadrilatères.

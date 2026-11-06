@@ -1,0 +1,34 @@
+============
+latex-and-co - TODO
+============
+
+
+> ---------------------------- <
+
+luadraw
+
+    ---> besoin d'expliquer comment régéléer à la main la fenètre 2D via adjust2d et lecture dans le terminal !
+
+    ---> matrix kernel transfo: auto
+       + method graph3d !!!! facilem mais le faire car plus propre
+
+    ---> SURFACE: revoir les colromap car c'est plus simple depuis vesrion 2.2 : garder ce qui est eprtinannent quitte à passer via un autre mode de coloartyion
+
+    ---> complex-func : dès que publié, prendre la palette SNFever
+
+    ---> BlindFish : adoucir (cf surf param color map)
+
+
+> ---------------------------- <
+
+geo sphérique : placer def de la sphère avant les objets !!!!
+
+
+> ---------------------------- <
+
+\listfiles + texlogsieve pour avoir les packages utilisés localement
+
+
+> ---------------------------- <
+
+binary tree : besoin d'avoir des cercles identiques même si contenu différents

@@ -1,0 +1,55 @@
+%%%
+% src::
+%     url = https://tex.stackexchange.com/a/634014/6880
+%%%
+
+\documentclass[border = 3pt]{standalone}
+
+%%%
+% Le \pack ''nicematrix'' est le couteau suisse des matrices.
+%%%
+\usepackage{nicematrix}
+
+%%%
+% Le \pack \tikz va être utilisé pour décorer les matrices.
+%%%
+\usepackage{tikz}
+
+\begin{document}
+
+%%%
+% ''nicematrix'' fournit ''\hdashedline'' pour dessiner des
+% \delims hachurées horizontales.
+% Pour les hachures verticales, nous créons un nouveau style
+% de ligne utilisable directement via un simple spécificateur.
+%%%
+\NiceMatrixOptions{
+  custom-line = {
+    letter      = I ,
+    tikz        = dashed ,
+    total-width = \pgflinewidth
+  }
+}
+
+%%%
+% L'emploi de ''first-row'' et ''first-col'' permet d'indiquer
+% des étiquettes dans la \1ere ligne et la \1ere colonne du code
+% \latex, ces étiquettes ne faisant pas partie de la matrice
+% finale.
+%%%
+$H
+=
+ \begin{pNiceArray}{ccIcc}[
+   first-row,
+   first-col
+ ]
+     & a & b & c & d  \\
+   e & 1 & 2 & 3 & 4  \\
+   f & 5 & 6 & 7 & 8  \\
+ \hdashedline
+   g & 9 & 0 & 1 & 2  \\
+   h & 3 & 4 & 5 & 7
+ \end{pNiceArray}
+$
+
+\end{document}

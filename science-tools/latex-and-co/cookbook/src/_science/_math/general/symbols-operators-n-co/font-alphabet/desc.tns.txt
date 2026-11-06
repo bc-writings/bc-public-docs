@@ -1,0 +1,22 @@
+this::
+    date = 2026-10-24
+
+
+============================================
+Créer ou modifier un "alphabet" mathématique
+============================================
+
+\latex propose des polices \maths spéciales via, par exemple, les macros ''\mathcal'' et ''\mathsf'' qui utilisent des "alphabets" spécifiques. Créer son propre alphabet est très simple, une fois les bons \params récupérés. Dans notre cas, nous avons consulté en ligne cf::''le catalogue de polices \tex ; https://tug.org/FontCatalogue'', et choisi la police "Ralph Smith’s Formal Script" : voir cf::''https://tug.org/FontCatalogue/ralphsmithsformalscript/''.
+
+
+tip::
+    Le site utilisé indique d'employer le \pack ''rsfso''. C'est dans le code \src de ce \pack que se trouve ''\DeclareMathAlphabet{\mathcal}{U}{rsfso}{m}{n}'' que nous détournons pour déclarer notre alphabet presonnel.
+
+
+note::
+    La \tech proposée permet de redéfinir un alphabet existant.
+
+
+warning::
+    Créer un nouvel alphabet mathématique n’est pas compliqué, mais il ne faut pas en abuser !
+    En effet, les compilateurs basés sur \tex, comme \pdflatex, travaillent avec un maximum de `16` alphabets distincts.

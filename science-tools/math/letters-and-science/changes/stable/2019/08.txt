@@ -1,0 +1,10 @@
+==========
+2019-08-29
+==========
+
+**Contenu :** % pour le symbole T couché à droite, il a été ajouté son nom "tourniquet" et un nouvel exemple.
+
+
+**Code source ¨latex :** on n'utilise plus `titlesec` qui est incompatible avec `scrartcl`.
+
+Par contre, la compilation n'est plus propre : un problème avec l'utilisation de  `xstring`. Non résolu pour le moment !

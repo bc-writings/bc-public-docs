@@ -1,0 +1,37 @@
+this::
+    date = 2026-06-14
+
+
+==============================
+Usage basique de fichiers \csv
+==============================
+
+Considérons le fichier \csv suivant.
+
+csv::
+    ---
+    title = Les données brutes.
+    path  = ./data.csv
+    ---
+
+
+Nous allons voir comment utiliser ce fichier \csv afin de produire le résultat ci-après.
+
+pdf::
+    ---
+    title = Rendu souhaité
+    path  = ./main-1-table.pdf
+    ---
+
+
+Le choix \tech retenu est de lire complètement le fichier \csv en stockant les données en interne, puis de rendre ces données accessibles via des macros simples à employer comme dans l'exemple suivant.
+
+
+pdf::
+    ---
+    title = Extraire des données
+    path  = ./main-2-extract.pdf
+    ---
+
+
+Cette recette demande un peu de travail, mais \l3 rend les traitements très faciles à effectuer.

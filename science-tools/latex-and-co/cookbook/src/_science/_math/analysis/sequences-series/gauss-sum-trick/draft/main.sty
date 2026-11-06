@@ -1,0 +1,47 @@
+%%%
+% src::
+%     urls = https://tex.stackexchange.com/a/655445/6880 ,
+%            https://tex.stackexchange.com/a/730033/6880
+%%%
+
+%%%
+% La décoration de la somme se fait via \tikz et la bibliothèque
+% \tikzmark, cette dernière permettant de marquer des points du
+% \pdf qui seront utiles au tracé de la décoration.
+%%%
+\usepackage{tikz}
+\usetikzlibrary{tikzmark}
+
+%%%
+% Des réglages côté utilisateur.
+%%%
+\newlength{\nubheight}
+\setlength{\nubheight}{.8ex}
+
+\newcommand{\nubid}{usecase-A}
+\newcommand{\nubdepth}{0}
+
+%%%
+% prototype::
+%     #1 : le numéro de la décoration.
+%     #2 : un contenu à décorer.
+%%%
+\NewDocumentCommand{ \nub }{ m m }{%
+  \tikzmark{start\nubid#1} % Marquage du début du contenu.
+    #2                     % Le contenu.
+  \tikzmark{end\nubid#1}   % Marquage de la fin du contenu.
+  % Calcul du décalage vertical pour le tracé du crochet.
+  \pgfmathsetmacro\nubvoffset{#1 - \nubdepth}%
+  % Le tracé commence ici.
+  \llap{ % Cette macro crée un contenu dans une boîte de largeur
+         % nulle du point de vue de LaTeX.
+    \begin{tikzpicture}[baseline = (current bounding box.north)]
+      \draw[rounded corners = 2pt]
+        (pic cs:start\nubid#1)            % Trait vertical à partir
+          -- ++(0,\nubvoffset*\nubheight) % de la marque du début.
+          -|                              % Une ligne en forme de "L"
+        (pic cs:end\nubid#1);             % inversé jusqu'à la marque
+                                          % de la fin.
+    \end{tikzpicture}%
+  }%
+}

@@ -1,0 +1,12 @@
+==========
+2015-10-28
+==========
+
+**Réorganisation sur ¨github:** une organisation a été créée pour les écrits sur l'éthymologie, l'histoire et autres sujets à propos des ¨maths à l'adresse cf::``https://github.com/bc-writings-math-ethymo-hist-and-co/symbols``. Ceci implique que le document et ses sources seront dorénavant hebergés à l'adresse cf::``https://github.com/bc-writings-algo-general/algorithms_with_paper``.
+
+
+==========
+2015-10-26
+==========
+
+**Mise en ligne :** le document et ces sources sont disponibles sur ¨github. À cette occasion, le code source ¨latex a été amélioré et bien nettoyé. On utilise un dossier "template" général ( Pour le moment, on utilise un lien symbolique qui ne peut être pris en compte par ¨git et du coup le dossier "template" n'est pas présent sur ¨github). Pour le moment, on utilise un lien symbolique qui ne peut être pris en compte par ¨git et du coup le dossier "template" n'est pas présent sur ¨github.

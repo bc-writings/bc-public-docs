@@ -1,0 +1,13 @@
+this::
+    date = 2026-06-15
+
+
+====================
+Des icônes via \tikz
+====================
+
+\tikz permet de créer des \imgs autonomes, appelées ''pic'', facilement réutilisables
+((
+    Par exemple, un ''pic'' peut être positionné sur un noeud précis ou subir une rotation.
+)).
+Nous utilisons cette \tech pour définir, sous forme de caractère, une icône colorée et paramétrable.

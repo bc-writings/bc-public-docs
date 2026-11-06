@@ -1,0 +1,123 @@
+\documentclass[12pt]{amsart}
+
+\usepackage{bc-writings}
+
+
+
+\DeclareMathOperator{\taille}{\tau}
+
+
+
+\newcommand\squote[1]{\og #1 \fg{}}
+
+\newcommand\myabrev[1]{\textbf{\emph{#1}}}
+
+% Source: https://tex.stackexchange.com/a/568582/6880
+\let\olditem\item
+\newlist{methods}{itemize}{1}
+\setlist[methods]{%
+    align=right,
+    before=\changeitem,
+    font=\bfseries,
+    after=\let\item\olditem,
+    leftmargin=2.35cm
+}
+\newcommand*{\changeitem}{%
+    \renewcommand*{\item}[1][]{%
+        \olditem[##1 \emph{:}]
+    }%
+}
+
+\newenvironment{focusproof}{
+	\begin{tcolorbox}
+}{
+	\end{tcolorbox}
+}
+
+\newcommand\methodo[2]{méthode de type \uppercase{#1}-#2}
+
+
+\begin{document}
+
+
+\title{BROUILLON -- Sommer des puissances successives}
+\author{Christophe BAL}
+\date{XXX Avril 2025}
+
+\maketitle
+
+\begin{center}
+	\itshape
+	Document, avec son source \LaTeX, disponible sur la page
+
+	\url{https://github.com/bc-writings/bc-public-docs/XXXX}.
+\end{center}
+
+
+\bigskip
+
+
+\begin{center}
+	\hrule\vspace{.3em}
+	{
+		\fontsize{1.35em}{1em}\selectfont
+		\textbf{Mentions \og légales \fg}
+	}
+
+	\vspace{0.45em}
+	\doclicenseThis
+	\hrule
+\end{center}
+
+
+\bigskip
+
+
+\setcounter{tocdepth}{2}
+\tableofcontents
+
+
+% ----------------------- %
+
+
+\newpage
+
+\begin{meta-abstract*}
+	Ce document s'intéresse à différents moyens de trouver la classique formule de sommation $(q - 1) \sum_{k=0}^{n} = q^{n+1} - 1$ pour $(n ; q) \in \NN \times \RR$.
+\end{meta-abstract*}
+
+
+% ----------------------- %
+
+
+\begin{tcolorbox}
+		Nous commencerons par étudier les cas très particuliers des puis\-sances de $q = 2$ et de celles de $q = \dfrac12$ pour passer ensuite au cas général.
+
+Chaque section a été rédigée pour être lue indépendamment des autres même si cela implique de répéter certains calculs ou raisonnements que l'on trouve ailleurs dans le document.
+
+	\bigskip
+	
+	\begin{center}
+		\textbf{Abréviations utilisées pour les titres des sections} 
+	\end{center}
+	
+	\smallskip
+	
+	\begin{methods}
+		\item[ALG]
+		      \methodo{alg}{ébrique}
+
+		\item[ARI]
+		      \methodo{ari}{thmétique}
+
+		\item[EXP]
+		      \methodo{exp}{érimental}
+
+		\item[GÉO]
+		      \methodo{géo}{métrique}
+
+		\item[INFO]
+		      \methodo{info}{rmatique}
+	\end{methods}
+\end{tcolorbox}
+

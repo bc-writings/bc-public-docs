@@ -1,0 +1,97 @@
+% !TEX TS-program = lualatex
+
+% FORCE-CROP
+
+%%%
+% src::
+%     url = https://tex.stackexchange.com/a/751813/6880
+%%%
+
+\documentclass[border = 3pt]{standalone}
+
+%%%
+% Des couleurs faciles d'emploi via le package \xcolor.
+%%%
+\usepackage[svgnames]{xcolor}
+
+%%%
+% La bibliothèque \luadraw allie une facilité d’utilisation
+% à un rendu particulièrement soigné.
+%%%
+\usepackage[3d]{luadraw}
+
+\begin{document}
+
+\begin{luadraw*}{name = spherical-circle}
+require 'luadraw_spherical'
+
+local ld = luadraw
+
+local Origin = ld.pt3d.Origin
+local M      = ld.pt3d.M
+
+local sM = ld.sM
+
+local vecI = ld.pt3d.vecI
+local vecJ = ld.pt3d.vecJ
+local vecK = ld.pt3d.vecK
+
+------
+-- ¨Def de la zone graphique.
+------
+local O, R = Origin, 4
+
+local graphview = ld.graph3d:new{
+  window  = {-R - 1, R + 1, -R - 1, R + 1},
+  viewdir = {15, 70},
+  size    = {10, 10},
+  bbox    = false
+}
+
+------
+-- Réglages liés aux lignes et aux flèches.
+------
+graphview:Linewidth(6)
+
+ld.Hiddenlines     = true
+ld.Hiddenlinestyle = "dashed"
+
+------
+-- Nos ¨objs de ¨geo sphérique.
+------
+graphview:Define_sphere({center = O, radius = R})
+
+local A = sM(-30, 20)
+local B = sM(0, 90)
+local P = {O, ld.pt3d.prod(A, B)}
+
+graphview:DScircle(
+  P,
+  {color = "blue"}
+)
+
+graphview:DScircle(
+  {O, vecK},
+  {color = "green"}
+)
+
+graphview:Dspherical()
+
+graphview:Ddots3d({A, B, O})
+
+------
+-- Ajout de points.
+------
+graphview:Dlabel3d(
+  "$O$", O, {pos = "S"},
+  "$A$", A, {pos = "E"},
+  "$B$", B, {pos = "NE"}
+)
+
+------
+-- Montrons le résultat de notre oeuvre.
+------
+graphview:Show()
+\end{luadraw*}
+
+\end{document}

@@ -1,0 +1,98 @@
+\documentclass[12pt]{amsart}
+
+\usepackage{bc-writings}
+
+\hypersetup{hidelinks}
+
+
+%\AddToHook{env/stepcalc/before}{\smallskip}
+%\AddToHook{env/stepcalc/after}{\smallskip}
+
+
+\DeclareMathOperator{\area}{Aire}
+
+
+\begin{document}
+
+
+\title{Optimisation basique sans dériver... Quoique!}
+\author{Christophe BAL}
+\date{28 Avril 2025 - 30 Avril 2025}
+
+\maketitle
+
+\begin{center}
+    \itshape
+    Document, avec son source \LaTeX, disponible sur la page
+
+    \url{https://github.com/bc-writings/bc-public-docs/tree/main/math/optimization/real-func/hyperbola-rectangle-hidden-symmetry}.
+\end{center}
+
+
+\bigskip
+
+
+\begin{center}
+    \hrule\vspace{.3em}
+    {
+        \fontsize{1.35em}{1em}\selectfont
+        \textbf{Mentions \og légales \fg}
+    }
+
+    \vspace{0.45em}
+    \doclicenseThis
+    \hrule
+\end{center}
+
+
+\bigskip
+
+
+\setcounter{tocdepth}{2}
+\tableofcontents
+
+
+% ----------------------- %
+
+
+\newpage
+
+\begin{meta-abstract*}
+    Ce document propose deux visions élémentaires différentes d'un même problème très simple d'optimisation d'aire relativement à une hyperbole.
+    Vient ensuite la généralisation du résultat en limitant au maximum la brutalité.
+\end{meta-abstract*}
+
+
+% ----------------------- %
+
+
+\section{Un problème d'optimisation de niveau pré-universitaire}
+
+\subimport*{content/goal}{goal.tex}
+
+
+
+% ----------------------- %
+
+
+\section{La classique méthode via la dérivation}
+
+\subimport*{content/der-sol}{der-sol.tex}
+
+
+% ----------------------- %
+
+
+\section{Sans dériver, c'est possible!} \label{exa-geo}
+
+\subimport*{content/geo-sol}{geo-sol.tex}
+
+
+% ----------------------- %
+
+
+\section{Et si on généralisait...}
+
+\subimport*{content/gene}{gene}
+
+\end{document}

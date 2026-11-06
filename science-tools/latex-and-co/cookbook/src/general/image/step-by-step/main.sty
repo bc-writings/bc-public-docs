@@ -1,0 +1,55 @@
+%%%
+% La mise en page est gérée sans effort grâce à l'\env
+% ''tcbitemize'' de la \bib ''raster'' du \pack ''tcolorbox''.
+%%%
+\usepackage{tcolorbox}
+\tcbuselibrary{raster}
+
+
+%%%
+% prototype::
+%     #1 : des options destinées à l'\env ``tcbitemize'' fourni
+%          par la \bib ''raster''
+%     #2 : un préfixe commun aux chemins des \imgs qui peut être
+%          vide.
+%     #3 : la liste des suffixes identifiant les \imgs.
+%
+%
+% note::
+%     L'essentiel du travail est délégué à la macro
+%     ''\cookbook@tcbitem'' qui est un alias \latex de la \fonc
+%     \l3 ''\cookbook_tcbitem:nn'' définie juste après.
+%%%
+\NewDocumentCommand{\stepbystep}{O{} m m}{
+  \begin{tcbitemize}[#1]
+    \cookbook@tcbitem{#2}{#3}
+  \end{tcbitemize}
+}
+
+
+\ExplSyntaxOn
+
+%%%
+% prototype::
+%     :see: cmd.stepbystep.arg.#2 ,
+%           cmd.stepbystep.arg.#3
+%%%
+\cs_set:Nn \cookbook_tcbitem:nn {
+%%%
+% Lecture \val par \val des \ids. Comme ''#1'' est le préfixe
+% commun des \imgs, ''#1##1'' fournit donc le chemin d'une
+% \img (\tech du doublement des ''#'' pour les \cmds imbriquées).
+%%%
+  \clist_map_inline:nn {#2} {
+    \tcbitem \includegraphics[width=\textwidth]{#1##1}
+  }
+}
+
+
+%%%
+% prototype::
+%     :see: l3.cookbook_tcbitem:nn
+%%%
+\cs_new_eq:NN \cookbook@tcbitem \cookbook_tcbitem:nn
+
+\ExplSyntaxOff

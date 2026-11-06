@@ -1,0 +1,126 @@
+% !TEX TS-program = lualatex
+
+%%%
+% src::
+%     url = https://github.com/pfradin/luadraw/discussions/96#discussioncomment-14474546
+%%%
+
+\documentclass[border = 3pt]{standalone}
+
+%%%
+% Des couleurs faciles d'emploi via le package \xcolor.
+%%%
+\usepackage[svgnames]{xcolor}
+
+%%%
+% La bibliothèque \luadraw allie une facilité d’utilisation
+% à un rendu particulièrement soigné.
+%%%
+\usepackage[3d]{luadraw}
+
+\begin{document}
+
+\begin{luadraw*}{name = box-net}
+local ld = luadraw
+
+local Origin = ld.pt3d.Origin
+
+local vecI = ld.pt3d.vecI
+local vecJ = ld.pt3d.vecJ
+local vecK = ld.pt3d.vecK
+
+------
+-- Préréglages.
+------
+local a, b, h = 4, 3, 5
+
+local shiftbox = 3*b
+
+------
+-- ¨Def de la zone graphique.
+------
+local xmin, xmax = -a, a
+local ymin, ymax = -b - shiftbox, 1.6*b
+local zmin, zmax = -h, h
+
+local graphview = ld.graph3d:new{
+  window3d = {xmin, xmax, ymin, ymax, zmin, zmax},
+  viewdir  = {165, 70},
+  adjust2d = true,
+  bbox     = false,
+}
+
+------
+-- Réglages liés aux lignes.
+------
+ld.Hiddenlines     = true
+ld.Hiddenlinestyle = "dashed"
+
+------
+-- Les ¨elts géométriques de la boîte.
+------
+local box = ld.parallelep(Origin, a*vecI, b*vecJ, h*vecK)
+
+local A, B, C, D, E, F, G, H = table.unpack(box.vertices)
+
+local box_facets = ld.poly2facet(box)
+
+------
+-- Déplacements des faces.
+------
+box_facets[4] = ld.rotate3d(box_facets[4], -90, {C, C-D})
+box_facets[3] = ld.rotate3d(box_facets[3], 90 , {A, B-A})
+box_facets[5] = ld.rotate3d(box_facets[5], -90, {A, D-A})
+box_facets[6] = ld.rotate3d(box_facets[6], 90 , {B, C-B})
+
+box_facets[2] = ld.rotate3d(box_facets[2], -90, {A, D-A})
+
+P, Q, R, S = table.unpack(box_facets[2])
+
+box_facets[2] = ld.rotate3d(box_facets[2], -90, {P, S-P})
+
+------
+-- Tracé des ¨elts graphiques.
+------
+graphview:Dscene3d(
+  graphview:addFacet(
+    box_facets,
+    {
+      color     = "LightGray",
+      contrast  = 0.5,
+      edge      = true,
+      edgecolor = "gray"
+    }
+  )
+)
+
+local box = ld.shift3d(box, -shiftbox*vecJ)
+
+graphview:Dpoly(
+  box,
+  {mode = ld.mShadedHidden}
+)
+
+------
+-- Pour voir les sommets lors du ¨dev.
+------
+-- labels = {
+--   "$P$", P, {pos = "S", dist = 0.1},
+--   "$Q$", Q, {pos = "S", dist = 0.1},
+--   "$R$", R, {pos = "S", dist = 0.1},
+--   "$S$", S, {pos = "S", dist = 0.1},
+-- }
+--
+-- for k, X in ipairs(box.vertices) do
+--   insert(labels, {"$M_{".. k .."}$", X, {pos = "S", dist = 0.1}})
+-- end
+--
+-- graphview:Dlabel3d(table.unpack(labels))
+
+------
+-- Montrons le résultat de notre oeuvre.
+------
+graphview:Show()
+\end{luadraw*}
+
+\end{document}

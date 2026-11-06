@@ -1,0 +1,94 @@
+% !TEX TS-program = lualatex
+
+% FORCE-CROP
+
+\documentclass[border = 3pt]{standalone}
+
+%%%
+% Des couleurs faciles d'emploi via le package \xcolor.
+%%%
+\usepackage[svgnames]{xcolor}
+
+%%%
+% La bibliothèque \luadraw allie une facilité d’utilisation
+% à un rendu particulièrement soigné.
+%%%
+\usepackage[3d]{luadraw}
+
+\begin{document}
+
+\begin{luadraw*}{name = orthographic-prespective-by-default}
+local ld = luadraw
+
+local M      = ld.pt3d.M
+local Origin = ld.pt3d.Origin
+local vecI   = ld.pt3d.vecI
+local vecJ   = ld.pt3d.vecJ
+local vecK   = ld.pt3d.vecK
+
+------
+-- ¨Def de la zone graphique sans aucun réglage du mode de rendu,
+-- puisque la perspective orthographique est activée par défaut.
+--
+--
+-- note::
+--     lua::''viewdir = {"ortho", 30, 60}'' est le réglage par
+--     défaut : `30` et `60`, en degrés, correspondent à des
+--     ¨coords sphériques réglant la direction du point de vue
+--     de l'observateur.
+------
+local graphview = ld.graph3d:new{
+  window = {-6, 6.5, -5, 5.5},
+  size   = {10, 10},
+  bbox   = false,
+}
+
+------
+-- Réglages liés aux lignes.
+------
+graphview:Linewidth(4)
+ld.Hiddenlinestyle = "dashed"
+
+------
+-- Une boîte ouverte comme exemple.
+------
+local P = ld.parallelep(
+  Origin,
+  4*vecI, 6*vecJ, 1.5*vecK
+)
+
+table.remove(P.facets,2)
+
+P = ld.shift3d(
+  P,
+  - ld.pt3d.isobar3d(P.vertices)
+)
+
+graphview:Dscene3d(
+  graphview:addPoly(
+    P,
+    {
+      edge      = true,
+      hidden    = true,
+      contrast  = 0,
+      twoside   = false,
+      edgewidth = 6
+    }
+  ),
+  graphview:addFacet(
+    ld.getfacet(P,1) ,
+    {color = "LightGray"}
+  ),
+  graphview:addAxes(
+    Origin,
+    {arrows = 1}
+  )
+)
+
+------
+-- Montrons le résultat de notre oeuvre.
+------
+graphview:Show()
+\end{luadraw*}
+
+\end{document}

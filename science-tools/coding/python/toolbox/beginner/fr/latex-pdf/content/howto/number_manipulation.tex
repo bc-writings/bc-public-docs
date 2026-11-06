@@ -1,0 +1,174 @@
+\subsection{Les nombres - Comment les manipuler}
+
+\subsubsection{Addition et soustraction}
+
+Ce qui suit paraît évident mais nous allons voir dans la section qui suit qu'il y a des pièges cachés à éviter.
+
+\newpage
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+a = 15
+b = 7
+
+somme      = a + b
+difference = b - a
+
+print("somme      :", somme)
+print("difference :", difference)
+
+print("Type de somme      :", type(somme))
+print("Type de difference :", type(difference))
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+somme      : 22
+difference : -8
+Type de somme      : <class 'int'>
+Type de difference : <class 'int'>
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+\subsubsection{Attention aux changements de types !}
+
+Nous venons de voir comment additionner et soustraire deux nombres. Rien de magique. Ceci étant dit, il faut faire attention aux changements de type. Voici une illustration.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+un_naturel       = 2
+un_reel_approche = 7.0
+un_complexe      = -4 + 0j
+
+naturel_plus_reel     = un_naturel + un_reel_approche
+naturel_plus_complexe = un_naturel + un_complexe
+reel_plus_complexe    = un_reel_approche + un_complexe
+
+print("Type de naturel_plus_reel     :", type(naturel_plus_reel))
+print("Type de naturel_plus_complexe :", type(naturel_plus_complexe))
+print("Type de reel_plus_complexe    :", type(reel_plus_complexe))
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+Type de naturel_plus_reel     : <class 'float'>
+Type de naturel_plus_complexe : <class 'complex'>
+Type de reel_plus_complexe    : <class 'complex'>
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+Ce qui saute le plus aux yeux, c'est \texttt{2 + 7.0} qui est traité comme un nombre flottant et non comme un entier. Ceci vient de ce que \texttt{7.0} est un nombre flottant, et non le décimal \texttt{7,0} et encore moins le naturel \texttt{7}.
+
+
+\subsubsection{Multiplication et division}
+
+Dans ce qui suit, bien que $\dfrac{15}{3} = 5$, Python utilise le type \texttt{float} pour la division $15 / 3$. Ceci implique au passage qu'il va falloir faire autrement si l'on souhaite obtenir le quotient de la division euclidenne de deux entiers. Ceci est expliqué un peu plus bas.
+
+\newpage
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+a = 15
+b = 7
+c = 3
+
+produit    = a*b
+division_1 = a/b
+division_2 = a/c
+
+print("produit    :", produit)
+print("division_1 :", division_1)
+print("division_2 :", division_2)
+
+print("Type de produit    :", type(produit))
+print("Type de division_1 :", type(division_1))
+print("Type de division_2 :", type(division_2))
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+produit    : 105
+division_1 : 2.142857142857143
+division_2 : 5.0
+Type de produit    : <class 'int'>
+Type de division_1 : <class 'float'>
+Type de division_2 : <class 'float'>
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+\subsubsection{Puissance}
+
+Comme $2^{-4} = \dfrac{1}{2^4}$, il n'est pas étonnant de voir apparaître le type \texttt{float} dans l'exemple qui suit.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+a = 2
+b = 7
+c = -4
+
+puissance_1 = a**b
+puissance_2 = a**c
+
+print("puissance_1 :", puissance_1)
+print("puissance_2 :", puissance_2)
+
+print("Type de puissance_1 :", type(puissance_1))
+print("Type de puissance_2 :", type(puissance_2))
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+puissance_1 : 128
+puissance_2 : 0.0625
+Type de puissance_1 : <class 'int'>
+Type de puissance_2 : <class 'float'>
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+\subsubsection{Division euclidienne}
+
+La division euclidienne de $128$ par $5$, celle que l'on apprend à l'école primaire, peut s'écrire $128 = 5 \times 25 + 3$ où $3$ est appelé reste, ou plus précisément reste modulo $5$, tandis que $25$ est appelé quotient. Voyons comment faire cela avec Python.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+n = 128
+
+# Calcul modulo 5 pour obtenir le reste.
+reste = n%5
+
+# Quotient d'une division euclidienne.
+quotient = n//5
+
+print("reste    :", reste)
+print("quotient :", quotient)
+
+print("Type de reste    :", type(reste))
+print("Type de quotient :", type(quotient))
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+reste    : 3
+quotient : 25
+Type de reste    : <class 'int'>
+Type de quotient : <class 'int'>
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip

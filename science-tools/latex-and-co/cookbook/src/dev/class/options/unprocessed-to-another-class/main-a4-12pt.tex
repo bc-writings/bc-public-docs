@@ -1,0 +1,22 @@
+%%%
+% Aucun usage de l'unique option ''theme'' de la classe ''main''.
+% Les options ''12pt'' et ''a4paper'' sont destinées à la classe
+% ''article'' chargée en coulisse.
+%%%
+\documentclass[12pt, a4paper]{main}
+
+%%%
+% Le package ''blindtext'' nous fournit du contenu factice.
+%%%
+\usepackage{blindtext}
+
+\begin{document}
+
+\begin{center}
+  \Huge
+  Selected options : \selectedoption
+\end{center}
+
+\blinddocument
+
+\end{document}

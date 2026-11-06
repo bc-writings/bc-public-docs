@@ -1,0 +1,42 @@
+\documentclass[varwidth, border = 3pt]{standalone}
+
+\usepackage{main}
+
+%%%
+% Les \packs ''ifthen'' et ''pgffor'' fournissent les macros
+% ''\ifthenelse'' et ''\foreach'' d'un emploi très aisé.
+% Ceci va permettre, dans un contexte technique, de tester
+% l'emploi des macros proposées par le package ''main''.
+%%%
+\usepackage{ifthen}
+\usepackage{pgffor}
+
+\begin{document}
+
+\csvread{mes-donnees}{data.csv}
+
+Dimensions :
+\csvdim{mes-donnees}{nbrows} lignes
+et
+\csvdim{mes-donnees}{nbcols} colonnes.
+
+
+\medskip
+
+
+Contenu de la colonne 2 d'entête "\csvdata{mes-donnees}{1}{2}" :
+
+\bgroup
+  \foreach \numrow in {2,...,\csvdim{mes-donnees}{nbrows}}{%
+%%%
+% ''\mathstrut'' sert à avoir des boîtes de même hauteur.
+%%%
+    \fbox{$\mathstrut\csvdata{mes-donnees}{\numrow}{2}$}%
+    %
+    \ifthenelse{\numrow = \csvdim{mes-donnees}{nbrows}}%
+               {}%
+               { + }%
+  }
+\egroup
+
+\end{document}

@@ -1,0 +1,7 @@
+================
+Vue arborescente
+================
+
+content::
+    ./icons/\desc
+    ./metadata/\desc

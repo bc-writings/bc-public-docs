@@ -1,0 +1,51 @@
+\begin{tikzpicture}[line join=round]%
+\begin{scope}%
+\pgfsetlinewidth{1.2pt}%
+\pgfsetfillcolor{lightgray!100!black}%
+\draw[fill] (1.4286,1.1949) -- (7.4331,1.1949) -- (8.5714,3.1666) -- (2.5669,3.1666)--cycle;%
+\pgfsetfillcolor{black}%
+\draw[] (2.5669,3.1666) -- (2.5669,6.4191);%
+\fill[opacity=1,ball color=Yellow] (2.5669,6.4191) circle [radius=0.15cm];%
+\draw[draw = none, fill = DarkGray, fill opacity = 0.9] (3.9862,2.4679) -- (5.0391,2.7315) -- (7.0373,2.2614) -- (5.9398,1.7061) -- (4.8395,1.7195) -- (3.6371,2.3086)--cycle;%
+\pgfsetfillopacity{0.4}%
+\pgfsetfillcolor{yellow!50!white!90.61!black}%
+\fill[] (5.0391,2.7315) -- (3.9862,2.4679) -- (2.5669,6.4191)--cycle;%
+\pgfsetfillcolor{yellow!50!white!82.45!black}%
+\fill[] (3.9862,2.4679) -- (3.6371,2.3086) -- (2.5669,6.4191)--cycle;%
+\pgfsetfillcolor{yellow!50!white!84.25!black}%
+\fill[] (7.0373,2.2614) -- (5.0391,2.7315) -- (2.5669,6.4191)--cycle;%
+\pgfsetfillopacity{1}%
+\pgfsetfillcolor{black}%
+\pgfsetdash{}{0pt}%
+\pgfsetfillcolor{cyan!50!white!87.36!black}%
+\draw[fill] (4.4977,3.539) -- (4.4684,2.66) -- (3.4756,2.9287) -- (3.505,3.8076)--cycle;%
+\pgfsetfillcolor{cyan!50!white!82.94!black}%
+\draw[fill] (4.4977,3.539) -- (3.505,3.8076) -- (3.968,4.4614) -- (4.9607,4.1927)--cycle;%
+\pgfsetfillcolor{cyan!50!white!62.93!black}%
+\draw[fill] (4.4684,2.66) -- (4.4977,3.539) -- (4.9607,4.1927) -- (4.9314,3.3138)--cycle;%
+\pgfsetfillcolor{cyan!62.93!black}%
+\draw[fill] (3.4756,2.9287) -- (3.9386,3.5824) -- (3.968,4.4614) -- (3.505,3.8076)--cycle;%
+\pgfsetfillcolor{cyan!82.94!black}%
+\draw[fill] (4.4684,2.66) -- (4.9314,3.3138) -- (3.9386,3.5824) -- (3.4756,2.9287)--cycle;%
+\pgfsetfillcolor{cyan!87.36!black}%
+\draw[fill] (4.9314,3.3138) -- (4.9607,4.1927) -- (3.968,4.4614) -- (3.9386,3.5824)--cycle;%
+\pgfsetfillcolor{black}%
+\pgfsetroundcap%
+\pgfsetdash{{0pt}{3pt}}{0pt}%
+\draw[] (3.505,3.8076) -- (4.4977,3.539) -- (4.9607,4.1927);%
+\draw[] (4.4684,2.66) -- (4.4977,3.539);%
+\pgfsetbuttcap%
+\pgfsetdash{}{0pt}%
+\pgfsetfillopacity{0.4}%
+\pgfsetfillcolor{yellow!75.65!black}%
+\fill[] (3.6371,2.3086) -- (4.8395,1.7195) -- (2.5669,6.4191)--cycle;%
+\pgfsetfillcolor{yellow!76.09!black}%
+\fill[] (5.9398,1.7061) -- (7.0373,2.2614) -- (2.5669,6.4191)--cycle;%
+\pgfsetfillcolor{yellow!90.14!black}%
+\fill[] (4.8395,1.7195) -- (5.9398,1.7061) -- (2.5669,6.4191)--cycle;%
+\pgfsetfillopacity{1}%
+\pgfsetfillcolor{black}%
+\pgfsetdash{}{0pt}%
+\pgfsetlinewidth{0.4pt}%
+\end{scope}%
+\end{tikzpicture}%

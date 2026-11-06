@@ -1,0 +1,96 @@
+\documentclass[a4,11pt]{article}
+%%% PACKAGES USED
+    \usepackage[utf8x]{inputenc}
+    \usepackage[T1]{fontenc}
+    \usepackage{ucs}
+    \usepackage[x11names,svgnames]{xcolor} 
+    \usepackage[french]{babel}
+
+    \usepackage{amsmath}
+    \usepackage{amssymb}
+
+    \usepackage[
+        lmargin=1.5cm, rmargin=1.5cm, 
+        tmargin=1.5cm, bmargin=1.5cm
+    ]{geometry}
+    \usepackage{titlesec}
+
+    \usepackage[
+        type={CC},
+            modifier={by-nc-sa},
+            version={4.0},
+    ]{doclicense}
+
+%%% GENERAL FORMATTINGS      
+    \titleformat{\part}[block]{\LARGE\bfseries\filcenter}{}{1em}{}
+
+    \setlength{\parindent}{0pt}
+
+% Source : http://tex.stackexchange.com/a/15122/6880
+    \newcommand*\ruleline[1]{{\color{ForestGreen}\par\noindent\raisebox{.8ex}{\makebox[\linewidth]{\hrulefill\hspace{1ex}\raisebox{-.6ex}{\textsc{\texttt{\textbf{\small #1}}}}\hspace{1ex}\hrulefill}}}}
+    
+%%% TITTLE
+
+    \newenvironment{addtitle}[1]{
+        \part*{#1}
+        \vspace{-0.5em}
+        \begin{center}
+            Christophe BAL : \url{projetmbc@gmail.com}
+
+            {\small \bfseries Version du 2015-10-18}
+
+            \vspace{10em}
+        
+            {\Large \textbf{Mentions \og légales \fg}}
+        \end{center}
+
+        \doclicenseThis
+
+        À l'adresse \url{https://github.com/bc-writings-prog-python/toolboxes} se trouve le code source \LaTeX{} de ce document : voir le dossier \path{beginner/fr/latex}.
+
+        \clearpage\null\newpage
+        
+        \tableofcontents
+        
+        \newpage
+    }
+
+
+\begin{document}
+
+\addtitle{Boîte à outils - Premiers pas avec Python 3}
+
+Ce document sans prétention propose de réunir un ensemble de techniques de base sous une forme facile d'utilisation.
+Le but ici n'est pas d'explorer en détail les différents thèmes proposés mais au contraire de proposer un ensemble d'outils suffisants et utiles quand on débute.
+Ceci évitera aux débutants de se noyer dans des concepts un peu trop avancés.
+Toute remarque constructive est bienvenue pour faire évoluer \textbf{\textbf{ce document non définitif}}.
+
+
+\section{Généralités}
+
+\input{content/general/programming.tex}
+\input{content/general/python_choice.tex}
+\input{content/general/python_env.tex}
+\input{content/general/algorithmic.tex}
+
+
+\section{Python 3, comment fait-on ?}
+
+\input{content/howto/use_python.tex}
+\input{content/howto/comment.tex}
+\input{content/howto/ui_basic.tex}
+\input{content/howto/string.tex}
+\input{content/howto/number_type.tex}
+\input{content/howto/number_manipulation.tex}
+\input{content/howto/bool.tex}
+\input{content/howto/compare.tex}
+\input{content/howto/branch.tex}
+\input{content/howto/loop.tex}
+\input{content/howto/list.tex}
+\input{content/howto/set.tex}
+\input{content/howto/dict.tex}
+\input{content/howto/browse.tex}
+\input{content/howto/testing_text_and_co.tex}
+\input{content/howto/function.tex}
+
+\end{document}

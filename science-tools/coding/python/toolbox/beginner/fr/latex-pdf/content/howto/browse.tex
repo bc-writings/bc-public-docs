@@ -1,0 +1,239 @@
+\subsection{Parcourir les textes, les listes, les ensembles et les dictionnaires}
+
+\subsubsection{Parcourir des textes, des listes et des ensembles}
+
+Ces trois types de variable se parcourent en utilisant le même type de syntaxe. Voici un premier exemple d'utilisation via \texttt{for ... in ...} . On fera attention au cas d'un ensemble Python : pour ce type de variables, il n'y a pas un ordre prévisible de renvoi des éléments d'un ensemble.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+# TEXTE
+print("Cas d'un texte")
+print("--------------")
+
+un_texte = "Un bon départ"
+
+for caractere in un_texte:
+    print(caractere)
+
+
+# LISTE
+print("")
+print("Cas d'une liste")
+print("---------------")
+
+une_liste = [1, 2, 3, 4, 5]
+
+for elt in une_liste:
+    print(elt)
+
+
+# ENSEMBLE
+print("")
+print("Cas d'un ensemble")
+print("-----------------")
+
+un_ensemble = set([3, 2, 1, 3, 2, 1, 3, 2, 1])
+
+for elt in un_ensemble:
+    print(elt)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+Cas d'un texte
+--------------
+U
+n
+
+b
+o
+n
+
+d
+é
+p
+a
+r
+t
+
+Cas d'une liste
+---------------
+1
+2
+3
+4
+5
+
+Cas d'un ensemble
+-----------------
+1
+2
+3
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+Ceci donne un moyen simple pour transformer un texte en une liste de lettres respectant l'ordre d'écriture du texte. Pas convaincu\textit{(e)} ? Voici comment faire.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+texte = "Transformez moi !"
+
+liste_caracteres = [caractere for caractere in texte]
+
+print(liste_caracteres)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+['T', 'r', 'a', 'n', 's', 'f', 'o', 'r', 'm', 'e', 'z', ' ', 'm', 'o', 'i', ' ', '!']
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+\textbf{Utile :} le code suivant fonctionne car les textes, comme les listes, peuvent être parcourus via \texttt{for ... in ...} .
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+texte = "caractères utilisées"
+
+caracteres_utilises = set(texte)
+
+print(caracteres_utilises)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+{' ', 'r', 'e', 's', 'é', 'è', 't', 'c', 'u', 'a', 'i', 'l'}
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+\subsubsection{Parcourir un texte, une liste ou un ensemble en \textit{"récupérant la position"}}
+
+Il peut être utile de récupérer à la fois une lettre ou un élément avec sa position. Dans ce cas, on utilisera \texttt{for ... in enumerate\textit{(...)}} comme le montre le code qui suit.
+
+
+\newpage
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+# TEXTE
+print("Cas d'un texte")
+print("--------------")
+
+un_texte = "Un bon départ"
+
+for position, lettre in enumerate(un_texte):
+    print(position, ":", lettre)
+
+
+# LISTE
+print("")
+print("Cas d'une liste")
+print("---------------")
+
+une_liste = [1, 2, 3, 4, 5]
+
+for position, elt in enumerate(une_liste):
+    print(position, ":", elt)
+
+
+# ENSEMBLE
+print("")
+print("Cas d'un ensemble")
+print("-----------------")
+
+un_ensemble = set([3, 2, 1, 3, 2, 1, 3, 2, 1])
+
+for position, elt in enumerate(un_ensemble):
+    print(position, ":", elt)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+Cas d'un texte
+--------------
+0 : U
+1 : n
+2 :
+3 : b
+4 : o
+5 : n
+6 :
+7 : d
+8 : é
+9 : p
+10 : a
+11 : r
+12 : t
+
+Cas d'une liste
+---------------
+0 : 1
+1 : 2
+2 : 3
+3 : 4
+4 : 5
+
+Cas d'un ensemble
+-----------------
+0 : 1
+1 : 2
+2 : 3
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+\subsubsection{Parcourir un dictionnaire}
+
+Le parcours des dictionnaires peut se faire de deux façons possibles présentées dans l'exemple ci-après. Tout comme pour les ensembles, il n'y a pas d'ordre prévisible de renvoi des clés.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+un_dico = {0: "zéro", 1: "un", 2: "deux"}
+
+print("Méthode 1")
+print("---------")
+
+for cle in un_dico:
+    print(cle, "s'écrit", un_dico[cle],".")
+
+
+print("")
+print("Méthode 2")
+print("---------")
+
+for cle, valeur in un_dico.items():
+    print(cle, "s'écrit", valeur,".")
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+Méthode 1
+---------
+0 s'écrit zéro .
+1 s'écrit un .
+2 s'écrit deux .
+
+Méthode 2
+---------
+0 s'écrit zéro .
+1 s'écrit un .
+2 s'écrit deux .
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip

@@ -1,0 +1,102 @@
+\subsection{Les booléens \texttt{VRAI} et \texttt{FAUX}}
+
+\subsubsection{Un peu de vocabulaire booléen}
+
+George Boole a vécu du 2 novembre 1815 au 8 décembre 1864. Il a inventé ce que l'on appelle aujourd'hui l'algèbre de Boole car il cherchait traduire les raisonnements logiques en calculs algébriques. Indiquons au passage qu'il existe plusieurs types de logique. Celle modélisée par l'agèbre de Boole s'appuie sur deux valeurs de vérité \texttt{VRAI} et \texttt{FAUX} utilisables avec des opérateurs logiques \texttt{ET} , \texttt{OU} et \texttt{NON}. Commençons par voir comment distinguer le \texttt{VRAI} du \texttt{FAUX}.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+variable_symbolisant_vrai = True
+variable_symbolisant_faux = False
+
+print("Type de variable_symbolisant_vrai :", type(variable_symbolisant_vrai))
+print("Type de variable_symbolisant_faux :", type(variable_symbolisant_faux))
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+Type de variable_symbolisant_vrai : <class 'bool'>
+Type de variable_symbolisant_faux : <class 'bool'>
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+\subsubsection{Les opérateurs booléens}
+
+Il suffit de savoir que \textit{"et"}, \textit{"ou"} et \textit{"non"} se disent respectivement \textit{"and"}, \textit{"or"} et \textit{"not"} en anglais pour comprendre les lignes de code suivantes.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+# L'opérateur booléen ET renvoie VRAI uniquement si
+# les deux valeurs boléennes valent VRAI, sinon il
+# renvoie FAUX.
+print("`and` en action...")
+print("    True and True   =", True and True)
+print("    True and False  =", True and False)
+print("    False and True  =", False and True)
+print("    False and False =", False and False)
+
+# L'opérateur booléen OU renvoie VRAI uniquement si
+# l'une au moins des deux valeurs boléennes est VRAI,
+# sinon il renvoie FAUX.
+print("")
+print("`or` en action...")
+print("    True or True   =", True or True)
+print("    True or False  =", True or False)
+print("    False or True  =", False or True)
+print("    False or False =", False or False)
+
+# L'opérateur booléen NON renvoie une valeur booléenne
+# "contraire".
+print("")
+print("`not` en action...")
+print("    not True  =", not True)
+print("    not False =", not False)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+`and` en action...
+True and True   = True
+True and False  = False
+False and True  = False
+False and False = False
+
+`or` en action...
+True or True   = True
+True or False  = True
+False or True  = True
+False or False = False
+
+`not` en action...
+not True  = False
+not False = True
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+\subsubsection{Attention danger ! Calculer avec des booléens, c'est possible.}
+
+Le code ci-dessous montre une bizarrerie. Ceci peut se comprendre si l'on sait qu'à l'origine Python avait été construit \textit{"au-dessus"} du langage C qui lui ne dispose pas de type booléen. Du coup dans le langage C on utilise les entiers \texttt{1} et \texttt{0} pour symboliser les valeurs de vérité \texttt{VRAI} et \texttt{FAUX} respectivement. Avec ceci en tête, on peut comprendre l'apparition du \texttt{3} ci-dessous.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+bizzar = 2 + True
+
+print(bizzar)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+3
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip

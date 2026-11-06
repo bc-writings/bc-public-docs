@@ -1,0 +1,195 @@
+\documentclass[10pt]{beamer}
+
+% -- PACKAGES -- %
+
+\usepackage[french]{babel}
+\usepackage[utf8x]{inputenc}	
+
+\usepackage{tikz}
+\usetikzlibrary{arrows, matrix, positioning}
+
+
+% -- NEW MACROS -- %
+
+\newcommand\ph{\phantom{x}}
+
+
+% -- SETTINGS -- %
+
+\mode<presentation>{
+    \usetheme{default}
+    \usecolortheme{default}
+    \usefonttheme{default} 
+    \setbeamertemplate{caption}[numbered]	
+}
+
+
+\tikzset{
+	% Common style
+	common/.style={
+		rectangle, 
+		thick,
+		rounded corners,
+		align=center,
+		minimum height=2em
+	},
+    % Operator in a circle
+    oc/.style={
+        circle,
+        draw,
+        fill=white,
+        inner sep=1pt, 
+        outer sep=1pt
+    },
+    % Good spacing hack (the ghost mode)
+    gs/.style={
+        common,
+        text width=3.5em,
+        draw=white
+    },
+    % Blue frame
+    bf/.style={
+        common,
+        draw=blue,
+        fill=blue!20,
+        text width=3.5em,
+    },
+    % Explain remained
+    er/.style={
+        common,
+        text width=3.5em,
+        draw=gray,
+        text=darkgray
+    },
+    % Explain activated
+    ea/.style={
+        common,
+        text width=3.5em,
+        draw=gray,
+        text=darkgray
+    },
+    % Long explain activated
+    le/.style={
+        common,
+        text width=8em,
+        draw=gray,
+        text=darkgray
+    },
+    % Blur effect
+    be/.style={
+        common,
+        opacity = 0.3,
+        text width=3.5em,
+    },
+    % Focus effect
+    fe/.style={
+        common,
+        text width=8em,
+        draw=red,
+        text=magenta
+    },
+    % Focus effect Bis
+    feb/.style={
+        common,
+        text width=8em,
+        draw=blue,
+        text=violet
+    },
+    % Long focus effect
+    lfe/.style={
+        common,
+        text width=12em,
+        draw=red,
+        text=magenta
+    },
+    % Long focus effect bis
+    lfeb/.style={
+        common,
+        text width=12em,
+        draw=blue,
+        text=violet
+    },
+}
+
+      
+\begin{document}
+
+\begin{frame}
+	\frametitle{Coefficients de Bachet-Bézout pour les humains}
+	
+	\centering
+	
+	Un moyen efficace de trouver des coefficients de Bachet-Bézout.
+	
+	\bigskip
+	
+	Un exemple avec $a= 141$ et $b = 27$.
+\end{frame}
+
+	
+\foreach \n in {1,...,9}{	
+	\begin{frame}[t]
+		\frametitle{Algorithme d'Euclide posé verticalement}
+	
+		\phantom{X}
+	
+		\input{tikz/27-141[all]/down-\n.tkz}
+	\end{frame}
+}
+
+	
+\foreach \n in {1,...,8}{	
+	\begin{frame}[t]
+		\frametitle{Remontée astucieuse des calculs}
+	
+		\phantom{X}
+	
+		\input{tikz/27-141[all]/up-\n.tkz}
+	\end{frame}
+}
+
+	
+\begin{frame}[t]
+	\frametitle{Le tour est joué}
+	
+	\phantom{X}
+	
+	\input{tikz/27-141[all]/last.tkz}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Conclusion}
+	
+	\centering
+	
+	Finalement nous avons :
+	
+	\bigskip
+	
+	$141 \times 4 - 27 \times 21 = -3$
+	
+	\medskip
+	
+	$\Updownarrow$
+	
+	\medskip
+	
+	$27 \times 21 - 141 \times 4 = 3$
+
+	\medskip
+	
+	$\Updownarrow$
+	
+	\medskip
+	
+	\fcolorbox{red}{white}{$27 \times 21 - 141 \times 4 = \mathrm{pgcd}(27 , 141)$}
+	
+	\pause
+	
+	\bigskip
+	
+	\textbf{\Large Et cela marche à tous les coups !}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,21 @@
+\documentclass[varwidth, border = 3pt]{standalone}
+
+\usepackage{main}
+
+\newcommand\userid{2}
+
+\begin{document}
+
+\verb#\UseName{cmd-1}# donne :
+
+\UseName{cmd-1}
+
+
+\medskip
+
+
+\verb#\UseName{cmd@\userid}{TEST}# donne :
+
+\UseName{cmd@\userid}{TEST}
+
+\end{document}

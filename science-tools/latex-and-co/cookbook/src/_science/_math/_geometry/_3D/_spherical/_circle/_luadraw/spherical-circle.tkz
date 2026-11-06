@@ -1,0 +1,33 @@
+\begin{tikzpicture}[line join=round]%
+\begin{scope}%
+\pgfsetlinewidth{0.6pt}%
+\pgfsetstrokecolor{lightgray}%
+\pgfsetlinewidth{0.4pt}%
+\draw[fill,ball color=orange] (7.3339,2.2798) .. controls (8.5661,3.8527) and (8.293,6.1017) .. (6.7202,7.3339) .. controls (5.1473,8.5661) and (2.8983,8.293) .. (1.6661,6.7202) .. controls (0.4339,5.1473) and (0.707,2.8983) .. (2.2798,1.6661) .. controls (3.8527,0.4339) and (6.1017,0.707) .. (7.3339,2.2798);%
+\pgfsetstrokecolor{black}%
+\pgfsetlinewidth{0.6pt}%
+\pgfsetstrokecolor{blue}%
+\draw[] (4.1937,8.0869) .. controls (3.5954,8.0359) and (3.2521,6.3987) .. (3.4221,4.4079) .. controls (3.5921,2.4172) and (4.2081,0.862) .. (4.8063,0.9131);%
+\pgfsetstrokecolor{green}%
+\draw[] (0.9,4.5) .. controls (0.9,3.8166) and (2.502,3.2687) .. (4.5,3.2687) .. controls (6.498,3.2687) and (8.1,3.8166) .. (8.1,4.5);%
+\pgfsetstrokecolor{lightgray}%
+\pgfsetroundcap%
+\pgfsetdash{{0pt}{3pt}}{0pt}%
+\pgfsetlinewidth{0.3pt}%
+\draw[] (7.3339,2.2798) .. controls (8.5661,3.8527) and (8.293,6.1017) .. (6.7202,7.3339) .. controls (5.1473,8.5661) and (2.8983,8.293) .. (1.6661,6.7202) .. controls (0.4339,5.1473) and (0.707,2.8983) .. (2.2798,1.6661) .. controls (3.8527,0.4339) and (6.1017,0.707) .. (7.3339,2.2798);%
+\pgfsetstrokecolor{green}%
+\pgfsetbuttcap%
+\pgfsetdash{}{0pt}%
+\pgfsetlinewidth{0.6pt}%
+\pgfsetstrokecolor{blue}%
+\pgfsetdash{{2.5pt}{2pt}}{0pt}%
+\draw[] (4.1937,8.0869) .. controls (4.7919,8.138) and (5.4079,6.5828) .. (5.5779,4.5921) .. controls (5.7479,2.6013) and (5.4046,0.9641) .. (4.8063,0.9131);%
+\pgfsetstrokecolor{green}%
+\draw[] (0.9,4.5) .. controls (0.9,5.1834) and (2.502,5.7313) .. (4.5,5.7313) .. controls (6.498,5.7313) and (8.1,5.1834) .. (8.1,4.5);%
+\pgfsetstrokecolor{black}%
+\pgfsetdash{}{0pt}%
+\draw[mark=*,mark size=1.6pt] plot coordinates {(3.6294,7.3811)} plot coordinates {(3.5683,3.3107)} plot coordinates {(4.5,4.5)};%
+\draw[-] (4.5,4.5) node[below] {$O$} (3.6294,7.3811) node[right] {$A$} (3.5683,3.3107) node[above right] {$B$};%
+\pgfsetlinewidth{0.4pt}%
+\end{scope}%
+\end{tikzpicture}%

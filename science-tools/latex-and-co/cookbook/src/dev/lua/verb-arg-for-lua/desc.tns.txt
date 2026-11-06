@@ -1,0 +1,21 @@
+this::
+    date = 2026-06-14
+
+
+==================================================
+Utiliser le caractère ''%'' dans l'\arg d'une \cmd
+==================================================
+
+Notre objectif est simple : en tapant ''\calc{27 % 12}'', l'utilisateur doit obtenir `3` qui est le reste de la \div euclidienne de `27` par `12`.
+Ceci va nous demander d'autoriser l'utilisation du caractère de mise en commentaire de \latex comme un caractère "normal".
+Pour arriver à nos fins, nous utilisons ''\NewDocumentCommand{\calc}{ v }{ ... }'' afin de récupérer dans l'\arg tous les caractères saisies par l'utilisateur en mode verbatim, même les ''%''.
+
+
+note::
+    En utilisant ''\NewDocumentCommand{\calc}{ m }{ ... }'', la compilation du \doc renvoie logiquement l'erreur suivante.
+
+    log::
+        ./main.tex:8: Paragraph ended before \calc code was complete.
+        <to be read again>
+        \par
+        l.11

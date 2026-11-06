@@ -1,0 +1,9 @@
+this::
+    date = 2025-08-28
+
+
+========================
+Implications à la chaîne
+========================
+
+Cette recette permet de rédiger des démonstrations d'équivalences à la chaîne via une suite d'implications.

@@ -1,0 +1,31 @@
+\documentclass[varwidth, border = 3pt]{standalone}
+
+\usepackage{main}
+
+\DeclareAcronymOperator{pgcd}
+\DeclareAcronymOperator*{minmax}
+
+%%%
+% Décommenter la ligne suivante pour noter un avertissement
+% indiquant l'impossibilié de créer une macro ''\box'' qui
+% existe déjà.
+% Pour contourner ce problème, il suffit d'employer l'\arg
+% optionnel afin de choisir un autre nom pour la macro
+% construite.
+%%%
+% \DeclareAcronymOperator{box} % <---- Échec !
+
+\DeclareAcronymOperator[boxop]{box}
+
+\newcommand\exasep{\kern3pt | \kern3pt}
+
+\begin{document}
+
+Texte :
+\pgcd\ , \minmax\ , \boxop
+
+Maths :
+$\displaystyle
+ \pgcd(a;b) \exasep \minmax_{k \le n} \exasep \boxop_{k \le n}$
+
+\end{document}

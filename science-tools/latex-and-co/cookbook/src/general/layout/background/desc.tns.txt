@@ -1,0 +1,9 @@
+this::
+    date = 2026-06-18
+
+
+==============================
+Dessiner sur les fonds de page
+==============================
+
+Qu'il s'agisse de sécuriser des \docus avec un filigrane de copyright, ou d'habiller les pages en arrière plan par simple esthétisme, maîtriser l'aspect des fonds de page est un atout précieux. Nos allons voir que ceci est très aisé à faire.

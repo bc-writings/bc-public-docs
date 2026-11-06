@@ -1,0 +1,6 @@
+==============================
+Explications d'humain à humain
+==============================
+
+content::
+    ./cyclic-implications/\desc

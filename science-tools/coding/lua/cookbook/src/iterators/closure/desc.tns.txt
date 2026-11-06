@@ -1,0 +1,14 @@
+this::
+    date = 2025-09-15
+
+
+=============================
+Tout à la main... Ou presque.
+=============================
+
+La \sol présentée ici n’est pas la plus élégante, mais elle a l’avantage d’être universelle.
+Le code repose sur une fermeture
+((
+    En anglais, on parle de "closure".
+)),
+\cad une \fonc associée à l’\env dans lequel elle a été créée : dans notre cas, les  \vars ''i'', ''j'' et ''k'' dépendent de l'\env de la \fonc ''xyz_range'', donc la fermeture renvoyée peut les faire évoluer comme souhaité.

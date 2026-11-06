@@ -1,0 +1,36 @@
+% !TEX TS-program = lualatex
+
+\documentclass[border = 3pt]{standalone}
+
+\usepackage{main}
+
+%%%
+% Nous allons utiliser le "joli" vert ''ForestGreen''.
+%%%
+\usepackage[svgnames]{xcolor}
+
+\begin{document}
+
+%%%
+% L'argument obligatoire donne le nombre de lignes attendu.
+%
+%
+% note::
+%     Pour obtenir une ligne monochrome, il faut forcément
+%     dessiner `2^n` lignes.
+%%%
+\discretsierpinsky{16}
+
+\quad
+
+%%%
+% Il est très pratique de disposer ici de deux types d'options
+% n'utilisant pas les mêmes délimiteurs.
+%
+%     + La couleur des impairs est donnée entre crochets.
+%
+%     + La couleur des pairs est donnée entre chevrons.
+%%%
+\discretsierpinsky[orange]<ForestGreen>{32}
+
+\end{document}

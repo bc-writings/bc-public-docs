@@ -1,0 +1,167 @@
+\subsection{Tests liés aux textes, aux listes, aux ensembles et aux dictionnaires}
+
+\subsubsection{Cas des textes}
+
+Pour tester la présence d'un texte dans un autre, on procède comme suit où le mot \textit{"in"} signifie \textit{"dans"} en anglais. Dans ce type de test, les majuscules et les minuscules sont concisédérées comme différentes !
+
+
+\newpage
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+var_texte = "Testons un peu le cas d'un texte."
+
+print('var_texte a pour contenu :')
+print(var_texte)
+
+a_dans_texte = "a" in var_texte   # a_dans_texte est de type booléen.
+z_dans_texte = "z" in var_texte
+
+print("")
+print('Le texte "a" apparaît-il dans le contenu de var_texte ?', a_dans_texte)
+print('Le texte "z" apparaît-il dans le contenu de var_texte ?', z_dans_texte)
+
+cas_dans_texte  = "cas" in var_texte
+test_dans_texte = "test" in var_texte
+Test_dans_texte = "Test" in var_texte
+
+print("")
+print('Le texte "cas" apparaît-il dans le contenu de var_texte ? ', cas_dans_texte)
+print('Le texte "test" apparaît-il dans le contenu de var_texte ?', test_dans_texte)
+print('Le texte "Test" apparaît-il dans le contenu de var_texte ?', Test_dans_texte)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+var_texte a pour contenu :
+Testons un peu le cas d'un texte.
+
+Le texte "a" apparaît-il dans le contenu de var_texte ? True
+Le texte "z" apparaît-il dans le contenu de var_texte ? False
+
+Le texte "cas" apparaît-il dans le contenu de var_texte ?  True
+Le texte "test" apparaît-il dans le contenu de var_texte ? False
+Le texte "Test" apparaît-il dans le contenu de var_texte ? True
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+\subsubsection{Cas des listes}
+
+Ce qui suit est simple à comprendre car très similaire à ce qui a été proposé pour les chaînes de caractères.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+premiers = [2, 3, 5, 7, 11, 13]
+
+texte_deux_dans_premiers      = "2" in premiers
+entier_deux_dans_premiers     = 2 in premiers
+entier_dix_sept_dans_premiers = 17 in premiers
+
+print('Le texte "2" est-il dans la liste ?', texte_deux_dans_premiers)
+print("L'entier 2 est-il dans la liste ?  ", entier_deux_dans_premiers)
+print("L'entier 17 est-il dans la liste ? ", entier_dix_sept_dans_premiers)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+Le texte "2" est-il dans la liste ? False
+L'entier 2 est-il dans la liste ?   True
+L'entier 17 est-il dans la liste ?  False
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+\subsubsection{Cas des ensembles}
+
+Pour commencer, rien de nouveau par rapport aux sections précédentes.
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+premiers = set([2, 3, 5, 7, 11, 13])
+
+texte_deux_dans_premiers      = "2" in premiers
+entier_deux_dans_premiers     = 2 in premiers
+entier_dix_sept_dans_premiers = 17 in premiers
+
+# Norez au passage l'utilisation de \' à l'intérieur de
+# '...' pour pouvoir utiliser le caractère '.
+print('Le texte "2" est-il dans l\'ensemble ?', texte_deux_dans_premiers)
+print("L'entier 2 est-il dans l'ensemble ?  ", entier_deux_dans_premiers)
+print("L'entier 17 est-il dans l'ensemble ? ", entier_dix_sept_dans_premiers)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+Le texte "2" est-il dans l'ensemble ? False
+L'entier 2 est-il dans l'ensemble ?   True
+L'entier 17 est-il dans l'ensemble ?  False
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+On peut aussi comparer des ensembles entre eux.
+Ci-dessous, nous avons juste montré l'emploi de \texttt{... <= ...} pour \textit{"est inclus dans ou égal à"}.
+Il est bien entendu aussi possible d'utiliser \texttt{... < ...} pour tester une inclusion stricte, ainsi que les écritures symétriques \texttt{... >= ...} et \texttt{... > ...} .
+
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+ens_1 = set([1, 2, 3, 4])
+ens_2 = set([2, 4])
+ens_3 = set([1, 2, 7])
+
+ens_1_inclus_dans_ens_1 = ens_1 <= ens_1
+ens_2_inclus_dans_ens_1 = ens_2 <= ens_1
+ens_3_inclus_dans_ens_1 = ens_3 <= ens_1
+
+print("L'ensemble ens_1 est-il inclus dans l'ensemble ens_1 ?", ens_1_inclus_dans_ens_1)
+print("L'ensemble ens_2 est-il inclus dans l'ensemble ens_1 ?", ens_2_inclus_dans_ens_1)
+print("L'ensemble ens_3 est-il inclus dans l'ensemble ens_1 ?", ens_3_inclus_dans_ens_1)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+L'ensemble ens_1 est-il inclus dans l'ensemble ens_1 ? True
+L'ensemble ens_2 est-il inclus dans l'ensemble ens_1 ? True
+L'ensemble ens_3 est-il inclus dans l'ensemble ens_1 ? False
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
+
+
+\subsubsection{Cas des dictionnaires}
+
+Avec les dictionnaires, on peut tester s'ils \textit{"contiennent"} une clé donnée.
+
+
+\newpage
+
+\bigskip
+{\hrule height .5mm}
+\begin{verbatim}
+dico = {"inspiration": 0, "automatisme": 10**80}
+
+cle_inspiration_dans_dico = "inspiration" in dico
+cle_erreur_dans_dico      = "erreur" in dico
+
+print('dico contient-il la clé "inspiration" ?', cle_inspiration_dans_dico)
+print('dico contient-il la clé "erreur" ?     ', cle_erreur_dans_dico)
+\end{verbatim}
+\ruleline{Sortie Python} \color{ForestGreen}
+\vspace{-1.5em}
+\begin{verbatim}
+dico contient-il la clé "inspiration" ? True
+dico contient-il la clé "erreur" ?      False
+\end{verbatim} \color{Black}
+{\hrule height .5mm}
+\bigskip
