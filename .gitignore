@@ -16,7 +16,6 @@ x-*-x/
 _luadraw/
 
 *.unq
-*.unq
 *.config.minted
 
 
