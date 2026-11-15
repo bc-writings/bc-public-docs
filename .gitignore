@@ -17,6 +17,7 @@ _luadraw/
 
 *.unq
 *.config.minted
+*-fqr-*.fqr
 
 
 # Created by https://www.toptal.com/developers/gitignore/api/lua,tex,latex,python,visualstudiocode
