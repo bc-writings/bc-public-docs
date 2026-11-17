@@ -19,11 +19,12 @@
 
 %%%
 % prototype::
-%     #1 : contenu de la cellule.
-%     #2 : contenu de la \ref tracée en plus.
+%     #1: contenu de la cellule.
+%
+%     #2: contenu de la \ref tracée en plus.
 %
 %     :action: ajout du contenu de la cellule, et stockage en
-%              pré-code du tracé de la \ref.
+%         pré-code du tracé de la \ref.
 %%%
 \NewDocumentCommand{\Cell}{ m m }{
   #1
@@ -44,12 +45,14 @@
 
 %%%
 % prototype::
-%     #1 : \num de la ligne haute de la cellule à "étiqueter".
-%     #2 : \num de la \col droite de la cellule à "étiqueter".
-%     #3 : contenu de l'étiquette ajoutée.
+%     #1: \num de la ligne haute de la cellule à "étiqueter".
+%
+%     #2: \num de la \col droite de la cellule à "étiqueter".
+%
+%     #3: contenu de l'étiquette ajoutée.
 %
 %     :action: tracé d'une étiquette dans le coin supérieur
-%              droit d'une cellule.
+%         droit d'une cellule.
 %%%
 \cs_new_protected:Nn \_cookbook_draw_angle:nnn {
   \begin{tikzpicture}[color = red]

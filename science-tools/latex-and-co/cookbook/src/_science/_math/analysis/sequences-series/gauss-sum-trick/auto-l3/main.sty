@@ -8,9 +8,10 @@
 
 %%%
 % prototype::
-%     #1 : cet argument correspond à l'usage ou non de la version
-%          étoilée.
-%     #2 : le contenu à décorer.
+%     #1: cet argument correspond à l'usage ou non de la version
+%         étoilée.
+%
+%     #2: le contenu à décorer.
 %%%
 \NewDocumentCommand{ \nub }{ s m }{
   \IfBooleanTF { #1 }{
@@ -32,8 +33,8 @@
 
 %%%
 % prototype::
-%     #1 : le contenu à calculer qui doit respecter la syntaxe
-%          ''\foreach'' de ''pgf''.
+%     #1: le contenu à calculer qui doit respecter la syntaxe
+%         ''\foreach'' de ''pgf''.
 %%%
 \cs_set:Nn \cookbook_nub_val:n {
   \int_gset:Nn \g_cookbook_nub_total_int { 0 }
@@ -65,7 +66,7 @@
 
 %%%%%%
 % prototype::
-%     #1 : le contenu à décorer.
+%     #1: le contenu à décorer.
 %%%
 \cs_set:Nn \cookbook_nub_deco:n {
   \clist_set:Nn
@@ -162,9 +163,10 @@
 
 %%%
 % prototype::
-%     #1 : une première sous-étiquette égale à "start" ou "end".
-%     #2 : une seconde sous-étiquette via à un identifiant entier
-%          unique.
+%     #1: une première sous-étiquette égale à "start" ou "end".
+%
+%     #2: une seconde sous-étiquette via à un identifiant entier
+%         unique.
 %%%
 \NewDocumentCommand{ \nub@add@mark }{ m m }{%
   \tikzmark{nub@#1@#2}%
@@ -172,8 +174,9 @@
 
 %%%
 % prototype::
-%     #1 : l'identifiant entier unique propre à une décoration.
-%     #2 : la distance d'éloignement vertical pour le tracé.
+%     #1: l'identifiant entier unique propre à une décoration.
+%
+%     #2: la distance d'éloignement vertical pour le tracé.
 %%%
 \NewDocumentCommand{ \nub@add@deco }{ m m }{
   \llap{%

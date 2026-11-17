@@ -1,13 +1,13 @@
 ------
 -- prototype::
---     file        : le chemin du fichier à analyser.
---                 @ type(have_header) = path
---     have_header : ''true'' demande d'ignorer la \1ere ligne,
---                   sinon \ttes les lignes sont lues.
---                 @ type(have_header) = bool
+--     file: le chemin du fichier à analyser.
+--         @ type(have_header) = path
+--     have_header: ''true'' demande d'ignorer la \1ere ligne,
+--         sinon \ttes les lignes sont lues.
+--         @ type(have_header) = bool
 --
 --     :return: un \tab de sous-\tabs représentant les données
---              extraites ligne par ligne.
+--         extraites ligne par ligne.
 ------
 function read_CSV(file, has_header)
 ------

@@ -1,8 +1,10 @@
 ------
 -- prototype::
---     imax : la borne supérieure pour ''i''.
---     jmax : la borne supérieure pour ''j''.
---     kmax : la borne supérieure pour ''k''.
+--     imax: la borne supérieure pour ''i''.
+--
+--     jmax: la borne supérieure pour ''j''.
+--
+--     kmax: la borne supérieure pour ''k''.
 --
 --
 -- note::

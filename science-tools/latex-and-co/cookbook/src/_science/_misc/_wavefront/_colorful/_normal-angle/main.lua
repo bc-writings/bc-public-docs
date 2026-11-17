@@ -2,12 +2,14 @@ local ld = luadraw
 
 ------
 -- prototype::
---     polyhedron   : un polyèdre.
---     graphview    : la zone graphique.
---     user_palette : une suite ordonnée de couleurs.
+--     polyhedron: un polyèdre.
+--
+--     graphview: la zone graphique.
+--
+--     user_palette: une suite ordonnée de couleurs.
 --
 --     :action: dessin du polyèdre fourni en colorant ses facettes
---              suivant leur "inclinaison".
+--         suivant leur "inclinaison".
 ------
 function ld.graph3d:draw_colormap_normal_angle(
   polyhedron,

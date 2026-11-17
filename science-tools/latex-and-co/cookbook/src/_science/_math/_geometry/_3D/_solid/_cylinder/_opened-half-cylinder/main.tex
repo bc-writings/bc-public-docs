@@ -47,14 +47,17 @@ Hiddenlinestyle = "dashed"
 
 ------
 -- prototype::
---     A : centre d'une base du cylindre sous-jacent.
---     r : rayon du cylindre sous-jacent.
---     B : centre de l'autre base du cylindre sous-jacent.
---     n : un vecteur normal à `line(A,B)`.
+--     A: centre d'une base du cylindre sous-jacent.
+--
+--     r: rayon du cylindre sous-jacent.
+--
+--     B: centre de l'autre base du cylindre sous-jacent.
+--
+--     n: un vecteur normal à `line(A,B)`.
 --
 --     :action: création du demi-cylindre ouvert obtenu en coupant
---              le cylindre sous-jacent suivant le plan "orienté"
---              ``{A, n}``.
+--         le cylindre sous-jacent suivant le plan "orienté"
+--         ``{A, n}``.
 ------
 function ld.graph3d:addHalfCyl(A, r, B, n, options)
   local cyl  = ld.cylinder(A, r, B, 150)

@@ -1,7 +1,8 @@
 -----
 -- prototype::
---     #1 : un naturel `n`.
---     #2 : un naturel `p`.
+--     #1: un naturel `n`.
+--
+--     #2: un naturel `p`.
 --
 --     :return: le nombre de combinaisons de `p` parmi `n`
 --              modulo `2`.
@@ -16,11 +17,12 @@ end
 
 -----
 -- prototype::
---     #1 : un naturel `n`.
---     #2 : un naturel `p`.
+--     #1: un naturel `n`.
+--
+--     #2: un naturel `p`.
 --
 --     :return: le nombre d'arrangements de `p` parmi `n`
---              modulo `2`.
+--         modulo `2`.
 -----
 function Apn(p, n)
   if p == 0 then
@@ -33,7 +35,7 @@ end
 
 -----
 -- prototype::
---     #1 : un flottant `x`.
+--     #1: un flottant `x`.
 --
 --     :action: impression de la partie entière de `x`.
 -----

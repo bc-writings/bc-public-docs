@@ -2,17 +2,18 @@
 -- Mémorisation des calculs déjà effectués via un \tab
 -- associatif dont les clés seront des naturels `n`, et
 -- les valeurs des \tabs associatifs pour associer ensuite
---  la valeur "`p` parmi `n`" à la sous-clé `p`.
+-- la valeur "`p` parmi `n`" à la sous-clé `p`.
 -----
 MEMO_CNP = {}
 
 -----
 -- prototype::
---     #1 : un naturel `n`.
---     #2 : un naturel `p`.
+--     #1: un naturel `n`.
+--
+--     #2: un naturel `p`.
 --
 --     :return: le nombre de combinaisons de `p` parmi `n`
---              modulo `2`.
+--         modulo `2`.
 -----
 function binaryCnp(p, n)
   if (p == 0 or p == n) then

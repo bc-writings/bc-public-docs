@@ -46,17 +46,18 @@
 
 %%%
 % prototype::
-%     #1 : cet \arg est un booléen, géré par \latex, qui permet
-%          de savoir si la version étoilée de notre macro a été
-%          employée.
-%     #2 : le nom de la macro construite.
-%     #3 : le texte de l'opérateur \math et de l'acronyme à créer.
+%     #1: cet \arg est un booléen, géré par \latex, qui permet
+%         de savoir si la version étoilée de notre macro a été
+%         employée.
+%
+%     #2: le nom de la macro construite.
+%
+%     #3: le texte de l'opérateur \math et de l'acronyme à créer.
 %
 %     :action: création d'une macro qui sera un opérateur en mode
-%              \math, et un acronyme en mode texte.
-%              Par défaut, le texte fourni en \arg sera celui de
-%              l'opérateur, et sa version majuscule correspondra
-%              à l'acronyme.
+%         \math, et un acronyme en mode texte. Par défaut, le texte
+%         fourni en \arg sera celui de l'opérateur, et sa version
+%         majuscule correspondra à l'acronyme.
 %
 % note::
 %     Dans la \sign ''s O{#3} m'', l'emploi de ''O{#3}'' indique que
@@ -88,12 +89,15 @@
 
 %%%
 % prototype::
-%     #1 : le caractère ''*'' ou rien pour indiquer l'emploi ou non
-%          de la version étoilée de ''\operatorname''.
-%     #2 : le nom de la macro à créer.
-%     #3 : le nom de la \fonc ou du grand opérateur en mode \math.
-%     #4 : le texte de l'acronyme (la mise en majuscule doit être
-%          traité en amont).
+%     #1: le caractère ''*'' ou rien pour indiquer l'emploi ou non
+%         de la version étoilée de ''\operatorname''.
+%
+%     #2: le nom de la macro à créer.
+%
+%     #3: le nom de la \fonc ou du grand opérateur en mode \math.
+%
+%     #4: le texte de l'acronyme (la mise en majuscule doit être
+%         traité en amont).
 %
 %     :action: :see: macro.DeclareAcronymOperator
 %

@@ -10,14 +10,14 @@
 
 %%%
 % prototype::
-%     #1 : un \id pour les données.
-%     #2 : le chemin relatif du fichier \csv.
+%     #1: un \id pour les données.
+%     #2: le chemin relatif du fichier \csv.
 %
 %     :action: construction d'\assos de clés ''<#1>.i-j'' pour
-%              accéder à la donnée en ligne `i` et colonne `j`,
-%              la ligne `0` étant celle des étiquettes, et
-%              d'\assos de clés ''#1-nbrows'' et ''#1-nbcols''
-%              pour les \dims de la table des données.
+%         accéder à la donnée en ligne `i` et colonne `j`, la
+%         ligne `0` étant celle des étiquettes, et d'\assos de
+%         clés ''#1-nbrows'' et ''#1-nbcols'' pour les \dims de
+%         la table des données.
 %
 %
 % note::
@@ -46,13 +46,12 @@
 
 %%%
 % prototype::
-%     #1 : l'\id des données.
-%     #2 : le \num de la ligne de la donnée souhaitée.
-%     #3 : le \num de la \col de la donnée souhaitée.
+%     #1: l'\id des données.
+%     #2: le \num de la ligne de la donnée souhaitée.
+%     #3: le \num de la \col de la donnée souhaitée.
 %
 %     :return: le contenu de la cellule en ligne \no ''#2'' et
-%              \col \no ''#3'' de la table de données d'\id
-%              ''#1''.
+%         \col \no ''#3'' de la table de données d'\id ''#1''.
 %%%
 \NewDocumentCommand{ \csvdata }{ m m m } {
   \prop_item:Ne \l_cookbook_csv_table_prop { #1-#2.#3 }
@@ -61,14 +60,14 @@
 
 %%%
 % prototype::
-%     #1 : l'\id des données.
-%     #2 : "nbrows" ou "nbcols" suivant que l'on souhaite avoir
+%     #1: l'\id des données.
+%     #2: "nbrows" ou "nbcols" suivant que l'on souhaite avoir
 %          le \nbre total de lignes ou de \cols.
 %        @ #2 in ["nbrows", "nbcols"]
 %
 %     :return: pour la table d'\id ''#1'', le \nbre de lignes
-%              si ''#2'' est ''nbrows'', ou de \cols si ''#2''
-%              est ''nbcols''.
+%         si ''#2'' est ''nbrows'', ou de \cols si ''#2'' est
+%         ''nbcols''.
 %%%
 \NewDocumentCommand{ \csvdim }{ m m } {
   \prop_item:Nn \l_cookbook_csv_table_prop { #1-#2 }
@@ -77,14 +76,14 @@
 
 %%%
 % prototype::
-%     #1 : l'\id des données.
-%     #2 : un \ens d'options au format ''tabularray'', pour
-%          mettre en forme le \tab ''tblr'' contenant les
-%          données.
+%     #1: l'\id des données.
+%     #2: un \ens d'options au format ''tabularray'', pour
+%         mettre en forme le \tab ''tblr'' contenant les
+%         données.
 %
 %     :action: création du \tab de \ttes les données en
-%              appliquant les options ''tabularray'' éventuelles
-%              indiquées.
+%         appliquant les options ''tabularray'' éventuelles
+%         indiquées.
 %
 %
 % note::
