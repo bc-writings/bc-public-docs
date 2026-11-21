@@ -5,11 +5,4 @@ latex-and-co/cookbook - TODO
 
 // ---------- //
 
-pour code lua contennat emploi de ipair, voir https://github.com/pfradin/luadraw/discussions/369#discussioncomment-19682206
-
-on crée un lua dédié associé au projet en expliquant de ne pas l'utiliser en production car à la basse c'est une sécurité ! : passer via un clé de l'os non mise sur le déppôt !!
-
-
-// ---------- //
-
 syst de commentaires magiques afin de ne'afficher que des ligens pertineents pour des sous recetetees

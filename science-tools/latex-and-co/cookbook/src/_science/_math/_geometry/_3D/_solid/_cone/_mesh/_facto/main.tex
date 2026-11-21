@@ -13,7 +13,8 @@
 
 % dev:
 %
-% Le fichier est proposé dans le dossier
+% Nous devons rendre ''pairs'' déterministe. Ceci est géré par
+% le fichier 'deterministic.lua' qui se trouve dans le dossier
 % bc-public-docs/science-tools/latex-and-co/cookbook/src/config
 \begin{luacode*}
 local home = os.getenv("HOME") or os.getenv("USERPROFILE") or ""
@@ -69,7 +70,7 @@ local draw = function(name, viewdir)
       viewdir  = viewdir,
       bbox     = false,
     }
-    
+
     graphview:Dfacet(
         cone,
         {
@@ -77,7 +78,7 @@ local draw = function(name, viewdir)
           contrast = 0.5
         }
     )
-    
+
     graphview:Savetofile(name)
 end
 

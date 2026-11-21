@@ -9,7 +9,8 @@
 
 % dev:
 %
-% Le fichier est proposé dans le dossier
+% Nous devons rendre ''pairs'' déterministe. Ceci est géré par
+% le fichier 'deterministic.lua' qui se trouve dans le dossier
 % bc-public-docs/science-tools/latex-and-co/cookbook/src/config
 \begin{luacode*}
 local home = os.getenv("HOME") or os.getenv("USERPROFILE") or ""
@@ -38,7 +39,7 @@ local vecK   = ld.pt3d.vecK
 --     pour nouvelle origine lua::''NewOrigin''.
 --
 --     + Le plan de projection passe par lua::''NewOrigin'' et
---     est orienté et dirigé par le vecteur directeur allant du 
+--     est orienté et dirigé par le vecteur directeur allant du
 --     point lua::''NewOrigin'' à l'observateur.
 --
 --
