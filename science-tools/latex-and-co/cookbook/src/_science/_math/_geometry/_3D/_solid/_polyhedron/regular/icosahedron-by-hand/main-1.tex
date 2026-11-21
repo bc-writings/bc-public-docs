@@ -24,6 +24,17 @@
 %%%
 \usepackage[3d]{luadraw}
 
+% dev:
+%
+% Le fichier est proposé dans le dossier
+% bc-public-docs/science-tools/latex-and-co/cookbook/src/config
+\begin{luacode*}
+local home = os.getenv("HOME") or os.getenv("USERPROFILE") or ""
+home = home:gsub("\\", "/")
+dofile(home .. "/Dropbox/my-cfgs/latex/lua/deterministic.lua")
+\end{luacode*}
+% :dev
+
 \begin{document}
 
 \begin{luadraw*}{name = icosahedron-by-hand-1}
